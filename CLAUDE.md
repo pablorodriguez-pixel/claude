@@ -2,187 +2,223 @@
 
 Este repositorio se usa para diseñar y maquetar **landing pages al estilo Founderz** combinando expertise en **UX** y **CRO** (Conversion Rate Optimization). Cuando trabajes en este repo, sigue estas reglas siempre.
 
+> **Material de referencia oficial:** `reference/founderz-maqueta/` contiene el HTML/CSS/JS real de la landing del Máster IA para Creativos descargado de founderz.com. Úsalo como source of truth para cualquier duda de estilo, estructura o tokens.
+
 ---
 
 ## 1. Identidad de marca Founderz
 
-**Posicionamiento:** Founderz — AI Business School. Formación premium en IA aplicada a negocio y creatividad. Tono profesional, aspiracional pero accesible, en español neutro.
+**Posicionamiento:** Founderz — AI Business School. Formación premium en IA aplicada a negocio y creatividad. Tono profesional, aspiracional pero accesible, en español neutro con tuteo.
 
-### Paleta de color
+### Paleta oficial (extraída de `main.css`)
 
-| Rol | Hex | Uso |
-|---|---|---|
-| Primary purple | `#5B4FE5` (aprox.) | Botones principales, enlaces, acentos, badges activos |
-| Primary purple hover | `#4A3FD4` | Estado hover del primary |
-| Purple soft / Lavender bg | `#E8E4FF` | Fondos de secciones secundarias, cards destacadas |
-| Purple text | `#5B4FE5` | Texto de tags/labels uppercase ("TEMARIO", "CERTIFICACIÓN EXTRA") |
-| Dark navy pill | `#1A1A2E` | Pills oscuros del nav (selector de idioma) |
-| Ink / Texto principal | `#0F0F1A` | Headings y body |
-| Muted text | `#5A5A6E` | Subtítulos y descripciones |
-| White | `#FFFFFF` | Fondo principal, cards |
-| Border / Divider | `#EAEAF2` | Bordes sutiles |
+```css
+--black: #000;
+--white: #fff;
+--purple: #5045c8;          /* PRIMARY — botones, links, acentos */
+--violet-darker: #2f2976;   /* Hover del primary */
+--violet-bg: #846ab0;       /* Fondos secundarios morados */
+--pink: #d69cee;
+--green: #a3d9c5;           /* Secondary color */
+--orange: #f57d73;          /* alias --warm-red */
+--orange-light: #f9ae58;
+--sunshade: #fea339;
+--sunshade-dark: #d97706;
+--red: #ff3333;
+--red-dark: #d4483c;
+--contrast-gray: #5a5a5a;   /* Texto secundario */
+--border-form: #b6b6b6;
+--main-color: var(--black); /* Texto principal */
+--secondary-color: var(--green);
+```
 
-> Si la guía oficial trae hex distintos, **prevalecen** los oficiales. Estos son aproximaciones extraídas visualmente.
+**Botones (tokens reales):**
+```css
+/* Primary */
+--btn-bg: #5045c8;
+--btn-color: #fff;
+--btn-bg-hover: #2f2976;
 
-### Tipografía
+/* Inverse (sobre fondo oscuro/imagen) */
+--btn-bg: #fff;
+--btn-color: #1a191d;
+--btn-bg-hover: #1a191d;
+--btn-color-hover: #fff;
 
-- **Familia:** sans-serif moderna geométrica/humanista (estilo Inter, DM Sans, Söhne o similar).
-- **Headings:** weight 600-700, tracking ligeramente apretado (`letter-spacing: -0.02em`).
-- **Body:** weight 400, `line-height: 1.5-1.6`.
-- **Tags / Labels:** UPPERCASE, weight 500-600, tracking generoso (`letter-spacing: 0.08em`), tamaño 12-13px, color primary purple.
+/* Ghost / text */
+--btn-bg: transparent;
+--btn-color: #5045c8;
+```
+
+### Tipografía oficial
+
+- **Familia:** `RundDisplay, "Trebuchet MS", Helvetica, sans-serif`. Custom font, `font-display: swap`.
+- Si no tienes RundDisplay, fallback: **Trebuchet MS** o sustituto similar (Söhne, Inter, DM Sans). Documenta el fallback en el proyecto.
+
+**Escala (desktop / mobile <580px):**
+
+| Estilo | Desktop | Mobile | Weight | Line-height |
+|---|---|---|---|---|
+| H1 | `3.5rem` (56px) | `2.5rem` (40px) | 600 (strong 700) | 1 |
+| H2 | `2.5rem` (40px) | `2rem` (32px) | 600 | 1.2 |
+| H3 | `2rem` (32px) | `1.5rem` (24px) | 400 (strong 700) | 1.2 |
+| H4 | `1.5rem` (24px) | — | 400 | 1.2 |
+| H5 | `1.25rem` (20px) | — | 400 | 1.3 |
+| Body | `1rem` (16px) | `0.875rem` (14px) | 400 | 1.25 |
+
+`<strong>` y `<b>` siempre suben a weight 700.
+
+### Tokens de layout
+
+```css
+--max-width-container: 1430px;
+--site-header-height: 8.5rem;
+--border-radius: 1.875rem;   /* desktop — 30px */
+--border-radius: 1.375rem;   /* mobile — 22px */
+--main-offsize: 1rem;        /* desktop */
+--main-offsize: 0.875rem;    /* mobile */
+--title-offsize: 3rem;       /* desktop */
+--title-offsize: 1.5625rem;  /* mobile */
+--line-height: 1.25;
+--ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+```
+
+**Radii recurrentes:** `0.5rem`, `1.5rem`, `1.875rem` (cards), `100rem` (pills full-round), `100%` (avatares).
 
 ### Sistema visual
 
-- **Esquinas redondeadas:** todo (cards 16-24px, botones pill = `border-radius: 999px`, chips 999px, inputs 12px).
-- **Botones tipo pill:** SIEMPRE redondeo completo. Padding generoso (`14px 28px`).
-- **Sombras suaves:** `box-shadow: 0 10px 40px rgba(15, 15, 26, 0.08)` para cards flotantes.
-- **Nav flotante:** pill blanco con sombra, separado del top (`margin-top: 16-24px`), centrado, ancho contenido.
-- **Chips/Tags de herramientas:** outline 1px gris claro, fondo blanco, icono + texto, padding `8px 14px`, redondeo pill.
-- **Acordeón:** item activo con fondo lavender (`#E8E4FF`) y texto purple; inactivos en blanco con borde sutil.
-- **Hero visual:** imagen cinematográfica/dramática a sangre, sin overlays excesivos. Tipografía blanca encima.
-
-### Componentes clave
-
-**Botón primario**
-```css
-background: #5B4FE5;
-color: #fff;
-border-radius: 999px;
-padding: 14px 28px;
-font-weight: 600;
-font-size: 15px;
-transition: background .2s;
-```
-
-**Botón secundario (outline)**
-```css
-background: #fff;
-color: #0F0F1A;
-border: 1.5px solid #EAEAF2;
-border-radius: 999px;
-padding: 14px 28px;
-```
-
-**Card pricing (hero)**
-```css
-background: #fff;
-border-radius: 24px;
-padding: 32px;
-box-shadow: 0 20px 60px rgba(15,15,26,0.10);
-```
-
-**Section tag**
-```css
-color: #5B4FE5;
-text-transform: uppercase;
-letter-spacing: 0.08em;
-font-size: 13px;
-font-weight: 600;
-```
+- **Esquinas:** cards 24-30px (`1.5rem`–`1.875rem`); botones pill 100rem; chips 100rem; inputs 8px (`0.5rem`).
+- **Padding botones:** generoso (≈ `0.875rem 1.75rem`), centrado óptico.
+- **Sombras:** sutiles, nunca duras. `0 10px 40px rgba(0,0,0,0.08)` para flotantes.
+- **Nav flotante:** pill blanco con sombra, separado del top, ancho contenido (no full-width). Altura `8.5rem` (`--site-header-height`).
+- **Tags / labels uppercase:** color purple (`#5045c8`), tracking generoso, tamaño pequeño (12-13px), weight 600, antes de cada H2.
+- **Chips de herramientas:** outline 1px gris claro, fondo blanco, icono + texto, pill.
+- **Acordeón:** item activo con fondo lavender + texto purple, inactivos en blanco con borde sutil.
+- **Hero visual:** imagen cinematográfica/dramática a sangre, sin overlays excesivos. Tipografía blanca + pricing card flotante sobre la imagen.
+- **Container:** max-width `1430px`, márgenes laterales generosos.
 
 ---
 
 ## 2. Estructura canónica de landing Founderz
 
-Orden recomendado de secciones (CRO-optimizado, basado en la landing de referencia):
+Orden real de secciones extraído de `reference/founderz-maqueta/index.html`:
 
-1. **Nav flotante** — logo centrado, items menú izquierda, idioma + login + CTA primario derecha.
-2. **Hero** — split layout:
-   - Izquierda: badge edición, H1 grande, meta-info (duración, formato), partners "En colaboración con + logos".
-   - Derecha: **pricing card** con precio destacado, financiación, 4-6 bullets de valor, doble CTA (primario + secundario "Solicita información").
-   - Fondo: imagen cinematográfica a sangre.
-3. **Value proposition** — bloque centrado, texto purple, 2-3 líneas que conectan dolor + transformación.
-4. **Video** — demo/testimonio embebido (autoplay muted opcional).
-5. **Temario / Estructura del programa** — split:
-   - Izquierda: tag "TEMARIO", H2, bullets de features, **chips de herramientas**, CTA secundario "Descargar programa".
-   - Derecha: **acordeón** de módulos con descripción al expandir.
-6. **¿Qué aprenderás?** — nube de tags/chips con todos los topics (refuerza amplitud).
-7. **Certificación / Especializaciones** — fondo lavender, grid de cards con icono + título + descripción.
-8. **Social proof** — logos de empresas donde trabajan alumni, testimonios con foto + nombre + rol.
-9. **Profesores** — grid de cards con foto, nombre, empresa.
-10. **FAQs** — acordeón.
-11. **CTA final** — fondo purple o lavender, headline + botón primario grande.
-12. **Footer** — links, legal, redes.
+```
+<header class="header">                     — Nav flotante
+<section class="hero-a">                    — Hero con pricing card lateral
+<section class="info-video">                — Value prop + video
+<section class="syllabus">                  — Temario (chips de herramientas)
+<section class="programme_structure">       — Acordeón de módulos
+<section class="testimonials">              — Testimonios de alumni
+<section class="teaser">                    — Bloque transicional (CTA secundario)
+<section class="certificate">               — Certificación / especializaciones
+<section class="professors">                — Grid de profesores
+<section class="logos">                     — Logos de empresas donde trabajan alumni
+<section class="fellows">                   — Comunidad / alumni destacados
+<section class="inscriptions">              — Pricing / planes / financiación
+<section class="faqs">                      — Preguntas frecuentes (acordeón)
+<section class="companies">                 — Llamada a empresas (B2B)
+<footer class="footer-animations">          — Footer
+```
+
+Cuando construyas una landing nueva, **respeta este orden** salvo que la oferta justifique cambiarlo.
 
 ---
 
 ## 3. Principios UX que aplico siempre
 
-- **Jerarquía visual clara:** una sola H1 por página, contraste de tamaño 3x entre H1 y body.
+- **Jerarquía visual clara:** una sola H1 por página, contraste 3x entre H1 y body.
 - **F-pattern / Z-pattern** en hero: lo importante arriba-izquierda y centro-derecha.
-- **Regla del pulgar:** CTAs alcanzables en mobile (mínimo 44px de alto).
-- **Accesibilidad:** contraste WCAG AA mínimo (4.5:1 texto normal), `alt` en imágenes, foco visible en interactivos, semántica HTML (`<nav>`, `<main>`, `<section>`, `<h1-h6>`).
-- **Mobile-first:** maqueto primero a 375px, luego escalo. Nada que solo funcione en desktop.
-- **Performance:** imágenes en `webp/avif`, `loading="lazy"` debajo del fold, fuentes con `font-display: swap`.
+- **Regla del pulgar:** CTAs mínimo 44px de alto en mobile.
+- **Accesibilidad WCAG AA:** contraste 4.5:1 texto normal, `alt` en imágenes, foco visible, semántica (`<nav>`, `<main>`, `<section>`, `<h1-h6>`).
+- **Mobile-first:** maqueto a 375px primero, luego desktop. Breakpoint Founderz: `max-width: 579px` para mobile.
+- **Performance:** imágenes `webp/avif`, `loading="lazy"` debajo del fold, `font-display: swap`.
 - **Whitespace generoso:** padding vertical de secciones mínimo 80px desktop / 56px mobile.
-- **Grid de 12 columnas** con gutter 24px, max-width container 1200-1280px.
-- **Microinteracciones sutiles:** transitions de 150-250ms en hover, sin animaciones agresivas.
+- **Grid:** max-width `1430px` (token oficial), gutter 24px.
+- **Microinteracciones:** transitions 150-250ms, easing `cubic-bezier(0.645, 0.045, 0.355, 1)` (`--ease-in-out-cubic` oficial).
 
 ---
 
 ## 4. Principios CRO que aplico siempre
 
-- **CTA primario visible siempre:** sticky nav con botón + repetición cada 1-2 secciones.
-- **Una sola acción primaria por sección.** El CTA secundario es para los que no están listos (descargar PDF, solicitar info).
-- **Pricing card en hero:** muestra precio + financiación + bullets de valor + doble CTA. Reduce fricción.
+- **CTA primario siempre visible:** sticky nav con botón + repetición cada 1-2 secciones.
+- **Una sola acción primaria por sección.** Secundario para los que no están listos (descargar PDF, solicitar info).
+- **Pricing card en hero:** precio + financiación + 4-6 bullets de valor + doble CTA.
 - **Eliminación de objeciones explícita:** "Garantía de devolución", "12 meses de acceso", certificaciones de partners.
-- **Social proof temprano:** logos de Microsoft/Freepik en el hero (no abajo).
-- **Specificidad numérica:** "925€", "40.000 créditos", "+20 profesores", "9 módulos", "5-15 min/clase". Los números concretos convierten más que adjetivos.
-- **Escasez / urgencia honesta:** "Edición 2026" sin falsos countdowns.
-- **Copy orientado a transformación:** verbos en imperativo o presente ("Lleva tu trabajo", "Domina el proceso", "Conviértete en…"). Beneficio antes que feature.
-- **Reducción de fricción en formularios:** mínimos campos, validación inline, botón con texto orientado a acción ("Inscríbete hoy", no "Enviar").
-- **Above the fold:** propuesta de valor + precio + CTA visibles sin scroll en desktop 1440px.
-- **Trust badges:** certificaciones, garantías, logos de prensa/partners cerca de cada CTA.
+- **Social proof temprano:** logos de Microsoft/Freepik en hero, no abajo.
+- **Specificidad numérica:** "925€", "40.000 créditos", "+20 profesores", "9 módulos", "5-15 min/clase". Números > adjetivos.
+- **Escasez honesta:** "Edición 2026" sin falsos countdowns.
+- **Copy de transformación:** verbos imperativos ("Lleva tu trabajo", "Domina el proceso", "Conviértete en…"). Beneficio antes que feature.
+- **Formularios mínimos:** campos imprescindibles, validación inline, botón con acción ("Inscríbete hoy", no "Enviar").
+- **Above the fold (1440px):** propuesta + precio + CTA visibles sin scroll.
+- **Trust badges:** certificaciones y partners cerca de cada CTA.
 
 ---
 
 ## 5. Copywriting estilo Founderz
 
 - **Tono:** profesional, aspiracional, directo. Tuteo (no usted).
-- **Estructura headlines:** `[Producto/Acción] + [para quién] + [resultado]`. Ej: "Máster en IA Generativa para Creativos".
-- **Subtítulos:** explica el "cómo" en 2-3 líneas. Conecta dolor → transformación.
-- **Bullets:** verbo de acción + beneficio concreto + número si se puede.
-- **CTAs:** primero persona o imperativo. "Inscríbete hoy", "Hablemos", "Solicita información". Nunca "Click aquí" ni "Enviar".
-- **Sin jerga:** evita "sinergias", "ecosistema", "transformación digital" vacíos.
+- **Headlines:** `[Producto/Acción] + [para quién] + [resultado]`. Ej: "Máster en IA Generativa para Creativos".
+- **Subtítulos:** explican el "cómo" en 2-3 líneas. Dolor → transformación.
+- **Bullets:** verbo de acción + beneficio concreto + número.
+- **CTAs:** imperativo. "Inscríbete hoy", "Hablemos", "Solicita información", "Descargar programa". Nunca "Click aquí" ni "Enviar".
+- **Sin jerga vacía:** evita "sinergias", "ecosistema", "transformación digital".
 
 ---
 
-## 6. Stack técnico por defecto
+## 6. Stack técnico
 
-Cuando me pidas maquetar, asume esto salvo que digas lo contrario:
+Cuando me pidas maquetar:
 
-- **HTML5 semántico** + **CSS moderno** (Grid, Flexbox, Custom Properties, `clamp()` para tipografía fluida).
-- **Sin frameworks** si la landing es estática y simple.
-- **Tailwind CSS** si se pide rapidez o consistencia con un design system.
-- **Next.js / React** si hay componentes complejos, A/B testing, o integración con CMS.
-- **Imágenes responsive:** `<picture>` con `srcset` + `webp/avif`.
-- **Iconos:** Lucide o Phosphor (estilo line, peso 1.5).
-- **Animaciones:** CSS puro o `framer-motion` si hay React.
+- **HTML5 semántico** + **CSS moderno** (Grid, Flexbox, Custom Properties, `clamp()` para fluid type).
+- **Sin framework JS** si la landing es estática.
+- **Tailwind CSS** si pides rapidez con design system.
+- **Next.js / React** si hay componentes complejos, A/B testing o CMS.
+- **Imágenes responsive:** `<picture>` + `srcset` + `webp/avif`.
+- **Iconos:** Lucide o Phosphor (line, weight 1.5).
+- **Animaciones:** CSS puro o `framer-motion` en React.
 
-Variables CSS base que añado en cada proyecto:
+### Variables CSS base para arrancar (compatibles con tokens oficiales)
 
 ```css
 :root {
-  --color-primary: #5B4FE5;
-  --color-primary-hover: #4A3FD4;
-  --color-lavender: #E8E4FF;
-  --color-ink: #0F0F1A;
-  --color-muted: #5A5A6E;
-  --color-border: #EAEAF2;
-  --color-bg: #FFFFFF;
+  /* Color */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-purple: #5045c8;
+  --color-purple-dark: #2f2976;
+  --color-violet-bg: #846ab0;
+  --color-pink: #d69cee;
+  --color-green: #a3d9c5;
+  --color-orange: #f57d73;
+  --color-sunshade: #fea339;
+  --color-gray: #5a5a5a;
+  --color-border: #b6b6b6;
 
-  --radius-sm: 12px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --radius-pill: 999px;
+  /* Buttons */
+  --btn-bg: var(--color-purple);
+  --btn-bg-hover: var(--color-purple-dark);
+  --btn-color: var(--color-white);
 
-  --shadow-card: 0 10px 40px rgba(15, 15, 26, 0.08);
-  --shadow-card-lg: 0 20px 60px rgba(15, 15, 26, 0.10);
+  /* Type */
+  --font-sans: RundDisplay, "Trebuchet MS", Helvetica, sans-serif;
+  --line-height: 1.25;
 
-  --container: 1240px;
+  /* Layout */
+  --max-width-container: 1430px;
+  --site-header-height: 8.5rem;
+  --border-radius: 1.875rem;
+  --border-radius-pill: 100rem;
   --section-py: clamp(56px, 8vw, 120px);
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Motion */
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@media (max-width: 579px) {
+  :root {
+    --border-radius: 1.375rem;
+  }
 }
 ```
 
@@ -193,12 +229,24 @@ Variables CSS base que añado en cada proyecto:
 1. **Pregunto primero (si no está claro):** objetivo de conversión (lead/venta/descarga), público, oferta principal, KPI a optimizar.
 2. **Propongo estructura** de secciones antes de maquetar.
 3. **Maqueto mobile-first**, luego desktop.
-4. **Justifico decisiones de CRO** (por qué el CTA aquí, por qué este copy, qué hipótesis estoy probando).
-5. **Sugiero variantes A/B** cuando vea oportunidades claras (headline alternativo, posición de pricing, color de CTA).
-6. **Reviso accesibilidad y performance** antes de dar por hecho el trabajo.
+4. **Justifico decisiones CRO** (por qué CTA aquí, por qué este copy, qué hipótesis pruebo).
+5. **Sugiero variantes A/B** cuando vea oportunidades claras.
+6. **Reviso accesibilidad y performance** antes de cerrar.
 
 ---
 
-## 8. Branch de trabajo
+## 8. Material de referencia en el repo
+
+- `reference/founderz-maqueta/index.html` — HTML completo de la LP real (9k líneas).
+- `reference/founderz-maqueta/css/main.css` — tema global Founderz (tokens, tipografía, botones).
+- `reference/founderz-maqueta/css/program2026.css` — CSS específico de LPs de programa (busca `.hero-`, `.module-`, `.pricing-`, `.faculty-`, `.sticky-`).
+- `reference/founderz-maqueta/css/vendor-slider.css` — slider/carrusel.
+- `reference/founderz-maqueta/js/Program2026.js` — JS de interactividad (acordeones, sticky, video).
+
+**Stack original:** WordPress + tema `founderz-theme`, Vite, ACF, CSS vars, vanilla JS + jQuery.
+
+---
+
+## 9. Branch de trabajo
 
 Desarrollo en `claude/spanish-greeting-5gAxM` (o la branch que indique la tarea). Commits descriptivos, push con `-u origin <branch>`.
