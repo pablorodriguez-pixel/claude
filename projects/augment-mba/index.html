@@ -943,6 +943,468 @@
     }
 
     /* ==========================================
+       PERKS (Beneficios exclusivos)
+    ========================================== */
+    .perks { padding: var(--py) 0; background: #fafafd; }
+    .perks .container { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+    .perks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; width: 100%; }
+    .perk-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      overflow: hidden;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .perk-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .perk-card h3 { font-size: 1.1875rem; font-weight: 600; line-height: 1.25; }
+    .perk-card p { font-size: 0.9375rem; color: var(--gray); line-height: 1.6; }
+
+    /* Quiz card visual */
+    .perk-quiz {
+      background: linear-gradient(135deg, #1a1a2e 0%, #2d1654 100%);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      color: white;
+      font-size: 0.8125rem;
+      line-height: 1.45;
+    }
+    .perk-quiz-q { font-weight: 600; margin-bottom: 0.875rem; color: rgba(255,255,255,0.95); }
+    .perk-quiz-options { display: flex; flex-direction: column; gap: 0.45rem; }
+    .perk-quiz-option {
+      padding: 0.5rem 0.75rem;
+      border-radius: 100rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.75rem;
+    }
+    .perk-quiz-option.correct {
+      background: var(--purple);
+      border-color: var(--purple);
+      font-weight: 600;
+    }
+
+    /* Tools deals visual */
+    .perk-tools {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      background: linear-gradient(135deg, var(--purple-light) 0%, #fbeeff 100%);
+      border-radius: 1rem;
+      padding: 1.25rem;
+    }
+    .perk-tool {
+      background: var(--white);
+      border-radius: 0.75rem;
+      padding: 0.75rem 0.5rem;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .perk-tool .badge { display: block; font-size: 0.625rem; color: var(--purple); margin-top: 0.2rem; font-weight: 600; }
+
+    /* Live sessions visual */
+    .perk-live {
+      background: linear-gradient(135deg, var(--ink) 0%, var(--purple-dark) 100%);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .perk-live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-red);
+      margin-bottom: 0.75rem;
+    }
+    .perk-live-dot::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--warm-red);
+      box-shadow: 0 0 0 4px rgba(242,82,68,0.25);
+      animation: pulse 1.4s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 4px rgba(242,82,68,0.25); }
+      50%      { box-shadow: 0 0 0 8px rgba(242,82,68,0.0); }
+    }
+    .perk-live-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .perk-live-meta { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+    .perk-live-avatars { display: flex; margin-top: 1rem; }
+    .perk-live-avatars div {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--ink);
+      margin-right: -8px;
+      background: linear-gradient(135deg, var(--pink), var(--purple));
+      font-size: 0.65rem;
+      color: white;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ==========================================
+       FEATURED TESTIMONIALS
+    ========================================== */
+    .ftest { padding: var(--py) 0; }
+    .ftest .container { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+    .ftest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; width: 100%; }
+    .ftest-card {
+      background: var(--purple-light);
+      border-radius: var(--r);
+      padding: 2.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .ftest-card.alt { background: #fff5ec; }
+    .ftest-quote {
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: -0.005em;
+    }
+    .ftest-author { display: flex; align-items: center; gap: 0.875rem; }
+    .ftest-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .ftest-meta strong { display: block; font-size: 0.9375rem; font-weight: 600; }
+    .ftest-meta span  { font-size: 0.8125rem; color: var(--gray); }
+
+    /* ==========================================
+       STATS
+    ========================================== */
+    .stats { padding: clamp(60px,7vw,96px) 0; background: var(--purple); color: var(--white); }
+    .stats .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; text-align: center; }
+    .stat-num {
+      font-size: clamp(2.5rem, 5vw, 3.75rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ==========================================
+       PERSONAS
+    ========================================== */
+    .personas { padding: var(--py) 0; }
+    .personas .container { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+    .personas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; width: 100%; }
+    .persona-card {
+      border-radius: var(--r);
+      padding: 2.25rem;
+      color: var(--white);
+      min-height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s var(--ease);
+    }
+    .persona-card:hover { transform: translateY(-4px); }
+    .persona-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+    }
+    .persona-card > * { position: relative; z-index: 1; }
+    .persona-card.p1 { background: linear-gradient(135deg, #2a1a4e 0%, var(--purple) 100%); }
+    .persona-card.p2 { background: linear-gradient(135deg, #420D8C 0%, #2f2976 100%); }
+    .persona-card.p3 { background: linear-gradient(135deg, #1a1a2e 0%, #931219 100%); }
+    .persona-card.p4 { background: linear-gradient(135deg, #0a0a0a 0%, #420D8C 100%); }
+    .persona-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0.5rem;
+    }
+    .persona-card h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.75rem; line-height: 1.15; }
+    .persona-card p  { font-size: 0.9375rem; line-height: 1.5; color: rgba(255,255,255,0.85); }
+
+    /* ==========================================
+       CURRICULUM (Acordeón)
+    ========================================== */
+    .curriculum { padding: var(--py) 0; background: #fafafd; }
+    .curriculum .container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; }
+    .curr-aside .tag { display: block; margin-bottom: 1rem; }
+    .curr-aside h2 {
+      font-size: clamp(1.875rem, 4vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+    }
+    .curr-aside p {
+      font-size: 1.0625rem;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-bottom: 2rem;
+    }
+    .curr-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.875rem; margin-bottom: 2rem; }
+    .curr-bullets li {
+      display: flex; align-items: flex-start; gap: 0.625rem;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+    }
+    .curr-bullets li::before {
+      content: '✓';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .accordion { display: flex; flex-direction: column; gap: 0.625rem; }
+    .acc-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .acc-item[open] { border-color: var(--purple); background: var(--purple-light); }
+    .acc-item summary {
+      padding: 1.25rem 1.5rem;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .acc-item summary::-webkit-details-marker { display: none; }
+    .acc-num {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--purple);
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+    .acc-title { flex: 1; }
+    .acc-icon {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: white;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: transform .2s var(--ease);
+      font-size: 0.875rem;
+    }
+    .acc-item[open] .acc-icon { transform: rotate(45deg); }
+    .acc-body {
+      padding: 0 1.5rem 1.25rem 1.5rem;
+      font-size: 0.9375rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+    .acc-body ul { margin-top: 0.625rem; padding-left: 1.125rem; }
+    .acc-body ul li { margin-bottom: 0.35rem; }
+
+    /* ==========================================
+       TESTIMONIALS CAROUSEL
+    ========================================== */
+    .testim { padding: var(--py) 0; overflow: hidden; }
+    .testim .container { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+    .testim-track {
+      display: flex;
+      gap: 1.25rem;
+      width: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 1rem;
+      scrollbar-width: thin;
+    }
+    .testim-track::-webkit-scrollbar { height: 6px; }
+    .testim-track::-webkit-scrollbar-track { background: transparent; }
+    .testim-track::-webkit-scrollbar-thumb { background: var(--border); border-radius: 100rem; }
+
+    .testim-card {
+      flex: 0 0 340px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 1.875rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      scroll-snap-align: start;
+    }
+    .testim-stars { color: var(--sunshade); font-size: 0.875rem; letter-spacing: 0.08em; }
+    .testim-quote {
+      font-size: 0.9375rem;
+      line-height: 1.55;
+      color: var(--ink);
+      flex: 1;
+    }
+    .testim-author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+    .testim-avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 0.875rem;
+      flex-shrink: 0;
+    }
+    .testim-author strong { display: block; font-size: 0.875rem; font-weight: 600; }
+    .testim-author span  { font-size: 0.75rem; color: var(--gray); }
+
+    /* ==========================================
+       PRICING
+    ========================================== */
+    .pricing { padding: var(--py) 0; background: var(--ink); color: var(--white); }
+    .pricing .container { display: flex; flex-direction: column; align-items: center; gap: 3rem; }
+    .pricing .section-header h2 { color: var(--white); font-size: clamp(2rem, 4vw, 2.75rem); }
+    .pricing .section-header p  { color: rgba(255,255,255,0.6); }
+
+    .price-card {
+      background: var(--white);
+      color: var(--ink);
+      border-radius: var(--r);
+      padding: clamp(1.875rem, 3vw, 2.75rem);
+      width: 100%;
+      max-width: 760px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.4);
+    }
+    .price-card::before {
+      content: 'EARLY BIRD · 40% DTO.';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--warm-red);
+      color: white;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      padding: 0.4rem 1rem;
+      border-radius: 100rem;
+      white-space: nowrap;
+    }
+
+    .price-left { border-right: 1px solid var(--border); padding-right: 2.5rem; }
+    .price-name {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+    .price-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .price-was { font-size: 0.9375rem; color: var(--gray); text-decoration: line-through; margin-bottom: 0.15rem; }
+    .price-amount {
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.35rem;
+    }
+    .price-amount sup { font-size: 1.5rem; font-weight: 600; vertical-align: super; margin-right: 0.1rem; }
+    .price-plan { font-size: 0.875rem; color: var(--gray); margin-bottom: 1.75rem; }
+    .price-cta-wrap { display: flex; flex-direction: column; gap: 0.625rem; }
+    .price-cta-wrap .btn { justify-content: center; width: 100%; }
+    .price-guarantee {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8125rem; color: var(--gray);
+      margin-top: 1rem;
+    }
+    .price-guarantee svg { color: var(--purple); flex-shrink: 0; }
+
+    .price-right h4 { font-size: 0.9375rem; font-weight: 600; margin-bottom: 1.25rem; color: var(--ink); }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .price-features li {
+      display: flex; align-items: flex-start; gap: 0.625rem;
+      font-size: 0.9375rem;
+      line-height: 1.4;
+    }
+    .price-features li::before {
+      content: '✓';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .price-features li strong { font-weight: 600; }
+
+    /* ==========================================
+       FAQ
+    ========================================== */
+    .faq { padding: var(--py) 0; }
+    .faq .container { display: grid; grid-template-columns: 1fr 1.4fr; gap: 4rem; align-items: start; }
+    .faq-aside h2 {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+    .faq-aside h2 em { font-style: normal; color: var(--purple); }
+    .faq-aside p {
+      font-size: 1rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Responsive overrides para nuevas secciones */
+    @media (max-width: 1024px) {
+      .stats .container { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .perks-grid, .personas-grid, .ftest-grid { grid-template-columns: 1fr; }
+      .curriculum .container, .faq .container { grid-template-columns: 1fr; gap: 2rem; }
+      .stats .container { grid-template-columns: repeat(2, 1fr); }
+      .price-card { grid-template-columns: 1fr; gap: 1.75rem; }
+      .price-left { border-right: 0; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 1.75rem; }
+    }
+    @media (max-width: 579px) {
+      .testim-card { flex: 0 0 280px; }
+      .price-amount { font-size: 2.75rem; }
+    }
+
+    /* ==========================================
        ANIMACIONES DE ENTRADA
     ========================================== */
     @media (prefers-reduced-motion: no-preference) {
@@ -973,12 +1435,13 @@
     <nav class="nav" aria-label="Navegación principal">
       <div class="nav-logo">Augment<em>.</em><sup>org</sup></div>
       <ul class="nav-links" role="list">
-        <li><a href="#faculty">Profesores</a></li>
+        <li><a href="#faculty">Claustro</a></li>
         <li><a href="#program">Programa</a></li>
-        <li><a href="#pricing">Precio</a></li>
+        <li><a href="#curriculum">Temario</a></li>
+        <li><a href="#pricing-section">Precio</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="#pricing" class="btn btn-primary">Inscríbete hoy</a>
+        <a href="#pricing-section" class="btn btn-primary">Inscríbete hoy</a>
       </div>
     </nav>
   </div>
@@ -1238,6 +1701,94 @@
       </div>
     </section>
 
+    <!-- ========== PERKS (Beneficios exclusivos) ========== -->
+    <section class="perks" aria-labelledby="perks-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">Membresía premium</span>
+          <h2 id="perks-heading">Beneficios exclusivos del MBA con IA</h2>
+          <p>Mucho más que vídeos. Acceso a herramientas, comunidad y aprendizaje práctico que se aplica desde el día 1.</p>
+        </div>
+
+        <div class="perks-grid">
+
+          <article class="perk-card">
+            <div class="perk-quiz" aria-hidden="true">
+              <p class="perk-quiz-q">¿Cómo se llama la ventaja estratégica de entrar pronto en un mercado?</p>
+              <div class="perk-quiz-options">
+                <div class="perk-quiz-option correct">✓ First-Mover Advantage</div>
+                <div class="perk-quiz-option">Innovator's Edge</div>
+                <div class="perk-quiz-option">Customer Discovery</div>
+              </div>
+            </div>
+            <h3>Pon a prueba tu conocimiento</h3>
+            <p>Quizzes interactivos diarios para fijar conceptos y aplicar lo aprendido en escenarios reales de negocio.</p>
+          </article>
+
+          <article class="perk-card">
+            <div class="perk-tools" aria-hidden="true">
+              <div class="perk-tool">Notion<span class="badge">-50%</span></div>
+              <div class="perk-tool">Stripe<span class="badge">+credits</span></div>
+              <div class="perk-tool">HubSpot<span class="badge">-90%</span></div>
+              <div class="perk-tool">Webflow<span class="badge">3m free</span></div>
+              <div class="perk-tool">Figma<span class="badge">-40%</span></div>
+              <div class="perk-tool">Mixpanel<span class="badge">+$50k</span></div>
+            </div>
+            <h3>+100.000€ en herramientas exclusivas</h3>
+            <p>Descuentos y créditos en Notion, Stripe, HubSpot, Webflow, Figma, Mixpanel y muchas más. Solo para alumni.</p>
+          </article>
+
+          <article class="perk-card">
+            <div class="perk-live" aria-hidden="true">
+              <span class="perk-live-dot">En directo · ahora</span>
+              <p class="perk-live-title">Cómo escalé Waze a 50M usuarios</p>
+              <p class="perk-live-meta">Uri Levine · Miércoles 18:00 CET</p>
+              <div class="perk-live-avatars">
+                <div>JM</div><div>AR</div><div>LP</div><div>SC</div><div>+</div>
+              </div>
+            </div>
+            <h3>Sesiones en directo con fundadores</h3>
+            <p>Cada semana, masterclass exclusiva con un líder mundial. Pregúntales en directo y conecta con el resto del claustro.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURED TESTIMONIALS ========== -->
+    <section class="ftest" aria-labelledby="ftest-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">Nuestros alumni</span>
+          <h2 id="ftest-heading">El programa que recomendarías a tu mejor amigo</h2>
+        </div>
+
+        <div class="ftest-grid">
+          <article class="ftest-card">
+            <p class="ftest-quote">"En vez de conceptos teóricos, Augment se sumerge en casos reales, simulaciones y proyectos prácticos. Este enfoque me ayudó a tener un impacto tangible en mi negocio desde el primer mes."</p>
+            <div class="ftest-author">
+              <div class="ftest-avatar" aria-hidden="true">MP</div>
+              <div class="ftest-meta">
+                <strong>Mohit Patel</strong>
+                <span>Fundador de TruText</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="ftest-card alt">
+            <p class="ftest-quote">"Quieras emprender, crecer en tu rol actual o cambiar de carrera, no encontrarás mejores instructores que los de Augment. La calidad del contenido es excepcional."</p>
+            <div class="ftest-author">
+              <div class="ftest-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--orange),var(--warm-red));">JH</div>
+              <div class="ftest-meta">
+                <strong>Jon-David Hague</strong>
+                <span>Fundador de Bountisphere</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- ========== COMPARISON ========== -->
     <section class="comparison" aria-labelledby="comp-heading">
       <div class="container">
@@ -1275,6 +1826,426 @@
       </div>
     </section>
 
+    <!-- ========== STATS ========== -->
+    <section class="stats" aria-label="Estadísticas del programa">
+      <div class="container">
+        <div>
+          <div class="stat-num">720+</div>
+          <div class="stat-label">Clases</div>
+        </div>
+        <div>
+          <div class="stat-num">10.000+</div>
+          <div class="stat-label">Alumni</div>
+        </div>
+        <div>
+          <div class="stat-num">110+</div>
+          <div class="stat-label">PDFs estratégicos</div>
+        </div>
+        <div>
+          <div class="stat-num">80+</div>
+          <div class="stat-label">Profesores top</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PERSONAS ========== -->
+    <section class="personas" aria-labelledby="personas-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">Nuestros alumni</span>
+          <h2 id="personas-heading">¿Para quién es el MBA con IA?</h2>
+          <p>Sea cual sea tu punto de partida, el programa se adapta. Cuatro perfiles que están dentro y aprovechándolo desde hoy.</p>
+        </div>
+
+        <div class="personas-grid">
+
+          <article class="persona-card p1">
+            <span class="persona-tag">Founders &amp; CEOs</span>
+            <h3>Fundadores y CEOs</h3>
+            <p>Convierte ideas en victorias reales con estrategias de fundadores billion-dollar. Escala más rápido y construye algo que perdure.</p>
+          </article>
+
+          <article class="persona-card p2">
+            <span class="persona-tag">Executives</span>
+            <h3>Directivos y ejecutivos</h3>
+            <p>Lidera con confianza, decide con mejores datos y aplica frameworks de los mejores emprendedores del mundo en tu empresa.</p>
+          </article>
+
+          <article class="persona-card p3">
+            <span class="persona-tag">Aspiring entrepreneurs</span>
+            <h3>Emprendedores en activo</h3>
+            <p>Gana el conocimiento y la confianza para detectar oportunidades y dar vida a tu idea con un plan de ejecución claro.</p>
+          </article>
+
+          <article class="persona-card p4">
+            <span class="persona-tag">Future leaders</span>
+            <h3>Futuros líderes</h3>
+            <p>Conviértete en un líder inspirador con tácticas reales aprendidas directamente de tech-giants como Google, OpenAI y Meta.</p>
+          </article>
+
+        </div>
+
+        <a href="#pricing-section" class="btn btn-primary btn-lg">Inscríbete ahora →</a>
+      </div>
+    </section>
+
+    <!-- ========== CURRICULUM ========== -->
+    <section class="curriculum" id="curriculum" aria-labelledby="curr-heading">
+      <div class="container">
+        <div class="curr-aside">
+          <span class="tag">El temario</span>
+          <h2 id="curr-heading">9 módulos · +800 masterclasses · PDFs descargables</h2>
+          <p>Cómo se convierte una idea en una empresa rentable. Aprende los fundamentos de la estrategia de negocio desde la voz de quien lo ha hecho.</p>
+
+          <ul class="curr-bullets">
+            <li>Evalúa si una idea de negocio merece la pena</li>
+            <li>Identifica oportunidades de mercado en tu nicho</li>
+            <li>Crea un modelo de negocio optimizado</li>
+            <li>Mide tu rendimiento y optimiza márgenes</li>
+            <li>Aplica IA a producto, marketing y operaciones</li>
+          </ul>
+
+          <a href="#pricing-section" class="btn btn-primary">Ver programa completo →</a>
+        </div>
+
+        <div class="accordion">
+
+          <details class="acc-item" open>
+            <summary>
+              <span class="acc-num">01</span>
+              <span class="acc-title">Estrategia y modelo de negocio</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>De la idea al canvas. Aprende a evaluar oportunidades, definir tu propuesta de valor y construir un modelo escalable desde cero.</p>
+              <ul>
+                <li>Lean Canvas y Business Model Canvas aplicados</li>
+                <li>Customer discovery y validación de hipótesis</li>
+                <li>Unit economics y métricas que importan</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">02</span>
+              <span class="acc-title">IA aplicada al negocio</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>Las palancas reales que ya están usando OpenAI, Anthropic y los fundadores más punteros para automatizar y escalar.</p>
+              <ul>
+                <li>Casos de uso de IA generativa por departamento</li>
+                <li>Cómo crear tu primer agente con N8N o Make</li>
+                <li>Ética, riesgos y compliance básico</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">03</span>
+              <span class="acc-title">Marketing &amp; growth</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>De los primeros 100 usuarios a 10 millones. Adquisición, retención y monetización explicadas por quien lo ha vivido.</p>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">04</span>
+              <span class="acc-title">Producto y experiencia</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>Discovery, prototipado, descubrimiento de problem-solution fit y métricas de producto que mueven la aguja.</p>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">05</span>
+              <span class="acc-title">Liderazgo y equipo</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>Cómo contratar, retener y soltar. Construye una cultura que escala con tu compañía sin perder el ADN inicial.</p>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">06</span>
+              <span class="acc-title">Finanzas para fundadores</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>Levantamiento de capital, cap table, runway y forecast. Habla el idioma de los inversores sin necesidad de un CFO.</p>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">07</span>
+              <span class="acc-title">Ventas B2B y B2C</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>Procesos de ventas replicables, sales playbooks, pricing y técnicas de cierre usadas por los mejores AE del mundo.</p>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">08</span>
+              <span class="acc-title">Operaciones y escala</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>De 1 a 100 empleados. Procesos, OKRs, herramientas y arquitectura organizativa para no romperte por el camino.</p>
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-num">09</span>
+              <span class="acc-title">Proyecto final y certificación</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              <p>Aplica todo lo aprendido en un proyecto real evaluado por el claustro. Obtén el certificado oficial del MBA con IA.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS CAROUSEL ========== -->
+    <section class="testim" aria-labelledby="testim-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">La comunidad</span>
+          <h2 id="testim-heading">Lo que dicen quienes ya están dentro</h2>
+          <p>+5.000 emprendedores en más de 80 países ya están aprendiendo, conectando y construyendo. Estas son algunas de sus historias.</p>
+        </div>
+
+        <div class="testim-track" role="region" aria-label="Testimonios de alumni">
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Augment transforma cómo afrontas el negocio, con lecciones de expertos de Google y Amazon. Imprescindible para cualquier líder."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true">AS</div>
+              <div><strong>Andy Smith</strong><span>Fundador de StrategIQ</span></div>
+            </div>
+          </article>
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Lecciones invaluables. Disfruté tanto la experiencia que la recomendaría a cualquiera que quiera crecer profesionalmente."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--green),var(--purple));">IB</div>
+              <div><strong>Inderpaul Birdi</strong><span>Strategic Business Mentor</span></div>
+            </div>
+          </article>
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Compatibilizar fintech, maternidad y emprender era duro. El MBA autoguiado de Augment hizo que aprender fuera flexible y compatible con mi vida."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--pink),var(--warm-red));">FC</div>
+              <div><strong>Faye Ana-Corpuz</strong><span>Head of Growth · Careem</span></div>
+            </div>
+          </article>
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Contenido excepcional de los mejores CEOs del mundo, en una plataforma digestible y muy fácil de usar. No podría estar más contenta con la decisión."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--orange),var(--purple));">GL</div>
+              <div><strong>Greg Lande</strong><span>Award-Winning Sales Leader</span></div>
+            </div>
+          </article>
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Qué experiencia tan increíble. No esperaba tantísimo valor. El equipo es A++ y el contenido, espectacular."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--purple-dark),var(--pink));">CB</div>
+              <div><strong>Catherine Boldeau</strong><span>Speaker &amp; Business Coach</span></div>
+            </div>
+          </article>
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Formar parte de Augment es brutal. No solo recibes educación, entras en una comunidad que crece y se ayuda cada día."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--violet),var(--green));">AB</div>
+              <div><strong>Andy Bacciardi</strong><span>Fundador de StarwalkGames</span></div>
+            </div>
+          </article>
+
+          <article class="testim-card">
+            <div class="testim-stars" aria-label="5 estrellas">★★★★★</div>
+            <p class="testim-quote">"Me siento empoderada con la experiencia real del MBA. Los instructores son top, la plataforma muy intuitiva y el ROI brutal."</p>
+            <div class="testim-author">
+              <div class="testim-avatar" aria-hidden="true" style="background:linear-gradient(135deg,var(--pink),var(--violet));">RR</div>
+              <div><strong>Rachel Rose</strong><span>Product Lead · Entrega</span></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRICING ========== -->
+    <section class="pricing" id="pricing-section" aria-labelledby="pricing-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag tag--light">Cohorte Mayo 2026</span>
+          <h2 id="pricing-heading">Únete al MBA con IA más innovador del mundo</h2>
+          <p>Precio Early Bird con 40% de descuento y acceso de por vida. Solo hasta cerrar plazas de la cohorte de Mayo.</p>
+        </div>
+
+        <div class="price-card">
+          <div class="price-left">
+            <p class="price-name">El MBA con IA · Augment</p>
+            <p class="price-title">Acceso lifetime + actualizaciones de por vida</p>
+
+            <p class="price-was">4.150€</p>
+            <p class="price-amount"><sup>€</sup>498<span style="font-size:1rem;font-weight:500;color:var(--gray);"> / mes</span></p>
+            <p class="price-plan">x 5 cuotas · o 2.490€ pago único</p>
+
+            <div class="price-cta-wrap">
+              <a href="#" class="btn btn-primary btn-lg">Inscríbete y ahorra 40% →</a>
+              <a href="#" class="btn btn-outline-dark">Solicitar más información</a>
+            </div>
+
+            <div class="price-guarantee">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+              </svg>
+              Garantía de devolución de 15 días
+            </div>
+          </div>
+
+          <div class="price-right">
+            <h4>Todo lo que incluye el programa:</h4>
+            <ul class="price-features">
+              <li><strong>Acceso lifetime</strong> y todas las actualizaciones del temario</li>
+              <li><strong>+800 masterclasses</strong> con los mejores fundadores del mundo</li>
+              <li><strong>Sesiones en directo</strong> semanales con el claustro</li>
+              <li><strong>+1.000 PDFs estratégicos</strong> descargables</li>
+              <li><strong>Comunidad privada</strong> + meetups en persona</li>
+              <li><strong>100.000€ en herramientas</strong> exclusivas para alumni</li>
+              <li><strong>Nuevas clases cada mes</strong> sobre IA aplicada a negocio</li>
+              <li><strong>Certificación oficial</strong> al completar el programa</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq" aria-labelledby="faq-heading">
+      <div class="container">
+        <div class="faq-aside">
+          <span class="tag">FAQ</span>
+          <h2 id="faq-heading">Preguntas <em>frecuentes</em></h2>
+          <p>¿Tienes una duda que no resolvemos aquí? Escríbenos y te respondemos en menos de 24h.</p>
+          <a href="#" class="btn btn-outline-dark">Contactar con el equipo</a>
+        </div>
+
+        <div class="accordion">
+
+          <details class="acc-item" open>
+            <summary>
+              <span class="acc-title">¿Cómo funciona el acceso al programa?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              Al inscribirte recibes acceso inmediato a la plataforma con todos los módulos, masterclasses y PDFs. El programa es 100% online y a tu ritmo. Puedes verlo desde móvil, tablet u ordenador, cuando y donde quieras.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿Cuánto dura el programa?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              El programa está diseñado para completarse en 2-6 meses dedicando entre 4 y 8 horas semanales. Pero como el acceso es lifetime, puedes adaptarlo a tu ritmo y volver a revisar el contenido cuando lo necesites.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿En qué idioma están las clases?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              Las clases están grabadas en inglés con subtítulos en español, francés, alemán y portugués. Las sesiones en directo se realizan en inglés con traducción simultánea disponible.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿Hay opciones de financiación?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              Sí. Puedes pagar el programa en 5 cuotas mensuales sin intereses (498€/mes) o aprovechar nuestra financiación a 12 meses con un coste mínimo. También aceptamos pago único con 5% adicional de descuento.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿Qué pasa si no me gusta?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              Tienes 15 días de garantía de devolución total. Si el programa no es lo que esperabas, te devolvemos el 100% del importe sin preguntas. Sin letra pequeña.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿Se entrega certificación?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              Sí. Al completar el proyecto final y los 9 módulos recibes el certificado oficial del MBA con IA de Augment, verificable en LinkedIn y firmado por el claustro.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿Necesito experiencia previa en negocio o IA?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              No. El programa parte desde fundamentos y avanza progresivamente. Tenemos alumni desde estudiantes universitarios hasta directivos C-level. El claustro adapta el ritmo y los proyectos a tu nivel.
+            </div>
+          </details>
+
+          <details class="acc-item">
+            <summary>
+              <span class="acc-title">¿Puede mi empresa pagar el programa?</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="acc-body">
+              Sí, ofrecemos facturas a empresa y descuentos para grupos de 3+ empleados. Escríbenos a empresas@augment.org y te preparamos una propuesta a medida.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
     <!-- ========== CTA FINAL ========== -->
     <section class="cta-final" aria-labelledby="cta-heading">
       <div class="container">
@@ -1283,7 +2254,7 @@
         <p>Plazas limitadas para la cohorte de Mayo. El precio Early Bird con 40% de descuento desaparece cuando acabe el contador.</p>
 
         <div class="cta-actions">
-          <a href="#pricing" class="btn btn-primary btn-lg">Inscríbete hoy — 2.490€ →</a>
+          <a href="#pricing-section" class="btn btn-primary btn-lg">Inscríbete hoy — 2.490€ →</a>
           <a href="#" class="btn btn-outline-dark">Solicitar más información</a>
         </div>
 
