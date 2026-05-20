@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MBA con IA — Aprende de los mejores líderes del mundo · Augment</title>
+  <meta name="description" content="La mejor alternativa a un MBA tradicional. Aprende de los fundadores de Wikipedia, YouTube, Waze y más. Precio Early Bird con 40% de descuento." />
+  <style>
+    /* ==========================================
+       RESET & BASE
+    ========================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Colores Founderz oficiales (web) */
+      --purple:        #5045c8;
+      --purple-dark:   #2f2976;
+      --purple-light:  #ece9ff;
+      --violet:        #420D8C;
+      --pink:          #D08EEB;
+      --green:         #a3d9c5;
+      --orange:        #F2983E;
+      --warm-red:      #F25244;
+      --sunshade:      #fea339;
+      --ink:           #111115;
+      --ink-80:        rgba(17,17,21,0.8);
+      --gray:          #5a5a5a;
+      --border:        #e0e0ea;
+      --white:         #ffffff;
+
+      /* Tipografía */
+      --font: RundDisplay, "Trebuchet MS", Helvetica, sans-serif;
+      --tracking: 0.02em;
+
+      /* Layout */
+      --max-w: 1280px;
+      --r:     1.875rem;    /* border-radius cards */
+      --r-pill: 100rem;
+      --shadow: 0 10px 40px rgba(0,0,0,0.08);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.13);
+      --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+      --py: clamp(72px, 9vw, 128px);
+    }
+
+    @media (max-width: 579px) {
+      :root { --r: 1.375rem; }
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: var(--tracking);
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ==========================================
+       UTILITIES
+    ========================================== */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-inline: clamp(1.25rem, 4vw, 3rem);
+    }
+
+    /* Tag / label de sección */
+    .tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+
+    .tag--light { color: var(--green); }
+
+    /* Botones */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9375rem 1.875rem;
+      border-radius: var(--r-pill);
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: var(--tracking);
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: background .2s var(--ease), border-color .2s var(--ease), transform .15s var(--ease);
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--purple);
+      color: var(--white);
+      border-color: var(--purple);
+    }
+    .btn-primary:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
+
+    .btn-inverse {
+      background: var(--white);
+      color: var(--ink);
+      border-color: var(--white);
+    }
+    .btn-inverse:hover { background: var(--ink); color: var(--white); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.4);
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+
+    .btn-outline-dark {
+      background: transparent;
+      color: var(--purple);
+      border-color: var(--purple);
+    }
+    .btn-outline-dark:hover { background: var(--purple-light); }
+
+    .btn-lg {
+      padding: 1.125rem 2.25rem;
+      font-size: 1rem;
+    }
+
+    /* Cabecera de sección */
+    .section-header {
+      text-align: center;
+      max-width: 600px;
+      margin-inline: auto;
+    }
+    .section-header .tag { margin-bottom: 1rem; display: block; }
+    .section-header h2 {
+      font-size: clamp(1.875rem, 4vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+    .section-header p {
+      font-size: 1.0625rem;
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    /* ==========================================
+       URGENCY BAR
+    ========================================== */
+    .urgency-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--ink);
+      color: var(--white);
+      text-align: center;
+      padding: 0.625rem 1rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.875rem;
+      flex-wrap: wrap;
+    }
+
+    .urgency-label {
+      color: var(--green);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.6875rem;
+    }
+
+    .urgency-badge {
+      background: var(--purple);
+      color: var(--white);
+      font-size: 0.625rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--r-pill);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .urgency-muted { color: rgba(255,255,255,0.6); }
+
+    .countdown {
+      display: inline-flex;
+      gap: 0.25rem;
+      font-variant-numeric: tabular-nums;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--white);
+    }
+    .cd-sep { opacity: 0.4; }
+
+    /* ==========================================
+       NAV
+    ========================================== */
+    .nav-wrap {
+      position: sticky;
+      top: 38px;
+      z-index: 90;
+      padding: 0.875rem clamp(1rem, 3vw, 2rem);
+      pointer-events: none;
+    }
+
+    .nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: var(--r-pill);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+      padding: 0.875rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      pointer-events: all;
+    }
+
+    .nav-logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--ink);
+      display: flex;
+      align-items: baseline;
+      gap: 0.15rem;
+      white-space: nowrap;
+    }
+    .nav-logo sup {
+      font-size: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      text-transform: uppercase;
+      vertical-align: super;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--gray);
+      transition: color .15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    /* ==========================================
+       HERO
+    ========================================== */
+    .hero {
+      position: relative;
+      min-height: calc(100svh - 38px);
+      background: #090910;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Fondo tipo Mindscape: gradientes + ruido */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 15% 55%, rgba(80,69,200,0.40) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 85% 25%, rgba(66,13,140,0.20) 0%, transparent 55%),
+        radial-gradient(ellipse 35% 35% at 70% 80%, rgba(163,217,197,0.07) 0%, transparent 45%),
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(80,69,200,0.10) 0%, transparent 50%),
+        #090910;
+    }
+
+    /* Textura orgánica (SVG inline fractalNoise) */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+
+    .hero > .container {
+      position: relative;
+      z-index: 1;
+      padding-block: 5rem;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.375rem, 5vw, 3.75rem);
+      font-weight: 700;
+      line-height: 1.04;
+      color: var(--white);
+      letter-spacing: -0.015em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-sub {
+      font-size: 1.125rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.72);
+      max-width: 50ch;
+      margin-bottom: 2.25rem;
+    }
+
+    /* Social proof */
+    .hero-proof {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .avatars {
+      display: flex;
+    }
+    .avatars img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.15);
+      margin-right: -10px;
+      object-fit: cover;
+      background: #2a2a3a;
+    }
+
+    .proof-text { font-size: 0.875rem; color: rgba(255,255,255,0.75); }
+    .proof-stars {
+      color: var(--sunshade);
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 0.15rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* Partners en hero */
+    .hero-press {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .hero-press-label {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.35);
+      font-weight: 600;
+    }
+    .hero-press-logo {
+      font-weight: 900;
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.45);
+      letter-spacing: -0.02em;
+      font-style: italic;
+      transition: color .2s;
+    }
+    .hero-press-logo:hover { color: rgba(255,255,255,0.8); }
+    .hero-press-logo.tc { font-style: normal; font-size: 0.8rem; }
+
+    /* ---- PRICING CARD ---- */
+    .hero-card {
+      background: rgba(255,255,255,0.98);
+      border-radius: var(--r);
+      padding: 2rem;
+      box-shadow: 0 28px 80px rgba(0,0,0,0.35);
+    }
+
+    .hero-card-tag {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--purple);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      background: #ecfdf5;
+      color: #059669;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.375rem 0.75rem;
+      border-radius: var(--r-pill);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-price-was {
+      font-size: 1rem;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-bottom: 0.2rem;
+    }
+    .hero-price {
+      font-size: 3.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-price-plan {
+      font-size: 0.875rem;
+      color: var(--gray);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.625rem;
+      margin-bottom: 1.75rem;
+    }
+    .hero-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.625rem;
+      font-size: 0.875rem;
+      line-height: 1.45;
+      color: #1a1a2a;
+    }
+    .hero-bullets li::before {
+      content: '✓';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    .hero-card-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .hero-card-ctas .btn { justify-content: center; width: 100%; }
+
+    /* ==========================================
+       VIDEO SECTION
+    ========================================== */
+    .video-sec {
+      padding: var(--py) 0;
+    }
+    .video-sec .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .video-wrap {
+      width: 100%;
+      max-width: 920px;
+      border-radius: var(--r);
+      overflow: hidden;
+      background: var(--ink);
+      aspect-ratio: 16/9;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .video-poster {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(80,69,200,0.3) 0%, transparent 70%),
+        linear-gradient(135deg, #0d0d1f 0%, #1a0f30 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 1rem;
+      cursor: pointer;
+    }
+
+    .play-btn {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(12px);
+      transition: all .22s var(--ease);
+    }
+    .play-btn:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      transform: scale(1.1);
+    }
+    .play-btn svg { margin-left: 5px; }
+
+    .video-caption {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ==========================================
+       PRESS STRIP
+    ========================================== */
+    .press {
+      padding: clamp(36px,5vw,56px) 0;
+      border-block: 1px solid var(--border);
+    }
+    .press .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(1.5rem, 5vw, 5rem);
+      flex-wrap: wrap;
+    }
+    .press-label {
+      font-size: 0.625rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .press-logos { display: flex; align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); flex-wrap: wrap; }
+    .press-name {
+      font-weight: 900;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: #bbb;
+      letter-spacing: -0.02em;
+      transition: color .2s;
+      font-style: italic;
+    }
+    .press-name:hover { color: var(--ink); }
+    .press-name.tc { font-style: normal; font-size: 0.9em; }
+
+    /* ==========================================
+       FACULTY
+    ========================================== */
+    .faculty {
+      padding: var(--py) 0;
+      background: #f7f7fb;
+    }
+    .faculty .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .carousel-wrap { width: 100%; position: relative; }
+    .carousel-overflow { overflow: hidden; }
+    .carousel-track {
+      display: flex;
+      gap: 1.25rem;
+      transition: transform .4s var(--ease);
+    }
+
+    .prof-card {
+      flex: 0 0 230px;
+      background: var(--white);
+      border-radius: var(--r);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .prof-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .prof-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      background: linear-gradient(135deg,var(--purple-light),var(--pink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+    .prof-body { padding: 1.25rem; }
+    .prof-company {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 0.5rem;
+    }
+    .prof-name {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    .prof-role {
+      font-size: 0.8125rem;
+      color: var(--gray);
+      line-height: 1.4;
+    }
+
+    .carousel-nav {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+    .carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .2s var(--ease);
+      color: var(--ink);
+    }
+    .carousel-btn:hover {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: var(--white);
+    }
+
+    /* ==========================================
+       VALUE PROPS
+    ========================================== */
+    .value-props {
+      padding: var(--py) 0;
+    }
+    .value-props .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .vp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      width: 100%;
+    }
+
+    .vp-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 2rem;
+      overflow: hidden;
+      transition: transform .2s var(--ease), box-shadow .2s var(--ease);
+    }
+    .vp-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .vp-card.accent { background: var(--purple-light); border-color: transparent; }
+    .vp-card.accent-2 { background: #f0faf6; border-color: transparent; }
+
+    .vp-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+    }
+    .vp-card.accent-2 .vp-icon { background: var(--green); }
+
+    .vp-card h3 {
+      font-size: 1.1875rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 0.625rem;
+    }
+    .vp-card p {
+      font-size: 0.9375rem;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Imagen simulada de la card */
+    .vp-visual {
+      width: 100%;
+      border-radius: 1rem;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      background: linear-gradient(135deg, var(--purple-light) 0%, var(--pink) 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Placeholders CSS para las imágenes */
+    .vp-visual-placeholder {
+      width: 100%;
+      border-radius: 1rem;
+      aspect-ratio: 16/9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      overflow: hidden;
+    }
+
+    .vp-visual-placeholder.p1 {
+      background: linear-gradient(135deg, #3730a3 0%, #5045c8 40%, #8b5cf6 100%);
+    }
+    .vp-visual-placeholder.p2 {
+      background: linear-gradient(135deg, #420D8C 0%, #D08EEB 100%);
+    }
+    .vp-visual-placeholder.p3 {
+      background: linear-gradient(135deg, #a3d9c5 0%, #059669 100%);
+    }
+    .vp-visual-placeholder.p4 {
+      background: linear-gradient(135deg, #1a1a2e 0%, #5045c8 100%);
+    }
+
+    /* Mini logos de partners dentro de p1 */
+    .vp-partners {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
+    .vp-partner-badge {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: var(--r-pill);
+      padding: 0.25rem 0.75rem;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: white;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================
+       COMPARISON
+    ========================================== */
+    .comparison {
+      padding: var(--py) 0;
+      background: var(--ink);
+    }
+    .comparison .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+    .comparison .section-header h2 { color: var(--white); }
+    .comparison .section-header p  { color: rgba(255,255,255,0.55); }
+
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      width: 100%;
+      max-width: 820px;
+    }
+
+    .comp-card {
+      border-radius: var(--r);
+      padding: 2rem;
+    }
+    .comp-card.traditional {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .comp-card.augment {
+      background: var(--white);
+    }
+
+    .comp-title {
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid;
+      letter-spacing: 0.01em;
+    }
+    .traditional .comp-title { color: rgba(255,255,255,0.45); border-color: rgba(255,255,255,0.08); }
+    .augment .comp-title     { color: var(--purple); border-color: var(--border); }
+
+    .comp-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.875rem;
+    }
+    .comp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9375rem;
+      line-height: 1.45;
+    }
+    .traditional .comp-list li { color: rgba(255,255,255,0.55); }
+    .augment     .comp-list li { color: var(--ink); }
+
+    .icon-x     { color: var(--warm-red); flex-shrink: 0; font-weight: 700; }
+    .icon-check { color: var(--purple);   flex-shrink: 0; font-weight: 700; }
+
+    /* ==========================================
+       CTA FINAL
+    ========================================== */
+    .cta-final {
+      padding: var(--py) 0;
+      background: var(--purple-light);
+    }
+    .cta-final .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2rem;
+    }
+    .cta-final h2 {
+      font-size: clamp(2rem, 4.5vw, 2.875rem);
+      font-weight: 700;
+      line-height: 1.12;
+      letter-spacing: -0.015em;
+      max-width: 18ch;
+    }
+    .cta-final > p {
+      font-size: 1.0625rem;
+      color: var(--gray);
+      max-width: 48ch;
+      line-height: 1.65;
+    }
+
+    .cta-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; }
+
+    .trust-row {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--gray);
+    }
+    .trust-item svg { color: var(--purple); }
+
+    /* ==========================================
+       FOOTER
+    ========================================== */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.45);
+      padding: 2.5rem 0;
+      font-size: 0.875rem;
+    }
+    footer .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    footer a { color: inherit; transition: color .15s; }
+    footer a:hover { color: var(--white); }
+
+    .footer-logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo em { font-style: normal; color: var(--purple); }
+
+    .footer-links { display: flex; gap: 1.5rem; }
+
+    /* ==========================================
+       RESPONSIVE
+    ========================================== */
+    @media (max-width: 1024px) {
+      .hero > .container { grid-template-columns: 1fr 400px; }
+    }
+
+    @media (max-width: 860px) {
+      .hero > .container { grid-template-columns: 1fr; }
+      .hero-card { max-width: 480px; }
+      .vp-grid { grid-template-columns: 1fr; }
+      .comp-grid { grid-template-columns: 1fr; max-width: 480px; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 579px) {
+      .hero h1 { font-size: 2.25rem; }
+      .urgency-bar { gap: 0.5rem; }
+      .hero-card { padding: 1.5rem; }
+      .hero-price { font-size: 2.5rem; }
+      .faculty-card { flex: 0 0 200px; }
+      .cta-actions { flex-direction: column; align-items: center; }
+    }
+
+    /* ==========================================
+       ANIMACIONES DE ENTRADA
+    ========================================== */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-content { animation: fadeUp .7s var(--ease) .05s both; }
+      .hero-card    { animation: fadeUp .7s var(--ease) .2s  both; }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(28px); }
+        to   { opacity: 1; transform: translateY(0);    }
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== URGENCY BAR ========== -->
+  <div class="urgency-bar" role="alert" aria-live="polite" aria-label="Oferta por tiempo limitado">
+    <span class="urgency-label">Cohorte de Mayo</span>
+    <span class="urgency-badge">40% dto.</span>
+    <span class="urgency-muted">Precio Early Bird · Termina en</span>
+    <span class="countdown" aria-label="Cuenta atrás">
+      <span id="cd-h">08</span><span class="cd-sep">:</span><span id="cd-m">06</span><span class="cd-sep">:</span><span id="cd-s">12</span>
+    </span>
+  </div>
+
+  <!-- ========== NAV ========== -->
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Navegación principal">
+      <div class="nav-logo">Augment<em>.</em><sup>org</sup></div>
+      <ul class="nav-links" role="list">
+        <li><a href="#faculty">Profesores</a></li>
+        <li><a href="#program">Programa</a></li>
+        <li><a href="#pricing">Precio</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-primary">Inscríbete hoy</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" aria-labelledby="hero-h1">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container">
+
+        <!-- Texto izquierda -->
+        <div class="hero-content">
+          <p class="hero-tag">El MBA con IA · Augment</p>
+          <h1 id="hero-h1">Lecciones de negocio de los mejores líderes de IA del mundo</h1>
+          <p class="hero-sub">La mejor alternativa a un MBA tradicional, impartida por los fundadores de Wikipedia, YouTube, Waze, Shazam y mucho más.</p>
+
+          <!-- Social proof -->
+          <div class="hero-proof">
+            <div class="avatars" aria-hidden="true">
+              <img src="https://i.pravatar.cc/40?img=3"  alt="" width="36" height="36">
+              <img src="https://i.pravatar.cc/40?img=8"  alt="" width="36" height="36">
+              <img src="https://i.pravatar.cc/40?img=15" alt="" width="36" height="36">
+              <img src="https://i.pravatar.cc/40?img=21" alt="" width="36" height="36">
+              <img src="https://i.pravatar.cc/40?img=27" alt="" width="36" height="36">
+            </div>
+            <div class="proof-text">
+              <span class="proof-stars" aria-label="Valoración 5 estrellas">★★★★★</span>
+              <span>+5.000 emprendedores ya dentro</span>
+            </div>
+          </div>
+
+          <!-- Press -->
+          <div class="hero-press" aria-label="Visto en">
+            <span class="hero-press-label">Visto en</span>
+            <span class="hero-press-logo">Forbes</span>
+            <span class="hero-press-logo">Bloomberg</span>
+            <span class="hero-press-logo tc">TechCrunch</span>
+          </div>
+        </div>
+
+        <!-- Pricing card derecha -->
+        <div class="hero-card" id="pricing" aria-labelledby="card-heading">
+          <span class="hero-card-tag" id="card-heading">Únete al MBA con IA</span>
+
+          <div class="hero-badge">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Early Bird · 40% de descuento
+          </div>
+
+          <p class="hero-price-was">4.150€</p>
+          <p class="hero-price">2.490€</p>
+          <p class="hero-price-plan">Desde 207€/mes con financiación</p>
+
+          <ul class="hero-bullets" aria-label="Qué incluye">
+            <li>Acceso ilimitado a todos los módulos y masterclasses</li>
+            <li>Aprende de los fundadores de Wikipedia, YouTube, Waze y más</li>
+            <li>Frameworks y PDFs estratégicos descargables</li>
+            <li>Comunidad de emprendedores + meetups en persona</li>
+            <li>En cualquier dispositivo, a tu ritmo, sin horarios</li>
+            <li>Certificación oficial del MBA con IA</li>
+          </ul>
+
+          <div class="hero-card-ctas">
+            <a href="#" class="btn btn-primary btn-lg">Inscríbete hoy →</a>
+            <a href="#" class="btn btn-outline-dark">Solicitar información</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== VIDEO ========== -->
+    <section class="video-sec" aria-labelledby="video-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">El programa</span>
+          <h2 id="video-heading">La mejor experiencia de IA para emprendedores</h2>
+          <p>Sin teoría vacía. Solo estrategia real de quienes construyeron las empresas más influyentes del planeta.</p>
+        </div>
+
+        <div class="video-wrap">
+          <div class="video-poster" role="button" tabindex="0" aria-label="Reproducir vídeo del programa" onclick="this.innerHTML='<iframe width=\'100%\' height=\'100%\' src=\'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1\' frameborder=\'0\' allowfullscreen style=\'position:absolute;inset:0\'></iframe>'">
+            <div class="play-btn" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <span class="video-caption">Ver el programa completo</span>
+          </div>
+        </div>
+
+        <a href="#pricing" class="btn btn-primary btn-lg">Inscríbete y obtén 40% de descuento →</a>
+      </div>
+    </section>
+
+    <!-- ========== PRESS ========== -->
+    <div class="press" aria-label="Medios donde aparece Augment">
+      <div class="container">
+        <span class="press-label">Visto en</span>
+        <div class="press-logos">
+          <span class="press-name">Forbes</span>
+          <span class="press-name">Bloomberg</span>
+          <span class="press-name tc">TechCrunch</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== FACULTY ========== -->
+    <section class="faculty" id="faculty" aria-labelledby="faculty-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">El claustro</span>
+          <h2 id="faculty-heading">Conoce a tus profesores</h2>
+          <p>Aprende directamente de los fundadores de Wikipedia, Waze, YouTube, Shazam y más. No hay mejor fuente.</p>
+        </div>
+
+        <div class="carousel-wrap" role="region" aria-label="Profesores del programa">
+          <div class="carousel-overflow">
+            <div class="carousel-track" id="carouselTrack">
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#1a1a3e,#5045c8);">🌍</div>
+                <div class="prof-body">
+                  <p class="prof-company">Wikipedia</p>
+                  <h3 class="prof-name">Jimmy Wales</h3>
+                  <p class="prof-role">Fundador de Wikipedia</p>
+                </div>
+              </article>
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#1a0a0a,#c00);">▶</div>
+                <div class="prof-body">
+                  <p class="prof-company">YouTube</p>
+                  <h3 class="prof-name">Steve Chen</h3>
+                  <p class="prof-role">Co-fundador de YouTube</p>
+                </div>
+              </article>
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#003399,#0066ff);">🗺</div>
+                <div class="prof-body">
+                  <p class="prof-company">Waze</p>
+                  <h3 class="prof-name">Uri Levine</h3>
+                  <p class="prof-role">Co-fundador de Waze</p>
+                </div>
+              </article>
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#0a0a0a,#333);">🤖</div>
+                <div class="prof-body">
+                  <p class="prof-company">OpenAI</p>
+                  <h3 class="prof-name">Zack Kass</h3>
+                  <p class="prof-role">Ex GTM Lead, OpenAI</p>
+                </div>
+              </article>
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#001f5c,#0077b5);">💼</div>
+                <div class="prof-body">
+                  <p class="prof-company">LinkedIn</p>
+                  <h3 class="prof-name">Tobi Okafor</h3>
+                  <p class="prof-role">Director Creativo, LinkedIn</p>
+                </div>
+              </article>
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#1a1a1a,#444);">📊</div>
+                <div class="prof-body">
+                  <p class="prof-company">BCG</p>
+                  <h3 class="prof-name">Renat Stephan</h3>
+                  <p class="prof-role">Partner, Boston Consulting Group</p>
+                </div>
+              </article>
+
+              <article class="prof-card">
+                <div class="prof-img" aria-hidden="true" style="background:linear-gradient(135deg,#2d1654,#D08EEB);">🎵</div>
+                <div class="prof-body">
+                  <p class="prof-company">Shazam</p>
+                  <h3 class="prof-name">Dhiraj Mukherjee</h3>
+                  <p class="prof-role">Co-fundador de Shazam</p>
+                </div>
+              </article>
+
+            </div>
+          </div>
+
+          <div class="carousel-nav" style="margin-top:1.75rem;">
+            <button class="carousel-btn" id="carouselPrev" aria-label="Profesor anterior">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel-btn" id="carouselNext" aria-label="Profesor siguiente">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <a href="#pricing" class="btn btn-primary">Inscríbete ahora →</a>
+      </div>
+    </section>
+
+    <!-- ========== VALUE PROPS ========== -->
+    <section class="value-props" id="program" aria-labelledby="vp-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag">Tu camino al éxito</span>
+          <h2 id="vp-heading">¿Qué es el MBA con IA de Augment?</h2>
+          <p>Una formación única que combina el acceso a los mejores líderes del mundo con comunidad real y herramientas prácticas para aplicar desde el día 1.</p>
+        </div>
+
+        <div class="vp-grid">
+
+          <div class="vp-card">
+            <div class="vp-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>Aprende de los mejores fundadores</h3>
+            <p>Accede a las lecciones de quienes crearon Wikipedia, YouTube, Waze, Shazam y más. Estrategia real, sin teoría vacía.</p>
+            <div class="vp-visual-placeholder p1" aria-hidden="true" style="position:relative;">
+              <div class="vp-partners">
+                <span class="vp-partner-badge">Wikipedia</span>
+                <span class="vp-partner-badge">YouTube</span>
+                <span class="vp-partner-badge">Waze</span>
+                <span class="vp-partner-badge">Google</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="vp-card accent">
+            <div class="vp-icon" style="background:var(--violet);" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+            </div>
+            <h3>Conecta con mentes ambiciosas</h3>
+            <p>Comunidad activa de emprendedores con meetups presenciales y eventos online. Las conexiones que harás aquí valen más que cualquier título.</p>
+            <div class="vp-visual-placeholder p2" aria-hidden="true"></div>
+          </div>
+
+          <div class="vp-card accent-2">
+            <div class="vp-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3>Frameworks estratégicos descargables</h3>
+            <p>Cientos de PDFs con los marcos estratégicos usados por los mejores fundadores. Aplícalos directamente a tu negocio desde el primer día.</p>
+            <div class="vp-visual-placeholder p3" aria-hidden="true"></div>
+          </div>
+
+          <div class="vp-card">
+            <div class="vp-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3>En cualquier dispositivo, a tu ritmo</h3>
+            <p>Sin horarios fijos. Aprende desde el móvil, tablet u ordenador. El programa se adapta a tu vida, no al revés.</p>
+            <div class="vp-visual-placeholder p4" aria-hidden="true"></div>
+          </div>
+
+        </div>
+
+        <a href="#pricing" class="btn btn-primary btn-lg">Empezar ahora →</a>
+      </div>
+    </section>
+
+    <!-- ========== COMPARISON ========== -->
+    <section class="comparison" aria-labelledby="comp-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="tag tag--light">Nuestra misión</span>
+          <h2 id="comp-heading">Formación de élite a un precio justo</h2>
+          <p>Acceso a las mejores mentes del mundo sin pagar el precio desorbitado de un MBA tradicional.</p>
+        </div>
+
+        <div class="comp-grid">
+          <div class="comp-card traditional" aria-label="Un MBA tradicional">
+            <p class="comp-title">Un MBA Tradicional</p>
+            <ul class="comp-list">
+              <li><span class="icon-x" aria-hidden="true">✕</span>100.000€ de matrícula de media</li>
+              <li><span class="icon-x" aria-hidden="true">✕</span>Aprendizaje inflexible con horarios fijos</li>
+              <li><span class="icon-x" aria-hidden="true">✕</span>Teoría académica alejada del mundo real</li>
+              <li><span class="icon-x" aria-hidden="true">✕</span>Profesores sin experiencia fundando empresas</li>
+              <li><span class="icon-x" aria-hidden="true">✕</span>Contenido desactualizado en la era de la IA</li>
+            </ul>
+          </div>
+
+          <div class="comp-card augment" aria-label="El MBA con IA de Augment">
+            <p class="comp-title">MBA con IA · Augment</p>
+            <ul class="comp-list">
+              <li><span class="icon-check" aria-hidden="true">✓</span>2.490€ con opciones de pago mensual</li>
+              <li><span class="icon-check" aria-hidden="true">✓</span>A tu ritmo, en cualquier dispositivo</li>
+              <li><span class="icon-check" aria-hidden="true">✓</span>Estrategia real de fundadores que lo han hecho</li>
+              <li><span class="icon-check" aria-hidden="true">✓</span>Aprende de quienes crearon Wikipedia, YouTube y más</li>
+              <li><span class="icon-check" aria-hidden="true">✓</span>IA aplicada al negocio desde el primer día</li>
+            </ul>
+          </div>
+        </div>
+
+        <a href="#pricing" class="btn btn-inverse btn-lg">Inscríbete hoy · Solo 2.490€ →</a>
+      </div>
+    </section>
+
+    <!-- ========== CTA FINAL ========== -->
+    <section class="cta-final" aria-labelledby="cta-heading">
+      <div class="container">
+        <span class="tag">Únete ahora</span>
+        <h2 id="cta-heading">Empieza a aprender de los mejores líderes de IA del mundo</h2>
+        <p>Plazas limitadas para la cohorte de Mayo. El precio Early Bird con 40% de descuento desaparece cuando acabe el contador.</p>
+
+        <div class="cta-actions">
+          <a href="#pricing" class="btn btn-primary btn-lg">Inscríbete hoy — 2.490€ →</a>
+          <a href="#" class="btn btn-outline-dark">Solicitar más información</a>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Garantía de devolución
+          </div>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Acceso inmediato
+          </div>
+          <div class="trust-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            Financiación disponible
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">Augment<em>.</em>org</div>
+      <nav class="footer-links" aria-label="Links del footer">
+        <a href="#">Privacidad</a>
+        <a href="#">Términos</a>
+        <a href="#">Contacto</a>
+      </nav>
+      <p>© 2026 Augment.org · Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <!-- ========== SCRIPTS ========== -->
+  <script>
+    // Countdown timer
+    (function () {
+      const end = new Date(Date.now() + (8 * 3600 + 6 * 60 + 12) * 1000);
+      const h = document.getElementById('cd-h');
+      const m = document.getElementById('cd-m');
+      const s = document.getElementById('cd-s');
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const diff = Math.max(0, end - Date.now());
+        h.textContent = pad(Math.floor(diff / 3600000));
+        m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+        s.textContent = pad(Math.floor((diff % 60000) / 1000));
+        if (diff > 0) requestAnimationFrame(tick);
+      }
+      tick();
+    })();
+
+    // Faculty carousel
+    (function () {
+      const track = document.getElementById('carouselTrack');
+      if (!track) return;
+      let idx = 0;
+
+      function cardW() {
+        const c = track.querySelector('.prof-card');
+        return c ? c.offsetWidth + parseInt(getComputedStyle(track).gap) : 250;
+      }
+
+      function visible() {
+        return Math.max(1, Math.floor(track.parentElement.offsetWidth / cardW()));
+      }
+
+      function maxIdx() {
+        return Math.max(0, track.querySelectorAll('.prof-card').length - visible());
+      }
+
+      function move() {
+        track.style.transform = `translateX(-${idx * cardW()}px)`;
+      }
+
+      document.getElementById('carouselPrev').addEventListener('click', () => {
+        idx = Math.max(0, idx - 1); move();
+      });
+      document.getElementById('carouselNext').addEventListener('click', () => {
+        idx = Math.min(maxIdx(), idx + 1); move();
+      });
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { idx = Math.min(idx, maxIdx()); move(); }, 100);
+      });
+    })();
+  </script>
+
+</body>
+</html>
