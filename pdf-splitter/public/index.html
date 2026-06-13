@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PDF Splitter</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,-25">
+</head>
+<body>
+
+<header class="header">
+  <div class="header__logo">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6z"/>
+      <polyline points="14,2 14,8 20,8" fill="none" stroke="#fff" stroke-width="1.5"/>
+    </svg>
+  </div>
+  <span class="header__title">PDF Splitter</span>
+  <span class="header__badge">Archivos grandes ✓</span>
+</header>
+
+<main class="main">
+  <div class="headline">
+    <h1>Divide tu PDF en partes</h1>
+    <p>Sube archivos de cualquier tamaño — hasta 1 GB o más — y divídelos como necesites.</p>
+  </div>
+
+  <!-- Toast de error -->
+  <div id="toast" class="toast toast--error" role="alert">
+    <span class="material-symbols-rounded">error</span>
+    <span id="toastMsg"></span>
+  </div>
+
+  <!-- ── Card 1: Upload ─────────────────────────────── -->
+  <div class="card" id="uploadCard">
+    <div class="dropzone" id="dropzone">
+      <span class="dropzone__icon">📄</span>
+      <p class="dropzone__title">Arrastra tu PDF aquí</p>
+      <p class="dropzone__sub">o <span id="browseBtn">elige un archivo</span></p>
+      <input type="file" id="fileInput" accept="application/pdf">
+    </div>
+
+    <div class="progress-wrap" id="progressWrap" style="margin-top:1.25rem">
+      <div class="progress-header">
+        <span class="progress-msg" id="progressMsg">Subiendo…</span>
+        <span class="progress-pct" id="progressPct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Card 2: Split options ──────────────────────── -->
+  <div class="card split-panel" id="splitPanel">
+    <div class="file-info visible" id="fileInfo">
+      <span class="file-info__icon">📄</span>
+      <span class="file-info__name" id="fileName">archivo.pdf</span>
+      <span class="file-info__pages" id="filePages">— páginas</span>
+    </div>
+
+    <p class="section-label">Método de división</p>
+
+    <div class="methods">
+      <div class="method-card active" data-method="parts">
+        <div class="method-card__icon">⚡</div>
+        <div class="method-card__title">Partes iguales</div>
+        <div class="method-card__sub">Divide en N partes del mismo tamaño</div>
+      </div>
+      <div class="method-card" data-method="pages">
+        <div class="method-card__icon">📋</div>
+        <div class="method-card__title">Por páginas</div>
+        <div class="method-card__sub">X páginas por archivo</div>
+      </div>
+      <div class="method-card" data-method="ranges">
+        <div class="method-card__icon">✂️</div>
+        <div class="method-card__title">Rangos libres</div>
+        <div class="method-card__sub">Define tú mismo los rangos</div>
+      </div>
+    </div>
+
+    <div class="input-area" id="inputArea">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="progress-wrap" id="splitProgressWrap">
+      <div class="progress-header">
+        <span class="progress-msg" id="splitProgressMsg">Procesando…</span>
+        <span class="progress-pct" id="splitProgressPct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="splitProgressBar"></div>
+      </div>
+    </div>
+
+    <button class="btn btn--primary" id="splitBtn">
+      <span class="material-symbols-rounded">content_cut</span>
+      Dividir PDF
+    </button>
+
+    <div style="text-align:center;margin-top:.75rem">
+      <button class="btn btn--ghost" id="resetBtn">Subir otro archivo</button>
+    </div>
+  </div>
+
+  <!-- ── Card 3: Results ───────────────────────────── -->
+  <div class="card results-panel" id="resultsPanel">
+    <div class="results-header">
+      <div>
+        <div class="results-title">Archivos generados</div>
+        <div class="results-count" id="resultsCount"></div>
+      </div>
+    </div>
+
+    <div class="file-list" id="fileList"></div>
+
+    <div class="actions-row">
+      <a class="btn btn--zip" id="zipBtn" href="#">
+        <span class="material-symbols-rounded">folder_zip</span>
+        Descargar todo (ZIP)
+      </a>
+      <button class="btn btn--outline" id="resetBtn2">
+        <span class="material-symbols-rounded">restart_alt</span>
+        Nuevo PDF
+      </button>
+    </div>
+  </div>
+</main>
+
+<script>
+// ── State ──────────────────────────────────────────────────
+let state = {
+  sessionId: null,
+  pageCount: 0,
+  fileName: '',
+  method: 'parts',
+  sse: null,
+};
+
+// ── DOM ────────────────────────────────────────────────────
+const dropzone      = document.getElementById('dropzone');
+const fileInput     = document.getElementById('fileInput');
+const browseBtn     = document.getElementById('browseBtn');
+const progressWrap  = document.getElementById('progressWrap');
+const progressMsg   = document.getElementById('progressMsg');
+const progressPct   = document.getElementById('progressPct');
+const progressBar   = document.getElementById('progressBar');
+const splitPanel    = document.getElementById('splitPanel');
+const splitBtn      = document.getElementById('splitBtn');
+const fileNameEl    = document.getElementById('fileName');
+const filePagesEl   = document.getElementById('filePages');
+const inputArea     = document.getElementById('inputArea');
+const splitProgressWrap = document.getElementById('splitProgressWrap');
+const splitProgressMsg  = document.getElementById('splitProgressMsg');
+const splitProgressPct  = document.getElementById('splitProgressPct');
+const splitProgressBar  = document.getElementById('splitProgressBar');
+const resultsPanel  = document.getElementById('resultsPanel');
+const fileList      = document.getElementById('fileList');
+const resultsCount  = document.getElementById('resultsCount');
+const zipBtn        = document.getElementById('zipBtn');
+const toastEl       = document.getElementById('toast');
+const toastMsg      = document.getElementById('toastMsg');
+
+// ── Helpers ────────────────────────────────────────────────
+function setProgress(bar, pct, msgEl, pctEl, wrap, text) {
+  if (wrap) wrap.classList.add('visible');
+  bar.style.width = `${pct}%`;
+  if (msgEl) msgEl.textContent = text;
+  if (pctEl) pctEl.textContent = `${Math.round(pct)}%`;
+}
+
+function showError(msg) {
+  toastMsg.textContent = msg;
+  toastEl.classList.add('visible');
+  setTimeout(() => toastEl.classList.remove('visible'), 6000);
+}
+
+function fmtSize(bytes) {
+  if (bytes < 1024) return bytes + ' B';
+  if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+  return (bytes / 1048576).toFixed(1) + ' MB';
+}
+
+function generateId() {
+  return crypto.randomUUID();
+}
+
+// ── Method cards ───────────────────────────────────────────
+document.querySelectorAll('.method-card').forEach(card => {
+  card.addEventListener('click', () => {
+    document.querySelectorAll('.method-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    state.method = card.dataset.method;
+    renderInput();
+  });
+});
+
+function renderInput() {
+  const total = state.pageCount;
+  if (state.method === 'parts') {
+    inputArea.innerHTML = `
+      <label class="input-label" for="valueInput">¿En cuántas partes iguales?</label>
+      <input class="input-field" id="valueInput" type="number" min="2" max="${total}" value="2" placeholder="Número de partes">
+      <p class="input-hint">Cada parte tendrá aproximadamente ${total > 0 ? Math.ceil(total / 2) : '—'} páginas</p>`;
+    document.getElementById('valueInput').addEventListener('input', e => {
+      const n = parseInt(e.target.value) || 2;
+      const hint = e.target.closest('.input-area').querySelector('.input-hint');
+      hint.textContent = `Cada parte tendrá aproximadamente ${Math.ceil(total / n)} páginas`;
+    });
+  } else if (state.method === 'pages') {
+    inputArea.innerHTML = `
+      <label class="input-label" for="valueInput">Páginas por archivo</label>
+      <input class="input-field" id="valueInput" type="number" min="1" max="${total}" value="10" placeholder="Número de páginas">
+      <p class="input-hint">Se generarán ${total > 0 ? Math.ceil(total / 10) : '—'} archivos</p>`;
+    document.getElementById('valueInput').addEventListener('input', e => {
+      const n = parseInt(e.target.value) || 10;
+      const hint = e.target.closest('.input-area').querySelector('.input-hint');
+      hint.textContent = `Se generarán ${Math.ceil(total / n)} archivos`;
+    });
+  } else {
+    inputArea.innerHTML = `
+      <label class="input-label" for="rangesInput">Rangos de páginas</label>
+      <input class="input-field" id="rangesInput" type="text" placeholder="Ej: 1-10, 11-25, 26-${total}">
+      <p class="input-hint">Usa guion para rangos y coma para separar partes. Total: ${total} páginas.</p>`;
+  }
+}
+
+// ── File drop / select ─────────────────────────────────────
+dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('dragover'); });
+dropzone.addEventListener('dragleave', () => dropzone.classList.remove('dragover'));
+dropzone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropzone.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file) handleFile(file);
+});
+browseBtn.addEventListener('click', () => fileInput.click());
+dropzone.addEventListener('click', e => { if (e.target !== browseBtn) fileInput.click(); });
+fileInput.addEventListener('change', e => { if (e.target.files[0]) handleFile(e.target.files[0]); });
+
+async function handleFile(file) {
+  if (!file.name.toLowerCase().endsWith('.pdf') && file.type !== 'application/pdf') {
+    showError('El archivo debe ser un PDF.');
+    return;
+  }
+
+  toastEl.classList.remove('visible');
+  state.sessionId = generateId();
+  state.fileName = file.name;
+
+  dropzone.style.pointerEvents = 'none';
+  progressWrap.classList.add('visible');
+  setProgress(progressBar, 0, progressMsg, progressPct, null, 'Preparando…');
+
+  // Connect SSE
+  connectSSE(state.sessionId, 'upload');
+
+  try {
+    await uploadInChunks(file, state.sessionId);
+  } catch (err) {
+    showError('Error al subir: ' + err.message);
+    resetUpload();
+  }
+}
+
+// ── Chunked upload ─────────────────────────────────────────
+async function uploadInChunks(file, sessionId) {
+  const CHUNK = 10 * 1024 * 1024; // 10 MB
+  const total = Math.ceil(file.size / CHUNK);
+
+  for (let i = 0; i < total; i++) {
+    const start = i * CHUNK;
+    const end = Math.min(start + CHUNK, file.size);
+    const fd = new FormData();
+    fd.append('chunk', file.slice(start, end), file.name);
+    fd.append('sessionId', sessionId);
+    fd.append('chunkIndex', i);
+    fd.append('totalChunks', total);
+    fd.append('fileName', file.name);
+
+    const res = await fetch('/api/upload-chunk', { method: 'POST', body: fd });
+    if (!res.ok) { const d = await res.json(); throw new Error(d.error || 'Upload error'); }
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    // SSE handles progress display
+  }
+}
+
+// ── SSE ────────────────────────────────────────────────────
+function connectSSE(sessionId, phase) {
+  if (state.sse) { state.sse.close(); state.sse = null; }
+  const es = new EventSource(`/api/progress/${sessionId}`);
+  state.sse = es;
+  es.onmessage = e => handleProgress(JSON.parse(e.data), phase);
+  es.onerror = () => {};
+}
+
+function handleProgress(data, phase) {
+  if (data.stage === 'upload' || data.stage === 'assembly' || data.stage === 'reading') {
+    setProgress(progressBar, data.progress, progressMsg, progressPct, null, data.message);
+  }
+
+  if (data.stage === 'ready') {
+    state.pageCount = data.pageCount;
+    fileNameEl.textContent = state.fileName;
+    filePagesEl.textContent = data.pageCount + ' páginas';
+    progressWrap.classList.remove('visible');
+    dropzone.style.pointerEvents = '';
+    splitPanel.classList.add('visible');
+    renderInput();
+  }
+
+  if (data.stage === 'splitting') {
+    splitProgressWrap.classList.add('visible');
+    splitBtn.disabled = true;
+    setProgress(splitProgressBar, data.progress, splitProgressMsg, splitProgressPct, null, data.message);
+  }
+
+  if (data.stage === 'done') {
+    splitProgressWrap.classList.remove('visible');
+    splitBtn.disabled = false;
+    splitPanel.classList.remove('visible');
+    showResults(data.files, data.sessionId);
+    if (state.sse) { state.sse.close(); state.sse = null; }
+  }
+
+  if (data.stage === 'error') {
+    showError(data.message);
+    splitBtn.disabled = false;
+    splitProgressWrap.classList.remove('visible');
+    if (state.sse) { state.sse.close(); state.sse = null; }
+  }
+}
+
+// ── Split ──────────────────────────────────────────────────
+splitBtn.addEventListener('click', async () => {
+  const method = state.method;
+  let value = null, ranges = null;
+
+  if (method === 'ranges') {
+    ranges = document.getElementById('rangesInput')?.value.trim();
+    if (!ranges) { showError('Escribe al menos un rango de páginas.'); return; }
+  } else {
+    value = document.getElementById('valueInput')?.value;
+    if (!value || parseInt(value) < 1) { showError('Introduce un número válido.'); return; }
+  }
+
+  connectSSE(state.sessionId, 'split');
+  splitBtn.disabled = true;
+  splitProgressWrap.classList.add('visible');
+  setProgress(splitProgressBar, 0, splitProgressMsg, splitProgressPct, null, 'Iniciando…');
+
+  try {
+    const res = await fetch('/api/split', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ sessionId: state.sessionId, method, value, ranges }),
+    });
+    if (!res.ok) { const d = await res.json(); throw new Error(d.error); }
+  } catch (err) {
+    showError('Error: ' + err.message);
+    splitBtn.disabled = false;
+    splitProgressWrap.classList.remove('visible');
+  }
+});
+
+// ── Results ────────────────────────────────────────────────
+function showResults(files, sessionId) {
+  fileList.innerHTML = '';
+  files.forEach(f => {
+    const row = document.createElement('div');
+    row.className = 'file-row';
+    row.innerHTML = `
+      <span class="file-row__icon">📄</span>
+      <div class="file-row__info">
+        <div class="file-row__name">${f.name}</div>
+        <div class="file-row__meta">${f.pages} página${f.pages !== 1 ? 's' : ''} · ${fmtSize(f.size)}</div>
+      </div>
+      <a class="file-row__dl" href="/api/download/${sessionId}/${encodeURIComponent(f.name)}" download>
+        ↓ Descargar
+      </a>`;
+    fileList.appendChild(row);
+  });
+
+  resultsCount.textContent = `${files.length} archivo${files.length !== 1 ? 's' : ''} · haz clic para descargar`;
+  zipBtn.href = `/api/download-zip/${sessionId}`;
+  resultsPanel.classList.add('visible');
+
+  // Scroll to results
+  resultsPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Reset ──────────────────────────────────────────────────
+function resetAll() {
+  if (state.sessionId) {
+    fetch(`/api/session/${state.sessionId}`, { method: 'DELETE' }).catch(() => {});
+  }
+  if (state.sse) { state.sse.close(); state.sse = null; }
+  state = { sessionId: null, pageCount: 0, fileName: '', method: 'parts', sse: null };
+
+  splitPanel.classList.remove('visible');
+  resultsPanel.classList.remove('visible');
+  progressWrap.classList.remove('visible');
+  splitProgressWrap.classList.remove('visible');
+  progressBar.style.width = '0%';
+  splitProgressBar.style.width = '0%';
+  fileInput.value = '';
+  dropzone.style.pointerEvents = '';
+  splitBtn.disabled = false;
+  toastEl.classList.remove('visible');
+
+  document.querySelectorAll('.method-card').forEach((c, i) => c.classList.toggle('active', i === 0));
+  inputArea.innerHTML = '';
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function resetUpload() {
+  progressWrap.classList.remove('visible');
+  progressBar.style.width = '0%';
+  dropzone.style.pointerEvents = '';
+  fileInput.value = '';
+  if (state.sse) { state.sse.close(); state.sse = null; }
+}
+
+document.getElementById('resetBtn').addEventListener('click', resetAll);
+document.getElementById('resetBtn2').addEventListener('click', resetAll);
+</script>
+</body>
+</html>
