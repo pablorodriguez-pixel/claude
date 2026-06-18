@@ -1,0 +1,28 @@
+// =============================================================================
+// Baker Awards (baker-awards)
+// =============================================================================
+
+.baker-awards {
+    @include section-c;
+    background: var(--white);
+
+    &__label {
+        text-align: center;
+        font-size: var(--font-size-small);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--purple);
+        margin-bottom: 24px;
+    }
+
+    &__logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        flex-wrap: wrap;
+
+        img { max-height: 56px; width: auto; opacity: 0.6; filter: grayscale(1); }
+    }
+}

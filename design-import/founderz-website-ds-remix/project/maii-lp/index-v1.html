@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es" data-hero="split" data-herobg="dark" data-countdown="on">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Máster en IA e Innovación · MAII — Founderz</title>
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="lp.css" />
+</head>
+<body>
+
+<!-- ===== Sprite de iconos (outline 1.8px, estilo Founderz) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow-l" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5m7-7-7 7 7 7"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+  <symbol id="i-dash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 14 9-14 9V3z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></symbol>
+</svg>
+
+<!-- ===================================================================== -->
+<!-- BARRA DE OFERTA STICKY -->
+<!-- ===================================================================== -->
+<div class="offerbar" data-screen-label="offer-bar">
+  <div class="offerbar__inner">
+    <span class="offerbar__msg"><span class="pill pill--dark pill--uppercase">Cohorte de junio</span> <b>Última oportunidad</b> · 50% de descuento</span>
+    <span class="offerbar__msg offerbar__timewrap">Termina en <span class="offerbar__count" data-cd-compact>00:00:00:00</span></span>
+    <a href="#precios" class="btn btn--white btn--sm">Reserva tu plaza</a>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- HERO -->
+<!-- ===================================================================== -->
+<section class="hero" data-screen-label="hero">
+  <div class="hero__bg ph ph--dark" data-label="foto · alumnos / clase en directo"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+
+    <!-- Header -->
+    <div class="site-head">
+      <div class="fz-container">
+        <header class="head-bar head-bar--dark">
+          <a href="#" class="head-logo" aria-label="Founderz">
+            <svg height="26" viewBox="0 0 201 37" fill="currentColor" aria-hidden="true"><g transform="translate(0,1.17)"><path d="M 0 3.862 C 0 5.969 1.878 7.775 4.165 7.775 C 6.451 7.775 8.323 5.969 8.323 3.862 C 8.323 1.754 6.446 0 4.165 0 C 1.884 0 0 1.806 0 3.862 Z"/></g><g transform="translate(10.816,1.363)"><path d="M 12.638 6.328 L 12.638 0 L 0.052 0 L 0 0.103 C 0.714 1.806 0.714 4.471 0 6.174 L 0.052 6.322 L 12.638 6.322 L 12.638 6.328 Z"/></g><g transform="translate(0.962,11.559)"><path d="M 21.382 3.884 L 6.4 3.884 L 6.4 0.046 L 6.296 0 C 4.574 0.706 1.884 0.706 0.156 0 L 0 0.046 L 0 24.936 L 6.394 24.936 L 6.394 10.207 L 21.376 10.207 L 21.376 3.884 L 21.382 3.884 Z"/></g><g transform="translate(25.066,11.331)"><path d="M 13.197 19.924 C 9.291 19.924 6.4 16.814 6.4 12.947 C 6.4 9.079 9.245 5.969 13.197 5.969 C 17.148 5.969 19.993 9.079 19.993 12.947 C 19.993 16.814 17.05 19.924 13.197 19.924 Z M 13.197 0 C 5.737 0 0 5.719 0 12.947 C 0 20.175 5.737 25.893 13.197 25.893 C 20.656 25.893 26.341 20.175 26.341 12.947 C 26.341 5.719 20.604 0 13.197 0 Z"/></g><g transform="translate(53.43,12.134)"><path d="M 9.078 24.993 C 12.119 24.993 15.27 23.586 16.843 20.374 L 16.843 24.338 L 23.035 24.338 L 23.035 0 L 16.693 0 L 16.693 13.55 C 16.693 16.911 14.458 19.07 11.417 19.07 C 8.375 19.07 6.394 17.013 6.394 13.698 L 6.394 0 L 0 0 L 0 16.011 C 0 21.28 3.957 24.993 9.084 24.993"/></g><g transform="translate(80.371,11.479)"><path d="M 0.011 6.123 L 0.011 24.993 L 6.405 24.993 L 6.405 11.397 C 6.405 8.037 8.738 5.924 11.785 5.924 C 15.034 5.924 16.958 7.98 16.958 11.244 L 16.958 24.993 L 23.352 24.993 L 23.352 8.885 C 23.352 3.714 19.394 0 14.06 0 C 10.915 0 7.822 1.504 6.244 4.42 L 6.244 0.655 L 0 0.655 L 0 6.129 L 0.011 6.123 Z"/></g><g transform="translate(105.746,0.993)"><path d="M 13.145 30.211 C 9.285 30.211 6.394 27.146 6.394 23.284 C 6.394 19.423 9.187 16.41 13.145 16.41 C 17.102 16.41 19.947 19.474 19.947 23.284 C 19.947 27.095 17.102 30.211 13.145 30.211 Z M 19.792 0 L 19.792 14.655 C 18.07 11.995 14.821 10.594 11.722 10.594 C 4.718 10.594 0 16.216 0 23.29 C 0 30.364 4.718 36.037 11.722 36.037 C 14.867 36.037 18.265 34.579 19.942 31.72 L 19.993 35.485 L 26.186 35.485 L 26.186 0 L 19.792 0 Z"/></g><g transform="translate(134.017,11.382)"><path d="M 6.348 9.985 C 7.159 7.074 9.389 5.263 12.487 5.263 C 15.789 5.263 17.971 7.069 18.732 9.985 L 6.353 9.985 L 6.348 9.985 Z M 12.534 0 C 5.276 0 0 5.77 0 12.895 C 0 20.021 5.328 25.842 12.89 25.842 C 18.017 25.842 22.429 23.632 24.612 18.916 L 24.612 18.768 C 22.937 18.819 20.402 17.611 19.383 16.307 L 19.278 16.307 C 18.467 18.563 16.237 20.425 13.035 20.425 C 9.532 20.425 6.843 18.369 6.134 14.855 L 24.762 14.855 C 25.88 6.624 20.858 0 12.534 0 Z"/></g><g transform="translate(161.163,11.69)"><path d="M 0.011 7.319 L 0.011 24.783 L 6.406 24.783 L 6.406 14.342 C 6.406 10.224 7.673 6.516 11.682 6.516 C 12.851 6.516 13.917 6.818 14.469 7.268 L 14.619 7.222 C 14.723 5.462 16.192 2.905 17.615 1.954 L 17.615 1.806 C 16.601 0.649 14.924 0 12.689 0 C 9.545 0 7.362 1.908 6.244 4.568 L 6.244 0.45 L 0 0.45 L 0 7.325 L 0.011 7.319 Z"/></g><g transform="translate(179.85,12.134)"><path d="M 0 24.338 L 20.962 24.338 L 20.962 18.665 L 8.83 18.665 L 8.83 18.415 L 20.708 4.921 L 20.708 0 L 0.455 0 L 0.455 5.673 L 11.923 5.673 L 11.923 5.872 L 0 19.371 L 0 24.338 Z"/></g></svg>
+          </a>
+          <nav class="head-nav">
+            <a href="#temario">Temario</a>
+            <a href="#profesores">Profesores</a>
+            <a href="#comparativa">Por qué MAII</a>
+            <a href="#precios">Precios</a>
+            <a href="#faq">FAQ</a>
+          </nav>
+          <div class="head-actions">
+            <a href="#precios" class="btn btn--outline-light btn--sm btn--ghost-hide">Hablemos</a>
+            <a href="#precios" class="btn btn--primary btn--sm">Inscríbete</a>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <!-- HERO · variante split (con tarjeta de oferta) -->
+    <div class="fz-container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="lp-eyebrow lp-eyebrow--ondark">Máster · MAII · Edición junio 2026</span>
+          <h1>Aprende a <b>liderar con IA</b> de quienes ya la aplican cada día</h1>
+          <p class="hero__sub">El máster en inteligencia artificial e innovación más práctico de España. Domina la IA en 12 semanas y conviértela en tu ventaja competitiva.</p>
+          <ul class="hero-checks">
+            <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Clases en directo con expertos en activo</li>
+            <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Proyecto final aplicado a tu trabajo</li>
+            <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Certificación oficial avalada por Microsoft</li>
+          </ul>
+          <div class="hero-social">
+            <div class="avatars">
+              <span class="av ph ph--lilac" style="border-radius:50%"></span>
+              <span class="av ph ph--lilac" style="border-radius:50%"></span>
+              <span class="av ph ph--lilac" style="border-radius:50%"></span>
+              <span class="av ph ph--lilac" style="border-radius:50%"></span>
+            </div>
+            <div class="hero-social__txt">
+              <span class="stars">★★★★★</span><br />
+              <b>+250.000 profesionales</b> ya se forman con Founderz
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de oferta / inscripción -->
+        <aside class="offer-card" data-screen-label="offer-card">
+          <div class="offer-card__top">
+            <span class="pill pill--solid pill--uppercase">50% OFF</span>
+            <span class="lp-eyebrow" style="font-size:13px">Quedan 18 plazas</span>
+          </div>
+          <div class="offer-card__price">
+            <span class="offer-card__now">1.490 €</span>
+            <span class="offer-card__old">2.980 €</span>
+          </div>
+          <p class="offer-card__note">o desde 139 €/mes con financiación sin intereses</p>
+          <div class="count count--onlilac" style="margin:2px 0">
+            <div class="count__cell"><span class="count__num" data-cd="d">00</span><span class="count__lbl">días</span></div>
+            <div class="count__cell"><span class="count__num" data-cd="h">00</span><span class="count__lbl">horas</span></div>
+            <div class="count__cell"><span class="count__num" data-cd="m">00</span><span class="count__lbl">min</span></div>
+            <div class="count__cell"><span class="count__num" data-cd="s">00</span><span class="count__lbl">seg</span></div>
+          </div>
+          <a href="#precios" class="btn btn--primary btn--block btn--lg">Reserva tu plaza con 50%</a>
+          <hr />
+          <ul class="offer-card__list">
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Acceso completo de por vida</li>
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> 14 módulos · +120 lecciones</li>
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Comunidad y eventos incluidos</li>
+          </ul>
+          <span class="guarantee"><span class="guarantee__seal"><svg width="18" height="18"><use href="#i-shield"/></svg></span> Garantía de devolución de 15 días</span>
+        </aside>
+      </div>
+
+      <!-- HERO · variante centrada -->
+      <div class="hero-centered">
+        <span class="pill pill--solid pill--uppercase">Cohorte de junio · 50% OFF</span>
+        <h1>El máster en IA<br /><b>hecho para profesionales</b></h1>
+        <p class="hero__sub">Aprende a aplicar la inteligencia artificial en tu trabajo de la mano de quienes ya la usan cada día. Práctico, en directo y a tu ritmo.</p>
+        <div class="count count--onlilac">
+          <div class="count__cell"><span class="count__num" data-cd="d">00</span><span class="count__lbl">días</span></div>
+          <div class="count__cell"><span class="count__num" data-cd="h">00</span><span class="count__lbl">horas</span></div>
+          <div class="count__cell"><span class="count__num" data-cd="m">00</span><span class="count__lbl">min</span></div>
+          <div class="count__cell"><span class="count__num" data-cd="s">00</span><span class="count__lbl">seg</span></div>
+        </div>
+        <div class="hero-centered__cta">
+          <a href="#precios" class="btn btn--primary btn--lg">Reserva tu plaza con 50%</a>
+          <a href="#temario" class="btn btn--outline-light btn--lg">Descarga el temario</a>
+        </div>
+        <div class="hero-portraits">
+          <span class="ph ph--lilac" data-label="profesor"></span>
+          <span class="ph ph--lilac" data-label="profesora"></span>
+          <span class="ph ph--lilac" data-label="profesor"></span>
+          <span class="ph ph--lilac" data-label="profesora"></span>
+          <span class="ph ph--lilac" data-label="profesor"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PRENSA -->
+<!-- ===================================================================== -->
+<section class="fz-bg-white press" data-screen-label="prensa">
+  <p class="press__label">Lo cuentan en</p>
+  <div class="press__mask">
+    <div class="press__track">
+      <span class="press__logo">Forbes</span>
+      <span class="press__logo">Expansión</span>
+      <span class="press__logo">El País</span>
+      <span class="press__logo">La Vanguardia</span>
+      <span class="press__logo">Cinco Días</span>
+      <span class="press__logo">Emprendedores</span>
+      <span class="press__logo">Forbes</span>
+      <span class="press__logo">Expansión</span>
+      <span class="press__logo">El País</span>
+      <span class="press__logo">La Vanguardia</span>
+      <span class="press__logo">Cinco Días</span>
+      <span class="press__logo">Emprendedores</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PROFESORES -->
+<!-- ===================================================================== -->
+<section id="profesores" class="fz-bg-grey fz-section" data-screen-label="profesores" data-carousel>
+  <div class="fz-container">
+    <div class="faculty__head">
+      <div class="lp-stack" style="gap:14px;max-width:560px">
+        <span class="lp-eyebrow">Profesores</span>
+        <h2 class="fz-h2">Aprende de quienes aplican IA cada día</h2>
+        <p class="fz-body fz-muted">Directivos, fundadores y especialistas que usan la inteligencia artificial en empresas reales. No teoría: práctica del mundo real.</p>
+      </div>
+      <div class="carousel__nav">
+        <button class="carousel__btn" data-car-prev aria-label="Anterior"><svg width="20" height="20"><use href="#i-arrow-l"/></svg></button>
+        <button class="carousel__btn" data-car-next aria-label="Siguiente"><svg width="20" height="20"><use href="#i-arrow-r"/></svg></button>
+      </div>
+    </div>
+    <div class="carousel">
+      <div class="carousel__track">
+        <article class="fac-card"><div class="ph" data-label="retrato profesor"></div><h3 class="fac-card__name">Elena Vidal</h3><p class="fac-card__role">Directora de IA · Banca</p></article>
+        <article class="fac-card"><div class="ph" data-label="retrato profesor"></div><h3 class="fac-card__name">Daniel Roca</h3><p class="fac-card__role">Fundador · Startup de IA</p></article>
+        <article class="fac-card"><div class="ph" data-label="retrato profesor"></div><h3 class="fac-card__name">Carla Méndez</h3><p class="fac-card__role">Head of Data · Retail</p></article>
+        <article class="fac-card"><div class="ph" data-label="retrato profesor"></div><h3 class="fac-card__name">Javier Soto</h3><p class="fac-card__role">Director de Innovación</p></article>
+        <article class="fac-card"><div class="ph" data-label="retrato profesor"></div><h3 class="fac-card__name">Marta Gil</h3><p class="fac-card__role">Lead AI Product Manager</p></article>
+        <article class="fac-card"><div class="ph" data-label="retrato profesor"></div><h3 class="fac-card__name">Toni Ferrer</h3><p class="fac-card__role">CTO · Scale-up</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- QUÉ INCLUYE -->
+<!-- ===================================================================== -->
+<section class="fz-bg-white fz-section" data-screen-label="que-incluye">
+  <div class="fz-container">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin:0 auto 40px">
+      <span class="lp-eyebrow">Qué incluye</span>
+      <h2 class="fz-h2">Todo lo que necesitas para dominar la IA</h2>
+    </div>
+    <div class="benefits">
+      <article class="benefit benefit--wide">
+        <div class="ph" data-label="foto · sesión en directo"></div>
+        <div class="benefit__body">
+          <span class="pill" style="align-self:flex-start">Cada semana</span>
+          <h3>Sesiones en directo con fundadores y expertos</h3>
+          <p>Aprende, pregunta y aplica en sesiones semanales impartidas por profesionales que usan IA en grandes empresas y startups.</p>
+        </div>
+      </article>
+      <article class="benefit">
+        <div class="ph" data-label="foto · plantillas / frameworks"></div>
+        <div class="benefit__body">
+          <h3>+150 frameworks y plantillas</h3>
+          <p>Recursos descargables listos para usar que aceleran tu trabajo desde el primer día.</p>
+        </div>
+      </article>
+      <article class="benefit">
+        <div class="ph" data-label="foto · comunidad / evento"></div>
+        <div class="benefit__body">
+          <h3>Comunidad de +250.000 profesionales</h3>
+          <p>Conecta con una red global de profesionales y participa en eventos presenciales y online.</p>
+        </div>
+      </article>
+      <article class="benefit benefit--wide">
+        <div class="ph" data-label="foto · portátil / móvil"></div>
+        <div class="benefit__body">
+          <span class="pill" style="align-self:flex-start">15 min al día</span>
+          <h3>Aprende a tu ritmo, en cualquier dispositivo</h3>
+          <p>Contenido disponible cuando y donde quieras: ordenador, tablet o móvil. Avanza a tu ritmo sin perder el directo.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- COMPARATIVA -->
+<!-- ===================================================================== -->
+<section id="comparativa" class="fz-bg-dark fz-section" data-screen-label="comparativa">
+  <div class="fz-container">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin:0 auto 40px">
+      <span class="lp-eyebrow" style="color:var(--fz-lilac)">Por qué MAII</span>
+      <h2 class="fz-h2" style="color:var(--fz-white)">Formación de alto nivel a un precio imbatible</h2>
+    </div>
+    <div class="compare">
+      <div class="compare__col compare__col--old">
+        <h3 class="compare__title" style="color:var(--fz-white)">Un MBA tradicional</h3>
+        <p class="compare__sub" style="color:var(--fz-white-70)">Caro, lento y desconectado del mundo real.</p>
+        <ul class="compare__list">
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> +60.000 € de media</li>
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> Horarios rígidos y presenciales</li>
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> Sin política de devolución</li>
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> 1-2 años de dedicación</li>
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> Profesores académicos</li>
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> Temario que envejece rápido</li>
+          <li><svg class="compare__mark" style="color:var(--fz-white-60)"><use href="#i-dash"/></svg> Proceso de admisión tedioso</li>
+        </ul>
+      </div>
+      <div class="compare__col compare__col--new">
+        <span class="compare__badge pill pill--solid pill--uppercase">El máster MAII</span>
+        <h3 class="compare__title">El máster en IA de Founderz</h3>
+        <p class="compare__sub">Práctico, flexible y actualizado cada mes.</p>
+        <ul class="compare__list">
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> 1.490 € con financiación sin intereses</li>
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> 100% online, donde y cuando quieras</li>
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Garantía de devolución de 15 días</li>
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> 12 semanas · 15 min al día</li>
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Profesores que aplican IA cada día</li>
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Temario actualizado cada mes</li>
+          <li><svg class="compare__mark" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Acceso inmediato, sin pruebas de acceso</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PARA QUIÉN ES -->
+<!-- ===================================================================== -->
+<section class="fz-bg-white fz-section" data-screen-label="para-quien">
+  <div class="fz-container">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin:0 auto 40px">
+      <span class="lp-eyebrow">Para quién es</span>
+      <h2 class="fz-h2">Pensado para quien quiere liderar el cambio</h2>
+    </div>
+    <div class="audience">
+      <article class="aud-card">
+        <span class="aud-card__icon"><svg width="26" height="26"><use href="#i-rocket"/></svg></span>
+        <h3>Fundadores y CEOs</h3>
+        <p>Convierte la IA en ventaja competitiva. Escala más rápido, toma mejores decisiones y construye un negocio preparado para el futuro con estrategias reales.</p>
+      </article>
+      <article class="aud-card">
+        <span class="aud-card__icon"><svg width="26" height="26"><use href="#i-briefcase"/></svg></span>
+        <h3>Directivos y profesionales</h3>
+        <p>Lidera con criterio en la era de la IA. Aplica frameworks probados, impulsa la productividad de tu equipo y mantente por delante en tu sector.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- TEMARIO -->
+<!-- ===================================================================== -->
+<section id="temario" class="fz-bg-grey fz-section" data-screen-label="temario">
+  <div class="fz-container">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin:0 auto 36px">
+      <span class="lp-eyebrow">Temario</span>
+      <h2 class="fz-h2">Un programa hecho para aplicar desde el día uno</h2>
+    </div>
+    <div class="curr-stats" style="justify-content:center">
+      <div style="text-align:center"><div class="curr-stat__n">14</div><div class="curr-stat__l">Módulos</div></div>
+      <div style="text-align:center"><div class="curr-stat__n">+120</div><div class="curr-stat__l">Lecciones</div></div>
+      <div style="text-align:center"><div class="curr-stat__n">+40h</div><div class="curr-stat__l">En directo</div></div>
+      <div style="text-align:center"><div class="curr-stat__n">+150</div><div class="curr-stat__l">Plantillas</div></div>
+    </div>
+
+    <!-- Módulo destacado -->
+    <article class="module-featured">
+      <div class="module-featured__grid">
+        <div class="module-featured__body">
+          <span class="module-featured__num">Módulo 01</span>
+          <h3 class="module-featured__title">Fundamentos de IA generativa</h3>
+          <p class="module-featured__desc">¿Cómo funciona la IA y dónde encaja en tu trabajo? Construye una base sólida para aplicarla con criterio desde el primer día.</p>
+          <div class="module-meta">
+            <div class="module-meta__item"><span class="module-meta__n">18</span><span class="module-meta__l">Lecciones</span></div>
+            <div class="module-meta__item"><span class="module-meta__n">4h</span><span class="module-meta__l">Vídeo</span></div>
+            <div class="module-meta__item"><span class="module-meta__n">3</span><span class="module-meta__l">Casos</span></div>
+            <div class="module-meta__item"><span class="module-meta__n">2</span><span class="module-meta__l">Profesores</span></div>
+          </div>
+          <ul class="module-learn">
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Entiende cómo funciona la IA generativa</li>
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Identifica oportunidades de IA en tu trabajo</li>
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Elige la herramienta adecuada para cada tarea</li>
+            <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Diseña tus primeros flujos de trabajo con IA</li>
+          </ul>
+        </div>
+        <div class="module-featured__media"><div class="ph" data-label="foto · profesor en clase"></div></div>
+      </div>
+    </article>
+
+    <!-- Resto de módulos -->
+    <div class="module-grid">
+      <div class="module-row"><span class="module-row__num">02</span><span class="module-row__title">Estrategia e innovación con IA</span></div>
+      <div class="module-row"><span class="module-row__num">03</span><span class="module-row__title">Prompt engineering avanzado</span><span class="pill pill--new">Nuevo</span></div>
+      <div class="module-row"><span class="module-row__num">04</span><span class="module-row__title">Productividad con Copilot</span></div>
+      <div class="module-row"><span class="module-row__num">05</span><span class="module-row__title">Automatización y agentes de IA</span><span class="pill pill--new">Nuevo</span></div>
+      <div class="module-row"><span class="module-row__num">06</span><span class="module-row__title">IA aplicada al marketing</span></div>
+      <div class="module-row"><span class="module-row__num">07</span><span class="module-row__title">IA en finanzas y operaciones</span></div>
+      <div class="module-row"><span class="module-row__num">08</span><span class="module-row__title">Análisis de datos con IA</span></div>
+      <div class="module-row"><span class="module-row__num">09</span><span class="module-row__title">Liderazgo en la era de la IA</span></div>
+      <div class="module-row"><span class="module-row__num">10</span><span class="module-row__title">Ética y gobernanza de la IA</span></div>
+      <div class="module-row"><span class="module-row__num">11</span><span class="module-row__title">Desarrollo no-code con IA</span><span class="pill pill--new">Nuevo</span></div>
+      <div class="module-row"><span class="module-row__num">12</span><span class="module-row__title">Marca personal con IA</span></div>
+      <div class="module-row"><span class="module-row__num">13</span><span class="module-row__title">Casos de éxito y proyecto final</span></div>
+    </div>
+    <div style="text-align:center;margin-top:32px">
+      <a href="#precios" class="btn btn--primary btn--lg">Descargar temario completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- COMUNIDAD + EVENTOS -->
+<!-- ===================================================================== -->
+<section class="fz-bg-lilac fz-section" data-screen-label="comunidad">
+  <div class="fz-container">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin:0 auto 40px">
+      <span class="lp-eyebrow">Comunidad</span>
+      <h2 class="fz-h2">Únete a +250.000 profesionales</h2>
+      <p class="fz-body fz-muted">Conecta con profesionales de toda España y Latinoamérica. Sesiones en directo, eventos presenciales y una comunidad privada siempre activa.</p>
+    </div>
+    <div class="community">
+      <div class="comm-card">
+        <div class="ph" data-label="foto · evento presencial"></div>
+        <div class="comm-card__cap"><span>Eventos presenciales en Madrid, Barcelona y online</span></div>
+      </div>
+      <div class="comm-right">
+        <article class="event-card">
+          <div class="event-date"><b>26</b><span>Jun</span></div>
+          <div><p class="event-card__t">IA generativa aplicada a finanzas</p><p class="event-card__s">Webinar en directo · con Elena Vidal</p></div>
+        </article>
+        <article class="event-card">
+          <div class="event-date"><b>03</b><span>Jul</span></div>
+          <div><p class="event-card__t">Liderazgo en la era de la IA</p><p class="event-card__s">Masterclass · con Marc Soler</p></div>
+        </article>
+        <article class="event-card">
+          <div class="event-date"><b>10</b><span>Jul</span></div>
+          <div><p class="event-card__t">Encuentro de alumni en Madrid</p><p class="event-card__s">Evento presencial · plazas limitadas</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PRECIOS -->
+<!-- ===================================================================== -->
+<section id="precios" class="fz-bg-white fz-section" data-screen-label="precios">
+  <div class="fz-container">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;max-width:760px;margin:0 auto 40px">
+      <span class="lp-eyebrow">Precios</span>
+      <h2 class="fz-h2">Reserva tu plaza con un 50% de descuento</h2>
+      <p class="fz-body fz-muted">Oferta de la cohorte de junio. El precio sube cuando termine el contador.</p>
+    </div>
+    <div class="pricing">
+      <article class="price-card price-card--feature">
+        <span class="price-card__tag pill pill--solid pill--uppercase">Más elegido · 50% OFF</span>
+        <p class="price-card__name">Pago único</p>
+        <div class="price-card__price">
+          <span class="price-card__now">1.490 €</span>
+          <span class="price-card__old">2.980 €</span>
+        </div>
+        <p class="price-card__per">Un pago · acceso de por vida</p>
+        <a href="#" class="btn btn--white btn--block btn--lg">Inscríbete y ahorra 50%</a>
+        <hr />
+        <ul class="price-card__list">
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Acceso completo de por vida</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> 14 módulos · +120 lecciones</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> +150 frameworks y plantillas</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Sesiones en directo y eventos</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Certificación oficial Microsoft</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Nuevos contenidos cada mes</li>
+        </ul>
+        <span class="price-guarantee"><svg width="18" height="18"><use href="#i-shield"/></svg> Garantía de devolución de 15 días</span>
+      </article>
+
+      <article class="price-card">
+        <p class="price-card__name">Financiado</p>
+        <div class="price-card__price">
+          <span class="price-card__now">139 €</span>
+          <span class="price-card__per" style="opacity:.6">/mes</span>
+        </div>
+        <p class="price-card__per">12 meses sin intereses · acceso de por vida</p>
+        <a href="#" class="btn btn--primary btn--block btn--lg">Inscríbete a plazos</a>
+        <hr />
+        <ul class="price-card__list">
+          <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Acceso completo de por vida</li>
+          <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> 14 módulos · +120 lecciones</li>
+          <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> +150 frameworks y plantillas</li>
+          <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Sesiones en directo y eventos</li>
+          <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Certificación oficial Microsoft</li>
+          <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Bonificable para empresas (Fundae)</li>
+        </ul>
+        <span class="price-guarantee"><svg width="18" height="18"><use href="#i-shield"/></svg> Garantía de devolución de 15 días</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- FAQ -->
+<!-- ===================================================================== -->
+<section id="faq" class="fz-bg-grey fz-section" data-screen-label="faq">
+  <div class="fz-container" style="max-width:840px">
+    <div class="fz-heading" style="display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center;margin:0 auto 36px">
+      <span class="lp-eyebrow">Preguntas frecuentes</span>
+      <h2 class="fz-h2">Resolvemos tus dudas</h2>
+    </div>
+    <div class="acc" data-single>
+      <div class="acc__item" data-open="true">
+        <button class="acc__q" type="button">¿Esto me ayudará de verdad a aplicar la IA en mi trabajo? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Sí. Cada módulo combina teoría, herramientas y un proyecto práctico aplicado a tu rol, para que salgas usando la IA desde la primera semana.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">Un máster en IA por 1.490 €, ¿dónde está el truco? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">No hay truco. Founderz es educación abierta: sin campus físico ni intermediarios, lo que nos permite ofrecer formación de máximo nivel a una fracción del precio de un MBA tradicional.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">No tengo tiempo para esto. <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">El programa está diseñado para avanzar con 15 minutos al día, a tu ritmo y desde cualquier dispositivo. Las sesiones en directo quedan grabadas para que las veas cuando quieras.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">¿Hay política de devolución? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Sí. Cuentas con una garantía de devolución de 15 días: si no es para ti, te devolvemos el importe íntegro sin preguntas.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">¿Esto son solo vídeos? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">No. Además de las lecciones en vídeo, tendrás sesiones en directo, casos prácticos, +150 plantillas descargables, proyecto final y acceso a la comunidad y eventos.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">¿Puedo bonificarlo a través de mi empresa? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Sí. El programa puede ser bonificable a través de Fundae si tu empresa te inscribe. Te ayudamos con la gestión.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">¿Necesito conocimientos previos? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">No. El programa parte de cero y avanza progresivamente hasta un nivel avanzado, sea cual sea tu perfil o sector.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- BANNER CTA FINAL -->
+<!-- ===================================================================== -->
+<section class="fz-bg-dark fz-section" data-screen-label="cta-final">
+  <div class="fz-container final-cta">
+    <span class="lp-eyebrow" style="color:var(--fz-lilac);display:block;margin-bottom:16px">Cohorte de junio · 50% OFF</span>
+    <h2>¿Preparado para liderar con IA?</h2>
+    <p>Plazas limitadas. Asegura la tuya antes de que termine el contador.</p>
+    <div class="final-cta__count">
+      <div class="count">
+        <div class="count__cell"><span class="count__num" data-cd="d">00</span><span class="count__lbl">días</span></div>
+        <div class="count__cell"><span class="count__num" data-cd="h">00</span><span class="count__lbl">horas</span></div>
+        <div class="count__cell"><span class="count__num" data-cd="m">00</span><span class="count__lbl">min</span></div>
+        <div class="count__cell"><span class="count__num" data-cd="s">00</span><span class="count__lbl">seg</span></div>
+      </div>
+    </div>
+    <a href="#precios" class="btn btn--primary btn--lg">Reserva tu plaza con 50%</a>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================================== -->
+<footer class="fz-bg-purple" style="color:var(--fz-white)">
+  <div class="fz-container" style="padding-block:56px">
+    <div style="display:flex;gap:48px;flex-wrap:wrap;align-items:flex-start;justify-content:space-between">
+      <svg height="44" viewBox="0 0 23.454 35.33" fill="currentColor" aria-hidden="true"><g><path d="M 0 3.862 C 0 5.969 1.878 7.775 4.165 7.775 C 6.451 7.775 8.323 5.969 8.323 3.862 C 8.323 1.754 6.446 0 4.165 0 C 1.884 0 0 1.806 0 3.862 Z"/></g><g transform="translate(10.816,0.193)"><path d="M 12.638 6.328 L 12.638 0 L 0.052 0 L 0 0.103 C 0.714 1.806 0.714 4.471 0 6.174 L 0.052 6.322 L 12.638 6.322 L 12.638 6.328 Z"/></g><g transform="translate(0.962,10.389)"><path d="M 21.382 3.884 L 6.4 3.884 L 6.4 0.046 L 6.296 0 C 4.574 0.706 1.884 0.706 0.156 0 L 0 0.046 L 0 24.936 L 6.394 24.936 L 6.394 10.207 L 21.376 10.207 L 21.376 3.884 L 21.382 3.884 Z"/></g></svg>
+      <div style="display:flex;gap:48px;flex-wrap:wrap">
+        <div style="display:flex;flex-direction:column;gap:16px;min-width:150px">
+          <span style="font-weight:var(--fw-semibold)">Programa</span>
+          <a href="#temario" style="color:var(--fz-white-70);text-decoration:none">Temario</a>
+          <a href="#profesores" style="color:var(--fz-white-70);text-decoration:none">Profesores</a>
+          <a href="#precios" style="color:var(--fz-white-70);text-decoration:none">Precios</a>
+          <a href="#faq" style="color:var(--fz-white-70);text-decoration:none">FAQ</a>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;min-width:150px">
+          <span style="font-weight:var(--fw-semibold)">Founderz</span>
+          <a href="#" style="color:var(--fz-white-70);text-decoration:none">Empresas</a>
+          <a href="#" style="color:var(--fz-white-70);text-decoration:none">Financiación</a>
+          <a href="#" style="color:var(--fz-white-70);text-decoration:none">Nosotros</a>
+          <a href="#" style="color:var(--fz-white-70);text-decoration:none">Newsletter</a>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:48px;padding-top:24px;border-top:1px solid var(--fz-white-10);display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between;color:var(--fz-white-70);font-size:16px">
+      <span>Términos y condiciones | Política de cookies | Política de privacidad</span>
+      <span>Castellana 79, 7, 28046, Madrid · +34 936 297 310</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================================================================== -->
+<!-- CTA STICKY INFERIOR -->
+<!-- ===================================================================== -->
+<div class="sticky-cta">
+  <div class="sticky-cta__inner">
+    <div class="sticky-cta__txt">
+      <b>Máster en IA · MAII</b>
+      <span><span class="strike">2.980 €</span> &nbsp;1.490 € · termina en <span data-cd-compact>00:00:00:00</span></span>
+    </div>
+    <a href="#precios" class="btn btn--primary">Reserva tu plaza</a>
+  </div>
+</div>
+
+<script src="lp.js"></script>
+
+<!-- ===== Tweaks (variaciones de hero + ajustes de oferta) ===== -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+
+</body>
+</html>

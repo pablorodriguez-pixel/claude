@@ -1,0 +1,40 @@
+// =============================================================================
+// Baker Teachers (baker-teachers)
+// =============================================================================
+
+.baker-teachers {
+    @include section-b;
+    background: var(--bg-black);
+    color: var(--white);
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 12px;
+
+        @media all and (max-width: 1024px) { grid-template-columns: repeat(4, 1fr); }
+        @media all and (max-width: 810px)  { grid-template-columns: repeat(3, 1fr); }
+        @media all and (max-width: 580px)  { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    &__item {
+        position: relative;
+        border-radius: 16px;
+        overflow: hidden;
+        aspect-ratio: 3 / 4;
+
+        &__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        &__overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(80,69,200,0) 40%, rgba(47,41,118,0.92)); }
+
+        &__info { position: absolute; inset-inline: 16px; bottom: 16px; color: #fff; }
+        &__name { margin: 0; font-size: 17px; font-weight: 600; }
+        &__role { margin: 2px 0 0; font-size: 13px; color: rgba(255, 255, 255, 0.85); }
+        &__company {
+            display: inline-block;
+            margin-top: 8px;
+            img { max-height: 18px; width: auto; filter: brightness(0) invert(1); opacity: 0.9; }
+        }
+    }
+
+    &__cta { display: flex; justify-content: center; margin-top: 32px; }
+}

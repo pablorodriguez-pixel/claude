@@ -1,0 +1,53 @@
+// =============================================================================
+// Baker FAQs (baker-faqs)
+// =============================================================================
+
+.baker-faqs {
+    @include section-b;
+    background: var(--grey);
+
+    &__list {
+        max-width: 820px;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+    }
+
+    &__item {
+        background: var(--white);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+
+        @media (hover: hover) { &:hover { background: #f8f7ff; } }
+
+        &__summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px;
+            cursor: pointer;
+            list-style: none;
+
+            &::-webkit-details-marker { display: none; }
+
+            &__text { font-size: var(--font-size-body); font-weight: 500; color: var(--black); }
+            &__icon { color: var(--purple); flex-shrink: 0; transition: transform 200ms ease; }
+        }
+
+        &[open] .baker-faqs__item__summary__icon,
+        &.is-active .baker-faqs__item__summary__icon { transform: rotate(180deg); }
+
+        &__content {
+            padding: 0 24px 24px;
+            font-size: var(--font-size-body);
+            line-height: var(--line-height-body);
+            color: var(--black-opacity-7);
+
+            p { margin: 0; }
+            p + p { margin-top: 12px; }
+        }
+    }
+}

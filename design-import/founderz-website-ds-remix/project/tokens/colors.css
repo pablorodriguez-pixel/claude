@@ -1,0 +1,50 @@
+/* ============================================================
+   Founderz — Color tokens
+   Premium AI business school. Clean, spacious, aspirational.
+   ============================================================ */
+
+:root {
+  /* ---- Brand primitives ---- */
+  --fz-purple: #5045c8;          /* Primary CTA, labels, accents */
+  --fz-violet-darker: #2f2976;   /* Hover of purple */
+  --fz-black: #1a191d;           /* Base text, dark surfaces */
+  --fz-white: #ffffff;           /* Text on dark, surfaces */
+  --fz-grey: #f3f5f7;            /* Neutral section bg, cards */
+  --fz-lilac: #e2e2f8;           /* Pills, badges, soft accent bg */
+  --fz-lilac-deep: #dcdceb;      /* Style-guide lilac, dividers on lilac */
+
+  /* ---- Alpha text colors ---- */
+  --fz-black-70: rgba(26, 25, 29, 0.7);   /* Secondary text on light */
+  --fz-black-50: rgba(26, 25, 29, 0.5);
+  --fz-white-70: rgba(255, 255, 255, 0.7); /* Secondary text on dark */
+  --fz-white-60: rgba(255, 255, 255, 0.6);
+  --fz-white-05: rgba(255, 255, 255, 0.05); /* Tile bg on dark */
+  --fz-white-10: rgba(255, 255, 255, 0.1);  /* Tile border on dark */
+
+  /* ---- Borders & lines ---- */
+  --fz-border: rgba(0, 0, 0, 0.05);   /* The only card/divider border */
+  --fz-border-strong: rgba(0, 0, 0, 0.1);
+
+  /* ---- Semantic aliases ---- */
+  --surface-page: var(--fz-white);
+  --surface-neutral: var(--fz-grey);
+  --surface-dark: var(--fz-black);
+  --surface-accent-soft: var(--fz-lilac);
+  --surface-accent: var(--fz-purple);
+
+  --text-primary: var(--fz-black);
+  --text-secondary: var(--fz-black-70);
+  --text-on-dark: var(--fz-white);
+  --text-on-dark-secondary: var(--fz-white-70);
+  --text-accent: var(--fz-purple);
+
+  --action-primary: var(--fz-purple);
+  --action-primary-hover: var(--fz-violet-darker);
+  --border-default: var(--fz-border);
+
+  /* ---- Figma-resolved exact style-guide values (reference) ---- */
+  --color-white: #ffffff;
+  --color-purple: #5045c8;
+  --color-lilac: #dcdceb;
+  --color-neutral-darkest: #1a191d;
+}

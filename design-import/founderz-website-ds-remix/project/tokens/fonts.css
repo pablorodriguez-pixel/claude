@@ -1,0 +1,41 @@
+/* ============================================================
+   Founderz — Web fonts
+   RundDisplay: the brand's geometric display sans.
+   Weights in use: 300 Light, 400 Regular, 500 Medium, 600 SemiBold
+   ============================================================ */
+
+@font-face {
+  font-family: "Rund Display";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/RundDisplay-Light.woff2") format("woff2"),
+       url("../assets/fonts/RundDisplay-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Rund Display";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/RundDisplay-Regular.woff2") format("woff2"),
+       url("../assets/fonts/RundDisplay-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Rund Display";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/RundDisplay-Medium.woff2") format("woff2"),
+       url("../assets/fonts/RundDisplay-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Rund Display";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/RundDisplay-SemiBold.woff2") format("woff2"),
+       url("../assets/fonts/RundDisplay-SemiBold.woff") format("woff");
+}

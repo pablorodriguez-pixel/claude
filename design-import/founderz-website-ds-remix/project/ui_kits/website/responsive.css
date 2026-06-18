@@ -1,0 +1,253 @@
+/* ============================================================
+   Founderz website UI kit — responsive
+   Breakpoints alineados con el SCSS del tema: 1024 / 810 / 580.
+   Adaptamos sobre todo desde 1024 y desde 810 hacia abajo.
+   ============================================================ */
+
+/* ---- Kit tab bar: scroll horizontal en pantallas pequeñas ---- */
+@media all and (max-width: 810px) {
+  .kit-nav { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .kit-tab { flex-shrink: 0; }
+}
+
+/* ============================================================
+   WEBINAR — Hero
+   ============================================================ */
+.wb-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 440px;
+  gap: 56px;
+  align-items: center;
+  padding-block: 64px;
+}
+@media all and (max-width: 1024px) {
+  .wb-hero { grid-template-columns: 1fr 380px; gap: 40px; }
+}
+@media all and (max-width: 810px) {
+  .wb-hero { grid-template-columns: 1fr; gap: 32px; padding-block: 48px; }
+}
+
+.wb-hero__title { font-size: 56px; }
+@media all and (max-width: 1024px) { .wb-hero__title { font-size: 48px; } }
+@media all and (max-width: 810px)  { .wb-hero__title { font-size: 40px; } }
+@media all and (max-width: 580px)  { .wb-hero__title { font-size: 32px; } }
+
+/* Cabecera fina del hero (logo + fecha) */
+@media all and (max-width: 580px) {
+  .wb-hero-top { flex-wrap: wrap; gap: 12px; }
+}
+
+/* ============================================================
+   WEBINAR — Grids de sección
+   ============================================================ */
+
+/* 3 columnas → 2 (≤1024) → 1 (≤810) */
+.wb-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+@media all and (max-width: 1024px) { .wb-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media all and (max-width: 810px)  { .wb-grid-3 { grid-template-columns: 1fr; } }
+
+/* 2 columnas (lista "¿es para ti?") → 1 (≤810) */
+.wb-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 820px;
+  margin-inline: auto;
+}
+@media all and (max-width: 810px) { .wb-grid-2 { grid-template-columns: 1fr; } }
+
+/* Dos columnas asimétricas (agenda) → 1 (≤810) */
+.wb-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 56px;
+  align-items: start;
+}
+@media all and (max-width: 810px) { .wb-two-col { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Ponente: media fija + texto → 1 (≤810) */
+.wb-speaker {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 56px;
+  align-items: center;
+}
+@media all and (max-width: 1024px) { .wb-speaker { grid-template-columns: 300px 1fr; gap: 40px; } }
+@media all and (max-width: 810px) {
+  .wb-speaker { grid-template-columns: 1fr; gap: 24px; }
+  .wb-speaker__media { max-height: 380px; }
+}
+
+/* ============================================================
+   Chrome compartido (Header del DS) — usado por todas las pantallas
+   ============================================================ */
+@media all and (max-width: 1024px) {
+  .fz-header nav { gap: 18px; }
+}
+@media all and (max-width: 810px) {
+  .fz-header { padding: 16px 20px; }
+  .fz-header nav { display: none; }
+}
+@media all and (max-width: 580px) {
+  /* En móvil, deja solo el CTA principal en el header */
+  .fz-header > div:last-child > .fz-button:first-child { display: none; }
+}
+
+/* ============================================================
+   BAKER CLON (LP MAIC)
+   ============================================================ */
+
+/* Hero: reel | (contenido + formulario apilados) */
+.bk-hero {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.bk-hero__reel { max-width: 300px; position: sticky; top: 24px; }
+.bk-hero__main {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.bk-hero__form { margin-top: 12px; max-width: 560px; width: 100%; }
+@media all and (max-width: 1024px) {
+  .bk-hero { grid-template-columns: 1fr; gap: 32px; }
+  .bk-hero__reel { display: none; }
+}
+@media all and (max-width: 810px) {
+  .bk-hero { gap: 28px; }
+}
+
+.bk-hero__title { font-size: 48px; }
+@media all and (max-width: 1024px) { .bk-hero__title { font-size: 42px; } }
+@media all and (max-width: 810px)  { .bk-hero__title { font-size: 36px; } }
+@media all and (max-width: 580px)  { .bk-hero__title { font-size: 30px; } }
+
+/* Grids genéricos */
+.bk-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media all and (max-width: 1024px) { .bk-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+@media all and (max-width: 810px)  { .bk-grid-3 { grid-template-columns: 1fr; } }
+
+.bk-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+@media all and (max-width: 1024px) { .bk-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media all and (max-width: 580px)  { .bk-grid-4 { grid-template-columns: 1fr; } }
+
+.bk-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+@media all and (max-width: 810px) { .bk-two-col { grid-template-columns: 1fr; gap: 32px; } }
+
+.bk-specs-carousel {
+  overflow-x: scroll;
+  cursor: grab;
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+.bk-specs-carousel:active, .bk-specs-carousel.is-dragging { cursor: grabbing; }
+.bk-specs-carousel.is-dragging { user-select: none; }
+.bk-specs-carousel::-webkit-scrollbar { display: none; }
+.bk-specs-carousel:hover .bk-specs-track { animation-play-state: paused; }
+@keyframes bk-specs-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.bk-specs-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+}
+.bk-spec-item {
+  position: relative;
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  overflow: hidden;
+  scroll-snap-align: start;
+}
+.bk-spec-item__name {
+  position: absolute;
+  left: 10px; right: 10px; bottom: 10px;
+  font-size: 13px; font-weight: 600; color: #fff;
+  text-align: center; line-height: 1.3;
+}
+
+/* Showcase: 2 vídeos arriba (verticales) + 3 imágenes abajo */
+.bk-showcase {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+}
+.bk-showcase__item--0 { grid-column: span 3; aspect-ratio: 16 / 11; }
+.bk-showcase__item--1 { grid-column: span 3; aspect-ratio: 16 / 11; }
+.bk-showcase__item--2 { grid-column: span 2; }
+.bk-showcase__item--3 { grid-column: span 2; }
+.bk-showcase__item--4 { grid-column: span 2; }
+@media all and (max-width: 810px) {
+  .bk-showcase { grid-template-columns: 1fr 1fr; }
+  .bk-showcase__item--0, .bk-showcase__item--1,
+  .bk-showcase__item--2, .bk-showcase__item--3, .bk-showcase__item--4 { grid-column: span 1; aspect-ratio: 4 / 3; }
+}
+@media all and (max-width: 580px) {
+  .bk-showcase { grid-template-columns: 1fr; }
+  .bk-showcase__item--0, .bk-showcase__item--1,
+  .bk-showcase__item--2, .bk-showcase__item--3, .bk-showcase__item--4 { grid-column: span 1; }
+}
+
+/* Equipo docente: slider horizontal (estilo Swiper) */
+.bk-teachers__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+.bk-teachers__nav { display: flex; gap: 8px; flex-shrink: 0; }
+.bk-teachers__arrow {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--fz-white-10);
+  background: transparent;
+  color: var(--fz-white);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: background-color var(--dur) var(--ease-out);
+}
+.bk-teachers__arrow:hover { background: var(--fz-white-10); }
+.bk-teachers__track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 4px;
+  scrollbar-width: none;
+}
+.bk-teachers__track::-webkit-scrollbar { display: none; }
+.bk-teachers__slide {
+  flex: 0 0 220px;
+  scroll-snap-align: start;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+}
+@media all and (max-width: 580px) {
+  .bk-teachers__head { flex-direction: column; align-items: flex-start; }
+  .bk-teachers__slide { flex-basis: 70%; }
+}
+
+/* Testimonio destacado */
+@media all and (max-width: 810px) {
+  .bk-feat-testi__inner { grid-template-columns: 1fr !important; }
+}
+
+/* CTA final: contenido + formulario */
+.bk-final { display: grid; grid-template-columns: 1fr 420px; gap: 56px; align-items: center; }
+@media all and (max-width: 810px) { .bk-final { grid-template-columns: 1fr; gap: 32px; } }
+
+/* ============================================================\n   BAKER CLON — headings 700 + typewriter cursor\n   ============================================================ */\n.baker-lp .fz-h1, .baker-lp .fz-h2, .baker-lp .fz-h3 { font-weight: 700; }\n/* Heading blocks: sin max-width artificial — el container ya limita */\n.baker-lp .fz-heading { max-width: none !important; margin-inline: 0 !important; }
+.bk-hero__typewriter { color: #f472b6; }
+.bk-hero__typewriter::after { content: "|"; color: #f472b6; opacity: 1; animation: tw-blink .7s step-end infinite; }
+@keyframes tw-blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }

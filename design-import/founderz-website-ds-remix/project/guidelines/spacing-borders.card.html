@@ -1,0 +1,18 @@
+<!-- @dsCard group="Spacing" viewport="700x180" name="Borders & elevation" subtitle="1px hairline borders · shadows only on overlays · flat cards" -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:24px;background:var(--fz-grey);font-family:var(--font-display)}
+  .row{display:flex;gap:18px;flex-wrap:wrap;align-items:stretch}
+  .card{background:#fff;border-radius:16px;padding:18px 20px;flex:1;min-width:170px}
+  .hair{border:1px solid var(--fz-border)}
+  .overlay{box-shadow:var(--shadow-overlay)}
+  .t{font-size:15px;font-weight:600;color:var(--fz-black)}
+  .s{font-size:13px;color:var(--fz-black-70);margin-top:4px}
+</style></head>
+<body>
+<div class="row">
+  <div class="card hair"><div class="t">Card — flat</div><div class="s">1px solid rgba(0,0,0,.05). No shadow. The Founderz default.</div></div>
+  <div class="card overlay"><div class="t">Overlay</div><div class="s">0 4px 12px rgba(0,0,0,.1). Only on dropdowns & modals.</div></div>
+</div>
+</body></html>

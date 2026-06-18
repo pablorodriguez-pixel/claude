@@ -1,0 +1,61 @@
+// =============================================================================
+// Baker Method (baker-method)
+// =============================================================================
+
+.baker-method {
+    @include section-b;
+    background: var(--white);
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: center;
+
+        @media all and (max-width: 810px) { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    &__media {
+        position: relative;
+        max-width: 320px;
+        margin-inline: auto;
+        width: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 9 / 16;
+        background: var(--light);
+
+        &__img { width: 100%; height: 100%; object-fit: cover; }
+        &__play {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 56px; height: 56px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.92);
+            display: grid; place-items: center;
+            color: var(--black);
+        }
+        &__label {
+            position: absolute;
+            inset-inline: 12px;
+            bottom: 12px;
+            text-align: center;
+            font-size: 13px;
+            color: #fff;
+        }
+    }
+
+    &__intro { font-size: var(--font-size-body); margin-bottom: 24px; }
+
+    &__items { display: flex; flex-direction: column; gap: 20px; }
+
+    &__item {
+        display: flex;
+        gap: 16px;
+
+        &__icon { color: var(--purple); flex-shrink: 0; svg { width: 24px; height: 24px; } }
+        &__title { margin: 0; font-size: 18px; font-weight: 600; }
+        &__text { margin: 4px 0 0; font-size: var(--font-size-body); color: var(--black-opacity-7); }
+    }
+}

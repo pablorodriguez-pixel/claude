@@ -1,0 +1,171 @@
+/* ============================================================
+   Webinar IA en la oficina — estilos específicos
+   (sobre lp.css + tokens del design system Founderz)
+   ============================================================ */
+
+/* ---------- LIVE dot ---------- */
+.live-dot {
+  display: inline-block; width: 9px; height: 9px; border-radius: 50%;
+  background: #ff4d4d; position: relative; flex: none;
+}
+.live-dot::after {
+  content: ""; position: absolute; inset: -5px; border-radius: 50%;
+  background: rgba(255,77,77,0.45); animation: wb-pulse 1.6s ease-out infinite;
+}
+@keyframes wb-pulse { 0% { transform: scale(0.6); opacity: 0.9; } 100% { transform: scale(1.9); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .live-dot::after { animation: none; } }
+
+/* ---------- Badge de webinar ---------- */
+.wb-badge {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 14px; font-weight: var(--fw-medium); letter-spacing: 0.02em;
+  background: var(--fz-white-10); color: var(--fz-white);
+  border: 1px solid var(--fz-white-10); border-radius: var(--radius-pill);
+  padding: 8px 16px; align-self: flex-start;
+}
+
+/* ---------- Hero: cuándo ---------- */
+.hero-grid { padding-block: 40px 56px; }
+.hero h1 { font-size: 44px; }
+.wb-when { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
+.wb-when__item {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 15px; font-weight: var(--fw-medium); color: var(--fz-white);
+  background: var(--fz-white-05); border: 1px solid var(--fz-white-10);
+  border-radius: var(--radius-pill); padding: 9px 15px;
+}
+.wb-when__item svg { color: var(--fz-lilac); flex: none; }
+
+/* ---------- Tarjeta de registro ---------- */
+.wb-form { gap: 10px; }
+.wb-form__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.wb-form__free { font-size: 30px; font-weight: var(--fw-semibold); color: var(--fz-purple); letter-spacing: -0.01em; line-height: 1; }
+.wb-cal { margin-top: 6px; }
+
+/* ---------- Barra de plazas (urgencia) ---------- */
+.seatbar { display: flex; flex-direction: column; gap: 7px; margin: 2px 0 4px; }
+.seatbar__track { height: 8px; border-radius: 999px; background: var(--fz-lilac); overflow: hidden; }
+.seatbar__fill { height: 100%; width: 0; border-radius: 999px; background: linear-gradient(90deg, var(--fz-purple), #7a6ff0); transition: width 1s var(--ease-out); }
+.seatbar__lbl { font-size: 13px; color: var(--text-secondary); }
+.seatbar__lbl span { font-weight: var(--fw-semibold); color: var(--fz-purple); font-variant-numeric: tabular-nums; }
+
+/* ============================================================
+   Qué vas a aprender
+   ============================================================ */
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.learn {
+  position: relative; background: var(--fz-white); border: 1px solid var(--fz-border);
+  border-radius: var(--radius-card); padding: 26px 24px 24px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.learn__n {
+  font-size: 14px; font-weight: var(--fw-semibold); letter-spacing: 0.06em;
+  color: var(--fz-purple); font-variant-numeric: tabular-nums;
+}
+.learn h3 { font-size: 19px; font-weight: var(--fw-semibold); margin: 0; line-height: 1.25; text-wrap: balance; }
+.learn p { font-size: 15px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+/* ============================================================
+   Agenda (timeline)
+   ============================================================ */
+.agenda { list-style: none; margin: 0; padding: 0; max-width: 640px; margin-inline: auto; }
+.agenda__item { display: flex; gap: 20px; padding-bottom: 26px; position: relative; }
+.agenda__item:last-child { padding-bottom: 0; }
+.agenda__item::before {
+  content: ""; position: absolute; left: 39px; top: 34px; bottom: -4px; width: 2px;
+  background: var(--fz-border-strong);
+}
+.agenda__item:last-child::before { display: none; }
+.agenda__time {
+  flex: none; width: 80px; height: 34px; border-radius: var(--radius-pill);
+  background: var(--fz-lilac); color: var(--fz-purple);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: var(--fw-semibold); z-index: 1;
+}
+.agenda__body h3 { font-size: 19px; font-weight: var(--fw-semibold); margin: 4px 0 4px; line-height: 1.25; }
+.agenda__body p { font-size: 16px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+/* ============================================================
+   Ponente
+   ============================================================ */
+.host { display: grid; grid-template-columns: 320px 1fr; gap: 44px; align-items: center; }
+.host__media { position: relative; }
+.host__media .ph { width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-card); }
+.host__badge {
+  position: absolute; left: 16px; bottom: 16px;
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(26,25,29,0.7); backdrop-filter: blur(6px);
+  color: var(--fz-white); font-size: 13px; font-weight: var(--fw-medium);
+  border-radius: var(--radius-pill); padding: 7px 14px;
+}
+.host__body { color: var(--fz-white); display: flex; flex-direction: column; gap: 12px; }
+.host__body h2 { font-size: clamp(30px, 4vw, 42px); font-weight: var(--fw-semibold); margin: 2px 0 0; }
+.host__role { font-size: 17px; color: var(--fz-lilac); margin: 0; font-weight: var(--fw-medium); }
+.host__bio { font-size: 17px; color: var(--fz-white-70); margin: 4px 0 2px; line-height: 1.55; }
+.host__points { display: flex; flex-direction: column; gap: 10px; margin: 0; padding: 0; }
+.host__points li { list-style: none; display: flex; align-items: center; gap: 11px; font-size: 16px; }
+
+/* ============================================================
+   Para quién es
+   ============================================================ */
+.forwho { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px; max-width: 640px; margin-inline: auto; }
+.forwho li {
+  display: flex; align-items: flex-start; gap: 14px; font-size: 18px; line-height: 1.45;
+  background: var(--fz-white); border: 1px solid var(--fz-border);
+  border-radius: var(--radius-input); padding: 18px 22px;
+}
+.forwho .check-ico { flex: none; margin-top: 1px; }
+
+/* ============================================================
+   Bonus (te llevas)
+   ============================================================ */
+.bonus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.bonus {
+  border: 1px solid var(--fz-border); border-radius: var(--radius-card);
+  padding: 26px 24px; background: var(--fz-white);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.bonus h3 { font-size: 19px; font-weight: var(--fw-semibold); margin: 4px 0 0; }
+.bonus p { font-size: 15px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+/* ============================================================
+   Social proof
+   ============================================================ */
+.proof-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 40px; }
+.proof-stat { text-align: center; color: var(--fz-white); }
+.proof-stat__n { font-size: clamp(32px, 5vw, 48px); font-weight: var(--fw-semibold); line-height: 1; letter-spacing: -0.02em; color: var(--fz-white); }
+.proof-stat__l { font-size: 14px; color: var(--fz-white-70); margin-top: 8px; }
+
+.quotes .carousel__track { gap: 16px; }
+.quote {
+  flex: 0 0 340px; scroll-snap-align: start; margin: 0;
+  background: var(--fz-white-05); border: 1px solid var(--fz-white-10);
+  border-radius: var(--radius-card); padding: 26px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 18px;
+}
+.quote__txt { font-size: 18px; color: var(--fz-white); line-height: 1.5; margin: 0; font-weight: var(--fw-light); }
+.quote__by { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--fz-white-70); }
+.quote__by .av--sm { border-color: var(--fz-black); }
+
+/* ============================================================
+   Responsive (móvil)
+   ============================================================ */
+@media (max-width: 980px) {
+  .host { grid-template-columns: 1fr; gap: 26px; }
+  .host__media { max-width: 360px; }
+  .bonus-grid { grid-template-columns: 1fr; }
+  .proof-stats { gap: 14px; }
+}
+@media (max-width: 760px) {
+  .hero h1 { font-size: 33px; }
+  .hero-grid { padding-block: 28px 44px; }
+  .learn-grid { grid-template-columns: 1fr; }
+  .wb-when__item { font-size: 14px; padding: 8px 13px; }
+  .agenda__item::before { left: 31px; }
+  .agenda__time { width: 64px; font-size: 13px; }
+  .proof-stats { grid-template-columns: 1fr; gap: 22px; }
+  .proof-stat { display: flex; align-items: baseline; justify-content: center; gap: 10px; }
+  .proof-stat__l { margin-top: 0; }
+  .quote { flex-basis: 82vw; }
+  .forwho li { font-size: 16px; padding: 15px 18px; }
+}

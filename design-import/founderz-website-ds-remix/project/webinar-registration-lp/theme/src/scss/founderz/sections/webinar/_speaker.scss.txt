@@ -1,0 +1,68 @@
+// =============================================================================
+// Webinar Speaker (webinar-speaker)
+// =============================================================================
+
+.webinar-speaker {
+    @include section-b;
+    background: var(--bg-black);
+    color: var(--white);
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 56px;
+        align-items: center;
+
+        @media all and (max-width: 810px) {
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+    }
+
+    &__media-wrapper {
+        border-radius: 24px;
+        overflow: hidden;
+        aspect-ratio: 1;
+        background: rgba(255, 255, 255, 0.05);
+
+        &__media {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+
+        &__label {
+            font-size: var(--font-size-small);
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--lilac);
+        }
+
+        &__title {
+            font-size: var(--font-size-h2);
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        &__role {
+            font-size: var(--font-size-body);
+            color: var(--lilac);
+        }
+
+        &__bio {
+            font-size: var(--font-size-body);
+            line-height: var(--line-height-body);
+            color: var(--white-opacity-7);
+
+            p { margin: 0; }
+            p + p { margin-top: 12px; }
+        }
+    }
+}
