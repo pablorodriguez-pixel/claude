@@ -1,0 +1,1090 @@
+/* ============================================================
+   Founderz — MAIC Landing Page
+   Depends on: ../styles.css (tokens, fonts, base)
+   ============================================================ */
+
+/* ---- Utils ---- */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.maic-center { text-align: center; }
+
+/* ---- Container ---- */
+.maic-container {
+  width: min(100% - 48px, var(--container-max));
+  margin-inline: auto;
+}
+.maic-container--narrow {
+  max-width: 720px;
+}
+
+/* ---- Background surfaces ---- */
+.maic-bg-dark   { background: var(--fz-black); }
+.maic-bg-grey   { background: var(--fz-grey); }
+.maic-bg-lilac  { background: var(--fz-lilac); }
+.fz-bg-dark     { background: var(--fz-black); }
+
+/* ---- Section spacing ---- */
+.maic-section {
+  padding-block: var(--section-pad-standard);
+}
+.maic-section--compact {
+  padding-block: var(--section-pad-secondary);
+}
+
+/* ---- Typography helpers ---- */
+.maic-eyebrow {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fz-purple);
+  margin-bottom: var(--space-2);
+}
+.maic-eyebrow--light { color: var(--fz-white-60); }
+.maic-eyebrow--accent { color: #fea339; }
+
+.maic-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 5vw, var(--fs-h1));
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-default);
+  color: var(--fz-white);
+  text-wrap: balance;
+  margin-bottom: var(--space-3);
+}
+.maic-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, var(--fs-h2));
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-default);
+  color: var(--fz-black);
+  text-wrap: balance;
+  margin-bottom: var(--space-3);
+}
+.maic-h2--light { color: var(--fz-white); }
+.maic-h3 {
+  font-size: clamp(22px, 3vw, var(--fs-h3));
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-default);
+  color: var(--fz-black);
+  margin-bottom: var(--space-3);
+}
+.maic-h4 {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-default);
+  color: var(--fz-black);
+  margin-bottom: var(--space-1);
+}
+.maic-lead {
+  font-size: var(--fs-details);
+  line-height: var(--lh-body);
+  color: var(--fz-black-70);
+  max-width: 60ch;
+  margin-bottom: var(--space-5);
+}
+.maic-microcopy {
+  font-size: 13px;
+  color: var(--fz-white-60);
+  margin-top: var(--space-1);
+  letter-spacing: var(--tracking-default);
+}
+
+/* ---- Buttons ---- */
+.maic-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-default);
+  border-radius: var(--radius-pill);
+  padding: 16px 32px;
+  border: 2px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+.maic-btn:active { transform: scale(0.98); }
+
+.maic-btn--primary {
+  background: var(--fz-purple);
+  color: var(--fz-white);
+  border-color: var(--fz-purple);
+}
+.maic-btn--primary:hover,
+.maic-btn--primary:focus-visible {
+  background: var(--fz-violet-darker);
+  border-color: var(--fz-violet-darker);
+}
+
+.maic-btn--outline-light {
+  background: transparent;
+  color: var(--fz-white);
+  border-color: rgba(255,255,255,0.5);
+}
+.maic-btn--outline-light:hover,
+.maic-btn--outline-light:focus-visible {
+  background: var(--fz-white);
+  color: var(--fz-black);
+  border-color: var(--fz-white);
+}
+
+.maic-btn--lg { padding: 18px 40px; font-size: 18px; }
+.maic-btn--block { display: flex; width: 100%; }
+
+/* ---- Tag "Nuevo" ---- */
+.maic-tag {
+  display: inline-block;
+  background: #fea339;
+  color: var(--fz-black);
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  padding: 3px 10px;
+  flex-shrink: 0;
+}
+
+/* ==============================================================
+   HEADER
+   ============================================================== */
+.maic-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--fz-black);
+  border-bottom: 1px solid var(--fz-white-10);
+}
+.maic-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: var(--space-4);
+}
+.maic-header__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+.maic-header__logo:hover { opacity: 0.7; }
+
+.maic-header__proof {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.maic-badge {
+  background: var(--fz-white-10);
+  color: var(--fz-white);
+  border: 1px solid var(--fz-white-10);
+  border-radius: var(--radius-pill);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-default);
+  white-space: nowrap;
+}
+.maic-trust {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--fz-white-70);
+  font-size: 13px;
+  white-space: nowrap;
+}
+.maic-trust strong { color: var(--fz-white); }
+
+/* ==============================================================
+   HERO
+   ============================================================== */
+.maic-hero {
+  padding-block: var(--section-pad-hero);
+}
+.maic-hero__grid {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 56px;
+  align-items: start;
+}
+
+/* Left: video + h1 + cta */
+.maic-hero__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.maic-hero__video {
+  margin-bottom: var(--space-5);
+}
+
+/* Video placeholder */
+.maic-video-placeholder {
+  aspect-ratio: 16/9;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--fz-white-10);
+  border-radius: var(--radius-card);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+.maic-video-placeholder--dark {
+  background: rgba(0,0,0,0.5);
+}
+.maic-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--fz-purple);
+  color: var(--fz-white);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-default);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.maic-play-btn:hover { background: var(--fz-violet-darker); }
+.maic-video-caption {
+  font-size: 13px;
+  color: var(--fz-white-60);
+  margin: 0;
+  letter-spacing: var(--tracking-default);
+}
+
+.maic-hero__sub {
+  font-size: var(--fs-details);
+  color: var(--fz-white-70);
+  margin-bottom: var(--space-4);
+  letter-spacing: var(--tracking-default);
+}
+
+/* Right: form card */
+.maic-form-card {
+  background: var(--fz-white);
+  border-radius: var(--radius-card);
+  padding: var(--space-5);
+  position: sticky;
+  top: 80px;
+}
+.maic-form-card--light {
+  background: var(--fz-white);
+}
+.maic-form-card__title {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--fz-black);
+  letter-spacing: var(--tracking-default);
+  margin-bottom: 6px;
+}
+.maic-form-card__sub {
+  font-size: var(--fs-small);
+  color: var(--fz-black-70);
+  margin-bottom: var(--space-3);
+  letter-spacing: var(--tracking-default);
+}
+
+/* Discover list inside form card */
+.maic-discover-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+.maic-discover-list li {
+  font-size: 14px;
+  color: var(--fz-black-70);
+  padding-left: 22px;
+  position: relative;
+  letter-spacing: var(--tracking-default);
+}
+.maic-discover-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  background: var(--fz-purple);
+  border-radius: 50%;
+}
+
+/* Form internals */
+.maic-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.maic-form__row { display: flex; flex-direction: column; gap: var(--space-2); }
+.maic-form__row--2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-2); }
+.maic-form__field { display: flex; flex-direction: column; gap: 6px; }
+.maic-form__label {
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fz-black-70);
+}
+.maic-input {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--fz-black);
+  background: var(--fz-grey);
+  border: 1px solid transparent;
+  border-radius: var(--radius-input);
+  padding: 13px 16px;
+  width: 100%;
+  letter-spacing: var(--tracking-default);
+  appearance: none;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background var(--dur-fast) var(--ease-out);
+}
+.maic-input::placeholder { color: var(--fz-black-50); }
+.maic-input:focus {
+  outline: none;
+  border-color: var(--fz-purple);
+  background: var(--fz-white);
+}
+.maic-input--select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%231a191d' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 40px;
+}
+.maic-form__check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--fz-black-70);
+  letter-spacing: var(--tracking-default);
+  cursor: pointer;
+  line-height: 1.5;
+}
+.maic-form__check input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  accent-color: var(--fz-purple);
+  cursor: pointer;
+}
+.maic-form__check a {
+  color: var(--fz-purple);
+  text-decoration: underline;
+}
+.maic-form__trust-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--space-2);
+}
+.maic-form__trust-pills span {
+  background: var(--fz-lilac);
+  color: var(--fz-purple);
+  border-radius: var(--radius-pill);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-default);
+}
+.maic-form__success {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--fz-purple);
+  font-weight: var(--fw-semibold);
+  margin-top: var(--space-3);
+  padding: var(--space-3);
+  background: var(--fz-lilac);
+  border-radius: var(--radius-card-inner);
+}
+
+/* Trust strip below hero form */
+.maic-trust-strip {
+  border-top: 1px solid var(--fz-white-10);
+  margin-top: var(--space-7);
+  padding-top: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.maic-trust-strip__label {
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fz-white-60);
+  white-space: nowrap;
+}
+.maic-trust-strip__logos {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+.maic-trust-strip__logos img {
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.5;
+}
+
+/* ==============================================================
+   PAIN SECTION
+   ============================================================== */
+.maic-pain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.maic-pain-card {
+  background: var(--fz-white);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.maic-pain-card__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.maic-pain-card__avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.maic-pain-card__quote {
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+  color: var(--fz-black-70);
+  font-style: italic;
+  letter-spacing: var(--tracking-default);
+  border-left: 3px solid var(--fz-lilac);
+  padding-left: var(--space-3);
+  margin: 0;
+}
+.maic-pain-card__resolution {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--fz-purple);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+}
+.maic-pain-card__resolution svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ==============================================================
+   GALLERY
+   ============================================================== */
+.maic-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: var(--space-2);
+  margin: var(--space-5) 0;
+}
+.maic-gallery__item {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  flex-direction: column;
+}
+.maic-gallery__item--video {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--fz-white-10);
+}
+.maic-gallery__item--lg {
+  grid-column: span 2;
+}
+.maic-gallery__item img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.maic-gallery__item .maic-video-placeholder {
+  aspect-ratio: unset;
+  flex: 1;
+  min-height: 200px;
+  border-radius: 0;
+  border: none;
+  background: transparent;
+}
+.maic-gallery__item figcaption {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.maic-gallery__item figcaption strong {
+  font-size: 14px;
+  color: var(--fz-white);
+  letter-spacing: var(--tracking-default);
+}
+.maic-gallery__item figcaption span {
+  font-size: 12px;
+  color: var(--fz-white-60);
+  letter-spacing: var(--tracking-default);
+}
+
+/* ==============================================================
+   PROGRAMA — stats
+   ============================================================== */
+.maic-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-6) 0;
+  border-top: var(--border-hairline);
+  border-bottom: var(--border-hairline);
+  padding-block: var(--space-5);
+}
+.maic-stats__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+.maic-stats__item strong {
+  font-size: 28px;
+  font-weight: var(--fw-semibold);
+  color: var(--fz-purple);
+  letter-spacing: var(--tracking-default);
+  line-height: 1;
+}
+.maic-stats__item span {
+  font-size: 14px;
+  color: var(--fz-black-70);
+  letter-spacing: var(--tracking-default);
+}
+
+/* Spec grid (especializaciones) */
+.maic-spec-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin: var(--space-4) 0 var(--space-6);
+}
+.maic-spec-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.maic-spec-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-card-inner);
+}
+.maic-spec-card span {
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  color: var(--fz-black-70);
+  letter-spacing: var(--tracking-default);
+}
+
+/* Includes + chips */
+.maic-includes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-7);
+  margin-top: var(--space-6);
+}
+.maic-check-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-3) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.maic-check-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: var(--fs-small);
+  color: var(--fz-black-70);
+  letter-spacing: var(--tracking-default);
+  line-height: var(--lh-body);
+  padding-left: 0;
+}
+.maic-check-list li::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  background: var(--fz-purple) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23fff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 6l3.5 3.5L10 2'/%3E%3C/svg%3E") center/12px no-repeat;
+  border-radius: 50%;
+  margin-top: 2px;
+}
+.maic-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: var(--space-2);
+}
+.maic-chips span {
+  background: var(--fz-white);
+  border: 1px solid var(--fz-lilac-deep);
+  color: var(--fz-black);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px;
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-default);
+}
+
+/* Tools */
+.maic-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: var(--space-3);
+}
+.maic-tools span {
+  background: var(--fz-grey);
+  border: var(--border-hairline);
+  color: var(--fz-black);
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-default);
+}
+
+/* ==============================================================
+   ACCORDION (temario)
+   ============================================================== */
+.maic-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: var(--space-5);
+}
+.maic-accordion__item {
+  background: var(--fz-white);
+  border-radius: var(--radius-card-inner);
+  border: var(--border-hairline);
+}
+.maic-accordion__item[open] {
+  border-color: var(--fz-purple);
+}
+.maic-accordion__item[open] .maic-accordion__icon {
+  transform: rotate(180deg);
+}
+.maic-accordion__summary {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+.maic-accordion__summary::-webkit-details-marker { display: none; }
+.maic-accordion__num {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: var(--fz-purple);
+  color: var(--fz-white);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+}
+.maic-accordion__title {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--fz-black);
+  letter-spacing: var(--tracking-default);
+  flex: 1;
+}
+.maic-accordion__meta {
+  font-size: 13px;
+  color: var(--fz-black-50);
+  white-space: nowrap;
+  letter-spacing: var(--tracking-default);
+}
+.maic-accordion__icon {
+  flex-shrink: 0;
+  color: var(--fz-black-50);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.maic-accordion__body {
+  padding: 0 24px 24px 70px;
+}
+.maic-accordion__body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.maic-accordion__body li {
+  font-size: 14px;
+  color: var(--fz-black-70);
+  padding-left: 16px;
+  position: relative;
+  letter-spacing: var(--tracking-default);
+  line-height: 1.5;
+}
+.maic-accordion__body li::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--fz-purple);
+  font-weight: var(--fw-semibold);
+}
+.maic-accordion__teachers {
+  font-size: 13px;
+  color: var(--fz-purple);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+}
+
+/* Locked modules */
+.maic-locked {
+  text-align: center;
+  background: var(--fz-white);
+  border: 2px dashed var(--fz-lilac-deep);
+  border-radius: var(--radius-card);
+  padding: var(--space-6);
+  margin-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+.maic-locked__nums {
+  font-size: 28px;
+  font-weight: var(--fw-semibold);
+  color: var(--fz-black-50);
+  letter-spacing: 0.1em;
+  margin: 0;
+}
+.maic-locked__label {
+  font-size: var(--fs-small);
+  color: var(--fz-black);
+  margin: 0;
+}
+.maic-locked__sub {
+  font-size: 14px;
+  color: var(--fz-black-70);
+  margin: 0;
+  letter-spacing: var(--tracking-default);
+}
+
+/* ==============================================================
+   METHODOLOGY
+   ============================================================== */
+.maic-method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.maic-method-card {
+  background: var(--fz-grey);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+}
+.maic-method-card p {
+  font-size: 14px;
+  color: var(--fz-black-70);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+}
+
+/* ==============================================================
+   REVIEWS
+   ============================================================== */
+.maic-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.maic-review {
+  background: var(--fz-white-05);
+  border: var(--border-on-dark);
+  border-radius: var(--radius-card);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+.maic-review__stars {
+  display: flex;
+  gap: 2px;
+  color: #fea339;
+}
+.maic-review p {
+  font-size: 14px;
+  color: var(--fz-white-70);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+  flex: 1;
+}
+.maic-review cite {
+  display: block;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: var(--fw-semibold);
+  color: var(--fz-white-60);
+  letter-spacing: var(--tracking-default);
+}
+
+/* ==============================================================
+   FACULTY
+   ============================================================== */
+.maic-faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-5) 0;
+}
+.maic-teacher {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+.maic-teacher img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-card);
+  background: var(--fz-lilac);
+}
+.maic-teacher__name {
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  color: var(--fz-black);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+}
+.maic-teacher__role {
+  font-size: 12px;
+  color: var(--fz-black-50);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ==============================================================
+   AWARDS
+   ============================================================== */
+.maic-awards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  margin-top: var(--space-4);
+}
+.maic-awards img {
+  height: 56px;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.7;
+  transition: opacity var(--dur-fast) var(--ease-out), filter var(--dur-fast) var(--ease-out);
+}
+.maic-awards img:hover { opacity: 1; filter: none; }
+
+/* ==============================================================
+   FAQ
+   ============================================================== */
+.maic-faq {
+  display: flex;
+  flex-direction: column;
+  margin-top: var(--space-5);
+}
+.maic-faq__item {
+  border-bottom: var(--border-hairline);
+}
+.maic-faq__item:first-child { border-top: var(--border-hairline); }
+.maic-faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) 0;
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  color: var(--fz-black);
+  letter-spacing: var(--tracking-default);
+  cursor: pointer;
+  list-style: none;
+  gap: var(--space-3);
+  user-select: none;
+}
+.maic-faq__question::-webkit-details-marker { display: none; }
+.maic-faq__question svg {
+  flex-shrink: 0;
+  color: var(--fz-black-50);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.maic-faq__item[open] .maic-faq__question svg {
+  transform: rotate(180deg);
+}
+.maic-faq__answer {
+  padding-bottom: var(--space-3);
+}
+.maic-faq__answer p {
+  font-size: var(--fs-small);
+  color: var(--fz-black-70);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+}
+
+/* ==============================================================
+   CLOSING
+   ============================================================== */
+.maic-closing {
+  display: grid;
+  grid-template-columns: 1fr 480px;
+  gap: 56px;
+  align-items: start;
+}
+.maic-closing__copy { padding-top: var(--space-2); }
+
+/* ==============================================================
+   FOOTER
+   ============================================================== */
+.maic-footer {
+  padding-block: var(--space-6);
+  border-top: 1px solid var(--fz-white-10);
+}
+.maic-footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  text-align: center;
+}
+.maic-footer__inner p {
+  font-size: 13px;
+  color: var(--fz-white-60);
+  letter-spacing: var(--tracking-default);
+  margin: 0;
+}
+.maic-footer__inner a {
+  color: var(--fz-white-60);
+}
+
+/* ==============================================================
+   STICKY CTA MÓVIL
+   ============================================================== */
+.maic-sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--fz-purple);
+  color: var(--fz-white);
+  border-radius: var(--radius-pill);
+  padding: 16px 32px;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-default);
+  text-decoration: none;
+  z-index: 200;
+  box-shadow: 0 4px 24px rgba(80,69,200,0.4);
+  white-space: nowrap;
+  transition: background var(--dur-fast) var(--ease-out);
+}
+.maic-sticky-cta:hover { background: var(--fz-violet-darker); }
+
+/* ==============================================================
+   RESPONSIVE
+   ============================================================== */
+@media (max-width: 1100px) {
+  .maic-faculty-grid { grid-template-columns: repeat(4, 1fr); }
+  .maic-spec-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (max-width: 860px) {
+  .maic-hero__grid,
+  .maic-closing { grid-template-columns: 1fr; }
+  .maic-form-card { position: static; }
+  .maic-pain-grid { grid-template-columns: 1fr; }
+  .maic-stats { grid-template-columns: repeat(2, 1fr); }
+  .maic-includes { grid-template-columns: 1fr; gap: var(--space-4); }
+  .maic-reviews-grid { grid-template-columns: 1fr; }
+  .maic-method-grid { grid-template-columns: repeat(2, 1fr); }
+  .maic-faculty-grid { grid-template-columns: repeat(3, 1fr); }
+  .maic-gallery { grid-template-columns: 1fr 1fr; }
+  .maic-gallery__item--lg { grid-column: span 2; }
+  .maic-sticky-cta { display: block; }
+  .maic-header__proof .maic-trust { display: none; }
+}
+
+@media (max-width: 579px) {
+  .maic-section { padding-block: var(--section-pad-standard-m); }
+  .maic-hero { padding-block: var(--section-pad-hero-m); }
+  .maic-stats { grid-template-columns: repeat(2, 1fr); }
+  .maic-spec-grid { grid-template-columns: repeat(2, 1fr); }
+  .maic-form__row--2 { grid-template-columns: 1fr; }
+  .maic-method-grid { grid-template-columns: 1fr; }
+  .maic-faculty-grid { grid-template-columns: repeat(2, 1fr); }
+  .maic-gallery { grid-template-columns: 1fr; }
+  .maic-gallery__item--lg { grid-column: span 1; }
+  .maic-header__proof .maic-badge { display: none; }
+  .maic-accordion__body { padding-left: var(--space-3); }
+}
+
+/* Accessibility */
+:focus-visible { outline: 3px solid var(--fz-purple); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

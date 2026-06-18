@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Máster en IA para Creativos con Microsoft | Founderz</title>
+  <meta name="description" content="Domina la IA aplicada a tu sector creativo. Certificado por Microsoft. 5.000+ reseñas en Trustpilot. Descarga el dossier gratuito." />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="maic.css" />
+</head>
+<body>
+
+<!-- SVG sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chev-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+</svg>
+
+<!-- ================================================================
+     HEADER — sticky, dark
+     ================================================================ -->
+<header class="maic-header" role="banner">
+  <div class="maic-container maic-header__inner">
+    <a href="/" class="maic-header__logo" aria-label="Founderz — inicio">
+      <img src="../assets/founderz-wordmark-white.svg" alt="Founderz" height="20" />
+    </a>
+    <div class="maic-header__proof">
+      <span class="maic-badge">Certificado por Microsoft</span>
+      <span class="maic-trust">
+        <svg width="14" height="14" style="color:#fea339" aria-hidden="true"><use href="#i-star"/></svg>
+        <svg width="14" height="14" style="color:#fea339" aria-hidden="true"><use href="#i-star"/></svg>
+        <svg width="14" height="14" style="color:#fea339" aria-hidden="true"><use href="#i-star"/></svg>
+        <svg width="14" height="14" style="color:#fea339" aria-hidden="true"><use href="#i-star"/></svg>
+        <svg width="14" height="14" style="color:#fea339" aria-hidden="true"><use href="#i-star"/></svg>
+        <strong>4.7</strong> en Trustpilot · 5.000+ reseñas
+      </span>
+    </div>
+  </div>
+</header>
+
+<!-- ================================================================
+     HERO — dark, 2 col: copy + form
+     ================================================================ -->
+<section class="maic-hero fz-bg-dark" aria-labelledby="hero-h1">
+  <div class="maic-container maic-hero__grid">
+
+    <!-- Left: copy -->
+    <div class="maic-hero__copy">
+      <div class="maic-hero__video">
+        <div class="maic-video-placeholder" role="img" aria-label="Vídeo de presentación del máster">
+          <button class="maic-play-btn" type="button" aria-label="Reproducir vídeo">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-play"/></svg>
+            Escuchar
+          </button>
+          <p class="maic-video-caption">30 segundos. Mira lo que vas a poder crear.</p>
+        </div>
+      </div>
+
+      <h1 id="hero-h1" class="maic-h1">
+        Domina la IA que está transformando el sector de los
+        <span class="maic-rotator" data-words="creativos,diseñadores,directores de arte,cineastas,arquitectos,fotógrafos,ilustradores">creativos</span>
+      </h1>
+      <p class="maic-hero__sub">Máster Online · 3-4 meses · 925€ todo incluido</p>
+      <a class="maic-btn maic-btn--primary maic-btn--lg" href="#main-form">Descubre el temario completo</a>
+      <p class="maic-microcopy">Sin compromiso · Al instante en tu email</p>
+    </div>
+
+    <!-- Right: lead magnet form -->
+    <div class="maic-form-card" id="main-form" role="region" aria-label="Formulario de descarga del dossier">
+      <h2 class="maic-form-card__title">Descubre el temario completo</h2>
+      <p class="maic-form-card__sub">Todo lo que necesitas para decidir, gratis y sin compromiso.</p>
+
+      <ul class="maic-discover-list">
+        <li>Temario completo: 9 módulos, de imagen a vídeo, audio y 3D</li>
+        <li>Especialización para tu sector: publicidad, cine, moda, arquitectura, ilustración…</li>
+        <li>Precios exactos, financiación al 0% y opciones Fundae</li>
+        <li>Casos reales: qué crean los alumnos después del máster</li>
+      </ul>
+
+      <form class="maic-form" novalidate data-maic-form>
+        <div class="maic-form__row maic-form__row--2">
+          <div class="maic-form__field">
+            <label for="f-nombre" class="maic-form__label">Nombre</label>
+            <input id="f-nombre" class="maic-input" type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required />
+          </div>
+          <div class="maic-form__field">
+            <label for="f-apellido" class="maic-form__label">Apellido</label>
+            <input id="f-apellido" class="maic-input" type="text" name="apellido" placeholder="Tu apellido" autocomplete="family-name" />
+          </div>
+        </div>
+        <div class="maic-form__row maic-form__row--2">
+          <div class="maic-form__field">
+            <label for="f-email" class="maic-form__label">Correo</label>
+            <input id="f-email" class="maic-input" type="email" name="email" placeholder="tu@email.com" autocomplete="email" required />
+          </div>
+          <div class="maic-form__field">
+            <label for="f-tel" class="maic-form__label">Teléfono</label>
+            <input id="f-tel" class="maic-input" type="tel" name="telefono" placeholder="+34 600 000 000" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="maic-form__field">
+          <label for="f-sector" class="maic-form__label">Sector</label>
+          <select id="f-sector" class="maic-input maic-input--select" name="sector">
+            <option value="" disabled selected>Tu sector creativo</option>
+            <option>Ilustración</option>
+            <option>Diseño Gráfico</option>
+            <option>Comunicación y RRSS</option>
+            <option>Cine y Audiovisual</option>
+            <option>Moda</option>
+            <option>Fotografía</option>
+            <option>Publicidad</option>
+            <option>Arquitectura</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <label class="maic-form__check">
+          <input type="checkbox" name="terms" required />
+          He leído y acepto los <a href="/legal/terminos" target="_blank">Términos y Condiciones</a> y la <a href="/legal/privacidad" target="_blank">Política de Privacidad</a>
+        </label>
+        <button type="submit" class="maic-btn maic-btn--primary maic-btn--block">Descargar dossier gratuito</button>
+      </form>
+      <div class="maic-form__trust-pills">
+        <span>Sin compromiso</span>
+        <span>Recíbelo al instante</span>
+        <span>Sin spam</span>
+      </div>
+      <div class="maic-form__success" hidden aria-live="polite">
+        <svg width="28" height="28" aria-hidden="true"><use href="#i-check"/></svg>
+        <p>Revisa tu email. El dossier está en camino.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust logos strip inside hero -->
+  <div class="maic-container">
+    <div class="maic-trust-strip">
+      <span class="maic-trust-strip__label">Confían en nosotros</span>
+      <div class="maic-trust-strip__logos">
+        <img src="https://founderz.com/wp-content/uploads/2025/05/bbva-1.png" alt="BBVA" height="28" />
+        <img src="https://founderz.com/wp-content/uploads/2025/05/ey-1.png" alt="EY" height="28" />
+        <img src="https://founderz.com/wp-content/uploads/2025/05/atmadrid.png" alt="Atlético de Madrid" height="28" />
+        <img src="https://founderz.com/wp-content/uploads/2025/05/mapfre.png" alt="Mapfre" height="28" />
+        <img src="https://founderz.com/wp-content/uploads/2025/05/prosegur.png" alt="Prosegur" height="28" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     ¿TE SUENA? — pain section, grey bg
+     ================================================================ -->
+<section class="maic-section maic-bg-grey" aria-label="Situaciones que quizás reconoces">
+  <div class="maic-container">
+    <p class="maic-eyebrow">¿Te suena?</p>
+    <div class="maic-pain-grid">
+
+      <article class="maic-pain-card">
+        <div class="maic-pain-card__avatar" aria-hidden="true">
+          <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780031950927-x5fbi0.jpg" alt="" />
+        </div>
+        <blockquote class="maic-pain-card__quote">
+          "Llevo 20 años en esto. Y de repente, un júnior con Midjourney entrega en 2 horas lo que a mí me costaba una semana."
+        </blockquote>
+        <p class="maic-pain-card__resolution">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>
+          3 meses después, lidera proyectos con IA en su estudio.
+        </p>
+      </article>
+
+      <article class="maic-pain-card">
+        <div class="maic-pain-card__avatar" aria-hidden="true">
+          <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780031968239-6nohzw.jpg" alt="" />
+        </div>
+        <blockquote class="maic-pain-card__quote">
+          "Mis clientes ya piden piezas generadas con IA y yo sigo haciendo todo a mano. Me da miedo que elijan a alguien más rápido y más barato."
+        </blockquote>
+        <p class="maic-pain-card__resolution">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>
+          3 meses después, integra IA en su proceso creativo y entrega el doble de proyectos.
+        </p>
+      </article>
+
+      <article class="maic-pain-card">
+        <div class="maic-pain-card__avatar" aria-hidden="true">
+          <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780031953345-yqx2a8.jpg" alt="" />
+        </div>
+        <blockquote class="maic-pain-card__quote">
+          "Ya uso Midjourney y Runway a diario. Lo que encuentro online es siempre nivel principiante. Necesito profundidad real."
+        </blockquote>
+        <p class="maic-pain-card__resolution">
+          <svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>
+          3 meses después, workflows de producción profesional + el marco legal que nadie más enseña.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     GALERÍA ALUMNOS — dark bg
+     ================================================================ -->
+<section class="maic-section maic-bg-dark" aria-label="Trabajos creados por alumnos">
+  <div class="maic-container">
+    <p class="maic-eyebrow maic-eyebrow--light">Creado por alumnos del máster</p>
+    <h2 class="maic-h2 maic-h2--light">Empezaron exactamente donde estás tú.<br>Mira lo que crean hoy.</h2>
+
+    <div class="maic-gallery">
+      <figure class="maic-gallery__item maic-gallery__item--video maic-gallery__item--lg">
+        <div class="maic-video-placeholder maic-video-placeholder--dark">
+          <button class="maic-play-btn" type="button">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-play"/></svg>
+            Ver con sonido
+          </button>
+        </div>
+        <figcaption>
+          <strong>Mother Dough — Teaser surrealista</strong>
+          <span>Creado por alumno con Runway + Midjourney</span>
+        </figcaption>
+      </figure>
+
+      <figure class="maic-gallery__item maic-gallery__item--video">
+        <div class="maic-video-placeholder maic-video-placeholder--dark">
+          <button class="maic-play-btn" type="button">
+            <svg width="18" height="18" aria-hidden="true"><use href="#i-play"/></svg>
+            Ver con sonido
+          </button>
+        </div>
+        <figcaption>
+          <strong>Desert Mystery — Cortometraje experimental</strong>
+          <span>Creado por alumno con Sora + Kling</span>
+        </figcaption>
+      </figure>
+
+      <figure class="maic-gallery__item">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1779893190831-2j7yh1.webp" alt="Leona 3D estilizada — arte generativo con IA" loading="lazy" />
+        <figcaption>
+          <span>Midjourney + Magnific</span>
+        </figcaption>
+      </figure>
+
+      <figure class="maic-gallery__item">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780033790320-6f8g5z.jpg" alt="Fotografía de producto con IA — perfume de lujo" loading="lazy" />
+        <figcaption>
+          <span>Fotografía de producto</span>
+        </figcaption>
+      </figure>
+
+      <figure class="maic-gallery__item">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780033791977-9u2q5z.jpg" alt="Render arquitectónico con IA — villa moderna" loading="lazy" />
+        <figcaption>
+          <span>Render arquitectónico</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="maic-center">
+      <a class="maic-btn maic-btn--outline-light" href="#main-form">Quiero aprender a crear asi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     EL PROGRAMA — white bg
+     ================================================================ -->
+<section class="maic-section" aria-labelledby="programa-h2">
+  <div class="maic-container">
+    <p class="maic-eyebrow">El programa</p>
+    <h2 id="programa-h2" class="maic-h2">Imagen, vídeo, audio, motion, 3D.<br>Con criterio profesional.</h2>
+    <p class="maic-lead">Aprende a usar las herramientas de IA que ya están transformando cada sector creativo. Sin base técnica necesaria.</p>
+
+    <div class="maic-stats">
+      <div class="maic-stats__item">
+        <strong>9</strong>
+        <span>módulos</span>
+      </div>
+      <div class="maic-stats__item">
+        <strong>+20</strong>
+        <span>profesores en activo</span>
+      </div>
+      <div class="maic-stats__item">
+        <strong>5-15 min</strong>
+        <span>por clase</span>
+      </div>
+      <div class="maic-stats__item">
+        <strong>Microsoft</strong>
+        <span>certificación incluida</span>
+      </div>
+    </div>
+
+    <h3 class="maic-h3 maic-center">Elige tu especialización y aprende con casos de tu profesión</h3>
+    <div class="maic-spec-grid">
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591074152-9ijynm.png" alt="Ilustración" loading="lazy" />
+        <span>Ilustración</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591080249-y1bwl7.png" alt="Diseño Gráfico" loading="lazy" />
+        <span>Diseño Gráfico</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591085713-nznqee.png" alt="Comunicación y RRSS" loading="lazy" />
+        <span>Comunicación y RRSS</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591090540-fqwvwi.png" alt="Cine y Audiovisual" loading="lazy" />
+        <span>Cine y Audiovisual</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591095712-2qqti8.png" alt="Moda" loading="lazy" />
+        <span>Moda</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591100515-x2l00z.png" alt="Fotografía" loading="lazy" />
+        <span>Fotografía</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591105120-mt5drn.png" alt="Publicidad" loading="lazy" />
+        <span>Publicidad</span>
+      </div>
+      <div class="maic-spec-card">
+        <img src="https://media.withbaker.com/images/jd71sekn8pydpvc2g64dh32msh868e32/1780591110303-w0ljpw.png" alt="Arquitectura" loading="lazy" />
+        <span>Arquitectura</span>
+      </div>
+    </div>
+
+    <div class="maic-includes">
+      <div class="maic-includes__col">
+        <h3 class="maic-h4">Incluye</h3>
+        <ul class="maic-check-list">
+          <li>Certificación dual: Founderz + Microsoft</li>
+          <li>12 meses de acceso y actualizaciones</li>
+          <li>Masterclasses en directo con expertos</li>
+          <li>Biblioteca de prompts creativos</li>
+          <li>GPTs personalizados para imagen y vídeo</li>
+          <li>Módulo legal especializado</li>
+        </ul>
+      </div>
+      <div class="maic-includes__col">
+        <h3 class="maic-h4">¿Qué aprenderás?</h3>
+        <div class="maic-chips">
+          <span>Prompting avanzado</span>
+          <span>Generación de imagen</span>
+          <span>Generación de vídeo</span>
+          <span>Edición de imagen</span>
+          <span>Edición de vídeo</span>
+          <span>Música con IA</span>
+          <span>Voz sintética</span>
+          <span>GPTs personalizados</span>
+          <span>Workflows creativos</span>
+          <span>Automatización</span>
+          <span>Marca personal</span>
+          <span>Portfolios</span>
+          <span>Marco jurídico</span>
+          <span>Avatares digitales</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="maic-h4 maic-center" style="margin-top: var(--space-6)">Herramientas que dominarás</h3>
+    <div class="maic-tools">
+      <span>Midjourney</span>
+      <span>Adobe Firefly</span>
+      <span>Runway</span>
+      <span>Kling</span>
+      <span>ElevenLabs</span>
+      <span>HeyGen</span>
+      <span>Recraft</span>
+      <span>DaVinci Resolve</span>
+      <span>Freepik AI</span>
+      <span>Flora</span>
+      <span>Weavy</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TEMARIO — lilac bg
+     ================================================================ -->
+<section class="maic-section maic-bg-lilac" aria-labelledby="temario-h2">
+  <div class="maic-container">
+    <h2 id="temario-h2" class="maic-h2 maic-center">Temario completo</h2>
+
+    <div class="maic-accordion">
+
+      <details class="maic-accordion__item" open>
+        <summary class="maic-accordion__summary">
+          <span class="maic-accordion__num">1</span>
+          <span class="maic-accordion__title">Transformación del proceso creativo</span>
+          <span class="maic-accordion__meta">4 lecciones</span>
+          <svg class="maic-accordion__icon" width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-accordion__body">
+          <ul>
+            <li>Método y criterio profesional para trabajar con IA</li>
+            <li>Pensar antes de producir: la IA como colaborador estratégico</li>
+            <li>Errores más comunes al integrar IA en el proceso creativo</li>
+            <li>Casos reales de transformación en estudios y agencias</li>
+          </ul>
+          <p class="maic-accordion__teachers">Fabiana Aguilar · Anna Cejudo</p>
+        </div>
+      </details>
+
+      <details class="maic-accordion__item">
+        <summary class="maic-accordion__summary">
+          <span class="maic-accordion__num">2</span>
+          <span class="maic-accordion__title">Preproducción y control creativo</span>
+          <span class="maic-accordion__meta">4 lecciones</span>
+          <svg class="maic-accordion__icon" width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-accordion__body">
+          <ul>
+            <li>Prompting diferenciado para texto, imagen y vídeo</li>
+            <li>Creación de asistentes y GPTs personalizados</li>
+            <li>Criterio visual antes de generar: moodboards y referencias con IA</li>
+            <li>Comunicación profesional con modelos generativos</li>
+          </ul>
+          <p class="maic-accordion__teachers">Paco Chavinet · Javier de la Chica</p>
+        </div>
+      </details>
+
+      <details class="maic-accordion__item">
+        <summary class="maic-accordion__summary">
+          <span class="maic-accordion__num">3</span>
+          <span class="maic-accordion__title">Producción y postproducción de imagen con IA</span>
+          <span class="maic-accordion__meta">4 lecciones</span>
+          <svg class="maic-accordion__icon" width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-accordion__body">
+          <ul>
+            <li>Generación de imágenes profesionales con las mejores herramientas</li>
+            <li>Técnicas avanzadas de edición: inpainting, outpainting, upscaling</li>
+            <li>Optimización de flujo de trabajo y créditos</li>
+            <li>Vectorización y preparación para uso comercial</li>
+          </ul>
+          <p class="maic-accordion__teachers">Jaime Sanjuan · Joss López · Koldo Huici</p>
+        </div>
+      </details>
+
+      <details class="maic-accordion__item">
+        <summary class="maic-accordion__summary">
+          <span class="maic-accordion__num">4</span>
+          <span class="maic-accordion__title">Producción y postproducción de vídeo con IA</span>
+          <span class="maic-accordion__meta">4 lecciones</span>
+          <span class="maic-tag">Nuevo</span>
+          <svg class="maic-accordion__icon" width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-accordion__body">
+          <ul>
+            <li>Generación de vídeos profesionales con herramientas punteras</li>
+            <li>Organización de proyectos creativos complejos</li>
+            <li>Edición avanzada y postproducción con IA</li>
+            <li>Técnicas de mejora y transformación de vídeo</li>
+          </ul>
+          <p class="maic-accordion__teachers">Hilario Abad · Nekodificador · Eduard Puig</p>
+        </div>
+      </details>
+
+      <details class="maic-accordion__item">
+        <summary class="maic-accordion__summary">
+          <span class="maic-accordion__num">5</span>
+          <span class="maic-accordion__title">Diseño de voz, sonido y música con IA</span>
+          <span class="maic-accordion__meta">4 lecciones</span>
+          <span class="maic-tag">Nuevo</span>
+          <svg class="maic-accordion__icon" width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-accordion__body">
+          <ul>
+            <li>Generación de voces profesionales y clonación de voz</li>
+            <li>Creación de bandas sonoras y música original con IA</li>
+            <li>Acabado sonoro profesional para proyectos creativos</li>
+            <li>Herramientas de audio: ElevenLabs, Suno y más</li>
+          </ul>
+          <p class="maic-accordion__teachers">Alby Ojeda</p>
+        </div>
+      </details>
+
+      <details class="maic-accordion__item">
+        <summary class="maic-accordion__summary">
+          <span class="maic-accordion__num">6</span>
+          <span class="maic-accordion__title">Construcción de flujos de trabajo creativos</span>
+          <span class="maic-accordion__meta">4 lecciones</span>
+          <span class="maic-tag">Nuevo</span>
+          <svg class="maic-accordion__icon" width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-accordion__body">
+          <ul>
+            <li>De herramientas sueltas a sistemas de producción escalables</li>
+            <li>Diseño de workflows visuales con IA</li>
+            <li>Automatización de procesos repetitivos</li>
+            <li>Creación de herramientas creativas propias sin programar</li>
+          </ul>
+          <p class="maic-accordion__teachers">Alex Caracuel · Ramón Iborra</p>
+        </div>
+      </details>
+
+    </div><!-- /accordion -->
+
+    <!-- Locked modules -->
+    <div class="maic-locked">
+      <svg width="28" height="28" style="color:var(--fz-black-50)" aria-hidden="true"><use href="#i-lock"/></svg>
+      <p class="maic-locked__nums">7 · 8 · 9</p>
+      <p class="maic-locked__label"><strong>3 módulos más te esperan</strong></p>
+      <p class="maic-locked__sub">Descarga el dossier para ver el temario completo.</p>
+      <a class="maic-btn maic-btn--primary" href="#main-form">Desbloquear temario completo</a>
+      <p class="maic-microcopy">Sin coste · Acceso inmediato</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================================================================
+     METODOLOGÍA — white bg
+     ================================================================ -->
+<section class="maic-section" aria-labelledby="method-h2">
+  <div class="maic-container">
+    <p class="maic-eyebrow">Así se aprende</p>
+    <h2 id="method-h2" class="maic-h2">Clases cortas. Herramientas reales.<br>Resultados inmediatos.</h2>
+    <p class="maic-lead">Nada de vídeos de una hora que abandonas a los 10 minutos. Aquí cada clase dura <strong>5-15 minutos</strong>, va directa al grano y te deja con algo que puedes aplicar hoy.</p>
+
+    <div class="maic-method-grid">
+      <article class="maic-method-card">
+        <h3 class="maic-h4">Microclases de 5-15 min</h3>
+        <p>Un concepto, una herramienta, un resultado. Sin relleno. Diseñadas para que aprendas en ratos sueltos, no en maratones.</p>
+      </article>
+      <article class="maic-method-card">
+        <h3 class="maic-h4">Contenido que no caduca en 2 semanas</h3>
+        <p>Las herramientas de IA cambian cada semana. El temario se actualiza constantemente para que lo que aprendes hoy siga siendo útil mañana.</p>
+      </article>
+      <article class="maic-method-card">
+        <h3 class="maic-h4">Masterclasses quincenales en directo</h3>
+        <p>Sesiones live con profesionales que están aplicando IA en agencias, productoras y estudios reales. Preguntas en directo, casos del momento.</p>
+      </article>
+      <article class="maic-method-card">
+        <h3 class="maic-h4">+20 profesores en activo, no teóricos</h3>
+        <p>Directores de arte, cineastas, diseñadores, juristas. Gente que usa IA todos los días en proyectos reales — no académicos que leen papers.</p>
+      </article>
+      <article class="maic-method-card">
+        <h3 class="maic-h4">100% online, a tu ritmo</h3>
+        <p>Sin horarios fijos. Desde cualquier sitio. 1-2 horas al día cuando tú quieras. Compatible con tu trabajo.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TESTIMONIOS — dark bg
+     ================================================================ -->
+<section class="maic-section maic-bg-dark" aria-labelledby="reviews-h2">
+  <div class="maic-container">
+    <p class="maic-eyebrow maic-eyebrow--accent">4.7 en Trustpilot</p>
+    <h2 id="reviews-h2" class="maic-h2 maic-h2--light">Más de 5.000 alumnos verificados ya lo dicen.</h2>
+    <div class="maic-reviews-grid">
+      <blockquote class="maic-review">
+        <div class="maic-review__stars" aria-label="5 estrellas">
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+        </div>
+        <p>"La parte del máster que más me ha gustado es la de aplicaciones al mundo del marketing y ventas, donde he podido ver un potencial de optimizar procesos, hacer presentaciones, editar productos o hacer campañas de cualquier tipo."</p>
+        <cite><strong>Fredy Civit</strong> — Head of eCommerce de Nestlé Spain</cite>
+      </blockquote>
+      <blockquote class="maic-review">
+        <div class="maic-review__stars" aria-label="5 estrellas">
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+        </div>
+        <p>"Me apasiona la fotografía y el diseño y al entrar en este mundo de la IA, observo los increíbles resultados que se pueden lograr luego de aprender a usarla adecuadamente."</p>
+        <cite><strong>Fiorella Ortegon</strong> — Reseña verificada en Trustpilot</cite>
+      </blockquote>
+      <blockquote class="maic-review">
+        <div class="maic-review__stars" aria-label="5 estrellas">
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+        </div>
+        <p>"Me parece un contenido muy ameno y fácil de consumir, en cuanto al formato de vídeos cortos e información de calidad transmitida."</p>
+        <cite><strong>Slow — Visual Narratives</strong> · Reseña verificada en Trustpilot</cite>
+      </blockquote>
+      <blockquote class="maic-review">
+        <div class="maic-review__stars" aria-label="5 estrellas">
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+          <svg width="14" height="14" aria-hidden="true"><use href="#i-star"/></svg>
+        </div>
+        <p>"Soy director de arte con 15 años de experiencia. Tenía miedo de que la IA me dejase obsoleto. Ahora es mi herramienta más potente."</p>
+        <cite><strong>Juan Hernández</strong> — Reseña verificada en Trustpilot</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     EQUIPO DOCENTE — grey bg
+     ================================================================ -->
+<section class="maic-section maic-bg-grey" aria-labelledby="faculty-h2">
+  <div class="maic-container">
+    <p class="maic-eyebrow">Equipo docente</p>
+    <h2 id="faculty-h2" class="maic-h2">Quién te va a enseñar</h2>
+    <p class="maic-lead">Profesionales en activo aplicando IA en estudios, agencias y productoras. Más expertos de Microsoft que llevan años en el frente.</p>
+
+    <div class="maic-faculty-grid">
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/fabiana-aguilar-3.webp" alt="Fabiana Aguilar" loading="lazy" />
+        <h3 class="maic-teacher__name">Fabiana Aguilar</h3>
+        <p class="maic-teacher__role">Directora del programa · Founderz</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/hilario-abad-3.webp" alt="Hilario Abad" loading="lazy" />
+        <h3 class="maic-teacher__name">Hilario Abad</h3>
+        <p class="maic-teacher__role">Cineasta especializado en IA</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/nekodificador-7.webp" alt="Nekodificador" loading="lazy" />
+        <h3 class="maic-teacher__name">Nekodificador</h3>
+        <p class="maic-teacher__role">Creativo audiovisual y Creador de Contenido</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/magda-teruel-3.webp" alt="Magda Teruel" loading="lazy" />
+        <h3 class="maic-teacher__name">Magda Teruel</h3>
+        <p class="maic-teacher__role">Copilot Partner Solutions Architect · Microsoft</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/javier-de-la-chica-3.webp" alt="Javier de la Chica" loading="lazy" />
+        <h3 class="maic-teacher__name">Javier de la Chica</h3>
+        <p class="maic-teacher__role">Director Creativo · Contanimation</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/anna-cejudo-2.webp" alt="Anna Cejudo" loading="lazy" />
+        <h3 class="maic-teacher__name">Anna Cejudo</h3>
+        <p class="maic-teacher__role">Cofundadora &amp; Co-CEO · Founderz</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/Jaime-San-Juan.webp" alt="Jaime Sanjuan" loading="lazy" />
+        <h3 class="maic-teacher__name">Jaime Sanjuan</h3>
+        <p class="maic-teacher__role">Director de Arte Digital e Instructor en Ilustración</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/paco-chavinet-2.webp" alt="Paco Chavinet" loading="lazy" />
+        <h3 class="maic-teacher__name">Paco Chavinet</h3>
+        <p class="maic-teacher__role">Artista visual y Director Creativo · Milkshakes</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/alex-caracuel-3.webp" alt="Alex Caracuel" loading="lazy" />
+        <h3 class="maic-teacher__name">Alex Caracuel</h3>
+        <p class="maic-teacher__role">Creative AI &amp; Media · Wimeik AI Studio</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/pau-garcia-mila-3.webp" alt="Pau Garcia-Milà" loading="lazy" />
+        <h3 class="maic-teacher__name">Pau Garcia-Milà</h3>
+        <p class="maic-teacher__role">Cofundador &amp; Co-CEO · Founderz</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/alby-ojeda-4.webp" alt="Alby Ojeda" loading="lazy" />
+        <h3 class="maic-teacher__name">Alby Ojeda</h3>
+        <p class="maic-teacher__role">Diseñador Narrativo Senior</p>
+      </article>
+      <article class="maic-teacher">
+        <img src="https://founderz.com/wp-content/uploads/2026/03/koldo-huici-3.webp" alt="Koldo Huici" loading="lazy" />
+        <h3 class="maic-teacher__name">Koldo Huici</h3>
+        <p class="maic-teacher__role">Creativo en IA</p>
+      </article>
+    </div>
+    <div class="maic-center">
+      <a class="maic-btn maic-btn--primary" href="#main-form">Quiero aprender con ellos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     RECONOCIMIENTOS — white bg
+     ================================================================ -->
+<section class="maic-section maic-section--compact" aria-label="Reconocimientos y premios">
+  <div class="maic-container">
+    <p class="maic-eyebrow maic-center">Reconocimientos</p>
+    <div class="maic-awards">
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-01-3.png" alt="Premio ASU+GSV" loading="lazy" />
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-04-1.png" alt="Premio EdTech" loading="lazy" />
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-05-1.png" alt="Premio EdTech Digest" loading="lazy" />
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-06-1.png" alt="Premio Forbes" loading="lazy" />
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-07-1.png" alt="Premio Excellence" loading="lazy" />
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-08-1.png" alt="Premio Global" loading="lazy" />
+      <img src="https://founderz.com/wp-content/uploads/2025/10/Premio-09.png" alt="Premio Innovation" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FAQ — grey bg
+     ================================================================ -->
+<section class="maic-section maic-bg-grey" aria-labelledby="faq-h2">
+  <div class="maic-container maic-container--narrow">
+    <p class="maic-eyebrow">FAQ</p>
+    <h2 id="faq-h2" class="maic-h2">Todo lo que necesitas saber.</h2>
+
+    <div class="maic-faq">
+      <details class="maic-faq__item">
+        <summary class="maic-faq__question">¿Cuánto cuesta el Máster?
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-faq__answer">
+          <p>925€ todo incluido. Financiación al 0% disponible en cómodas cuotas. También hay opciones Fundae para empresas que quieran bonificar la formación.</p>
+        </div>
+      </details>
+      <details class="maic-faq__item">
+        <summary class="maic-faq__question">¿Necesito saber programar?
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-faq__answer">
+          <p>No. El programa está diseñado específicamente para perfiles creativos sin base técnica. Todo se aprende desde cero con un enfoque práctico y visual.</p>
+        </div>
+      </details>
+      <details class="maic-faq__item">
+        <summary class="maic-faq__question">¿Qué certificación recibiré?
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-faq__answer">
+          <p>Certificación dual: Founderz AI Business School + Microsoft. Dos credenciales reconocidas en la industria que puedes añadir a tu LinkedIn y portfolio.</p>
+        </div>
+      </details>
+      <details class="maic-faq__item">
+        <summary class="maic-faq__question">¿Cuánto tiempo necesito al día?
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-faq__answer">
+          <p>1-2 horas al día, a tu ritmo y sin horarios fijos. Compatible con tu trabajo actual. Las clases son de 5-15 minutos para que puedas aprender en cualquier momento.</p>
+        </div>
+      </details>
+      <details class="maic-faq__item">
+        <summary class="maic-faq__question">¿Y si no me convence?
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-faq__answer">
+          <p>Garantía de devolución de 15 días sin preguntas. Si en los primeros 15 días no es lo que esperabas, te devolvemos el 100% del importe.</p>
+        </div>
+      </details>
+      <details class="maic-faq__item">
+        <summary class="maic-faq__question">¿Qué herramientas aprendo?
+          <svg width="20" height="20" aria-hidden="true"><use href="#i-chev-down"/></svg>
+        </summary>
+        <div class="maic-faq__answer">
+          <p>Midjourney, Adobe Firefly, Runway, Kling, ElevenLabs, HeyGen, Recraft, DaVinci Resolve, Freepik AI y más. El temario se actualiza continuamente con las nuevas herramientas que van saliendo.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CIERRE + FORM FINAL — lilac bg
+     ================================================================ -->
+<section class="maic-section maic-bg-lilac" aria-labelledby="closing-h2">
+  <div class="maic-container">
+    <div class="maic-closing">
+      <div class="maic-closing__copy">
+        <p class="maic-eyebrow">Sin compromiso</p>
+        <h2 id="closing-h2" class="maic-h2">Descubre el programa completo y habla con un asesor hoy.</h2>
+        <p class="maic-lead">Temario completo, las 8 especializaciones, metodología, precios y casos reales de alumnos creativos.</p>
+        <ul class="maic-check-list">
+          <li>Sin presión: te informamos, decides tú</li>
+          <li>Certificación Founderz + Microsoft incluida</li>
+          <li>Garantía de 15 días sin preguntas</li>
+        </ul>
+      </div>
+
+      <div class="maic-form-card maic-form-card--light">
+        <h3 class="maic-form-card__title">Descarga el dossier gratuito</h3>
+        <p class="maic-form-card__sub">Rellena el formulario y recíbelo al instante.</p>
+        <form class="maic-form" novalidate data-maic-form="closing">
+          <div class="maic-form__row maic-form__row--2">
+            <div class="maic-form__field">
+              <label for="c-nombre" class="maic-form__label">Nombre</label>
+              <input id="c-nombre" class="maic-input" type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required />
+            </div>
+            <div class="maic-form__field">
+              <label for="c-email" class="maic-form__label">Email</label>
+              <input id="c-email" class="maic-input" type="email" name="email" placeholder="tu@email.com" autocomplete="email" required />
+            </div>
+          </div>
+          <div class="maic-form__field">
+            <label for="c-tel" class="maic-form__label">Teléfono</label>
+            <input id="c-tel" class="maic-input" type="tel" name="telefono" placeholder="+34 600 000 000" autocomplete="tel" />
+          </div>
+          <button type="submit" class="maic-btn maic-btn--primary maic-btn--block">Descargar dossier</button>
+        </form>
+        <div class="maic-form__trust-pills">
+          <span>Sin compromiso</span>
+          <span>Recíbelo al instante</span>
+          <span>Sin spam</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     FOOTER
+     ================================================================ -->
+<footer class="maic-footer fz-bg-dark" role="contentinfo">
+  <div class="maic-container maic-footer__inner">
+    <img src="../assets/founderz-wordmark-white.svg" alt="Founderz AI Business School" height="20" />
+    <p>Founderz AI Business School · Castellana 79, 7, 28046 Madrid · <a href="tel:+34936297310">+34 936 297 310</a></p>
+    <p>© 2026 Founderz. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- Sticky CTA móvil -->
+<a class="maic-sticky-cta" href="#main-form" aria-label="Ir al formulario de descarga">
+  Descarga el temario gratis
+</a>
+
+<script src="maic.js"></script>
+</body>
+</html>
