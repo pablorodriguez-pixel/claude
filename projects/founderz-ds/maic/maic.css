@@ -46,13 +46,18 @@
 
 .maic-h1 {
   font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, var(--fs-h1));
+  font-size: clamp(32px, 5vw, var(--fs-h1));
   font-weight: var(--fw-semibold);
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-default);
   color: var(--fz-white);
   text-wrap: balance;
   margin-bottom: var(--space-3);
+}
+.maic-rotator {
+  color: #c4b5f4;
+  display: inline;
+  transition: opacity 0.2s var(--ease-out);
 }
 .maic-h2 {
   font-family: var(--font-display);
@@ -224,15 +229,18 @@
   align-items: start;
 }
 
-/* Left: video + h1 + cta */
+/* Left: video + h1 + cta — flex para reordenar en mobile */
 .maic-hero__copy {
   display: flex;
   flex-direction: column;
   gap: 0;
 }
-.maic-hero__video {
-  margin-bottom: var(--space-5);
-}
+/* Desktop: orden visual — video, h1, sub, btn, microcopy */
+.maic-hero__video          { order: 0; margin-bottom: var(--space-5); }
+.maic-hero .maic-h1        { order: 1; }
+.maic-hero__sub            { order: 2; }
+.maic-hero .maic-btn--lg   { order: 3; margin-top: var(--space-2); }
+.maic-hero .maic-microcopy { order: 4; }
 
 /* Video placeholder */
 .maic-video-placeholder {
@@ -276,6 +284,7 @@
 .maic-hero__sub {
   font-size: var(--fs-details);
   color: var(--fz-white-70);
+  margin-top: var(--space-2);
   margin-bottom: var(--space-4);
   letter-spacing: var(--tracking-default);
 }
@@ -748,11 +757,13 @@
   color: var(--fz-black-50);
   white-space: nowrap;
   letter-spacing: var(--tracking-default);
+  flex-shrink: 0;
 }
 .maic-accordion__icon {
   flex-shrink: 0;
   color: var(--fz-black-50);
   transition: transform var(--dur-fast) var(--ease-out);
+  margin-left: auto;
 }
 .maic-accordion__body {
   padding: 0 24px 24px 70px;
@@ -1048,39 +1059,162 @@
 /* ==============================================================
    RESPONSIVE
    ============================================================== */
+
+/* --- 1100px: tablet landscape --- */
 @media (max-width: 1100px) {
   .maic-faculty-grid { grid-template-columns: repeat(4, 1fr); }
-  .maic-spec-grid { grid-template-columns: repeat(4, 1fr); }
+  .maic-spec-grid    { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* --- 860px: tablet portrait --- */
 @media (max-width: 860px) {
+  /* Layout de 2 col a 1 col */
   .maic-hero__grid,
   .maic-closing { grid-template-columns: 1fr; }
+
+  /* Hero: reordenar — H1 primero, video al final */
+  .maic-hero__video  { order: 10; margin-bottom: 0; margin-top: var(--space-5); }
+  .maic-hero .maic-h1 { order: 1; }
+  .maic-hero__sub    { order: 2; }
+  .maic-hero .maic-btn { order: 3; }
+  .maic-hero .maic-microcopy { order: 4; }
+
+  /* Formulario: desactivar sticky */
   .maic-form-card { position: static; }
-  .maic-pain-grid { grid-template-columns: 1fr; }
-  .maic-stats { grid-template-columns: repeat(2, 1fr); }
-  .maic-includes { grid-template-columns: 1fr; gap: var(--space-4); }
-  .maic-reviews-grid { grid-template-columns: 1fr; }
-  .maic-method-grid { grid-template-columns: repeat(2, 1fr); }
-  .maic-faculty-grid { grid-template-columns: repeat(3, 1fr); }
-  .maic-gallery { grid-template-columns: 1fr 1fr; }
-  .maic-gallery__item--lg { grid-column: span 2; }
+
+  /* Form: ocultar la discover list para reducir fricción — ya está en el copy del hero */
+  .maic-discover-list { display: none; }
+
+  /* Grids que colapsan */
+  .maic-pain-grid        { grid-template-columns: 1fr; }
+  .maic-stats            { grid-template-columns: repeat(2, 1fr); }
+  .maic-includes         { grid-template-columns: 1fr; gap: var(--space-4); }
+  .maic-reviews-grid     { grid-template-columns: 1fr; }
+  .maic-method-grid      { grid-template-columns: repeat(2, 1fr); }
+  .maic-faculty-grid     { grid-template-columns: repeat(3, 1fr); }
+
+  /* Gallery: 2 cols, el item grande ocupa las 2 */
+  .maic-gallery            { grid-template-columns: 1fr 1fr; }
+  .maic-gallery__item--lg  { grid-column: span 2; }
+  /* Dar altura mínima al video placeholder al span full */
+  .maic-gallery__item--lg .maic-video-placeholder { min-height: 240px; }
+
+  /* Stats: reducir tamaño del número para que "Microsoft" quepa */
+  .maic-stats__item strong { font-size: 22px; }
+
+  /* Spec grid: 4 cols en tablet */
+  .maic-spec-grid { grid-template-columns: repeat(4, 1fr); }
+
+  /* Accordion: permitir que el title wrappee y meta/tag bajen */
+  .maic-accordion__summary {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .maic-accordion__title { flex-basis: 60%; }
+  .maic-accordion__icon  { margin-left: auto; }
+
+  /* Trust strip: columna en tablet */
+  .maic-trust-strip { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+
+  /* Sticky CTA aparece */
   .maic-sticky-cta { display: block; }
+
+  /* Header: ocultar las estrellas Trustpilot */
   .maic-header__proof .maic-trust { display: none; }
 }
 
+/* --- 579px: mobile --- */
 @media (max-width: 579px) {
+  /* Secciones y hero */
   .maic-section { padding-block: var(--section-pad-standard-m); }
-  .maic-hero { padding-block: var(--section-pad-hero-m); }
-  .maic-stats { grid-template-columns: repeat(2, 1fr); }
-  .maic-spec-grid { grid-template-columns: repeat(2, 1fr); }
+  .maic-hero    { padding-block: 56px 48px; }
+
+  /* Tipografía hero */
+  .maic-h1 { font-size: 30px; line-height: 1.15; }
+  .maic-h2 { font-size: 26px; }
+  .maic-hero__sub { font-size: var(--fs-small); }
+
+  /* Hero: ocultar el video en mobile — consume espacio sin valor sin audio */
+  .maic-hero__video { display: none; }
+
+  /* Formulario: campos 1 col */
   .maic-form__row--2 { grid-template-columns: 1fr; }
+  /* Formulario hero: reducir padding */
+  .maic-form-card { padding: var(--space-3); }
+
+  /* Stats: 2x2, número más pequeño */
+  .maic-stats { grid-template-columns: repeat(2, 1fr); }
+  .maic-stats__item strong { font-size: 20px; }
+
+  /* Spec: 4 cols en mobile — iconos pequeños, solo label */
+  .maic-spec-grid { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .maic-spec-card img { border-radius: 10px; }
+  .maic-spec-card span { font-size: 10px; }
+
+  /* Galería: 1 col */
+  .maic-gallery              { grid-template-columns: 1fr; gap: var(--space-2); }
+  .maic-gallery__item--lg    { grid-column: span 1; }
+  .maic-gallery__item--video .maic-video-placeholder { min-height: 200px; }
+
+  /* Método: 1 col */
   .maic-method-grid { grid-template-columns: 1fr; }
-  .maic-faculty-grid { grid-template-columns: repeat(2, 1fr); }
-  .maic-gallery { grid-template-columns: 1fr; }
-  .maic-gallery__item--lg { grid-column: span 1; }
+
+  /* Faculty: 3 cols en mobile — más compacto */
+  .maic-faculty-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-2); }
+  .maic-teacher__name { font-size: 12px; }
+  .maic-teacher__role { font-size: 11px; }
+
+  /* Accordion: reducir padding interior */
+  .maic-accordion__summary { padding: 16px; gap: 8px; }
+  .maic-accordion__body    { padding: 0 16px 16px 16px; }
+  .maic-accordion__num     { width: 26px; height: 26px; font-size: 12px; flex-shrink: 0; }
+  .maic-accordion__title   { font-size: 14px; flex-basis: auto; flex: 1; min-width: 0; }
+  .maic-accordion__meta    { font-size: 12px; }
+
+  /* FAQ */
+  .maic-faq__question { font-size: 14px; }
+
+  /* Header: ocultar badge */
   .maic-header__proof .maic-badge { display: none; }
-  .maic-accordion__body { padding-left: var(--space-3); }
+
+  /* Trust strip: ocultar logos en mobile para no saturar */
+  .maic-trust-strip { display: none; }
+
+  /* Pain: scroll horizontal en mobile — 1 card visible, hint de siguiente */
+  .maic-pain-grid {
+    grid-template-columns: 85vw 85vw 85vw;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: var(--space-2);
+    padding-bottom: var(--space-2);
+  }
+  .maic-pain-grid::-webkit-scrollbar { display: none; }
+  .maic-pain-card { scroll-snap-align: start; flex-shrink: 0; }
+
+  /* Reviews: scroll horizontal igual */
+  .maic-reviews-grid {
+    grid-template-columns: 85vw 85vw 85vw 85vw;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: var(--space-2);
+  }
+  .maic-reviews-grid::-webkit-scrollbar { display: none; }
+  .maic-review { scroll-snap-align: start; flex-shrink: 0; }
+
+  /* Btn sticky: asegurar que no tape el form */
+  .maic-sticky-cta { font-size: 14px; padding: 14px 24px; bottom: 16px; }
+
+  /* Chips: más pequeños */
+  .maic-chips span { font-size: 12px; padding: 6px 12px; }
+  .maic-tools span { font-size: 13px; padding: 7px 14px; }
+
+  /* Check list: texto más pequeño */
+  .maic-check-list li { font-size: 14px; }
 }
 
 /* Accessibility */
