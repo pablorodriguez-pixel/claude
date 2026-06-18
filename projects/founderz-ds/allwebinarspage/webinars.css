@@ -213,53 +213,60 @@
    HERO — dark background
    ============================================================ */
 .hero-webinars {
-  padding-block: 80px;
+  padding-block: 48px 40px;
 }
 
 .hero-webinars__inner {
-  display: grid;
-  grid-template-columns: 1fr 520px;
-  gap: 64px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  text-align: center;
+  gap: var(--space-3);
 }
 
 .hero-webinars__copy {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  align-items: center;
+  gap: var(--space-2);
 }
 
 .hero-webinars__copy .fz-h1 {
-  font-weight: var(--fw-light);
-  font-size: 56px;
-  line-height: var(--lh-tight);
+  font-weight: var(--fw-semibold);
+  font-size: 40px;
+  line-height: var(--lh-heading);
   color: var(--fz-white);
   text-wrap: balance;
+  max-width: 640px;
 }
 
 .hero-webinars__sub {
-  font-size: 20px;
+  font-size: 18px;
   line-height: var(--lh-body);
   color: var(--fz-white-70);
   margin: 0;
-  max-width: 480px;
+  max-width: 500px;
 }
 
-/* ---- Hero form card ---- */
+/* ---- Hero form card: compacta horizontal ---- */
 .hero-form-card {
-  background: var(--fz-white);
+  background: rgba(255,255,255,0.07);
+  border: 1px solid var(--fz-white-10);
   border-radius: var(--radius-card-inner);
-  padding: 32px;
-  max-width: 520px;
+  padding: 20px 24px;
   width: 100%;
+  max-width: 600px;
 }
 
 .hero-form-card__title {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: var(--fw-semibold);
-  color: var(--fz-black);
-  margin: 0 0 var(--space-3);
+  color: var(--fz-white-70);
+  margin: 0 0 12px;
   letter-spacing: var(--tracking-default);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.06em;
 }
 
 .hero-form {
@@ -270,13 +277,19 @@
 
 .hero-form__row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-2);
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+  align-items: center;
 }
 
 .hero-form__field {
   display: flex;
   flex-direction: column;
+}
+
+.hero-form__submit {
+  white-space: nowrap;
+  align-self: stretch;
 }
 
 /* ---- Inputs ---- */
