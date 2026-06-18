@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Text on surfaces" subtitle="Primary & secondary text on light and dark" -->
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>
+  body{margin:0;padding:20px;background:#fff;font-family:var(--font-display)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .panel{border-radius:14px;padding:20px;border:1px solid var(--fz-border)}
+  .light{background:var(--fz-white)}
+  .dark{background:var(--fz-black)}
+  .t1{font-size:18px}
+  .t2{font-size:15px;margin-top:6px}
+  .tag{font-size:12px;text-transform:uppercase;letter-spacing:.06em;margin-top:10px}
+</style></head>
+<body>
+<div class="row">
+  <div class="panel light">
+    <div class="t1" style="color:var(--fz-black)">Primary — #1a191d</div>
+    <div class="t2" style="color:var(--fz-black-70)">Secondary — black / 70%</div>
+    <div class="tag" style="color:var(--fz-purple)">Accent label — purple</div>
+  </div>
+  <div class="panel dark">
+    <div class="t1" style="color:var(--fz-white)">On dark — #ffffff</div>
+    <div class="t2" style="color:var(--fz-white-70)">Secondary — white / 70%</div>
+    <div class="tag" style="color:var(--fz-lilac)">Accent — lilac</div>
+  </div>
+</div>
+</body></html>

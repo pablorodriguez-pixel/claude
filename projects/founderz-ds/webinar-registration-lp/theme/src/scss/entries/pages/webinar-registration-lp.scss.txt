@@ -1,0 +1,49 @@
+// =============================================================================
+// Webinar Registration LP — SCSS entry
+// src/scss/entries/pages/webinar-registration-lp.scss
+// =============================================================================
+
+@use "@abstracts/index" as *;
+
+// --- Shared chrome (header/footer simple oscuro) ---
+@use "@components/header/header-simple-dark";
+@use "@components/footer/footer-simple-dark";
+@use "@components/hubspot/hubspot";
+
+// --- DS Founderz components usados por las secciones ---
+@use "@founderz/components/heading/heading-a";
+@use "@founderz/components/button/button-a";
+@use "@founderz/components/pill/pill-a";
+@use "@founderz/components/card/card-e";
+@use "@founderz/components/testimonial/testimonial-a";
+@use "@founderz/components/avatar/avatar-a";
+
+// --- Componentes y secciones propios de la landing ---
+@use "@founderz/components/countdown/countdown-a";
+@use "@founderz/sections/webinar/hero-form";
+@use "@founderz/sections/webinar/value-cards";
+@use "@founderz/sections/webinar/agenda";
+@use "@founderz/sections/webinar/speaker";
+@use "@founderz/sections/webinar/audience";
+@use "@founderz/sections/webinar/testimonials";
+@use "@founderz/sections/webinar/faqs";
+@use "@founderz/sections/webinar/final-cta";
+
+// -----------------------------------------------------------------------------
+// Variables locales de la landing
+// -----------------------------------------------------------------------------
+:root {
+    --font-size-h1: clamp(40px, 5vw, 56px);
+    --font-size-h2: clamp(32px, 4vw, 40px);
+    --font-size-h3: clamp(20px, 2vw, 24px);
+    --font-size-body: 18px;
+    --line-height-h1: 1.1;
+    --line-height-h2: 1.2;
+    --line-height-body: 1.5;
+}
+
+// Sin background propio: cada sección define su fondo siguiendo el ritmo
+// blanco → gris → lilac → oscuro del DS.
+.webinar-lp {
+    overflow-x: clip;
+}

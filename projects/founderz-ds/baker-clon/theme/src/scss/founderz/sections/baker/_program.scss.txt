@@ -1,0 +1,103 @@
+// =============================================================================
+// Baker Program (baker-program)
+// =============================================================================
+
+.baker-program {
+    @include section-b;
+    background: var(--white);
+
+    &__stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-block: 40px;
+
+        @media all and (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+        @media all and (max-width: 580px)  { grid-template-columns: 1fr; }
+    }
+
+    &__stat {
+        text-align: center;
+        padding: 24px;
+        background: var(--light);
+        border-radius: 16px;
+
+        &__value { display: block; font-size: 32px; font-weight: 600; color: var(--purple); }
+        &__label { font-size: var(--font-size-small); color: var(--black-opacity-7); }
+    }
+
+    &__spec-title { text-align: center; font-weight: 500; margin-bottom: 20px; }
+
+    &__specs {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        margin-bottom: 40px;
+
+        @media all and (max-width: 810px) { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    &__spec {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 20px;
+        text-align: center;
+        background: var(--light);
+        border-radius: 16px;
+
+        &__icon { color: var(--purple); svg { width: 26px; height: 26px; } img { width: 28px; height: 28px; object-fit: contain; } }
+        &__name { font-size: 15px; font-weight: 500; }
+    }
+
+    &__detail {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+
+        @media all and (max-width: 810px) { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    &__includes {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        li { display: flex; gap: 12px; align-items: center; font-size: 17px; }
+        &__check { color: var(--purple); flex-shrink: 0; svg { width: 20px; height: 20px; } }
+    }
+
+    &__tags__title {
+        font-size: var(--font-size-small);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--purple);
+        margin-bottom: 12px;
+
+        & + .baker-program__tools { margin-top: 0; }
+    }
+
+    &__pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+
+    &__tools { display: flex; flex-wrap: wrap; gap: 8px; }
+
+    &__tool {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        background: var(--white);
+
+        &__logo { width: 18px; height: 18px; object-fit: contain; }
+    }
+}

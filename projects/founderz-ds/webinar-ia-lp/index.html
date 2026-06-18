@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="es" data-herobg="dark" data-countdown="on">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Webinar gratis · IA en la oficina — Founderz</title>
+<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="lp.css" />
+<link rel="stylesheet" href="webinar.css" />
+</head>
+<body>
+
+<!-- ===== Sprite de iconos (outline 1.8px, estilo Founderz) ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 3 14 9-14 9V3z"/></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8z"/><rect width="14" height="12" x="2" y="6" rx="2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="13" x="2" y="7" rx="1"/><path d="M12 7v14M22 12H2M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 5L2 7"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+</svg>
+
+<!-- ===================================================================== -->
+<!-- BARRA DE OFERTA STICKY -->
+<!-- ===================================================================== -->
+<div class="offerbar" data-screen-label="offer-bar">
+  <div class="offerbar__inner">
+    <span class="offerbar__msg"><span class="live-dot"></span> <b>Webinar gratis en directo</b> · Jue 26 jun · 18:00h</span>
+    <span class="offerbar__msg offerbar__timewrap">Empieza en <span class="offerbar__count" data-cd-compact>00:00:00:00</span></span>
+    <a href="#reservar" class="btn btn--white btn--sm" data-goform>Reservar plaza</a>
+  </div>
+</div>
+
+<!-- ===================================================================== -->
+<!-- HERO -->
+<!-- ===================================================================== -->
+<section class="hero" data-screen-label="hero">
+  <div class="hero__bg ph ph--dark" data-label="foto · ponente / oficina"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+
+    <!-- Header -->
+    <div class="site-head">
+      <div class="fz-container">
+        <header class="head-bar head-bar--dark">
+          <a href="#" class="head-logo" aria-label="Founderz">
+            <svg height="22" viewBox="0 0 201 37" fill="currentColor" aria-hidden="true"><g transform="translate(0,1.17)"><path d="M 0 3.862 C 0 5.969 1.878 7.775 4.165 7.775 C 6.451 7.775 8.323 5.969 8.323 3.862 C 8.323 1.754 6.446 0 4.165 0 C 1.884 0 0 1.806 0 3.862 Z"/></g><g transform="translate(10.816,1.363)"><path d="M 12.638 6.328 L 12.638 0 L 0.052 0 L 0 0.103 C 0.714 1.806 0.714 4.471 0 6.174 L 0.052 6.322 L 12.638 6.322 L 12.638 6.328 Z"/></g><g transform="translate(0.962,11.559)"><path d="M 21.382 3.884 L 6.4 3.884 L 6.4 0.046 L 6.296 0 C 4.574 0.706 1.884 0.706 0.156 0 L 0 0.046 L 0 24.936 L 6.394 24.936 L 6.394 10.207 L 21.376 10.207 L 21.376 3.884 L 21.382 3.884 Z"/></g><g transform="translate(25.066,11.331)"><path d="M 13.197 19.924 C 9.291 19.924 6.4 16.814 6.4 12.947 C 6.4 9.079 9.245 5.969 13.197 5.969 C 17.148 5.969 19.993 9.079 19.993 12.947 C 19.993 16.814 17.05 19.924 13.197 19.924 Z M 13.197 0 C 5.737 0 0 5.719 0 12.947 C 0 20.175 5.737 25.893 13.197 25.893 C 20.656 25.893 26.341 20.175 26.341 12.947 C 26.341 5.719 20.604 0 13.197 0 Z"/></g><g transform="translate(53.43,12.134)"><path d="M 9.078 24.993 C 12.119 24.993 15.27 23.586 16.843 20.374 L 16.843 24.338 L 23.035 24.338 L 23.035 0 L 16.693 0 L 16.693 13.55 C 16.693 16.911 14.458 19.07 11.417 19.07 C 8.375 19.07 6.394 17.013 6.394 13.698 L 6.394 0 L 0 0 L 0 16.011 C 0 21.28 3.957 24.993 9.084 24.993"/></g><g transform="translate(80.371,11.479)"><path d="M 0.011 6.123 L 0.011 24.993 L 6.405 24.993 L 6.405 11.397 C 6.405 8.037 8.738 5.924 11.785 5.924 C 15.034 5.924 16.958 7.98 16.958 11.244 L 16.958 24.993 L 23.352 24.993 L 23.352 8.885 C 23.352 3.714 19.394 0 14.06 0 C 10.915 0 7.822 1.504 6.244 4.42 L 6.244 0.655 L 0 0.655 L 0 6.129 L 0.011 6.123 Z"/></g><g transform="translate(105.746,0.993)"><path d="M 13.145 30.211 C 9.285 30.211 6.394 27.146 6.394 23.284 C 6.394 19.423 9.187 16.41 13.145 16.41 C 17.102 16.41 19.947 19.474 19.947 23.284 C 19.947 27.095 17.102 30.211 13.145 30.211 Z M 19.998 0.655 L 19.998 4.222 C 18.471 1.554 15.524 0 12.232 0 C 5.585 0 0.249 5.214 0.249 12.087 C 0.249 18.959 5.483 24.328 12.232 24.328 C 15.376 24.328 18.32 22.882 19.998 20.312 L 19.998 24.385 C 19.998 28.453 17.764 30.913 13.501 30.913 C 10.611 30.913 8.476 29.715 7.405 27.5 L 1.578 29.305 C 3.557 33.736 7.918 36.301 13.501 36.301 C 21.165 36.301 26.392 31.69 26.392 23.949 L 26.392 0.655 L 19.998 0.655 Z"/></g><g transform="translate(135.892,11.331)"><path d="M 13.043 0 C 6.043 0 0.357 5.719 0.357 12.947 C 0.357 20.226 5.838 25.893 13.451 25.893 C 18.276 25.893 22.487 23.534 24.722 19.616 L 19.589 16.916 C 18.318 19.122 15.987 20.426 13.451 20.426 C 9.962 20.426 7.371 18.567 6.66 15.456 L 25.79 15.456 C 25.892 14.804 25.943 14.05 25.943 13.349 C 25.943 5.617 20.717 0 13.043 0 Z M 6.761 10.594 C 7.575 7.687 9.911 5.867 13.043 5.867 C 16.073 5.867 18.46 7.733 19.119 10.594 L 6.761 10.594 Z"/></g><g transform="translate(164.43,11.835)"><path d="M 6.547 4.166 L 6.547 0.143 L 0.305 0.143 L 0.305 24.481 L 6.699 24.481 L 6.699 13.286 C 6.699 8.717 9.486 6.156 13.901 6.156 L 15.024 6.156 L 15.024 0.041 C 14.821 0.02 14.471 0 14.061 0 C 10.766 0 7.924 1.591 6.547 4.166 Z"/></g><g transform="translate(180.366,11.835)"><path d="M 19.677 19.014 L 8.728 19.014 L 19.319 6.156 L 19.319 0.143 L 0.661 0.143 L 0.661 5.612 L 11.048 5.612 L 0.357 18.471 L 0.357 24.481 L 19.677 24.481 L 19.677 19.014 Z"/></g></svg>
+          </a>
+          <div class="head-actions">
+            <a href="#reservar" class="btn btn--primary btn--sm" data-goform>Reservar plaza</a>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <!-- HERO grid -->
+    <div class="fz-container">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="wb-badge"><span class="live-dot"></span> Webinar en directo · Gratis</span>
+          <h1>Pon la IA a trabajar en tu oficina y <b>recupera 1 día a la semana</b></h1>
+          <p class="hero__sub">En 60 minutos verás, en directo y con casos reales, cómo automatizar el trabajo de tu equipo con IA. Sin tecnicismos. Aplicable desde mañana.</p>
+
+          <div class="wb-when">
+            <div class="wb-when__item"><svg width="20" height="20"><use href="#i-cal"/></svg> Jueves 26 de junio</div>
+            <div class="wb-when__item"><svg width="20" height="20"><use href="#i-clock"/></svg> 18:00h (CET) · 60 min</div>
+            <div class="wb-when__item"><svg width="20" height="20"><use href="#i-video"/></svg> Online · en directo</div>
+          </div>
+
+          <div class="hero-social">
+            <div class="avatars">
+              <span class="av ph ph--lilac"></span>
+              <span class="av ph ph--lilac"></span>
+              <span class="av ph ph--lilac"></span>
+              <span class="av ph ph--lilac"></span>
+            </div>
+            <div class="hero-social__txt">
+              <b>+3.200 profesionales</b> ya inscritos<br />
+              <span class="stars">★★★★★</span> 4,8 · valoración media de los webinars
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta de registro (OBJETIVO) -->
+        <aside class="form-card wb-form" id="reservar-top" data-screen-label="hero-form">
+          <div class="wb-form__head">
+            <span class="pill pill--solid pill--uppercase">Plaza gratis</span>
+            <span class="wb-form__free">0€</span>
+          </div>
+          <h2 class="form-card__title">Reserva tu plaza</h2>
+          <p class="form-card__sub">Te enviamos el enlace de acceso y la grabación a tu email.</p>
+
+          <!-- Urgencia: plazas -->
+          <div class="seatbar" data-seatbar>
+            <div class="seatbar__track"><div class="seatbar__fill" data-seat-fill></div></div>
+            <div class="seatbar__lbl"><span data-seat-left>—</span> plazas libres de 500</div>
+          </div>
+
+          <form class="lead-form" data-lead-form novalidate>
+            <input class="lf-input" name="nombre" type="text" placeholder="Nombre y apellidos" autocomplete="name" required />
+            <input class="lf-input" name="email" type="email" placeholder="Tu email" autocomplete="email" required />
+            <input class="lf-input" name="empresa" type="text" placeholder="Empresa (opcional)" autocomplete="organization" />
+            <button type="submit" class="btn btn--primary btn--block btn--lg">Reservar mi plaza gratis</button>
+            <p class="lead-form__trust"><svg width="15" height="15"><use href="#i-bolt"/></svg> Acceso inmediato &nbsp;·&nbsp; <svg width="15" height="15"><use href="#i-video"/></svg> Incluye grabación &nbsp;·&nbsp; <svg width="15" height="15"><use href="#i-shield"/></svg> Sin spam</p>
+          </form>
+
+          <div class="lead-done" hidden>
+            <span class="lead-done__seal"><svg width="30" height="30"><use href="#i-check"/></svg></span>
+            <h3>¡Plaza reservada!</h3>
+            <p>Te esperamos el <b>jueves 26 a las 18:00h</b>. Hemos enviado el enlace a <b data-done-email>—</b>.</p>
+            <a href="#" class="btn btn--outline-dark btn--sm wb-cal"><svg width="16" height="16"><use href="#i-cal"/></svg> Añadir al calendario</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PRENSA / CONFIANZA -->
+<!-- ===================================================================== -->
+<section class="fz-bg-white press" data-screen-label="prensa">
+  <p class="press__label">Formamos a equipos de</p>
+  <div class="press__mask">
+    <div class="press__track">
+      <span class="press__logo">Santander</span>
+      <span class="press__logo">Telefónica</span>
+      <span class="press__logo">Mango</span>
+      <span class="press__logo">Microsoft</span>
+      <span class="press__logo">Naturgy</span>
+      <span class="press__logo">Iberia</span>
+      <span class="press__logo">Santander</span>
+      <span class="press__logo">Telefónica</span>
+      <span class="press__logo">Mango</span>
+      <span class="press__logo">Microsoft</span>
+      <span class="press__logo">Naturgy</span>
+      <span class="press__logo">Iberia</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- QUÉ VAS A APRENDER -->
+<!-- ===================================================================== -->
+<section id="aprender" class="fz-bg-grey fz-section fz-section--tight" data-screen-label="aprender">
+  <div class="fz-container fz-container--narrow">
+    <div class="fz-heading lp-heading">
+      <span class="lp-eyebrow">En 60 minutos</span>
+      <h2 class="fz-h2">Qué te llevas de este webinar</h2>
+      <p class="fz-body fz-muted">Nada de teoría abstracta. Sales con un sistema que puedes aplicar en tu oficina al día siguiente.</p>
+    </div>
+    <div class="learn-grid">
+      <article class="learn">
+        <span class="learn__n">01</span>
+        <h3>Las 5 tareas de oficina que ya puedes delegar en la IA</h3>
+        <p>Correos, informes, actas, presentaciones y análisis: qué automatizar primero para notar el cambio esta misma semana.</p>
+      </article>
+      <article class="learn">
+        <span class="learn__n">02</span>
+        <h3>Tu primer asistente de IA, montado en directo</h3>
+        <p>Creamos juntos un asistente para tu día a día, paso a paso, sin escribir una sola línea de código.</p>
+      </article>
+      <article class="learn">
+        <span class="learn__n">03</span>
+        <h3>El método para escalar la IA a todo tu equipo</h3>
+        <p>Cómo pasar de “lo usa uno” a una oficina entera trabajando con IA, sin caos y sin riesgos.</p>
+      </article>
+      <article class="learn">
+        <span class="learn__n">04</span>
+        <h3>Los errores que hacen perder tiempo (y cómo evitarlos)</h3>
+        <p>Lo que casi todo el mundo hace mal al empezar con IA en el trabajo, explicado con ejemplos reales.</p>
+      </article>
+    </div>
+    <div class="lp-heading__cta">
+      <a href="#reservar" class="btn btn--primary btn--lg" data-goform>Quiero mi plaza gratis</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- AGENDA (timeline del directo) -->
+<!-- ===================================================================== -->
+<section id="agenda" class="fz-bg-white fz-section fz-section--tight" data-screen-label="agenda">
+  <div class="fz-container fz-container--narrow">
+    <div class="fz-heading lp-heading">
+      <span class="lp-eyebrow">El directo, minuto a minuto</span>
+      <h2 class="fz-h2">Cómo será la sesión</h2>
+    </div>
+    <ol class="agenda">
+      <li class="agenda__item">
+        <span class="agenda__time">0&nbsp;min</span>
+        <div class="agenda__body">
+          <h3>El estado real de la IA en la oficina</h3>
+          <p>Qué está funcionando de verdad en las empresas y qué es solo ruido.</p>
+        </div>
+      </li>
+      <li class="agenda__item">
+        <span class="agenda__time">15&nbsp;min</span>
+        <div class="agenda__body">
+          <h3>Demo en directo: automatiza una tarea real</h3>
+          <p>De una hora de trabajo a dos minutos, en vivo y delante de ti.</p>
+        </div>
+      </li>
+      <li class="agenda__item">
+        <span class="agenda__time">35&nbsp;min</span>
+        <div class="agenda__body">
+          <h3>Tu plan de adopción de IA en el equipo</h3>
+          <p>El framework Founderz para implantarlo sin fricción ni resistencia.</p>
+        </div>
+      </li>
+      <li class="agenda__item">
+        <span class="agenda__time">50&nbsp;min</span>
+        <div class="agenda__body">
+          <h3>Preguntas en directo</h3>
+          <p>Resolvemos tus dudas reales sobre tu oficina y tu sector.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PONENTE -->
+<!-- ===================================================================== -->
+<section id="ponente" class="fz-bg-dark fz-section fz-section--tight" data-screen-label="ponente">
+  <div class="fz-container">
+    <div class="host">
+      <div class="host__media">
+        <div class="ph ph--dark" data-label="retrato ponente"></div>
+        <span class="host__badge"><span class="live-dot"></span> En directo contigo</span>
+      </div>
+      <div class="host__body">
+        <span class="lp-eyebrow" style="color:var(--fz-lilac)">Tu ponente</span>
+        <h2>Marc Vidal</h2>
+        <p class="host__role">Director de IA aplicada en Founderz · ha implantado IA en +120 equipos</p>
+        <p class="host__bio">Lleva una década ayudando a empresas a trabajar mejor con tecnología. En este webinar comparte, sin filtros, lo que de verdad funciona cuando llevas la IA a una oficina real — y lo que no.</p>
+        <ul class="host__points">
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> +15.000 profesionales formados en directo</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Asesor de IA para equipos de dirección</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Certificación oficial de Microsoft</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- PARA QUIÉN ES -->
+<!-- ===================================================================== -->
+<section class="fz-bg-grey fz-section fz-section--tight" data-screen-label="para-quien">
+  <div class="fz-container fz-container--narrow">
+    <div class="fz-heading lp-heading">
+      <span class="lp-eyebrow">Para quién es</span>
+      <h2 class="fz-h2">Este webinar es para ti si…</h2>
+    </div>
+    <ul class="forwho">
+      <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Lideras un equipo o una oficina y sientes que se pierde tiempo en tareas repetitivas.</li>
+      <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Sabes que la IA es importante pero no tienes claro por dónde empezar.</li>
+      <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Quieres resultados prácticos, no una charla teórica más.</li>
+      <li><svg class="check-ico" style="color:var(--fz-purple)"><use href="#i-check"/></svg> Buscas adelantarte a tu sector en lugar de ir a remolque.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- TE LLEVAS (bonus) -->
+<!-- ===================================================================== -->
+<section class="fz-bg-white fz-section fz-section--tight" data-screen-label="bonus">
+  <div class="fz-container fz-container--narrow">
+    <div class="fz-heading lp-heading">
+      <span class="lp-eyebrow">Gratis por asistir</span>
+      <h2 class="fz-h2">Además, te llevas esto</h2>
+    </div>
+    <div class="bonus-grid">
+      <article class="bonus"><span class="feat__ico"><svg width="22" height="22"><use href="#i-video"/></svg></span><h3>Grabación completa</h3><p>Aunque no puedas estar en directo, te la enviamos para que la veas cuando quieras.</p></article>
+      <article class="bonus"><span class="feat__ico"><svg width="22" height="22"><use href="#i-doc"/></svg></span><h3>Pack de plantillas</h3><p>Los prompts y plantillas que usamos en el directo, listos para tu oficina.</p></article>
+      <article class="bonus"><span class="feat__ico"><svg width="22" height="22"><use href="#i-gift"/></svg></span><h3>Certificado de asistencia</h3><p>Acredita tu formación en IA aplicada con un certificado de Founderz.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- SOCIAL PROOF -->
+<!-- ===================================================================== -->
+<section class="fz-bg-dark fz-section fz-section--tight" data-screen-label="social-proof">
+  <div class="fz-container">
+    <div class="proof-stats">
+      <div class="proof-stat"><div class="proof-stat__n">+250.000</div><div class="proof-stat__l">profesionales formados</div></div>
+      <div class="proof-stat"><div class="proof-stat__n">4,8/5</div><div class="proof-stat__l">valoración de los webinars</div></div>
+      <div class="proof-stat"><div class="proof-stat__n">+120</div><div class="proof-stat__l">equipos que ya usan IA</div></div>
+    </div>
+    <div class="quotes" data-carousel data-screen-label="testimonios">
+      <div class="carousel__track">
+        <figure class="quote"><p class="quote__txt">“Salí del webinar y ese mismo día automaticé el reporting semanal. Una hora menos cada lunes.”</p><figcaption class="quote__by"><span class="av av--sm ph ph--lilac"></span> Laura M. · Office Manager</figcaption></figure>
+        <figure class="quote"><p class="quote__txt">“Por fin alguien explica la IA sin humo y con casos reales de oficina. Aplicable de verdad.”</p><figcaption class="quote__by"><span class="av av--sm ph ph--lilac"></span> Diego R. · Director de operaciones</figcaption></figure>
+        <figure class="quote"><p class="quote__txt">“Montamos el asistente en directo y lo llevé a mi equipo al día siguiente. Brutal.”</p><figcaption class="quote__by"><span class="av av--sm ph ph--lilac"></span> Nuria P. · Responsable de RRHH</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- FAQ -->
+<!-- ===================================================================== -->
+<section id="faq" class="fz-bg-grey fz-section fz-section--tight" data-screen-label="faq">
+  <div class="fz-container" style="max-width:760px">
+    <div class="fz-heading lp-heading">
+      <span class="lp-eyebrow">Dudas frecuentes</span>
+      <h2 class="fz-h2">Antes de reservar tu plaza</h2>
+    </div>
+    <div class="acc" data-single>
+      <div class="acc__item" data-open="true">
+        <button class="acc__q" type="button">¿De verdad es gratis? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Sí, el webinar es 100% gratuito. Solo necesitas reservar tu plaza con tu email para recibir el enlace de acceso y la grabación.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">No podré conectarme en directo, ¿me sirve? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Por supuesto. Si te inscribes, te enviamos la grabación completa por email para que la veas cuando mejor te venga.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">¿Necesito conocimientos previos de IA? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Ninguno. Partimos de cero y todo se explica con lenguaje sencillo y ejemplos reales de oficina. Vale para cualquier perfil.</p></div></div>
+      </div>
+      <div class="acc__item" data-open="false">
+        <button class="acc__q" type="button">¿Podré preguntar mis dudas? <svg class="acc__chev" width="22" height="22"><use href="#i-chev"/></svg></button>
+        <div class="acc__panel"><div><p class="acc__a">Sí. Reservamos los últimos minutos para responder preguntas en directo sobre tu caso concreto.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- CTA FINAL + FORM -->
+<!-- ===================================================================== -->
+<section id="reservar" class="fz-bg-dark fz-section fz-section--tight" data-screen-label="form-final">
+  <div class="fz-container">
+    <div class="form-final">
+      <div class="form-final__copy">
+        <span class="wb-badge"><span class="live-dot"></span> Jueves 26 jun · 18:00h</span>
+        <h2>Reserva tu plaza gratis antes de que se llene</h2>
+        <p>Plazas limitadas a 500 asistentes en directo. Apúntate ahora y te enviamos el enlace y la grabación.</p>
+        <div class="count" style="margin-top:4px">
+          <div class="count__cell"><span class="count__num" data-cd="d">00</span><span class="count__lbl">días</span></div>
+          <div class="count__cell"><span class="count__num" data-cd="h">00</span><span class="count__lbl">horas</span></div>
+          <div class="count__cell"><span class="count__num" data-cd="m">00</span><span class="count__lbl">min</span></div>
+          <div class="count__cell"><span class="count__num" data-cd="s">00</span><span class="count__lbl">seg</span></div>
+        </div>
+        <ul class="form-final__list">
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Acceso en directo + grabación</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Pack de plantillas y prompts</li>
+          <li><svg class="check-ico" style="color:var(--fz-lilac)"><use href="#i-check"/></svg> Certificado de asistencia</li>
+        </ul>
+      </div>
+
+      <aside class="form-card wb-form" id="form-anchor">
+        <div class="wb-form__head">
+          <span class="pill pill--solid pill--uppercase">Plaza gratis</span>
+          <span class="wb-form__free">0€</span>
+        </div>
+        <h2 class="form-card__title">Reserva tu plaza</h2>
+        <p class="form-card__sub">Te enviamos el enlace de acceso a tu email.</p>
+        <div class="seatbar" data-seatbar>
+          <div class="seatbar__track"><div class="seatbar__fill" data-seat-fill></div></div>
+          <div class="seatbar__lbl"><span data-seat-left>—</span> plazas libres de 500</div>
+        </div>
+        <form class="lead-form" data-lead-form novalidate>
+          <input class="lf-input" name="nombre" type="text" placeholder="Nombre y apellidos" autocomplete="name" required />
+          <input class="lf-input" name="email" type="email" placeholder="Tu email" autocomplete="email" required />
+          <input class="lf-input" name="empresa" type="text" placeholder="Empresa (opcional)" autocomplete="organization" />
+          <button type="submit" class="btn btn--primary btn--block btn--lg">Reservar mi plaza gratis</button>
+          <p class="lead-form__trust"><svg width="15" height="15"><use href="#i-bolt"/></svg> Acceso inmediato &nbsp;·&nbsp; <svg width="15" height="15"><use href="#i-video"/></svg> Incluye grabación &nbsp;·&nbsp; <svg width="15" height="15"><use href="#i-shield"/></svg> Sin spam</p>
+        </form>
+        <div class="lead-done" hidden>
+          <span class="lead-done__seal"><svg width="30" height="30"><use href="#i-check"/></svg></span>
+          <h3>¡Plaza reservada!</h3>
+          <p>Te esperamos el <b>jueves 26 a las 18:00h</b>. Hemos enviado el enlace a <b data-done-email>—</b>.</p>
+          <a href="#" class="btn btn--outline-dark btn--sm wb-cal"><svg width="16" height="16"><use href="#i-cal"/></svg> Añadir al calendario</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================================== -->
+<footer class="fz-bg-purple" style="color:var(--fz-white)">
+  <div class="fz-container" style="padding-block:40px">
+    <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:center;justify-content:space-between">
+      <svg height="34" viewBox="0 0 23.454 35.33" fill="currentColor" aria-hidden="true"><g><path d="M 0 3.862 C 0 5.969 1.878 7.775 4.165 7.775 C 6.451 7.775 8.323 5.969 8.323 3.862 C 8.323 1.754 6.446 0 4.165 0 C 1.884 0 0 1.806 0 3.862 Z"/></g><g transform="translate(10.816,0.193)"><path d="M 12.638 6.328 L 12.638 0 L 0.052 0 L 0 0.103 C 0.714 1.806 0.714 4.471 0 6.174 L 0.052 6.322 L 12.638 6.322 L 12.638 6.328 Z"/></g><g transform="translate(0.962,10.389)"><path d="M 21.382 3.884 L 6.4 3.884 L 6.4 0.046 L 6.296 0 C 4.574 0.706 1.884 0.706 0.156 0 L 0 0.046 L 0 24.936 L 6.394 24.936 L 6.394 10.207 L 21.376 10.207 L 21.376 3.884 L 21.382 3.884 Z"/></g></svg>
+      <a href="#reservar" class="btn btn--white btn--sm" data-goform>Reservar plaza gratis</a>
+    </div>
+    <div style="margin-top:26px;padding-top:18px;border-top:1px solid var(--fz-white-10);display:flex;gap:18px;flex-wrap:wrap;justify-content:space-between;color:var(--fz-white-70);font-size:14px">
+      <span>Términos · Cookies · Privacidad</span>
+      <span>Castellana 79, 7, 28046, Madrid</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================================================================== -->
+<!-- CTA STICKY INFERIOR (móvil) -->
+<!-- ===================================================================== -->
+<div class="sticky-cta">
+  <div class="sticky-cta__inner">
+    <div class="sticky-cta__txt">
+      <b>Webinar gratis · IA</b>
+      <span>Jue 26 jun · 18:00h · plazas limitadas</span>
+    </div>
+    <a href="#reservar" class="btn btn--primary" data-goform>Reservar</a>
+  </div>
+</div>
+
+<script src="lp.js"></script>
+<script src="webinar.js"></script>
+
+<!-- ===== Tweaks ===== -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+/* ============================================================
+   Founderz — base resets + reusable typographic / layout classes
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  letter-spacing: var(--tracking-default);
+  color: var(--text-primary);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Headings ---- */
+.fz-h1,
+.fz-h2,
+.fz-h3 {
+  text-wrap: balance;
+  margin: 0;
+}
+.fz-h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+}
+.fz-h1--light {
+  font-weight: var(--fw-light);
+}
+.fz-h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-heading);
+}
+.fz-h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+}
+.fz-h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+  margin: 0;
+}
+.fz-body {
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+.fz-details {
+  font-size: var(--fs-details);
+  line-height: var(--lh-body);
+  margin: 0;
+}
+.fz-small {
+  font-size: var(--fs-small);
+  line-height: var(--lh-small);
+  margin: 0;
+}
+
+/* ---- Section label: small / 500 / purple / UPPERCASE ---- */
+.fz-section-label {
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-small);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-accent);
+  margin: 0;
+}
+
+.fz-muted {
+  color: var(--text-secondary);
+}
+.fz-on-dark .fz-muted,
+.fz-muted--dark {
+  color: var(--text-on-dark-secondary);
+}
+
+/* ---- Layout container ---- */
+.fz-container,
+.container {
+  width: 100%;
+  max-width: var(--container-max);   /* 85rem / 1360px — $max-width-container del tema */
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+/* ---- Section padding helpers ---- */
+.fz-section {
+  padding-block: var(--section-pad-standard);
+}
+.fz-section--hero {
+  padding-block: var(--section-pad-hero);
+}
+.fz-section--secondary {
+  padding-block: var(--section-pad-secondary);
+}
+.fz-section--compact {
+  padding-block: var(--section-pad-compact);
+}
+
+/* ---- Section background variants ---- */
+.fz-bg-white {
+  background: var(--surface-page);
+  color: var(--text-primary);
+}
+.fz-bg-grey {
+  background: var(--surface-neutral);
+  color: var(--text-primary);
+}
+.fz-bg-lilac {
+  background: var(--surface-accent-soft);
+  color: var(--text-primary);
+}
+.fz-bg-dark {
+  background: var(--surface-dark);
+  color: var(--text-on-dark);
+}
+.fz-bg-purple {
+  background: var(--surface-accent);
+  color: var(--text-on-dark);
+}
+
+@media (max-width: 768px) {
+  .fz-h1 { font-size: var(--fs-h1-m); }
+  .fz-h2 { font-size: var(--fs-h2-m); }
+  .fz-h3 { font-size: var(--fs-h3-m); }
+  .fz-h4 { font-size: var(--fs-h4-m); }
+  .fz-body { font-size: var(--fs-body-m); }
+  body { font-size: var(--fs-body-m); }
+  .fz-container { padding-inline: var(--container-pad-m); }
+  .fz-section { padding-block: var(--section-pad-standard-m); }
+  .fz-section--hero { padding-block: var(--section-pad-hero-m); }
+  .fz-section--secondary { padding-block: var(--section-pad-secondary-m); }
+  .fz-section--compact { padding-block: var(--section-pad-compact-m); }
+}

@@ -1,0 +1,55 @@
+/* ============================================================
+   Founderz — interaction states for bundled components.
+   Hover/press behaviours that inline styles can't express.
+   ============================================================ */
+
+/* ---- Buttons (button-a hover model) ---- */
+.fz-button { user-select: none; }
+.fz-button--primary:hover { background: var(--fz-violet-darker) !important; }
+.fz-button--second:hover,
+.fz-button--second:focus-visible { background: transparent !important; color: var(--fz-white) !important; border-color: var(--fz-white) !important; }
+.fz-button--second:active { background: transparent !important; color: var(--fz-white) !important; border-color: var(--fz-white) !important; opacity: 0.8; }
+.fz-button--second:focus:not(:focus-visible) { outline: none; }
+.fz-button--second-outlined:hover { background: var(--fz-white) !important; color: var(--fz-black) !important; }
+.fz-button--third:hover { background: var(--fz-white) !important; color: var(--fz-black) !important; }
+.fz-button--third-outlined:hover { background: var(--fz-black) !important; color: var(--fz-white) !important; }
+.fz-button:active { transform: scale(0.98); }
+
+/* ---- Inputs ---- */
+.fz-input:focus { border-color: var(--fz-purple) !important; }
+.fz-input::placeholder { color: var(--fz-black-50); }
+
+/* ---- Link arrow (link-a): arrow nudges right on hover ---- */
+.fz-link:hover .fz-link__arrow { transform: translateX(3px); }
+.fz-link__arrow { transition: transform var(--dur) var(--ease-out); }
+
+/* ---- Accordion (card-d) ---- */
+.fz-accordion__item { transition: background-color var(--dur) var(--ease-out); }
+.fz-accordion__item:hover { background: #f8f7ff; }
+.fz-accordion__chevron { transition: transform var(--dur) var(--ease-out); }
+.fz-accordion__item[data-open="true"] .fz-accordion__chevron { transform: rotate(180deg); }
+.fz-accordion__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--dur) var(--ease-out);
+}
+.fz-accordion__item[data-open="true"] .fz-accordion__panel { grid-template-rows: 1fr; }
+.fz-accordion__panel > div { overflow: hidden; }
+
+/* ---- Post card (card-h): floating box turns purple on hover ---- */
+.fz-postcard:hover .fz-postcard__box { background: var(--fz-purple); }
+.fz-postcard:hover .fz-postcard__box, .fz-postcard:hover .fz-postcard__box * { color: var(--fz-white); }
+.fz-postcard__box { transition: background-color var(--dur) var(--ease-out), color var(--dur) var(--ease-out); }
+
+/* ---- Marquee ---- */
+@keyframes fz-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.fz-marquee__track {
+  display: flex;
+  width: max-content;
+  animation: fz-marquee var(--marquee-dur) linear infinite;
+}
+
+/* ---- Generic card hover lift is intentionally absent: Founderz cards are flat ---- */

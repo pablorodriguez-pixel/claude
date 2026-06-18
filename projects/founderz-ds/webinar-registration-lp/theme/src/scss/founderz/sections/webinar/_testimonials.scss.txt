@@ -1,0 +1,17 @@
+// =============================================================================
+// Webinar Testimonials (webinar-testimonials)
+// =============================================================================
+
+.webinar-testimonials {
+    @include section-b;
+    background: var(--grey);
+
+    &__slider {
+        margin-top: 32px;
+        overflow: visible;
+
+        .swiper-slide {
+            height: auto;
+        }
+    }
+}

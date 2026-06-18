@@ -1,0 +1,19 @@
+// =============================================================================
+// Webinar Value Cards (webinar-value)
+// =============================================================================
+
+.webinar-value {
+    @include section-b;
+    background: var(--white);
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+
+        @media all and (max-width: 810px) {
+            grid-template-columns: 1fr;
+        }
+    }
+}

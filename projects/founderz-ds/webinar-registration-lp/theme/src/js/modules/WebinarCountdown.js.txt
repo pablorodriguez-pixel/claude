@@ -1,0 +1,73 @@
+/**
+ * WebinarCountdown — Módulo de cuenta atrás
+ * src/js/modules/WebinarCountdown.js
+ *
+ * Lee `data-end-date` (ISO 8601) del elemento `.js--countdown` y actualiza
+ * cada segundo los hijos `.js--countdown-days|hours|minutes|seconds`.
+ * Al llegar a 0 se detiene y marca el contenedor con `.is-finished`.
+ *
+ * Uso:
+ *   document.querySelectorAll(".js--countdown").forEach((el) => new WebinarCountdown(el));
+ */
+class WebinarCountdown {
+	constructor(element, options = {}) {
+		this.el =
+			typeof element === "string" ? document.querySelector(element) : element;
+
+		if (!this.el) return; // Early return si no existe
+
+		const end = this.el.dataset.endDate;
+		this.endTime = end ? new Date(end).getTime() : NaN;
+		if (Number.isNaN(this.endTime)) return;
+
+		this.DOM = {
+			days: this.el.querySelector(".js--countdown-days"),
+			hours: this.el.querySelector(".js--countdown-hours"),
+			minutes: this.el.querySelector(".js--countdown-minutes"),
+			seconds: this.el.querySelector(".js--countdown-seconds"),
+		};
+
+		this.options = { ...options };
+		this.timer = null;
+
+		this.init();
+	}
+
+	init() {
+		this._tick();
+		this.timer = setInterval(this._tick.bind(this), 1000);
+	}
+
+	_tick() {
+		const diff = Math.max(0, this.endTime - Date.now());
+
+		const days = Math.floor(diff / 86400000);
+		const hours = Math.floor((diff % 86400000) / 3600000);
+		const minutes = Math.floor((diff % 3600000) / 60000);
+		const seconds = Math.floor((diff % 60000) / 1000);
+
+		this._set(this.DOM.days, days);
+		this._set(this.DOM.hours, hours);
+		this._set(this.DOM.minutes, minutes);
+		this._set(this.DOM.seconds, seconds);
+
+		if (diff <= 0) {
+			this.el.classList.add("is-finished");
+			this.destroy();
+		}
+	}
+
+	_set(node, value) {
+		if (!node) return;
+		node.textContent = String(value).padStart(2, "0");
+	}
+
+	destroy() {
+		if (this.timer) {
+			clearInterval(this.timer);
+			this.timer = null;
+		}
+	}
+}
+
+export default WebinarCountdown;

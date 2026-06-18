@@ -1,0 +1,207 @@
+{
+    "key": "group_webinar_registration_lp",
+    "title": "Webinar Registration LP",
+    "fields": [
+        {
+            "key": "field_wlp_hero",
+            "label": "Hero + Formulario",
+            "name": "hero",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_hero_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_hero_label", "label": "Etiqueta (eyebrow)", "name": "label", "type": "text", "instructions": "Ej: Máster · Edición 2026. Se muestra en mayúsculas." },
+                { "key": "field_wlp_hero_title", "label": "Título (H1)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "instructions": "Usa Enter para forzar saltos de línea." },
+                { "key": "field_wlp_hero_subtitle", "label": "Subtítulo", "name": "subtitle", "type": "textarea", "rows": 3, "new_lines": "br" },
+                { "key": "field_wlp_hero_datetime", "label": "Fecha y hora del webinar", "name": "datetime", "type": "date_time_picker", "display_format": "d/m/Y g:i a", "return_format": "Y-m-d H:i:s", "instructions": "Alimenta el contador en vivo y el sticky/CTA final." },
+                {
+                    "key": "field_wlp_hero_pills", "label": "Píldoras", "name": "pills", "type": "repeater", "layout": "table", "button_label": "Añadir píldora",
+                    "sub_fields": [
+                        { "key": "field_wlp_hero_pill_title", "label": "Texto", "name": "title", "type": "text" }
+                    ]
+                },
+                {
+                    "key": "field_wlp_hero_meta", "label": "Meta (fecha / duración)", "name": "meta", "type": "repeater", "layout": "table", "button_label": "Añadir dato",
+                    "sub_fields": [
+                        { "key": "field_wlp_hero_meta_icon", "label": "Icono (clave SVG_ICONS)", "name": "svg_icon", "type": "text", "instructions": "Ej: calendar, clock." },
+                        { "key": "field_wlp_hero_meta_text", "label": "Texto", "name": "text", "type": "text" }
+                    ]
+                },
+                { "key": "field_wlp_hero_image", "label": "Imagen de fondo", "name": "hero_image", "type": "image", "return_format": "id", "preview_size": "medium" },
+                { "key": "field_wlp_hero_form_label", "label": "Etiqueta del formulario", "name": "form_label", "type": "text", "default_value": "Reserva gratuita" },
+                { "key": "field_wlp_hero_form_title", "label": "Título del formulario", "name": "form_title", "type": "text", "default_value": "Guarda tu plaza" },
+                { "key": "field_wlp_hero_form_id", "label": "HubSpot Form ID", "name": "form_id", "type": "text", "instructions": "ID del formulario de HubSpot." },
+                { "key": "field_wlp_hero_portal_id", "label": "HubSpot Portal ID", "name": "portal_id", "type": "text", "placeholder": "25912905" },
+                { "key": "field_wlp_hero_region", "label": "HubSpot Region", "name": "region", "type": "text", "placeholder": "eu1" },
+                { "key": "field_wlp_hero_proof_text", "label": "Prueba social (texto)", "name": "proof_text", "type": "textarea", "rows": 2, "new_lines": "br", "instructions": "Admite <strong> para resaltar la cifra." },
+                { "key": "field_wlp_hero_proof_avatars", "label": "Prueba social (avatares)", "name": "proof_avatars", "type": "gallery", "return_format": "id" }
+            ]
+        },
+        {
+            "key": "field_wlp_value",
+            "label": "Qué vas a aprender",
+            "name": "value",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_value_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_value_id", "label": "Anchor ID", "name": "id", "type": "text", "default_value": "webinar-aprende" },
+                { "key": "field_wlp_value_label", "label": "Etiqueta", "name": "label", "type": "text" },
+                { "key": "field_wlp_value_title", "label": "Título (H2)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br" },
+                { "key": "field_wlp_value_desc", "label": "Descripción", "name": "description", "type": "textarea", "rows": 2, "new_lines": "br" },
+                {
+                    "key": "field_wlp_value_cards", "label": "Tarjetas", "name": "cards", "type": "repeater", "layout": "block", "button_label": "Añadir tarjeta", "min": 1,
+                    "sub_fields": [
+                        { "key": "field_wlp_value_card_icon", "label": "Icono (clave SVG_ICONS)", "name": "svg_icon", "type": "text", "instructions": "Ej: wand, cpu, rocket." },
+                        { "key": "field_wlp_value_card_img", "label": "Icono (imagen, opcional)", "name": "icon", "type": "image", "return_format": "id" },
+                        { "key": "field_wlp_value_card_title", "label": "Título", "name": "title", "type": "text" },
+                        { "key": "field_wlp_value_card_text", "label": "Texto", "name": "text", "type": "textarea", "rows": 3 }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_wlp_agenda",
+            "label": "Agenda",
+            "name": "agenda",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_agenda_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_agenda_id", "label": "Anchor ID", "name": "id", "type": "text", "default_value": "webinar-agenda" },
+                { "key": "field_wlp_agenda_label", "label": "Etiqueta", "name": "label", "type": "text" },
+                { "key": "field_wlp_agenda_title", "label": "Título (H2)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br" },
+                { "key": "field_wlp_agenda_desc", "label": "Descripción", "name": "description", "type": "textarea", "rows": 2, "new_lines": "br" },
+                { "key": "field_wlp_agenda_button", "label": "Botón", "name": "button", "type": "link", "return_format": "array" },
+                {
+                    "key": "field_wlp_agenda_items", "label": "Bloques de la agenda", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir bloque", "min": 1,
+                    "sub_fields": [
+                        { "key": "field_wlp_agenda_item_time", "label": "Hora / marca", "name": "time", "type": "text", "placeholder": "00:00" },
+                        { "key": "field_wlp_agenda_item_title", "label": "Título", "name": "title", "type": "text" },
+                        { "key": "field_wlp_agenda_item_desc", "label": "Descripción", "name": "description", "type": "textarea", "rows": 2 }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_wlp_speaker",
+            "label": "Ponente",
+            "name": "speaker",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_speaker_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_speaker_id", "label": "Anchor ID", "name": "id", "type": "text", "default_value": "webinar-ponente" },
+                { "key": "field_wlp_speaker_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Tu ponente" },
+                { "key": "field_wlp_speaker_name", "label": "Nombre", "name": "name", "type": "text" },
+                { "key": "field_wlp_speaker_role", "label": "Cargo", "name": "role", "type": "text" },
+                { "key": "field_wlp_speaker_bio", "label": "Bio", "name": "bio", "type": "wysiwyg", "media_upload": 0, "toolbar": "basic" },
+                { "key": "field_wlp_speaker_image", "label": "Foto", "name": "image", "type": "image", "return_format": "id", "preview_size": "medium" }
+            ]
+        },
+        {
+            "key": "field_wlp_audience",
+            "label": "¿Es para ti?",
+            "name": "audience",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_audience_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_audience_id", "label": "Anchor ID", "name": "id", "type": "text", "default_value": "webinar-para-ti" },
+                { "key": "field_wlp_audience_title", "label": "Título (H2)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br" },
+                { "key": "field_wlp_audience_desc", "label": "Descripción", "name": "description", "type": "textarea", "rows": 2, "new_lines": "br" },
+                {
+                    "key": "field_wlp_audience_items", "label": "Perfiles", "name": "items", "type": "repeater", "layout": "table", "button_label": "Añadir perfil", "min": 1,
+                    "sub_fields": [
+                        { "key": "field_wlp_audience_item_text", "label": "Texto", "name": "text", "type": "text" }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_wlp_testimonials",
+            "label": "Testimonios",
+            "name": "testimonials",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_test_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_test_id", "label": "Anchor ID", "name": "id", "type": "text", "default_value": "webinar-testimonios" },
+                { "key": "field_wlp_test_title", "label": "Título (H2)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br" },
+                { "key": "field_wlp_test_desc", "label": "Descripción", "name": "description", "type": "textarea", "rows": 2, "new_lines": "br" },
+                {
+                    "key": "field_wlp_test_items", "label": "Testimonios", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir testimonio", "min": 1,
+                    "sub_fields": [
+                        { "key": "field_wlp_test_item_text", "label": "Cita", "name": "text", "type": "textarea", "rows": 3 },
+                        { "key": "field_wlp_test_item_photo", "label": "Foto (avatar)", "name": "photo", "type": "image", "return_format": "id", "preview_size": "thumbnail" },
+                        { "key": "field_wlp_test_item_name", "label": "Nombre", "name": "name", "type": "text" },
+                        { "key": "field_wlp_test_item_job", "label": "Cargo", "name": "job", "type": "text" }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_wlp_faqs",
+            "label": "FAQs",
+            "name": "faqs",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_faqs_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_faqs_id", "label": "Anchor ID", "name": "id", "type": "text", "default_value": "webinar-faqs" },
+                { "key": "field_wlp_faqs_title", "label": "Título (H2)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br" },
+                {
+                    "key": "field_wlp_faqs_items", "label": "Preguntas", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir pregunta", "min": 1,
+                    "sub_fields": [
+                        { "key": "field_wlp_faqs_item_q", "label": "Pregunta", "name": "question", "type": "text" },
+                        { "key": "field_wlp_faqs_item_a", "label": "Respuesta", "name": "answer", "type": "textarea", "rows": 3, "new_lines": "br" }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_wlp_final_cta",
+            "label": "CTA final",
+            "name": "final_cta",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                { "key": "field_wlp_final_active", "label": "Activar sección", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_wlp_final_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Plazas limitadas" },
+                { "key": "field_wlp_final_title", "label": "Título (H2)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br" },
+                { "key": "field_wlp_final_button", "label": "Texto del botón", "name": "button_text", "type": "text", "default_value": "Reserva tu plaza gratis" }
+            ]
+        },
+        {
+            "key": "field_wlp_settings",
+            "label": "Ajustes / Tracking",
+            "name": "settings_tracking",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_wlp_lead_type", "label": "Tipo de lead", "name": "data_lead_type", "type": "group", "layout": "block",
+                    "sub_fields": [
+                        { "key": "field_wlp_lead_type_value", "label": "data-lead-type", "name": "type", "type": "text", "default_value": "form_lead" }
+                    ]
+                },
+                { "key": "field_wlp_tracking_script", "label": "Script de tracking", "name": "tracking_script", "type": "textarea", "rows": 4, "instructions": "HTML/JS adicional inyectado al final del <main>." }
+            ]
+        }
+    ],
+    "location": [
+        [
+            { "param": "page_template", "operator": "==", "value": "templates/webinar-registration-lp.php" }
+        ],
+        [
+            { "param": "post_type", "operator": "==", "value": "webinars" }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "active": true,
+    "description": "Campos de la landing de registro de webinars (template webinar-registration-lp.php)."
+}

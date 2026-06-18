@@ -1,0 +1,80 @@
+/**
+ * Webinar Registration LP — Entry Point
+ * src/js/entries/pages/WebinarRegistrationLp.js
+ */
+import "swiper/css";
+import "@scss/main.scss";
+import "@entries/pages/webinar-registration-lp.scss";
+import "@js/utils/main.js";
+import "@js/modules/DataLayer.js";
+
+import Swiper from "swiper";
+import { Navigation, Autoplay } from "swiper/modules";
+
+import HubSpotLazyLoader from "@modules/HubSpotLazyLoader.js";
+import Accordion from "@modules/Accordion.js";
+import WebinarCountdown from "@modules/WebinarCountdown.js";
+
+class WebinarRegistrationLp {
+	constructor() {
+		this.DOM = {
+			main: document.querySelector(".webinar-lp"),
+			quotesSlider: document.querySelector(".js--quotes-slider"),
+			ctaButtons: document.querySelectorAll('a[href^="#registro"]'),
+		};
+
+		this.init();
+	}
+
+	init() {
+		// Formularios HubSpot (lazy)
+		HubSpotLazyLoader.mountEagerLegacyForms();
+
+		// Contadores en vivo (hero + CTA final)
+		document.querySelectorAll(".js--countdown").forEach((el) => {
+			new WebinarCountdown(el);
+		});
+
+		// FAQs
+		new Accordion("#faqs-accordion", { allowMultiple: false, animate: true });
+
+		// Slider de testimonios
+		this.initTestimonials();
+
+		// Scroll suave a formulario desde CTAs
+		this.initSmoothScroll();
+	}
+
+	initTestimonials() {
+		if (!this.DOM.quotesSlider) return;
+
+		new Swiper(this.DOM.quotesSlider, {
+			modules: [Navigation, Autoplay],
+			slidesPerView: 1.05,
+			spaceBetween: 16,
+			watchOverflow: true,
+			observer: true,
+			observeParents: true,
+			breakpoints: {
+				810: { slidesPerView: 2, spaceBetween: 24 },
+				1024: { slidesPerView: 3, spaceBetween: 16 },
+			},
+		});
+	}
+
+	initSmoothScroll() {
+		this.DOM.ctaButtons.forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				const target = document.querySelector("#registro");
+				if (!target) return;
+				e.preventDefault();
+				const top = target.getBoundingClientRect().top + window.scrollY - 90;
+				window.scrollTo({ top, behavior: "smooth" });
+			});
+		});
+	}
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	new WebinarRegistrationLp();
+});

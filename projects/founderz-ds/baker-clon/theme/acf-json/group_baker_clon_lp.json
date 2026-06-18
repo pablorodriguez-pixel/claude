@@ -1,0 +1,226 @@
+{
+    "key": "group_baker_clon_lp",
+    "title": "Baker Clon LP (MAIC)",
+    "fields": [
+        {
+            "key": "field_bk_hero", "label": "Hero + Dossier", "name": "hero", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_hero_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_hero_rating", "label": "Rating (texto)", "name": "rating_text", "type": "text", "default_value": "4.7 en Trustpilot · 5.000+ reseñas" },
+                { "key": "field_bk_hero_ms", "label": "Etiqueta Microsoft", "name": "microsoft_label", "type": "text", "default_value": "Certificado por Microsoft" },
+                { "key": "field_bk_hero_title", "label": "Título (H1)", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Domina la IA que está transformando el sector de los publicistas." },
+                { "key": "field_bk_hero_meta", "label": "Meta", "name": "meta", "type": "text", "default_value": "Máster Online · 3-4 meses" },
+                { "key": "field_bk_hero_reel_img", "label": "Reel (imagen/poster)", "name": "reel_image", "type": "image", "return_format": "id" },
+                { "key": "field_bk_hero_reel_label", "label": "Reel (texto)", "name": "reel_label", "type": "text", "default_value": "30 segundos. Mira lo que vas a poder crear." },
+                { "key": "field_bk_hero_btitle", "label": "Título bullets", "name": "bullets_title", "type": "text", "default_value": "Lo que vas a descubrir:" },
+                { "key": "field_bk_hero_bullets", "label": "Bullets", "name": "bullets", "type": "repeater", "layout": "table", "button_label": "Añadir bullet",
+                    "sub_fields": [ { "key": "field_bk_hero_bullet_t", "label": "Texto", "name": "text", "type": "text" } ] },
+                { "key": "field_bk_hero_flabel", "label": "Form: etiqueta", "name": "form_label", "type": "text", "default_value": "Descubre el temario completo" },
+                { "key": "field_bk_hero_ftitle", "label": "Form: título", "name": "form_title", "type": "text", "default_value": "Descarga el dossier" },
+                { "key": "field_bk_hero_fsub", "label": "Form: subtítulo", "name": "form_sub", "type": "text", "default_value": "Todo lo que necesitas para decidir, gratis y sin compromiso." },
+                { "key": "field_bk_hero_fid", "label": "HubSpot Form ID", "name": "form_id", "type": "text", "default_value": "53340511-8af9-467c-b4f5-d92710ce9a0a" },
+                { "key": "field_bk_hero_portal", "label": "HubSpot Portal ID", "name": "portal_id", "type": "text", "placeholder": "25912905" },
+                { "key": "field_bk_hero_region", "label": "HubSpot Region", "name": "region", "type": "text", "placeholder": "eu1" },
+                { "key": "field_bk_hero_note", "label": "Form: nota", "name": "note", "type": "text", "default_value": "Sin compromiso · Recíbelo al instante · Sin spam" },
+                { "key": "field_bk_hero_ttitle", "label": "Confianza: título", "name": "trust_title", "type": "text", "default_value": "Confían en nosotros" },
+                { "key": "field_bk_hero_tlogos", "label": "Confianza: logos", "name": "trust_logos", "type": "gallery", "return_format": "id" }
+            ]
+        },
+        {
+            "key": "field_bk_quotes", "label": "Quotes (¿Te suena?)", "name": "quotes", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_quotes_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_quotes_title", "label": "Título", "name": "title", "type": "text", "default_value": "¿Te suena?" },
+                { "key": "field_bk_quotes_items", "label": "Citas", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir cita",
+                    "sub_fields": [
+                        { "key": "field_bk_quotes_text", "label": "Cita", "name": "text", "type": "textarea", "rows": 3 },
+                        { "key": "field_bk_quotes_after", "label": "Resolución", "name": "after", "type": "text" },
+                        { "key": "field_bk_quotes_img", "label": "Imagen", "name": "image", "type": "image", "return_format": "id" }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_showcase", "label": "Showcase", "name": "showcase", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_show_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_show_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Creado por alumnos del master" },
+                { "key": "field_bk_show_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Empezaron exactamente donde estás tú. Mira lo que crean hoy." },
+                { "key": "field_bk_show_cta", "label": "CTA texto", "name": "cta_text", "type": "text", "default_value": "Quiero aprender a crear así" },
+                { "key": "field_bk_show_anchor", "label": "CTA anchor", "name": "cta_anchor", "type": "text", "default_value": "#dossier" },
+                { "key": "field_bk_show_items", "label": "Proyectos", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir proyecto",
+                    "sub_fields": [
+                        { "key": "field_bk_show_it_title", "label": "Título", "name": "title", "type": "text" },
+                        { "key": "field_bk_show_it_sub", "label": "Subtítulo", "name": "sub", "type": "text" },
+                        { "key": "field_bk_show_it_img", "label": "Imagen", "name": "image", "type": "image", "return_format": "id" },
+                        { "key": "field_bk_show_it_video", "label": "¿Es vídeo?", "name": "is_video", "type": "true_false", "ui": 1 }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_program", "label": "El programa", "name": "program", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_prog_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_prog_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "El programa" },
+                { "key": "field_bk_prog_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Imagen, vídeo, audio, motion, 3D. Con criterio profesional." },
+                { "key": "field_bk_prog_sub", "label": "Subtítulo", "name": "sub", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Aprende a usar las herramientas de IA que ya están transformando cada sector creativo. Sin base técnica necesaria." },
+                { "key": "field_bk_prog_stats", "label": "Stats", "name": "stats", "type": "repeater", "layout": "table", "button_label": "Añadir stat",
+                    "sub_fields": [
+                        { "key": "field_bk_prog_stat_v", "label": "Valor", "name": "value", "type": "text" },
+                        { "key": "field_bk_prog_stat_l", "label": "Etiqueta", "name": "label", "type": "text" }
+                    ] },
+                { "key": "field_bk_prog_spectitle", "label": "Título especializaciones", "name": "spec_title", "type": "text", "default_value": "Elige tu especialización y aprende con casos de tu profesión" },
+                { "key": "field_bk_prog_specs", "label": "Especializaciones", "name": "specs", "type": "repeater", "layout": "table", "button_label": "Añadir",
+                    "sub_fields": [
+                        { "key": "field_bk_prog_spec_n", "label": "Nombre", "name": "name", "type": "text" },
+                        { "key": "field_bk_prog_spec_img", "label": "Icono (imagen)", "name": "image", "type": "image", "return_format": "id" },
+                        { "key": "field_bk_prog_spec_svg", "label": "Icono (clave SVG_ICONS)", "name": "svg_icon", "type": "text" }
+                    ] },
+                { "key": "field_bk_prog_includes", "label": "Incluye", "name": "includes", "type": "repeater", "layout": "table", "button_label": "Añadir",
+                    "sub_fields": [ { "key": "field_bk_prog_inc_t", "label": "Texto", "name": "text", "type": "text" } ] },
+                { "key": "field_bk_prog_learntitle", "label": "Título 'qué aprenderás'", "name": "learn_title", "type": "text", "default_value": "¿Qué aprenderás?" },
+                { "key": "field_bk_prog_learn", "label": "Qué aprenderás", "name": "learn", "type": "repeater", "layout": "table", "button_label": "Añadir",
+                    "sub_fields": [ { "key": "field_bk_prog_learn_t", "label": "Texto", "name": "text", "type": "text" } ] },
+                { "key": "field_bk_prog_toolstitle", "label": "Título herramientas", "name": "tools_title", "type": "text", "default_value": "Herramientas que dominarás" },
+                { "key": "field_bk_prog_tools", "label": "Herramientas", "name": "tools", "type": "repeater", "layout": "table", "button_label": "Añadir",
+                    "sub_fields": [
+                        { "key": "field_bk_prog_tool_n", "label": "Nombre", "name": "name", "type": "text" },
+                        { "key": "field_bk_prog_tool_l", "label": "Logo", "name": "logo", "type": "image", "return_format": "id" }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_syllabus", "label": "Temario", "name": "syllabus", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_syl_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_syl_title", "label": "Título", "name": "title", "type": "text", "default_value": "Temario completo" },
+                { "key": "field_bk_syl_mods", "label": "Módulos", "name": "modules", "type": "repeater", "layout": "block", "button_label": "Añadir módulo",
+                    "sub_fields": [
+                        { "key": "field_bk_syl_mod_n", "label": "Número", "name": "number", "type": "text" },
+                        { "key": "field_bk_syl_mod_t", "label": "Título", "name": "title", "type": "text" },
+                        { "key": "field_bk_syl_mod_tag", "label": "Tag (ej: Nuevo)", "name": "tag", "type": "text" },
+                        { "key": "field_bk_syl_mod_les", "label": "Lecciones", "name": "lessons", "type": "repeater", "layout": "table", "button_label": "Añadir lección",
+                            "sub_fields": [ { "key": "field_bk_syl_les_t", "label": "Texto", "name": "text", "type": "text" } ] },
+                        { "key": "field_bk_syl_mod_teach", "label": "Profesores", "name": "teachers", "type": "text" }
+                    ] },
+                { "key": "field_bk_syl_ltitle", "label": "Bloqueado: título", "name": "locked_title", "type": "text", "default_value": "3 módulos más te esperan" },
+                { "key": "field_bk_syl_lsub", "label": "Bloqueado: subtítulo", "name": "locked_sub", "type": "text", "default_value": "Descarga el dossier para ver el temario completo." },
+                { "key": "field_bk_syl_lcta", "label": "Bloqueado: CTA", "name": "locked_cta", "type": "text", "default_value": "Desbloquear temario completo" },
+                { "key": "field_bk_syl_lanchor", "label": "Bloqueado: anchor", "name": "locked_anchor", "type": "text", "default_value": "#dossier" },
+                { "key": "field_bk_syl_lnote", "label": "Bloqueado: nota", "name": "locked_note", "type": "text", "default_value": "Sin coste · Acceso inmediato" }
+            ]
+        },
+        {
+            "key": "field_bk_method", "label": "Así se aprende", "name": "method", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_met_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_met_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Así se aprende" },
+                { "key": "field_bk_met_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Clases cortas. Herramientas reales. Resultados inmediatos." },
+                { "key": "field_bk_met_vimg", "label": "Vídeo (poster)", "name": "video_image", "type": "image", "return_format": "id" },
+                { "key": "field_bk_met_vtitle", "label": "Vídeo: título", "name": "video_title", "type": "text", "default_value": "Generación de vídeo con IA" },
+                { "key": "field_bk_met_vsub", "label": "Vídeo: subtítulo", "name": "video_sub", "type": "text", "default_value": "Tutorial paso a paso" },
+                { "key": "field_bk_met_intro", "label": "Intro", "name": "intro", "type": "textarea", "rows": 3, "default_value": "Nada de vídeos de una hora que abandonas a los 10 minutos. Aquí cada clase dura 5-15 minutos, va directa al grano y te deja con algo que puedes aplicar hoy." },
+                { "key": "field_bk_met_items", "label": "Ventajas", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir ventaja",
+                    "sub_fields": [
+                        { "key": "field_bk_met_it_icon", "label": "Icono (clave SVG_ICONS)", "name": "svg_icon", "type": "text" },
+                        { "key": "field_bk_met_it_title", "label": "Título", "name": "title", "type": "text" },
+                        { "key": "field_bk_met_it_text", "label": "Texto", "name": "text", "type": "textarea", "rows": 2 }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_testi", "label": "Testimonios", "name": "testimonials", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_te_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_te_rating", "label": "Rating (texto)", "name": "rating_text", "type": "text", "default_value": "4.7 en Trustpilot" },
+                { "key": "field_bk_te_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Más de 5.000 alumnos verificados ya lo dicen." },
+                { "key": "field_bk_te_featured", "label": "Destacado", "name": "featured", "type": "group", "layout": "block",
+                    "sub_fields": [
+                        { "key": "field_bk_te_f_text", "label": "Cita", "name": "text", "type": "textarea", "rows": 3 },
+                        { "key": "field_bk_te_f_name", "label": "Nombre", "name": "name", "type": "text" },
+                        { "key": "field_bk_te_f_role", "label": "Cargo", "name": "role", "type": "text" },
+                        { "key": "field_bk_te_f_img", "label": "Imagen/poster", "name": "image", "type": "image", "return_format": "id" }
+                    ] },
+                { "key": "field_bk_te_items", "label": "Reseñas", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir reseña",
+                    "sub_fields": [
+                        { "key": "field_bk_te_it_text", "label": "Texto", "name": "text", "type": "textarea", "rows": 3 },
+                        { "key": "field_bk_te_it_name", "label": "Nombre", "name": "name", "type": "text" },
+                        { "key": "field_bk_te_it_role", "label": "Cargo", "name": "role", "type": "text" },
+                        { "key": "field_bk_te_it_av", "label": "Avatar", "name": "avatar", "type": "image", "return_format": "id" }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_teachers", "label": "Equipo docente", "name": "teachers", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_tc_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_tc_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Equipo docente" },
+                { "key": "field_bk_tc_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Quién te va a enseñar" },
+                { "key": "field_bk_tc_sub", "label": "Subtítulo", "name": "sub", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Profesionales en activo aplicando IA en estudios, agencias y productoras. Más expertos de Microsoft que llevan años en el frente." },
+                { "key": "field_bk_tc_cta", "label": "CTA texto", "name": "cta_text", "type": "text", "default_value": "Quiero aprender con ellos" },
+                { "key": "field_bk_tc_anchor", "label": "CTA anchor", "name": "cta_anchor", "type": "text", "default_value": "#dossier" },
+                { "key": "field_bk_tc_items", "label": "Profesores", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir profesor",
+                    "sub_fields": [
+                        { "key": "field_bk_tc_it_photo", "label": "Foto", "name": "photo", "type": "image", "return_format": "id" },
+                        { "key": "field_bk_tc_it_name", "label": "Nombre", "name": "name", "type": "text" },
+                        { "key": "field_bk_tc_it_role", "label": "Cargo", "name": "role", "type": "text" },
+                        { "key": "field_bk_tc_it_logo", "label": "Logo empresa", "name": "company_logo", "type": "image", "return_format": "id" }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_awards", "label": "Reconocimientos", "name": "awards", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_aw_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_aw_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Reconocimientos" },
+                { "key": "field_bk_aw_logos", "label": "Logos", "name": "logos", "type": "gallery", "return_format": "id" }
+            ]
+        },
+        {
+            "key": "field_bk_faqs", "label": "FAQs", "name": "faqs", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_fq_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_fq_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "FAQ" },
+                { "key": "field_bk_fq_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Todo lo que necesitas saber." },
+                { "key": "field_bk_fq_items", "label": "Preguntas", "name": "items", "type": "repeater", "layout": "block", "button_label": "Añadir pregunta",
+                    "sub_fields": [
+                        { "key": "field_bk_fq_it_q", "label": "Pregunta", "name": "question", "type": "text" },
+                        { "key": "field_bk_fq_it_a", "label": "Respuesta", "name": "answer", "type": "textarea", "rows": 3, "new_lines": "br" }
+                    ] }
+            ]
+        },
+        {
+            "key": "field_bk_final", "label": "CTA final", "name": "final_cta", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_fc_active", "label": "Activar", "name": "is_active", "type": "true_false", "ui": 1, "default_value": 1 },
+                { "key": "field_bk_fc_label", "label": "Etiqueta", "name": "label", "type": "text", "default_value": "Sin compromiso" },
+                { "key": "field_bk_fc_title", "label": "Título", "name": "title", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Descubre el programa completo y habla con un asesor hoy." },
+                { "key": "field_bk_fc_sub", "label": "Subtítulo", "name": "sub", "type": "textarea", "rows": 2, "new_lines": "br", "default_value": "Temario completo, las 7 especializaciones, metodología, precios y casos reales de alumnos creativos." },
+                { "key": "field_bk_fc_checks", "label": "Checks", "name": "checks", "type": "repeater", "layout": "table", "button_label": "Añadir",
+                    "sub_fields": [ { "key": "field_bk_fc_check_t", "label": "Texto", "name": "text", "type": "text" } ] },
+                { "key": "field_bk_fc_ftitle", "label": "Form: título", "name": "form_title", "type": "text", "default_value": "Descarga el dossier gratuito" },
+                { "key": "field_bk_fc_fsub", "label": "Form: subtítulo", "name": "form_sub", "type": "text", "default_value": "Rellena el formulario y recíbelo al instante." },
+                { "key": "field_bk_fc_fid", "label": "HubSpot Form ID", "name": "form_id", "type": "text", "default_value": "53340511-8af9-467c-b4f5-d92710ce9a0a" },
+                { "key": "field_bk_fc_portal", "label": "HubSpot Portal ID", "name": "portal_id", "type": "text", "placeholder": "25912905" },
+                { "key": "field_bk_fc_region", "label": "HubSpot Region", "name": "region", "type": "text", "placeholder": "eu1" }
+            ]
+        },
+        {
+            "key": "field_bk_settings", "label": "Ajustes / Tracking", "name": "settings_tracking", "type": "group", "layout": "block",
+            "sub_fields": [
+                { "key": "field_bk_lead", "label": "Tipo de lead", "name": "data_lead_type", "type": "group", "layout": "block",
+                    "sub_fields": [ { "key": "field_bk_lead_t", "label": "data-lead-type", "name": "type", "type": "text", "default_value": "form_lead" } ] },
+                { "key": "field_bk_tracking", "label": "Script de tracking", "name": "tracking_script", "type": "textarea", "rows": 4 }
+            ]
+        }
+    ],
+    "location": [
+        [ { "param": "page_template", "operator": "==", "value": "templates/baker-clon.php" } ],
+        [ { "param": "post_type", "operator": "==", "value": "landing-pages" } ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "active": true,
+    "description": "Campos de la LP Baker Clon (MAIC). Template templates/baker-clon.php."
+}

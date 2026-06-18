@@ -1,0 +1,43 @@
+// =============================================================================
+// Webinar Audience (webinar-audience)
+// =============================================================================
+
+.webinar-audience {
+    @include section-b;
+    background: var(--white);
+
+    &__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin: 32px auto 0;
+        padding: 0;
+        list-style: none;
+
+        @media all and (max-width: 810px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 20px 24px;
+        background: var(--light);
+        border-radius: 16px;
+
+        &__icon {
+            display: inline-flex;
+            flex-shrink: 0;
+            color: var(--purple);
+
+            svg { width: 22px; height: 22px; }
+        }
+
+        &__text {
+            font-size: var(--font-size-body);
+            color: var(--black);
+        }
+    }
+}

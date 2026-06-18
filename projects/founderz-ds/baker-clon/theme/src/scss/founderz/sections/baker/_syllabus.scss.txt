@@ -1,0 +1,101 @@
+// =============================================================================
+// Baker Syllabus (baker-syllabus)
+// =============================================================================
+
+.baker-syllabus {
+    @include section-b;
+    background: var(--grey);
+
+    &__list {
+        max-width: 900px;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+    }
+
+    &__item {
+        background: var(--white);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        overflow: hidden;
+
+        @media (hover: hover) { &:hover { background: #f8f7ff; } }
+
+        &__summary {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px;
+            cursor: pointer;
+            list-style: none;
+
+            &::-webkit-details-marker { display: none; }
+
+            &__lead { display: inline-flex; align-items: center; gap: 12px; }
+        }
+
+        &__num {
+            width: 28px;
+            height: 28px;
+            border-radius: 8px;
+            background: var(--lilac);
+            color: var(--purple);
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        &__title { font-size: var(--font-size-body); font-weight: 500; }
+        &__tag {
+            font-size: 12px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 100px;
+            background: var(--lilac);
+            color: var(--purple);
+        }
+        &__chevron { color: var(--purple); flex-shrink: 0; transition: transform 200ms ease; }
+
+        &[open] .baker-syllabus__item__chevron,
+        &.is-active .baker-syllabus__item__chevron { transform: rotate(180deg); }
+
+        &__content { padding: 0 24px 24px; }
+    }
+
+    &__lessons {
+        margin: 0 0 16px;
+        padding-left: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        color: var(--black-opacity-7);
+    }
+
+    &__teachers { margin: 0; font-size: 14px; color: var(--black-opacity-7); }
+
+    &__locked {
+        text-align: center;
+        padding: 32px;
+        background: var(--white);
+        border: 1px dashed rgba(0, 0, 0, 0.12);
+        border-radius: 16px;
+        margin-top: 8px;
+
+        &__icon {
+            display: inline-grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--lilac);
+            color: var(--purple);
+            margin-bottom: 12px;
+        }
+        &__title { margin: 0 0 6px; font-size: 20px; font-weight: 600; }
+        &__sub { margin: 0 0 16px; font-size: var(--font-size-small); color: var(--black-opacity-7); }
+        &__note { margin: 12px 0 0; font-size: var(--font-size-small); color: var(--black-opacity-7); }
+    }
+}

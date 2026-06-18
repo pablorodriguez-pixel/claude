@@ -1,0 +1,52 @@
+<!-- @dsCard group="Components" viewport="700x900" name="Cards" subtitle="Feature, stat, accordion, testimonial, program, post, event" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { padding: 32px; background: var(--fz-grey); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .lbl { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--fz-black-50); margin: 0 0 12px; }
+  .stack { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const { FeatureCard, StatCard, Accordion, Testimonial, EventCard, ProgramCard, PostCard, Icon } = window.FounderzDesignSystem_47078d;
+  const IMG = "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=900&q=70";
+  function Demo() {
+    return (
+      <div>
+        <p className="lbl">Feature & stat</p>
+        <div className="grid2">
+          <FeatureCard icon={<Icon name="sparkles"/>} title="IA aplicada">Lleva la IA a tu día a día profesional con casos reales.</FeatureCard>
+          <StatCard value="+250K" label="Alumnos formados en IA y negocio" />
+        </div>
+        <p className="lbl">Accordion</p>
+        <div className="stack">
+          <Accordion question="¿Necesito conocimientos previos?" defaultOpen>No. El programa parte de cero y avanza hasta un nivel avanzado.</Accordion>
+          <Accordion question="¿Las clases son en directo?">Sí, con sesiones en directo y acceso a todas las grabaciones.</Accordion>
+        </div>
+        <p className="lbl">Testimonial & event</p>
+        <div className="grid2">
+          <Testimonial quote="El mejor programa de IA aplicada que he hecho. Práctico desde el primer día." name="Pau Ramírez" role="Product Lead" avatar="https://i.pravatar.cc/96?img=5" />
+          <EventCard day="26" month="Jun" label="Webinar" title="IA generativa en finanzas" speaker="Con Anna Pérez" />
+        </div>
+        <p className="lbl">Program (active) & post</p>
+        <div className="grid2">
+          <ProgramCard active image={IMG} type="Máster" duration="12 semanas" title="IA e Innovación" categories={["IA","Negocio"]} description="Domina las herramientas de IA generativa aplicadas a la estrategia de tu empresa." price="2.400 €" priceOld="3.000 €" />
+          <PostCard image={IMG} category="Blog" title="Cómo aplicar IA generativa en tu equipo" linkLabel="Leer más" />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<Demo/>);
+</script>
+</body>
+</html>

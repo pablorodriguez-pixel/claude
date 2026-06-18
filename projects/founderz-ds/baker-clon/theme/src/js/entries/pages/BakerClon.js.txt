@@ -1,0 +1,48 @@
+/**
+ * Baker Clon (LP MAIC) — Entry Point
+ * src/js/entries/pages/BakerClon.js
+ */
+import "@scss/main.scss";
+import "@entries/pages/baker-clon.scss";
+import "@js/utils/main.js";
+import "@js/modules/DataLayer.js";
+
+import HubSpotLazyLoader from "@modules/HubSpotLazyLoader.js";
+import Accordion from "@modules/Accordion.js";
+
+class BakerClon {
+	constructor() {
+		this.DOM = {
+			ctaButtons: document.querySelectorAll('a[href^="#dossier"]'),
+		};
+		this.init();
+	}
+
+	init() {
+		// Formularios HubSpot (lazy)
+		HubSpotLazyLoader.mountEagerLegacyForms();
+
+		// Acordeones: temario + FAQs
+		new Accordion("#syllabus-accordion", { allowMultiple: false, animate: true });
+		new Accordion("#faqs-accordion", { allowMultiple: false, animate: true });
+
+		// Scroll suave a formulario (dossier) desde los CTAs
+		this.initSmoothScroll();
+	}
+
+	initSmoothScroll() {
+		this.DOM.ctaButtons.forEach((btn) => {
+			btn.addEventListener("click", (e) => {
+				const target = document.querySelector("#dossier");
+				if (!target) return;
+				e.preventDefault();
+				const top = target.getBoundingClientRect().top + window.scrollY - 40;
+				window.scrollTo({ top, behavior: "smooth" });
+			});
+		});
+	}
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+	new BakerClon();
+});

@@ -1,0 +1,53 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Buttons & Forms" subtitle="Pill buttons, inputs, labelled fields" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { padding: 32px; background: var(--fz-white); }
+  .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 28px; }
+  .dark { background: var(--fz-black); padding: 20px; border-radius: 16px; }
+  .lbl { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--fz-black-50); margin: 0 0 12px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+  const { Button, Input, Field, Icon } = window.FounderzDesignSystem_47078d;
+  function Demo() {
+    return (
+      <div>
+        <p className="lbl">Variants</p>
+        <div className="row">
+          <Button variant="primary">Inscríbete</Button>
+          <Button variant="third">Ver programa</Button>
+          <Button variant="third-outlined">Solicita info</Button>
+          <Button variant="primary" iconRight={<Icon name="arrow-right" size={18}/>}>Empezar</Button>
+        </div>
+        <div className="row dark">
+          <Button variant="second">Hablemos</Button>
+          <Button variant="second-outlined">Más info</Button>
+        </div>
+        <p className="lbl">Sizes</p>
+        <div className="row">
+          <Button variant="primary" size="sm">Small</Button>
+          <Button variant="primary" size="md">Medium</Button>
+          <Button variant="primary" size="lg">Large</Button>
+        </div>
+        <p className="lbl">Fields</p>
+        <div className="row" style={{ alignItems: "flex-start" }}>
+          <Field label="Nombre" placeholder="Tu nombre" style={{ width: 220 }} />
+          <Field label="Email" placeholder="tucorreo@empresa.com" style={{ width: 240 }} />
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById("root")).render(<Demo/>);
+</script>
+</body>
+</html>

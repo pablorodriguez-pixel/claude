@@ -1,0 +1,59 @@
+/* ============================================================
+   Founderz — Spacing, radius, borders, shadows, layout
+   Base unit 8px. Multiples: 8 16 24 32 40 56 80 120.
+   ============================================================ */
+
+:root {
+  /* ---- Spacing scale ---- */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 40px;
+  --space-6: 56px;
+  --space-7: 80px;
+  --space-8: 120px;
+
+  /* ---- Section vertical padding (desktop / mobile) ---- */
+  --section-pad-hero: 120px;
+  --section-pad-hero-m: 80px;
+  --section-pad-standard: 80px;
+  --section-pad-standard-m: 56px;
+  --section-pad-secondary: 56px;
+  --section-pad-secondary-m: 40px;
+  --section-pad-compact: 40px;
+  --section-pad-compact-m: 32px;
+
+  /* ---- Container ---- */
+  --container-max: 1360px;
+  --container-pad: 40px;
+  --container-pad-m: 24px;
+
+  /* ---- Radius ---- */
+  --radius-pill: 100px;     /* buttons, pills */
+  --radius-card: 24px;      /* main cards */
+  --radius-card-inner: 16px;/* inner cards, inputs panels */
+  --radius-section: 20px;   /* section_banner inner box */
+  --radius-banner: 15px;    /* banner-c strip */
+  --radius-faq: 10px;       /* card-d accordion */
+  --radius-input: 8px;      /* inputs, feature cards */
+  --radius-feature: 8px;
+
+  /* ---- Borders ---- */
+  --border-width: 1px;
+  --border-hairline: 1px solid var(--fz-border);
+  --border-on-dark: 1px solid var(--fz-white-10);
+  --border-lilac: 1px solid var(--fz-lilac);
+
+  /* ---- Shadows — used ONLY on dropdowns / modals ---- */
+  --shadow-overlay: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* ---- Image overlay (dark scrim for legibility) ---- */
+  --overlay-image: rgba(26, 25, 29, 0.5);
+
+  /* ---- Motion ---- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --dur-fast: 150ms; /* @kind other */
+  --dur: 250ms; /* @kind other */
+  --marquee-dur: 30s; /* @kind other */
+}

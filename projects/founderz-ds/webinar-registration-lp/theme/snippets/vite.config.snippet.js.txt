@@ -1,0 +1,8 @@
+// SNIPPET — añadir a: vite.config.js → build.rollupOptions.input
+// ---------------------------------------------------------------
+// Registra la nueva entrada de la landing de registro de webinars.
+
+WebinarRegistrationLp: resolve(
+  __dirname,
+  "src/js/entries/pages/WebinarRegistrationLp.js"
+),
