@@ -1202,3 +1202,78 @@ body[data-submitted] .already-subscribed {
     font-size: 20px;
   }
 }
+
+/* ============================================================
+   Sidebar — steps card
+   ============================================================ */
+
+.sidebar-card--steps {
+  background: var(--fz-white);
+  border: var(--border-hairline);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sidebar-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.sidebar-step__num {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fz-lilac);
+  color: var(--fz-purple);
+  font-size: 14px;
+  font-weight: var(--fw-semibold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.sidebar-step__num--dark {
+  background: var(--fz-black);
+  color: var(--fz-white);
+}
+
+.sidebar-step__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-step__title {
+  font-size: 15px;
+  font-weight: var(--fw-semibold);
+  color: var(--fz-black);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.sidebar-step__desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--fz-black-70);
+  margin: 0;
+}
+
+.sidebar-step-divider {
+  height: 1px;
+  background: var(--fz-border);
+  margin: 20px 0;
+}
+
+.sidebar-webinar-date {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--fz-black-70);
+  font-weight: var(--fw-medium);
+}

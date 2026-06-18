@@ -252,44 +252,53 @@
       <!-- SIDEBAR -->
       <aside class="article-sidebar" aria-label="Contenido relacionado">
 
-        <!-- Card 1: Newsletter -->
-        <div class="sidebar-card sidebar-card--newsletter" aria-label="Suscríbete al newsletter">
-          <p class="sidebar-label">NEWSLETTER</p>
-          <h4 class="sidebar-card__title">Recibe lo mejor de la IA cada semana</h4>
-          <form class="sidebar-form" data-newsletter-form novalidate>
-            <input
-              class="blog-input"
-              type="email"
-              name="email"
-              placeholder="Tu email"
-              autocomplete="email"
-              required
-              aria-label="Tu dirección de email"
-            />
-            <button type="submit" class="btn btn--primary btn--block">Suscribirme</button>
-          </form>
-          <p class="sidebar-card__trust">Sin spam · cancela cuando quieras</p>
-          <div class="sidebar-form__success" hidden aria-live="polite">
-            <svg width="16" height="16" aria-hidden="true"><use href="#i-check"/></svg>
-            Ya estás suscrito
-          </div>
-        </div>
+        <!-- Card pasos: newsletter + webinar -->
+        <div class="sidebar-card sidebar-card--steps" aria-label="Conviértete en el profesional definitivo con IA">
+          <p class="sidebar-label">TU PRÓXIMO PASO</p>
+          <h4 class="sidebar-card__title">Conviértete en el profesional definitivo con IA</h4>
 
-        <!-- Card 2: Webinar -->
-        <div class="sidebar-card sidebar-card--webinar" aria-label="Webinar gratuito">
-          <p class="sidebar-label sidebar-label--lilac">WEBINAR GRATUITO</p>
-          <h4 class="sidebar-card__title sidebar-card__title--white">IA en tu flujo de trabajo: en directo</h4>
-          <div class="sidebar-webinar-meta">
-            <span class="sidebar-date-pill">
-              <svg width="13" height="13" aria-hidden="true"><use href="#i-calendar"/></svg>
-              26 jun · 18:00h
-            </span>
-            <div class="sidebar-speaker">
-              <div class="speaker-avatar ph ph--sm" aria-hidden="true"></div>
-              <span class="speaker-name">Elena Vidal, Head of Content</span>
+          <!-- Paso 1: Newsletter -->
+          <div class="sidebar-step">
+            <div class="sidebar-step__num">1</div>
+            <div class="sidebar-step__content">
+              <p class="sidebar-step__title">Mantente siempre a la última</p>
+              <p class="sidebar-step__desc">Cada semana: herramientas nuevas, cursos gratuitos y lo que viene en IA. Directo a tu bandeja.</p>
+              <form class="sidebar-form" data-newsletter-form novalidate>
+                <input
+                  class="blog-input"
+                  type="email"
+                  name="email"
+                  placeholder="Tu email"
+                  autocomplete="email"
+                  required
+                  aria-label="Tu dirección de email"
+                />
+                <button type="submit" class="btn btn--primary btn--block">Apuntarme gratis</button>
+              </form>
+              <div class="sidebar-form__success" hidden aria-live="polite">
+                <svg width="15" height="15" aria-hidden="true"><use href="#i-check"/></svg>
+                ¡Apuntado! Revisa tu email.
+              </div>
+              <p class="sidebar-card__trust">Sin spam · cancela cuando quieras</p>
             </div>
           </div>
-          <a href="/webinar-ia-contenido" class="btn btn--white btn--sm btn--block">Reserva tu plaza gratis</a>
+
+          <div class="sidebar-step-divider"></div>
+
+          <!-- Paso 2: Webinar -->
+          <div class="sidebar-step">
+            <div class="sidebar-step__num sidebar-step__num--dark">2</div>
+            <div class="sidebar-step__content">
+              <p class="sidebar-step__title">Sesión gratis en directo</p>
+              <p class="sidebar-step__desc">La sesión que cambia cómo trabajas con IA. En directo, gratuita y con expertos en activo.</p>
+              <div class="sidebar-webinar-date">
+                <svg width="13" height="13" aria-hidden="true"><use href="#i-calendar"/></svg>
+                3 jul · 18:00h — Eloi Noya
+              </div>
+              <a href="/webinar-ia-finanzas" class="btn btn--outline-dark btn--block btn--sm">Reservar mi plaza gratis</a>
+            </div>
+          </div>
+
         </div>
 
         <!-- Card 3: Curso recomendado -->
