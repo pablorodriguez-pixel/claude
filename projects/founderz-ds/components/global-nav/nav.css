@@ -22,7 +22,8 @@
 }
 
 .fz-nav__bar {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   height: 68px;
   max-width: var(--container-max);
@@ -31,23 +32,25 @@
   gap: 8px;
 }
 
-/* ---- Logo ---- */
+/* ---- Logo — centro exacto ---- */
 .fz-nav__logo {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   text-decoration: none;
-  margin-right: 32px;
   transition: opacity var(--dur-fast) var(--ease-out);
 }
 .fz-nav__logo:hover { opacity: 0.7; }
 
-/* ---- Centro: links ---- */
+/* ---- Links izquierda ---- */
 .fz-nav__links {
   display: flex;
   align-items: center;
   gap: 4px;
-  flex: 1;
+}
+.fz-nav__links--left {
+  justify-content: flex-start;
 }
 
 /* ---- Link simple ---- */
@@ -146,19 +149,28 @@
   padding: 20px;
 }
 
-/* Programas dropdown: 1 col de cards */
+/* Programas dropdown: 2 cols lado a lado */
 .fz-nav__dropdown-inner--programas {
-  width: 340px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+  width: 640px;
 }
-/* Cursos dropdown: 1 col tools + footer */
-.fz-nav__dropdown-inner--cursos {
-  width: 340px;
+
+/* Nosotros: 1 col, estrecho */
+.fz-nav__dropdown-inner--sm {
+  width: 320px;
 }
 
 .fz-nav__dd-col {
   display: flex;
   flex-direction: column;
   gap: 4px;
+}
+
+/* Footer que abarca ambas columnas del dropdown de programas */
+.fz-nav__dd-footer--wide {
+  grid-column: 1 / -1;
 }
 
 /* ---- Label de sección ---- */
@@ -306,8 +318,8 @@
 .fz-nav__actions {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 8px;
-  margin-left: auto;
   flex-shrink: 0;
 }
 
@@ -786,10 +798,13 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 860px) {
+  .fz-nav__bar {
+    grid-template-columns: auto 1fr auto;
+  }
   .fz-nav__links,
   .fz-nav__actions { display: none; }
-  .fz-nav__burger   { display: flex; }
-  .fz-nav__logo     { margin-right: 0; }
+  .fz-nav__burger  { display: flex; }
+  .fz-nav__logo    { justify-content: flex-start; }
 }
 
 @media (max-width: 579px) {
