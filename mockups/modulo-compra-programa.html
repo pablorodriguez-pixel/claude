@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founderz — Módulo de compra (programa con membresía)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,-25">
+  <style>
+    :root {
+      --purple:       #5045c8;
+      --purple-dark:  #2f2976;
+      --purple-light: #ebebf8;
+      --pink:         #D08EEB;
+      --ink:          #111115;
+      --white:        #ffffff;
+      --gray-soft:    #f5f5f7;
+      --gray-border:  #e0e0e6;
+      --gray-text:    #5a5a6e;
+      --green:        #A3D9C5;
+      --radius:       1.875rem;
+      --radius-pill:  100rem;
+      --radius-sm:    0.75rem;
+      --shadow:       0 10px 40px rgba(0,0,0,.08);
+      --shadow-lg:    0 24px 60px rgba(80,69,200,.18);
+      --ease:         cubic-bezier(.645,.045,.355,1);
+      --font:         'Inter', 'Trebuchet MS', Helvetica, sans-serif;
+      --tracking:     0.02em;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font);
+      color: var(--ink);
+      background: #f0f0f5;
+      letter-spacing: var(--tracking);
+      -webkit-font-smoothing: antialiased;
+      padding: 2rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .mockup-note {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 0.85rem 1.5rem;
+      font-size: 0.85rem;
+      color: #856404;
+      border-radius: 0.5rem;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .section-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gray-text);
+      width: 100%;
+      max-width: 1100px;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--gray-border);
+    }
+
+    /* ─── BOTONES ────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.875rem 1.75rem; border-radius: var(--radius-pill);
+      font-size: 1rem; font-weight: 600; text-decoration: none;
+      cursor: pointer; border: 2px solid transparent;
+      transition: all 200ms var(--ease); letter-spacing: var(--tracking);
+      white-space: nowrap; font-family: var(--font);
+    }
+    .btn-primary { background: var(--purple); color: var(--white); border-color: var(--purple); }
+    .btn-primary:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
+    .btn-ghost { background: transparent; color: var(--purple); border-color: var(--purple); }
+    .btn-ghost:hover { background: var(--purple); color: var(--white); }
+    .btn-sm { padding: 0.65rem 1.25rem; font-size: 0.9rem; }
+
+    /* ═══════════════════════════════════════════════════════
+       MÓDULO A — CARD HERO LATERAL (form-b reemplazado)
+       Este es el card flotante que aparece en el hero de
+       cada página de programa (columna derecha)
+    ═══════════════════════════════════════════════════════ */
+    .demo-hero-context {
+      width: 100%; max-width: 1100px;
+      background: var(--ink);
+      border-radius: var(--radius);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      align-items: start;
+    }
+    .demo-hero-left .label-chip {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--pink); background: rgba(208,142,235,.12);
+      padding: 0.3rem 0.8rem; border-radius: var(--radius-pill);
+      margin-bottom: 1rem;
+    }
+    .demo-hero-left h1 {
+      font-size: 2.5rem; font-weight: 700; line-height: 1.1;
+      color: var(--white); margin-bottom: 1rem;
+    }
+    .demo-hero-left p {
+      font-size: 1rem; color: rgba(255,255,255,.6);
+      line-height: 1.6; margin-bottom: 1.5rem;
+    }
+    .demo-hero-left .partner-logos {
+      display: flex; align-items: center; gap: 1rem; opacity: .5;
+      font-size: 0.8rem; color: rgba(255,255,255,.5);
+    }
+    .demo-hero-left .partner-logos strong { color: rgba(255,255,255,.7); }
+
+    /* EL CARD EN SÍ */
+    .form-membresia {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .form-membresia__itinerario {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--purple); padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--gray-border);
+    }
+    .form-membresia__itinerario .material-symbols-rounded { font-size: 1rem; }
+    .form-membresia__precio-block { display: flex; flex-direction: column; gap: 0.2rem; }
+    .form-membresia__precio-big {
+      font-size: 2.5rem; font-weight: 700; line-height: 1; color: var(--ink);
+    }
+    .form-membresia__precio-desc {
+      font-size: 0.85rem; color: var(--gray-text); line-height: 1.4;
+    }
+    .form-membresia__precio-cuota {
+      font-size: 0.875rem; color: var(--purple); font-weight: 600; margin-top: 0.2rem;
+    }
+
+    /* Grid de acceso */
+    .access-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+    }
+    .access-item {
+      display: flex; flex-direction: column; gap: 0.2rem;
+      background: var(--gray-soft); border-radius: var(--radius-sm);
+      padding: 0.75rem; border: 1.5px solid transparent;
+      transition: border-color 150ms;
+    }
+    .access-item--active {
+      border-color: var(--purple); background: var(--purple-light);
+    }
+    .access-item__label {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--gray-text);
+    }
+    .access-item--active .access-item__label { color: var(--purple); }
+    .access-item__name { font-size: 0.8rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .access-item--active .access-item__name { color: var(--purple-dark); }
+
+    /* Bullets de valor */
+    .value-list { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+    .value-list li {
+      display: flex; align-items: flex-start; gap: 0.5rem;
+      font-size: 0.875rem; color: var(--ink); line-height: 1.4;
+    }
+    .value-list li .material-symbols-rounded { font-size: 1rem; color: var(--purple); flex-shrink: 0; }
+
+    /* CTAs */
+    .form-membresia__ctas { display: flex; flex-direction: column; gap: 0.75rem; }
+    .form-membresia__ctas .btn { justify-content: center; }
+    .form-membresia__secondary-link {
+      text-align: center; font-size: 0.8rem; color: var(--gray-text);
+    }
+    .form-membresia__secondary-link a { color: var(--purple); text-decoration: none; }
+
+    /* ═══════════════════════════════════════════════════════
+       MÓDULO B — SECCIÓN INSCRIPCIONES (reemplaza payments)
+       Aparece ~2/3 de la página, después de módulos y testimonios
+    ═══════════════════════════════════════════════════════ */
+    .inscriptions-nueva {
+      width: 100%; max-width: 1100px;
+      background: var(--white); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow);
+    }
+    .inscriptions-nueva__top {
+      background: var(--ink); color: var(--white);
+      padding: 3rem 3rem 2.5rem;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 2rem; align-items: center;
+    }
+    .inscriptions-nueva__top .headline-chip {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--pink); margin-bottom: 0.75rem;
+    }
+    .inscriptions-nueva__top h2 {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem;
+    }
+    .inscriptions-nueva__top p {
+      font-size: 0.95rem; color: rgba(255,255,255,.6); line-height: 1.6;
+    }
+    .inscriptions-nueva__price-pill {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .inscriptions-nueva__price-pill .amount {
+      font-size: 3rem; font-weight: 700; color: var(--white); line-height: 1;
+    }
+    .inscriptions-nueva__price-pill .period {
+      font-size: 0.8rem; color: rgba(255,255,255,.45);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.3rem;
+    }
+    .inscriptions-nueva__price-pill .cuota {
+      font-size: 0.85rem; color: var(--pink); font-weight: 500; margin-top: 0.4rem;
+    }
+
+    .inscriptions-nueva__body {
+      padding: 2.5rem 3rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: start;
+    }
+
+    /* Itinerarios incluidos lado izquierdo */
+    .itinerarios-list { display: flex; flex-direction: column; gap: 0.6rem; }
+    .itinerario-row {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.75rem 1rem; border-radius: var(--radius-sm);
+      border: 1.5px solid var(--gray-border);
+      transition: border-color 150ms, background 150ms;
+    }
+    .itinerario-row--active {
+      border-color: var(--purple); background: var(--purple-light);
+    }
+    .itinerario-row__dot {
+      width: 0.5rem; height: 0.5rem; border-radius: 50%; flex-shrink: 0;
+      background: var(--gray-border);
+    }
+    .itinerario-row--active .itinerario-row__dot { background: var(--purple); }
+    .itinerario-row__name {
+      font-size: 0.875rem; font-weight: 600; flex: 1; color: var(--ink);
+    }
+    .itinerario-row--active .itinerario-row__name { color: var(--purple-dark); }
+    .itinerario-row__tag {
+      font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+    }
+    .tag-tu { background: var(--purple); color: var(--white); }
+    .tag-inc { background: var(--gray-soft); color: var(--gray-text); border: 1px solid var(--gray-border); }
+
+    /* Derecha: detalles + CTAs */
+    .inscriptions-nueva__right { display: flex; flex-direction: column; gap: 1.5rem; }
+    .mini-feature-list { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .mini-feature-list li {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; color: var(--ink); font-weight: 500;
+    }
+    .mini-feature-list li .material-symbols-rounded { font-size: 1rem; color: var(--purple); }
+    .inscriptions-nueva__ctas { display: flex; flex-direction: column; gap: 0.75rem; }
+    .inscriptions-nueva__ctas .btn { justify-content: center; }
+    .trust-row {
+      display: flex; gap: 1rem; flex-wrap: wrap; padding-top: 0.5rem;
+    }
+    .trust-chip {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      font-size: 0.75rem; color: var(--gray-text);
+      background: var(--gray-soft); padding: 0.3rem 0.75rem;
+      border-radius: var(--radius-pill);
+    }
+    .trust-chip .material-symbols-rounded { font-size: 0.85rem; color: var(--purple); }
+
+    /* ═══════════════════════════════════════════════════════
+       MÓDULO C — BANNER CROSS-SELL (dentro de la página)
+       Aparece justo después de la sección de temario
+    ═══════════════════════════════════════════════════════ */
+    .crossell-banner {
+      width: 100%; max-width: 1100px;
+      background: var(--purple-light);
+      border: 1.5px solid rgba(80,69,200,.2);
+      border-radius: var(--radius);
+      padding: 2.5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem; align-items: center;
+    }
+    .crossell-banner__text .eyebrow {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--purple); margin-bottom: 0.6rem;
+    }
+    .crossell-banner__text h3 {
+      font-size: 1.35rem; font-weight: 700; margin-bottom: 0.6rem;
+    }
+    .crossell-banner__text p { font-size: 0.9rem; color: var(--gray-text); line-height: 1.5; }
+    .crossell-chips { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 0.75rem; }
+    .crossell-chip {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-size: 0.8rem; font-weight: 600; color: var(--purple-dark);
+      background: var(--white); border: 1px solid rgba(80,69,200,.25);
+      padding: 0.35rem 0.75rem; border-radius: var(--radius-pill);
+    }
+    .crossell-chip .material-symbols-rounded { font-size: 0.9rem; }
+    .crossell-banner__cta { flex-shrink: 0; }
+
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      .demo-hero-context { grid-template-columns: 1fr; }
+      .inscriptions-nueva__top { grid-template-columns: 1fr; }
+      .inscriptions-nueva__body { grid-template-columns: 1fr; }
+      .crossell-banner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="mockup-note">
+  🔵 MOCKUP — Módulos de compra con membresía / páginas de programa · <strong>founderz.com/es/programa/{slug}</strong>
+</div>
+
+<!-- ─── MÓDULO A ──────────────────────────────────────────── -->
+<p class="section-title">Módulo A — Card lateral del hero (reemplaza el form-b actual)</p>
+
+<div class="demo-hero-context">
+  <!-- Contexto: hero izquierdo de la página -->
+  <div class="demo-hero-left">
+    <span class="label-chip">Especialización · IA Generativa</span>
+    <h1>Máster de IA para Creativos</h1>
+    <p>Diseña, ilustra, edita vídeo y crea narrativas visuales con las herramientas de IA más potentes del mercado. Para creativos que quieren ir a otro nivel.</p>
+    <div class="partner-logos">
+      <strong>En colaboración con</strong>
+      <span>Microsoft · Freepik</span>
+    </div>
+  </div>
+
+  <!-- EL CARD NUEVO -->
+  <div class="form-membresia">
+    <div class="form-membresia__itinerario">
+      <span class="material-symbols-rounded">route</span>
+      Tu itinerario de entrada
+    </div>
+
+    <div class="form-membresia__precio-block">
+      <span class="form-membresia__precio-big">950€</span>
+      <span class="form-membresia__precio-desc">/ año · membresía completa Founderz</span>
+      <span class="form-membresia__precio-cuota">o desde 79€/mes con financiación</span>
+    </div>
+
+    <!-- Grid de qué incluye (tu itinerario + lo demás) -->
+    <div class="access-grid">
+      <div class="access-item access-item--active">
+        <span class="access-item__label">Tu itinerario</span>
+        <span class="access-item__name">IA para Creativos</span>
+      </div>
+      <div class="access-item">
+        <span class="access-item__label">+ incluido</span>
+        <span class="access-item__name">Agentes con Claude</span>
+      </div>
+      <div class="access-item">
+        <span class="access-item__label">+ incluido</span>
+        <span class="access-item__name">Copilot Pro</span>
+      </div>
+      <div class="access-item">
+        <span class="access-item__label">+ incluido</span>
+        <span class="access-item__name">+5 másters más</span>
+      </div>
+    </div>
+
+    <!-- Bullets de valor -->
+    <ul class="value-list">
+      <li><span class="material-symbols-rounded">workspace_premium</span>Certificación Founderz + Microsoft</li>
+      <li><span class="material-symbols-rounded">support_agent</span>Acompañamiento 24/7 con mentores IA</li>
+      <li><span class="material-symbols-rounded">photo_library</span>40.000 créditos en Freepik</li>
+      <li><span class="material-symbols-rounded">verified_user</span>Garantía de devolución 15 días</li>
+    </ul>
+
+    <div class="form-membresia__ctas">
+      <a href="#" class="btn btn-primary">Empezar por Creativos</a>
+      <a href="#" class="btn btn-ghost btn-sm">Solicita información</a>
+    </div>
+    <p class="form-membresia__secondary-link">
+      ¿Prefieres otra entrada? <a href="/es/membresia">Ver todos los itinerarios</a>
+    </p>
+  </div>
+</div>
+
+<!-- ─── MÓDULO B ──────────────────────────────────────────── -->
+<p class="section-title">Módulo B — Sección de inscripción (~2/3 de la página, reemplaza payments)</p>
+
+<div class="inscriptions-nueva">
+  <div class="inscriptions-nueva__top">
+    <div>
+      <p class="headline-chip">Membresía Founderz</p>
+      <h2>Empieza por Creativos.<br>Accede a toda la escuela.</h2>
+      <p>Una sola suscripción anual desbloquea todos los másters. Completa Creativos en 3 meses y sigue con lo que quieras.</p>
+    </div>
+    <div class="inscriptions-nueva__price-pill">
+      <div class="amount">950€</div>
+      <div class="period">/ año</div>
+      <div class="cuota">o 79€/mes</div>
+    </div>
+  </div>
+
+  <div class="inscriptions-nueva__body">
+    <!-- Izquierda: itinerarios -->
+    <div>
+      <p style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--gray-text);margin-bottom:1rem;">Todo lo que desbloqueas hoy</p>
+      <div class="itinerarios-list">
+        <div class="itinerario-row itinerario-row--active">
+          <div class="itinerario-row__dot"></div>
+          <span class="itinerario-row__name">IA para Creativos</span>
+          <span class="itinerario-row__tag tag-tu">Tu entrada</span>
+        </div>
+        <div class="itinerario-row">
+          <div class="itinerario-row__dot"></div>
+          <span class="itinerario-row__name">Agentes con Claude</span>
+          <span class="itinerario-row__tag tag-inc">Incluido</span>
+        </div>
+        <div class="itinerario-row">
+          <div class="itinerario-row__dot"></div>
+          <span class="itinerario-row__name">Copilot para Profesionales</span>
+          <span class="itinerario-row__tag tag-inc">Incluido</span>
+        </div>
+        <div class="itinerario-row">
+          <div class="itinerario-row__dot"></div>
+          <span class="itinerario-row__name">Máster IA Aplicada a la Innovación</span>
+          <span class="itinerario-row__tag tag-inc">Incluido</span>
+        </div>
+        <div class="itinerario-row">
+          <div class="itinerario-row__dot"></div>
+          <span class="itinerario-row__name">IA para Finanzas · IA para Salud · y más</span>
+          <span class="itinerario-row__tag tag-inc">Incluido</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Derecha: CTAs y features -->
+    <div class="inscriptions-nueva__right">
+      <ul class="mini-feature-list">
+        <li><span class="material-symbols-rounded">check_circle</span>Acceso inmediato a todo el catálogo</li>
+        <li><span class="material-symbols-rounded">check_circle</span>Certificación dual Founderz + Microsoft</li>
+        <li><span class="material-symbols-rounded">check_circle</span>40.000 créditos Freepik incluidos</li>
+        <li><span class="material-symbols-rounded">check_circle</span>Comunidad de +40.000 alumni</li>
+        <li><span class="material-symbols-rounded">check_circle</span>Mentores IA disponibles 24/7</li>
+      </ul>
+      <div class="inscriptions-nueva__ctas">
+        <a href="#" class="btn btn-primary">Inscribirme — 950€/año</a>
+        <a href="#" class="btn btn-ghost">Empezar con cuotas — 79€/mes</a>
+      </div>
+      <div class="trust-row">
+        <span class="trust-chip"><span class="material-symbols-rounded">verified_user</span>Garantía 15 días</span>
+        <span class="trust-chip"><span class="material-symbols-rounded">calendar_month</span>Sin auto-renovación</span>
+        <span class="trust-chip"><span class="material-symbols-rounded">lock</span>Pago seguro</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ─── MÓDULO C ──────────────────────────────────────────── -->
+<p class="section-title">Módulo C — Banner de cross-sell (aparece tras el temario del programa)</p>
+
+<div class="crossell-banner">
+  <div class="crossell-banner__text">
+    <p class="eyebrow">Con tu membresía también tienes</p>
+    <h3>Al terminar Creativos, elige tu siguiente itinerario</h3>
+    <p>Tu suscripción ya incluye acceso completo a todos los másters. Cuando termines este itinerario, empieza otro sin coste adicional.</p>
+    <div class="crossell-chips">
+      <span class="crossell-chip"><span class="material-symbols-rounded">smart_toy</span>Agentes con Claude</span>
+      <span class="crossell-chip"><span class="material-symbols-rounded">laptop_windows</span>Copilot Pro</span>
+      <span class="crossell-chip"><span class="material-symbols-rounded">trending_up</span>IA para Finanzas</span>
+      <span class="crossell-chip"><span class="material-symbols-rounded">add</span>+5 más</span>
+    </div>
+  </div>
+  <div class="crossell-banner__cta">
+    <a href="/es/membresia" class="btn btn-primary">Ver todo el catálogo</a>
+  </div>
+</div>
+
+</body>
+</html>
