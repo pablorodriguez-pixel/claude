@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Nav — Founderz DS</title>
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="nav.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     SVG sprite
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-chev" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 7.5 5 5 5-5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="14" height="9" rx="2"/><path d="M7 9V6a3 3 0 0 1 6 0v3"/></symbol>
+  <symbol id="i-arrow-r" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h12m-5-5 5 5-5 5"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="16" height="14" rx="2"/><path d="M14 2v4M6 2v4M2 9h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 4l12 12M16 4 4 16"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2L3 5v5c0 4.4 3.1 8.5 7 9.5 3.9-1 7-5.1 7-9.5V5l-7-3z"/><path d="m7 10 2 2 4-4"/></symbol>
+</svg>
+
+<!-- ============================================================
+     NAV
+     ============================================================ -->
+<header class="fz-nav" id="fz-nav" role="banner">
+  <div class="fz-nav__bar">
+
+    <!-- Logo -->
+    <a href="/es/" class="fz-nav__logo" aria-label="Founderz — inicio">
+      <img src="../../assets/founderz-wordmark-dark.svg" alt="Founderz" height="20" />
+    </a>
+
+    <!-- Links centro -->
+    <nav class="fz-nav__links" aria-label="Navegación principal">
+
+      <!-- Programas -->
+      <div class="fz-nav__item fz-nav__item--dropdown" data-nav-item="programas">
+        <button class="fz-nav__trigger" aria-expanded="false" aria-controls="dd-programas" type="button">
+          Programas
+          <svg width="16" height="16" class="fz-nav__chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="fz-nav__dropdown" id="dd-programas" role="region" aria-label="Programas">
+          <div class="fz-nav__dropdown-inner fz-nav__dropdown-inner--programas">
+            <div class="fz-nav__dd-col">
+              <p class="fz-nav__dd-label">Másteres</p>
+              <a href="/es/master-ia-creativos/" class="fz-nav__dd-card">
+                <span class="fz-nav__dd-card-icon" aria-hidden="true">🎨</span>
+                <span class="fz-nav__dd-card-body">
+                  <strong>IA para Creativos</strong>
+                  <span>Imagen, vídeo, audio y motion con IA</span>
+                </span>
+              </a>
+              <a href="/es/master-ia-innovacion/" class="fz-nav__dd-card">
+                <span class="fz-nav__dd-card-icon" aria-hidden="true">🚀</span>
+                <span class="fz-nav__dd-card-body">
+                  <strong>IA e Innovación</strong>
+                  <span>Transforma procesos y modelos de negocio</span>
+                </span>
+              </a>
+              <a href="/es/master-ia-finanzas/" class="fz-nav__dd-card">
+                <span class="fz-nav__dd-card-icon" aria-hidden="true">📊</span>
+                <span class="fz-nav__dd-card-body">
+                  <strong>IA en Finanzas</strong>
+                  <span>Análisis, automatización y decisiones con IA</span>
+                </span>
+              </a>
+              <a href="/es/master-ia-marketing/" class="fz-nav__dd-card">
+                <span class="fz-nav__dd-card-icon" aria-hidden="true">📣</span>
+                <span class="fz-nav__dd-card-body">
+                  <strong>IA para Marketing</strong>
+                  <span>Campañas, contenido y analítica con IA</span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cursos -->
+      <div class="fz-nav__item fz-nav__item--dropdown" data-nav-item="cursos">
+        <button class="fz-nav__trigger" aria-expanded="false" aria-controls="dd-cursos" type="button">
+          Cursos
+          <svg width="16" height="16" class="fz-nav__chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="fz-nav__dropdown" id="dd-cursos" role="region" aria-label="Cursos por herramienta">
+          <div class="fz-nav__dropdown-inner fz-nav__dropdown-inner--cursos">
+            <div class="fz-nav__dd-col">
+              <p class="fz-nav__dd-label">Por herramienta</p>
+              <a href="/es/cursos/copilot/" class="fz-nav__dd-tool">
+                <span class="fz-nav__dd-tool-badge fz-nav__dd-tool-badge--copilot">Co</span>
+                <span class="fz-nav__dd-tool-body">
+                  <strong>Copilot</strong>
+                  <span>Microsoft 365, Word, Teams y más</span>
+                </span>
+              </a>
+              <a href="/es/cursos/claude/" class="fz-nav__dd-tool">
+                <span class="fz-nav__dd-tool-badge fz-nav__dd-tool-badge--claude">Cl</span>
+                <span class="fz-nav__dd-tool-body">
+                  <strong>Claude</strong>
+                  <span>Análisis, redacción y agentes con IA</span>
+                </span>
+              </a>
+              <a href="/es/cursos/gemini/" class="fz-nav__dd-tool">
+                <span class="fz-nav__dd-tool-badge fz-nav__dd-tool-badge--gemini">Ge</span>
+                <span class="fz-nav__dd-tool-body">
+                  <strong>Gemini</strong>
+                  <span>Google Workspace y productividad</span>
+                </span>
+              </a>
+            </div>
+
+            <!-- CTA inferior -->
+            <div class="fz-nav__dd-footer">
+              <p class="fz-nav__dd-footer-text">¿No tienes claro qué programa es el tuyo?</p>
+              <button class="fz-nav__dd-footer-cta" type="button" data-open-advisor>
+                <svg width="16" height="16" aria-hidden="true"><use href="#i-calendar"/></svg>
+                Reserva una sesión gratis con un asesor
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sesiones gratis (link directo) -->
+      <a href="/es/sesiones-gratis/" class="fz-nav__link">
+        Sesiones gratis
+      </a>
+
+    </nav>
+
+    <!-- Acciones derecha -->
+    <div class="fz-nav__actions">
+      <a href="https://campus.founderz.com" class="fz-nav__alumni" target="_blank" rel="noopener" aria-label="Acceso al campus de alumnos">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>
+        Acceso alumnos
+      </a>
+      <button class="fz-nav__cta" type="button" data-open-advisor>
+        Habla con un asesor
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-r"/></svg>
+      </button>
+    </div>
+
+    <!-- Hamburger (mobile) -->
+    <button class="fz-nav__burger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="fz-nav-mobile" data-burger>
+      <svg width="22" height="22" aria-hidden="true"><use href="#i-menu"/></svg>
+    </button>
+
+  </div><!-- /bar -->
+</header>
+
+<!-- ============================================================
+     MOBILE DRAWER
+     ============================================================ -->
+<div class="fz-nav-mobile" id="fz-nav-mobile" aria-hidden="true" role="dialog" aria-label="Menú de navegación">
+  <div class="fz-nav-mobile__inner">
+
+    <div class="fz-nav-mobile__head">
+      <img src="../../assets/founderz-wordmark-dark.svg" alt="Founderz" height="18" />
+      <button class="fz-nav-mobile__close" type="button" aria-label="Cerrar menú" data-burger>
+        <svg width="22" height="22" aria-hidden="true"><use href="#i-close"/></svg>
+      </button>
+    </div>
+
+    <nav class="fz-nav-mobile__nav">
+
+      <!-- Programas accordion -->
+      <details class="fz-nav-m__group">
+        <summary class="fz-nav-m__group-title">
+          Programas
+          <svg width="18" height="18" aria-hidden="true"><use href="#i-chev"/></svg>
+        </summary>
+        <div class="fz-nav-m__group-body">
+          <p class="fz-nav__dd-label">Másteres</p>
+          <a href="/es/master-ia-creativos/" class="fz-nav-m__link">IA para Creativos</a>
+          <a href="/es/master-ia-innovacion/" class="fz-nav-m__link">IA e Innovación</a>
+          <a href="/es/master-ia-finanzas/" class="fz-nav-m__link">IA en Finanzas</a>
+          <a href="/es/master-ia-marketing/" class="fz-nav-m__link">IA para Marketing</a>
+        </div>
+      </details>
+
+      <!-- Cursos accordion -->
+      <details class="fz-nav-m__group">
+        <summary class="fz-nav-m__group-title">
+          Cursos
+          <svg width="18" height="18" aria-hidden="true"><use href="#i-chev"/></svg>
+        </summary>
+        <div class="fz-nav-m__group-body">
+          <p class="fz-nav__dd-label">Por herramienta</p>
+          <a href="/es/cursos/copilot/" class="fz-nav-m__link">Copilot</a>
+          <a href="/es/cursos/claude/" class="fz-nav-m__link">Claude</a>
+          <a href="/es/cursos/gemini/" class="fz-nav-m__link">Gemini</a>
+          <button class="fz-nav-m__advisor-btn" type="button" data-open-advisor>
+            <svg width="15" height="15" aria-hidden="true"><use href="#i-calendar"/></svg>
+            No sé qué programa elegir — sesión gratis
+          </button>
+        </div>
+      </details>
+
+      <a href="/es/sesiones-gratis/" class="fz-nav-m__top-link">Sesiones gratis</a>
+
+    </nav>
+
+    <div class="fz-nav-mobile__footer">
+      <a href="https://campus.founderz.com" class="fz-nav__alumni fz-nav__alumni--mobile" target="_blank" rel="noopener">
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-lock"/></svg>
+        Acceso alumnos
+      </a>
+      <button class="fz-nav__cta fz-nav__cta--block" type="button" data-open-advisor>
+        Habla con un asesor
+        <svg width="16" height="16" aria-hidden="true"><use href="#i-arrow-r"/></svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+<div class="fz-nav-overlay" data-overlay></div>
+
+<!-- ============================================================
+     MODAL — Habla con un asesor
+     ============================================================ -->
+<div class="fz-advisor-modal" id="fz-advisor-modal" aria-hidden="true" role="dialog" aria-labelledby="advisor-title" aria-modal="true">
+  <div class="fz-advisor-modal__card">
+    <button class="fz-advisor-modal__close" type="button" aria-label="Cerrar" data-close-advisor>
+      <svg width="20" height="20" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+
+    <div class="fz-advisor-modal__content">
+      <!-- Left: copy -->
+      <div class="fz-advisor-modal__copy">
+        <p class="fz-advisor-modal__eyebrow">Sin compromiso · Gratis</p>
+        <h2 id="advisor-title" class="fz-advisor-modal__title">Encuentra el programa que encaja contigo</h2>
+        <p class="fz-advisor-modal__desc">En 20 minutos un asesor te resuelve todas las dudas: qué programa es el tuyo, si hay financiación disponible y cuándo empieza la próxima edición.</p>
+        <ul class="fz-advisor-modal__bullets">
+          <li>
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-shield"/></svg>
+            Sin presión — te informamos, decides tú
+          </li>
+          <li>
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-shield"/></svg>
+            Asesor especializado en tu sector
+          </li>
+          <li>
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-shield"/></svg>
+            Financiación al 0% y opciones Fundae disponibles
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right: form -->
+      <div class="fz-advisor-modal__form-wrap">
+        <form class="fz-advisor-form" novalidate data-advisor-form>
+          <div class="fz-advisor-form__field">
+            <label for="adv-nombre" class="fz-advisor-form__label">Nombre</label>
+            <input id="adv-nombre" class="fz-advisor-form__input" type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required />
+          </div>
+          <div class="fz-advisor-form__field">
+            <label for="adv-email" class="fz-advisor-form__label">Email</label>
+            <input id="adv-email" class="fz-advisor-form__input" type="email" name="email" placeholder="tu@email.com" autocomplete="email" required />
+          </div>
+          <div class="fz-advisor-form__field">
+            <label for="adv-tel" class="fz-advisor-form__label">Teléfono</label>
+            <input id="adv-tel" class="fz-advisor-form__input" type="tel" name="telefono" placeholder="+34 600 000 000" autocomplete="tel" />
+          </div>
+          <div class="fz-advisor-form__field">
+            <label for="adv-sector" class="fz-advisor-form__label">¿Qué te interesa?</label>
+            <select id="adv-sector" class="fz-advisor-form__input fz-advisor-form__input--select" name="interes">
+              <option value="" disabled selected>Elige tu área</option>
+              <option>IA para Creativos</option>
+              <option>IA e Innovación</option>
+              <option>IA en Finanzas</option>
+              <option>IA para Marketing</option>
+              <option>Cursos por herramienta</option>
+              <option>No lo tengo claro aún</option>
+            </select>
+          </div>
+          <button type="submit" class="fz-advisor-form__submit">
+            <svg width="16" height="16" aria-hidden="true"><use href="#i-calendar"/></svg>
+            Reservar mi sesión gratuita
+          </button>
+          <p class="fz-advisor-form__legal">Sin compromiso · Sin spam · Te contactamos en menos de 24 h</p>
+        </form>
+
+        <div class="fz-advisor-form__success" hidden aria-live="polite">
+          <svg width="40" height="40" aria-hidden="true"><use href="#i-shield"/></svg>
+          <h3>¡Listo! Te llamamos pronto.</h3>
+          <p>Revisa tu email — te enviamos la confirmación en unos minutos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="fz-advisor-overlay" data-advisor-overlay></div>
+
+<!-- ============================================================
+     DEMO CONTENT (para ver el nav en contexto)
+     ============================================================ -->
+<main style="padding: 120px 40px; max-width: 960px; margin: auto; font-family: var(--font-display);">
+  <h1 style="font-size: 48px; font-weight: 600; letter-spacing: 0.02em; color: var(--fz-black); margin-bottom: 16px;">Demo del menú global</h1>
+  <p style="font-size: 18px; color: var(--fz-black-70); max-width: 60ch; line-height: 1.5;">
+    Prueba los dropdowns de <strong>Programas</strong> y <strong>Cursos</strong>, el botón <strong>Habla con un asesor</strong> y el menú móvil a &lt; 860px.
+  </p>
+  <p style="margin-top: 24px; font-size: 15px; color: var(--fz-black-50);">Haz scroll hacia abajo para comprobar el sticky nav.</p>
+  <div style="height: 200vh;"></div>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>
