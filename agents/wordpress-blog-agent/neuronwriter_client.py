@@ -34,12 +34,13 @@ class NeuronWriterClient:
 
     BASE_URL = "https://app.neuronwriter.com/uapi/0.1"
 
-    def __init__(self, api_key: str):
+    def __init__(self, api_key: str, project_id: str = "64c70e6d66b9ed1b"):
         if not api_key:
             raise ValueError(
                 "NEURONWRITER_API_KEY no configurada. "
                 "Añádela al archivo .env y vuelve a ejecutar el agente."
             )
+        self.project_id = project_id
         self.session = requests.Session()
         self.session.headers.update(
             {"X-API-KEY": api_key, "Content-Type": "application/json"}
@@ -56,11 +57,9 @@ class NeuronWriterClient:
         return resp.json()
 
     def list_queries(self, project_id: str | None = None) -> list[dict]:
-        """Devuelve todas las queries disponibles (o de un proyecto concreto)."""
-        params = {}
-        if project_id:
-            params["project"] = project_id
-        data = self._post("query/list", json=params)
+        """Devuelve todas las queries del proyecto (por defecto usa self.project_id)."""
+        pid = project_id or self.project_id
+        data = self._post("query/list", json={"project": pid})
         return data.get("queries", [])
 
     def get_query(self, query_id: str) -> dict:

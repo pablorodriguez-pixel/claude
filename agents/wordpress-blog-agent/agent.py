@@ -55,7 +55,7 @@ def run(
 
     # ── Clientes ──────────────────────────────────────────
     wp = WordPressClient(cfg.wp_base_url, cfg.wp_jwt_token)
-    nw = NeuronWriterClient(cfg.neuronwriter_api_key)
+    nw = NeuronWriterClient(cfg.neuronwriter_api_key, cfg.neuronwriter_project_id)
     cu = ClickUpManager(cfg.clickup_api_token, cfg.clickup_list_id)
 
     # ── Modo single: publicar una query concreta sin ClickUp ──
@@ -176,6 +176,8 @@ def main() -> None:
                         help="Publica directamente una query de NeuronWriter sin pasar por ClickUp")
     parser.add_argument("--list", action="store_true",
                         help="Lista todas las tareas en TEST BLOG IA y sale")
+    parser.add_argument("--list-queries", action="store_true",
+                        help="Lista las queries disponibles en NeuronWriter y sale")
     args = parser.parse_args()
 
     cfg = load_config()
@@ -190,6 +192,21 @@ def main() -> None:
         print("─" * 80)
         for t in tasks:
             print(f"{t.title[:44]:<45} {t.status:<15} {t.neuronwriter_query_id or '—'}")
+        return
+
+    if args.list_queries:
+        nw = NeuronWriterClient(cfg.neuronwriter_api_key, cfg.neuronwriter_project_id)
+        queries = nw.list_queries()
+        if not queries:
+            print("No hay queries en el proyecto NeuronWriter.")
+            return
+        print(f"\n{'QUERY ID':<28} {'KEYWORD':<40} {'SCORE'}")
+        print("─" * 75)
+        for q in queries:
+            qid = q.get("query", q.get("id", "—"))
+            kw  = q.get("keyword", q.get("phrase", "—"))
+            score = q.get("content_score", q.get("score", "—"))
+            print(f"{str(qid):<28} {str(kw)[:39]:<40} {score}")
         return
 
     run(
