@@ -255,6 +255,29 @@ server.tool(
   }
 );
 
+// ──────────────────────────────────────────────────────
+// TOOL: wp_me
+// ──────────────────────────────────────────────────────
+server.tool(
+  "wp_me",
+  "Devuelve información del usuario autenticado en WordPress (nombre, email, rol, ID).",
+  {},
+  async () => {
+    const user = await wp.request("GET", "users/me?context=edit");
+    const text = [
+      `**Usuario WordPress autenticado**`,
+      ``,
+      `**ID:** ${user.id}`,
+      `**Nombre:** ${user.name}`,
+      `**Usuario:** ${user.slug}`,
+      `**Email:** ${user.email}`,
+      `**Roles:** ${user.roles?.join(", ") || "—"}`,
+      `**URL:** ${user.link}`,
+    ].join("\n");
+    return { content: [{ type: "text", text }] };
+  }
+);
+
 // ── Arrancar servidor ─────────────────────────────────
 const transport = new StdioServerTransport();
 await server.connect(transport);
