@@ -18,11 +18,11 @@ class Config:
     clickup_api_token: str = ""
     clickup_list_id: str = "901524149794"  # TEST BLOG IA
 
-    # ClickUp statuses (adjust to match your workspace)
-    status_pending: str = "to do"
+    # ClickUp statuses — TEST BLOG IA list
+    status_pending: str = "backlog"
     status_writing: str = "in progress"
     status_review: str = "review"
-    status_published: str = "complete"
+    status_published: str = "completed"
 
 
 def load_config() -> Config:
