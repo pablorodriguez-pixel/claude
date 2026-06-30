@@ -1,0 +1,52 @@
+name: Deploy webinar to Vercel
+
+# Despliega projects/ a Vercel. La Action corre en runners de GitHub
+# (con salida a internet), no en el entorno de Claude Code.
+#
+# Requiere un único secreto en el repo:
+#   Settings → Secrets and variables → Actions → New repository secret
+#     Name:  VERCEL_TOKEN
+#     Value: un token de Vercel (https://vercel.com/account/tokens)
+#
+# Lanzar a mano:  Actions → "Deploy webinar to Vercel" → Run workflow
+# (o se dispara solo al hacer push a la rama del webinar).
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/webinar-creation-template-yg3a7a]
+    paths:
+      - 'projects/**'
+      - '.github/workflows/deploy-vercel.yml'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
+
+      - name: Deploy to Vercel (production)
+        working-directory: projects
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::Falta el secreto VERCEL_TOKEN. Añádelo en Settings → Secrets → Actions."
+            exit 1
+          fi
+          URL=$(vercel deploy --prod --yes --token="$VERCEL_TOKEN")
+          echo "Deployed to: $URL"
+          echo "### ✅ Desplegado en Vercel" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "URL: $URL" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "Webinar: ${URL}/webinar-maii" >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webinar gratuito — Cómo aplicar IA Generativa en tu negocio · Máster IA Founderz</title>
+  <meta name="description" content="Webinar en directo y gratuito: descubre cómo aplicar la IA Generativa para multiplicar tu productividad y tu negocio. Plazas limitadas. Edición 2026 del Máster en Inteligencia Artificial de Founderz." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Webinar gratuito · Cómo aplicar IA Generativa en tu negocio — Founderz" />
+  <meta property="og:description" content="Sesión en directo con expertos de Founderz. Aprende a usar la IA Generativa en tu día a día y conoce el Máster en IA. Gratis, plazas limitadas." />
+  <meta property="og:locale" content="es_ES" />
+
+  <style>
+    /* ==========================================================
+       WEBINAR MÁSTER IA — Founderz
+       Plantilla de landing de captación (lead-gen) para webinars.
+       Para clonar este webinar: copia esta carpeta, cambia el
+       objeto WEBINAR (al final del archivo) y el copy de cada
+       sección. Tokens de marca según CLAUDE.md (web).
+       ========================================================== */
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Colores Founderz oficiales (web) */
+      --purple:        #5045c8;
+      --purple-dark:   #2f2976;
+      --purple-light:  #ece9ff;
+      --violet:        #420D8C;
+      --pink:          #D08EEB;
+      --green:         #a3d9c5;
+      --orange:        #F2983E;
+      --warm-red:      #F25244;
+      --sunshade:      #fea339;
+      --ink:           #111115;
+      --ink-80:        rgba(17,17,21,0.8);
+      --gray:          #5a5a5a;
+      --border:        #e0e0ea;
+      --white:         #ffffff;
+
+      /* Tipografía */
+      --font: RundDisplay, "Trebuchet MS", Helvetica, sans-serif;
+      --tracking: 0.02em;
+
+      /* Layout */
+      --max-w: 1280px;
+      --r:     1.875rem;
+      --r-sm:  1rem;
+      --r-pill: 100rem;
+      --shadow: 0 10px 40px rgba(0,0,0,0.08);
+      --shadow-lg: 0 24px 64px rgba(0,0,0,0.13);
+      --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+      --py: clamp(72px, 9vw, 128px);
+    }
+
+    @media (max-width: 579px) { :root { --r: 1.375rem; } }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font);
+      font-size: 1rem;
+      line-height: 1.5;
+      letter-spacing: var(--tracking);
+      color: var(--ink);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ---------- UTILITIES ---------- */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding-inline: clamp(1.25rem, 4vw, 3rem);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+    }
+    .tag--light { color: var(--green); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9375rem 1.875rem;
+      border-radius: var(--r-pill);
+      font-family: var(--font);
+      font-size: 0.9375rem;
+      font-weight: 600;
+      letter-spacing: var(--tracking);
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: background .2s var(--ease), border-color .2s var(--ease), transform .15s var(--ease);
+      white-space: nowrap;
+      line-height: 1;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary { background: var(--purple); color: var(--white); border-color: var(--purple); }
+    .btn-primary:hover { background: var(--purple-dark); border-color: var(--purple-dark); }
+
+    .btn-inverse { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .btn-inverse:hover { background: var(--ink); color: var(--white); }
+
+    .btn-outline-dark { background: transparent; color: var(--purple); border-color: var(--purple); }
+    .btn-outline-dark:hover { background: var(--purple-light); }
+
+    .btn-lg { padding: 1.125rem 2.25rem; font-size: 1rem; }
+
+    .section-header { text-align: center; max-width: 640px; margin-inline: auto; }
+    .section-header .tag { margin-bottom: 1rem; display: block; }
+    .section-header h2 {
+      font-size: clamp(1.875rem, 4vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 1rem;
+    }
+    .section-header p { font-size: 1.0625rem; color: var(--gray); line-height: 1.6; }
+
+    /* ---------- URGENCY BAR ---------- */
+    .urgency-bar {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--ink); color: var(--white);
+      text-align: center; padding: 0.625rem 1rem;
+      font-size: 0.8125rem; font-weight: 500;
+      display: flex; align-items: center; justify-content: center;
+      gap: 0.875rem; flex-wrap: wrap;
+    }
+    .urgency-label {
+      color: var(--green); font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; font-size: 0.6875rem;
+    }
+    .urgency-badge {
+      background: var(--purple); color: var(--white);
+      font-size: 0.625rem; font-weight: 700;
+      padding: 0.2rem 0.55rem; border-radius: var(--r-pill);
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .countdown {
+      display: inline-flex; gap: 0.25rem;
+      font-variant-numeric: tabular-nums; font-weight: 700;
+      font-size: 0.9rem; color: var(--white);
+    }
+    .cd-sep { opacity: 0.4; }
+
+    /* ---------- NAV ---------- */
+    .nav-wrap {
+      position: sticky; top: 38px; z-index: 90;
+      padding: 0.875rem clamp(1rem, 3vw, 2rem); pointer-events: none;
+    }
+    .nav {
+      max-width: var(--max-w); margin: 0 auto;
+      background: var(--white); border-radius: var(--r-pill);
+      box-shadow: 0 4px 28px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
+      padding: 0.875rem 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; pointer-events: all;
+    }
+    .nav-logo {
+      font-size: 1.125rem; font-weight: 700; color: var(--ink);
+      display: flex; align-items: baseline; gap: 0.15rem; white-space: nowrap;
+    }
+    .nav-logo sup {
+      font-size: 0.5rem; font-weight: 600; letter-spacing: 0.1em;
+      color: var(--gray); text-transform: uppercase; vertical-align: super;
+    }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.9375rem; font-weight: 500; color: var(--gray); transition: color .15s; }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-actions { display: flex; align-items: center; gap: 0.75rem; }
+
+    @media (max-width: 860px) { .nav-links { display: none; } }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative; background: #090910; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 15% 55%, rgba(80,69,200,0.42) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 85% 25%, rgba(66,13,140,0.24) 0%, transparent 55%),
+        radial-gradient(ellipse 38% 38% at 72% 82%, rgba(208,142,235,0.10) 0%, transparent 45%),
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(80,69,200,0.12) 0%, transparent 50%),
+        #090910;
+    }
+    .hero-bg::after {
+      content: ''; position: absolute; inset: 0; opacity: 0.35;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+    .hero > .container {
+      position: relative; z-index: 1; padding-block: clamp(3rem, 7vw, 5.5rem);
+      display: grid; grid-template-columns: 1fr 430px; gap: 3rem; align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--green);
+      margin-bottom: 1.5rem;
+      background: rgba(163,217,197,0.10); border: 1px solid rgba(163,217,197,0.25);
+      padding: 0.4rem 0.85rem; border-radius: var(--r-pill);
+    }
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+      box-shadow: 0 0 0 0 rgba(163,217,197,0.7); animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(163,217,197,0.6); }
+      70%  { box-shadow: 0 0 0 8px rgba(163,217,197,0); }
+      100% { box-shadow: 0 0 0 0 rgba(163,217,197,0); }
+    }
+    .hero h1 {
+      font-size: clamp(2.25rem, 5vw, 3.5rem); font-weight: 700; line-height: 1.04;
+      color: var(--white); letter-spacing: -0.015em; margin-bottom: 1.5rem;
+    }
+    .hero h1 em { font-style: normal; color: var(--pink); }
+    .hero-sub {
+      font-size: 1.125rem; line-height: 1.65; color: rgba(255,255,255,0.74);
+      max-width: 52ch; margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2.25rem;
+    }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 0.6rem;
+      color: rgba(255,255,255,0.9); font-size: 0.9375rem; font-weight: 500;
+    }
+    .hero-meta-item .ico {
+      width: 34px; height: 34px; border-radius: 50%;
+      display: grid; place-items: center; flex-shrink: 0;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      font-size: 1rem;
+    }
+    .hero-meta-item small { display: block; font-size: 0.6875rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .hero-proof { display: flex; align-items: center; gap: 1rem; }
+    .avatars { display: flex; }
+    .avatars span {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.18); margin-right: -10px;
+      display: grid; place-items: center; font-size: 0.8rem; font-weight: 700;
+      color: var(--white);
+    }
+    .avatars span:nth-child(1){ background:#6a5ae0; }
+    .avatars span:nth-child(2){ background:#b06ab3; }
+    .avatars span:nth-child(3){ background:#e08a5a; }
+    .avatars span:nth-child(4){ background:#5ab0a0; }
+    .proof-text { font-size: 0.875rem; color: rgba(255,255,255,0.78); }
+    .proof-stars { color: var(--sunshade); display: block; font-size: 0.9rem; margin-bottom: 0.1rem; letter-spacing: 0.05em; }
+
+    /* ---- REGISTRATION CARD ---- */
+    .hero-card {
+      background: rgba(255,255,255,0.99); border-radius: var(--r);
+      padding: 2rem; box-shadow: 0 28px 80px rgba(0,0,0,0.4);
+    }
+    .hero-card-tag {
+      font-size: 0.6875rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--purple); margin-bottom: 0.75rem; display: block;
+    }
+    .hero-card h3 { font-size: 1.375rem; font-weight: 600; line-height: 1.2; margin-bottom: 1.25rem; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      background: var(--purple-light); color: var(--purple);
+      font-size: 0.75rem; font-weight: 700; padding: 0.375rem 0.75rem;
+      border-radius: var(--r-pill); margin-bottom: 1.25rem;
+    }
+    .reg-countdown {
+      display: flex; gap: 0.5rem; margin-bottom: 1.5rem;
+    }
+    .reg-cd-box {
+      flex: 1; background: #f5f4fb; border: 1px solid var(--border);
+      border-radius: var(--r-sm); padding: 0.6rem 0.25rem; text-align: center;
+    }
+    .reg-cd-box b { display: block; font-size: 1.5rem; font-weight: 700; line-height: 1; color: var(--ink); font-variant-numeric: tabular-nums; }
+    .reg-cd-box span { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); }
+
+    .reg-form { display: flex; flex-direction: column; gap: 0.625rem; }
+    .reg-form input {
+      width: 100%; padding: 0.85rem 1rem; border: 1.5px solid var(--border);
+      border-radius: var(--r-sm); font-family: var(--font); font-size: 0.9375rem;
+      letter-spacing: var(--tracking); color: var(--ink); transition: border-color .15s;
+    }
+    .reg-form input:focus { outline: none; border-color: var(--purple); }
+    .reg-form .btn { width: 100%; margin-top: 0.25rem; }
+    .reg-note { font-size: 0.75rem; color: var(--gray); text-align: center; margin-top: 0.85rem; line-height: 1.4; }
+    .reg-note b { color: var(--ink); }
+
+    .reg-success { display: none; text-align: center; padding: 1rem 0; }
+    .reg-success.show { display: block; }
+    .reg-success .check {
+      width: 56px; height: 56px; border-radius: 50%; background: var(--green);
+      display: grid; place-items: center; margin: 0 auto 1rem; font-size: 1.75rem; color: var(--ink);
+    }
+    .reg-success h4 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .reg-success p { font-size: 0.9375rem; color: var(--gray); }
+
+    /* ---------- LOGOS STRIP ---------- */
+    .logos-strip { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+    .logos-strip .container { display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+    .logos-strip-label { font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--gray); font-weight: 600; }
+    .logos-row { display: flex; align-items: center; justify-content: center; gap: clamp(1.5rem, 4vw, 3.5rem); flex-wrap: wrap; }
+    .logos-row span { font-weight: 800; font-size: 1.05rem; color: #b4b4c2; letter-spacing: -0.02em; }
+
+    /* ---------- LEARN (qué vas a aprender) ---------- */
+    .learn { padding: var(--py) 0; }
+    .learn-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem; margin-top: 3.5rem;
+    }
+    .learn-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--r); padding: 2rem 1.75rem; transition: box-shadow .25s var(--ease), transform .25s var(--ease);
+    }
+    .learn-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
+    .learn-num {
+      width: 44px; height: 44px; border-radius: var(--r-sm);
+      background: var(--purple-light); color: var(--purple);
+      display: grid; place-items: center; font-weight: 700; font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+    }
+    .learn-card h3 { font-size: 1.1875rem; font-weight: 600; margin-bottom: 0.6rem; line-height: 1.25; }
+    .learn-card p { font-size: 0.9375rem; color: var(--gray); line-height: 1.55; }
+
+    /* ---------- AGENDA ---------- */
+    .agenda { padding: var(--py) 0; background: #faf9ff; }
+    .agenda-list { max-width: 760px; margin: 3.5rem auto 0; display: flex; flex-direction: column; gap: 0; }
+    .agenda-item {
+      display: grid; grid-template-columns: 92px 1fr; gap: 1.5rem;
+      padding: 1.5rem 0; border-bottom: 1px solid var(--border); align-items: start;
+    }
+    .agenda-item:last-child { border-bottom: none; }
+    .agenda-time { font-weight: 700; color: var(--purple); font-size: 0.9375rem; font-variant-numeric: tabular-nums; padding-top: 0.1rem; }
+    .agenda-body h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.35rem; }
+    .agenda-body p { font-size: 0.9375rem; color: var(--gray); line-height: 1.5; }
+
+    /* ---------- SPEAKER ---------- */
+    .speaker { padding: var(--py) 0; }
+    .speaker .container {
+      display: grid; grid-template-columns: 320px 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center;
+    }
+    .speaker-photo {
+      border-radius: var(--r); aspect-ratio: 4/5; overflow: hidden; position: relative;
+      background:
+        radial-gradient(ellipse 80% 60% at 40% 30%, rgba(80,69,200,0.55) 0%, transparent 70%),
+        linear-gradient(150deg, #1a0f30 0%, #2f2976 60%, #50519E 100%);
+      box-shadow: var(--shadow-lg);
+    }
+    .speaker-photo .initials {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      font-size: 4rem; font-weight: 700; color: rgba(255,255,255,0.92); letter-spacing: -0.02em;
+    }
+    .speaker-info .tag { display: block; margin-bottom: 1rem; }
+    .speaker-info h2 { font-size: clamp(1.75rem, 3.5vw, 2.25rem); font-weight: 600; line-height: 1.15; margin-bottom: 0.4rem; }
+    .speaker-role { font-size: 1.0625rem; color: var(--purple); font-weight: 600; margin-bottom: 1.5rem; }
+    .speaker-info p { font-size: 1.0625rem; color: var(--gray); line-height: 1.65; margin-bottom: 1rem; max-width: 56ch; }
+    .speaker-creds { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.5rem; }
+    .cred-chip {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      border: 1px solid var(--border); background: var(--white);
+      border-radius: var(--r-pill); padding: 0.5rem 1rem; font-size: 0.8125rem; font-weight: 500;
+    }
+
+    /* ---------- AUDIENCE ---------- */
+    .audience { padding: var(--py) 0; background: var(--ink); color: var(--white); }
+    .audience .section-header h2 { color: var(--white); }
+    .audience .section-header p { color: rgba(255,255,255,0.65); }
+    .audience-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem; margin-top: 3.5rem;
+    }
+    .audience-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--r); padding: 1.75rem;
+    }
+    .audience-card .ico { font-size: 1.5rem; margin-bottom: 0.85rem; display: block; }
+    .audience-card h3 { font-size: 1.0625rem; font-weight: 600; margin-bottom: 0.5rem; }
+    .audience-card p { font-size: 0.9375rem; color: rgba(255,255,255,0.62); line-height: 1.55; }
+
+    /* ---------- TESTIMONIALS ---------- */
+    .testi { padding: var(--py) 0; }
+    .testi-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem; margin-top: 3.5rem;
+    }
+    .testi-card {
+      border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; background: var(--white);
+      display: flex; flex-direction: column; gap: 1.25rem;
+    }
+    .testi-stars { color: var(--sunshade); font-size: 0.95rem; letter-spacing: 0.05em; }
+    .testi-card blockquote { font-size: 1rem; line-height: 1.6; color: #28283a; }
+    .testi-author { display: flex; align-items: center; gap: 0.75rem; margin-top: auto; }
+    .testi-author .av {
+      width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+      color: var(--white); font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+    }
+    .testi-author b { display: block; font-size: 0.9375rem; }
+    .testi-author span { font-size: 0.8125rem; color: var(--gray); }
+
+    /* ---------- MASTER FUNNEL ---------- */
+    .funnel { padding: var(--py) 0; background: #faf9ff; }
+    .funnel .container {
+      display: grid; grid-template-columns: 1fr 380px; gap: clamp(2rem, 5vw, 4rem); align-items: center;
+    }
+    .funnel-info .tag { display: block; margin-bottom: 1rem; }
+    .funnel-info h2 { font-size: clamp(1.875rem, 4vw, 2.5rem); font-weight: 600; line-height: 1.15; margin-bottom: 1rem; }
+    .funnel-info p { font-size: 1.0625rem; color: var(--gray); line-height: 1.6; margin-bottom: 1.5rem; max-width: 54ch; }
+    .funnel-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+    .funnel-stat b { display: block; font-size: 2rem; font-weight: 700; color: var(--purple); line-height: 1; }
+    .funnel-stat span { font-size: 0.875rem; color: var(--gray); }
+    .funnel-card {
+      background: var(--white); border-radius: var(--r); padding: 2rem;
+      box-shadow: var(--shadow); border: 1px solid var(--border);
+    }
+    .funnel-card h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; }
+    .funnel-card ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem; }
+    .funnel-card li { display: flex; gap: 0.625rem; font-size: 0.9375rem; line-height: 1.45; }
+    .funnel-card li::before { content: '✓'; color: var(--purple); font-weight: 700; flex-shrink: 0; }
+    .funnel-card .btn { width: 100%; }
+
+    /* ---------- FAQ ---------- */
+    .faq { padding: var(--py) 0; }
+    .faq-list { max-width: 760px; margin: 3rem auto 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 1.5rem 0; display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; text-align: left; font-family: var(--font); font-size: 1.0625rem;
+      font-weight: 600; color: var(--ink); letter-spacing: var(--tracking);
+    }
+    .faq-q .plus { flex-shrink: 0; font-size: 1.5rem; color: var(--purple); transition: transform .25s var(--ease); line-height: 1; }
+    .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height .3s var(--ease); }
+    .faq-a p { padding: 0 0 1.5rem; color: var(--gray); font-size: 0.9375rem; line-height: 1.6; max-width: 64ch; }
+
+    /* ---------- FINAL CTA ---------- */
+    .final-cta { padding: var(--py) 0; }
+    .final-cta .inner {
+      position: relative; overflow: hidden; border-radius: var(--r);
+      background: #090910; padding: clamp(3rem, 7vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      text-align: center; color: var(--white);
+    }
+    .final-cta .inner::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 60% 70% at 20% 30%, rgba(80,69,200,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 85% 70%, rgba(208,142,235,0.18) 0%, transparent 55%);
+    }
+    .final-cta .inner > * { position: relative; z-index: 1; }
+    .final-cta h2 { font-size: clamp(1.875rem, 4.5vw, 2.75rem); font-weight: 700; line-height: 1.1; margin-bottom: 1rem; max-width: 18ch; margin-inline: auto; }
+    .final-cta p { font-size: 1.0625rem; color: rgba(255,255,255,0.72); margin-bottom: 2rem; max-width: 48ch; margin-inline: auto; }
+    .final-cta .btn { font-size: 1rem; }
+    .final-cta-meta { margin-top: 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.55); }
+
+    /* ---------- FOOTER ---------- */
+    .footer { padding: 3.5rem 0 2.5rem; border-top: 1px solid var(--border); }
+    .footer .container { display: flex; flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
+    .footer-logo { font-size: 1.25rem; font-weight: 700; }
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 0.875rem; color: var(--gray); transition: color .15s; }
+    .footer-links a:hover { color: var(--ink); }
+    .footer-copy { font-size: 0.8125rem; color: var(--gray); }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 960px) {
+      .hero > .container { grid-template-columns: 1fr; }
+      .hero-card { order: -1; }
+      .speaker .container,
+      .funnel .container { grid-template-columns: 1fr; }
+      .speaker-photo { max-width: 320px; }
+    }
+    @media (max-width: 579px) {
+      .urgency-bar .urgency-muted { display: none; }
+      .nav-actions .btn:not(.btn-primary) { display: none; }
+      .nav { padding: 0.625rem 0.75rem 0.625rem 1.25rem; gap: 0.75rem; }
+      .nav-logo { font-size: 1rem; }
+      .nav-actions .btn { padding: 0.75rem 1.125rem; font-size: 0.875rem; }
+      .agenda-item { grid-template-columns: 76px 1fr; gap: 1rem; }
+      .funnel-card { order: -1; }
+    }
+
+    /* reduce motion */
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ URGENCY BAR ============ -->
+  <div class="urgency-bar">
+    <span class="urgency-badge">Gratis</span>
+    <span><span class="urgency-label">En directo</span> — <span id="bar-date">Jueves 16 de julio · 18:00h (CET)</span></span>
+    <span class="urgency-muted">·</span>
+    <span class="urgency-muted">Empieza en</span>
+    <span class="countdown" id="bar-countdown" aria-live="polite">--<span class="cd-sep">:</span>--<span class="cd-sep">:</span>--</span>
+  </div>
+
+  <!-- ============ NAV ============ -->
+  <div class="nav-wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="nav-logo" href="#">Founderz<sup>AI School</sup></a>
+      <ul class="nav-links">
+        <li><a href="#aprender">Qué aprenderás</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#ponente">Ponente</a></li>
+        <li><a href="#master">El Máster</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="#registro" class="btn btn-primary">Reserva tu plaza</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag"><span class="live-dot"></span> Webinar en directo · Edición 2026</span>
+        <h1>Cómo aplicar la <em>IA Generativa</em> en tu negocio sin ser técnico</h1>
+        <p class="hero-sub">
+          Una masterclass práctica de 60 minutos donde verás casos reales, los flujos y herramientas
+          que usan los profesionales para multiplicar su productividad, y cómo dar el salto con el
+          <strong style="color:#fff">Máster en Inteligencia Artificial</strong> de Founderz.
+        </p>
+
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="ico">📅</span>
+            <div><small>Fecha</small>Jueves 16 de julio</div>
+          </div>
+          <div class="hero-meta-item">
+            <span class="ico">🕕</span>
+            <div><small>Hora</small>18:00h (CET)</div>
+          </div>
+          <div class="hero-meta-item">
+            <span class="ico">💻</span>
+            <div><small>Dónde</small>Online · Zoom</div>
+          </div>
+          <div class="hero-meta-item">
+            <span class="ico">🎬</span>
+            <div><small>Acceso</small>Grabación incluida</div>
+          </div>
+        </div>
+
+        <div class="hero-proof">
+          <div class="avatars" aria-hidden="true">
+            <span>AM</span><span>JL</span><span>CR</span><span>+</span>
+          </div>
+          <div class="proof-text">
+            <span class="proof-stars">★★★★★</span>
+            Más de <strong style="color:#fff">12.000 profesionales</strong> ya formados en IA con Founderz
+          </div>
+        </div>
+      </div>
+
+      <!-- REGISTRATION CARD -->
+      <aside class="hero-card" id="registro">
+        <span class="hero-card-tag">Reserva tu plaza</span>
+        <h3>Apúntate gratis al webinar</h3>
+        <span class="hero-badge">🎟️ Plazas limitadas</span>
+
+        <div class="reg-countdown" id="reg-countdown" aria-hidden="true">
+          <div class="reg-cd-box"><b data-cd="days">--</b><span>Días</span></div>
+          <div class="reg-cd-box"><b data-cd="hours">--</b><span>Horas</span></div>
+          <div class="reg-cd-box"><b data-cd="mins">--</b><span>Min</span></div>
+          <div class="reg-cd-box"><b data-cd="secs">--</b><span>Seg</span></div>
+        </div>
+
+        <form class="reg-form" id="reg-form" novalidate>
+          <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="given-name" required />
+          <input type="email" name="email" placeholder="Tu email" autocomplete="email" required />
+          <button type="submit" class="btn btn-primary btn-lg">Reservar mi plaza gratis</button>
+        </form>
+
+        <div class="reg-success" id="reg-success">
+          <div class="check">✓</div>
+          <h4>¡Plaza reservada!</h4>
+          <p>Revisa tu email: te hemos enviado el enlace de acceso y un recordatorio antes del directo.</p>
+        </div>
+
+        <p class="reg-note" id="reg-note">
+          Sin coste. <b>Recibirás la grabación</b> aunque no puedas asistir en directo.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <!-- ============ LOGOS ============ -->
+  <section class="logos-strip">
+    <div class="container">
+      <span class="logos-strip-label">Nuestros alumni trabajan en</span>
+      <div class="logos-row" aria-hidden="true">
+        <span>Microsoft</span><span>Freepik</span><span>Telefónica</span><span>Santander</span><span>Inditex</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LEARN ============ -->
+  <section class="learn" id="aprender">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Qué vas a aprender</span>
+        <h2>60 minutos que cambiarán cómo trabajas con la IA</h2>
+        <p>Nada de teoría vacía. Sales del webinar con un método y herramientas que puedes aplicar mañana mismo.</p>
+      </div>
+      <div class="learn-grid">
+        <article class="learn-card">
+          <div class="learn-num">1</div>
+          <h3>El mapa de la IA Generativa</h3>
+          <p>Qué herramientas importan de verdad en 2026 y cuáles son ruido. Cómo elegir la adecuada para cada tarea.</p>
+        </article>
+        <article class="learn-card">
+          <div class="learn-num">2</div>
+          <h3>Prompts que sí funcionan</h3>
+          <p>El framework para escribir instrucciones que dan resultados profesionales, no respuestas genéricas.</p>
+        </article>
+        <article class="learn-card">
+          <div class="learn-num">3</div>
+          <h3>Automatiza tu día a día</h3>
+          <p>Flujos reales para delegar tareas repetitivas en la IA y recuperar horas cada semana.</p>
+        </article>
+        <article class="learn-card">
+          <div class="learn-num">4</div>
+          <h3>Tu hoja de ruta</h3>
+          <p>Cómo pasar de curioso a profesional de la IA y qué camino seguir para monetizar lo que aprendes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AGENDA ============ -->
+  <section class="agenda" id="agenda">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Agenda del directo</span>
+        <h2>Lo que veremos, minuto a minuto</h2>
+      </div>
+      <div class="agenda-list">
+        <div class="agenda-item">
+          <div class="agenda-time">00:00</div>
+          <div class="agenda-body">
+            <h3>Bienvenida y el estado real de la IA en 2026</h3>
+            <p>Dónde estamos, qué ha cambiado y por qué este es el mejor momento para subirte al tren.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">00:10</div>
+          <div class="agenda-body">
+            <h3>Demo en vivo: de la idea al resultado</h3>
+            <p>Resolvemos un caso real de negocio con IA, paso a paso, para que veas el método en acción.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">00:30</div>
+          <div class="agenda-body">
+            <h3>Las herramientas y flujos clave</h3>
+            <p>El stack que usan los profesionales y cómo encajarlo en tu trabajo sin saber programar.</p>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-time">00:45</div>
+          <div class="agenda-body">
+            <h3>Tu plan para dominar la IA + Q&amp;A</h3>
+            <p>Cómo seguir avanzando con el Máster en IA y resolvemos tus dudas en directo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SPEAKER ============ -->
+  <section class="speaker" id="ponente">
+    <div class="container">
+      <div class="speaker-photo" aria-hidden="true">
+        <span class="initials">F</span>
+      </div>
+      <div class="speaker-info">
+        <span class="tag">Tu ponente</span>
+        <h2>Nombre del Ponente</h2>
+        <div class="speaker-role">Director Académico · Founderz AI School</div>
+        <p>
+          Experto en IA aplicada a negocio con más de una década ayudando a empresas y profesionales a
+          integrar la tecnología en su día a día. Ha formado a miles de alumnos y asesorado a equipos
+          de algunas de las compañías más innovadoras del país.
+        </p>
+        <p>En este webinar comparte, sin filtros, lo que de verdad funciona cuando aplicas IA al mundo real.</p>
+        <div class="speaker-creds">
+          <span class="cred-chip">🎓 +12.000 alumnos formados</span>
+          <span class="cred-chip">🏆 Partner de Microsoft</span>
+          <span class="cred-chip">🎙️ Ponente internacional</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIENCE ============ -->
+  <section class="audience">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag tag--light">¿Para quién es?</span>
+        <h2>Este webinar es para ti si…</h2>
+        <p>Da igual tu sector o tu nivel técnico. Si quieres usar la IA para avanzar, este es tu sitio.</p>
+      </div>
+      <div class="audience-grid">
+        <article class="audience-card">
+          <span class="ico">🚀</span>
+          <h3>Quieres dar un salto profesional</h3>
+          <p>Buscas diferenciarte y abrir nuevas oportunidades laborales con habilidades en IA.</p>
+        </article>
+        <article class="audience-card">
+          <span class="ico">💼</span>
+          <h3>Tienes un negocio o eres autónomo</h3>
+          <p>Quieres ahorrar tiempo y costes automatizando tareas y mejorando tus resultados.</p>
+        </article>
+        <article class="audience-card">
+          <span class="ico">🎨</span>
+          <h3>Eres creativo o de marketing</h3>
+          <p>Necesitas producir más y mejor: contenido, diseño, ideas, campañas… con ayuda de la IA.</p>
+        </article>
+        <article class="audience-card">
+          <span class="ico">🌱</span>
+          <h3>Empiezas de cero con la IA</h3>
+          <p>Te sientes abrumado por tanta herramienta y quieres un punto de partida claro y útil.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TESTIMONIALS ============ -->
+  <section class="testi">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Lo que dicen los alumni</span>
+        <h2>Miles de profesionales ya han dado el paso</h2>
+      </div>
+      <div class="testi-grid">
+        <article class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"Llegué sin tener ni idea y salí con flujos que uso cada día en mi trabajo. La forma de explicar lo hace todo muy accesible."</blockquote>
+          <div class="testi-author">
+            <span class="av" style="background:#6a5ae0">AM</span>
+            <div><b>Ana Martín</b><span>Marketing Manager</span></div>
+          </div>
+        </article>
+        <article class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"He automatizado tareas que antes me llevaban horas. La inversión se paga sola en cuestión de semanas."</blockquote>
+          <div class="testi-author">
+            <span class="av" style="background:#b06ab3">JL</span>
+            <div><b>Javier López</b><span>Fundador de startup</span></div>
+          </div>
+        </article>
+        <article class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <blockquote>"El mejor primer paso para entender la IA de verdad. Después del webinar tuve clarísimo que quería el Máster."</blockquote>
+          <div class="testi-author">
+            <span class="av" style="background:#e08a5a">CR</span>
+            <div><b>Carla Ruiz</b><span>Diseñadora freelance</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MASTER FUNNEL ============ -->
+  <section class="funnel" id="master">
+    <div class="container">
+      <div class="funnel-info">
+        <span class="tag">Tras el webinar</span>
+        <h2>Conoce el Máster en Inteligencia Artificial</h2>
+        <p>
+          Si el webinar te abre el apetito, el Máster es donde lo conviertes en una habilidad profesional.
+          100% online, a tu ritmo, con proyectos reales y certificación avalada por nuestros partners.
+        </p>
+        <div class="funnel-stats">
+          <div class="funnel-stat"><b>9</b><span>módulos</span></div>
+          <div class="funnel-stat"><b>+20</b><span>profesores</span></div>
+          <div class="funnel-stat"><b>12</b><span>meses de acceso</span></div>
+          <div class="funnel-stat"><b>100%</b><span>online</span></div>
+        </div>
+      </div>
+      <aside class="funnel-card">
+        <h3>Lo que incluye</h3>
+        <ul>
+          <li>Programa completo en IA aplicada a negocio</li>
+          <li>Certificación con partners como Microsoft</li>
+          <li>Proyectos prácticos y casos reales</li>
+          <li>Comunidad y networking de alumni</li>
+          <li>Financiación en cómodas cuotas</li>
+        </ul>
+        <a href="#registro" class="btn btn-outline-dark btn-lg">Más info en el webinar</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Preguntas frecuentes</span>
+        <h2>Resolvemos tus dudas</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">¿El webinar es realmente gratuito? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Sí, 100% gratis. Solo necesitas registrarte para reservar tu plaza y recibir el enlace de acceso.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Y si no puedo asistir en directo? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No te preocupes. Si te registras, te enviaremos la grabación por email para que la veas cuando quieras.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Necesito conocimientos previos o ser técnico? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Para nada. El webinar está pensado para cualquier persona, sin importar su nivel. Empezamos desde lo esencial.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Tendré que comprar algo durante el webinar? <span class="plus">+</span></button>
+          <div class="faq-a"><p>No. El objetivo es aportarte valor real. Al final te contaremos el Máster en IA por si quieres seguir avanzando, pero sin ninguna obligación.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">¿Cómo accedo el día del directo? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Recibirás el enlace por email tras registrarte y un recordatorio el mismo día. Solo tendrás que hacer clic para entrar.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container">
+      <div class="inner">
+        <h2>Tu futuro con la IA empieza con 60 minutos</h2>
+        <p>Reserva tu plaza gratis. Las plazas en directo son limitadas.</p>
+        <a href="#registro" class="btn btn-inverse btn-lg">Reserva tu plaza gratis</a>
+        <div class="final-cta-meta">Jueves 16 de julio · 18:00h (CET) · Online · Grabación incluida</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">Founderz<sup style="font-size:0.5rem;color:var(--gray);text-transform:uppercase;letter-spacing:0.1em;vertical-align:super;">AI School</sup></div>
+      <ul class="footer-links" style="list-style:none;">
+        <li><a href="#">Aviso legal</a></li>
+        <li><a href="#">Privacidad</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+      <p class="footer-copy">© 2026 Founderz · AI Business School. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* =========================================================
+       CONFIG — edita solo esto para clonar el webinar.
+       'date' en formato ISO 8601 con zona horaria.
+       'formAction' = endpoint de tu CRM/automatización (HubSpot,
+       Make, etc.). Si lo dejas vacío, el form muestra el estado
+       de éxito sin enviar a ningún sitio (modo demo).
+       ========================================================= */
+    const WEBINAR = {
+      date: "2026-07-16T18:00:00+02:00",   // CET
+      formAction: "",                       // p.ej. "https://hooks.zapier.com/..." o tu endpoint HubSpot
+      redirectOnSuccess: ""                 // opcional: URL de página de gracias
+    };
+
+    /* ---------- Countdown ---------- */
+    (function () {
+      const target = new Date(WEBINAR.date).getTime();
+      const bar = document.getElementById('bar-countdown');
+      const cdBoxes = {
+        days: document.querySelector('[data-cd="days"]'),
+        hours: document.querySelector('[data-cd="hours"]'),
+        mins: document.querySelector('[data-cd="mins"]'),
+        secs: document.querySelector('[data-cd="secs"]'),
+      };
+      const pad = n => String(n).padStart(2, '0');
+
+      function tick() {
+        const diff = target - Date.now();
+        if (isNaN(target)) { return; }
+        if (diff <= 0) {
+          bar.textContent = '¡En directo ahora!';
+          Object.values(cdBoxes).forEach(b => b && (b.textContent = '00'));
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+
+        if (cdBoxes.days)  cdBoxes.days.textContent  = pad(d);
+        if (cdBoxes.hours) cdBoxes.hours.textContent = pad(h);
+        if (cdBoxes.mins)  cdBoxes.mins.textContent  = pad(m);
+        if (cdBoxes.secs)  cdBoxes.secs.textContent  = pad(s);
+
+        bar.innerHTML = (d > 0 ? d + 'd ' : '') + pad(h) + '<span class="cd-sep">:</span>' + pad(m) + '<span class="cd-sep">:</span>' + pad(s);
+        requestAnimationFrame(() => setTimeout(tick, 1000));
+      }
+      tick();
+    })();
+
+    /* ---------- FAQ accordion ---------- */
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const answer = item.querySelector('.faq-a');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(o => {
+          o.classList.remove('open');
+          o.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ---------- Registration form ---------- */
+    (function () {
+      const form = document.getElementById('reg-form');
+      const success = document.getElementById('reg-success');
+      const note = document.getElementById('reg-note');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form));
+        if (!data.nombre || !data.email) return;
+
+        const btn = form.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Enviando…';
+
+        try {
+          if (WEBINAR.formAction) {
+            await fetch(WEBINAR.formAction, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(data)
+            });
+          }
+          if (WEBINAR.redirectOnSuccess) {
+            window.location.href = WEBINAR.redirectOnSuccess;
+            return;
+          }
+          form.style.display = 'none';
+          if (note) note.style.display = 'none';
+          success.classList.add('show');
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = 'Reservar mi plaza gratis';
+          alert('No hemos podido procesar tu registro. Inténtalo de nuevo.');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
