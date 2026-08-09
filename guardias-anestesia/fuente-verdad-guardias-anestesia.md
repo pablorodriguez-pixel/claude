@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.3
+**Versión:** 0.4
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -124,7 +124,7 @@ Un cuadrante que viole cualquiera de estas es **inválido**.
 |----|-------|
 | **H-01** | Cada día del periodo tiene exactamente 1 `TX`, 1 `REA`, 1 `QX-M` y 2 `QX-P`. |
 | **H-02** | Nadie ocupa más de un puesto el mismo día. |
-| **H-03** | **Saliente de guardia = libra 24 h.** Quien hace guardia el día *D* no puede tener guardia el día *D+1*. |
+| **H-03** | **Saliente de guardia = libra 24 h.** Quien hace guardia el día *D* no puede tener guardia el día *D+1*. Esta libranza aplica a guardias presenciales (`QX-M`, `QX-P`, `REA`); **no** impide asignar `TX` el día *D+1*, aunque es preferible evitarlo (ver S-08). ✅ Aclarado por el servicio. |
 | **H-04** | **Guardia en sábado ⇒ libra domingo y lunes.** No puede tener ninguna asignación en *D+1* ni *D+2*. |
 | **H-05** | **Pareja viernes–domingo.** Quien hace guardia un viernes hace también, obligatoriamente, el domingo de ese mismo fin de semana, en el mismo puesto. Se asigna como bloque indivisible. |
 | **H-06** | **Exclusión de puentes.** Quien tenga cualquier asignación en el puente del Pilar (10, 11 o 12 oct) NO puede tener ninguna en el puente de los Santos (31 oct, 1 o 2 nov), y viceversa. |
@@ -140,6 +140,7 @@ Un cuadrante que viole cualquiera de estas es **inválido**.
 | **H-16** | **Los cuatro de REA cubren 2 fines de semana con formato fijo:** Tania, Patricia R2, Fabián y Tony hacen cada uno **un bloque viernes–domingo Y un sábado**. Esto sustituye y concreta a H-12. |
 | **H-17** | **Bloqueos declarados.** Ningún residente recibe asignación en sus días bloqueados (§8bis). |
 | **H-18** | **Congreso R1 de Anestesia, 23–25 oct.** Los **8 R1** están bloqueados. Esos tres días, `QX-P` lo cubren íntegramente R2. |
+| **H-19** | **Vacaciones y `TX` del día previo.** El día inmediatamente anterior a un bloqueo por vacaciones de un residente, este puede cubrir guardia presencial (`QX-M`, `QX-P` o `REA`), pero **no puede** cubrir `TX`. ✅ Aclarado por el servicio — generaliza a todos los bloqueos por vacaciones el mismo criterio que H-10c aplica al trabajo externo de Ana R4. |
 
 ### 6.1 Definición operativa de "hacer un fin de semana"
 
@@ -159,8 +160,9 @@ de semana, no dos.
 | **S-03** | Si un residente hace un bloque viernes–domingo, que su **segundo** fin de semana sea un **sábado**. | Media | 6 |
 | **S-04** | Reparto equitativo del número total de guardias dentro de cada año. | Media | 6 |
 | **S-05** | Separación mínima de 3–4 días entre guardias del mismo residente. | Media | 5 |
-| **S-06** | Evitar que los mismos dos R1 coincidan repetidamente en `QX-P`. | Baja | 2 |
+| **S-06** | Evitar, siempre que sea posible, que los dos puestos de `QX-P` de un mismo día los cubran dos R1 (preferir 1 R1 + 1 R2). ✅ Aclarado por el servicio — sustituye a la formulación anterior ("evitar que los mismos dos R1 coincidan repetidamente"). | Baja | 2 |
 | **S-07** | Rotar el mayor que supervisa, para que cada R1 pase por varios mayores. | Baja | 2 |
+| **S-08** | Evitar asignar `TX` el día de saliente de una guardia presencial (día *D+1* tras una guardia en *D*), aunque no está prohibido (ver H-03). ✅ Aclarado por el servicio. | Baja | 2 |
 
 ---
 
@@ -472,7 +474,7 @@ Formato preferente: hoja de cálculo (`.xlsx`) con una pestaña por bloque.
 | **Q-06** | Cuál Patricia es cuál | ✅ **RESUELTA**: Patricia R2 = cupo REA; Patricia R3 = mayor de quirófano | — |
 | **Q-04** | ¿"UCQ" y "REA" son el mismo puesto? | ⚠️ Asumido que sí | Medio |
 | **Q-05** | En puentes: quien hace el sábado, ¿**trabaja** el lunes festivo (H-07) o **libra** (H-04)? | ⚠️ Asumido H-07 | **Alto** — afecta a 2 de 5 FDS |
-| **Q-07** | ¿La `TX` genera libranza al día siguiente? | ⚠️ H-14 lo resuelve en parte: `TX` en *D* ⇒ sin guardia presencial en *D+1*, pero `TX` consecutivas sí | Bajo |
+| **Q-07** | ¿La `TX` genera libranza al día siguiente? / ¿el saliente de guardia impide `TX` al día siguiente? | ✅ **RESUELTA**: `TX` en *D* no impide guardia presencial en *D+1* si no hay más restricciones (H-14 solo prohíbe `TX` la víspera de una guardia); y el saliente de una guardia presencial (H-03) no impide `TX` al día siguiente, aunque es preferible evitarlo (S-08). | — |
 | **Q-08** | ¿Guardias comprometidas o cambios ya pactados? | ❌ Sin datos | Medio |
 | **Q-09** | ¿Enlace con el 30 sep y el 3 nov? | ❌ Sin datos | Bajo |
 | **Q-10** | ¿El 22 oct es realmente excepción de `TX` para Ana R4? | ⚠️ Sin confirmar | Bajo en octubre, alto para generalizar |
@@ -489,6 +491,7 @@ Formato preferente: hoja de cálculo (`.xlsx`) con una pestaña por bloque.
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.4 | 2026-08-09 | Tres aclaraciones del servicio: (1) S-06 reformulada — evitar dos R1 juntos en `QX-P` el mismo día, no solo repetición de pareja; (2) nueva regla blanda S-08 y nota en H-03 — `TX` el día de saliente de guardia está permitido pero es preferible evitarlo; (3) nueva regla dura H-19 — el día previo a un bloqueo por vacaciones se permite guardia presencial pero no `TX`. Q-07 marcada como resuelta. |
 | 0.1 | 2026-08-09 | Redacción inicial. Roster, calendario, reglas H-01…H-13 y S-01…S-07, restricciones de Ana R4, aritmética y 9 decisiones pendientes. |
 | 0.3 | 2026-08-09 | Resueltas Q-01, Q-02, Q-03 y Q-06. Añadidos bloqueos de los 25 residentes (§8bis) y nuevas reglas H-14 a H-18. **Demostrado que la asignación de `TX` de fin de semana es única y forzada** (§8ter) y que, en consecuencia, **Ana R4 baja a 1 sola guardia de quirófano** (§8.5). Detectado un segundo punto forzado: Sandra en `QX-M` 9+11 oct (§8quater). Identificado el cuello de botella del congreso R1 (§8quinquies) y la asimetría de carga R1/R2 (§9.3.1). Nuevas preguntas Q-11 a Q-16. |
 | 0.2 | 2026-08-09 | Incorporado el parte oficial de guardias externas de Ana R4 (§8.0) con tipo de turno. Resuelta la ambigüedad de las dos Anas (§3.1). Detectada la correlación entre turno `MT`/`24(T2)` y el régimen de excepciones de H-10d; propuesta formulación generalizable (§8.1.1). Nueva pregunta Q-10 (anomalía del 22 oct). Añadidos pesos sugeridos a las reglas blandas. |
