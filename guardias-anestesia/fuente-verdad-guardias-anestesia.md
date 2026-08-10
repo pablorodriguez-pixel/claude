@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.4
+**Versión:** 0.5
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -105,14 +105,33 @@ Hay **nombres duplicados**. El agente debe usar SIEMPRE el ID, nunca el nombre s
 
 ## 5. Matriz de elegibilidad
 
-| Puesto | Quién puede cubrirlo |
+> 🔴 **LA ELEGIBILIDAD VARÍA CADA MES.** Esta tabla es la vigente para **octubre
+> 2026**, confirmada por Pablo mediante la pestaña "Plantilla y elegibilidad"
+> de ese cuadrante. **Antes de generar el cuadrante de cualquier otro mes, el
+> agente DEBE pedir a Pablo la tabla de elegibilidad de ese mes concreto** — no
+> reutilizar esta sin confirmarlo. Ver §0 (principio de proceso) y la
+> instrucción equivalente en `.claude/agents/guardias-anestesia.md`.
+
+| Puesto | Quién puede cubrirlo (octubre 2026) |
 |--------|----------------------|
 | `QX-M` | **Solo los 7 "mayores":** Carlota, Almudena, Ana R4, Sandra, Isa (R4) + Patricia R3, Candela (R3) |
-| `REA` | Fabián (`R3-03`), Tony (`R3-04`) y **los 8 R2**. Nadie más. |
-| `QX-P` | Los 8 R1 **y los 8 R2**. ✅ Resuelto (Q-03). |
+| `REA` (UCQ) | Fabián (`R3-03`), Tony (`R3-04`) y **los 8 R2**. Nadie más. |
+| `QX-P` (PEQ) | Los 8 R1 **y 6 de los 8 R2** — Tania (`R2-01`) y Patricia R2 (`R2-03`) **NO** hacen `QX-P`, solo `REA`. ✅ Confirmado en la pestaña de elegibilidad de octubre 2026 (antes se asumía que los 8 R2 hacían `QX-P`; corregido). |
 | `TX` | **Solo los 5 R4:** Carlota, Almudena, Ana R4, Sandra, Isa. ✅ Resuelto (Q-02). **Patricia R3 y Candela NO hacen trasplante**, pese a ser mayores. |
 
 **Nunca son mayores:** Fabián y Tony, pese a ser R3. Solo Patricia R3 y Candela.
+
+**Nunca hacen `QX-P`:** Tania y Patricia R2, pese a ser R2 — dedicadas solo a `REA`.
+
+### 5.1 Principio de proceso — reconfirmar cada mes
+
+La elegibilidad (quién puede cubrir cada puesto) **no es una propiedad fija del
+roster** — puede cambiar de un mes a otro (rotaciones, cambios de año de
+residencia, ajustes del servicio). El cambio de octubre 2026 (Tania/Patricia R2
+excluidas de `QX-P`) es prueba de ello. **Regla dura de proceso:** antes de
+generar, rellenar u optimizar el cuadrante de un mes para el que no se haya
+recibido explícitamente la tabla de elegibilidad de ESE mes, el agente debe
+parar y pedirla — nunca asumir que la del mes anterior sigue vigente.
 
 ---
 
@@ -491,6 +510,7 @@ Formato preferente: hoja de cálculo (`.xlsx`) con una pestaña por bloque.
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.5 | 2026-08-10 | Corregida la matriz de elegibilidad (§5): Tania y Patricia R2 NO hacen `QX-P`, solo `REA` (antes se asumía que los 8 R2 hacían `QX-P`). Añadido §5.1: principio de proceso — la elegibilidad varía cada mes, el agente debe pedirla explícitamente para cada mes nuevo en vez de reutilizar la anterior. |
 | 0.4 | 2026-08-09 | Tres aclaraciones del servicio: (1) S-06 reformulada — evitar dos R1 juntos en `QX-P` el mismo día, no solo repetición de pareja; (2) nueva regla blanda S-08 y nota en H-03 — `TX` el día de saliente de guardia está permitido pero es preferible evitarlo; (3) nueva regla dura H-19 — el día previo a un bloqueo por vacaciones se permite guardia presencial pero no `TX`. Q-07 marcada como resuelta. |
 | 0.1 | 2026-08-09 | Redacción inicial. Roster, calendario, reglas H-01…H-13 y S-01…S-07, restricciones de Ana R4, aritmética y 9 decisiones pendientes. |
 | 0.3 | 2026-08-09 | Resueltas Q-01, Q-02, Q-03 y Q-06. Añadidos bloqueos de los 25 residentes (§8bis) y nuevas reglas H-14 a H-18. **Demostrado que la asignación de `TX` de fin de semana es única y forzada** (§8ter) y que, en consecuencia, **Ana R4 baja a 1 sola guardia de quirófano** (§8.5). Detectado un segundo punto forzado: Sandra en `QX-M` 9+11 oct (§8quater). Identificado el cuello de botella del congreso R1 (§8quinquies) y la asimetría de carga R1/R2 (§9.3.1). Nuevas preguntas Q-11 a Q-16. |
