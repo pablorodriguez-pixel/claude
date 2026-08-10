@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.5
+**Versión:** 0.6
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -155,7 +155,7 @@ Un cuadrante que viole cualquiera de estas es **inválido**.
 | **H-12** | Esos mismos cuatro: **mínimo 2 fines de semana cada uno.** *(Concretado por H-16.)* |
 | **H-13** | Todo residente hace **al menos 1 fin de semana**. |
 | **H-14** | **No hay `TX` la víspera de una guardia.** Si un residente tiene guardia presencial el día *D*, no puede tener `TX` el día *D−1*. (Equivale a: `TX` en *D* ⇒ ninguna guardia presencial en *D+1*. `TX` consecutivas sí se permiten — lo exige H-15.) |
-| **H-15** | **Agrupación del trasplante de fin de semana.** Cada fin de semana, **una sola persona** cubre `TX` todos los días del bloque. Los 5 fines de semana se reparten 1:1 entre los 5 R4, de modo que cada R4 tiene exactamente **un fin de semana de localizada**. Excepción prevista: si Ana R4 no pudiera cubrir un bloque completo, haría días sueltos. *(En octubre 2026 sí puede — ver §8.5.)* |
+| **H-15** | **Agrupación del trasplante de fin de semana.** Cada fin de semana, **una sola persona** cubre `TX` todos los días del bloque, y el bloque **empieza el viernes** (✅ resuelta Q-15 — no el sábado, como se asumía en versiones anteriores de este documento). Los 5 fines de semana se reparten 1:1 entre los 5 R4, de modo que cada R4 tiene exactamente **un fin de semana de localizada**. Excepción prevista: si Ana R4 no pudiera cubrir un bloque completo, haría días sueltos. ⚠️ **La tabla forzada de §8ter/§8quater quedó obsoleta con esta resolución de Q-15** (se calculó asumiendo bloque de sábado a lunes) — no usarla sin recalcular. |
 | **H-16** | **Los cuatro de REA cubren 2 fines de semana con formato fijo:** Tania, Patricia R2, Fabián y Tony hacen cada uno **un bloque viernes–domingo Y un sábado**. Esto sustituye y concreta a H-12. |
 | **H-17** | **Bloqueos declarados.** Ningún residente recibe asignación en sus días bloqueados (§8bis). |
 | **H-18** | **Congreso R1 de Anestesia, 23–25 oct.** Los **8 R1** están bloqueados. Esos tres días, `QX-P` lo cubren íntegramente R2. |
@@ -494,22 +494,47 @@ Formato preferente: hoja de cálculo (`.xlsx`) con una pestaña por bloque.
 | **Q-04** | ¿"UCQ" y "REA" son el mismo puesto? | ⚠️ Asumido que sí | Medio |
 | **Q-05** | En puentes: quien hace el sábado, ¿**trabaja** el lunes festivo (H-07) o **libra** (H-04)? | ⚠️ Asumido H-07 | **Alto** — afecta a 2 de 5 FDS |
 | **Q-07** | ¿La `TX` genera libranza al día siguiente? / ¿el saliente de guardia impide `TX` al día siguiente? | ✅ **RESUELTA**: `TX` en *D* no impide guardia presencial en *D+1* si no hay más restricciones (H-14 solo prohíbe `TX` la víspera de una guardia); y el saliente de una guardia presencial (H-03) no impide `TX` al día siguiente, aunque es preferible evitarlo (S-08). | — |
-| **Q-08** | ¿Guardias comprometidas o cambios ya pactados? | ❌ Sin datos | Medio |
-| **Q-09** | ¿Enlace con el 30 sep y el 3 nov? | ❌ Sin datos | Bajo |
-| **Q-10** | ¿El 22 oct es realmente excepción de `TX` para Ana R4? | ⚠️ Sin confirmar | Bajo en octubre, alto para generalizar |
-| **Q-11** | Carlota: el *"(si se puede)"* ¿aplica a todo o solo a 23–25? | ❌ Sin definir | Medio |
-| **Q-12** | Sandra "29–1": ¿es 29 oct – 1 nov? | ⚠️ Asumido que sí | Medio |
-| **Q-13** | **Miriam "puede hacer hasta ___ guardias" — la cifra se cortó.** | ❌ **Falta el dato** | Medio |
-| **Q-14** | ¿Es intencionada la asimetría R1 ~3,5 vs R2 ~7,4 guardias? | ❌ Sin confirmar | **Alto** |
-| **Q-15** | El bloque `TX` de fin de semana, ¿empieza el **viernes** o el **sábado**? | ❌ Sin definir | Medio — cambia 5 slots |
-| **Q-16** | David: la lista de bloqueos empieza con una coma suelta. ¿Falta una fecha? | ❌ Sin confirmar | Bajo |
+| **Q-08** | ¿Guardias comprometidas o cambios ya pactados? | ✅ **RESUELTA**: sí — Pablo se comprometió con Sandra a `QX-M` sábado 10 + lunes 12 oct. Genera un hueco sin cubrir en `QX-M` viernes 9 + domingo 11 (ver cuadrante de octubre, hoja Validación) porque solo Sandra podía cubrir esa pareja y H-03 le impide encadenarla con el sábado. | Medio |
+| **Q-09** | ¿Enlace con el 30 sep y el 3 nov? | ✅ **RESUELTA**: no, no hay enlace. | Bajo |
+| **Q-10** | ¿El 22 oct es realmente excepción de `TX` para Ana R4? | ✅ **RESUELTA**: sí, es una excepción real (se usa la lista literal de H-10d, no la fórmula derivada del tipo de turno). | Bajo en octubre, alto para generalizar |
+| **Q-11** | Carlota: el *"(si se puede)"* ¿aplica a todo o solo a 23–25? | ✅ **RESUELTA**: solo a 23–25 (2–4 y 11 son bloqueo duro). Carlota prefiere no trabajar los dos puentes; si el cuadrante no cuadra, es negociable quitarle el "si se puede" de 23–25. | Medio |
+| **Q-12** | Sandra "29–1": ¿es 29 oct – 1 nov? | ✅ **RESUELTA**: sí. | Medio |
+| **Q-13** | **Miriam "puede hacer hasta ___ guardias" — la cifra se cortó.** | ✅ **RESUELTA**: hasta 4–5 guardias `QX-P`. | Medio |
+| **Q-14** | ¿Es intencionada la asimetría R1 ~3,5 vs R2 ~7,4 guardias? | ✅ **RESUELTA**: sí, intencionada. R1: 3–4 `QX-P` + 1 FDS cada uno (Miriam 4–5). R2 sin cupo de `REA`: 1–2 `REA` cada uno además de `QX-P`. | **Alto** |
+| **Q-15** | El bloque `TX` de fin de semana, ¿empieza el **viernes** o el **sábado**? | ✅ **RESUELTA**: empieza el **viernes** (ver H-15 actualizada). | Medio — cambia 5 slots |
+| **Q-16** | David: la lista de bloqueos empieza con una coma suelta. ¿Falta una fecha? | ✅ **RESUELTA**: no falta nada; la coma es un resto de una entrada borrada. Bloqueo real de David = solo 23–25. | Bajo |
 
 ---
 
-## 12. Registro de cambios
+## 12. Equidad histórica entre meses (regla de proceso permanente)
+
+Las reglas blandas S-01/S-02/S-04 equilibran la carga **dentro de un mismo mes**.
+Eso no basta: un residente puede salir bien repartido en octubre y mal en los
+meses siguientes si no se mira hacia atrás. Por eso, desde noviembre 2026 en
+adelante:
+
+1. **Antes de generar el cuadrante de un mes nuevo**, consultar la pestaña
+   "Histórico de guardias" del Excel de trabajo (tabla resumen por persona:
+   fines de semana por Viernes/Sábado/Domingo, `TX` total y desglosado en
+   fin de semana/diario, festivos de Madrid cubiertos, total histórico).
+2. **Dar prioridad** (más carga en el mes que se está generando) a quien
+   tenga **menos guardias acumuladas** en el histórico, dentro de los límites
+   que ya imponen las reglas duras H-01 a H-19 de ese mes — el histórico
+   ajusta las reglas blandas, nunca relaja una regla dura.
+3. **Ampliar el histórico** tras cerrar cada mes: añadir sus filas a la tabla
+   en bruto de "Histórico de guardias" (están pensadas para poder añadirse
+   sin tocar las fórmulas de resumen, que ya cubren un rango amplio).
+4. El histórico de junio–septiembre 2026 se transcribió a mano desde
+   calendarios en imagen aportados por Pablo — puede contener errores de
+   lectura. Revisar con Pablo antes de usarlo para decisiones de peso.
+
+---
+
+## 13. Registro de cambios
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.6 | 2026-08-10 | Sincronizadas con las respuestas ya dadas en la pestaña "Preguntas pendientes" del Excel: Q-08 (compromiso con Sandra, genera hueco en MAY 9+11 oct), Q-09, Q-10, Q-11, Q-12, Q-13, Q-14 y Q-15 resueltas. H-15 actualizada: el bloque de TX de fin de semana empieza el viernes (antes se asumía sábado) — la tabla forzada de §8ter/§8quater queda marcada como obsoleta. Añadido §12: regla permanente de equidad histórica entre meses, apoyada en la nueva pestaña "Histórico de guardias" (transcripción de junio–septiembre 2026). Añadidos al roster (fuera de la plantilla activa de octubre, "en el radar"): María y Gerard (R4), David, Paulali, Paula Durán e Inma (R3, elegibilidad de subtipo sin confirmar). |
 | 0.5 | 2026-08-10 | Corregida la matriz de elegibilidad (§5): Tania y Patricia R2 NO hacen `QX-P`, solo `REA` (antes se asumía que los 8 R2 hacían `QX-P`). Añadido §5.1: principio de proceso — la elegibilidad varía cada mes, el agente debe pedirla explícitamente para cada mes nuevo en vez de reutilizar la anterior. |
 | 0.4 | 2026-08-09 | Tres aclaraciones del servicio: (1) S-06 reformulada — evitar dos R1 juntos en `QX-P` el mismo día, no solo repetición de pareja; (2) nueva regla blanda S-08 y nota en H-03 — `TX` el día de saliente de guardia está permitido pero es preferible evitarlo; (3) nueva regla dura H-19 — el día previo a un bloqueo por vacaciones se permite guardia presencial pero no `TX`. Q-07 marcada como resuelta. |
 | 0.1 | 2026-08-09 | Redacción inicial. Roster, calendario, reglas H-01…H-13 y S-01…S-07, restricciones de Ana R4, aritmética y 9 decisiones pendientes. |

@@ -99,6 +99,19 @@ completa). Por eso tu flujo de trabajo es:
 - **Plantilla y elegibilidad**, **Bloqueos y vacaciones**, **Reglas (resumen)**
   — datos de referencia; no son la fuente de la verdad, son un espejo para
   consulta rápida sin salir del Excel. Ante discrepancia, manda el `.md`.
+  La pestaña "Plantilla y elegibilidad" incluye también un bloque de médicos
+  sin guardias el mes activo ("en el radar": María, Gerard, David, Paulali,
+  Paula Durán, Inma) — no los asignes sin confirmar su elegibilidad de
+  subtipo (mayor vs. cupo REA) para los R3, marcada con ❓.
+- **Histórico de guardias** — tabla en bruto (una fila por día, todos los
+  meses ya cerrados seguidos) + resumen por persona con fórmulas: fines de
+  semana por Viernes/Sábado/Domingo, `TX` total y desglosado en fin de
+  semana/diario, festivos de Madrid, total histórico. **Antes de generar
+  el cuadrante de un mes nuevo, consúltala y da más carga a quien tenga
+  menos acumulado** (§12 de la fuente de la verdad) — dentro de lo que
+  permitan las reglas duras de ese mes, nunca relajándolas. Al cerrar un
+  mes, añade sus filas a la tabla en bruto (el rango de las fórmulas de
+  resumen ya viene ampliado para no tener que tocarlas).
 
 ## 3. Dos modos de trabajo
 
