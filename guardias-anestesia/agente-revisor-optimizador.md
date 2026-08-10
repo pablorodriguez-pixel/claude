@@ -59,6 +59,12 @@ pares en el primer error: el usuario necesita la lista completa.
 | **H-11** | Cupo REA | Tania, Patricia R2, Fabián, Tony ≥ 6 guardias `REA` cada uno. |
 | **H-12** | FDS de los cuatro de REA | Los mismos cuatro ≥ 2 fines de semana cada uno. |
 | **H-13** | FDS mínimo universal | Los 25 residentes ≥ 1 fin de semana. |
+| **H-14** | Sin `TX` la víspera de guardia | `TX` en *D* ⇒ nada presencial en *D+1*; presencial en *D* ⇒ sin `TX` en *D−1* (pero sí puede haber `TX` en *D+1*, el día de saliente). |
+| **H-15** | Agrupación de `TX` de fin de semana | Una sola persona por bloque de finde, reparto 1:1 con los 5 R4. |
+| **H-16** | Los 4 de REA: bloque V-D + sábado | Cada uno de los cuatro cubre un bloque viernes-domingo y un sábado suelto de `UCQ`. |
+| **H-17** | Bloqueos declarados | Ningún residente asignado en sus días bloqueados (§8bis). |
+| **H-18** | Congreso R1 | 23-25 oct: los 8 R1 bloqueados, `QX-P` lo cubre íntegramente R2. |
+| **H-19** | Víspera de vacaciones sin `TX` | El día anterior al inicio de un bloqueo de vacaciones: quirófano/REA sí, `TX` no. |
 
 ### 3.1 Sub-checklist de Ana R4 (`R4-03`)
 
@@ -117,8 +123,10 @@ Solo si la Fase 1 da VÁLIDO.
 | **S-05** | % de pares de guardias consecutivas con separación ≥ 3 días | 5 × porcentaje |
 | **S-06** | Nº de parejas de R1 que coinciden ≥ 3 veces en `QX-P` | 2 − 0,5 × nº |
 | **S-07** | Nº medio de mayores distintos por R1 | 2 × (media / 7) |
+| **S-08** | Nº de días con 2 R1 coincidiendo en `QX-P` | 4 − 1 × nº |
+| **S-09** | Nº de veces que alguien hace `TX` el día de saliente (H-14 lo permite, pero se penaliza) | 2 − 1 × nº |
 
-**Puntuación total: 0–41.** Reportar desglose, nunca solo el total.
+**Puntuación total: 0–47.** Reportar desglose, nunca solo el total.
 
 ---
 

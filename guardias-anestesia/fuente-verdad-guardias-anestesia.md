@@ -135,11 +135,12 @@ Un cuadrante que viole cualquiera de estas es **inválido**.
 | **H-11** | Tania (`R2-01`), Patricia R2 (`R2-03`), Fabián (`R3-03`) y Tony (`R3-04`): **mínimo 6 guardias de `REA` cada uno.** |
 | **H-12** | Esos mismos cuatro: **mínimo 2 fines de semana cada uno.** *(Concretado por H-16.)* |
 | **H-13** | Todo residente hace **al menos 1 fin de semana**. |
-| **H-14** | **No hay `TX` la víspera de una guardia.** Si un residente tiene guardia presencial el día *D*, no puede tener `TX` el día *D−1*. (Equivale a: `TX` en *D* ⇒ ninguna guardia presencial en *D+1*. `TX` consecutivas sí se permiten — lo exige H-15.) |
+| **H-14** | **No hay `TX` la víspera de una guardia presencial.** Si un residente tiene guardia presencial el día *D*, no puede tener `TX` el día *D−1*. En cambio, **sí puede tener `TX` el día *D+1*** (su "día de saliente" tras la guardia presencial de *D*) — está permitido, aunque **S-09** prefiere evitarlo. `TX` consecutivas sí se permiten — lo exige H-15. |
 | **H-15** | **Agrupación del trasplante de fin de semana.** Cada fin de semana, **una sola persona** cubre `TX` todos los días del bloque. Los 5 fines de semana se reparten 1:1 entre los 5 R4, de modo que cada R4 tiene exactamente **un fin de semana de localizada**. Excepción prevista: si Ana R4 no pudiera cubrir un bloque completo, haría días sueltos. *(En octubre 2026 sí puede — ver §8.5.)* |
 | **H-16** | **Los cuatro de REA cubren 2 fines de semana con formato fijo:** Tania, Patricia R2, Fabián y Tony hacen cada uno **un bloque viernes–domingo Y un sábado**. Esto sustituye y concreta a H-12. |
 | **H-17** | **Bloqueos declarados.** Ningún residente recibe asignación en sus días bloqueados (§8bis). |
 | **H-18** | **Congreso R1 de Anestesia, 23–25 oct.** Los **8 R1** están bloqueados. Esos tres días, `QX-P` lo cubren íntegramente R2. |
+| **H-19** | **Víspera de vacaciones ⇒ sin `TX`.** El día inmediatamente anterior al inicio de un bloqueo por vacaciones de un residente **no** le impide guardia de quirófano (`QX-M`/`QX-P`) ni de `REA` ese día, pero **sí** le prohíbe la localizada de trasplante (`TX`) ese mismo día (para no arriesgar que un aviso de trasplante le retrase la salida de vacaciones). Añadida 2026-08-09 a petición del usuario. |
 
 ### 6.1 Definición operativa de "hacer un fin de semana"
 
@@ -161,6 +162,8 @@ de semana, no dos.
 | **S-05** | Separación mínima de 3–4 días entre guardias del mismo residente. | Media | 5 |
 | **S-06** | Evitar que los mismos dos R1 coincidan repetidamente en `QX-P`. | Baja | 2 |
 | **S-07** | Rotar el mayor que supervisa, para que cada R1 pase por varios mayores. | Baja | 2 |
+| **S-08** | Evitar que **dos R1** coincidan el **mismo día** en los dos puestos de `QX-P` (pequeños de quirófano), aunque no se repita el mismo par. | Media | 4 |
+| **S-09** | Evitar `TX` el **día de saliente** (el día siguiente a una guardia presencial de esa misma persona) aunque H-14 lo permita. | Baja | 2 |
 
 ---
 
@@ -489,6 +492,7 @@ Formato preferente: hoja de cálculo (`.xlsx`) con una pestaña por bloque.
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.4 | 2026-08-09 | Añadida **H-19** (víspera de vacaciones ⇒ sin `TX`, pero sí quirófano/REA), **S-08** (evitar 2 R1 el mismo día en `QX-P`) y **S-09** (evitar `TX` el día de saliente). Aclarado el alcance de H-14 respecto al día *D+1*. |
 | 0.1 | 2026-08-09 | Redacción inicial. Roster, calendario, reglas H-01…H-13 y S-01…S-07, restricciones de Ana R4, aritmética y 9 decisiones pendientes. |
 | 0.3 | 2026-08-09 | Resueltas Q-01, Q-02, Q-03 y Q-06. Añadidos bloqueos de los 25 residentes (§8bis) y nuevas reglas H-14 a H-18. **Demostrado que la asignación de `TX` de fin de semana es única y forzada** (§8ter) y que, en consecuencia, **Ana R4 baja a 1 sola guardia de quirófano** (§8.5). Detectado un segundo punto forzado: Sandra en `QX-M` 9+11 oct (§8quater). Identificado el cuello de botella del congreso R1 (§8quinquies) y la asimetría de carga R1/R2 (§9.3.1). Nuevas preguntas Q-11 a Q-16. |
 | 0.2 | 2026-08-09 | Incorporado el parte oficial de guardias externas de Ana R4 (§8.0) con tipo de turno. Resuelta la ambigüedad de las dos Anas (§3.1). Detectada la correlación entre turno `MT`/`24(T2)` y el régimen de excepciones de H-10d; propuesta formulación generalizable (§8.1.1). Nueva pregunta Q-10 (anomalía del 22 oct). Añadidos pesos sugeridos a las reglas blandas. |

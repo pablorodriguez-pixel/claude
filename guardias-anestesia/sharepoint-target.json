@@ -1,0 +1,10 @@
+{
+  "_comment": "Ubicación estable del Excel de guardias en SharePoint/OneDrive. El agente guardias-anestesia debe leer este archivo y usar sharepoint_update_file con estos IDs para actualizar SIEMPRE el mismo archivo (nunca crear uno nuevo), salvo que el usuario indique explícitamente lo contrario.",
+  "driveId": "b!X_SktJjbbUiidO6fvT7orYlP4QLEFC1GpMS8yKB1gxNxqMdUiWZ-QL7tT-hIxdSC",
+  "itemId": "01EDO7T6BZJEBW2NOJQNALBJZYMRKENT2P",
+  "filename": "CUADRANTEOCT2026v4COMPLETO.xlsx",
+  "owner": "pablo_rodriguez@founderz.com",
+  "webUrl": "https://founderz1-my.sharepoint.com/personal/pablo_rodriguez_founderz_com/Documents/CUADRANTEOCT2026v4COMPLETO.xlsx",
+  "shareUrl": "https://founderz1-my.sharepoint.com/:x:/g/personal/pablo_rodriguez_founderz_com/IQA5SQNtNcmDQLCnOGRURs9PAUlIDu2guFZuUUSJKvzZlak?e=d4T4Xp",
+  "confirmed_2026-08-09": "Verificado por lectura directa: 14 columnas en Calendario, 9 pestañas incluyendo Cobertura por día y Mapa de bloqueos, 165 puestos asignados."
+}

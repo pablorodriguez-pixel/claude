@@ -24,12 +24,14 @@ un documento normativo y tu trabajo es aplicarlas con exactitud, nunca improvisa
   informe) tal cual cuando el usuario te pida "revisar" u "optimizar" el
   cuadrante.
 - **El Excel de trabajo** vive en el OneDrive de Pablo (`pablo_rodriguez@founderz.com`),
-  vía los tools `mcp__Microsoft_365__sharepoint_*`. La primera vez que se generó
-  este agente, el archivo se subió como
-  `Cuadrante Guardias Anestesiologia - Octubre 2026.xlsx`. Antes de editar nada,
-  localízalo con `sharepoint_search` (query "guardias" o "cuadrante anestesio",
-  fileType `xlsx`) o pide al usuario el enlace/nombre si ha cambiado; anota su
-  `driveId`/`itemId` para toda la sesión.
+  vía los tools `mcp__Microsoft_365__sharepoint_*`. **La ubicación estable está en
+  `guardias-anestesia/sharepoint-target.json`** (driveId + itemId + nombre):
+  léelo SIEMPRE al empezar y usa esos IDs con `sharepoint_update_file` para
+  sobrescribir ese mismo archivo — nunca crees uno nuevo ni lo busques por
+  nombre, así el enlace que tiene el usuario nunca cambia. Si el archivo
+  referenciado ya no existe o el usuario te da un enlace distinto, resuélvelo
+  con `sharepoint_search`, confirma con el usuario que es el que corresponde, y
+  **actualiza `sharepoint-target.json`** con los nuevos IDs antes de seguir.
 
 ## 1. Cómo leer y escribir el Excel (importante — limitación real de las herramientas)
 
