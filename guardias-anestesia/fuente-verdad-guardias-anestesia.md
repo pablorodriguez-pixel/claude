@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.6
+**Versión:** 0.7
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -160,6 +160,8 @@ Un cuadrante que viole cualquiera de estas es **inválido**.
 | **H-17** | **Bloqueos declarados.** Ningún residente recibe asignación en sus días bloqueados (§8bis). |
 | **H-18** | **Congreso R1 de Anestesia, 23–25 oct.** Los **8 R1** están bloqueados. Esos tres días, `QX-P` lo cubren íntegramente R2. |
 | **H-19** | **Vacaciones y `TX` del día previo.** El día inmediatamente anterior a un bloqueo por vacaciones de un residente, este puede cubrir guardia presencial (`QX-M`, `QX-P` o `REA`), pero **no puede** cubrir `TX`. ✅ Aclarado por el servicio — generaliza a todos los bloqueos por vacaciones el mismo criterio que H-10c aplica al trabajo externo de Ana R4. |
+| **H-20** | **Tope de guardias totales por año (no solo dentro del grupo, un número concreto).** `R1`: entre 4 y 5 guardias cada uno *(la hoja de objetivos original decía 3-4, con Miriam en 4-5; confirmado por Pablo el 2026-08-18 que es 4-5 para todos — usar esto salvo corrección)*. `R2`: **exactamente 6** cada uno, ni más ni menos. `R3`: **máximo 6** cada uno. `R4`: **sin tope** — su carga la fija la suma de `MAY` + `TX` individuales (objetivo por persona en "Resumen de guardias"), que ya supera los 6 de forma естructural; no se les aplica este límite. ✅ Confirmado por Pablo el 2026-08-18 (antes solo vivía como columna "objetivo" en el Excel, sin estar escrito aquí como regla — de ahí que el generador no lo respetara como límite duro en la primera versión de octubre). |
+| **H-21** | **Tope de fines de semana por persona dentro de R2: máximo 2.** Ningún R2 puede tener 3 fines de semana (bloques distintos, ver §6.1) aunque el reparto general quede dentro de la tolerancia de S-02. ✅ Confirmado por Pablo el 2026-08-18 (caso real: Eva y Antonio con 3 en la primera versión de octubre, corregido a 2). |
 
 ### 6.1 Definición operativa de "hacer un fin de semana"
 
@@ -534,6 +536,7 @@ adelante:
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.7 | 2026-08-18 | Nuevas reglas duras H-20 y H-21: topes de guardias totales por año como número concreto (R1 4-5, R2 exactamente 6, R3 máximo 6, R4 sin tope) y máximo 2 fines de semana por persona dentro de R2. Antes esto solo existía como columna "objetivo" en el Excel, no como regla escrita aquí, y el generador no lo trataba como límite duro — causó que la primera versión de octubre saliera con R1 en 2-3, R2 en 8, y a Eva/Antonio con 3 fines de semana. |
 | 0.6 | 2026-08-10 | Sincronizadas con las respuestas ya dadas en la pestaña "Preguntas pendientes" del Excel: Q-08 (compromiso con Sandra, genera hueco en MAY 9+11 oct), Q-09, Q-10, Q-11, Q-12, Q-13, Q-14 y Q-15 resueltas. H-15 actualizada: el bloque de TX de fin de semana empieza el viernes (antes se asumía sábado) — la tabla forzada de §8ter/§8quater queda marcada como obsoleta. Añadido §12: regla permanente de equidad histórica entre meses, apoyada en la nueva pestaña "Histórico de guardias" (transcripción de junio–septiembre 2026). Añadidos al roster (fuera de la plantilla activa de octubre, "en el radar"): María y Gerard (R4), David, Paulali, Paula Durán e Inma (R3, elegibilidad de subtipo sin confirmar). |
 | 0.5 | 2026-08-10 | Corregida la matriz de elegibilidad (§5): Tania y Patricia R2 NO hacen `QX-P`, solo `REA` (antes se asumía que los 8 R2 hacían `QX-P`). Añadido §5.1: principio de proceso — la elegibilidad varía cada mes, el agente debe pedirla explícitamente para cada mes nuevo en vez de reutilizar la anterior. |
 | 0.4 | 2026-08-09 | Tres aclaraciones del servicio: (1) S-06 reformulada — evitar dos R1 juntos en `QX-P` el mismo día, no solo repetición de pareja; (2) nueva regla blanda S-08 y nota en H-03 — `TX` el día de saliente de guardia está permitido pero es preferible evitarlo; (3) nueva regla dura H-19 — el día previo a un bloqueo por vacaciones se permite guardia presencial pero no `TX`. Q-07 marcada como resuelta. |
