@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.7
+**Versión:** 0.8
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -532,10 +532,74 @@ adelante:
 
 ---
 
-## 13. Registro de cambios
+## 13. Metodología y lecciones aprendidas para repartir guardias
+
+Esto no son reglas del servicio — son lecciones de **cómo generar el reparto**
+sin repetir errores ya cometidos al hacer el de octubre 2026. Léelas antes de
+generar el cuadrante de cualquier mes.
+
+### 13.1 Toda columna "objetivo" es un límite DURO, salvo que se diga lo contrario
+
+La primera versión de octubre trató las columnas "objetivo" de la hoja
+"Resumen de guardias" (Total, MAY, Tx, ucq, peq) como referencia blanda, y
+optimizó solo por equilibrio relativo. Resultado: R1 acabó en 2-3 guardias,
+R2 en 8, y dos R2 con 3 fines de semana — todo dentro de "lo más equilibrado
+posible" pero lejos de los números reales que Pablo esperaba (R1 4-5, R2
+exactamente 6). **Lección: en cuanto una celda "objetivo" tenga un número o
+rango, conviértelo en restricción dura del solver antes de generar nada.**
+No esperes a que alguien lo detecte a ojo en el cuadrante ya hecho.
+
+### 13.2 Antes de fijar un número, comprueba la aritmética exacta de plazas
+
+Antes de aceptar un objetivo como "R2 = 6 exacto" o "R1 = 4-5", suma las
+plazas totales de cada puesto (`TX`=33, `REA`=33, `QX-M`=33, `QX-P`=66) y
+resta lo que ya consumen los cupos fijos (H-11, H-16, MAY de mayores, etc.).
+Lo que queda define lo que le toca al resto — y a veces **el número deja de
+ser una elección y pasa a estar matemáticamente forzado**. Ejemplo real de
+octubre: fijar `REA` de los 4 de cupo en 6 (H-11 + H-20) y `Total` de los 8
+R2 en 6 exacto fuerza que `QX-P` de R1 sea **exactamente 39**, no un rango —
+y con los R1 bloqueados 3 días por el congreso (H-18), eso a su vez fuerza
+que **9 días tengan que llevar 2 R1 juntos en `QX-P`**, aunque S-06 pida
+evitarlo. No es un fallo del generador: es aritmética. Verifícala tú antes
+de prometer un número a Pablo, para poder avisar del conflicto de antemano
+en vez de descubrirlo después de generar el cuadrante.
+
+### 13.3 Ante un conflicto real entre una regla dura numérica y una blanda, no lo resuelvas tú solo
+
+Cuando un objetivo duro (tipo H-20) y una preferencia (tipo S-06) resultan
+incompatibles, no elijas cuál sacrificar por tu cuenta. Pasos:
+1. Calcula el mínimo de violaciones **forzado** por aritmética (como en 13.2).
+2. Confírmalo resolviendo el modelo con esa regla blanda puesta a un peso muy
+   por encima de las demás (×100 o más) — si el resultado no mejora, el
+   mínimo es real, no un artefacto de cómo estaban repartidos los pesos.
+3. Presenta el conflicto a Pablo con el número exacto y qué reglas concretas
+   chocan, y pídele que elija qué relajar. Nunca lo decidas por él.
+
+### 13.4 Los bloqueos colectivos (congresos, festivos, puentes) reducen la capacidad disponible, no solo bloquean días sueltos
+
+El congreso de R1 (23–25 oct) no es solo "esos tres días sin R1" — es una
+reducción real de cuántos días tienen para repartir su carga total, lo que
+puede forzar solapamientos en otros sitios (ver 13.2). Cada mes, antes de
+fijar objetivos numéricos, identifica estos bloqueos colectivos y recalcula
+la capacidad real disponible, no asumas que es igual al nº de días del mes.
+
+### 13.5 Verificación final: nunca declares un cuadrante bueno sin comprobación programática exhaustiva
+
+Cada vez que se ha pedido "revísalo bien, no puedo permitirme fallos", la
+única respuesta válida ha sido re-parsear el Excel real (no confiar en el
+resultado cacheado del solver) y comprobar, una por una, TODAS las reglas
+H y las aclaraciones dadas por Pablo en el chat — no solo las que parecen
+relevantes al cambio reciente. Un cambio en un sitio (p. ej. H-20) puede
+romper silenciosamente algo ya validado en otro (S-06). Repetir esta
+comprobación completa después de cualquier cambio, no solo la primera vez.
+
+---
+
+## 14. Registro de cambios
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.8 | 2026-08-18 | Añadido §13: metodología y lecciones aprendidas para repartir guardias (no son reglas del servicio, son cómo generar el reparto sin repetir errores) — tratar las columnas "objetivo" como límite duro por defecto, comprobar la aritmética exacta de plazas antes de fijar un número, cómo tratar un conflicto real entre regla dura numérica y regla blanda (calcular el mínimo forzado, confirmarlo con el peso al máximo, y que decida Pablo), que los bloqueos colectivos reducen capacidad real no solo bloquean días sueltos, y repetir la verificación completa tras cualquier cambio. Motivado por el conflicto real detectado entre H-20 (R2 exactamente 6) y S-06 (evitar 2 R1 juntos en PEQ), que resultó ser matemáticamente forzado a un mínimo de 9 días, no un fallo del generador. |
 | 0.7 | 2026-08-18 | Nuevas reglas duras H-20 y H-21: topes de guardias totales por año como número concreto (R1 4-5, R2 exactamente 6, R3 máximo 6, R4 sin tope) y máximo 2 fines de semana por persona dentro de R2. Antes esto solo existía como columna "objetivo" en el Excel, no como regla escrita aquí, y el generador no lo trataba como límite duro — causó que la primera versión de octubre saliera con R1 en 2-3, R2 en 8, y a Eva/Antonio con 3 fines de semana. |
 | 0.6 | 2026-08-10 | Sincronizadas con las respuestas ya dadas en la pestaña "Preguntas pendientes" del Excel: Q-08 (compromiso con Sandra, genera hueco en MAY 9+11 oct), Q-09, Q-10, Q-11, Q-12, Q-13, Q-14 y Q-15 resueltas. H-15 actualizada: el bloque de TX de fin de semana empieza el viernes (antes se asumía sábado) — la tabla forzada de §8ter/§8quater queda marcada como obsoleta. Añadido §12: regla permanente de equidad histórica entre meses, apoyada en la nueva pestaña "Histórico de guardias" (transcripción de junio–septiembre 2026). Añadidos al roster (fuera de la plantilla activa de octubre, "en el radar"): María y Gerard (R4), David, Paulali, Paula Durán e Inma (R3, elegibilidad de subtipo sin confirmar). |
 | 0.5 | 2026-08-10 | Corregida la matriz de elegibilidad (§5): Tania y Patricia R2 NO hacen `QX-P`, solo `REA` (antes se asumía que los 8 R2 hacían `QX-P`). Añadido §5.1: principio de proceso — la elegibilidad varía cada mes, el agente debe pedirla explícitamente para cada mes nuevo en vez de reutilizar la anterior. |

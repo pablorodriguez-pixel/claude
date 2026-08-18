@@ -33,6 +33,16 @@ mes:**
 3. Solo cuando tengas la elegibilidad confirmada de ese mes, sigue con el
    resto de este documento.
 
+**Además, antes de generar el reparto de cualquier mes, lee el §13 de la
+fuente de la verdad ("Metodología y lecciones aprendidas para repartir
+guardias").** No son reglas del servicio, son cómo evitar repetir errores ya
+cometidos generando octubre: tratar toda columna "objetivo" como límite duro
+por defecto, comprobar la aritmética exacta de plazas ANTES de fijar un
+número (a veces un objetivo que parece libre está matemáticamente forzado
+por los demás), y si una regla dura numérica choca con una preferencia
+blanda, calcular el mínimo forzado y presentárselo a Pablo para que decida
+— nunca resolverlo por tu cuenta.
+
 ## 0bis. Dónde está todo
 
 - **Fuente de la verdad (única fuente de reglas):**
