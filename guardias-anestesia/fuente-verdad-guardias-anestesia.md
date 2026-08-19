@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.9
+**Versión:** 0.10
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -313,7 +313,7 @@ Fechas de octubre 2026. `32` = 1 nov, `33` = 2 nov.
 
 | Residente | Bloqueos | Nota |
 |-----------|----------|------|
-| Carlota | 2–4, 11, 23–25 | 🔴 *"(si se puede)"* — ¿blando todo, o solo 23–25? (Q-11) |
+| Carlota | 2–4, 11 | Duro. ⚠️ El bloqueo de 23–25 (que era *"si se puede"*, Q-11) fue **levantado el 2026-08-19 a petición expresa de Pablo**, para que Carlota pudiera cubrir el sábado 24 de `QX-M` y llegar a 3 fines de semana en octubre. |
 | Almudena | 2–4, 9–11, 15–21 | Duro |
 | Ana R4 | 16–18 + los 9 días externos (§8.0) | 🔴 16–18 marcado *"(si se puede)"* |
 | Sandra | 29–1 | 🔴 Se interpreta **29 oct – 1 nov** (Q-12) |
@@ -606,6 +606,7 @@ comprobación completa después de cualquier cambio, no solo la primera vez.
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.10 | 2026-08-19 | Ajuste de fines de semana R4 a petición de Pablo: Carlota pasa de 2 a 3 fines de semana (se levanta su bloqueo de vacaciones 23–25 oct, cubre `QX-M` el sábado 24) y Sandra pasa de 3 a 2 (mantiene FDS-1 y el puente 10–12, pierde el `QX-M` suelto del 24). Consecuencia obligada por H-04: el `QX-M` del lunes 26 pasa de Carlota a Sandra, generando 1 caso adicional aceptado de S-08 (Sandra hace `TX` el día 27, justo tras su guardia presencial del 26). Auditoría completa repetida tras el cambio: 0 violaciones de reglas duras H-01 a H-21. |
 | 0.9 | 2026-08-19 | Resuelto el conflicto S-06 vs. H-20 detectado en la v0.8: Pablo decide mantener R2 en exactamente 6 guardias (H-20 sin relajar) y aceptar como excepción documentada los 9 días con 2 R1 juntos en `QX-P`, que era el mínimo matemáticamente forzado. Anotado en la fila S-06 (§7) y como precedente en §13.3, para aplicar el mismo criterio en meses futuros si reaparece el mismo conflicto. |
 | 0.8 | 2026-08-18 | Añadido §13: metodología y lecciones aprendidas para repartir guardias (no son reglas del servicio, son cómo generar el reparto sin repetir errores) — tratar las columnas "objetivo" como límite duro por defecto, comprobar la aritmética exacta de plazas antes de fijar un número, cómo tratar un conflicto real entre regla dura numérica y regla blanda (calcular el mínimo forzado, confirmarlo con el peso al máximo, y que decida Pablo), que los bloqueos colectivos reducen capacidad real no solo bloquean días sueltos, y repetir la verificación completa tras cualquier cambio. Motivado por el conflicto real detectado entre H-20 (R2 exactamente 6) y S-06 (evitar 2 R1 juntos en PEQ), que resultó ser matemáticamente forzado a un mínimo de 9 días, no un fallo del generador. |
 | 0.7 | 2026-08-18 | Nuevas reglas duras H-20 y H-21: topes de guardias totales por año como número concreto (R1 4-5, R2 exactamente 6, R3 máximo 6, R4 sin tope) y máximo 2 fines de semana por persona dentro de R2. Antes esto solo existía como columna "objetivo" en el Excel, no como regla escrita aquí, y el generador no lo trataba como límite duro — causó que la primera versión de octubre saliera con R1 en 2-3, R2 en 8, y a Eva/Antonio con 3 fines de semana. |
