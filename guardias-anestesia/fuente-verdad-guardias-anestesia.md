@@ -1,7 +1,7 @@
 # Fuente de la verdad — Cuadrante de guardias
 ## Servicio de Anestesiología y Reanimación
 
-**Versión:** 0.11
+**Versión:** 0.12
 **Periodo de referencia:** octubre 2026 (33 días: 1 oct – 2 nov)
 **Uso previsto:** documento base para un agente automatizado de generación de cuadrantes.
 
@@ -613,10 +613,147 @@ comprobación completa después de cualquier cambio, no solo la primera vez.
 
 ---
 
-## 14. Registro de cambios
+## 14. Procedimiento eficiente — cómo llegar al cuadrante sin veinte rondas
+
+> **Por qué existe esta sección.** Octubre 2026 costó del orden de veinte
+> rondas de correcciones. Cuando por fin tuve los datos correctos, el trabajo
+> real fueron minutos. Llegué a crear **27 ficheros de modelo distintos**
+> (`solver.py`…`solver_v4.py`, `scenarios.py`…`scen8.py`, seis auditores) —
+> eso no es rigor, es no haber ordenado el proceso. Éste es el orden que lo
+> evita. §13 dice *qué* aprendí; esta sección dice *en qué orden hacerlo*.
+
+### 14.1 Fase 0 — Preguntarlo TODO de una vez, antes de calcular nada
+
+**La pregunta que más tiempo habría ahorrado, y que no hice:**
+
+> **«¿Qué parte del cuadrante está ya decidida y no debo tocar?»**
+
+En octubre, el servicio ya tenía fijados `QX-M`, el `REA` de fin de semana y
+todo el `TX`. Yo estuve generando desde cero justo eso durante muchas rondas,
+y cada corrección de Pablo era en realidad un intento de devolverme a una
+solución que ya existía. Cuando me pasó el calendario, el trabajo pendiente
+era solo 16 `REA` de diario + 66 `QX-P`.
+
+Pedir en **un solo mensaje**, nunca por goteo:
+
+1. **¿Hay base ya decidida?** Si la hay, es intocable salvo permiso explícito,
+   y el problema se reduce a los huecos. Transcribirla y **validarla contra
+   los recuentos que traiga** (en octubre el pie de foto daba 5 cifras por
+   persona: cuadraron las 5, y eso confirmó que la transcripción era buena).
+2. **Tabla de elegibilidad de ESE mes** (§5.1 — nunca reutilizar la anterior).
+3. **Bloqueos y vacaciones** de cada residente.
+4. **Festivos del mes** y qué fines de semana son puente.
+5. **Objetivos numéricos**: total por persona y grupo, tope de fines de semana,
+   y reparto por puesto.
+6. **Compromisos ya prometidos** a alguien (tipo Q-08 con Sandra).
+7. **Qué reglas se relajan** este mes (en octubre, S-06).
+
+Cada dato que falte se convierte en una ronda de correcciones. No empezar a
+generar con menos que esto.
+
+### 14.2 Fase 1 — Aritmética de plazas ANTES de modelar (30 segundos)
+
+Antes de escribir una línea de solver:
+
+- Plazas por puesto = nº de días × plazas/día.
+- Restar lo que ya consume la base fija.
+- Contrastar lo que queda contra los objetivos de cada grupo.
+
+**Identidad que detecta casi todo** (R2 solo hace `REA` y `QX-P`):
+
+```
+REA_R2  = REA_total − REA_Fabián − REA_Tony
+PEQ_R2  = Total_R2 − REA_R2
+PEQ_R1  = PEQ_total − PEQ_R2        →  ¿cae dentro de 8 × [mín, máx] de R1?
+```
+
+Caso real de octubre: la base daba 2 días de `QX-M` a Fabián. Con eso, la
+cuenta ya decía que **Fabián no podía quedarse en 6** (le forzaba `PEQ_R1`=41,
+fuera del rango 32–40) y que los R1 quedaban clavados en 5 exactos. Lo
+descubrí *después* de generar; se veía en media hora menos de trabajo.
+
+Si el resultado sale fuera de rango, **hay contradicción y se avisa a Pablo
+antes de generar**, no después.
+
+### 14.3 Fase 2 — Un solo modelo parametrizado
+
+Nunca `solver_v2`, `solver_v3`, `solver_v4`. **Un** modelo con:
+
+- cada regla dura como flag activable,
+- cada objetivo numérico como parámetro,
+- la base fija como diccionario de entrada,
+- la lista de celdas liberables como parámetro.
+
+Probar una variante debe ser **una llamada a función**, no un fichero nuevo.
+Si estoy creando el tercer fichero de solver, me he equivocado de enfoque.
+
+### 14.4 Fase 3 — La cobertura, penalizada en la primera pasada
+
+**Nunca poner H-01 como restricción dura en la primera ejecución.**
+`INFEASIBLE` no informa de nada: no dice dónde falla ni cuánto. Con la
+cobertura como penalización de peso enorme, la primera pasada devuelve
+exactamente **cuántos huecos hay y en qué días**. Eso es un diagnóstico;
+lo otro es un callejón sin salida.
+
+### 14.5 Fase 4 — Búsqueda automática de la relajación mínima
+
+Si hay huecos, **está prohibido decir "imposible" sin haber ejecutado esto**:
+
+1. Enumerar las unidades relajables: cada casilla o bloque de la base, cada
+   tope numérico, cada bloqueo individual.
+2. Re-resolver liberando **una sola unidad cada vez**.
+3. Ordenar por coste: nº de celdas movidas, nº de reglas rotas, nº de personas
+   afectadas, y si alguien gana un fin de semana que no tenía.
+4. Presentar el ranking a Pablo con los números, no con adjetivos.
+
+En octubre declaré el hueco del sábado 24 "estructuralmente imposible" tras
+congelar el 100 % de la base. La búsqueda tardó dos minutos y encontró una
+solución de **2 celdas** que además no daba a nadie un fin de semana nuevo.
+"Imposible" solo es una conclusión válida *después* de esta búsqueda.
+
+### 14.6 Nunca proponer un arreglo sin haberlo simulado
+
+Propuse intercambiar a Marc y Eva el día 24. No tapaba nada: Eva ya ocupaba
+el `QX-P`, así que moverla al `REA` liberaba justo el puesto que ocupaba —
+un cambio de etiqueta, cero personas nuevas. Pasarlo por el modelo antes de
+escribirlo lo habría cazado solo.
+
+**Regla: ninguna propuesta concreta sale al chat sin haberse ejecutado.**
+
+### 14.7 Verificar sobre el fichero entregado, no sobre la caché
+
+Re-parsear el Excel guardado y auditar desde ahí (§13.5). Además, comprobar
+**celda a celda** qué incidencias vienen de la base fija y cuáles las he
+introducido yo — de memoria no vale, y es la diferencia entre "el relleno
+está mal" y "eso ya venía así".
+
+### 14.8 Reportar en las unidades de Pablo
+
+- **Fines de semana:** solo viernes/sábado/domingo reales (§6.1). El criterio
+  de bloque con lunes festivo es para validar, no para informar.
+- **Diff contra la versión anterior:** qué se movió y por qué.
+- **Separar siempre** "esto viene de tu base" de "esto lo he generado yo".
+
+### 14.9 Resumen de errores a no repetir
+
+| Error cometido en octubre | Qué hacer en su lugar |
+|---|---|
+| Generar desde cero lo que ya estaba decidido | Fase 0: preguntar qué está fijado, antes de nada |
+| Descubrir contradicciones numéricas tras generar | Fase 1: aritmética de plazas antes de modelar |
+| 27 ficheros de modelo | Un modelo parametrizado, variantes por parámetro |
+| Usar `INFEASIBLE` como diagnóstico | Cobertura penalizada en la primera pasada |
+| Decir "imposible" con la base 100 % congelada | Búsqueda de relajación mínima, unidad a unidad |
+| Proponer el intercambio Marc↔Eva sin simularlo | Ejecutar toda propuesta antes de enunciarla |
+| Contar findes por bloque al informar | Viernes/sábado/domingo reales en los resúmenes |
+| Preguntar lo que ya estaba en los datos | Buscar primero en el Excel y en este documento |
+
+---
+
+## 15. Registro de cambios
 
 | Versión | Fecha | Cambios |
 |---------|-------|---------|
+| 0.12 | 2026-08-19 | Añadido §14: **procedimiento eficiente** para generar un cuadrante, a petición de Pablo tras lo mucho que costó octubre. Nueve pasos, en orden: preguntar de una vez qué está ya decidido (la pregunta que más tiempo habría ahorrado), hacer la aritmética de plazas ANTES de modelar (predecía sola el caso de Fabián), un único modelo parametrizado en vez de 27 ficheros, cobertura penalizada en la primera pasada en vez de usar INFEASIBLE como diagnóstico, búsqueda automática de la relajación mínima antes de decir "imposible", no proponer nada sin simularlo, verificar sobre el fichero entregado, e informar en las unidades de Pablo. Incluye tabla de errores concretos a no repetir. El antiguo §14 (Registro de cambios) pasa a §15. |
 | 0.11 | 2026-08-19 | Reconstruido el reparto de octubre sobre la BASE FIJA del calendario del servicio (Mayor + UCQ de fin de semana + TX), generando solo el UCQ de diario y los 66 PEQ. Documentadas las 6 incidencias que vienen de esa base (H-06, H-09, H-10, H-11, H-15, H-16) y resuelto el hueco del sábado 24 moviendo 2 casillas autorizadas (el sábado de UCQ de Patricia R2 pasa del 17 al 24, Asís coge el 17). Aclarado en §6.1 que en los RESÚMENES los fines de semana se cuentan solo por viernes/sábado/domingo reales, no por bloque con lunes festivo — el criterio de bloque se reserva para validar H-12/H-13/H-21. |
 | 0.10 | 2026-08-19 | Ajuste de fines de semana R4 a petición de Pablo: Carlota pasa de 2 a 3 fines de semana (se levanta su bloqueo de vacaciones 23–25 oct, cubre `QX-M` el sábado 24) y Sandra pasa de 3 a 2 (mantiene FDS-1 y el puente 10–12, pierde el `QX-M` suelto del 24). Consecuencia obligada por H-04: el `QX-M` del lunes 26 pasa de Carlota a Sandra, generando 1 caso adicional aceptado de S-08 (Sandra hace `TX` el día 27, justo tras su guardia presencial del 26). Auditoría completa repetida tras el cambio: 0 violaciones de reglas duras H-01 a H-21. |
 | 0.9 | 2026-08-19 | Resuelto el conflicto S-06 vs. H-20 detectado en la v0.8: Pablo decide mantener R2 en exactamente 6 guardias (H-20 sin relajar) y aceptar como excepción documentada los 9 días con 2 R1 juntos en `QX-P`, que era el mínimo matemáticamente forzado. Anotado en la fila S-06 (§7) y como precedente en §13.3, para aplicar el mismo criterio en meses futuros si reaparece el mismo conflicto. |

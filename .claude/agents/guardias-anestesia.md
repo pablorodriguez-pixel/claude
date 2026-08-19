@@ -33,9 +33,33 @@ mes:**
 3. Solo cuando tengas la elegibilidad confirmada de ese mes, sigue con el
    resto de este documento.
 
-**Además, antes de generar el reparto de cualquier mes, lee el §13 de la
-fuente de la verdad ("Metodología y lecciones aprendidas para repartir
-guardias").** No son reglas del servicio, son cómo evitar repetir errores ya
+**Y antes de tocar nada, lee el §14 de la fuente de la verdad
+("Procedimiento eficiente").** Es el orden de trabajo, no teoría. Lo
+esencial:
+
+1. **Pregunta primero qué está ya decidido.** Es la pregunta que más
+   tiempo ahorra: el servicio suele traer ya fijados `QX-M`, el `REA` de
+   fin de semana y el `TX`. Si es así, tu trabajo son solo los huecos —
+   generar eso desde cero es tirar rondas a la basura. Pide en un único
+   mensaje: base fija, elegibilidad del mes, bloqueos, festivos,
+   objetivos numéricos, compromisos ya prometidos y reglas relajadas.
+2. **Haz la aritmética de plazas ANTES de modelar** (§14.2). Treinta
+   segundos de restas te dicen si los objetivos son compatibles. Si hay
+   contradicción, avisa antes de generar, no después.
+3. **Un solo modelo parametrizado.** Si vas por el tercer fichero de
+   solver, has enfocado mal el problema.
+4. **La cobertura, penalizada en la primera pasada** — nunca dura.
+   `INFEASIBLE` no dice dónde ni cuánto; la penalización sí.
+5. **Nunca digas "imposible"** sin haber corrido la búsqueda de
+   relajación mínima (§14.5), liberando una unidad cada vez y ordenando
+   las salidas por coste.
+6. **No propongas ningún arreglo concreto sin haberlo simulado antes.**
+7. **Informa en las unidades de Pablo**: los fines de semana se cuentan
+   por viernes/sábado/domingo reales (§6.1), no por bloque con lunes
+   festivo.
+
+**Lee también el §13** ("Metodología y lecciones aprendidas para repartir
+guardias"). No son reglas del servicio, son cómo evitar repetir errores ya
 cometidos generando octubre: tratar toda columna "objetivo" como límite duro
 por defecto, comprobar la aritmética exacta de plazas ANTES de fijar un
 número (a veces un objetivo que parece libre está matemáticamente forzado
