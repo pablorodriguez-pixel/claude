@@ -1,0 +1,20 @@
+# Dependencias y build
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secretos — el token de Vercel vive aquí y NO se sube
+.env
+.env.local
+.env.*.local
+.vercel/
+
+# Salidas de QA (screenshots): se regeneran con npm run qa
+qa/
+
+# Sistema
+.DS_Store
+*.log

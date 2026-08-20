@@ -1,0 +1,770 @@
+@import "tailwindcss";
+
+/* Fuentes de los HTML de LPs y de la librería de secciones */
+@source "../app";
+@source "../components";
+
+/* ==========================================================================
+   RundDisplay — tipografía oficial Founderz
+   Coloca los .woff2 en public/assets/fonts/ para que la marca se vea real.
+   Sin ellos cae al fallback Trebuchet MS y la LP NO es fiel a marca.
+   ========================================================================== */
+@font-face {
+  font-family: RundDisplay;
+  src: url("/fonts/RundDisplay-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: RundDisplay;
+  src: url("/fonts/RundDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: RundDisplay;
+  src: url("/fonts/RundDisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: RundDisplay;
+  src: url("/fonts/RundDisplay-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==========================================================================
+   TOKENS DE MARCA  (source: FounderzBrandGuidelines_24_25.pdf + main.css real)
+   ========================================================================== */
+@theme {
+  /* --- Color: valores web reales del theme de Founderz --- */
+  --color-purple: #5045c8;
+  --color-purple-dark: #2f2976;
+  --color-purple-light: #ece9ff;
+  --color-purple-brand: #50519e; /* Pantone 7669 C — solo brand/print */
+  --color-violet: #420d8c;
+  --color-violet-bg: #846ab0;
+  --color-pink: #d69cee;
+  --color-pink-brand: #d08eeb; /* Pantone 2572 C */
+  --color-green: #a3d9c5;
+  --color-orange: #f2983e;
+  --color-orange-light: #f9ae58;
+  --color-sunshade: #fea339;
+  --color-sunshade-dark: #d97706;
+  --color-warm-red: #f57d73;
+  --color-warm-red-dark: #d4483c;
+  --color-dark-red: #931219;
+  --color-ink: #111115; /* black oficial, no es negro puro */
+  --color-ink-soft: #222225;
+  --color-gray: #5a5a5a;
+  --color-line: #b6b6b6;
+  --color-line-soft: #e0e0ea;
+  --color-cream: #f7f6f3;
+
+  /* --- Tipografía --- */
+  --font-sans: RundDisplay, "Trebuchet MS", Helvetica, Arial, sans-serif;
+  --default-font-family: var(--font-sans);
+
+  /* Escala oficial: clamp entre el valor mobile (<580px) y el desktop */
+  --text-h1: clamp(2.5rem, 5.5vw, 3.5rem);
+  --text-h1--line-height: 1;
+  --text-h2: clamp(2rem, 4vw, 2.5rem);
+  --text-h2--line-height: 1.2;
+  --text-h3: clamp(1.5rem, 3vw, 2rem);
+  --text-h3--line-height: 1.2;
+  --text-h4: 1.5rem;
+  --text-h4--line-height: 1.2;
+  --text-h5: 1.25rem;
+  --text-h5--line-height: 1.3;
+  --text-body: clamp(0.9375rem, 1vw, 1rem);
+  --text-body--line-height: 1.25;
+
+  /* Tracking 2% en TODA la tipografía — regla de marca */
+  --tracking-brand: 0.02em;
+  --default-letter-spacing: 0.02em;
+
+  /* --- Layout --- */
+  --container-fz: 1430px;
+  --spacing-header: 8.5rem;
+  --radius-fz: 1.875rem; /* 30px desktop */
+  --radius-fz-sm: 1.375rem; /* 22px mobile */
+  --radius-pill: 100rem;
+
+  /* --- Motion --- */
+  --ease-fz: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  /* --- Breakpoint oficial Founderz (max-width 579px => min-width 580px) --- */
+  --breakpoint-fz: 580px;
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+@layer base {
+  :root {
+    --fz-radius: var(--radius-fz-sm);
+  }
+  @media (min-width: 580px) {
+    :root {
+      --fz-radius: var(--radius-fz);
+    }
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: var(--tracking-brand);
+    line-height: 1.25;
+    color: var(--color-ink);
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1 {
+    font-size: var(--text-h1);
+    line-height: 1;
+    font-weight: 600;
+  }
+  h2 {
+    font-size: var(--text-h2);
+    line-height: 1.2;
+    font-weight: 600;
+  }
+  h3 {
+    font-size: var(--text-h3);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  h4 {
+    font-size: var(--text-h4);
+    line-height: 1.2;
+    font-weight: 400;
+  }
+  h5 {
+    font-size: var(--text-h5);
+    line-height: 1.3;
+    font-weight: 400;
+  }
+  /* Regla de marca: <strong> dentro de un titular sube a 700 */
+  :is(h1, h2, h3, h4, h5) :is(strong, b) {
+    font-weight: 700;
+  }
+
+  /* Foco visible siempre — WCAG 2.4.7 */
+  :focus-visible {
+    outline: 3px solid var(--color-purple);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   COMPONENTES  — prefijo fz- para no chocar con utilidades de Tailwind
+   ========================================================================== */
+@layer components {
+  /* --- Layout ------------------------------------------------------------ */
+  .fz-container {
+    width: 100%;
+    max-width: var(--container-fz);
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 580px) {
+    .fz-container {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Whitespace generoso: 56px mobile / 120px desktop */
+  .fz-section {
+    padding-block: clamp(3.5rem, 8vw, 7.5rem);
+  }
+  .fz-section--tight {
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  }
+
+  .fz-radius {
+    border-radius: var(--fz-radius);
+  }
+
+  /* --- Eyebrow / tag uppercase antes de cada H2 -------------------------- */
+  .fz-eyebrow {
+    display: inline-block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-purple);
+    margin-bottom: 1rem;
+  }
+  .fz-eyebrow--light {
+    color: #fff;
+    opacity: 0.85;
+  }
+
+  /* --- Botones ----------------------------------------------------------- */
+  .fz-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    /* Regla del pulgar: 48px de alto real en mobile */
+    min-height: 48px;
+    padding: 0.875rem 2rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-pill);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: var(--tracking-brand);
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      color 0.25s var(--ease-fz),
+      background-color 0.25s var(--ease-fz),
+      border-color 0.25s var(--ease-fz);
+  }
+  .fz-btn--primary {
+    background-color: var(--color-purple);
+    color: #fff;
+  }
+  .fz-btn--primary:hover {
+    background-color: var(--color-purple-dark);
+  }
+  /* Inverse — sobre fondo oscuro o imagen */
+  .fz-btn--inverse {
+    background-color: #fff;
+    color: var(--color-ink);
+  }
+  .fz-btn--inverse:hover {
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+  .fz-btn--outline {
+    background-color: transparent;
+    border-color: var(--color-ink);
+    color: var(--color-ink);
+  }
+  .fz-btn--outline:hover {
+    background-color: var(--color-purple);
+    border-color: var(--color-purple);
+    color: #fff;
+  }
+  .fz-btn--outline-light {
+    background-color: transparent;
+    border-color: rgb(255 255 255 / 0.5);
+    color: #fff;
+  }
+  .fz-btn--outline-light:hover {
+    background-color: #fff;
+    border-color: #fff;
+    color: var(--color-ink);
+  }
+  .fz-btn--ghost {
+    background-color: transparent;
+    color: var(--color-purple);
+    padding-inline: 0.5rem;
+  }
+  .fz-btn--ghost:hover {
+    color: var(--color-purple-dark);
+    text-decoration: underline;
+  }
+  .fz-btn--block {
+    width: 100%;
+  }
+
+  /* --- Nav flotante ------------------------------------------------------ */
+  .fz-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding-block: 0.75rem;
+  }
+  .fz-nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 0.75rem 0.75rem 0.75rem 1.5rem;
+    background-color: rgb(255 255 255 / 0.92);
+    backdrop-filter: blur(12px);
+    border-radius: var(--radius-pill);
+    box-shadow: 0 10px 40px rgb(0 0 0 / 0.08);
+  }
+
+  /* --- Cards ------------------------------------------------------------- */
+  .fz-card {
+    background-color: #fff;
+    border: 1px solid var(--color-line-soft);
+    border-radius: var(--fz-radius);
+    padding: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .fz-card--flat {
+    border: 0;
+    background-color: var(--color-cream);
+  }
+  .fz-card--lilac {
+    border: 0;
+    background-color: var(--color-purple-light);
+  }
+  .fz-card--dark {
+    border: 0;
+    background-color: var(--color-ink);
+    color: #fff;
+  }
+  .fz-card--float {
+    box-shadow: 0 10px 40px rgb(0 0 0 / 0.08);
+  }
+
+  /* Pricing card del hero — pieza CRO central */
+  .fz-price {
+    font-size: clamp(2.25rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .fz-price__was {
+    font-size: 1.125rem;
+    color: var(--color-gray);
+    text-decoration: line-through;
+  }
+
+  /* --- Badge / chip ------------------------------------------------------ */
+  .fz-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .fz-badge--purple {
+    background-color: var(--color-purple-light);
+    color: var(--color-purple-dark);
+  }
+  .fz-badge--pink {
+    background-color: var(--color-pink);
+    color: var(--color-ink);
+  }
+  .fz-badge--sunshade {
+    background-color: var(--color-sunshade);
+    color: var(--color-ink);
+  }
+  .fz-badge--green {
+    background-color: var(--color-green);
+    color: var(--color-ink);
+  }
+  .fz-badge--light {
+    background-color: rgb(255 255 255 / 0.15);
+    color: #fff;
+    border: 1px solid rgb(255 255 255 / 0.3);
+  }
+
+  /* Chip de herramienta: outline gris, fondo blanco, icono + texto */
+  .fz-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #fff;
+    border: 1px solid var(--color-line-soft);
+    border-radius: var(--radius-pill);
+    font-size: 0.9375rem;
+    color: var(--color-ink);
+  }
+  .fz-chip img,
+  .fz-chip svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: none;
+  }
+
+  /* --- Acordeón (details/summary nativo = accesible sin JS) --------------- */
+  .fz-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .fz-accordion__item {
+    background-color: #fff;
+    border: 1px solid var(--color-line-soft);
+    border-radius: var(--fz-radius);
+    overflow: hidden;
+    transition: background-color 0.25s var(--ease-fz);
+  }
+  .fz-accordion__item[open] {
+    background-color: var(--color-purple-light);
+    border-color: transparent;
+  }
+  .fz-accordion__trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    min-height: 48px;
+    padding: 1.25rem clamp(1.25rem, 3vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+  }
+  .fz-accordion__trigger::-webkit-details-marker {
+    display: none;
+  }
+  .fz-accordion__item[open] .fz-accordion__trigger {
+    color: var(--color-purple-dark);
+  }
+  .fz-accordion__icon {
+    flex: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: transform 0.25s var(--ease-fz);
+  }
+  .fz-accordion__item[open] .fz-accordion__icon {
+    transform: rotate(45deg);
+  }
+  .fz-accordion__panel {
+    padding: 0 clamp(1.25rem, 3vw, 2rem) 1.5rem;
+    color: var(--color-gray);
+  }
+  .fz-accordion__item[open] .fz-accordion__panel {
+    color: var(--color-ink);
+  }
+
+  /* --- Mindscape: fondo de marca. Nunca dos consecutivos. ---------------- */
+  .fz-mindscape {
+    position: relative;
+    isolation: isolate;
+    color: #fff;
+    background-color: var(--color-violet);
+    background-image: var(--fz-mindscape-img, none);
+    background-size: cover;
+    background-position: center;
+  }
+  /* Overlay que garantiza contraste AA del texto blanco encima */
+  .fz-mindscape::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgb(17 17 21 / 0.55) 0%,
+      rgb(17 17 21 / 0.75) 100%
+    );
+  }
+  /* Fallback cuando aún no hay imagen de Mindscape */
+  .fz-mindscape--gradient {
+    background-image: radial-gradient(
+        60% 80% at 20% 20%,
+        rgb(208 142 235 / 0.55),
+        transparent 60%
+      ),
+      radial-gradient(50% 70% at 85% 30%, rgb(80 69 200 / 0.7), transparent 65%),
+      radial-gradient(70% 90% at 60% 100%, rgb(66 13 140 / 0.85), transparent 70%);
+  }
+
+  /* --- Prosa / listas de beneficios -------------------------------------- */
+  .fz-lead {
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    line-height: 1.45;
+    color: var(--color-gray);
+  }
+  .fz-lead--light {
+    color: rgb(255 255 255 / 0.85);
+  }
+  .fz-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .fz-list > li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    line-height: 1.35;
+  }
+  .fz-list__icon {
+    flex: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+    color: var(--color-purple);
+  }
+
+  /* --- Marquee de logos (respeta prefers-reduced-motion vía base) --------- */
+  .fz-marquee {
+    display: flex;
+    overflow: hidden;
+    gap: clamp(2rem, 5vw, 4rem);
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      #000 8%,
+      #000 92%,
+      transparent
+    );
+  }
+  .fz-marquee__track {
+    display: flex;
+    align-items: center;
+    gap: clamp(2rem, 5vw, 4rem);
+    flex: none;
+    animation: fz-scroll 32s linear infinite;
+  }
+  @keyframes fz-scroll {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* --- Sticky CTA mobile: CRO, CTA siempre alcanzable -------------------- */
+  /* Oculto hasta que el usuario pasa el hero (data-visible lo controla el
+     componente). Sin esto tapa el submit del form del hero. */
+  .fz-sticky-cta[data-visible="false"] {
+    transform: translateY(110%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .fz-sticky-cta {
+    transform: translateY(0);
+    opacity: 1;
+    transition:
+      transform 0.25s var(--ease-fz),
+      opacity 0.25s var(--ease-fz);
+    position: fixed;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    background-color: #fff;
+    border-top: 1px solid var(--color-line-soft);
+    box-shadow: 0 -6px 24px rgb(0 0 0 / 0.08);
+  }
+  @media (min-width: 580px) {
+    .fz-sticky-cta {
+      display: none;
+    }
+  }
+
+  /* --- Skip link --------------------------------------------------------- */
+  .fz-skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+  }
+  .fz-skip:focus {
+    left: 1rem;
+    top: 1rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--color-ink);
+    color: #fff;
+    border-radius: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   FORMULARIOS
+   Reglas obligatorias #5, #6, #7 y #11: país + prefijo, TyC, appearance:none
+   para iOS Safari, y min-width:0 para no romper el layout a 390px.
+   ========================================================================== */
+@layer components {
+  .fz-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+  }
+
+  .fz-label {
+    display: block;
+    margin-bottom: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-gray);
+  }
+
+  .fz-field {
+    /* min-width:0 + width:100% es lo que evita el overflow dentro de grids */
+    width: 100%;
+    min-width: 0;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    background-color: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem; /* 16px: evita el zoom automático de iOS */
+    letter-spacing: var(--tracking-brand);
+    color: var(--color-ink);
+    transition: border-color 0.2s var(--ease-fz);
+  }
+  .fz-field::placeholder {
+    color: #9a9aa5;
+  }
+  .fz-field:focus {
+    border-color: var(--color-purple);
+  }
+  .fz-field:user-invalid {
+    border-color: var(--color-warm-red-dark);
+  }
+
+  /* --- Select: iOS Safari pierde la flecha nativa con CSS custom ---------- */
+  .fz-select-wrap {
+    position: relative;
+    min-width: 0;
+  }
+  .fz-select {
+    appearance: none;
+    -webkit-appearance: none;
+    padding-right: 2.5rem;
+    background-image: none;
+    cursor: pointer;
+  }
+  .fz-select-chevron {
+    position: absolute;
+    right: 0.875rem;
+    top: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: var(--color-gray);
+  }
+
+  /* --- Teléfono con prefijo ---------------------------------------------- */
+  .fz-phone {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    min-width: 0;
+  }
+  .fz-phone__prefix {
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 0.75rem;
+    background-color: var(--color-cream);
+    border: 1px solid var(--color-line);
+    border-right: 0;
+    border-radius: 0.5rem 0 0 0.5rem;
+    font-size: 0.9375rem;
+    color: var(--color-gray);
+    white-space: nowrap;
+  }
+  .fz-phone__input {
+    border-radius: 0 0.5rem 0.5rem 0;
+  }
+
+  /* --- Consentimiento ---------------------------------------------------- */
+  .fz-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--color-gray);
+  }
+  .fz-consent__box {
+    flex: none;
+    /* 20px reales, no 13px: alcanzable con el pulgar */
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.0625rem;
+    accent-color: var(--color-purple);
+  }
+  .fz-consent a {
+    color: var(--color-purple);
+    text-decoration: underline;
+  }
+
+  /* --- Estados ----------------------------------------------------------- */
+  .fz-form-ok {
+    padding: 1.5rem;
+    background-color: var(--color-purple-light);
+    border-radius: var(--fz-radius);
+  }
+  .fz-form-error {
+    font-size: 0.875rem;
+    color: var(--color-warm-red-dark);
+  }
+  .fz-sticky-cta__note {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+}
+
+/* ==========================================================================
+   CORRECCIONES DETECTADAS EN QA
+   ========================================================================== */
+@layer components {
+  /* El sticky CTA es fixed: sin esto tapa el final del contenido (típicamente
+     el checkbox de TyC y el botón de submit). Reserva su altura solo cuando
+     la página realmente lleva sticky CTA y solo en mobile, donde se muestra. */
+  @media (max-width: 579px) {
+    body:has(.fz-sticky-cta) main {
+      padding-bottom: 6rem;
+    }
+  }
+
+  /* Formulario sobre fondo oscuro. Variante EXPLÍCITA, no heredada del ancestro:
+     un hero con .fz-mindscape puede contener una card blanca con el form dentro,
+     y un selector de descendencia dejaría texto blanco sobre blanco. */
+  .fz-form--inverse :is(.fz-label, .fz-consent) {
+    color: rgb(255 255 255 / 0.78);
+  }
+  .fz-form--inverse .fz-consent a {
+    color: #fff;
+  }
+  .fz-form--inverse .fz-phone__prefix {
+    background-color: rgb(255 255 255 / 0.12);
+    border-color: rgb(255 255 255 / 0.4);
+    color: #fff;
+  }
+  .fz-form--inverse .fz-field {
+    border-color: rgb(255 255 255 / 0.4);
+  }
+  .fz-form--inverse .fz-form-ok {
+    background-color: rgb(255 255 255 / 0.1);
+    color: #fff;
+  }
+}
