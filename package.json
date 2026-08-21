@@ -13,7 +13,8 @@
     "qa": "node scripts/qa.mjs",
     "corpus": "node scripts/analyze-corpus.mjs",
     "deploy": "node scripts/deploy.mjs",
-    "deploy:prod": "node scripts/deploy.mjs --prod"
+    "deploy:prod": "node scripts/deploy.mjs --prod",
+    "egress": "node scripts/check-egress.mjs"
   },
   "dependencies": {
     "next": "^16.2.9",
