@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+#
+# Atajos sobre la Vercel REST API. Envuelve scripts/vercel-api.sh
+#
+# Uso: ./scripts/vc <comando> [args]
+#
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+API="$HERE/vercel-api.sh"
+
+usage() {
+  cat <<'USAGE'
+Comandos disponibles:
+
+  whoami                      Usuario del token
+  teams                       Equipos accesibles
+  projects                    Lista de proyectos
+  project <nombre|id>         Detalle de un proyecto
+  deployments [proyecto] [n]  Ultimos despliegues (n por defecto 10)
+  deployment <id>             Detalle de un despliegue
+  build-logs <id>             Logs de build de un despliegue
+  envs <proyecto>             Variables de entorno (solo claves, NO valores)
+  domains                     Dominios del equipo
+  raw <METODO> <ruta> [json]  Llamada cruda a la API
+
+Ejemplos:
+  ./scripts/vc projects
+  ./scripts/vc deployments founderz-growth-lps 5
+  ./scripts/vc envs founderz-growth-lps
+  ./scripts/vc raw GET /v9/projects
+USAGE
+}
+
+CMD="${1:-help}"
+shift || true
+
+case "$CMD" in
+  whoami)
+    "$API" GET /v2/user
+    ;;
+  teams)
+    "$API" GET /v2/teams
+    ;;
+  projects)
+    "$API" GET "/v9/projects?limit=100"
+    ;;
+  project)
+    [[ $# -ge 1 ]] || { echo "Falta el nombre o id del proyecto" >&2; exit 1; }
+    "$API" GET "/v9/projects/$1"
+    ;;
+  deployments)
+    PROJ="${1:-}"
+    LIMIT="${2:-10}"
+    if [[ -n "$PROJ" ]]; then
+      "$API" GET "/v6/deployments?app=${PROJ}&limit=${LIMIT}"
+    else
+      "$API" GET "/v6/deployments?limit=${LIMIT}"
+    fi
+    ;;
+  deployment)
+    [[ $# -ge 1 ]] || { echo "Falta el id del despliegue" >&2; exit 1; }
+    "$API" GET "/v13/deployments/$1"
+    ;;
+  build-logs)
+    [[ $# -ge 1 ]] || { echo "Falta el id del despliegue" >&2; exit 1; }
+    "$API" GET "/v3/deployments/$1/events?builds=1"
+    ;;
+  envs)
+    # Devuelve las claves. Los valores van cifrados y no se imprimen aqui a proposito.
+    [[ $# -ge 1 ]] || { echo "Falta el nombre o id del proyecto" >&2; exit 1; }
+    "$API" GET "/v10/projects/$1/env"
+    ;;
+  domains)
+    "$API" GET /v5/domains
+    ;;
+  raw)
+    [[ $# -ge 2 ]] || { echo "Uso: vc raw <METODO> <ruta> [json]" >&2; exit 1; }
+    "$API" "$@"
+    ;;
+  help|-h|--help)
+    usage
+    ;;
+  *)
+    echo "Comando desconocido: $CMD" >&2
+    echo >&2
+    usage >&2
+    exit 1
+    ;;
+esac
