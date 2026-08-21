@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Webinar gratuito: Convierte tu experiencia en ventaja con IA | Founderz</title>
+<meta name="description" content="Webinar gratuito de 60 minutos. Aprende a usar la IA para multiplicar el valor de tu experiencia profesional, no para competir con ella. Plazas limitadas.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://founderz.com/es/webinar/convierte-experiencia-en-ventaja-con-ia/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Founderz">
+<meta property="og:title" content="Webinar gratuito: Convierte tu experiencia en ventaja con IA">
+<meta property="og:description" content="60 minutos para dejar de ver la IA como una amenaza y empezar a usarla como palanca. Gratis y con plazas limitadas.">
+<meta name="twitter:card" content="summary_large_image">
+
+
+<style>
+/* ==========================================================================
+   TOKENS — extraídos de reference/founderz-maqueta/css/main.css
+   ========================================================================== */
+:root {
+  /* Color */
+  --purple: #5045c8;          /* primary web */
+  --violet-darker: #2f2976;   /* hover */
+  --violet-bg: #846ab0;
+  --pink: #d69cee;
+  --green: #a3d9c5;
+  --sunshade: #fea339;
+  --orange: #f57d73;
+  --warm-red: #f57d73;
+  --ink: #111115;             /* black oficial de marca */
+  --white: #fff;
+  --contrast-gray: #5a5a5a;
+  --border-form: #b6b6b6;
+  --lavender: #f4f2fd;        /* fondo suave derivado de purple */
+  --hairline: #e7e5f3;
+
+  /* Tipografía */
+  --font-sans: RundDisplay, "Trebuchet MS", Helvetica, sans-serif;
+  --main-offsize: 1rem;
+  --line-height: 1.25;
+  --tracking: 0.02em;
+
+  /* Layout */
+  --max-width-container: 1430px;
+  --site-header-height: 8.5rem;
+  --border-radius: 1.875rem;
+  --border-radius-pill: 100rem;
+  --section-py: clamp(56px, 8vw, 120px);
+
+  /* Motion */
+  --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@media (max-width: 579px) {
+  :root {
+    --main-offsize: 0.875rem;
+    --border-radius: 1.375rem;
+    --site-header-height: 5rem;
+  }
+}
+
+/* ==========================================================================
+   RESET
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--main-offsize);
+  line-height: var(--line-height);
+  letter-spacing: var(--tracking);
+  color: var(--ink);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg, video { display: block; max-width: 100%; height: auto; }
+button { font: inherit; letter-spacing: inherit; cursor: pointer; }
+input, select, textarea { font: inherit; letter-spacing: inherit; color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.2; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+a { color: var(--purple); }
+
+/* Foco visible — accesibilidad */
+:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.skip-link {
+  position: absolute; left: 50%; transform: translateX(-50%);
+  top: -100px; z-index: 200;
+  background: var(--ink); color: var(--white);
+  padding: 12px 24px; border-radius: 0 0 12px 12px;
+  text-decoration: none; font-weight: 600;
+  transition: top .2s var(--ease);
+}
+.skip-link:focus { top: 0; }
+
+/* ==========================================================================
+   PRIMITIVAS
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--max-width-container);
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+/* Iconos: sprite SVG inline. Trazos redondeados, heredan currentColor.
+   Sin webfont: no hay peticion externa que pueda fallar ni texto de ligadura. */
+.icon {
+  width: 24px; height: 24px; flex: 0 0 auto;
+  fill: none; stroke: currentColor;
+  stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Botones — tokens reales del CSS de Founderz */
+.button {
+  --btn-bg: var(--purple);
+  --btn-color: var(--white);
+  --btn-border: var(--purple);
+  --btn-bg-hover: var(--violet-darker);
+  --btn-color-hover: var(--white);
+  --btn-border-hover: var(--violet-darker);
+
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px;                     /* regla del pulgar: >=44px */
+  max-width: 100%;                      /* nunca mas ancho que su contenedor */
+  padding: 14px 32px;
+  background: var(--btn-bg);
+  color: var(--btn-color);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--border-radius-pill);
+  font-weight: 600; font-size: 1rem; line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center; text-decoration: none; white-space: nowrap;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+.button:hover {
+  background: var(--btn-bg-hover);
+  color: var(--btn-color-hover);
+  border-color: var(--btn-border-hover);
+}
+.button--inverse {
+  --btn-bg: var(--white); --btn-color: #1a191d; --btn-border: var(--white);
+  --btn-bg-hover: #1a191d; --btn-color-hover: var(--white); --btn-border-hover: #1a191d;
+}
+.button--ghost {
+  --btn-bg: transparent; --btn-color: var(--purple); --btn-border: var(--purple);
+  --btn-bg-hover: var(--purple); --btn-color-hover: var(--white); --btn-border-hover: var(--purple);
+}
+/* Los botones a ancho completo pueden partir línea: con nowrap el texto largo
+   fuerza min-content y desborda en viewports estrechos. */
+.button--block { width: 100%; white-space: normal; padding-inline: 20px; }
+.button--lg { min-height: 56px; font-size: 1.0625rem; padding: 16px 40px; }
+.button--lg.button--block { padding-inline: 20px; }
+/* En movil el padding generoso de --lg mas nowrap no cabe en 375px. */
+@media (max-width: 579px) {
+  .button--lg { white-space: normal; padding-inline: 24px; font-size: 1rem; }
+}
+
+/* Tag uppercase antes de cada H2 */
+.tag {
+  display: inline-block;
+  font-size: 0.8125rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+.tag--on-dark { color: var(--pink); }
+
+/* Escala tipográfica de marca */
+.h1 { font-size: clamp(2.5rem, 6vw, 3.5rem); line-height: 1; font-weight: 600; }
+.h2 { font-size: clamp(2rem, 4.5vw, 2.5rem); line-height: 1.2; font-weight: 600; }
+.h3 { font-size: clamp(1.5rem, 3vw, 2rem);   line-height: 1.2; font-weight: 400; }
+.h4 { font-size: 1.5rem;   line-height: 1.2; font-weight: 600; }
+.h5 { font-size: 1.25rem;  line-height: 1.3; font-weight: 600; }
+.lead { font-size: clamp(1rem, 2vw, 1.25rem); line-height: 1.45; color: var(--contrast-gray); }
+.section { padding-block: var(--section-py); }
+.section--lavender { background: var(--lavender); }
+
+/* Mindscape — aproximación CSS. Sustituir por asset real (ver README). */
+.mindscape {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(42% 55% at 18% 22%, rgba(214,156,238,.62), transparent 62%),
+    radial-gradient(38% 48% at 82% 18%, rgba(254,163,57,.42), transparent 60%),
+    radial-gradient(52% 62% at 72% 82%, rgba(80,69,200,.78), transparent 66%),
+    radial-gradient(34% 42% at 30% 88%, rgba(163,217,197,.34), transparent 62%),
+    linear-gradient(148deg, #2f2976 0%, #50459c 46%, #1c1840 100%);
+  filter: saturate(118%);
+}
+.mindscape::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    repeating-linear-gradient(58deg, rgba(255,255,255,.05) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(-32deg, rgba(255,255,255,.04) 0 1px, transparent 1px 34px);
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   HEADER — nav flotante pill
+   ========================================================================== */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  padding-block: 16px;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--hairline);
+}
+.header__inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+/* En pantallas estrechas el logo + CTA no caben a tamaño completo. */
+@media (max-width: 579px) {
+  .header__logo { font-size: 1.125rem; gap: 8px; }
+  .header__logo-mark { width: 30px; height: 30px; border-radius: 9px; font-size: 1rem; }
+  .header .button { padding-inline: 16px; font-size: .875rem; min-height: 44px; }
+}
+.header__logo {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 1.375rem; font-weight: 600; letter-spacing: -0.01em;
+  color: var(--ink); text-decoration: none;
+}
+.header__logo-mark {
+  width: 34px; height: 34px; border-radius: 10px;
+  background: var(--purple); color: var(--white);
+  display: grid; place-items: center;
+  font-size: 1.125rem; font-weight: 700;
+}
+.header__meta {
+  display: none; align-items: center; gap: 8px;
+  font-size: .9375rem; color: var(--contrast-gray);
+}
+@media (min-width: 860px) { .header__meta { display: inline-flex; } }
+.header__meta .icon { width: 20px; height: 20px; color: var(--purple); }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero { position: relative; overflow: hidden; color: var(--white); }
+.hero__inner {
+  position: relative; z-index: 1;
+  /* minmax(0,…) en vez de 1fr: sin el mínimo a 0, el min-content del <select>
+     de la tarjeta de registro ensancha la columna y desborda el viewport. */
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 64px);
+  padding-block: clamp(48px, 7vw, 96px);
+}
+@media (min-width: 1000px) {
+  .hero__inner { grid-template-columns: minmax(0, 1fr) minmax(380px, 460px); align-items: start; }
+}
+.hero__badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 16px; border-radius: var(--border-radius-pill);
+  font-size: .8125rem; font-weight: 600; letter-spacing: 0.04em;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.28);
+  color: var(--white);
+  backdrop-filter: blur(4px);
+}
+.chip .icon { width: 17px; height: 17px; }
+.chip--solid { background: var(--pink); border-color: var(--pink); color: #2a1533; }
+.hero h1 { color: var(--white); margin-bottom: 20px; }
+.hero h1 em { font-style: italic; font-weight: 600; color: var(--pink); }
+.hero__lead { font-size: clamp(1.0625rem, 2vw, 1.3125rem); line-height: 1.45; color: rgba(255,255,255,.9); max-width: 34ch; }
+
+/* Siempre en fila de 3: apilados en movil empujaban el formulario 270px
+   hacia abajo, sacandolo del primer scroll. */
+.hero__facts {
+  display: grid; gap: 10px; margin-top: 32px;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+}
+.fact {
+  padding: 18px 20px; border-radius: 18px;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+}
+.fact__k { display: block; font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+.fact__v { font-size: 1.0625rem; font-weight: 600; color: var(--white); }
+@media (max-width: 579px) {
+  .hero__facts { gap: 8px; margin-top: 24px; }
+  .fact { padding: 12px 13px; border-radius: 14px; }
+  .fact__k { font-size: .625rem; letter-spacing: .07em; margin-bottom: 4px; }
+  .fact__v { font-size: .875rem; }
+}
+
+/* Tarjeta de registro — el motor de conversión */
+.signup {
+  min-width: 0;                /* permite encoger dentro del grid */
+  background: var(--white);
+  color: var(--ink);
+  border-radius: var(--border-radius);
+  padding: clamp(24px, 3vw, 34px);
+  box-shadow: 0 10px 40px rgba(0,0,0,.18);
+}
+.signup__price { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+.signup__price-now { font-size: 2.5rem; font-weight: 600; line-height: 1; color: var(--purple); }
+.signup__price-was { font-size: 1.125rem; color: var(--contrast-gray); text-decoration: line-through; }
+.signup__price-note { font-size: .875rem; color: var(--contrast-gray); margin-bottom: 22px; }
+.signup__list { display: grid; gap: 10px; margin-bottom: 24px; }
+.signup__list li { display: flex; gap: 10px; align-items: flex-start; font-size: .9375rem; }
+/* El verde de marca como trazo sobre blanco queda ilegible: purple. */
+.signup__list .icon { width: 20px; height: 20px; color: var(--purple); margin-top: 1px; }
+
+.field { display: grid; gap: 6px; margin-bottom: 14px; }
+.field label { font-size: .875rem; font-weight: 600; }
+.field .req { color: var(--purple); }
+.field input, .field select {
+  width: 100%; min-width: 0;   /* el <select> no debe imponer su min-content */
+  min-height: 48px; padding: 12px 14px;
+  border: 1px solid var(--border-form); border-radius: .5rem;
+  background: var(--white);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.field select { text-overflow: ellipsis; }
+.field input:hover, .field select:hover { border-color: var(--purple); }
+.field input:focus, .field select:focus {
+  outline: none; border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(80,69,200,.18);
+}
+.field__error { font-size: .8125rem; color: #c0242c; min-height: 0; }
+.field[data-invalid="true"] input,
+.field[data-invalid="true"] select { border-color: #c0242c; }
+.field[data-invalid="true"] input:focus { box-shadow: 0 0 0 3px rgba(192,36,44,.16); }
+
+.consent { display: flex; gap: 10px; align-items: flex-start; margin: 18px 0 20px; font-size: .8125rem; color: var(--contrast-gray); }
+.consent input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--purple); flex: 0 0 auto; }
+.signup__legal { font-size: .75rem; color: var(--contrast-gray); margin-top: 14px; text-align: center; }
+.signup__trust { display: flex; align-items: center; justify-content: center; gap: 6px; margin-top: 16px; font-size: .8125rem; color: var(--contrast-gray); }
+.signup__trust .icon { width: 17px; height: 17px; color: var(--contrast-gray); }
+
+/* Estado de éxito del formulario */
+.signup__success { display: none; text-align: center; padding-block: 12px; }
+.signup[data-state="sent"] .signup__form,
+.signup[data-state="sent"] .signup__price,
+.signup[data-state="sent"] .signup__price-note,
+.signup[data-state="sent"] .signup__list { display: none; }
+.signup[data-state="sent"] .signup__success { display: block; }
+.signup__success .icon { width: 56px; height: 56px; margin: 0 auto; color: var(--purple); stroke-width: 1.6; }
+
+/* ==========================================================================
+   LOGOS
+   ========================================================================== */
+.logos { padding-block: 40px; border-bottom: 1px solid var(--hairline); }
+.logos__label { text-align: center; font-size: .8125rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--contrast-gray); margin-bottom: 24px; }
+.logos__row { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(24px, 5vw, 64px); }
+.logos__row span { font-size: 1.125rem; font-weight: 600; color: #6e6a8a; letter-spacing: .01em; }
+
+/* ==========================================================================
+   GRIDS DE CONTENIDO
+   ========================================================================== */
+.section__head { max-width: 46rem; margin-bottom: clamp(36px, 5vw, 56px); }
+.section__head .h2 { margin-bottom: 16px; }
+
+.cards { display: grid; gap: 20px; }
+@media (min-width: 700px)  { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1060px) { .cards--3 { grid-template-columns: repeat(3, 1fr); } }
+.card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  border-radius: var(--border-radius);
+  padding: clamp(24px, 3vw, 32px);
+}
+.card__icon {
+  width: 52px; height: 52px; border-radius: 16px;
+  display: grid; place-items: center; margin-bottom: 18px;
+  background: var(--lavender); color: var(--purple);
+}
+.card__icon .icon { width: 27px; height: 27px; }
+.card h3 { margin-bottom: 10px; font-size: 1.25rem; font-weight: 600; }
+.card p { color: var(--contrast-gray); font-size: .9375rem; line-height: 1.5; }
+
+/* Para quién es / no es */
+.fit { display: grid; gap: 20px; }
+@media (min-width: 800px) { .fit { grid-template-columns: repeat(2, 1fr); } }
+.fit__col { border-radius: var(--border-radius); padding: clamp(24px, 3vw, 34px); }
+.fit__col--yes { background: var(--lavender); border: 1px solid #ddd8f7; }
+.fit__col--no  { background: #f7f7f8; border: 1px solid #e8e8ea; }
+.fit__col h3 { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; font-size: 1.25rem; font-weight: 600; }
+.fit__col ul { display: grid; gap: 12px; }
+.fit__col li { display: flex; gap: 10px; align-items: flex-start; font-size: .9375rem; line-height: 1.45; }
+.fit__col li .icon { width: 20px; height: 20px; margin-top: 1px; }
+.fit__col--yes li .icon { color: var(--purple); }
+.fit__col--no  li .icon { color: var(--contrast-gray); }
+
+/* Agenda */
+.agenda { display: grid; gap: 0; max-width: 52rem; }
+.agenda__item {
+  display: grid; grid-template-columns: 64px 1fr; gap: 20px;
+  padding-block: 24px; border-top: 1px solid var(--hairline);
+}
+.agenda__item:last-child { border-bottom: 1px solid var(--hairline); }
+.agenda__time { font-weight: 600; color: var(--purple); font-size: .9375rem; padding-top: 2px; }
+.agenda__body h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 6px; }
+.agenda__body p { color: var(--contrast-gray); font-size: .9375rem; line-height: 1.5; }
+
+/* Ponentes */
+.speakers { display: grid; gap: 24px; }
+@media (min-width: 760px) { .speakers { grid-template-columns: repeat(2, 1fr); } }
+.speaker {
+  display: grid; grid-template-columns: 96px 1fr; gap: 20px; align-items: start;
+  background: var(--white); border: 1px solid var(--hairline);
+  border-radius: var(--border-radius); padding: clamp(20px, 2.5vw, 28px);
+}
+.speaker__avatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  display: grid; place-items: center;
+  font-size: 1.75rem; font-weight: 600; color: var(--white);
+  background: linear-gradient(140deg, var(--violet-bg), var(--purple));
+}
+.speaker h3 { font-size: 1.125rem; font-weight: 600; margin-bottom: 4px; }
+.speaker__role { font-size: .875rem; color: var(--purple); font-weight: 600; margin-bottom: 10px; }
+.speaker p { font-size: .9375rem; color: var(--contrast-gray); line-height: 1.5; }
+
+/* Testimonios */
+.quotes { display: grid; gap: 20px; }
+@media (min-width: 900px) { .quotes { grid-template-columns: repeat(3, 1fr); } }
+.quote {
+  background: var(--white); border: 1px solid var(--hairline);
+  border-radius: var(--border-radius); padding: clamp(24px, 3vw, 30px);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.quote blockquote { margin: 0; font-size: 1rem; line-height: 1.5; }
+.quote footer { display: flex; align-items: center; gap: 12px; margin-top: auto; }
+.quote__avatar {
+  width: 42px; height: 42px; border-radius: 50%; flex: 0 0 auto;
+  display: grid; place-items: center; font-size: .875rem; font-weight: 600;
+  background: var(--lavender); color: var(--purple);
+}
+.quote__who { font-size: .875rem; font-weight: 600; }
+.quote__where { font-size: .8125rem; color: var(--contrast-gray); }
+
+/* Teaser oscuro */
+.teaser { position: relative; overflow: hidden; color: var(--white); border-radius: var(--border-radius); }
+.teaser__inner { position: relative; z-index: 1; padding: clamp(40px, 6vw, 72px); max-width: 44rem; }
+.teaser .h2 { color: var(--white); margin-bottom: 16px; }
+.teaser p { color: rgba(255,255,255,.9); margin-bottom: 28px; font-size: 1.0625rem; line-height: 1.5; }
+
+/* FAQ */
+.faqs { max-width: 52rem; }
+.faq { border: 1px solid var(--hairline); border-radius: 18px; margin-bottom: 12px; background: var(--white); overflow: hidden; }
+.faq summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 20px 24px; cursor: pointer;
+  font-weight: 600; font-size: 1.0625rem;
+  list-style: none;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary .icon { color: var(--purple); transition: transform .25s var(--ease); }
+.faq[open] { background: var(--lavender); border-color: #ddd8f7; }
+.faq[open] summary { color: var(--purple); }
+.faq[open] summary .icon { transform: rotate(180deg); }
+.faq__body { padding: 0 24px 22px; color: var(--contrast-gray); font-size: .9375rem; line-height: 1.55; }
+
+/* CTA final */
+.final { text-align: center; }
+.final .h2 { margin-bottom: 16px; }
+.final .lead { margin-inline: auto; max-width: 40rem; margin-bottom: 32px; }
+
+/* Footer */
+.footer { background: var(--ink); color: rgba(255,255,255,.72); padding-block: 48px; font-size: .875rem; }
+.footer__inner { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: space-between; }
+.footer a { color: rgba(255,255,255,.72); text-decoration: none; }
+.footer a:hover { color: var(--white); text-decoration: underline; }
+.footer__links { display: flex; flex-wrap: wrap; gap: 20px; }
+
+/* CTA sticky mobile */
+.sticky-cta {
+  position: fixed; inset: auto 0 0 0; z-index: 90;
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--hairline);
+  display: flex; gap: 12px; align-items: center;
+  transform: translateY(110%);
+  transition: transform .3s var(--ease);
+}
+.sticky-cta[data-visible="true"] { transform: translateY(0); }
+.sticky-cta__meta { flex: 1; min-width: 0; }
+.sticky-cta__meta strong { display: block; font-size: .875rem; }
+.sticky-cta__meta span { font-size: .75rem; color: var(--contrast-gray); }
+@media (min-width: 1000px) { .sticky-cta { display: none; } }
+@media (max-width: 999px) { body { padding-bottom: 84px; } }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></symbol>
+<symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.5 2"/></symbol>
+<symbol id="i-video" viewBox="0 0 24 24"><path d="M16 10.5 21.5 7v10L16 13.5"/><rect x="2.5" y="6" width="13.5" height="12" rx="2"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.4 12.2l2.6 2.6 4.9-5.4"/></symbol>
+<symbol id="i-x-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15 9l-6 6M9 9l6 6"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect x="4" y="10.5" width="16" height="10.5" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M16.2 16.2 21 21"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 2.5 3 7l9 4.5L21 7l-9-4.5Z"/><path d="M3 12l9 4.5L21 12"/><path d="M3 16.5 12 21l9-4.5"/></symbol>
+<symbol id="i-message" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z"/></symbol>
+<symbol id="i-trending-up" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.5v6c0 5 3.2 8.6 7.5 10 4.3-1.4 7.5-5 7.5-10v-6L12 2.5Z"/></symbol>
+<symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4.5"/><path d="M5 4.5h13l-2.5 4.5L18 13.5H5"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+<symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="M6 9.5l6 6 6-6"/></symbol>
+</defs></svg>
+
+<a class="skip-link" href="#registro">Ir al formulario de registro</a>
+
+<!-- ======================= HEADER ======================= -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="header__logo" href="https://founderz.com/es/">
+      <span class="header__logo-mark" aria-hidden="true">F</span>
+      Founderz
+    </a>
+    <p class="header__meta">
+      <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-calendar"/></svg>
+      <span data-placeholder="fecha">Jueves 18 de septiembre · 18:00h CET</span>
+    </p>
+    <a class="button" href="#registro">Reserva tu plaza</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero">
+    <div class="mindscape" aria-hidden="true"></div>
+    <div class="container hero__inner">
+
+      <div>
+        <div class="hero__badges">
+          <span class="chip chip--solid">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-zap"/></svg>
+            Webinar gratuito
+          </span>
+          <span class="chip">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
+            60 minutos
+          </span>
+          <span class="chip">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-video"/></svg>
+            En directo + grabación
+          </span>
+        </div>
+
+        <h1 class="h1">Convierte tu experiencia en tu mayor <em>ventaja</em> con IA</h1>
+
+        <p class="hero__lead">
+          La IA no va a sustituir tu criterio profesional: va a multiplicarlo.
+          En 60 minutos te enseñamos cómo usarla para hacer en una tarde
+          lo que hoy te ocupa una semana.
+        </p>
+
+        <div class="hero__facts">
+          <div class="fact">
+            <span class="fact__k">Cuándo</span>
+            <span class="fact__v" data-placeholder="fecha">18 sept · 18:00h</span>
+          </div>
+          <div class="fact">
+            <span class="fact__k">Dónde</span>
+            <span class="fact__v">Online, en directo</span>
+          </div>
+          <div class="fact">
+            <span class="fact__k">Plazas</span>
+            <span class="fact__v" data-placeholder="plazas">500 limitadas</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta de registro -->
+      <div class="signup" id="registro" data-state="idle">
+        <div class="signup__price">
+          <span class="signup__price-now">Gratis</span>
+          <span class="signup__price-was">99€</span>
+        </div>
+        <p class="signup__price-note">Sin coste y sin compromiso. Solo necesitas tu email.</p>
+
+        <ul class="signup__list">
+          <li>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg>
+            <span>Acceso al directo y a la <strong>grabación durante 30 días</strong></span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg>
+            <span><strong>Plantilla de 12 prompts</strong> lista para usar en tu sector</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg>
+            <span>Turno de <strong>preguntas en directo</strong> con los ponentes</span>
+          </li>
+          <li>
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg>
+            <span>Certificado de asistencia para tu LinkedIn</span>
+          </li>
+        </ul>
+
+        <form class="signup__form" id="form-registro" novalidate>
+          <div class="field" data-field="nombre">
+            <label for="nombre">Nombre y apellidos <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name"
+                   required aria-required="true" aria-describedby="err-nombre">
+            <p class="field__error" id="err-nombre" role="alert"></p>
+          </div>
+
+          <div class="field" data-field="email">
+            <label for="email">Email profesional <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email"
+                   inputmode="email" required aria-required="true" aria-describedby="err-email">
+            <p class="field__error" id="err-email" role="alert"></p>
+          </div>
+
+          <div class="field" data-field="empresa">
+            <label for="empresa">Empresa <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="empresa" name="empresa" autocomplete="organization"
+                   required aria-required="true" aria-describedby="err-empresa">
+            <p class="field__error" id="err-empresa" role="alert"></p>
+          </div>
+
+          <div class="field" data-field="rol">
+            <label for="rol">Tu rol</label>
+            <select id="rol" name="rol">
+              <option value="">Selecciona una opción</option>
+              <option>Dirección general / Fundador</option>
+              <option>Marketing y comunicación</option>
+              <option>Ventas y desarrollo de negocio</option>
+              <option>Operaciones / Producto</option>
+              <option>Recursos humanos</option>
+              <option>Consultoría / Freelance</option>
+              <option>Otro</option>
+            </select>
+          </div>
+
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent" required aria-required="true">
+            <label for="consent">
+              Acepto la <a href="https://founderz.com/es/politica-de-privacidad/" target="_blank" rel="noopener">política de privacidad</a>
+              y recibir información sobre los programas de Founderz.
+            </label>
+          </div>
+          <p class="field__error" id="err-consent" role="alert"></p>
+
+          <button type="submit" class="button button--block button--lg">
+            Reserva tu plaza gratis
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
+          </button>
+
+          <p class="signup__trust">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-lock"/></svg>
+            Tus datos están seguros. Sin spam, puedes darte de baja cuando quieras.
+          </p>
+        </form>
+
+        <div class="signup__success" role="status">
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg>
+          <h2 class="h4" style="margin:12px 0 8px">¡Plaza reservada!</h2>
+          <p style="color:var(--contrast-gray);font-size:.9375rem">
+            Te hemos enviado el enlace de acceso por email. Revisa tu bandeja
+            (y la carpeta de promociones, por si acaso).
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================= LOGOS / SOCIAL PROOF ======================= -->
+  <section class="logos">
+    <div class="container">
+      <p class="logos__label">Nuestros alumni trabajan en</p>
+      <div class="logos__row" data-placeholder="logos">
+        <span>Microsoft</span>
+        <span>Freepik</span>
+        <span>Santander</span>
+        <span>Telefónica</span>
+        <span>Glovo</span>
+        <span>Mango</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= QUÉ VAS A APRENDER ======================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="tag">Qué te llevas</span>
+        <h2 class="h2">Seis cosas que sabrás hacer al salir del webinar</h2>
+        <p class="lead">
+          Nada de teoría ni de futurología. Casos reales, herramientas concretas
+          y un método que puedes aplicar el lunes por la mañana.
+        </p>
+      </div>
+
+      <div class="cards cards--3">
+        <article class="card">
+          <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg></div>
+          <h3>Auditar tu propio trabajo</h3>
+          <p>Identifica en tu semana las tareas que la IA puede absorber hoy y las que dependen de tu criterio. Sales con tu mapa hecho.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-layers"/></svg></div>
+          <h3>Montar tu primer flujo</h3>
+          <p>De la tarea manual al proceso asistido por IA en cuatro pasos, con las herramientas que ya tienes contratadas.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-message"/></svg></div>
+          <h3>Escribir prompts que funcionan</h3>
+          <p>La diferencia entre un resultado mediocre y uno que usarías delante de un cliente está en cómo pides las cosas. Te damos la estructura.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-trending-up"/></svg></div>
+          <h3>Defender tu valor</h3>
+          <p>Cómo posicionar tu experiencia cuando media plantilla usa las mismas herramientas que tú. Aquí está la ventaja real.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-shield"/></svg></div>
+          <h3>Evitar los errores caros</h3>
+          <p>Datos confidenciales, alucinaciones y dependencia. Los tres fallos que vemos una y otra vez, y cómo blindarte.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-flag"/></svg></div>
+          <h3>Trazar tu siguiente paso</h3>
+          <p>Un plan de 30 días realista, adaptado a tu punto de partida y a tu sector. Sin quemar tus tardes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PARA QUIÉN ES ======================= -->
+  <section class="section section--lavender">
+    <div class="container">
+      <div class="section__head">
+        <span class="tag">Encaje</span>
+        <h2 class="h2">Para quién es este webinar</h2>
+      </div>
+
+      <div class="fit">
+        <div class="fit__col fit__col--yes">
+          <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check-circle"/></svg> Es para ti si…</h3>
+          <ul>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Llevas años en tu sector y notas que la IA está cambiando las reglas.</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Has probado ChatGPT y te has quedado con la sensación de "esto da para más".</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Diriges un equipo y necesitas decidir por dónde empezar.</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg><span>Quieres resultados aplicables, no una charla inspiracional.</span></li>
+          </ul>
+        </div>
+        <div class="fit__col fit__col--no">
+          <h3><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x-circle"/></svg> No es para ti si…</h3>
+          <ul>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x"/></svg><span>Buscas contenido técnico de <em>fine-tuning</em> o desarrollo de modelos.</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x"/></svg><span>Esperas una herramienta que trabaje sola sin que tomes decisiones.</span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-x"/></svg><span>Ya tienes flujos de IA en producción en tu equipo.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= AGENDA ======================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="tag">Agenda</span>
+        <h2 class="h2">Cómo se reparten los 60 minutos</h2>
+      </div>
+
+      <div class="agenda">
+        <div class="agenda__item">
+          <div class="agenda__time">00:00</div>
+          <div class="agenda__body">
+            <h3>La trampa del "me va a sustituir"</h3>
+            <p>Por qué el miedo más común es el diagnóstico equivocado, y qué está pasando de verdad en el mercado laboral.</p>
+          </div>
+        </div>
+        <div class="agenda__item">
+          <div class="agenda__time">00:10</div>
+          <div class="agenda__body">
+            <h3>Auditoría en directo</h3>
+            <p>Cogemos una semana de trabajo real y la desmontamos tarea por tarea. Tú haces la tuya en paralelo.</p>
+          </div>
+        </div>
+        <div class="agenda__item">
+          <div class="agenda__time">00:25</div>
+          <div class="agenda__body">
+            <h3>Del prompt al proceso</h3>
+            <p>Tres flujos completos montados en directo: propuesta comercial, análisis de competencia e informe de resultados.</p>
+          </div>
+        </div>
+        <div class="agenda__item">
+          <div class="agenda__time">00:45</div>
+          <div class="agenda__body">
+            <h3>Tu plan de 30 días</h3>
+            <p>El marco para decidir qué automatizas primero según tu rol y tu sector.</p>
+          </div>
+        </div>
+        <div class="agenda__item">
+          <div class="agenda__time">00:52</div>
+          <div class="agenda__body">
+            <h3>Preguntas y respuestas</h3>
+            <p>Turno abierto. Traemos las dudas del chat y las respondemos sin filtro.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= PONENTES ======================= -->
+  <section class="section section--lavender">
+    <div class="container">
+      <div class="section__head">
+        <span class="tag">Ponentes</span>
+        <h2 class="h2">Quién lo imparte</h2>
+      </div>
+
+      <div class="speakers" data-placeholder="ponentes">
+        <article class="speaker">
+          <div class="speaker__avatar" aria-hidden="true">NR</div>
+          <div>
+            <h3>Nombre del ponente</h3>
+            <p class="speaker__role">Cargo · Empresa</p>
+            <p>Dos líneas de bio con la credencial que más pesa: años de experiencia, empresas reconocibles o un resultado concreto y medible.</p>
+          </div>
+        </article>
+        <article class="speaker">
+          <div class="speaker__avatar" aria-hidden="true">SP</div>
+          <div>
+            <h3>Segundo ponente</h3>
+            <p class="speaker__role">Cargo · Empresa</p>
+            <p>Idealmente un perfil complementario al primero: si uno aporta visión de negocio, el otro aporta ejecución práctica.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TESTIMONIOS ======================= -->
+  <section class="section">
+    <div class="container">
+      <div class="section__head">
+        <span class="tag">Testimonios</span>
+        <h2 class="h2">Lo que dicen quienes ya pasaron por aquí</h2>
+      </div>
+
+      <div class="quotes" data-placeholder="testimonios">
+        <figure class="quote">
+          <blockquote>"Salí del webinar con tres flujos montados y los apliqué esa misma semana. Recuperé cuatro horas de mi viernes."</blockquote>
+          <footer>
+            <span class="quote__avatar" aria-hidden="true">MA</span>
+            <span>
+              <span class="quote__who">María A.</span><br>
+              <span class="quote__where">Directora de Marketing</span>
+            </span>
+          </footer>
+        </figure>
+        <figure class="quote">
+          <blockquote>"Llevaba meses leyendo sobre IA sin saber por dónde empezar. En una hora tuve claro mi primer paso."</blockquote>
+          <footer>
+            <span class="quote__avatar" aria-hidden="true">JL</span>
+            <span>
+              <span class="quote__who">Jorge L.</span><br>
+              <span class="quote__where">Responsable de Operaciones</span>
+            </span>
+          </footer>
+        </figure>
+        <figure class="quote">
+          <blockquote>"Lo que más me sirvió fue la parte de cómo defender tu valor. Cambió cómo hablo de mi trabajo."</blockquote>
+          <footer>
+            <span class="quote__avatar" aria-hidden="true">CR</span>
+            <span>
+              <span class="quote__who">Carmen R.</span><br>
+              <span class="quote__where">Consultora independiente</span>
+            </span>
+          </footer>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= TEASER ======================= -->
+  <section class="section" style="padding-block:0 var(--section-py)">
+    <div class="container">
+      <div class="teaser">
+        <div class="mindscape" aria-hidden="true"></div>
+        <div class="teaser__inner">
+          <span class="tag tag--on-dark">Después del webinar</span>
+          <h2 class="h2">Si quieres ir en serio, hay camino</h2>
+          <p>
+            El webinar te da el mapa. Nuestros programas te acompañan durante meses
+            hasta que la IA forma parte de cómo trabajas, con certificación
+            de Microsoft y más de 20 profesores en activo.
+          </p>
+          <a class="button button--inverse button--lg" href="https://founderz.com/es/programas/">
+            Ver los programas
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FAQ ======================= -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="section__head">
+        <span class="tag">Dudas</span>
+        <h2 class="h2">Preguntas frecuentes</h2>
+      </div>
+
+      <div class="faqs">
+        <details class="faq">
+          <summary>¿Es realmente gratis?<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__body">Sí. No pedimos tarjeta ni hay coste posterior. Al final te contaremos qué programas tenemos, pero asistir no te compromete a nada.</div>
+        </details>
+        <details class="faq">
+          <summary>No puedo conectarme a esa hora, ¿puedo verlo después?<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__body">Sí. Regístrate igualmente y te enviamos la grabación al día siguiente. Tienes 30 días para verla cuando te venga bien.</div>
+        </details>
+        <details class="faq">
+          <summary>¿Necesito conocimientos técnicos?<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__body">Ninguno. Si sabes usar un navegador y has abierto ChatGPT alguna vez, vas sobrado. Todo se explica desde cero.</div>
+        </details>
+        <details class="faq">
+          <summary>¿Qué herramientas se usan en las demos?<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__body">Herramientas de uso general con plan gratuito disponible, para que puedas replicar todo sin pagar nada. Te mandamos la lista con el material.</div>
+        </details>
+        <details class="faq">
+          <summary>¿Puedo invitar a mi equipo?<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__body">Sí, y te lo recomendamos. Cada persona debe registrarse con su email para recibir su enlace y su certificado.</div>
+        </details>
+        <details class="faq">
+          <summary>¿Cómo accedo el día del webinar?<svg class="icon" aria-hidden="true" focusable="false"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__body">Recibirás el enlace por email al registrarte y un recordatorio una hora antes. No hace falta instalar nada.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= CTA FINAL ======================= -->
+  <section class="section section--lavender final">
+    <div class="container">
+      <span class="tag">Últimas plazas</span>
+      <h2 class="h2">Una hora ahora, o seguir improvisando</h2>
+      <p class="lead">
+        El webinar es gratuito y las plazas son limitadas.
+        Si no puedes asistir en directo, te mandamos la grabación.
+      </p>
+      <a class="button button--lg" href="#registro">
+        Reserva tu plaza gratis
+        <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow-right"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year">2026</span> Founderz · AI Business School</p>
+    <nav class="footer__links" aria-label="Enlaces legales">
+      <a href="https://founderz.com/es/aviso-legal/">Aviso legal</a>
+      <a href="https://founderz.com/es/politica-de-privacidad/">Privacidad</a>
+      <a href="https://founderz.com/es/politica-de-cookies/">Cookies</a>
+    </nav>
+  </div>
+</footer>
+
+<!-- ======================= STICKY CTA MOBILE ======================= -->
+<div class="sticky-cta" id="sticky-cta" data-visible="false">
+  <div class="sticky-cta__meta">
+    <strong>Webinar gratuito</strong>
+    <span data-placeholder="fecha">18 sept · 18:00h CET</span>
+  </div>
+  <a class="button" href="#registro">Reservar</a>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---------- Sticky CTA: aparece al dejar atrás el hero ---------- */
+  var sticky = document.getElementById('sticky-cta');
+  var hero   = document.querySelector('.hero');
+  if (sticky && hero && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      sticky.dataset.visible = String(!entries[0].isIntersecting);
+    }, { rootMargin: '-120px 0px 0px 0px' }).observe(hero);
+  }
+
+  /* ---------- Validación inline del formulario ---------- */
+  var form   = document.getElementById('form-registro');
+  var signup = document.getElementById('registro');
+  if (!form) return;
+
+  var RULES = {
+    nombre:  function (v) { return v.trim().length >= 2 || 'Escribe tu nombre completo.'; },
+    email:   function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) || 'Introduce un email válido.'; },
+    empresa: function (v) { return v.trim().length >= 2 || 'Indica el nombre de tu empresa.'; }
+  };
+
+  function validateField(name) {
+    var input = form.elements[name];
+    var wrap  = form.querySelector('[data-field="' + name + '"]');
+    var err   = document.getElementById('err-' + name);
+    if (!input || !wrap || !err) return true;
+
+    var result = RULES[name](input.value);
+    var ok = result === true;
+
+    wrap.dataset.invalid = String(!ok);
+    err.textContent = ok ? '' : result;
+    input.setAttribute('aria-invalid', String(!ok));
+    return ok;
+  }
+
+  Object.keys(RULES).forEach(function (name) {
+    var input = form.elements[name];
+    if (!input) return;
+    // Valida al salir del campo; una vez marcado, corrige en vivo.
+    input.addEventListener('blur', function () { validateField(name); });
+    input.addEventListener('input', function () {
+      var wrap = form.querySelector('[data-field="' + name + '"]');
+      if (wrap && wrap.dataset.invalid === 'true') validateField(name);
+    });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    var ok = Object.keys(RULES).map(validateField).every(Boolean);
+
+    var consent    = form.elements.consent;
+    var consentErr = document.getElementById('err-consent');
+    if (!consent.checked) {
+      consentErr.textContent = 'Necesitamos tu consentimiento para registrarte.';
+      ok = false;
+    } else {
+      consentErr.textContent = '';
+    }
+
+    if (!ok) {
+      var firstBad = form.querySelector('[data-invalid="true"] input');
+      (firstBad || consent).focus();
+      return;
+    }
+
+    /* ------------------------------------------------------------------
+       TODO — conectar con el backend real.
+       Founderz usa HubSpot: lo natural es postear a la Forms API
+       (https://api.hsforms.com/submissions/v3/integration/submit/{portalId}/{formGuid})
+       o embeber el formulario nativo de HubSpot.
+       Hasta entonces esto solo muestra el estado de éxito.
+       ------------------------------------------------------------------ */
+    signup.dataset.state = 'sent';
+    signup.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  });
+})();
+</script>
+
+</body>
+</html>
