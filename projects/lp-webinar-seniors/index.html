@@ -82,41 +82,47 @@ a{color:var(--purple)}
 .hero-head{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
 h1 em{font-style:normal;color:var(--purple)}
 
-/* ── el test ── */
-.test{background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--border-radius);padding:clamp(1.1rem,2.5vw,1.6rem)}
-.test-top{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.6rem}
-.test-label{font-size:.875rem;font-weight:600}
-.linkbtn{background:none;border:0;padding:.75rem 0;color:var(--purple);font-family:var(--font-sans);font-size:.8125rem;letter-spacing:.02em;text-decoration:underline;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
-textarea{
-  display:block;width:100%;min-width:0;min-height:7.5rem;resize:vertical;
-  background:var(--white);color:var(--black);
-  border:1px solid var(--border-form);border-radius:var(--radius-input);
-  padding:.85rem 1rem;font-family:var(--font-mono);font-size:.875rem;line-height:1.55;letter-spacing:0;
-}
-textarea::placeholder{color:#8d8d99}
-textarea:focus{border-color:var(--purple);outline:none;box-shadow:0 0 0 3px rgba(80,69,200,.16)}
-.test-actions{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-top:.8rem}
-.counter{font-family:var(--font-mono);font-size:.75rem;color:var(--contrast-gray);margin-left:auto}
+/* ── el juego: elegir, no escribir ── */
+.game{background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--border-radius);padding:clamp(1.1rem,2.5vw,1.6rem)}
+.game-top{display:flex;justify-content:space-between;align-items:baseline;gap:.6rem;flex-wrap:wrap;margin-bottom:.2rem}
+.game-q{font-size:1.0625rem;font-weight:600;line-height:1.3;max-width:30rem}
+.game-step{font-family:var(--font-mono);font-size:.75rem;color:var(--contrast-gray);white-space:nowrap}
+.game-ctx{font-size:.875rem;color:var(--contrast-gray);margin-top:.35rem}
 
-/* ── veredicto ── */
-.verdict{display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--line-soft)}
-.verdict.on{display:block;animation:rise .4s var(--ease-in-out-cubic) both}
+.opts{display:grid;gap:.7rem;margin-top:1rem}
+@media (min-width:620px){ .opts{grid-template-columns:1fr 1fr} }
+.opt{
+  display:flex;flex-direction:column;gap:.5rem;text-align:left;width:100%;
+  background:var(--white);border:2px solid var(--line-soft);border-radius:var(--radius-input);
+  padding:.95rem 1rem;min-height:44px;cursor:pointer;
+  font-family:var(--font-sans);letter-spacing:.02em;color:var(--black);
+  transition:border-color .25s var(--ease-in-out-cubic),background-color .25s var(--ease-in-out-cubic),transform .15s var(--ease-in-out-cubic);
+}
+.opt:hover{border-color:var(--purple)}
+.opt:active{transform:scale(.99)}
+.opt .tag{font-family:var(--font-mono);font-size:.6875rem;color:var(--contrast-gray);letter-spacing:.06em}
+.opt .txt{font-family:var(--font-mono);font-size:.8125rem;line-height:1.55;letter-spacing:0;color:#2c2b33}
+.opts.locked .opt{cursor:default;pointer-events:none}
+.opt[data-state="win"]{border-color:#2f7d5f;background:rgba(163,217,197,.16)}
+.opt[data-state="lose"]{border-color:var(--warm-red);background:rgba(245,125,115,.1)}
+.opt[data-state="dim"]{opacity:.5}
+.opt .verdictline{font-size:.8125rem;font-weight:600;letter-spacing:.02em}
+.opt[data-state="win"] .verdictline{color:#2f7d5f}
+.opt[data-state="lose"] .verdictline{color:#b23b30}
+
+.why{display:none;margin-top:.9rem;padding:.9rem 1rem;background:var(--lilac);border-radius:var(--radius-input);font-size:.9375rem;line-height:1.5}
+.why.on{display:block;animation:rise .35s var(--ease-in-out-cubic) both}
+.why b{color:var(--violet-darker)}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.gauge{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem}
-.gauge-num{font-size:3rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
-.gauge-num small{font-size:.4em;color:var(--contrast-gray);font-weight:400}
-.gauge-tag{font-size:1.0625rem;font-weight:600;display:block}
-.gauge-sub{font-size:.9375rem;color:var(--contrast-gray);line-height:1.4;max-width:24rem;display:block;margin-top:.15rem}
-.bar{height:8px;border-radius:var(--pill);background:#e3e0ee;overflow:hidden;margin-bottom:1.2rem}
-.bar span{display:block;height:100%;width:0;border-radius:var(--pill);transition:width .8s var(--ease-in-out-cubic)}
-.crit{display:grid;gap:.5rem}
-.crit-row{display:grid;grid-template-columns:1.4rem 1fr;gap:.05rem .7rem;padding:.65rem .85rem;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-input)}
-.crit-row[data-hit="1"]{border-color:rgba(163,217,197,.85);background:rgba(163,217,197,.12)}
-.mark{font-weight:600;line-height:1.4}
-.crit-row[data-hit="1"] .mark{color:#2f7d5f}
-.crit-row[data-hit="0"] .mark{color:var(--sunshade)}
-.crit-name{font-weight:600;font-size:.9375rem}
-.crit-why{grid-column:2;font-size:.85rem;color:var(--contrast-gray);line-height:1.45;margin-top:.15rem}
+.game-next{margin-top:.9rem;display:none}
+.game-next.on{display:flex}
+
+.result{display:none;text-align:left}
+.result.on{display:block;animation:rise .4s var(--ease-in-out-cubic) both}
+.result-score{font-size:3rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.result-score small{font-size:.4em;color:var(--contrast-gray);font-weight:400}
+.result h3{margin-top:.5rem}
+.result p{color:var(--contrast-gray);font-size:.9375rem;line-height:1.5;margin-top:.5rem;max-width:32rem}
 
 /* ── card de registro = el CTA ── */
 .card{
@@ -210,33 +216,41 @@ footer.legal{padding:2rem 0 5.5rem;border-top:1px solid var(--line-soft);color:v
         <div class="hero-left">
           <div class="hero-head">
             <span class="eyebrow">Para profesionales con oficio</span>
-            <h1>Tu prompt dice cuántos años <em>llevas trabajando.</em></h1>
-            <p class="lead">Pégalo aquí abajo. En diez segundos te decimos si escribes como quien domina la herramienta o como quien aplica criterio. Sin registro, sin email, sin trampa.</p>
+            <h1>¿Distingues un prompt de júnior <em>de uno de sénior?</em></h1>
+            <p class="lead">Dos prompts, uno al lado del otro. Uno lo escribió alguien que domina la herramienta; el otro, alguien que lleva quince años decidiendo. ¿Sabrías decir cuál es cuál? Tres rondas, un toque cada una.</p>
           </div>
 
-          <div class="test">
-            <div class="test-top">
-              <span class="test-label" id="lbl">Pega un prompt que hayas usado esta semana</span>
-              <button class="linkbtn" type="button" id="demo">Usar un ejemplo</button>
-            </div>
-
-            <textarea id="prompt" aria-labelledby="lbl" placeholder="Escríbeme un post de LinkedIn sobre inteligencia artificial"></textarea>
-
-            <div class="test-actions">
-              <button class="button button--purple button--auto" type="button" id="run">Analizar mi prompt</button>
-              <span class="counter" id="count" aria-live="polite">0 caracteres</span>
-            </div>
-
-            <div class="verdict" id="verdict" role="region" aria-live="polite" aria-label="Resultado">
-              <div class="gauge">
-                <span class="gauge-num" id="score">0<small>/6</small></span>
-                <span>
-                  <strong class="gauge-tag" id="tag"></strong>
-                  <span class="gauge-sub" id="sub"></span>
-                </span>
+          <div class="game" id="game">
+            <div id="round">
+              <div class="game-top">
+                <p class="game-q" id="q"></p>
+                <span class="game-step" id="step"></span>
               </div>
-              <div class="bar"><span id="fill"></span></div>
-              <div class="crit" id="crit"></div>
+              <p class="game-ctx" id="ctx"></p>
+
+              <div class="opts" id="opts">
+                <button class="opt" type="button" data-i="0">
+                  <span class="tag">OPCIÓN A</span>
+                  <span class="txt" id="txtA"></span>
+                  <span class="verdictline" id="vA"></span>
+                </button>
+                <button class="opt" type="button" data-i="1">
+                  <span class="tag">OPCIÓN B</span>
+                  <span class="txt" id="txtB"></span>
+                  <span class="verdictline" id="vB"></span>
+                </button>
+              </div>
+
+              <div class="why" id="why"></div>
+              <div class="game-next" id="nextwrap">
+                <button class="button button--purple button--auto" type="button" id="next">Siguiente</button>
+              </div>
+            </div>
+
+            <div class="result" id="result">
+              <span class="result-score" id="rscore">0<small>/3</small></span>
+              <h3 id="rtag"></h3>
+              <p id="rsub"></p>
             </div>
           </div>
         </div>
@@ -369,78 +383,91 @@ footer.legal{padding:2rem 0 5.5rem;border-top:1px solid var(--line-soft);color:v
 (function(){
   "use strict";
   var $=function(i){return document.getElementById(i)};
-  var ta=$("prompt");
-  var EJEMPLO="Escríbeme un post de LinkedIn sobre inteligencia artificial y cómo está cambiando el trabajo. Que sea profesional.";
 
-  var REGLAS=[
-    {n:"Contexto de quién eres",
-     re:/\b(act[uú]a como|comp[oó]rtate|eres un|eres una|como (un|una)\s+\w+|soy\s+(un|una|el|la)?\s*\w+|desde mi (rol|puesto|experiencia)|en mi (empresa|equipo|sector))\b/i,
-     ok:"Sitúas quién eres o desde dónde hablas.",
-     no:"No dices quién eres. La IA responde a un desconocido, y por eso suena genérico."},
-    {n:"Objetivo concreto",
-     re:/\b(para (que|conseguir|lograr|poder)|con el objetivo|el objetivo es|necesito que|quiero (conseguir|lograr)|me sirva para|de modo que)\b/i,
-     ok:"Explicas para qué sirve el resultado.",
-     no:"Pides una cosa pero no para qué. Sin objetivo no puede priorizar."},
-    {n:"Audiencia definida",
-     re:/\b(dirigido a|para (mi |el |la |los |las )?(equipo|cliente|jefe|direcci[oó]n|comit[eé]|audiencia|p[uú]blico|usuarios?|lectores?|alumnos?|perfiles?)|va a leerlo|lo van a leer|el lector)\b/i,
-     ok:"Defines para quién es.",
-     no:"No dices quién lo va a leer. Un texto para tu comité y otro para LinkedIn no se parecen."},
-    {n:"Restricciones y límites",
-     re:/\b(no (uses|incluyas|menciones|pongas)|evita|sin (usar|incluir|tecnicismos|jerga)|m[aá]ximo|m[ií]nimo|no m[aá]s de|entre \d+ y \d+|\d+\s*(palabras|caracteres|l[ií]neas|p[aá]rrafos|frases|puntos)|tono\s+\w+|en tono)\b/i,
-     ok:"Pones límites: extensión, tono o lo que no quieres.",
-     no:"Sin límites, la IA elige la extensión y el tono por ti. Y elige lo más plano."},
-    {n:"Ejemplo o referencia",
-     re:/\b(por ejemplo|como (este|el siguiente|esto)|te (paso|adjunto|dejo)|bas[aá]ndote en|inspirado en|al estilo de|siguiendo el (formato|modelo|ejemplo)|aqu[ií] tienes)\b/i,
-     ok:"Das un ejemplo o una referencia a imitar.",
-     no:"No hay referencia. Un solo ejemplo de lo que consideras bueno cambia el resultado más que nada."},
-    {n:"Formato de salida",
-     re:/\b(en formato|formato:|en forma de|una tabla|en tabla|lista|bullets|vi[nñ]etas|apartados|secciones|esquema|json|markdown|correo|email|gui[oó]n|resumen ejecutivo|paso a paso)\b/i,
-     ok:"Especificas cómo quieres la respuesta.",
-     no:"No dices en qué forma lo quieres, así que llegará en prosa y tendrás que rehacerlo."}
+  // Tres rondas. El sénior alterna de lado para que no se adivine por posición.
+  var RONDAS=[
+    { ctx:"Un post de LinkedIn.", senior:1,
+      a:"Escríbeme un post de LinkedIn sobre inteligencia artificial y cómo está cambiando el trabajo. Que sea profesional.",
+      b:"Soy directora de operaciones en una empresa de logística de 200 personas. Escribe un post de 120 palabras para otros directores de operaciones contando por qué frenamos un piloto de IA en almacén. Tono directo, sin entusiasmo de vendedor, sin la palabra «revolución». Termina con una pregunta.",
+      why:"El segundo no pide un tema: pide un texto concreto, para un lector concreto, y dice <b>lo que no quiere</b>. Por eso no puede salir genérico." },
+    { ctx:"Resumir la transcripción de un comité.", senior:0,
+      a:"Te paso la transcripción de un comité de 50 minutos. Sácame: (1) decisiones tomadas y quién es responsable de cada una; (2) desacuerdos que quedaron abiertos; (3) lo que se dijo que se haría y no tiene fecha. En tabla. Si algo no está claro en la transcripción, dilo en vez de deducirlo.",
+      b:"Resume esta reunión y dime los puntos importantes.",
+      why:"El primero define <b>qué significa «importante»</b> en lugar de dejar que lo decida la IA. Y le da permiso para decir «no lo sé», que es justo lo que evita que se lo invente." },
+    { ctx:"Analizar unos datos de ventas.", senior:1,
+      a:"Analiza estos datos de ventas y dame conclusiones y recomendaciones.",
+      b:"Adjunto ventas mensuales por región de 2024 y 2025. Compáralas y dime solo dónde la variación supera el 15%. Para cada caso, dame la hipótesis más probable y qué dato necesitaría yo para confirmarla. No me des recomendaciones todavía.",
+      why:"Pone un <b>umbral</b>, pide hipótesis en vez de certezas y aplaza la recomendación. Está usando la IA para pensar mejor, no para que piense por él." }
   ];
 
-  var NIV=[
-    {max:1,t:"Escribes como quien empieza",s:"Le estás pidiendo a la IA que adivine. Devuelve lo más probable, que es lo más genérico.",c:"#d4483c"},
-    {max:3,t:"A medio camino",s:"Ya diriges, pero dejas huecos. Ahí se cuela el resultado del montón.",c:"#d97706"},
-    {max:5,t:"Escribes con criterio",s:"Diriges de verdad. Te queda afinar lo que separa lo bueno de lo publicable.",c:"#5045c8"},
-    {max:6,t:"Esto ya es oficio",s:"Cubres las seis. Lo tuyo no es prompting: es saber qué quieres antes de pedirlo.",c:"#2f7d5f"}
+  var FINAL=[
+    {n:0,t:"No las has visto venir",s:"Y es normal: la diferencia no está en la herramienta, está en el criterio. Eso es exactamente lo que se ve el 17 de septiembre."},
+    {n:1,t:"Una de tres",s:"Intuyes por dónde va, pero todavía no lo distingues a la primera. En el directo se ve el porqué de cada una."},
+    {n:2,t:"Dos de tres",s:"Buen ojo. Te falta el matiz que separa el prompt correcto del que te ahorra media mañana."},
+    {n:3,t:"Las tres",s:"Ya sabes distinguirlo. Lo que vemos el 17 no son reglas: es cómo se decide cuando el resultado no acaba de estar bien."}
   ];
 
-  function contar(){ $("count").textContent=ta.value.trim().length+" caracteres" }
-  ta.addEventListener("input",contar);
-  $("demo").addEventListener("click",function(){ ta.value=EJEMPLO; contar(); analizar() });
+  var i=0, aciertos=0;
 
-  function analizar(){
-    var t=ta.value.trim();
-    if(t.length<12){ ta.focus(); ta.style.borderColor="#d4483c"; setTimeout(function(){ta.style.borderColor=""},1200); return }
+  function pinta(){
+    var r=RONDAS[i];
+    $("q").textContent="¿Cuál lo escribió alguien con quince años de oficio?";
+    $("ctx").textContent=r.ctx;
+    $("step").textContent=(i+1)+" de "+RONDAS.length;
+    $("txtA").textContent=r.a; $("txtB").textContent=r.b;
+    $("vA").textContent=""; $("vB").textContent="";
+    var opts=$("opts");
+    opts.classList.remove("locked");
+    [].forEach.call(opts.children,function(o){ o.removeAttribute("data-state") });
+    $("why").classList.remove("on"); $("why").innerHTML="";
+    $("nextwrap").classList.remove("on");
+    $("next").textContent = (i===RONDAS.length-1) ? "Ver mi resultado" : "Siguiente";
+  }
 
-    var p=0,h="";
-    REGLAS.forEach(function(r){
-      var hit=r.re.test(t)?1:0; if(hit)p++;
-      h+='<div class="crit-row" data-hit="'+hit+'"><span class="mark" aria-hidden="true">'+(hit?"✓":"—")+'</span>'+
-         '<span class="crit-name">'+r.n+'</span><span class="crit-why">'+(hit?r.ok:r.no)+'</span></div>';
-    });
+  function elegir(e){
+    var btn=e.target.closest(".opt"); if(!btn) return;
+    var elegida=parseInt(btn.getAttribute("data-i"),10);
+    var r=RONDAS[i], ok = elegida===r.senior;
+    if(ok) aciertos++;
 
-    var n=NIV[0]; for(var i=0;i<NIV.length;i++){ if(p<=NIV[i].max){n=NIV[i];break} }
-    $("score").innerHTML=p+'<small>/6</small>'; $("score").style.color=n.c;
-    $("tag").textContent=n.t; $("sub").textContent=n.s;
-    $("crit").innerHTML=h;
-    $("verdict").classList.add("on");
-    requestAnimationFrame(function(){ $("fill").style.width=Math.round(p/6*100)+"%"; $("fill").style.background=n.c });
+    var opts=$("opts"); opts.classList.add("locked");
+    var buenos=opts.children[r.senior], malos=opts.children[1-r.senior];
+    buenos.setAttribute("data-state","win");
+    $(r.senior===0?"vA":"vB").textContent="Este lo escribió el sénior";
+    if(!ok){ malos.setAttribute("data-state","lose"); $(r.senior===0?"vB":"vA").textContent="Tu elección"; }
+    else { malos.setAttribute("data-state","dim"); }
 
-    // El resultado personaliza el CTA — el formulario es el destino
-    var falta=6-p;
-    $("card-title").textContent = falta===0 ? "Ya aplicas criterio. Ven a afinarlo." : "Te faltan "+falta+" de 6. Ven a por ellas.";
-    $("card-sub").textContent = falta===0
-      ? "El 17 de septiembre no vemos reglas: vemos cómo se decide. Deja tus datos y te mandamos el enlace."
-      : "Ninguna se arregla aprendiendo otra herramienta. El 17 de septiembre lo enseñamos en directo, gratis. Deja tus datos y entras.";
+    $("why").innerHTML=(ok?"<b>Correcto.</b> ":"<b>Casi.</b> ")+r.why;
+    $("why").classList.add("on");
+    $("nextwrap").classList.add("on");
+  }
+
+  function siguiente(){
+    i++;
+    if(i<RONDAS.length){ pinta(); return; }
+    $("round").style.display="none";
+    var f=FINAL[aciertos];
+    $("rscore").innerHTML=aciertos+'<small>/3</small>';
+    $("rscore").style.color = aciertos>=2 ? "#2f7d5f" : (aciertos===1 ? "#d97706" : "#d4483c");
+    $("rtag").textContent=f.t; $("rsub").textContent=f.s;
+    $("result").classList.add("on");
+
+    // El resultado reescribe el CTA: el motivo para dejar los datos es suyo.
+    $("card-title").textContent = aciertos>=2
+      ? "Buen ojo. Ven a afinarlo."
+      : "Por eso vale la pena el directo.";
+    $("card-sub").textContent = aciertos>=2
+      ? "El 17 de septiembre no repasamos reglas: se ve cómo se decide cuando el resultado no acaba de estar bien. Deja tus datos y te mandamos el enlace."
+      : "La diferencia no está en la herramienta, está en el criterio — y el criterio se ve trabajando. El 17 de septiembre, en directo y gratis.";
     $("card").classList.add("pulse");
     setTimeout(function(){ $("card").classList.remove("pulse") },2600);
   }
 
-  $("run").addEventListener("click",analizar);
-  ta.addEventListener("keydown",function(e){ if((e.metaKey||e.ctrlKey)&&e.key==="Enter") analizar() });
+  $("opts").addEventListener("click",elegir);
+  $("next").addEventListener("click",siguiente);
+  pinta();
 
+  // Formulario
   $("form").addEventListener("submit",function(e){
     e.preventDefault();
     var f=e.currentTarget;
@@ -449,11 +476,10 @@ footer.legal{padding:2rem 0 5.5rem;border-top:1px solid var(--line-soft);color:v
     setTimeout(function(){ f.style.display="none"; $("done").classList.add("on") },550);
   });
 
-  // El sticky aparece cuando el formulario NO esta a la vista, no al salir del hero.
+  // El sticky aparece cuando el formulario NO esta a la vista.
   if("IntersectionObserver" in window){
     new IntersectionObserver(function(en){ $("sticky").classList.toggle("on",!en[0].isIntersecting) },
       {threshold:0.12}).observe($("card"));
   }
-  contar();
 })();
 </script>
