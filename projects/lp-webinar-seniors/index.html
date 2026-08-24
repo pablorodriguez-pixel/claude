@@ -1,380 +1,339 @@
 <title>El Test del Prompt</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 
 <style>
+@font-face{font-family:RundDisplay;src:url(/fonts/RundDisplay-Light.woff2) format("woff2");font-weight:300;font-style:normal;font-display:swap}
+@font-face{font-family:RundDisplay;src:url(/fonts/RundDisplay-Regular.woff2) format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:RundDisplay;src:url(/fonts/RundDisplay-Medium.woff2) format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:RundDisplay;src:url(/fonts/RundDisplay-SemiBold.woff2) format("woff2");font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:"Rund Fallback";src:local("Arial");size-adjust:75.6%;ascent-override:96%}
+
 :root{
-  --purple:#5045c8; --purple-hi:#8f86f0; --purple-dark:#2f2976; --lilac:#ece9ff;
-  --mint:#a3d9c5; --orange:#f2983e; --warm:#f25244;
-  --ink:#111115; --ink-2:#17161e; --ink-3:#1e1c28; --line:#2c2938; --line-2:#3a3648;
-  --paper:#ffffff; --muted:#a7a3bd; --muted-2:#7d7995;
-  --r:1.875rem; --r-s:1.375rem; --pill:100rem; --track:.02em;
-  --ease:cubic-bezier(.645,.045,.355,1);
-  --sans:RundDisplay,"Outfit","Trebuchet MS",Helvetica,Arial,sans-serif;
-  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --purple:#5045c8; --violet-darker:#2f2976; --violet-bg:#846ab0;
+  --pink:#d69cee; --green:#a3d9c5; --sunshade:#fea339; --warm-red:#f57d73;
+  --black:#111115; --white:#fff;
+  --contrast-gray:#5a5a5a; --border-form:#b6b6b6; --line-soft:#e5e3ee;
+  --lilac:#ece9ff; --cream:#f7f6f3;
+  --border-radius:1.875rem; --radius-input:.5rem; --pill:100rem;
+  --max-width-container:1430px; --line-height:1.25;
+  --ease-in-out-cubic:cubic-bezier(.645,.045,.355,1);
+  --font-sans:RundDisplay,"Rund Fallback","Trebuchet MS",Helvetica,sans-serif;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
 }
-@media (max-width:579px){ :root{ --r:1.375rem } }
+@media (max-width:579px){ :root{ --border-radius:1.375rem } }
+
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
 
 body{
-  margin:0;background:var(--ink);color:var(--paper);
-  font-family:var(--sans);letter-spacing:var(--track);line-height:1.25;
-  font-size:1rem;-webkit-font-smoothing:antialiased;
+  margin:0;background:var(--white);color:var(--black);
+  font-family:var(--font-sans);font-size:1rem;line-height:var(--line-height);
+  letter-spacing:.02em;-webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{margin:0;letter-spacing:var(--track);text-wrap:balance;font-weight:600}
-h1{font-size:clamp(2.5rem,7vw,4rem);line-height:.98}
-h2{font-size:clamp(2rem,4.6vw,2.75rem);line-height:1.1}
-h3{font-size:1.25rem;line-height:1.25}
+h1,h2,h3{margin:0;letter-spacing:.02em;text-wrap:balance}
+h1{font-size:clamp(2.5rem,5.5vw,3.5rem);line-height:1;font-weight:600}
+h2{font-size:clamp(2rem,4vw,2.5rem);line-height:1.2;font-weight:600}
+h3{font-size:1.25rem;line-height:1.3;font-weight:600}
 p{margin:0}
-a{color:var(--purple-hi)}
-:focus-visible{outline:3px solid var(--purple-hi);outline-offset:3px;border-radius:6px}
+a{color:var(--purple)}
+:focus-visible{outline:3px solid var(--purple);outline-offset:2px;border-radius:4px}
 
-.wrap{max-width:62rem;margin:0 auto;padding-inline:clamp(1.1rem,4vw,2rem)}
-.sec{padding-block:clamp(56px,9vw,104px)}
-.eyebrow{font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.16em;color:var(--purple-hi)}
-.lead{color:var(--muted);font-size:clamp(1.02rem,2vw,1.18rem);line-height:1.5;max-width:40rem}
+.container{max-width:var(--max-width-container);margin:0 auto;padding-inline:clamp(1rem,4vw,2.5rem)}
+.narrow{max-width:68rem;margin:0 auto}
+.section{padding-block:clamp(56px,7vw,96px)}
+.eyebrow{display:block;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--purple)}
+.lead{color:var(--contrast-gray);font-size:1.0625rem;line-height:1.5;max-width:38rem}
 
 .skip{position:absolute;left:-9999px}
-.skip:focus{left:1rem;top:1rem;position:fixed;z-index:99;background:var(--paper);color:var(--ink);padding:.7rem 1rem;border-radius:var(--pill)}
+.skip:focus{position:fixed;left:1rem;top:1rem;z-index:99;background:var(--black);color:#fff;padding:.7rem 1.1rem;border-radius:var(--pill)}
 
-/* ---------- barra superior ---------- */
-.topbar{
-  background:var(--purple);color:#fff;font-size:.82rem;font-weight:500;
-  text-align:center;padding:.6rem 1rem;letter-spacing:.03em;
+/* ── botones: réplica de .button de main.css ── */
+.button{
+  display:flex;justify-content:center;align-items:center;gap:8px;width:100%;
+  min-height:48px;padding:.75rem 1.5rem;text-align:center;
+  border:1px solid transparent;border-radius:var(--border-radius);
+  font-family:var(--font-sans);font-size:1rem;font-weight:600;
+  line-height:1;letter-spacing:.01em;white-space:nowrap;cursor:pointer;
+  text-decoration:none;
+  transition:color .3s ease,background-color .3s ease,border-color .3s ease;
 }
-.topbar b{font-weight:600}
+.button--purple{background-color:var(--purple);color:var(--white)}
+.button--purple:hover{background-color:var(--violet-darker)}
+.button--outline{background:transparent;color:var(--purple);border-color:var(--purple)}
+.button--outline:hover{background:var(--lilac)}
+.button[disabled]{opacity:.55;cursor:not-allowed}
+.button--auto{width:auto}
 
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;padding-block:clamp(40px,7vw,72px) clamp(48px,8vw,88px)}
-.hero::before{
-  content:"";position:absolute;inset:-30% -10% auto -10%;height:120%;z-index:0;
-  background:
-    radial-gradient(46% 38% at 18% 12%, rgba(80,69,200,.55), transparent 70%),
-    radial-gradient(38% 34% at 82% 8%, rgba(214,156,238,.28), transparent 72%),
-    radial-gradient(44% 40% at 62% 46%, rgba(163,217,197,.14), transparent 70%);
-  filter:blur(6px);pointer-events:none;
-}
-.hero>*{position:relative;z-index:1}
-.hero-head{display:flex;flex-direction:column;gap:1.1rem;max-width:44rem}
-h1 .hl{color:var(--purple-hi)}
+/* ── barra superior ── */
+.topbar{background:var(--black);color:#fff;text-align:center;padding:.65rem 1rem;font-size:.8125rem;font-weight:500;letter-spacing:.03em}
+.topbar b{font-weight:600;color:var(--pink)}
 
-/* ---------- el test ---------- */
-.test{
-  margin-top:clamp(2rem,4vw,2.75rem);
-  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);
-  padding:clamp(1.1rem,3vw,1.75rem);
+/* ── HERO: copy izquierda + card derecha (patrón /maic) ── */
+.hero{padding-block:clamp(36px,5vw,64px) clamp(48px,6vw,80px);background:
+  radial-gradient(70% 55% at 88% 4%, rgba(214,156,238,.22), transparent 62%),
+  radial-gradient(55% 45% at 4% 8%, rgba(80,69,200,.10), transparent 60%);}
+.hero-inner{display:flex;gap:clamp(2rem,4vw,3.5rem);align-items:flex-start}
+.hero-left{flex:1 1 34rem;min-width:0}
+.hero-right{flex:0 0 26rem;max-width:26rem;position:sticky;top:1.5rem}
+@media (max-width:900px){
+  .hero-inner{flex-direction:column;gap:2rem}
+  .hero-left,.hero-right{flex:none;width:100%;max-width:none;position:static}
 }
-.test-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-bottom:.7rem}
-.test-label{font-size:.82rem;font-weight:600;color:var(--paper)}
-.linkbtn{
-  background:none;border:0;color:var(--purple-hi);font-family:var(--sans);
-  font-size:.82rem;letter-spacing:var(--track);cursor:pointer;padding:.35rem .1rem;text-decoration:underline;
-}
+.hero-head{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
+h1 em{font-style:normal;color:var(--purple)}
+
+/* ── el test ── */
+.test{background:var(--cream);border:1px solid var(--line-soft);border-radius:var(--border-radius);padding:clamp(1.1rem,2.5vw,1.6rem)}
+.test-top{display:flex;justify-content:space-between;align-items:baseline;gap:.8rem;flex-wrap:wrap;margin-bottom:.6rem}
+.test-label{font-size:.875rem;font-weight:600}
+.linkbtn{background:none;border:0;padding:.75rem 0;color:var(--purple);font-family:var(--font-sans);font-size:.8125rem;letter-spacing:.02em;text-decoration:underline;cursor:pointer;min-height:44px;display:inline-flex;align-items:center}
 textarea{
-  width:100%;min-height:8.5rem;resize:vertical;min-width:0;
-  background:var(--ink);color:var(--paper);border:1px solid var(--line-2);
-  border-radius:var(--r-s);padding:.95rem 1.05rem;
-  font-family:var(--mono);font-size:.92rem;line-height:1.55;letter-spacing:0;
+  display:block;width:100%;min-width:0;min-height:7.5rem;resize:vertical;
+  background:var(--white);color:var(--black);
+  border:1px solid var(--border-form);border-radius:var(--radius-input);
+  padding:.85rem 1rem;font-family:var(--font-mono);font-size:.875rem;line-height:1.55;letter-spacing:0;
 }
-textarea::placeholder{color:var(--muted-2)}
-textarea:focus{border-color:var(--purple-hi);outline:none;box-shadow:0 0 0 3px rgba(143,134,240,.25)}
-.test-actions{display:flex;gap:.7rem;align-items:center;flex-wrap:wrap;margin-top:.85rem}
-.counter{font-family:var(--mono);font-size:.76rem;color:var(--muted-2);margin-left:auto}
+textarea::placeholder{color:#8d8d99}
+textarea:focus{border-color:var(--purple);outline:none;box-shadow:0 0 0 3px rgba(80,69,200,.16)}
+.test-actions{display:flex;gap:.75rem;align-items:center;flex-wrap:wrap;margin-top:.8rem}
+.counter{font-family:var(--font-mono);font-size:.75rem;color:var(--contrast-gray);margin-left:auto}
 
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  min-height:52px;padding:.85rem 1.6rem;border-radius:var(--pill);
-  font-family:var(--sans);font-size:1rem;font-weight:600;letter-spacing:var(--track);
-  border:1px solid transparent;cursor:pointer;text-decoration:none;
-  transition:background-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease);
+/* ── veredicto ── */
+.verdict{display:none;margin-top:1.2rem;padding-top:1.2rem;border-top:1px solid var(--line-soft)}
+.verdict.on{display:block;animation:rise .4s var(--ease-in-out-cubic) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.gauge{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:.9rem}
+.gauge-num{font-size:3rem;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.gauge-num small{font-size:.4em;color:var(--contrast-gray);font-weight:400}
+.gauge-tag{font-size:1.0625rem;font-weight:600;display:block}
+.gauge-sub{font-size:.9375rem;color:var(--contrast-gray);line-height:1.4;max-width:24rem;display:block;margin-top:.15rem}
+.bar{height:8px;border-radius:var(--pill);background:#e3e0ee;overflow:hidden;margin-bottom:1.2rem}
+.bar span{display:block;height:100%;width:0;border-radius:var(--pill);transition:width .8s var(--ease-in-out-cubic)}
+.crit{display:grid;gap:.5rem}
+.crit-row{display:grid;grid-template-columns:1.4rem 1fr;gap:.05rem .7rem;padding:.65rem .85rem;background:var(--white);border:1px solid var(--line-soft);border-radius:var(--radius-input)}
+.crit-row[data-hit="1"]{border-color:rgba(163,217,197,.85);background:rgba(163,217,197,.12)}
+.mark{font-weight:600;line-height:1.4}
+.crit-row[data-hit="1"] .mark{color:#2f7d5f}
+.crit-row[data-hit="0"] .mark{color:var(--sunshade)}
+.crit-name{font-weight:600;font-size:.9375rem}
+.crit-why{grid-column:2;font-size:.85rem;color:var(--contrast-gray);line-height:1.45;margin-top:.15rem}
+
+/* ── card de registro = el CTA ── */
+.card{
+  background:var(--white);border:1px solid var(--line-soft);border-radius:var(--border-radius);
+  box-shadow:0 10px 40px rgba(0,0,0,.08);padding:clamp(1.3rem,3vw,1.85rem);
+  transition:box-shadow .4s var(--ease-in-out-cubic),border-color .4s var(--ease-in-out-cubic);
 }
-.btn--primary{background:var(--purple);color:#fff}
-.btn--primary:hover{background:var(--purple-dark)}
-.btn--ghost{background:transparent;color:var(--paper);border-color:var(--line-2)}
-.btn--ghost:hover{border-color:var(--purple-hi);color:var(--purple-hi)}
-.btn--block{width:100%}
-.btn[disabled]{opacity:.5;cursor:not-allowed}
+.card.pulse{border-color:var(--purple);box-shadow:0 14px 48px rgba(80,69,200,.24)}
+.card-badge{display:inline-flex;align-items:center;gap:.4rem;background:var(--lilac);color:var(--violet-darker);font-size:.75rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:.3rem .7rem;border-radius:var(--pill)}
+.card h2{font-size:1.5rem;margin-top:.75rem}
+.card-when{display:flex;gap:1.25rem;flex-wrap:wrap;margin-top:.9rem;padding-block:.85rem;border-block:1px solid var(--line-soft)}
+.card-when div{display:flex;flex-direction:column;gap:.1rem}
+.card-when dt{font-size:.6875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--contrast-gray);font-weight:500}
+.card-when dd{margin:0;font-size:1rem;font-weight:600}
+.card-note{font-size:.8125rem;color:var(--contrast-gray);line-height:1.45;margin-top:.85rem}
 
-/* ---------- veredicto ---------- */
-.verdict{margin-top:1.25rem;display:none}
-.verdict.on{display:block;animation:rise .45s var(--ease) both}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-
-.gauge{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin-bottom:1.1rem}
-.gauge-num{
-  font-size:clamp(2.6rem,8vw,3.4rem);font-weight:600;line-height:1;
-  font-variant-numeric:tabular-nums;
-}
-.gauge-num small{font-size:.42em;color:var(--muted-2);font-weight:400}
-.gauge-txt{display:flex;flex-direction:column;gap:.15rem}
-.gauge-tag{font-size:1.05rem;font-weight:600}
-.gauge-sub{font-size:.9rem;color:var(--muted);max-width:26rem;line-height:1.4}
-
-.bar{height:8px;border-radius:var(--pill);background:var(--ink-3);overflow:hidden;margin-bottom:1.4rem}
-.bar span{display:block;height:100%;border-radius:var(--pill);width:0;transition:width .8s var(--ease)}
-
-.crit{display:grid;gap:.55rem}
-.crit-row{
-  display:grid;grid-template-columns:1.6rem 1fr;gap:.1rem .75rem;align-items:start;
-  padding:.7rem .85rem;border-radius:var(--r-s);background:var(--ink-3);border:1px solid var(--line);
-}
-.crit-row[data-hit="1"]{border-color:rgba(163,217,197,.35)}
-.mark{font-size:1rem;line-height:1.35;font-weight:600}
-.crit-row[data-hit="1"] .mark{color:var(--mint)}
-.crit-row[data-hit="0"] .mark{color:var(--orange)}
-.crit-name{font-weight:600;font-size:.95rem}
-.crit-why{grid-column:2;font-size:.86rem;color:var(--muted);line-height:1.45;margin-top:.15rem}
-
-.bridge{
-  margin-top:1.5rem;padding:1.1rem 1.2rem;border-radius:var(--r-s);
-  background:linear-gradient(100deg,rgba(80,69,200,.28),rgba(214,156,238,.12));
-  border:1px solid rgba(143,134,240,.4);
-}
-.bridge p{font-size:1rem;line-height:1.5}
-.bridge b{color:#fff}
-
-/* ---------- franja de datos ---------- */
-.facts{border-block:1px solid var(--line);background:var(--ink-2)}
-.facts-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1px;background:var(--line)}
-.fact{background:var(--ink-2);padding:1.2rem 1.1rem;display:flex;flex-direction:column;gap:.2rem}
-.fact dt{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-2);font-weight:500}
-.fact dd{margin:0;font-size:1.22rem;font-weight:600;font-variant-numeric:tabular-nums}
-
-/* ---------- formulario ---------- */
-.signup{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r);padding:clamp(1.2rem,3.5vw,2rem)}
-.form{display:grid;gap:.9rem;margin-top:1.3rem}
-.field{display:flex;flex-direction:column;gap:.35rem;min-width:0}
-.label{font-size:.84rem;font-weight:500;color:var(--muted)}
+.form{display:grid;gap:.8rem;margin-top:1.1rem}
+.field{display:flex;flex-direction:column;gap:.3rem;min-width:0}
+.label{font-size:.8125rem;font-weight:500;color:var(--contrast-gray)}
 .input,.select{
-  width:100%;min-width:0;min-height:52px;
-  background:var(--ink);color:var(--paper);border:1px solid var(--line-2);
-  border-radius:.65rem;padding:.8rem .95rem;
-  font-family:var(--sans);font-size:1rem;letter-spacing:var(--track);
+  width:100%;min-width:0;min-height:48px;
+  background:var(--white);color:var(--black);
+  border:1px solid var(--border-form);border-radius:var(--radius-input);
+  padding:.7rem .9rem;font-family:var(--font-sans);font-size:1rem;letter-spacing:.02em;
   appearance:none;-webkit-appearance:none;
 }
-.input::placeholder{color:var(--muted-2)}
-.input:focus,.select:focus{border-color:var(--purple-hi);outline:none;box-shadow:0 0 0 3px rgba(143,134,240,.25)}
-.phone{display:grid;grid-template-columns:8.5rem 1fr;gap:.6rem;min-width:0}
-@media (max-width:420px){.phone{grid-template-columns:7rem 1fr}}
+.input::placeholder{color:#8d8d99}
+.input:focus,.select:focus{border-color:var(--purple);outline:none;box-shadow:0 0 0 3px rgba(80,69,200,.16)}
+.phone{display:grid;grid-template-columns:7.5rem 1fr;gap:.5rem;min-width:0}
+@media (max-width:400px){.phone{grid-template-columns:6.5rem 1fr}}
 .selwrap{position:relative;min-width:0}
-.selwrap::after{
-  content:"";position:absolute;right:.85rem;top:50%;width:.55rem;height:.55rem;
-  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
-  transform:translateY(-70%) rotate(45deg);pointer-events:none;
-}
-.consent{display:grid;grid-template-columns:1.4rem 1fr;gap:.65rem;align-items:start;margin-top:.2rem}
-.consent input{width:1.4rem;height:1.4rem;accent-color:var(--purple);margin:0}
-.consent label{font-size:.83rem;color:var(--muted);line-height:1.45}
-.consent a{color:var(--purple-hi)}
-.formnote{font-size:.78rem;color:var(--muted-2);margin-top:.5rem;text-align:center}
-.done{
-  display:none;padding:1.4rem;border-radius:var(--r-s);text-align:center;
-  background:rgba(163,217,197,.12);border:1px solid rgba(163,217,197,.4);
-}
+.selwrap::after{content:"";position:absolute;right:.8rem;top:50%;width:.5rem;height:.5rem;border-right:2px solid var(--contrast-gray);border-bottom:2px solid var(--contrast-gray);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.consent{display:grid;grid-template-columns:2.75rem 1fr;gap:.35rem;align-items:center;min-height:44px}
+.consent input{width:1.5rem;height:1.5rem;margin:0 .625rem;accent-color:var(--purple)}
+/* El objetivo tactil real es el <label>, que va asociado con for= y ocupa dos lineas. */
+.consent label{font-size:.78125rem;color:var(--contrast-gray);line-height:1.5;padding-block:.35rem;cursor:pointer}
+.privacy{font-size:.75rem;color:var(--contrast-gray);text-align:center;margin-top:.6rem}
+.done{display:none;padding:1.5rem .5rem;text-align:center}
 .done.on{display:block}
-.done h3{color:var(--mint);margin-bottom:.4rem}
-.done p{color:var(--muted);font-size:.94rem;line-height:1.5}
+.done h3{color:var(--violet-darker)}
+.done p{color:var(--contrast-gray);font-size:.9375rem;line-height:1.5;margin-top:.5rem}
 
-/* ---------- bloques de contenido ---------- */
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:2rem}
-.card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--r-s);padding:1.35rem}
-.card h3{margin-bottom:.5rem}
-.card p{color:var(--muted);font-size:.93rem;line-height:1.5}
-.card .n{font-family:var(--mono);font-size:.78rem;color:var(--purple-hi);display:block;margin-bottom:.6rem}
+/* ── franja de datos ── */
+.strip{background:var(--black);color:#fff}
+.strip-in{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1px;background:#2a2833}
+.strip-cell{background:var(--black);padding:1.15rem 1rem;display:flex;flex-direction:column;gap:.2rem}
+.strip-cell dt{font-size:.6875rem;text-transform:uppercase;letter-spacing:.12em;color:#9b97ae;font-weight:500}
+.strip-cell dd{margin:0;font-size:1.25rem;font-weight:600;font-variant-numeric:tabular-nums}
 
-.people{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
-.person{
-  display:flex;flex-direction:column;gap:.1rem;padding:.75rem 1.1rem;
-  background:var(--ink-2);border:1px solid var(--line);border-radius:var(--pill);
-}
-.person b{font-size:.94rem;font-weight:600}
-.person span{font-size:.78rem;color:var(--muted-2)}
+/* ── contenido ── */
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem;margin-top:2rem}
+.tile{background:var(--cream);border-radius:var(--border-radius);padding:1.5rem}
+.tile .n{display:block;font-family:var(--font-mono);font-size:.75rem;color:var(--purple);margin-bottom:.7rem}
+.tile h3{margin-bottom:.5rem}
+.tile p{color:var(--contrast-gray);font-size:.9375rem;line-height:1.5}
 
-.quote{
-  border-left:3px solid var(--purple);padding-left:1.15rem;margin-top:1.6rem;
-  font-size:clamp(1.05rem,2.4vw,1.3rem);line-height:1.45;
-}
-.quote footer{margin-top:.65rem;font-size:.85rem;color:var(--muted-2);font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.chip{display:flex;flex-direction:column;gap:.1rem;padding:.7rem 1.15rem;border:1px solid var(--border-form);border-radius:var(--pill);background:var(--white)}
+.chip b{font-size:.9375rem;font-weight:600}
+.chip span{font-size:.75rem;color:var(--contrast-gray)}
 
-details{border-bottom:1px solid var(--line)}
-details summary{
-  cursor:pointer;list-style:none;padding:1.05rem 2rem 1.05rem 0;position:relative;
-  font-weight:600;font-size:1rem;min-height:44px;display:flex;align-items:center;
-}
-details summary::-webkit-details-marker{display:none}
-details summary::after{
-  content:"";position:absolute;right:.35rem;top:50%;width:.6rem;height:.6rem;
-  border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);
-  transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--ease);
-}
-details[open] summary::after{transform:translateY(-20%) rotate(-135deg)}
-details .ans{padding:0 0 1.1rem;color:var(--muted);font-size:.93rem;line-height:1.55;max-width:44rem}
+.quote{margin-top:1.75rem;padding:1.5rem 1.6rem;background:var(--lilac);border-radius:var(--border-radius);font-size:1.0625rem;line-height:1.5}
+.quote footer{margin-top:.7rem;font-size:.8125rem;color:var(--violet-darker);font-weight:500}
 
-/* ---------- sticky ---------- */
-.sticky{
-  position:fixed;left:0;right:0;bottom:0;z-index:40;
-  background:rgba(23,22,30,.94);backdrop-filter:blur(10px);
-  border-top:1px solid var(--line);padding:.7rem clamp(1rem,4vw,2rem);
-  display:flex;align-items:center;justify-content:space-between;gap:1rem;
-  transform:translateY(110%);transition:transform .35s var(--ease);
-}
+details{border-bottom:1px solid var(--line-soft)}
+summary{cursor:pointer;list-style:none;position:relative;padding:1.05rem 2.2rem 1.05rem 0;min-height:44px;display:flex;align-items:center;font-weight:600}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:.4rem;top:50%;width:.55rem;height:.55rem;border-right:2px solid var(--contrast-gray);border-bottom:2px solid var(--contrast-gray);transform:translateY(-70%) rotate(45deg);transition:transform .25s var(--ease-in-out-cubic)}
+details[open] summary{color:var(--purple)}
+details[open] summary::after{transform:translateY(-20%) rotate(-135deg);border-color:var(--purple)}
+.ans{padding:0 0 1.15rem;color:var(--contrast-gray);font-size:.9375rem;line-height:1.55;max-width:44rem}
+
+/* ── sticky móvil ── */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-top:1px solid var(--line-soft);padding:.7rem 1rem;transform:translateY(110%);transition:transform .35s var(--ease-in-out-cubic)}
 .sticky.on{transform:none}
-.sticky-txt{font-size:.85rem;color:var(--muted);line-height:1.3}
-.sticky-txt b{color:var(--paper);display:block;font-size:.95rem}
-.sticky .btn{min-height:48px;padding:.7rem 1.25rem;font-size:.92rem;flex:none}
-@media (max-width:520px){ .sticky-txt{display:none} .sticky{justify-content:stretch} .sticky .btn{width:100%} }
+@media (min-width:901px){.sticky{display:none}}
 
-footer.legal{padding:2.5rem 0 6rem;color:var(--muted-2);font-size:.8rem;line-height:1.6;border-top:1px solid var(--line)}
+footer.legal{padding:2rem 0 5.5rem;border-top:1px solid var(--line-soft);color:var(--contrast-gray);font-size:.8125rem;line-height:1.6}
 </style>
 
 <a class="skip" href="#main">Saltar al contenido</a>
-
-<div class="topbar">Webinar gratuito en directo · <b>17 de septiembre, 19:00 h</b> · 60 minutos · Quedará grabado</div>
+<div class="topbar">Webinar gratuito en directo · <b>17 de septiembre, 19:00 h</b> · 60 min · Queda grabado</div>
 
 <main id="main">
 
-  <!-- ══════════ HERO = EL TEST ══════════ -->
   <section class="hero">
-    <div class="wrap">
-      <div class="hero-head">
-        <span class="eyebrow">Para profesionales con oficio</span>
-        <h1>Tu prompt dice<br>cuántos años<br><span class="hl">llevas trabajando.</span></h1>
-        <p class="lead">Pégalo aquí abajo. En diez segundos te decimos si escribes como alguien que domina la herramienta o como alguien que aplica criterio. Sin registro, sin email, sin trampa.</p>
-      </div>
+    <div class="container narrow">
+      <div class="hero-inner">
 
-      <div class="test">
-        <div class="test-top">
-          <span class="test-label" id="lbl-prompt">Pega un prompt que hayas usado esta semana</span>
-          <button class="linkbtn" type="button" id="demo">No tengo ninguno a mano — usa un ejemplo</button>
-        </div>
-
-        <textarea id="prompt" aria-labelledby="lbl-prompt" placeholder="Escríbeme un post de LinkedIn sobre inteligencia artificial"></textarea>
-
-        <div class="test-actions">
-          <button class="btn btn--primary" type="button" id="run">Analizar mi prompt</button>
-          <span class="counter" id="count" aria-live="polite">0 caracteres</span>
-        </div>
-
-        <div class="verdict" id="verdict" role="region" aria-live="polite" aria-label="Resultado del análisis">
-          <div class="gauge">
-            <span class="gauge-num" id="score">0<small>/6</small></span>
-            <span class="gauge-txt">
-              <span class="gauge-tag" id="tag"></span>
-              <span class="gauge-sub" id="sub"></span>
-            </span>
+        <!-- ══ IZQUIERDA: copy + test ══ -->
+        <div class="hero-left">
+          <div class="hero-head">
+            <span class="eyebrow">Para profesionales con oficio</span>
+            <h1>Tu prompt dice cuántos años <em>llevas trabajando.</em></h1>
+            <p class="lead">Pégalo aquí abajo. En diez segundos te decimos si escribes como quien domina la herramienta o como quien aplica criterio. Sin registro, sin email, sin trampa.</p>
           </div>
-          <div class="bar"><span id="fill"></span></div>
-          <div class="crit" id="crit"></div>
-          <div class="bridge" id="bridge"></div>
+
+          <div class="test">
+            <div class="test-top">
+              <span class="test-label" id="lbl">Pega un prompt que hayas usado esta semana</span>
+              <button class="linkbtn" type="button" id="demo">Usar un ejemplo</button>
+            </div>
+
+            <textarea id="prompt" aria-labelledby="lbl" placeholder="Escríbeme un post de LinkedIn sobre inteligencia artificial"></textarea>
+
+            <div class="test-actions">
+              <button class="button button--purple button--auto" type="button" id="run">Analizar mi prompt</button>
+              <span class="counter" id="count" aria-live="polite">0 caracteres</span>
+            </div>
+
+            <div class="verdict" id="verdict" role="region" aria-live="polite" aria-label="Resultado">
+              <div class="gauge">
+                <span class="gauge-num" id="score">0<small>/6</small></span>
+                <span>
+                  <strong class="gauge-tag" id="tag"></strong>
+                  <span class="gauge-sub" id="sub"></span>
+                </span>
+              </div>
+              <div class="bar"><span id="fill"></span></div>
+              <div class="crit" id="crit"></div>
+            </div>
+          </div>
         </div>
+
+        <!-- ══ DERECHA: el formulario ES el CTA ══ -->
+        <aside class="hero-right">
+          <div class="card" id="card">
+            <span class="card-badge">Plazas gratuitas</span>
+            <h2 id="card-title">Deja tus datos y entras</h2>
+            <p class="card-note" id="card-sub" style="margin-top:.6rem">Te mandamos el enlace del directo, la grabación y la guía «Cómo conseguir que tu empresa te permita trabajar con IA».</p>
+
+            <dl class="card-when">
+              <div><dt>Cuándo</dt><dd>17 sept · 19:00</dd></div>
+              <div><dt>Dura</dt><dd>60 min</dd></div>
+              <div><dt>Precio</dt><dd>0 €</dd></div>
+            </dl>
+
+            <form class="form" id="form" novalidate>
+              <div class="field">
+                <label class="label" for="f-nombre">Nombre</label>
+                <input class="input" id="f-nombre" name="firstname" autocomplete="given-name" required placeholder="Tu nombre">
+              </div>
+              <div class="field">
+                <label class="label" for="f-email">Email</label>
+                <input class="input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="tu@empresa.com">
+              </div>
+              <div class="field">
+                <label class="label" for="f-tel">Teléfono</label>
+                <div class="phone">
+                  <div class="selwrap">
+                    <select class="select" id="f-pais" name="country_code" aria-label="Prefijo de país">
+                      <option value="+34" selected>ES +34</option>
+                      <option value="+52">MX +52</option>
+                      <option value="+57">CO +57</option>
+                      <option value="+54">AR +54</option>
+                      <option value="+56">CL +56</option>
+                      <option value="+51">PE +51</option>
+                      <option value="+1">US +1</option>
+                    </select>
+                  </div>
+                  <input class="input" id="f-tel" name="phone" type="tel" autocomplete="tel-national" required placeholder="600 000 000">
+                </div>
+              </div>
+
+              <div class="consent">
+                <input type="checkbox" id="f-tyc" name="consent" required>
+                <label for="f-tyc">He leído y acepto los <a href="https://founderz.com/es/terminos-y-condiciones/" target="_blank" rel="noopener">Términos y condiciones</a> y la <a href="https://founderz.com/es/politica-de-privacidad/" target="_blank" rel="noopener">Política de privacidad</a>&nbsp;*</label>
+              </div>
+
+              <button class="button button--purple" type="submit" id="submit">Reservar mi plaza</button>
+              <p class="privacy">+4.500 profesionales ya registrados</p>
+            </form>
+
+            <div class="done" id="done" role="status">
+              <h3>Plaza reservada.</h3>
+              <p>Te hemos mandado el enlace por email. Revisa también la carpeta de promociones.</p>
+            </div>
+          </div>
+        </aside>
+
       </div>
     </div>
   </section>
 
-  <!-- ══════════ DATOS DUROS ══════════ -->
-  <section class="facts">
-    <div class="wrap">
-      <dl class="facts-in">
-        <div class="fact"><dt>Ya registrados</dt><dd>+4.500</dd></div>
-        <div class="fact"><dt>Cuándo</dt><dd>17 sept · 19:00</dd></div>
-        <div class="fact"><dt>Duración</dt><dd>60 min</dd></div>
-        <div class="fact"><dt>Precio</dt><dd>0 €</dd></div>
+  <section class="strip">
+    <div class="container narrow">
+      <dl class="strip-in">
+        <div class="strip-cell"><dt>Registrados</dt><dd>+4.500</dd></div>
+        <div class="strip-cell"><dt>Cuándo</dt><dd>17 sept · 19:00</dd></div>
+        <div class="strip-cell"><dt>Duración</dt><dd>60 min</dd></div>
+        <div class="strip-cell"><dt>Precio</dt><dd>0 €</dd></div>
       </dl>
     </div>
   </section>
 
-  <!-- ══════════ EL PUENTE ══════════ -->
-  <section class="sec">
-    <div class="wrap">
+  <section class="section">
+    <div class="container narrow">
       <span class="eyebrow">Lo que acabas de ver</span>
-      <h2 style="margin-top:.7rem">Ese análisis lo hace una lista de seis reglas.<br>Un sénior lo hace sin pensarlo.</h2>
-      <p class="lead" style="margin-top:1rem">Y ahí está toda la diferencia. No en saber más ChatGPT: en saber qué pedir, para quién, con qué límites y con qué criterio para juzgar lo que sale. Eso no se aprende leyendo la documentación de una herramienta — se aprende viendo trabajar a alguien que lleva quince años decidiendo.</p>
+      <h2 style="margin-top:.7rem">Ese análisis son seis reglas.<br>Un sénior las aplica sin pensarlas.</h2>
+      <p class="lead" style="margin-top:1rem">Ahí está toda la diferencia, y no en saber más ChatGPT: en saber qué pedir, para quién, con qué límites y con qué criterio para juzgar lo que sale. Eso no se aprende leyendo la documentación de una herramienta.</p>
 
-      <div class="cols">
-        <div class="card">
-          <span class="n">01</span>
-          <h3>Un prompt, dos resultados</h3>
-          <p>El mismo texto escrito por un perfil júnior y por uno sénior, en directo y lado a lado. Lo que cambia no es la herramienta.</p>
-        </div>
-        <div class="card">
-          <span class="n">02</span>
-          <h3>Delegar la ejecución, quedarte el criterio</h3>
-          <p>Cómo montarte un sistema donde la IA ejecuta y tú decides. Sin escribir una línea de código.</p>
-        </div>
-        <div class="card">
-          <span class="n">03</span>
-          <h3>La herramienta es lo de menos</h3>
-          <p>Cada semana sale una nueva. La pregunta útil nunca fue «¿cuál es mejor?», sino «¿qué quiero conseguir?».</p>
-        </div>
+      <div class="grid3">
+        <div class="tile"><span class="n">01</span><h3>Un prompt, dos resultados</h3><p>El mismo texto escrito por un perfil júnior y por uno sénior, en directo y lado a lado. Lo que cambia no es la herramienta.</p></div>
+        <div class="tile"><span class="n">02</span><h3>Delega la ejecución, quédate el criterio</h3><p>Cómo montar un sistema donde la IA ejecuta y tú decides. Sin escribir una línea de código.</p></div>
+        <div class="tile"><span class="n">03</span><h3>La herramienta es lo de menos</h3><p>Cada semana sale una nueva. La pregunta útil nunca fue «¿cuál es mejor?», sino «¿qué quiero conseguir?».</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════ FORMULARIO ══════════ -->
-  <section class="sec" id="registro" style="padding-top:0">
-    <div class="wrap">
-      <div class="signup">
-        <span class="eyebrow">Reserva</span>
-        <h2 style="margin-top:.6rem">Guarda tu plaza</h2>
-        <p class="lead" style="margin-top:.8rem;font-size:1rem">17 de septiembre, 19:00 h. Si no puedes conectarte, te mandamos la grabación igual — más la guía <em>«Cómo conseguir que tu empresa te permita trabajar con IA»</em>.</p>
-
-        <form class="form" id="form" novalidate>
-          <div class="field">
-            <label class="label" for="f-nombre">Nombre</label>
-            <input class="input" id="f-nombre" name="firstname" autocomplete="given-name" required placeholder="Tu nombre">
-          </div>
-          <div class="field">
-            <label class="label" for="f-email">Email</label>
-            <input class="input" id="f-email" name="email" type="email" autocomplete="email" required placeholder="tu@empresa.com">
-          </div>
-          <div class="field">
-            <label class="label" for="f-tel">Teléfono</label>
-            <div class="phone">
-              <div class="selwrap">
-                <select class="select" id="f-pais" name="country_code" aria-label="Prefijo de país">
-                  <option value="+34" selected>ES +34</option>
-                  <option value="+52">MX +52</option>
-                  <option value="+57">CO +57</option>
-                  <option value="+54">AR +54</option>
-                  <option value="+56">CL +56</option>
-                  <option value="+51">PE +51</option>
-                  <option value="+1">US +1</option>
-                </select>
-              </div>
-              <input class="input" id="f-tel" name="phone" type="tel" autocomplete="tel-national" required placeholder="600 000 000">
-            </div>
-          </div>
-
-          <div class="consent">
-            <input type="checkbox" id="f-tyc" name="consent" required>
-            <label for="f-tyc">He leído y acepto los <a href="https://founderz.com/es/terminos-y-condiciones/" target="_blank" rel="noopener">Términos y condiciones</a> y la <a href="https://founderz.com/es/politica-de-privacidad/" target="_blank" rel="noopener">Política de privacidad</a>&nbsp;*</label>
-          </div>
-
-          <button class="btn btn--primary btn--block" type="submit" id="submit">Guardar mi plaza del 17</button>
-          <p class="formnote">Tres campos. Nada de llamadas comerciales por sorpresa.</p>
-        </form>
-
-        <div class="done" id="done" role="status">
-          <h3>Plaza guardada.</h3>
-          <p>Te hemos mandado el enlace por email. Revisa también promociones — a veces se esconde ahí.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════ PONENTES ══════════ -->
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
+  <section class="section" style="padding-top:0">
+    <div class="container narrow">
       <span class="eyebrow">Quién lo da</span>
       <h2 style="margin-top:.7rem">Gente que decide, no que explica herramientas</h2>
-      <div class="people">
-        <span class="person"><b>Pau Garcia-Milà</b><span>Cofounder &amp; Co-CEO — Founderz</span></span>
-        <span class="person"><b>Ramón Iborra</b><span>CEO — Artilabs</span></span>
+      <div class="chips">
+        <span class="chip"><b>Pau Garcia-Milà</b><span>Cofounder &amp; Co-CEO — Founderz</span></span>
+        <span class="chip"><b>Ramón Iborra</b><span>CEO — Artilabs</span></span>
       </div>
-
       <blockquote class="quote">
         «No buscaba otro tutorial genérico, sino contacto directo con expertos y ejemplos aplicables a mi día a día. Fue exactamente eso.»
         <footer>Geraldine Vela · Customer Success Manager</footer>
@@ -382,174 +341,119 @@ footer.legal{padding:2.5rem 0 6rem;color:var(--muted-2);font-size:.8rem;line-hei
     </div>
   </section>
 
-  <!-- ══════════ FAQ ══════════ -->
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
+  <section class="section" style="padding-top:0">
+    <div class="container narrow">
       <span class="eyebrow">Dudas</span>
       <h2 style="margin-top:.7rem;margin-bottom:1.2rem">Lo que suelen preguntar</h2>
-
-      <details>
-        <summary>¿Para quién es exactamente?</summary>
-        <div class="ans">Para profesionales con recorrido que ya usan IA y notan que le sacan menos partido del que deberían. No hace falta perfil técnico ni titulación.</div>
-      </details>
-      <details>
-        <summary>¿Es gratis de verdad?</summary>
-        <div class="ans">Sí, 0 €. Es contenido de captación: si te gusta cómo enseñamos, ya conocerás nuestros programas. Si no, te quedas la guía y la grabación.</div>
-      </details>
-      <details>
-        <summary>No puedo el 17 a las 19:00.</summary>
-        <div class="ans">Regístrate igual. Enviamos la grabación completa al terminar, a todos los inscritos.</div>
-      </details>
-      <details>
-        <summary>¿Me dais certificado?</summary>
-        <div class="ans">No. Es una sesión de una hora, no una formación reglada. Para certificarte están los programas de Founderz, y de eso hablamos al final por si te interesa.</div>
-      </details>
-      <details>
-        <summary>¿Qué hacéis con mi prompt?</summary>
-        <div class="ans">Nada. El análisis corre entero en tu navegador con una lista de reglas: el texto no sale de tu dispositivo ni se envía a ningún servidor.</div>
-      </details>
+      <details><summary>¿Para quién es exactamente?</summary><div class="ans">Para profesionales con recorrido que ya usan IA y notan que le sacan menos partido del que deberían. No hace falta perfil técnico ni titulación.</div></details>
+      <details><summary>¿Es gratis de verdad?</summary><div class="ans">Sí, 0 €. Si te gusta cómo enseñamos, ya conocerás nuestros programas. Y si no, te quedas la guía y la grabación.</div></details>
+      <details><summary>No puedo el 17 a las 19:00.</summary><div class="ans">Regístrate igual. Enviamos la grabación completa al terminar, a todos los inscritos.</div></details>
+      <details><summary>¿Me dais certificado?</summary><div class="ans">No. Es una sesión de una hora, no una formación reglada. Para certificarte están los programas de Founderz.</div></details>
+      <details><summary>¿Qué hacéis con mi prompt?</summary><div class="ans">Nada. El análisis corre entero en tu navegador con una lista de reglas: el texto no sale de tu dispositivo ni se envía a ningún servidor.</div></details>
     </div>
   </section>
 
   <footer class="legal">
-    <div class="wrap">
+    <div class="container narrow">
       Founderz — AI Business School · Concepto alternativo para test A/B, no publicado.<br>
-      El analizador de prompts es una heurística de seis reglas ejecutada en local, no un modelo de IA.
+      El analizador es una heurística de seis reglas ejecutada en local, no un modelo de IA.
     </div>
   </footer>
 </main>
 
 <div class="sticky" id="sticky">
-  <span class="sticky-txt"><b>17 de septiembre, 19:00 h</b>Gratis · 60 min · queda grabado</span>
-  <a class="btn btn--primary" href="#registro">Guardar mi plaza</a>
+  <a class="button button--purple" href="#f-nombre">Reservar mi plaza gratis</a>
 </div>
 
 <script>
 (function(){
   "use strict";
-  var $=function(id){return document.getElementById(id)};
-  var ta=$("prompt"), out=$("verdict"), crit=$("crit");
-
+  var $=function(i){return document.getElementById(i)};
+  var ta=$("prompt");
   var EJEMPLO="Escríbeme un post de LinkedIn sobre inteligencia artificial y cómo está cambiando el trabajo. Que sea profesional.";
 
   var REGLAS=[
-    { k:"rol", nombre:"Contexto de quién eres",
-      re:/\b(act[uú]a como|comp[oó]rtate|eres un|eres una|como (un|una)\s+\w+|soy\s+(un|una|el|la)?\s*\w+|desde mi (rol|puesto|experiencia)|en mi (empresa|equipo|sector))\b/i,
-      ok:"Sitúas quién eres o desde dónde hablas.",
-      no:"No dices quién eres. La IA responde a un desconocido genérico, y por eso el resultado suena genérico." },
-    { k:"objetivo", nombre:"Objetivo concreto",
-      re:/\b(para (que|conseguir|lograr|poder)|con el objetivo|el objetivo es|necesito que|quiero (conseguir|lograr)|me sirva para|de modo que)\b/i,
-      ok:"Explicas para qué sirve el resultado.",
-      no:"Pides una cosa, pero no para qué. Sin objetivo no hay forma de que priorice bien." },
-    { k:"audiencia", nombre:"Audiencia definida",
-      re:/\b(dirigido a|para (mi |el |la |los |las )?(equipo|cliente|jefe|direcci[oó]n|comit[eé]|audiencia|p[uú]blico|usuarios?|lectores?|alumnos?|perfiles?)|va a leerlo|lo van a leer|el lector)\b/i,
-      ok:"Defines para quién es.",
-      no:"No dices quién lo va a leer. Un texto para tu comité y otro para LinkedIn no se parecen en nada." },
-    { k:"limites", nombre:"Restricciones y límites",
-      re:/\b(no (uses|incluyas|menciones|pongas)|evita|sin (usar|incluir|tecnicismos|jerga)|m[aá]ximo|m[ií]nimo|no m[aá]s de|entre \d+ y \d+|\d+\s*(palabras|caracteres|l[ií]neas|p[aá]rrafos|frases|puntos)|tono\s+\w+|en tono)\b/i,
-      ok:"Pones límites: extensión, tono o lo que no quieres.",
-      no:"Sin límites, la IA elige por ti la extensión y el tono. Y elige lo más plano." },
-    { k:"ejemplo", nombre:"Ejemplo o referencia",
-      re:/\b(por ejemplo|como (este|el siguiente|esto)|te (paso|adjunto|dejo)|bas[aá]ndote en|inspirado en|al estilo de|siguiendo el (formato|modelo|ejemplo)|aqu[ií] tienes)\b/i,
-      ok:"Das un ejemplo o una referencia a imitar.",
-      no:"No hay referencia. Un solo ejemplo de lo que consideras bueno cambia el resultado más que cualquier otra cosa." },
-    { k:"formato", nombre:"Formato de salida",
-      re:/\b(en formato|formato:|en forma de|una tabla|en tabla|lista|bullets|vi[nñ]etas|apartados|secciones|esquema|json|markdown|correo|email|gui[oó]n|resumen ejecutivo|paso a paso)\b/i,
-      ok:"Especificas cómo quieres la respuesta.",
-      no:"No dices en qué forma lo quieres, así que llegará en prosa corrida y tendrás que rehacerlo." }
+    {n:"Contexto de quién eres",
+     re:/\b(act[uú]a como|comp[oó]rtate|eres un|eres una|como (un|una)\s+\w+|soy\s+(un|una|el|la)?\s*\w+|desde mi (rol|puesto|experiencia)|en mi (empresa|equipo|sector))\b/i,
+     ok:"Sitúas quién eres o desde dónde hablas.",
+     no:"No dices quién eres. La IA responde a un desconocido, y por eso suena genérico."},
+    {n:"Objetivo concreto",
+     re:/\b(para (que|conseguir|lograr|poder)|con el objetivo|el objetivo es|necesito que|quiero (conseguir|lograr)|me sirva para|de modo que)\b/i,
+     ok:"Explicas para qué sirve el resultado.",
+     no:"Pides una cosa pero no para qué. Sin objetivo no puede priorizar."},
+    {n:"Audiencia definida",
+     re:/\b(dirigido a|para (mi |el |la |los |las )?(equipo|cliente|jefe|direcci[oó]n|comit[eé]|audiencia|p[uú]blico|usuarios?|lectores?|alumnos?|perfiles?)|va a leerlo|lo van a leer|el lector)\b/i,
+     ok:"Defines para quién es.",
+     no:"No dices quién lo va a leer. Un texto para tu comité y otro para LinkedIn no se parecen."},
+    {n:"Restricciones y límites",
+     re:/\b(no (uses|incluyas|menciones|pongas)|evita|sin (usar|incluir|tecnicismos|jerga)|m[aá]ximo|m[ií]nimo|no m[aá]s de|entre \d+ y \d+|\d+\s*(palabras|caracteres|l[ií]neas|p[aá]rrafos|frases|puntos)|tono\s+\w+|en tono)\b/i,
+     ok:"Pones límites: extensión, tono o lo que no quieres.",
+     no:"Sin límites, la IA elige la extensión y el tono por ti. Y elige lo más plano."},
+    {n:"Ejemplo o referencia",
+     re:/\b(por ejemplo|como (este|el siguiente|esto)|te (paso|adjunto|dejo)|bas[aá]ndote en|inspirado en|al estilo de|siguiendo el (formato|modelo|ejemplo)|aqu[ií] tienes)\b/i,
+     ok:"Das un ejemplo o una referencia a imitar.",
+     no:"No hay referencia. Un solo ejemplo de lo que consideras bueno cambia el resultado más que nada."},
+    {n:"Formato de salida",
+     re:/\b(en formato|formato:|en forma de|una tabla|en tabla|lista|bullets|vi[nñ]etas|apartados|secciones|esquema|json|markdown|correo|email|gui[oó]n|resumen ejecutivo|paso a paso)\b/i,
+     ok:"Especificas cómo quieres la respuesta.",
+     no:"No dices en qué forma lo quieres, así que llegará en prosa y tendrás que rehacerlo."}
   ];
 
-  var NIVELES=[
-    { max:1, tag:"Escribes como quien empieza",
-      sub:"Le estás pidiendo a la IA que adivine. Devuelve lo más probable, que es justo lo más genérico.",
-      color:"var(--warm)" },
-    { max:3, tag:"A medio camino",
-      sub:"Ya diriges, pero dejas huecos. Ahí es donde se cuela el resultado del montón.",
-      color:"var(--orange)" },
-    { max:5, tag:"Escribes con criterio",
-      sub:"Diriges de verdad. Te queda afinar los detalles que separan lo bueno de lo publicable.",
-      color:"var(--purple-hi)" },
-    { max:6, tag:"Esto ya es oficio",
-      sub:"Cubres las seis. Lo tuyo no es prompting: es saber qué quieres antes de pedirlo.",
-      color:"var(--mint)" }
+  var NIV=[
+    {max:1,t:"Escribes como quien empieza",s:"Le estás pidiendo a la IA que adivine. Devuelve lo más probable, que es lo más genérico.",c:"#d4483c"},
+    {max:3,t:"A medio camino",s:"Ya diriges, pero dejas huecos. Ahí se cuela el resultado del montón.",c:"#d97706"},
+    {max:5,t:"Escribes con criterio",s:"Diriges de verdad. Te queda afinar lo que separa lo bueno de lo publicable.",c:"#5045c8"},
+    {max:6,t:"Esto ya es oficio",s:"Cubres las seis. Lo tuyo no es prompting: es saber qué quieres antes de pedirlo.",c:"#2f7d5f"}
   ];
 
-  function contar(){ $("count").textContent = ta.value.trim().length + " caracteres"; }
-  ta.addEventListener("input", contar);
-
-  $("demo").addEventListener("click", function(){
-    ta.value = EJEMPLO; contar(); ta.focus(); analizar();
-  });
+  function contar(){ $("count").textContent=ta.value.trim().length+" caracteres" }
+  ta.addEventListener("input",contar);
+  $("demo").addEventListener("click",function(){ ta.value=EJEMPLO; contar(); analizar() });
 
   function analizar(){
-    var txt = ta.value.trim();
-    if (txt.length < 12){
-      ta.focus();
-      ta.style.borderColor = "var(--warm)";
-      setTimeout(function(){ ta.style.borderColor=""; }, 1200);
-      return;
-    }
+    var t=ta.value.trim();
+    if(t.length<12){ ta.focus(); ta.style.borderColor="#d4483c"; setTimeout(function(){ta.style.borderColor=""},1200); return }
 
-    var puntos = 0, html = "";
-    for (var i=0;i<REGLAS.length;i++){
-      var r = REGLAS[i], hit = r.re.test(txt) ? 1 : 0;
-      if (hit) puntos++;
-      html += '<div class="crit-row" data-hit="'+hit+'">'
-            +   '<span class="mark" aria-hidden="true">'+(hit?"✓":"—")+'</span>'
-            +   '<span class="crit-name">'+r.nombre+'</span>'
-            +   '<span class="crit-why">'+(hit?r.ok:r.no)+'</span>'
-            + '</div>';
-    }
-
-    var n = NIVELES[0];
-    for (var j=0;j<NIVELES.length;j++){ if (puntos<=NIVELES[j].max){ n=NIVELES[j]; break; } }
-
-    $("score").innerHTML = puntos + '<small>/6</small>';
-    $("score").style.color = n.color;
-    $("tag").textContent = n.tag;
-    $("sub").textContent = n.sub;
-    crit.innerHTML = html;
-
-    var falla = 6 - puntos;
-    $("bridge").innerHTML = falla === 0
-      ? '<p><b>Poco que enseñarte en las reglas.</b> Lo que sí cambia a este nivel es el criterio para juzgar lo que sale — y eso es exactamente lo que se ve el 17 de septiembre. <a href="#registro">Guarda tu plaza</a>.</p>'
-      : '<p><b>Te faltan '+falla+' de 6.</b> Ninguna se arregla aprendiendo otra herramienta: se arreglan con criterio, y el criterio se ve trabajando. El 17 de septiembre lo enseñamos en directo, gratis. <a href="#registro">Guarda tu plaza</a>.</p>';
-
-    out.classList.add("on");
-    requestAnimationFrame(function(){
-      $("fill").style.width = Math.round(puntos/6*100) + "%";
-      $("fill").style.background = n.color;
+    var p=0,h="";
+    REGLAS.forEach(function(r){
+      var hit=r.re.test(t)?1:0; if(hit)p++;
+      h+='<div class="crit-row" data-hit="'+hit+'"><span class="mark" aria-hidden="true">'+(hit?"✓":"—")+'</span>'+
+         '<span class="crit-name">'+r.n+'</span><span class="crit-why">'+(hit?r.ok:r.no)+'</span></div>';
     });
+
+    var n=NIV[0]; for(var i=0;i<NIV.length;i++){ if(p<=NIV[i].max){n=NIV[i];break} }
+    $("score").innerHTML=p+'<small>/6</small>'; $("score").style.color=n.c;
+    $("tag").textContent=n.t; $("sub").textContent=n.s;
+    $("crit").innerHTML=h;
+    $("verdict").classList.add("on");
+    requestAnimationFrame(function(){ $("fill").style.width=Math.round(p/6*100)+"%"; $("fill").style.background=n.c });
+
+    // El resultado personaliza el CTA — el formulario es el destino
+    var falta=6-p;
+    $("card-title").textContent = falta===0 ? "Ya aplicas criterio. Ven a afinarlo." : "Te faltan "+falta+" de 6. Ven a por ellas.";
+    $("card-sub").textContent = falta===0
+      ? "El 17 de septiembre no vemos reglas: vemos cómo se decide. Deja tus datos y te mandamos el enlace."
+      : "Ninguna se arregla aprendiendo otra herramienta. El 17 de septiembre lo enseñamos en directo, gratis. Deja tus datos y entras.";
+    $("card").classList.add("pulse");
+    setTimeout(function(){ $("card").classList.remove("pulse") },2600);
   }
 
-  $("run").addEventListener("click", analizar);
-  ta.addEventListener("keydown", function(e){
-    if ((e.metaKey||e.ctrlKey) && e.key === "Enter") analizar();
-  });
+  $("run").addEventListener("click",analizar);
+  ta.addEventListener("keydown",function(e){ if((e.metaKey||e.ctrlKey)&&e.key==="Enter") analizar() });
 
-  // Formulario
-  $("form").addEventListener("submit", function(e){
+  $("form").addEventListener("submit",function(e){
     e.preventDefault();
-    var f = e.currentTarget;
-    if (!f.checkValidity()){ f.reportValidity(); return; }
-    $("submit").disabled = true;
-    $("submit").textContent = "Guardando…";
-    setTimeout(function(){
-      f.style.display = "none";
-      document.querySelector(".formnote").style.display = "none";
-      $("done").classList.add("on");
-      $("done").scrollIntoView({block:"center", behavior:"smooth"});
-    }, 550);
+    var f=e.currentTarget;
+    if(!f.checkValidity()){ f.reportValidity(); return }
+    $("submit").disabled=true; $("submit").textContent="Reservando…";
+    setTimeout(function(){ f.style.display="none"; $("done").classList.add("on") },550);
   });
 
-  // Sticky tras salir del hero
-  var hero = document.querySelector(".hero");
-  if ("IntersectionObserver" in window){
-    new IntersectionObserver(function(en){
-      $("sticky").classList.toggle("on", !en[0].isIntersecting);
-    }, {rootMargin:"-120px 0px 0px 0px"}).observe(hero);
+  // El sticky aparece cuando el formulario NO esta a la vista, no al salir del hero.
+  if("IntersectionObserver" in window){
+    new IntersectionObserver(function(en){ $("sticky").classList.toggle("on",!en[0].isIntersecting) },
+      {threshold:0.12}).observe($("card"));
   }
-
   contar();
 })();
 </script>
