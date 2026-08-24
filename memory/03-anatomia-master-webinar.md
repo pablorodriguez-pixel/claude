@@ -141,3 +141,31 @@ suelto. Está en `components/CountryPhoneField.tsx`.
 - `generate_lead` no aparece en el HTML servido porque se dispara en cliente
   tras el submit con éxito — es el comportamiento correcto de `LeadForm.tsx`.
 - Las 25 LPs son `noindex, nofollow` sin excepción.
+
+---
+
+## 6. El fallback métrico de fuente no está aplicado (CLS)
+
+El dossier de OpenClaw lo marca como **obligatorio en toda página nueva**:
+
+```css
+@font-face { font-family: "Rund Fallback"; src: local("Arial"); size-adjust: 75.6%; }
+```
+
+Estado real comprobado el 24/08/2026:
+
+- **No está en `styles/founderz.css`.** Lo único que hay es
+  `-webkit-text-size-adjust: 100%`, que es una propiedad distinta y no tiene
+  nada que ver con el CLS.
+- **Producción lo tiene mal.** El HTML de `/maic` sirve un fallback con
+  `size-adjust: 100%`, es decir, sin corrección métrica: es el fallback que
+  genera Next automáticamente, no el de la guía.
+
+El `75.6%` no es decorativo — es la ratio que iguala la métrica de Arial a la de
+RundDisplay. Con `100%` el texto salta al cargar la fuente real, y ese salto es
+CLS que penaliza el objetivo de PSI ≥ 98.
+
+**Qué hacer:** declarar la cara `Rund Fallback` con `size-adjust: 75.6%` en
+`styles/founderz.css`, junto a los `@font-face` de RundDisplay, y usarla como
+siguiente familia en `--font-sans`, antes de Trebuchet MS. Es el único punto del
+dossier que quedó documentado pero sin implementar en ninguna parte.
