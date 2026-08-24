@@ -4,14 +4,32 @@
  *
  *   npm run egress
  *
- * Los entornos remotos de Claude Code sacan todo el HTTPS por un proxy con
- * allowlist, fijada al crear el contenedor. Si la allowlist del environment
- * cambia, hay que abrir una sesión NUEVA: la que ya está corriendo mantiene la
- * política con la que arrancó.
+ * Los entornos remotos de Claude Code sacan el HTTPS por el proxy de
+ * HTTPS_PROXY, que aplica la allowlist del environment. Un cambio en esa
+ * allowlist no llega a las sesiones ya abiertas: el contenedor tiene que
+ * reciclarse para recogerlo.
+ *
+ * IMPORTANTE — el fetch de Node NO usa HTTPS_PROXY por defecto (undici ignora
+ * las variables de proxy). Sin proxy, la petición sale por una interceptación
+ * transparente que aplica una allowlist DISTINTA y más antigua, y devuelve
+ * "Host not in allowlist" para hosts que por el proxy sí pasan. Eso daba falsos
+ * negativos: el script marcaba api.vercel.com como bloqueado mientras curl
+ * recibía 200. Se arregla con NODE_USE_ENV_PROXY=1, que activa el
+ * EnvHttpProxyAgent de undici; si no está puesta, el script se relanza solo.
  *
  * Ejecuta esto al empezar una sesión para saber de entrada qué puede hacer el
  * agente por sí solo y qué tiene que pedir.
  */
+
+// Relanzarse con el proxy activado antes de que undici se inicialice.
+if (!process.env.NODE_USE_ENV_PROXY && (process.env.HTTPS_PROXY || process.env.https_proxy)) {
+  const { spawnSync } = await import("node:child_process");
+  const r = spawnSync(process.execPath, [...process.argv.slice(1)], {
+    stdio: "inherit",
+    env: { ...process.env, NODE_USE_ENV_PROXY: "1", NODE_NO_WARNINGS: "1" },
+  });
+  process.exit(r.status ?? 1);
+}
 const TARGETS = [
   ["api.vercel.com", "Deploy por REST API, logs de build, estado del proyecto"],
   ["founderz.com", "Descargar imágenes de WP para servirlas locales (perf)"],
@@ -26,8 +44,8 @@ const TARGETS = [
 const TIMEOUT_MS = 12_000;
 
 /**
- * Ojo con el falso positivo: cuando el proxy deniega el CONNECT, fetch no lanza
- * — devuelve el 403 *del proxy* como si fuera la respuesta del host. Un simple
+ * Ojo con el falso positivo: cuando el gateway deniega el host, fetch no lanza
+ * — devuelve el 403 *del gateway* como si fuera la respuesta del host. Un simple
  * `res.status` marcaría como alcanzable un host bloqueado. Hay que mirar el
  * cuerpo: el gateway responde texto plano con "Host not in allowlist".
  */
