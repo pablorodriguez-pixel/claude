@@ -1,0 +1,316 @@
+/* /webinar-experiencia-ia-b — estilos propios.
+   Los tokens y componentes de marca viven en styles/founderz.css: aquí no se
+   redefine ninguno, solo se compone con ellos. */
+
+.wb-topbar {
+  background: var(--color-ink);
+  color: #fff;
+  text-align: center;
+  padding: 0.65rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+.wb-topbar b {
+  font-weight: 600;
+  color: var(--color-pink);
+}
+
+/* ── HERO: dos columnas, patrón /maic ── */
+.wb-hero {
+  padding-block: clamp(36px, 5vw, 64px) clamp(48px, 6vw, 80px);
+  background:
+    radial-gradient(70% 55% at 88% 4%, rgba(214, 156, 238, 0.22), transparent 62%),
+    radial-gradient(55% 45% at 4% 8%, rgba(80, 69, 200, 0.1), transparent 60%);
+}
+.wb-hero-inner {
+  display: flex;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: flex-start;
+}
+.wb-hero-left {
+  flex: 1 1 34rem;
+  min-width: 0;
+}
+.wb-hero-right {
+  flex: 0 0 26rem;
+  max-width: 26rem;
+  position: sticky;
+  top: 1.5rem;
+}
+/* Por debajo de 900px se apila, y el h1 va siempre primero. */
+@media (max-width: 900px) {
+  .wb-hero-inner {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .wb-hero-left,
+  .wb-hero-right {
+    flex: none;
+    width: 100%;
+    max-width: none;
+    position: static;
+  }
+}
+.wb-h1 {
+  margin-top: 0.75rem;
+}
+.wb-h1 em {
+  font-style: normal;
+  color: var(--color-purple);
+}
+.wb-hero-lead {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  max-width: 38rem;
+}
+
+/* ── el juego ── */
+.wb-game {
+  background: var(--color-cream);
+  border: 1px solid var(--color-line-soft);
+  border-radius: var(--fz-radius);
+  padding: clamp(1.1rem, 2.5vw, 1.6rem);
+}
+.wb-game-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.wb-game-q {
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.3;
+  max-width: 30rem;
+}
+.wb-game-step {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.wb-game-ctx {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  margin-top: 0.35rem;
+}
+
+.wb-opts {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+@media (min-width: 620px) {
+  .wb-opts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.wb-opt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  background: #fff;
+  border: 2px solid var(--color-line-soft);
+  border-radius: 0.5rem;
+  padding: 0.95rem 1rem;
+  cursor: pointer;
+  color: var(--color-ink);
+  transition:
+    border-color 0.25s var(--ease-fz),
+    background-color 0.25s var(--ease-fz),
+    transform 0.15s var(--ease-fz);
+}
+.wb-opt:hover:not(:disabled) {
+  border-color: var(--color-purple);
+}
+.wb-opt:active:not(:disabled) {
+  transform: scale(0.99);
+}
+.wb-opt:disabled {
+  cursor: default;
+}
+.wb-opt-tag {
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gray);
+}
+.wb-opt-txt {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  letter-spacing: 0;
+  color: #2c2b33;
+}
+.wb-opt-verdict {
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+.wb-opt[data-state="win"] {
+  border-color: #2f7d5f;
+  background: rgba(163, 217, 197, 0.16);
+}
+.wb-opt[data-state="win"] .wb-opt-verdict {
+  color: #2f7d5f;
+}
+.wb-opt[data-state="lose"] {
+  border-color: var(--color-warm-red);
+  background: rgba(245, 125, 115, 0.1);
+}
+.wb-opt[data-state="lose"] .wb-opt-verdict {
+  color: #b23b30;
+}
+.wb-opt[data-state="dim"] {
+  opacity: 0.5;
+}
+
+.wb-why {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1rem;
+  background: var(--color-purple-light);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+.wb-why b {
+  color: var(--color-purple-dark);
+}
+.wb-next {
+  margin-top: 0.9rem;
+  width: auto;
+}
+
+.wb-score {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.wb-score span {
+  font-size: 0.4em;
+  color: var(--color-gray);
+  font-weight: 400;
+}
+.wb-score[data-nivel="alto"] {
+  color: #2f7d5f;
+}
+.wb-score[data-nivel="medio"] {
+  color: var(--color-sunshade-dark);
+}
+.wb-score[data-nivel="bajo"] {
+  color: var(--color-warm-red-dark);
+}
+.wb-score-title {
+  margin-top: 0.5rem;
+}
+.wb-score-text {
+  color: var(--color-gray);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  max-width: 32rem;
+}
+.wb-score-cta {
+  color: var(--color-purple-dark);
+  font-weight: 500;
+}
+
+/* ── card del formulario ── */
+.wb-card-title {
+  font-size: 1.5rem;
+  margin-top: 0.75rem;
+}
+.wb-card-sub {
+  font-size: 0.875rem;
+  color: var(--color-gray);
+  line-height: 1.5;
+  margin-top: 0.6rem;
+}
+.wb-when {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin: 0.9rem 0 0;
+  padding-block: 0.85rem;
+  border-block: 1px solid var(--color-line-soft);
+}
+.wb-when div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.wb-when dt {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gray);
+  font-weight: 500;
+}
+.wb-when dd {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.wb-proof {
+  font-size: 0.75rem;
+  color: var(--color-gray);
+  text-align: center;
+  margin-top: 0.7rem;
+}
+
+/* ── secciones ── */
+.wb-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+}
+.wb-tile {
+  background: #fff;
+  border-radius: var(--fz-radius);
+  padding: 1.5rem;
+}
+.wb-n {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--color-purple);
+  margin-bottom: 0.7rem;
+}
+.wb-tile h3 {
+  margin-bottom: 0.5rem;
+}
+.wb-tile p {
+  color: var(--color-gray);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.wb-people {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.wb-quote {
+  margin: 1.75rem 0 0;
+  padding: 1.5rem 1.6rem;
+  background: var(--color-purple-light);
+  border-radius: var(--fz-radius);
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+.wb-quote footer {
+  margin-top: 0.7rem;
+  font-size: 0.8125rem;
+  color: var(--color-purple-dark);
+  font-weight: 500;
+}
+
+.wb-form-footer {
+  max-width: 30rem;
+}

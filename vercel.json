@@ -1,6 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
-    "deploymentEnabled": false
+    "deploymentEnabled": {
+      "claude/vercel-api-connection-nbvb6u": true,
+      "claude/*": false
+    }
   }
 }

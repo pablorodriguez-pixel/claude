@@ -14,7 +14,7 @@ export default function ConsentCheckbox({
       <span>
         Acepto la{" "}
         <a
-          href="https://founderz.com/es/politica-de-privacidad"
+          href="https://founderz.com/es/privacidad"
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -106,6 +106,20 @@ export default function LeadForm({
       </div>
 
       <div className="min-w-0">
+        <label className="fz-label" htmlFor="fz-lastname">
+          Apellidos
+        </label>
+        <input
+          id="fz-lastname"
+          className="fz-field"
+          name="lastname"
+          autoComplete="family-name"
+          required
+          placeholder="Tus apellidos"
+        />
+      </div>
+
+      <div className="min-w-0">
         <label className="fz-label" htmlFor="fz-email">
           Email
         </label>
