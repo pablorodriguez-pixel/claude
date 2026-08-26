@@ -1,4 +1,12 @@
-# Secrets — NUNCA commitear
+# Dependencias y build
+node_modules/
+.next/
+out/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Secretos — NUNCA commitear
 .env
 .env.*
 !.env.example
@@ -8,8 +16,8 @@
 # Vercel
 .vercel/
 
-# Dependencias
-node_modules/
+# Salidas de QA (screenshots): se regeneran con npm run qa
+qa/
 
 # Sistema
 .DS_Store

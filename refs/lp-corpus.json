@@ -1,0 +1,2381 @@
+[
+  {
+    "slug": "ai-act-assessment",
+    "route": "/ai-act-assessment",
+    "title": "Is your company ready for Article 4 of the EU AI Act? · Free 2-minute test | Founderz",
+    "description": "Free self-assessment on Article 4 of the EU AI Act (AI literacy). Find out where you stand in 2 minutes and get an action plan for your company.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Is your company ready for Article 4 of the EU AI Act?"
+    ],
+    "h2": [],
+    "h3count": 1,
+    "h3sample": [
+      "Do you use AI in any of these processes?"
+    ],
+    "words": 198,
+    "cssKb": 24,
+    "htmlKb": 88,
+    "sections": 2,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 0,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": false,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 2,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#e5e2ee",
+        "#c4bedf",
+        "#eeedfa",
+        "#56535f",
+        "#fafafa",
+        "#b6b6b6"
+      ]
+    },
+    "ctaSample": [
+      "Let's talk",
+      "Hiring / CV screening",
+      "Credit scoring or financial decisions",
+      "Decisions that affect customers",
+      "Biometrics or video surveillance",
+      "None of these",
+      "Next →",
+      "privacy policy"
+    ]
+  },
+  {
+    "slug": "calculadora-horas-ia",
+    "route": "/calculadora-horas-ia",
+    "title": "¿Cuántas horas regalas a la semana? · Calculadora de tiempo con IA | Founderz",
+    "description": "Calculadora gratuita de 2 minutos: elige tu departamento y tus tareas reales, y descubre cuántas horas a la semana podrías recuperar ya con IA, y en qué invertirlas.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "¿Cuántas horas regalas a la semana?"
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 93,
+    "cssKb": 27,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "calculadora-salarial-ia",
+    "route": "/calculadora-salarial-ia",
+    "title": "¿Cuánto más podrías cobrar dominando la IA? · Calculadora salarial | Founderz",
+    "description": "Calculadora gratuita de 2 minutos: dinos tu profesión, experiencia y salario actual, y descubre cuánto podrías incrementar tu sueldo dominando la IA de tu sector.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "¿Cuánto más podrías cobrar dominando la IA?"
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 95,
+    "cssKb": 26,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "compliance",
+    "route": "/compliance",
+    "title": "Cumple el AI Act: forma a tu equipo en IA | Founderz",
+    "description": "El Artículo 4 del AI Act ya es obligatorio. Forma a tu equipo en IA en 12 horas, 100% online, con Certificación Microsoft y bonificable por FUNDAE.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Forma a tu equipo en IA y cumple el Artículo 4 del AI Act antes de la próxima inspección"
+    ],
+    "h2": [
+      "Ya hemos formado en IA a +1.700 empresas y +700.000 profesionales",
+      "El coste de no adaptarse al AI Act",
+      "Qué aprenderá tu equipo con la formación",
+      "Por qué las empresas eligen Founderz",
+      "Así opinan los profesionales que nos han elegido",
+      "Temario del curso · 12 horas",
+      "Hablemos de cómo formar a tu equipo en IA"
+    ],
+    "h3count": 10,
+    "h3sample": [
+      "Sanciones",
+      "Multas de hasta 35M€ o el 7%",
+      "Bloqueo de sistemas",
+      "Daño reputacional",
+      "Certificación Microsoft",
+      "Al ritmo de cada empleado",
+      "Aplicable desde el primer día",
+      "Seguimiento en tiempo real"
+    ],
+    "words": 1048,
+    "cssKb": 33,
+    "htmlKb": 119,
+    "sections": 8,
+    "landmarks": {
+      "header": 1,
+      "nav": 1,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 2,
+      "inputs": 10,
+      "selects": 6,
+      "textareas": 0,
+      "checkbox": 2,
+      "countrySelect": true,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 10,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 4,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": true,
+      "strikePrice": true,
+      "testimonials": true,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#03001d",
+        "#a3d9c5",
+        "#5b5a63",
+        "#e6e4ef",
+        "#f6f5fb",
+        "#231a63"
+      ]
+    },
+    "ctaSample": [
+      "Hablar con un asesor",
+      "Términos y condiciones",
+      "Política de privacidad",
+      "Solicitar información",
+      "Quiero preparar a mi equipo",
+      "Aviso legal",
+      "Política de cookies"
+    ]
+  },
+  {
+    "slug": "creativos--video",
+    "route": "/creativos/video",
+    "title": "Masterclass IA Creativos — Vídeo Exclusivo | Founderz",
+    "description": "Accede al masterclass gratuito: el método exacto que usan los creativos más demandados para integrar IA en su flujo de trabajo profesional.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "El vídeo que cambia cómo los creativos trabajan con IA"
+    ],
+    "h2": [
+      "Lo que acabas de ver funciona. Descubre si funciona para ti."
+    ],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 127,
+    "cssKb": 26,
+    "htmlKb": 90,
+    "sections": 1,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": false,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#0d0c10",
+        "#f0eefd",
+        "#22c55e",
+        "#111115",
+        "#767676",
+        "#0e0d1f"
+      ]
+    },
+    "ctaSample": [
+      "Privacidad",
+      "Términos"
+    ]
+  },
+  {
+    "slug": "creativos",
+    "route": "/creativos",
+    "title": "Masterclass IA para Creativos — Gratis | Founderz",
+    "description": "15 minutos con el método que ya usan +40.000 creativos para producir más, cobrar más y proteger su trabajo con IA. Acceso 100% gratuito.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "El vídeo que cambia cómo los creativos trabajan con IA"
+    ],
+    "h2": [
+      "Ver el Masterclass ahora",
+      "Lo que ningún tutorial de YouTube te va a enseñar",
+      "La escuela de IA de negocio más reconocida de España",
+      "No lo decimos nosotros",
+      "¿Tienes dudas?",
+      "15 minutos. Todo puede cambiar."
+    ],
+    "h3count": 3,
+    "h3sample": [
+      "Microsoft Worldwide Partner",
+      "+20 profesores en activo",
+      "Resultados medibles"
+    ],
+    "words": 534,
+    "cssKb": 24,
+    "htmlKb": 114,
+    "sections": 7,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 1,
+      "inputs": 5,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 1,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 33,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 31,
+      "iframes": 1,
+      "video": 0,
+      "youtube": true
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": true,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#a78bfa",
+        "#c4b5fd",
+        "#0d0c10",
+        "#6f6f6f",
+        "#e5e7eb",
+        "#f9f9fd"
+      ]
+    },
+    "ctaSample": [
+      "Ver el vídeo gratis →",
+      "política de privacidad",
+      "términos y condiciones",
+      "Ver el vídeo ahora — Gratis →",
+      "Quiero verlo ahora →",
+      "Privacidad",
+      "Términos",
+      "hola@founderz.com",
+      "Acceder al vídeo →"
+    ]
+  },
+  {
+    "slug": "creativos2",
+    "route": "/creativos2",
+    "title": "IA Generativa para Creativos — Masterclass Gratis | Founderz",
+    "description": "Aprende el método profesional para integrar IA en tu proceso creativo. 15 minutos. Herramientas reales. Protección legal incluida.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "La IA no va a reemplazarte. Va a reemplazar al creativo que no sabe usarla."
+    ],
+    "h2": [
+      "Ver la masterclass ahora",
+      "Lo que ningún tutorial de YouTube te va a enseñar",
+      "La escuela de IA de negocio más reconocida de España",
+      "No lo decimos nosotros",
+      "¿Tienes dudas?",
+      "15 minutos. Todo puede cambiar."
+    ],
+    "h3count": 8,
+    "h3sample": [
+      "El método para integrar IA sin perder tu voz",
+      "Las 3 herramientas que redefinen la producción en 2026",
+      "Cómo proteger legalmente tu trabajo con IA",
+      "De brief a entrega en la mitad de tiempo",
+      "La certificación que cambia tu negociación de tarifa",
+      "Microsoft Worldwide Partner",
+      "+20 profesores en activo",
+      "Resultados medibles"
+    ],
+    "words": 743,
+    "cssKb": 26,
+    "htmlKb": 124,
+    "sections": 7,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 1,
+      "inputs": 5,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 1,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 30,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 30,
+      "iframes": 1,
+      "video": 0,
+      "youtube": true
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": true,
+      "faq": true,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#03001d",
+        "#605f67",
+        "#a3d9c5",
+        "#00b67a",
+        "#6b6a72",
+        "#e5e5ec"
+      ]
+    },
+    "ctaSample": [
+      "Ver la masterclass",
+      "política de privacidad",
+      "términos y condiciones",
+      "Ver la masterclass →",
+      "Privacidad",
+      "Términos",
+      "hola@founderz.com"
+    ]
+  },
+  {
+    "slug": "diagnostico-ai-act",
+    "route": "/diagnostico-ai-act",
+    "title": "¿Está tu empresa preparada para cumplir con el Artículo 4 del AI Act? · Test gratuito | Founderz",
+    "description": "Autodiagnóstico gratuito de cumplimiento del Artículo 4 del AI Act (alfabetización en IA). Descubre tu nivel de preparación en 2 minutos y recibe un plan de acción.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "¿Está tu empresa preparada para cumplir con el Artículo 4 del AI Act?"
+    ],
+    "h2": [],
+    "h3count": 1,
+    "h3sample": [
+      "¿Usáis IA en alguno de estos procesos?"
+    ],
+    "words": 197,
+    "cssKb": 24,
+    "htmlKb": 89,
+    "sections": 2,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 0,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 2,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#e5e2ee",
+        "#c4bedf",
+        "#eeedfa",
+        "#56535f",
+        "#fafafa",
+        "#b6b6b6"
+      ]
+    },
+    "ctaSample": [
+      "Selección de personal / cribado de CV",
+      "Scoring o decisiones financieras",
+      "Decisiones que afectan a clientes",
+      "Biometría o videovigilancia",
+      "Ninguno de estos",
+      "Siguiente →",
+      "política de privacidad"
+    ]
+  },
+  {
+    "slug": "diagnostico-ia-diseno",
+    "route": "/diagnostico-ia-diseno",
+    "title": "Test de IA para diseñadores · Descubre qué herramientas dominar | Founderz",
+    "description": "Test gratuito de 2 minutos para diseñadores gráficos: branding, editorial, UI/UX, motion, ilustración. Te decimos qué IA deberías dominar (Midjourney, Firefly, Figma AI, Runway) y cuánto podrías mejorar en productividad, salario y proyección.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Formamos a +700.000 profesionales. Sabemos qué IA necesita tu diseño ."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 95,
+    "cssKb": 27,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "diagnostico-ia-experiencia",
+    "route": "/diagnostico-ia-experiencia",
+    "title": "Test de IA para profesionales con experiencia · Founderz",
+    "description": "Test gratuito de 2 minutos para profesionales con más de 10 años de experiencia. Te decimos qué IA deberías dominar (ChatGPT, Copilot, NotebookLM, Perplexity) para que tu experiencia siga siendo tu mayor ventaja.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Formamos a +700.000 profesionales. Tu experiencia + la IA correcta es imbatible."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 98,
+    "cssKb": 27,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "diagnostico-ia-finanzas",
+    "route": "/diagnostico-ia-finanzas",
+    "title": "Test de IA para finanzas · Descubre qué herramientas dominar | Founderz",
+    "description": "Test gratuito de 2 minutos para perfiles de finanzas: contabilidad, FP&amp;A, tesorería, auditoría, controlling. Te decimos qué IA deberías dominar (Copilot en Excel, ChatGPT, Perplexity) y cuánto podrías mejorar en productividad, salario y proyección.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Formamos a +700.000 profesionales. Sabemos qué IA necesita finanzas ."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 99,
+    "cssKb": 27,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "diagnostico-ia",
+    "route": "/diagnostico-ia",
+    "title": "Dinos a qué te dedicas y te decimos qué IA aprender · Test gratuito | Founderz",
+    "description": "Test gratuito de 2 minutos: dinos a qué te dedicas y qué quieres conseguir. Te decimos qué herramientas de IA deberías dominar y cuánto podrías mejorar en productividad, salario y proyección.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Formamos a +700.000 profesionales. Sabemos qué IA necesitas tú ."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 97,
+    "cssKb": 27,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "en-septiembre-despega",
+    "route": "/en-septiembre-despega",
+    "title": "En Septiembre Despega — Workshop gratuito para creativos | Founderz",
+    "description": "Entrenamiento gratuito ‘Monetiza tu talento creativo con IA’: tres episodios en agosto (18, 19 y 20), disponibles por tiempo limitado. En colaboración con Magnific.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "En septiembre todo despega, incluso tu creatividad."
+    ],
+    "h2": [
+      "No hace falta esperar a septiembre. Se entrena en agosto.",
+      "Tres episodios. Agosto.",
+      "Gente que vive de esto, no que lo ha estudiado.",
+      "Por apuntarte, ya ganas algo.",
+      "Al terminar los tres episodios, te llevas:",
+      "Otros creativos ya han pasado por aquí.",
+      "Tu acceso al entrenamiento de agosto.",
+      "Antes de apuntarte."
+    ],
+    "h3count": 9,
+    "h3sample": [
+      "Pásate a una suite",
+      "Produce con IA",
+      "¿Cómo monetizar?",
+      "Kike Rodríguez",
+      "Wimeik Studio",
+      "Jaime Sanjuan",
+      "Tres lecciones de introducción",
+      "Un kit de IA"
+    ],
+    "words": 639,
+    "cssKb": 33,
+    "htmlKb": 111,
+    "sections": 9,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 2,
+      "inputs": 12,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 4,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 3,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": true,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": true,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#03001d",
+        "#a3d9c5",
+        "#5b5a63",
+        "#e6e4ef",
+        "#f6f5fb",
+        "#0b2b20"
+      ]
+    },
+    "ctaSample": [
+      "Quiero mis episodios",
+      "Términos y condiciones",
+      "Política de privacidad",
+      "Quiero mis episodios gratis",
+      "¿Esto tiene algún coste? +",
+      "¿Necesito experiencia previa con IA? +",
+      "¿Qué pasa si no veo el episodio el día que se estrena? +",
+      "¿Qué pasa cuando termine el entrenamiento? +"
+    ]
+  },
+  {
+    "slug": "fundae",
+    "route": "/fundae",
+    "title": "Curso de Alfabetización en IA para empresas — Bonificable FUNDAE | Founderz",
+    "description": "Forma a tu equipo en IA en 12 horas, 100% online y bonificable con tu crédito FUNDAE. Certificación Microsoft.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Forma a tu equipo en IA a coste neto 0€ y cumple el Artículo 4 del AI Act"
+    ],
+    "h2": [
+      "Ya hemos formado en IA a +1.700 empresas y +700.000 profesionales",
+      "El coste de no adaptarse al AI Act",
+      "Qué aprenderá tu equipo con la formación",
+      "Por qué las empresas eligen Founderz",
+      "Así opinan los profesionales que nos han elegido",
+      "Temario del curso · 12 horas",
+      "Hablemos de cómo formar a tu equipo en IA"
+    ],
+    "h3count": 10,
+    "h3sample": [
+      "Sanciones",
+      "Multas de hasta 35M€ o el 7%",
+      "Bloqueo de sistemas",
+      "Daño reputacional",
+      "Certificación Microsoft",
+      "Al ritmo de cada empleado",
+      "Aplicable desde el primer día",
+      "Seguimiento en tiempo real"
+    ],
+    "words": 1046,
+    "cssKb": 33,
+    "htmlKb": 119,
+    "sections": 8,
+    "landmarks": {
+      "header": 1,
+      "nav": 1,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 2,
+      "inputs": 10,
+      "selects": 6,
+      "textareas": 0,
+      "checkbox": 2,
+      "countrySelect": true,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 10,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 4,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": true,
+      "strikePrice": true,
+      "testimonials": true,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#03001d",
+        "#a3d9c5",
+        "#5b5a63",
+        "#e6e4ef",
+        "#f6f5fb",
+        "#231a63"
+      ]
+    },
+    "ctaSample": [
+      "Hablar con un asesor",
+      "Términos y condiciones",
+      "Política de privacidad",
+      "Solicitar información",
+      "Quiero preparar a mi equipo",
+      "Aviso legal",
+      "Política de cookies"
+    ]
+  },
+  {
+    "slug": "lleva-la-ia-a-tu-empresa",
+    "route": "/lleva-la-ia-a-tu-empresa",
+    "title": "¿Cuánta productividad está dejando escapar tu empresa? · Test gratuito | Founderz",
+    "description": "Test gratuito de 2 minutos para directivos y managers: descubre el nivel de madurez en IA de tu empresa, cuánta productividad estáis dejando escapar y tu roadmap de 3 pasos para adoptarla con método.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "¿Cuánta productividad y rentabilidad está dejando escapar tu empresa?"
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 93,
+    "cssKb": 26,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "maic-dossier--asesoria",
+    "route": "/maic-dossier/asesoria",
+    "title": "Sesión de Asesoría MAIC — ¿Es para ti? | Founderz",
+    "description": "Descubre si el Máster IA para Creativos encaja con tu perfil. Responde 5 preguntas y recibe orientación personalizada gratuita.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "En menos de 24 horas te llamamos."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 56,
+    "cssKb": 23,
+    "htmlKb": 81,
+    "sections": 0,
+    "landmarks": {
+      "header": 0,
+      "nav": 0,
+      "main": 1,
+      "footer": 0
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": false,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 0,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#e8e8f0",
+        "#03001d",
+        "#a3d9c5"
+      ]
+    },
+    "ctaSample": [
+      "Empezar →"
+    ]
+  },
+  {
+    "slug": "maic-dossier--gracias",
+    "route": "/maic-dossier/gracias",
+    "title": "Solicitud Recibida — MAIC | Founderz",
+    "description": "Tu solicitud de información sobre el Máster IA para Creativos ha sido recibida. Te contactamos en menos de 24 horas.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Habla con un asesor antes de decidir nada."
+    ],
+    "h2": [
+      "Lo que vas a descubrir"
+    ],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 269,
+    "cssKb": 30,
+    "htmlKb": 104,
+    "sections": 4,
+    "landmarks": {
+      "header": 0,
+      "nav": 1,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": false,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": true
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#a3d9c5",
+        "#c4b0f0",
+        "#dc2626",
+        "#00b67a",
+        "#16a34a"
+      ]
+    },
+    "ctaSample": [
+      "Esos no son mis datos",
+      "Solicitar la sesion gratuita",
+      "Privacidad",
+      "Terminos"
+    ]
+  },
+  {
+    "slug": "maic-dossier",
+    "route": "/maic-dossier",
+    "title": "Dossier MAIC — Máster IA Creativos | Founderz",
+    "description": "Información completa sobre el Máster en IA para Creativos de Founderz. Programa, profesores, precio y garantía de devolución.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Domina la IA que está transformando el sector de los creativos."
+    ],
+    "h2": [
+      "Empezaron exactamente donde estás tú. Mira lo que crean hoy.",
+      "Imagen, vídeo, audio, motion, 3D. Con criterio profesional.",
+      "6 módulos intensivos + 3 especializaciones",
+      "Clases cortas. Herramientas reales. Resultados inmediatos.",
+      "Más de 5.000 alumnos verificados ya lo dicen",
+      "Quién te va a enseñar",
+      "Todo lo que necesitas saber.",
+      "Descubre el programa completo y habla con un asesor hoy."
+    ],
+    "h3count": 4,
+    "h3sample": [
+      "Especializaciones disponibles",
+      "Incluido en el programa",
+      "Skills que dominarás",
+      "Herramientas que aprenderás a usar"
+    ],
+    "words": 1114,
+    "cssKb": 44,
+    "htmlKb": 174,
+    "sections": 10,
+    "landmarks": {
+      "header": 0,
+      "nav": 1,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 2,
+      "inputs": 10,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 2,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 66,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 65,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": true,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": true,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#03001d",
+        "#00b67a",
+        "#605f67",
+        "#d69cee",
+        "#d0d0e8",
+        "#a3d9c5"
+      ]
+    },
+    "ctaSample": [
+      "Descarga el dossier gratuito",
+      "Quiero aprender a crear así →",
+      "Ver temario completo →",
+      "Privacidad",
+      "Términos"
+    ]
+  },
+  {
+    "slug": "maic",
+    "route": "/maic",
+    "title": "Máster IA Generativa para Creativos 2026 | Founderz",
+    "description": "El máster que transforma creativos en profesionales de la IA. 9 módulos, +20 profesores, certificación Founderz y Microsoft. 925€ desde 71€/mes.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Máster en IA Generativa para Creativos"
+    ],
+    "h2": [
+      "Únete a la generación de creativos con IA",
+      "Estructura del programa",
+      "IA aplicada a tu industria creativa",
+      "Así se vive Founderz desde dentro.",
+      "Un Máster diseñado por creativos para creativos.",
+      "Tu nueva insignia profesional.",
+      "Profesores con mucha profesión.",
+      "La IA te da alas. Nosotros te enseñamos a volar.",
+      "Toma las riendas. De la IA y de tu carrera.",
+      "¿Tienes dudas? Tenemos respuestas.",
+      "¿Tu empresa también quiere dar el salto?"
+    ],
+    "h3count": 30,
+    "h3sample": [
+      "Comunicación y RRSS",
+      "Publicidad",
+      "Moda",
+      "Ilustración",
+      "Arquitectura e Interiorismo",
+      "Cine",
+      "Branding",
+      "Fabiana Aguilar"
+    ],
+    "words": 1497,
+    "cssKb": 23,
+    "htmlKb": 152,
+    "sections": 13,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 72,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 49,
+      "iframes": 1,
+      "video": 2,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": true,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": true,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#6f6f6f"
+      ]
+    },
+    "ctaSample": [
+      "Inscríbete hoy",
+      "Solicita información",
+      "Descargar programa",
+      "Comunicación y RRSS",
+      "Publicidad",
+      "Moda",
+      "Ilustración",
+      "Arquitectura e Interiorismo",
+      "Cine",
+      "Branding"
+    ]
+  },
+  {
+    "slug": "puede-la-ia-hacer-tu-trabajo",
+    "route": "/puede-la-ia-hacer-tu-trabajo",
+    "title": "¿Puede la IA hacer tu trabajo? · Test gratuito de riesgo de automatización | Founderz",
+    "description": "El 60% de las tareas de tu puesto ya son automatizables. Responde a un test de 2 minutos y descubre cuánto de TU trabajo puede hacer ya la IA, y qué hacer al respecto.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "El 60% de las tareas de tu puesto ya son automatizables ."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 104,
+    "cssKb": 26,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "registro",
+    "route": "/registro",
+    "title": "Newsletter de Founderz — Domina la IA en 5 minutos cada 15 días",
+    "description": "Únete gratis a la comunidad de IA más grande en habla hispana. Cada 15 días: herramientas, casos reales y acceso a cursos en directo gratuitos con certificado de Microsoft.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "Estás a un email de dominar la IA."
+    ],
+    "h2": [
+      "Suscríbete a la newsletter",
+      "5 minutos de lectura. Años de ventaja.",
+      "Abre tu inbox. Esto es lo que te espera.",
+      "No somos una newsletter más. Somos la mayor escuela de IA de Europa.",
+      "Si te suena, es para ti.",
+      "Preguntas frecuentes",
+      "Dentro de 15 días habrá gente que sabrá más IA que hoy. Decide estar en ese grupo.",
+      "Suscríbete a la newsletter"
+    ],
+    "h3count": 8,
+    "h3sample": [
+      "IA aplicable, cada 15 días",
+      "Cursos en directo, gratis",
+      "Certificado con Microsoft",
+      "5 prompts que los consultores usan para pensar mejor",
+      "🎓 Plazas abiertas: curso de Copilot en directo, gratis",
+      "Agentes de IA: monta el tuyo sin código en 20 minutos",
+      "La próxima edición ya se está escribiendo.",
+      "+700.000 profesionales ya nos leen."
+    ],
+    "words": 808,
+    "cssKb": 21,
+    "htmlKb": 147,
+    "sections": 7,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 2,
+      "inputs": 8,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 2,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 0,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 5,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": true,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#111115",
+        "#d08eeb",
+        "#6f6f6f",
+        "#e5e7eb",
+        "#767676",
+        "#a3d9c5"
+      ]
+    },
+    "ctaSample": [
+      "Suscríbete gratis",
+      "política de privacidad",
+      "términos y condiciones",
+      "Empezar gratis →",
+      "Quiero recibirla gratis",
+      "Unirme a la comunidad",
+      "Sí, es para mí — suscribirme gratis",
+      "Suscribirme gratis →",
+      "Suscribirme gratis",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "root",
+    "route": "/",
+    "title": "Founderz — Acceso exclusivo al vídeo",
+    "description": "Descubre cómo los mejores equipos están transformando su forma de trabajar con IA.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "La escuela de IA más grande en español."
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 45,
+    "cssKb": 23,
+    "htmlKb": 81,
+    "sections": 0,
+    "landmarks": {
+      "header": 0,
+      "nav": 0,
+      "main": 1,
+      "footer": 0
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": false,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 1,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#080810"
+      ]
+    },
+    "ctaSample": [
+      "Privacidad",
+      "founderz.com"
+    ]
+  },
+  {
+    "slug": "test-ia-act",
+    "route": "/test-ia-act",
+    "title": "¿Cumple tu empresa el AI Act? · Test de riesgo gratuito | Founderz",
+    "description": "Test gratuito de 2 minutos: descubre el nivel de exposición de tu empresa ante el Reglamento Europeo de IA (AI Act) según los usos reales que hacéis de la inteligencia artificial, y qué obligaciones os aplican.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "¿Cumple tu empresa el AI Act ?"
+    ],
+    "h2": [],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 107,
+    "cssKb": 27,
+    "htmlKb": 87,
+    "sections": 0,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 0,
+      "inputs": 0,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": false,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 1,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": true,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#fcfcfd",
+        "#e4e1f0",
+        "#e8e6f0",
+        "#eeedfa",
+        "#f3f2fa",
+        "#e0defa"
+      ]
+    },
+    "ctaSample": [
+      "política de privacidad",
+      "Privacidad"
+    ]
+  },
+  {
+    "slug": "webinar-maic",
+    "route": "/webinar-maic",
+    "title": "Webinar Gratuito — Máster IA para Creativos | Founderz",
+    "description": "Regístrate al webinar gratuito sobre IA para Creativos. Aprende en directo con los mejores expertos y descubre el Máster IA para Creativos de Founderz.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "El método que los creativos usan para trabajar con IA."
+    ],
+    "h2": [
+      "Accede a la masterclass ahora",
+      "15 minutos. Directo al método."
+    ],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 194,
+    "cssKb": 23,
+    "htmlKb": 95,
+    "sections": 3,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 1,
+      "inputs": 4,
+      "selects": 0,
+      "textareas": 0,
+      "checkbox": 0,
+      "countrySelect": false,
+      "phonePrefix": true,
+      "tycLink": false,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 23,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 22,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#e5e7eb",
+        "#fafafa",
+        "#b6b6b6",
+        "#03001d",
+        "#a3d9c5",
+        "#6f6f6f"
+      ]
+    },
+    "ctaSample": [
+      "Ver ahora",
+      "Ver la masterclass →",
+      "Privacidad",
+      "Términos"
+    ]
+  },
+  {
+    "slug": "webinaraiact",
+    "route": "/webinaraiact",
+    "title": "Webinar AI Act — Qué exige la ley y cómo cumplirla | Founderz",
+    "description": "El AI Act explicado en claro, sin jerga legal. 45 minutos en directo con Pau García-Milà y la abogada Beatriz Benítez: sanciones, Artículo 4 y cómo convertir la obligación en productividad.",
+    "robots": "noindex, nofollow",
+    "h1": [
+      "El AI Act ya está en vigor. ¿Tu empresa lo está incumpliendo sin saberlo?"
+    ],
+    "h2": [
+      "Reserva tu plaza gratuita",
+      "No es una ley que viene. Es una ley que ya te aplica.",
+      "El AI Act, explicado sencillo. Y la fórmula que lo convierte en productividad.",
+      "Esta consulta, en un despacho, se factura por horas.",
+      "La visión legal y la visión de negocio. En la misma mesa.",
+      "Muchas empresas empezaron exactamente así: con una sesión.",
+      "El AI Act no va a esperar a que estés preparado."
+    ],
+    "h3count": 0,
+    "h3sample": [],
+    "words": 1049,
+    "cssKb": 25,
+    "htmlKb": 115,
+    "sections": 8,
+    "landmarks": {
+      "header": 1,
+      "nav": 0,
+      "main": 1,
+      "footer": 1
+    },
+    "form": {
+      "forms": 1,
+      "inputs": 5,
+      "selects": 3,
+      "textareas": 0,
+      "checkbox": 1,
+      "countrySelect": true,
+      "phonePrefix": true,
+      "tycLink": true,
+      "appearanceNone": true,
+      "hubspotEmbed": false
+    },
+    "media": {
+      "images": 31,
+      "imgMissingAlt": 0,
+      "imgMissingDims": 0,
+      "iframes": 1,
+      "video": 0,
+      "youtube": false
+    },
+    "ui": {
+      "details": 0,
+      "countdown": false,
+      "sticky": true,
+      "marquee": true,
+      "priceShown": false,
+      "strikePrice": true,
+      "testimonials": false,
+      "faq": false,
+      "progressBar": false
+    },
+    "tracking": {
+      "gtm": true,
+      "hubspot": true,
+      "ga4Cookie": false,
+      "pageLoadControlled": false,
+      "generateLead": false
+    },
+    "brand": {
+      "rundPreload": 24,
+      "purpleWeb": true,
+      "purpleHover": true,
+      "inkOfficial": false,
+      "colors": [
+        "#5a5a5a",
+        "#5045c8",
+        "#2f2976",
+        "#1a191d",
+        "#f3f5f7",
+        "#e2e2f8",
+        "#dcdceb",
+        "#9ca3af",
+        "#03001d",
+        "#e5e7eb",
+        "#fafafa",
+        "#b6b6b6",
+        "#a3d9c5",
+        "#6f6f6f"
+      ]
+    },
+    "ctaSample": [
+      "Reservar plaza",
+      "Términos y condiciones",
+      "Política de privacidad",
+      "Reservar mi plaza →",
+      "Quiero mi plaza →",
+      "Reservar plaza →",
+      "Privacidad",
+      "Términos"
+    ]
+  }
+]

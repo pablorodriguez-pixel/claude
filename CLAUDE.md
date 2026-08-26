@@ -1,5 +1,11 @@
 # Claude — Landing Pages Founderz (UX + CRO)
 
+> ## ⚠️ Antes de desplegar nada, lee `README.md`
+> `ia.founderz.com` sirve 25 LPs vivas cuyo fuente **no está en este repo**. Un
+> deploy a producción desde aquí las borraría, y un merge a la rama de producción
+> también (el proyecto de Vercel está conectado por git a este repositorio).
+> `scripts/deploy.mjs` lo bloquea; no desactives la comprobación.
+
 Este repositorio se usa para diseñar y maquetar **landing pages al estilo Founderz** combinando expertise en **UX** y **CRO** (Conversion Rate Optimization). Cuando trabajes en este repo, sigue estas reglas siempre.
 
 > **Material de referencia oficial:**
@@ -310,6 +316,28 @@ Orden real de secciones extraído de `reference/founderz-maqueta/index.html`:
 
 ---
 
-## 11. Branch de trabajo
+## 11. Cómo se trabaja ahora
 
-Desarrollo en `claude/spanish-greeting-5gAxM` (o la branch que indique la tarea). Commits descriptivos, push con `-u origin <branch>`.
+Este repo ya no es solo referencia: es el **generador**. Para crear o revisar una
+LP, invoca la skill **`/founderz-lp`**, que carga la memoria del agente
+(`memory/`) y aplica las 11 reglas obligatorias.
+
+```bash
+npm run new -- --slug <slug> --tipo <master|webinar|leadmagnet|b2b|vsl|gracias>
+npm run qa  -- --slug <slug>    # obligatorio antes de entregar
+npm run deploy                  # preview
+```
+
+Reglas que este documento NO cubre y que están en `memory/`:
+
+- `memory/01-reglas-obligatorias.md` — noindex, GTM, HubSpot, país + prefijo,
+  TyC, `appearance:none` en selects iOS, QA a 390px, propiedades de programa.
+- `memory/02-arquetipos-lp.md` — los 6 arquetipos y el análisis de las 25 LPs
+  reales de producción.
+
+**CSS en hoja externa, nunca inline** (decisión de Pablo, 20/08/2026): los tokens
+viven en `styles/founderz.css` y lo específico de cada LP en
+`app/<slug>/<slug>.css`.
+
+Branch de trabajo: la que indique la tarea. Commits descriptivos, push con
+`-u origin <branch>`.
