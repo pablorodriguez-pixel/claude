@@ -40,7 +40,7 @@ for p in EXENTAS_PUENTE: BLOQ[p] |= {6,7,8,9}
 CURSO_R4 = 30                        # ese dia ninguna R4 salvo trasplante
 # Fiesta de bienvenida del viernes 6: ese dia no trabaja ningun R1 ni R2.
 # El sabado 7 (y su lunes festivo emparejado, el 9) no lo trabajan los R1.
-VETO_NIVEL = {6: {"R1","R2"}, 7: {"R1"}, 9: {"R1"}}
+VETO_NIVEL = {6: {"R1","R2"}, 7: {"R1"}, 8: {"R1","R2"}, 9: {"R1"}}
 
 # Guardias del 1 y 2 de noviembre, ya adjudicadas en el cuadrante de octubre.
 # Cuentan para el descanso: quien hizo el dia 2 (salvo trasplante) no entra el dia 3.
@@ -87,12 +87,15 @@ def libre(p, dias, tipo):
         if tipo != "TX" and d == CURSO_R4 and NIVEL[p] == "R4": return False
     return True
 
-# El viernes 6 solo quedan 5 personas elegibles y las cinco hacen falta ese dia,
-# lo que deja al sabado 7 sin ningun mayor libre. Se recorta el quirofano del
-# viernes a mayor + 1 para liberar un mayor de cara al sabado.
-QUIROFANO_CORTO = {(6,)}
-PLAZAS = ([("MAYOR", u) for u in UNIDADES] + [("QX2", u) for u in UNIDADES] +
-          [("QX3", u) for u in UNIDADES if u not in QUIROFANO_CORTO] +
+# La fiesta vacia de R1 y R2 el viernes 6 y el domingo 8. El viernes quedan 5
+# elegibles (justo los 5 puestos, pero entonces el sabado se queda sin mayor) y
+# el domingo solo 4, de los que uno esta siempre comprometido con el sabado+lunes.
+# Se recorta el quirofano: mayor + 1 el viernes, y solo el mayor el domingo.
+QUIROFANO_CORTO = {(6,)}          # sin QX3
+QUIROFANO_MINIMO = {(8,)}         # sin QX2 ni QX3
+PLAZAS = ([("MAYOR", u) for u in UNIDADES] +
+          [("QX2", u) for u in UNIDADES if u not in QUIROFANO_MINIMO] +
+          [("QX3", u) for u in UNIDADES if u not in QUIROFANO_CORTO | QUIROFANO_MINIMO] +
           [("TX", (d,)) for d in DIAS] + [("UCQ", (d,)) for d in UCQ_R2_DIAS])
 
 def pool(tipo, dias):

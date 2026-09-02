@@ -35,28 +35,29 @@ días seguidos.
    cruza la frontera del mes: quien hizo guardia el 2 de noviembre no entra el día 3.
 4. Puentes del bimestre: 12-oct, 31-oct (31+1+2) y 9-nov (7+8+9). Quien trabajó los dos
    de octubre libra el de noviembre; techo de 2 de 3 para todo el mundo.
-5. Fiesta de bienvenida del viernes 6: ese día no trabaja ningún R1 ni R2, y el sábado 7
-   (con su lunes festivo emparejado, el 9) no lo trabaja ningún R1.
+5. Fiesta de bienvenida: el viernes 6 y el domingo 8 no trabaja ningún R1 ni R2, y el
+   sábado 7 (con su lunes festivo emparejado, el 9) no lo trabaja ningún R1.
 6. La localizada de trasplante de una R4 no cae la víspera de una guardia ni la víspera
    de un bloqueo de vacaciones.
 7. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
    como desempate, con más peso en los findes que en el total.
 
-## Dos excepciones que la fiesta obliga
+## Lo que cuesta la fiesta de bienvenida
 
 El viernes 6, sin R1 ni R2, solo quedan cinco personas elegibles (Carlota, Fabián,
 Patri, Sandra y Tony) y son justo las cinco que hacen falta ese día. Como quien trabaja
-el viernes no puede trabajar el sábado, el 7 se quedaba sin ningún mayor. Y el domingo 8,
-sin R1 ni R2, solo quedan cuatro personas para cinco puestos.
+el viernes no puede trabajar el sábado, el 7 se quedaba sin ningún mayor. El domingo 8 es
+peor: solo quedan cuatro elegibles, y una de ellas está siempre comprometida con el
+sábado y su lunes festivo emparejado.
 
-Por eso:
+Por eso el quirófano se recorta esos dos días:
 
-- El **quirófano del viernes 6 va con mayor + 1** en vez de mayor + 2, lo que libera un
-  mayor para el sábado. El mes tiene entonces 139 puestos, no 140.
-- El **emparejamiento V+D se rompe el 6 y el 8**: el domingo lleva equipo normal.
+- **Viernes 6:** mayor + 1 en vez de mayor + 2.
+- **Domingo 8:** solo el mayor, sin residentes acompañantes.
 
-Alternativas descartadas: levantar la exención del puente a Almudena o Ana G. (irían a
-3 de 3 puentes) o dejar que algún R2 trabajase el viernes.
+El mes queda en **137 puestos** en vez de 140. Alternativas descartadas: levantar la
+exención del puente a Almudena o Ana G. (irían a 3 de 3 puentes) o dejar que algún R2
+trabajase esos días.
 
 ## Ficheros
 

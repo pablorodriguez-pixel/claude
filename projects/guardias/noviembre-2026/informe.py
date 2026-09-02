@@ -19,7 +19,7 @@ for d in DIAS:
         if p in vistos: err.append(f"dia {d}: {p} duplicado ({t} y {vistos[p]})")
         vistos[p] = t
         dias_de.setdefault(p, {})[d] = t
-    esperados = 4 if (d,) in QUIROFANO_CORTO else 5
+    esperados = 3 if (d,) in QUIROFANO_MINIMO else (4 if (d,) in QUIROFANO_CORTO else 5)
     if len(cua[d]) != esperados:
         err.append(f"dia {d}: {len(cua[d])} puestos, se esperaban {esperados}")
     for t,p in cua[d].items():
@@ -81,6 +81,6 @@ for d in DIAS:
     c = cua[d]
     marca = " *PUENTE*" if d in PUENTE9 else (" *finde*" if es_finde(d) else "")
     print(f"{d:2d} {NOM[dow(d)]}  TX:{c['TX']:10} UCQ:{c['UCQ']:10} MAY:{c['MAYOR']:10} "
-          f"QX:{c['QX2']:10} {c.get('QX3','—'):10}{marca}")
+          f"QX:{c.get('QX2','—'):10} {c.get('QX3','—'):10}{marca}")
 import json
 json.dump({str(d):cua[d] for d in DIAS}, open('cuadrante_nov.json','w'), ensure_ascii=False, indent=1)
