@@ -1,0 +1,198 @@
+{
+ "3": {
+  "QX3": "Ana R2",
+  "TX": "Almudena",
+  "QX2": "Tania",
+  "MAYOR": "Candela",
+  "UCQ": "Patricia"
+ },
+ "4": {
+  "QX2": "Miriam",
+  "MAYOR": "Patri",
+  "TX": "Almudena",
+  "QX3": "Eva",
+  "UCQ": "Tony"
+ },
+ "5": {
+  "QX2": "Asis",
+  "TX": "Sandra",
+  "MAYOR": "Candela",
+  "QX3": "Mercedes",
+  "UCQ": "Carlota"
+ },
+ "6": {
+  "QX2": "Tania",
+  "MAYOR": "Patri",
+  "TX": "Sandra",
+  "QX3": "Arturo",
+  "UCQ": "Patricia"
+ },
+ "7": {
+  "MAYOR": "Sandra",
+  "QX3": "Aitor",
+  "QX2": "Cristina",
+  "TX": "Carlota",
+  "UCQ": "Tony"
+ },
+ "8": {
+  "QX2": "Tania",
+  "TX": "Carlota",
+  "MAYOR": "Patri",
+  "QX3": "Arturo",
+  "UCQ": "Patricia"
+ },
+ "9": {
+  "MAYOR": "Sandra",
+  "QX3": "Aitor",
+  "QX2": "Cristina",
+  "TX": "Carlota",
+  "UCQ": "Tony"
+ },
+ "10": {
+  "MAYOR": "Candela",
+  "QX3": "Miriam",
+  "TX": "Almudena",
+  "QX2": "Mercedes",
+  "UCQ": "Maria"
+ },
+ "11": {
+  "QX3": "Tania",
+  "TX": "Maria",
+  "QX2": "Cristina",
+  "UCQ": "Asis",
+  "MAYOR": "Patri"
+ },
+ "12": {
+  "MAYOR": "Fabian",
+  "TX": "Ana G",
+  "QX3": "David",
+  "QX2": "Antonio",
+  "UCQ": "Carlota"
+ },
+ "13": {
+  "QX2": "Eva",
+  "TX": "Ana G",
+  "MAYOR": "Candela",
+  "QX3": "Emilio",
+  "UCQ": "Tony"
+ },
+ "14": {
+  "QX2": "Asis",
+  "MAYOR": "Patri",
+  "TX": "Almudena",
+  "QX3": "Antonio",
+  "UCQ": "Patricia"
+ },
+ "15": {
+  "QX2": "Eva",
+  "TX": "Ana G",
+  "MAYOR": "Candela",
+  "QX3": "Emilio",
+  "UCQ": "Tony"
+ },
+ "16": {
+  "QX3": "Arturo",
+  "TX": "Ana G",
+  "QX2": "Aitor",
+  "MAYOR": "Fabian",
+  "UCQ": "Maria"
+ },
+ "17": {
+  "MAYOR": "Patri",
+  "TX": "Maria",
+  "UCQ": "Ana R2",
+  "QX2": "Fatima",
+  "QX3": "Miriam"
+ },
+ "18": {
+  "MAYOR": "Fabian",
+  "QX3": "Rosario",
+  "TX": "Sandra",
+  "QX2": "Antonio",
+  "UCQ": "Patricia"
+ },
+ "19": {
+  "QX2": "Marc",
+  "MAYOR": "Ana G",
+  "TX": "Sandra",
+  "QX3": "Asis",
+  "UCQ": "Tony"
+ },
+ "20": {
+  "QX3": "Fatima",
+  "QX2": "Mercedes",
+  "TX": "Sandra",
+  "MAYOR": "Isabel",
+  "UCQ": "Maria"
+ },
+ "21": {
+  "MAYOR": "Fabian",
+  "QX2": "Arturo",
+  "TX": "Ana G",
+  "QX3": "Marc",
+  "UCQ": "Carlota"
+ },
+ "22": {
+  "QX3": "Fatima",
+  "QX2": "Mercedes",
+  "MAYOR": "Isabel",
+  "TX": "Ana G",
+  "UCQ": "Maria"
+ },
+ "23": {
+  "QX3": "Aitor",
+  "MAYOR": "Sandra",
+  "QX2": "Cristina",
+  "UCQ": "Emilio",
+  "TX": "Isabel"
+ },
+ "24": {
+  "MAYOR": "Almudena",
+  "QX3": "David",
+  "QX2": "Marc",
+  "TX": "Isabel",
+  "UCQ": "Carlota"
+ },
+ "25": {
+  "MAYOR": "Ana G",
+  "QX3": "Rosario",
+  "QX2": "Antonio",
+  "TX": "Isabel",
+  "UCQ": "Patricia"
+ },
+ "26": {
+  "QX2": "Ana R2",
+  "TX": "Isabel",
+  "QX3": "Miriam",
+  "MAYOR": "Almudena",
+  "UCQ": "Maria"
+ },
+ "27": {
+  "MAYOR": "Fabian",
+  "QX3": "David",
+  "QX2": "Rosario",
+  "TX": "Almudena",
+  "UCQ": "Carlota"
+ },
+ "28": {
+  "TX": "Almudena",
+  "QX3": "Emilio",
+  "MAYOR": "Isabel",
+  "QX2": "Ana R2",
+  "UCQ": "Maria"
+ },
+ "29": {
+  "TX": "Maria",
+  "MAYOR": "Fabian",
+  "QX3": "David",
+  "QX2": "Rosario",
+  "UCQ": "Carlota"
+ },
+ "30": {
+  "UCQ": "Eva",
+  "QX2": "Fatima",
+  "QX3": "Marc",
+  "MAYOR": "Candela",
+  "TX": "Isabel"
+ }
+}
