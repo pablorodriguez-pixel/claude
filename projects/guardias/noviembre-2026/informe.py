@@ -19,7 +19,12 @@ for d in DIAS:
         if p in vistos: err.append(f"dia {d}: {p} duplicado ({t} y {vistos[p]})")
         vistos[p] = t
         dias_de.setdefault(p, {})[d] = t
-    if len(cua[d]) != 5: err.append(f"dia {d}: {len(cua[d])} puestos, faltan {5-len(cua[d])}")
+    esperados = 4 if (d,) in QUIROFANO_CORTO else 5
+    if len(cua[d]) != esperados:
+        err.append(f"dia {d}: {len(cua[d])} puestos, se esperaban {esperados}")
+    for t,p in cua[d].items():
+        if NIVEL[p] in VETO_NIVEL.get(d, set()):
+            err.append(f"dia {d}: {p} es {NIVEL[p]} y ese dia esta vetado ({t})")
     if d == CURSO_R4:
         for t,p in cua[d].items():
             if NIVEL[p]=="R4" and t!="TX": err.append(f"dia 30: R4 {p} en {t} (curso R4)")
@@ -28,6 +33,15 @@ for p,dd in dias_de.items():
     for d in dd:
         if d+1 in dd and dd[d]!="TX" and dd[d+1]!="TX":
             err.append(f"{p}: guardias consecutivas {d} y {d+1} ({dd[d]}/{dd[d+1]})")
+for p,dd in dias_de.items():                          # localizada de trasplante
+    if NIVEL[p] != "R4": continue
+    for d,t in dd.items():
+        if t != "TX": continue
+        if d+1 in BLOQ_VAC[p]:
+            err.append(f"{p}: TX el {d}, vispera de su bloqueo de vacaciones")
+        sig = dd.get(d+1)
+        if sig and sig != "TX":
+            err.append(f"{p}: TX el {d}, vispera de guardia ({sig} el {d+1})")
 for p,dd in dias_de.items():                          # frontera con el 1-2 de nov
     ant = PREV.get(p, {})
     if 2 in ant and 3 in dd and ant[2] != "TX" and dd[3] != "TX":
@@ -67,6 +81,6 @@ for d in DIAS:
     c = cua[d]
     marca = " *PUENTE*" if d in PUENTE9 else (" *finde*" if es_finde(d) else "")
     print(f"{d:2d} {NOM[dow(d)]}  TX:{c['TX']:10} UCQ:{c['UCQ']:10} MAY:{c['MAYOR']:10} "
-          f"QX:{c['QX2']:10} {c['QX3']:10}{marca}")
+          f"QX:{c['QX2']:10} {c.get('QX3','—'):10}{marca}")
 import json
 json.dump({str(d):cua[d] for d in DIAS}, open('cuadrante_nov.json','w'), ensure_ascii=False, indent=1)

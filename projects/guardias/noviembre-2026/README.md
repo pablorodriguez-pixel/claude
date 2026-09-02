@@ -35,8 +35,28 @@ días seguidos.
    cruza la frontera del mes: quien hizo guardia el 2 de noviembre no entra el día 3.
 4. Puentes del bimestre: 12-oct, 31-oct (31+1+2) y 9-nov (7+8+9). Quien trabajó los dos
    de octubre libra el de noviembre; techo de 2 de 3 para todo el mundo.
-5. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
+5. Fiesta de bienvenida del viernes 6: ese día no trabaja ningún R1 ni R2, y el sábado 7
+   (con su lunes festivo emparejado, el 9) no lo trabaja ningún R1.
+6. La localizada de trasplante de una R4 no cae la víspera de una guardia ni la víspera
+   de un bloqueo de vacaciones.
+7. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
    como desempate, con más peso en los findes que en el total.
+
+## Dos excepciones que la fiesta obliga
+
+El viernes 6, sin R1 ni R2, solo quedan cinco personas elegibles (Carlota, Fabián,
+Patri, Sandra y Tony) y son justo las cinco que hacen falta ese día. Como quien trabaja
+el viernes no puede trabajar el sábado, el 7 se quedaba sin ningún mayor. Y el domingo 8,
+sin R1 ni R2, solo quedan cuatro personas para cinco puestos.
+
+Por eso:
+
+- El **quirófano del viernes 6 va con mayor + 1** en vez de mayor + 2, lo que libera un
+  mayor para el sábado. El mes tiene entonces 139 puestos, no 140.
+- El **emparejamiento V+D se rompe el 6 y el 8**: el domingo lleva equipo normal.
+
+Alternativas descartadas: levantar la exención del puente a Almudena o Ana G. (irían a
+3 de 3 puentes) o dejar que algún R2 trabajase el viernes.
 
 ## Ficheros
 
@@ -65,6 +85,9 @@ python3 web.py        # regenera el HTML
 - **María** no tiene ninguna guardia en octubre, así que su acumulado del bimestre (9)
   queda por debajo del resto de R4 (16-21). Compensarlo de golpe exigiría ponerle 16
   guardias en un mes.
+- **Carlota** acaba con 10 guardias porque el trasplante del puente solo lo puede hacer
+  ella: Sandra es el mayor del sábado y la norma de la localizada le prohíbe el
+  trasplante la víspera. Con el tope de mayores en 9 el puente no tiene solución.
 - Los **84 puestos que solo pueden cubrir R3 o R4** entre 10 personas dan 8,4 de media
   frente a 4,4 de un R1. Es estructural: solo cambia si se amplía quién puede cubrir
   trasplante o el puesto de mayor.

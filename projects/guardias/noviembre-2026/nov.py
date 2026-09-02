@@ -19,7 +19,8 @@ for n in ["Ana R2","Asis","Antonio","Patricia","Eva","Marc","Tania","Emilio"]:  
 for n in ["Patri","Candela","Tony","Fabian"]:                                   NIVEL[n]="R3"
 for n in ["Isabel","Ana G","Sandra","Almudena","Maria","Carlota"]:              NIVEL[n]="R4"
 
-BLOQ = {
+# Bloqueos de vacaciones pedidos por cada residente
+BLOQ_VAC = {
  "Rosario":{13,14,15,20,21,22}, "Cristina":{13,14,15,26,27,28,29,30},
  "Miriam":{6,7,8,9,20,21,22}, "David":set(), "Mercedes":{26,27,28,29,30},
  "Arturo":set(), "Aitor":{26,27,28,29,30}, "Fatima":{13,14,15,27,28,29},
@@ -32,8 +33,14 @@ BLOQ = {
  "Almudena":{11,12,13,20,21,22}, "Maria":{1,2,3,4,5,6,7,8,9,13,14,15}, "Carlota":{13,14,15},
 }
 # Exencion del puente del 9: hicieron los dos puentes de octubre
-for p in ("Almudena","Ana G"): BLOQ[p] |= {6,7,8,9}
-CURSO_R4 = 30                       # ese dia ninguna R4 salvo trasplante
+EXENTAS_PUENTE = {"Almudena", "Ana G"}
+BLOQ = {p: set(v) for p, v in BLOQ_VAC.items()}
+for p in EXENTAS_PUENTE: BLOQ[p] |= {6,7,8,9}
+
+CURSO_R4 = 30                        # ese dia ninguna R4 salvo trasplante
+# Fiesta de bienvenida del viernes 6: ese dia no trabaja ningun R1 ni R2.
+# El sabado 7 (y su lunes festivo emparejado, el 9) no lo trabajan los R1.
+VETO_NIVEL = {6: {"R1","R2"}, 7: {"R1"}, 9: {"R1"}}
 
 # Guardias del 1 y 2 de noviembre, ya adjudicadas en el cuadrante de octubre.
 # Cuentan para el descanso: quien hizo el dia 2 (salvo trasplante) no entra el dia 3.
@@ -57,30 +64,46 @@ OCT_FIN = {"Miriam":3,"Aitor":1,"Fatima":3,"Arturo":1,"Cristina":3,"David":2,"Me
  "Fabian":3,"Candela":2,"Patri":2,"Tony":2,
  "Almudena":5,"Carlota":4,"Sandra":4,"Isabel":3,"Ana G":2,"Maria":0}
 
-# --- UCQ: rota fijada a mano (6 por rotante, 1 finde V+D y otro de S) ---
+# --- UCQ: rota fijada a mano (6 por rotante, un finde de V+D y otro de S) ---
+# El 6 y el 8 los lleva Tony porque la fiesta del 6 veta a los R2, y Patricia lo es.
 UCQ = {}
-for p, ds in {"Patricia":[6,8,14,3,18,25], "Tony":[7,9,13,15,4,19],
-              "Carlota":[21,27,29,5,12,24], "Maria":[20,22,28,10,16,26]}.items():
+for p, ds in {"Tony":[6,8,14,3,11,17], "Patricia":[7,9,13,15,4,19],
+              "Maria":[20,22,28,10,16,25], "Carlota":[21,27,29,5,12,24]}.items():
     for d in ds: UCQ[d] = p
-UCQ_R2_DIAS = [d for d in DIAS if d not in UCQ]        # 11,17,23,30 -> R2
+UCQ_R2_DIAS = [d for d in DIAS if d not in UCQ]        # 18, 23, 26, 30 -> R2
 
-# --- Unidades de asignacion (V+D juntos, S+festivo juntos) ---
-PAREJAS = [(6,8),(7,9),(13,15),(20,22),(27,29)]
+# --- Unidades de asignacion ---
+# El 6 y el 8 van sueltos: con la fiesta del 6 no hay 5 personas elegibles el 8.
+PAREJAS = [(7,9),(13,15),(20,22),(27,29)]
 en_pareja = {d for p in PAREJAS for d in p}
 UNIDADES = PAREJAS + [(d,) for d in DIAS if d not in en_pareja]
 
+def veto(p, d):
+    return NIVEL[p] in VETO_NIVEL.get(d, set())
+
 def libre(p, dias, tipo):
-    if any(d in BLOQ[p] for d in dias): return False
-    if tipo != "TX" and CURSO_R4 in dias and NIVEL[p] == "R4": return False
+    for d in dias:
+        if d in BLOQ[p] or veto(p, d): return False
+        if tipo != "TX" and d == CURSO_R4 and NIVEL[p] == "R4": return False
     return True
 
+# El viernes 6 solo quedan 5 personas elegibles y las cinco hacen falta ese dia,
+# lo que deja al sabado 7 sin ningun mayor libre. Se recorta el quirofano del
+# viernes a mayor + 1 para liberar un mayor de cara al sabado.
+QUIROFANO_CORTO = {(6,)}
 PLAZAS = ([("MAYOR", u) for u in UNIDADES] + [("QX2", u) for u in UNIDADES] +
-          [("QX3", u) for u in UNIDADES] + [("TX", (d,)) for d in DIAS] +
-          [("UCQ", (d,)) for d in UCQ_R2_DIAS])
+          [("QX3", u) for u in UNIDADES if u not in QUIROFANO_CORTO] +
+          [("TX", (d,)) for d in DIAS] + [("UCQ", (d,)) for d in UCQ_R2_DIAS])
 
 def pool(tipo, dias):
-    base = MAYORES if tipo=="MAYOR" else (R4 if tipo=="TX" else
-           (R2_LIBRE if tipo=="UCQ" else JUNIORS))
+    if tipo == "TX":     base = R4
+    elif tipo == "MAYOR": base = MAYORES
+    elif tipo == "UCQ":   base = R2_LIBRE
+    else:
+        # Los mayores solo entran en quirofano donde el veto de la fiesta deja sin
+        # R1 ni R2 (el viernes 6). El resto del mes, quirofano es de R1 y R2.
+        sin_juniors = any({"R1","R2"} <= VETO_NIVEL.get(d, set()) for d in dias)
+        base = MAYORES if sin_juniors else JUNIORS
     return [p for p in base if libre(p, dias, tipo)]
 
 POOL = {(t,u): pool(t,u) for t,u in PLAZAS}
@@ -91,20 +114,29 @@ if vacias: print("SIN CANDIDATOS:", vacias)
 SENIOR = [p for p in NIVEL if NIVEL[p] in ("R3","R4")]
 JUNIOR = [p for p in NIVEL if NIVEL[p] in ("R1","R2")]
 FIJOS  = {"Tony": 6, "Patricia": 6}          # solo hacen UCQ: cupo cerrado
-GS = [p for p in SENIOR if p not in FIJOS]   # 9 mayores repartibles
-GJ = [p for p in JUNIOR if p not in FIJOS]   # 15 juniors
+GS = [p for p in SENIOR if p not in FIJOS]
+GJ = [p for p in JUNIOR if p not in FIJOS]
 FIN_NOV = [d for d in DIAS if es_finde(d)]
 
-NOV_S, NOV_J = 28 + 28 + 12, 28 + 28 + 4     # (TX+MAYOR+UCQ rot) / (QX2+QX3+UCQ-R2)
-OBJ_T = {p: NOV_S/len(GS) for p in GS};  OBJ_T.update({p: NOV_J/len(GJ) for p in GJ})
-FS = (2*len(FIN_NOV) + 9)/len(GS)            # findes de TX+MAYOR+UCQ(Maria,Carlota)
+# Puestos que solo pueden cubrir mayores (por veto de nivel o por tipo de puesto)
+def _reparto():
+    s = j = 0
+    for t,u in PLAZAS:
+        solo_may = all(NIVEL[p] in ("R3","R4") for p in POOL[(t,u)])
+        if solo_may: s += len(u)
+        else:        j += len(u)
+    for p, ds in {"Tony":6,"Maria":6,"Carlota":6}.items(): s += ds
+    j += 6                                    # UCQ de Patricia
+    return s, j
+NOV_S, NOV_J = _reparto()
+OBJ_T = {p: (NOV_S - FIJOS["Tony"])/len(GS) for p in GS}
+OBJ_T.update({p: (NOV_J - FIJOS["Patricia"])/len(GJ) for p in GJ})
+FS = (2*len(FIN_NOV) + 9)/len(GS)
 FJ = 2*len(FIN_NOV)/len(GJ)
 OBJ_F = {p: FS for p in GS};  OBJ_F.update({p: FJ for p in GJ})
-# cupos por tipo de puesto
 OBJ_TIPO = {"TX": 28/len(R4), "MAYOR": 28/len(MAYORES)}
-TOPE = {p: (9 if p in GS else 6) for p in list(GS)+list(GJ)}
+TOPE = {p: (10 if p in GS else 6) for p in list(GS)+list(GJ)}  # 9 deja el puente sin solucion
 TOPE_TIPO = {"TX": 6, "MAYOR": 6}
-# arrastre de octubre: desempate (pesa poco en total, mas en findes)
 OBJ_T2 = {p: (sum(OCT_TOT[q] for q in GS)+NOV_S)/len(GS) for p in GS}
 OBJ_T2.update({p: (sum(OCT_TOT[q] for q in GJ)+NOV_J)/len(GJ) for p in GJ})
 OBJ_F2 = {p: (sum(OCT_FIN[q] for q in GS)+2*len(FIN_NOV)+9)/len(GS) for p in GS}
@@ -117,18 +149,25 @@ class Estado:
         self.tipo = defaultdict(dict)
         for d, p in UCQ.items():                     # UCQ rotantes: fijo
             self.dias[p].add(d); self.tipo[p][d] = "UCQ"
+    def _tipo_en(self, p, d):
+        return self.tipo[p].get(d) or PREV.get(p, {}).get(d)
     def cabe(self, p, tipo, u):
         if p in TOPE and len(self.dias[p]) + len(u) > TOPE[p]: return False
         if tipo in TOPE_TIPO:
             n = sum(1 for x in self.tipo[p].values() if x == tipo)
             if n + len(u) > TOPE_TIPO[tipo]: return False
         for d in u:
-            ant = PREV.get(p, {}).get(d-1)
-            if ant and tipo != "TX" and ant != "TX": return False
             if d in self.dias[p]: return False
-            for v in (d-1, d+1):
-                if v in self.dias[p] and tipo != "TX" and self.tipo[p][v] != "TX":
-                    return False
+            ant = self._tipo_en(p, d-1)
+            if ant and tipo != "TX" and ant != "TX": return False
+            sig = self._tipo_en(p, d+1)
+            if sig and tipo != "TX" and sig != "TX": return False
+            # Norma: la localizada de trasplante no puede caer el dia previo a una
+            # guardia ni el dia previo a un bloqueo por vacaciones.
+            if tipo == "TX":
+                if d+1 in BLOQ_VAC[p]: return False
+                if sig and sig != "TX": return False
+            elif NIVEL[p] == "R4" and self._tipo_en(p, d-1) == "TX": return False
         return True
     def poner(self, k, p):
         t, u = k; self.asig[k] = p
@@ -142,18 +181,18 @@ class Estado:
         for p in OBJ_T:
             n   = len(self.dias[p])
             fin = sum(1 for d in self.dias[p] if es_finde(d))
-            c += 12*(n - OBJ_T[p])**2 + 6*(fin - OBJ_F[p])**2          # equidad en noviembre
-            c += 1.0*(OCT_TOT[p] + n - OBJ_T2[p])**2                   # arrastre: carga
-            c += 2.5*(OCT_FIN[p] + fin - OBJ_F2[p])**2                 # arrastre: findes
-        for tipo, obj in OBJ_TIPO.items():                             # cupo por tipo de puesto
+            c += 12*(n - OBJ_T[p])**2 + 6*(fin - OBJ_F[p])**2
+            c += 1.0*(OCT_TOT[p] + n - OBJ_T2[p])**2
+            c += 2.5*(OCT_FIN[p] + fin - OBJ_F2[p])**2
+        for tipo, obj in OBJ_TIPO.items():
             base = R4 if tipo == "TX" else MAYORES
             for p in base:
                 c += 5*(sum(1 for x in self.tipo[p].values() if x == tipo) - obj)**2
         for p in self.dias:
             for d in self.dias[p]:
                 if self.tipo[p].get(d) != "TX": continue
-                vec = (self.tipo[p].get(d-1)=="TX") + (self.tipo[p].get(d+1)=="TX")
-                c += 9.0 if vec == 0 else -6.0        # tandas de trasplante, no dias sueltos
+                vec = (self._tipo_en(p, d-1)=="TX") + (self._tipo_en(p, d+1)=="TX")
+                c += 9.0 if vec == 0 else -6.0        # tandas de trasplante
             ds = sorted(self.dias[p])
             for a, b in zip(ds, ds[1:]):
                 if b-a == 1: c += 3.0
@@ -161,12 +200,15 @@ class Estado:
         for d in DIAS:
             trio = [self.asig.get(k) for k in self.asig if k[0] in ("QX2","QX3") and d in k[1]]
             if sum(1 for x in trio if x and NIVEL[x]=="R1") == 2: c += 0.8
+        for t in ("MAYOR","QX2","QX3"):                # el 6 y el 8 iban emparejados
+            a = self.asig.get((t,(6,))); b = self.asig.get((t,(8,)))
+            if a and b and a == b: c -= 1.0
         return c
 
 def inicial():
-    for _ in range(4000):
+    for _ in range(8000):
         e = Estado(); ok = True
-        for k in sorted(PLAZAS, key=lambda k: len(POOL[k])):
+        for k in sorted(PLAZAS, key=lambda k: (len(POOL[k]), random.random())):
             cand = [p for p in POOL[k] if e.cabe(p, k[0], k[1])]
             if not cand: ok = False; break
             cand.sort(key=lambda p: (len(e.dias[p]) - OBJ_T.get(p, 6), OCT_TOT[p]/6, random.random()))
