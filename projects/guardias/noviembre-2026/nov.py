@@ -35,6 +35,12 @@ BLOQ = {
 for p in ("Almudena","Ana G"): BLOQ[p] |= {6,7,8,9}
 CURSO_R4 = 30                       # ese dia ninguna R4 salvo trasplante
 
+# Guardias del 1 y 2 de noviembre, ya adjudicadas en el cuadrante de octubre.
+# Cuentan para el descanso: quien hizo el dia 2 (salvo trasplante) no entra el dia 3.
+PREV = {"Almudena":{1:"TX",2:"TX"}, "Patricia":{1:"UCQ"}, "Ana G":{1:"QX"},
+        "Mercedes":{1:"QX"}, "Aitor":{1:"QX"}, "Tania":{2:"UCQ"}, "Fabian":{2:"MAYOR"},
+        "Fatima":{2:"QX"}, "Miriam":{2:"QX"}}
+
 UCQ_ROT = {"Tony","Patricia","Maria","Carlota"}
 R4 = [p for p in NIVEL if NIVEL[p]=="R4"]
 MAYORES  = [p for p in NIVEL if NIVEL[p] in ("R3","R4") and p not in UCQ_ROT]
@@ -117,6 +123,8 @@ class Estado:
             n = sum(1 for x in self.tipo[p].values() if x == tipo)
             if n + len(u) > TOPE_TIPO[tipo]: return False
         for d in u:
+            ant = PREV.get(p, {}).get(d-1)
+            if ant and tipo != "TX" and ant != "TX": return False
             if d in self.dias[p]: return False
             for v in (d-1, d+1):
                 if v in self.dias[p] and tipo != "TX" and self.tipo[p][v] != "TX":

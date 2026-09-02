@@ -266,7 +266,9 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
     <div class="note"><h3>Descansos</h3>
       <p>Nadie hace dos días seguidos, salvo cuando uno de ellos es de trasplante:
       vuestro octubre lo permite (Carlota hizo quirófano el 7 y trasplante el 8, 9
-      y 10 seguidos), así que el trasplante va en tandas y está exento.</p></div>
+      y 10 seguidos), así que el trasplante va en tandas y está exento.</p>
+      <p>La regla cruza la frontera del mes: quien hizo guardia el <b>día 2</b> no entra
+      el día 3. Por eso Tania, Fabián, Fátima y Miriam arrancan más tarde.</p></div>
     <div class="note"><h3>UCQ</h3>
       <p>Los cuatro rotantes hacen 6 guardias cada uno: un finde de V+D, otro de
       sábado y el resto laborables. Los 4 días que sobran (11, 17, 23 y 30) los

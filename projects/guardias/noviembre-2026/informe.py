@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys, pickle, datetime
-sys.path.insert(0,'/tmp/claude-0/-home-user/c759d0bb-1783-5702-b280-635337ae27ea/scratchpad/guardias')
+sys.path.insert(0, __import__('os').path.dirname(__import__('os').path.abspath(__file__)))
 from nov import *
 best = pickle.load(open('best.pkl','rb'))
 
@@ -28,6 +28,10 @@ for p,dd in dias_de.items():
     for d in dd:
         if d+1 in dd and dd[d]!="TX" and dd[d+1]!="TX":
             err.append(f"{p}: guardias consecutivas {d} y {d+1} ({dd[d]}/{dd[d+1]})")
+for p,dd in dias_de.items():                          # frontera con el 1-2 de nov
+    ant = PREV.get(p, {})
+    if 2 in ant and 3 in dd and ant[2] != "TX" and dd[3] != "TX":
+        err.append(f"{p}: dia 2 ({ant[2]}) y dia 3 ({dd[3]}) seguidos")
 for t,u in PLAZAS:                                    # emparejamiento V+D y S+festivo
     if len(u)==2 and cua[u[0]][t] != cua[u[1]][t]: err.append(f"pareja {u} rota en {t}")
 PUENTE9 = {6,7,8,9}
