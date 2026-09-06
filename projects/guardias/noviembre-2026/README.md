@@ -35,30 +35,34 @@ días seguidos.
    cruza la frontera del mes: quien hizo guardia el 2 de noviembre no entra el día 3.
 4. Puentes del bimestre: 12-oct, 31-oct (31+1+2) y 9-nov (7+8+9). Quien trabajó los dos
    de octubre libra el de noviembre; techo de 2 de 3 para todo el mundo.
-5. Fiesta de bienvenida: el viernes 6 y el domingo 8 no trabaja ningún R1 ni R2, y el
-   sábado 7 (con su lunes festivo emparejado, el 9) no lo trabaja ningún R1.
+5. Fiesta de bienvenida: el viernes 6 no trabaja ningún R1 ni R2, y el sábado 7 (con su
+   lunes festivo emparejado, el 9) no lo trabaja ningún R1.
 6. La localizada de trasplante de una R4 no cae la víspera de una guardia ni la víspera
    de un bloqueo de vacaciones.
 7. Tope por nivel: ningún R3 pasa de 6 guardias al mes.
-8. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
+8. El trasplante coge el finde entero, y cada R4 hace como máximo una tanda de finde.
+9. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
    como desempate, con más peso en los findes que en el total.
 
-## Lo que cuesta la fiesta de bienvenida
+## La fiesta de bienvenida y el puente
 
-El viernes 6, sin R1 ni R2, solo quedan cinco personas elegibles (Carlota, Fabián,
-Patri, Sandra y Tony) y son justo las cinco que hacen falta ese día. Como quien trabaja
-el viernes no puede trabajar el sábado, el 7 se quedaba sin ningún mayor. El domingo 8 es
-peor: solo quedan cuatro elegibles, y una de ellas está siempre comprometida con el
-sábado y su lunes festivo emparejado.
+El puente del 9 son el **sábado 7, el domingo 8 y el lunes 9**. El viernes 6 no forma
+parte de él: es un viernes normal al que la fiesta de bienvenida veta a R1 y R2.
 
-Por eso el quirófano se recorta esos dos días:
+Almudena y Ana G., exentas del puente por haber hecho los dos de octubre, sí pueden
+trabajar el viernes 6. Sin ellas solo quedaban cinco personas elegibles ese día —justo
+los cinco puestos— y por el descanso ninguna podía ser el mayor del sábado. Con ellas el
+mes cuadra con los **140 puestos completos**, sin recortar ningún equipo y sin romper la
+unión del sábado 7 con el lunes 9.
 
-- **Viernes 6:** mayor + 1 en vez de mayor + 2.
-- **Domingo 8:** solo el mayor, sin residentes acompañantes.
+El emparejamiento V+D sí se rompe entre el 6 y el 8: el domingo lleva equipo normal.
 
-El mes queda en **137 puestos** en vez de 140. Alternativas descartadas: levantar la
-exención del puente a Almudena o Ana G. (irían a 3 de 3 puentes) o dejar que algún R2
-trabajase esos días.
+## Tandas de trasplante
+
+El trasplante coge el fin de semana entero (viernes, sábado y domingo) de una tirada,
+para comprometer un solo finde a la misma R4; el del puente incluye el lunes festivo.
+Cada R4 hace como máximo una tanda de finde. En noviembre: Carlota el del 6, Ana G. el
+del 13, Isabel el del 20 y Almudena el del 27.
 
 ## Ficheros
 
@@ -87,9 +91,8 @@ python3 web.py        # regenera el HTML
 - **María** no tiene ninguna guardia en octubre, así que su acumulado del bimestre (9)
   queda por debajo del resto de R4 (16-21). Compensarlo de golpe exigiría ponerle 16
   guardias en un mes.
-- **Carlota** acaba con 10 guardias porque el trasplante del puente solo lo puede hacer
-  ella: Sandra es el mayor del sábado y la norma de la localizada le prohíbe el
-  trasplante la víspera. Con el tope de mayores en 9 el puente no tiene solución.
+- **Carlota** acaba con 10 guardias: lleva sus 6 de UCQ más la tanda de trasplante del
+  puente, que solo podían hacer ella o Sandra.
 - Los **84 puestos que solo pueden cubrir R3 o R4** entre 10 personas dan 8,4 de media
   frente a 4,4 de un R1. Es estructural: solo cambia si se amplía quién puede cubrir
   trasplante o el puesto de mayor.

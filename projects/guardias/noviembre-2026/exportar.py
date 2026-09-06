@@ -14,7 +14,7 @@ for d in DIAS:
 OCT_PU = {"Miriam":1,"Aitor":1,"Fatima":1,"Cristina":1,"Mercedes":1,"Rosario":1,"Antonio":1,
  "Emilio":1,"Eva":1,"Patricia":1,"Tania":1,"Ana R2":1,"Fabian":1,"Almudena":2,"Carlota":1,
  "Sandra":1,"Isabel":1,"Ana G":2}
-P9 = {6,7,8,9}
+P9 = {7,8,9}
 per = {}
 for p in NIVEL:
     dd = dias_de.get(p, {})

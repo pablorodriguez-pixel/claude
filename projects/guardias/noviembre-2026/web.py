@@ -10,7 +10,8 @@ def nm(p): return DISP.get(p, p)
 DOW = ["lun","mar","mié","jue","vie","sáb","dom"]
 def dow(d): return datetime.date(2026,11,d).weekday()
 def finde(d): return dow(d) >= 5 or d in FEST
-PUENTE = {6,7,8,9}
+PUENTE = {7,8,9}
+DESTACADOS = {6,7,8,9}
 par_de = {}
 for a,b in PAREJAS:
     par_de[a] = par_de[b] = ("S+F" if a==7 else "V+D")
@@ -22,7 +23,7 @@ for _ in range(6): celdas.append('<div class="day empty" aria-hidden="true"></di
 for d in range(1, 31):
     k = str(d)
     cls = ["day"]
-    if d in PUENTE: cls.append("puente")
+    if d in DESTACADOS: cls.append("puente")
     elif finde(d): cls.append("weekend")
     if d <= 2: cls.append("prev")
     tag = par_de.get(d) or ("S" if dow(d)==5 else "")
@@ -55,10 +56,10 @@ for p in ORDEN:
     v = PER[p]
     desg = " ".join(f'<i class="chip c-{k}">{k.upper()} {v[k]}</i>'
                     for k in ("tx","ucq","may","qx") if v[k])
-    prop = [x for x in v['bloq'] if not (p in ("Almudena","Ana G") and x in (6,7,8,9))]
+    prop = [x for x in v['bloq'] if not (p in ("Almudena","Ana G") and x in (7,8,9))]
     bloq = ", ".join(str(x) for x in prop) or "—"
     if p in ("Almudena","Ana G"):
-        bloq += '<em class="exent">exenta puente 6-9</em>'
+        bloq += '<em class="exent">exenta puente 7-9</em>'
     pu = v['pu']
     filas.append(f'''<tr>
 <td class="c-name"><span class="lvl l-{v['nivel']}">{v['nivel']}</span> {nm(p)}</td>
@@ -204,17 +205,16 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
   <div class="meta">
     <span>Residentes</span><b>26 · 8 R1, 8 R2, 4 R3, 6 R4</b>
     <span>Puestos/día</span><b>5 · TX, UCQ, mayor + 2 QX</b>
-    <span>Excepciones</span><b>Fiesta: viernes 6 mayor + 1, domingo 8 solo mayor</b>
     <span>Rotando en UCQ</span><b>Tony, Patricia, María, Carlota</b>
     <span>Base del reparto</span><b>Carga y findes de octubre</b>
   </div>
 </header>
 
 <dl class="strip">
-  <div><dt>Puestos cubiertos</dt><dd>137 de 137</dd></div>
+  <div><dt>Puestos cubiertos</dt><dd>140 de 140</dd></div>
   <div><dt>Conflictos</dt><dd>0 — ningún bloqueo roto</dd></div>
   <div><dt>Puentes por persona</dt><dd>Máximo 2 de 3</dd></div>
-  <div><dt>Guardias en noviembre</dt><dd>R1 3-4 · R2 3-4 · R3 6 · R4 8-10</dd></div>
+  <div><dt>Guardias en noviembre</dt><dd>R1 3-4 · R2 4 · R3 6 · R4 8-10</dd></div>
 </dl>
 
 <section>
@@ -234,7 +234,7 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
     <span><b>UCQ</b> unidad de cirugía — rotantes y R2</span>
     <span><b>MAY</b> residente mayor — R3 o R4</span>
     <span><b>QX</b> quirófano — R1 y R2</span>
-    <span><b>Puente</b> del 9 (Almudena) resaltado en rojo</span>
+    <span><b>Rojo</b>: fiesta del 6 y puente del 9</span>
   </div>
 </section>
 
@@ -272,8 +272,8 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
       en noviembre.</p></div>
     <div class="note"><h3>Topes por nivel</h3>
       <p>Ningún R3 pasa de <b>6 guardias</b> al mes: los cuatro salen clavados a 6.
-      Los R1 y R2 se mueven entre 3 y 4, y las R4 entre 8 y 10 porque cargan el
-      trasplante además del puesto de mayor.</p></div>
+      Los R1 se mueven entre 3 y 4, los R2 quedan a 4, y las R4 entre 8 y 10 porque
+      cargan el trasplante además del puesto de mayor.</p></div>
     <div class="note"><h3>Descansos</h3>
       <p>Nadie hace dos días seguidos, salvo cuando uno de ellos es de trasplante:
       vuestro octubre lo permite (Carlota hizo quirófano el 7 y trasplante el 8, 9
@@ -281,11 +281,18 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
       <p>La regla cruza la frontera del mes: quien hizo guardia el <b>día 2</b> no entra
       el día 3. Por eso Tania, Fabián, Fátima y Miriam arrancan más tarde.</p></div>
     <div class="note"><h3>Fiesta de bienvenida</h3>
-      <p>El <b>viernes 6</b> no trabaja ningún R1 ni R2. El <b>sábado 7</b> no lo
-      trabaja ningún R1, y como va emparejado con el lunes festivo, tampoco el 9.</p>
-      <p>El domingo 8 también queda sin R1 ni R2. Solo hay cuatro personas elegibles y
-      una está siempre comprometida con el sábado, así que ese día el quirófano va
-      <b>solo con el mayor</b>, sin residentes acompañantes.</p></div>
+      <p>El <b>viernes 6</b> no trabaja ningún R1 ni R2. El <b>sábado 7</b> no lo trabaja
+      ningún R1, y como va emparejado con el lunes festivo, tampoco el 9. El domingo 8
+      lleva equipo normal.</p>
+      <p>El viernes lo cubren Carlota (trasplante), Tony (UCQ), Fabián de mayor, y Patri
+      y Almudena en quirófano. Equipo completo, como el resto del mes.</p></div>
+    <div class="note"><h3>Tandas de trasplante</h3>
+      <p>El trasplante coge el <b>fin de semana entero</b> —viernes, sábado y domingo— de
+      una tirada, para comprometer un solo finde a la misma R4. El del puente incluye
+      además el lunes festivo.</p>
+      <p>Los cuatro findes van a cuatro R4 distintas: Carlota el del 6, Ana G. el del 13,
+      Isabel el del 20 y Almudena el del 27. Ninguna repite; Sandra y María se quedan sin
+      tanda de finde.</p></div>
     <div class="note"><h3>Localizada de trasplante</h3>
       <p>Ninguna R4 tiene el trasplante la víspera de una guardia ni la víspera de un
       bloqueo de vacaciones. El trasplante sigue yendo en tandas, y una tanda puede
@@ -296,17 +303,17 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
       cubren R2.</p>
       <p>El 6 y el 8 los lleva Tony y no Patricia: la fiesta veta a los R2 el viernes,
       y Patricia lo es.</p></div>
-    <div class="note warn"><h3>Lo que cuesta la fiesta</h3>
-      <p>El viernes 6, sin R1 ni R2, solo quedan <b>cinco</b> personas elegibles —
-      Carlota, Fabián, Patri, Sandra y Tony— y son justo las cinco que hacen falta.
-      Pero quien trabaja el viernes no puede trabajar el sábado, y esas cinco agotan
-      también el pool de mayores del 7.</p>
-      <p>El domingo 8 es peor: solo quedan <b>cuatro</b> elegibles, y una de ellas está
-      siempre comprometida con el sábado y su lunes festivo.</p>
-      <p>Por eso el quirófano se recorta: <b>mayor + 1 el viernes</b> y <b>solo el mayor
-      el domingo</b>. El mes queda en 137 puestos en vez de 140. Es el único ajuste que
-      no incumple otra norma; las alternativas eran levantar la exención del puente a
-      Almudena o Ana G. —irían a 3 de 3 puentes— o dejar que un R2 entrase esos días.</p></div>
+    <div class="note warn"><h3>Lo que desatascó la fiesta</h3>
+      <p>Con el viernes 6 vetado a R1 y R2 solo quedaban cinco personas elegibles, justo
+      las cinco que hacen falta ese día, y por el descanso ninguna podía ser el mayor del
+      sábado. No había cuadratura posible.</p>
+      <p>La salida estaba en la propia exención del puente: <b>el puente son el sábado 7,
+      el domingo 8 y el lunes 9</b>. El viernes 6 no lo es. Almudena y Ana G. lo tenían
+      bloqueado solo porque el viernes iba emparejado con el domingo, y ese
+      emparejamiento ya estaba roto. Devolverles el viernes mete dos personas más en el
+      pool y libera a Sandra para el sábado.</p>
+      <p>Así no hace falta recortar ningún equipo ni romper la unión del sábado 7 con el
+      lunes 9: el mes vuelve a tener 140 puestos completos.</p></div>
     <div class="note warn"><h3>Dos desequilibrios que no se pueden cerrar</h3>
       <p><b>María</b> no tiene ninguna guardia en octubre, así que su acumulado del
       bimestre (9) queda por debajo del resto de R4 (16-21) por mucho que se le
@@ -321,7 +328,7 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
   </div>
 </section>
 
-<footer>Generado el 2 de septiembre de 2026 · 137 puestos · 26 residentes ·
+<footer>Generado el 2 de septiembre de 2026 · 140 puestos · 26 residentes ·
 bloqueos de vacaciones y curso R4 del día 30 respetados al 100 %</footer>
 </div>
 '''

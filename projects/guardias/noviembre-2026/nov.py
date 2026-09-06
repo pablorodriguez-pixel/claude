@@ -35,12 +35,12 @@ BLOQ_VAC = {
 # Exencion del puente del 9: hicieron los dos puentes de octubre
 EXENTAS_PUENTE = {"Almudena", "Ana G"}
 BLOQ = {p: set(v) for p, v in BLOQ_VAC.items()}
-for p in EXENTAS_PUENTE: BLOQ[p] |= {6,7,8,9}
+for p in EXENTAS_PUENTE: BLOQ[p] |= {7,8,9}   # el puente es S+D+L; el viernes 6 no
 
 CURSO_R4 = 30                        # ese dia ninguna R4 salvo trasplante
 # Fiesta de bienvenida del viernes 6: ese dia no trabaja ningun R1 ni R2.
 # El sabado 7 (y su lunes festivo emparejado, el 9) no lo trabajan los R1.
-VETO_NIVEL = {6: {"R1","R2"}, 7: {"R1"}, 8: {"R1","R2"}, 9: {"R1"}}
+VETO_NIVEL = {6: {"R1","R2"}, 7: {"R1"}, 9: {"R1"}}
 
 # Guardias del 1 y 2 de noviembre, ya adjudicadas en el cuadrante de octubre.
 # Cuentan para el descanso: quien hizo el dia 2 (salvo trasplante) no entra el dia 3.
@@ -87,16 +87,18 @@ def libre(p, dias, tipo):
         if tipo != "TX" and d == CURSO_R4 and NIVEL[p] == "R4": return False
     return True
 
-# La fiesta vacia de R1 y R2 el viernes 6 y el domingo 8. El viernes quedan 5
-# elegibles (justo los 5 puestos, pero entonces el sabado se queda sin mayor) y
-# el domingo solo 4, de los que uno esta siempre comprometido con el sabado+lunes.
-# Se recorta el quirofano: mayor + 1 el viernes, y solo el mayor el domingo.
-QUIROFANO_CORTO = {(6,)}          # sin QX3
-QUIROFANO_MINIMO = {(8,)}         # sin QX2 ni QX3
-PLAZAS = ([("MAYOR", u) for u in UNIDADES] +
-          [("QX2", u) for u in UNIDADES if u not in QUIROFANO_MINIMO] +
-          [("QX3", u) for u in UNIDADES if u not in QUIROFANO_CORTO | QUIROFANO_MINIMO] +
-          [("TX", (d,)) for d in DIAS] + [("UCQ", (d,)) for d in UCQ_R2_DIAS])
+QUIROFANO_CORTO = QUIROFANO_MINIMO = set()   # equipo completo todos los dias
+
+# El trasplante coge el finde entero (viernes, sabado y domingo) de una tirada,
+# para comprometer un solo fin de semana a la misma R4. El del puente incluye el
+# lunes festivo. Cada R4 hace como maximo una tanda de finde.
+TANDAS_FINDE = [(6,7,8,9), (13,14,15), (20,21,22), (27,28,29)]
+en_tanda = {d for t in TANDAS_FINDE for d in t}
+UNIDADES_TX = TANDAS_FINDE + [(d,) for d in DIAS if d not in en_tanda]
+
+PLAZAS = ([("MAYOR", u) for u in UNIDADES] + [("QX2", u) for u in UNIDADES] +
+          [("QX3", u) for u in UNIDADES] + [("TX", u) for u in UNIDADES_TX] +
+          [("UCQ", (d,)) for d in UCQ_R2_DIAS])
 
 def pool(tipo, dias):
     if tipo == "TX":     base = R4
@@ -157,6 +159,10 @@ class Estado:
         return self.tipo[p].get(d) or PREV.get(p, {}).get(d)
     def cabe(self, p, tipo, u):
         if p in TOPE and len(self.dias[p]) + len(u) > TOPE[p]: return False
+        if tipo == "TX" and tuple(u) in [tuple(t) for t in TANDAS_FINDE]:
+            ya = [t for t in TANDAS_FINDE if all(d in self.dias[p] and
+                  self.tipo[p].get(d) == "TX" for d in t)]
+            if ya: return False
         if tipo in TOPE_TIPO:
             n = sum(1 for x in self.tipo[p].values() if x == tipo)
             if n + len(u) > TOPE_TIPO[tipo]: return False

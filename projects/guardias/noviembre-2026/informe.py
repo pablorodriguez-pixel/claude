@@ -49,9 +49,15 @@ for p,dd in dias_de.items():                          # frontera con el 1-2 de n
     ant = PREV.get(p, {})
     if 2 in ant and 3 in dd and ant[2] != "TX" and dd[3] != "TX":
         err.append(f"{p}: dia 2 ({ant[2]}) y dia 3 ({dd[3]}) seguidos")
+for p,dd in dias_de.items():                          # una sola tanda de finde por R4
+    n = sum(1 for t in TANDAS_FINDE if all(dd.get(d)=="TX" for d in t))
+    if n > 1: err.append(f"{p}: {n} tandas de finde de trasplante")
+for t in TANDAS_FINDE:                                # la tanda la hace una sola persona
+    quien = {cua[d]["TX"] for d in t}
+    if len(quien) != 1: err.append(f"tanda {t} repartida entre {quien}")
 for t,u in PLAZAS:                                    # emparejamiento V+D y S+festivo
     if len(u)==2 and cua[u[0]][t] != cua[u[1]][t]: err.append(f"pareja {u} rota en {t}")
-PUENTE9 = {6,7,8,9}
+PUENTE9 = {7,8,9}          # el puente es sabado, domingo y el lunes festivo
 for p in ("Almudena","Ana G"):
     if PUENTE9 & set(dias_de.get(p,{})): err.append(f"{p} trabaja el puente del 9")
 print("VALIDACION:", f"{len(err)} errores" if err else "OK - sin errores")
