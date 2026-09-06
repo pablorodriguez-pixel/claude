@@ -29,7 +29,7 @@ Tony (R3), Patricia (R2), María (R4), Carlota (R4)
 | Asís | 12, 20, 21, 22 |
 | Antonio | 6, 7, 8, 9 |
 | Patricia R2 | — |
-| Eva | 6, 7, 8, 9, 28, 29 |
+| Eva | 6, 7, 8, 9, **10**, 28, 29 |
 | Marc | 27, 28, 29 |
 | Tania | 18, 19, 20, 21, 22, 23 |
 | Emilio | 4, 18 |
