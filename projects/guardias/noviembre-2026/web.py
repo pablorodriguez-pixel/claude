@@ -214,7 +214,7 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
   <div><dt>Puestos cubiertos</dt><dd>137 de 137</dd></div>
   <div><dt>Conflictos</dt><dd>0 — ningún bloqueo roto</dd></div>
   <div><dt>Puentes por persona</dt><dd>Máximo 2 de 3</dd></div>
-  <div><dt>Guardias en noviembre</dt><dd>R1 3-4 · R2 3-4 · R3 6-7 · R4 7-10</dd></div>
+  <div><dt>Guardias en noviembre</dt><dd>R1 3-4 · R2 3-4 · R3 6 · R4 8-10</dd></div>
 </dl>
 
 <section>
@@ -270,6 +270,10 @@ footer {{ margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
       el total.</p>
       <p>Miriam, que venía de 7 guardias y 3 findes en octubre, no hace ningún finde
       en noviembre.</p></div>
+    <div class="note"><h3>Topes por nivel</h3>
+      <p>Ningún R3 pasa de <b>6 guardias</b> al mes: los cuatro salen clavados a 6.
+      Los R1 y R2 se mueven entre 3 y 4, y las R4 entre 8 y 10 porque cargan el
+      trasplante además del puesto de mayor.</p></div>
     <div class="note"><h3>Descansos</h3>
       <p>Nadie hace dos días seguidos, salvo cuando uno de ellos es de trasplante:
       vuestro octubre lo permite (Carlota hizo quirófano el 7 y trasplante el 8, 9

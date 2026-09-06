@@ -33,6 +33,9 @@ for p,dd in dias_de.items():
     for d in dd:
         if d+1 in dd and dd[d]!="TX" and dd[d+1]!="TX":
             err.append(f"{p}: guardias consecutivas {d} y {d+1} ({dd[d]}/{dd[d+1]})")
+for p,dd in dias_de.items():                          # topes por nivel
+    if p in TOPE and len(dd) > TOPE[p]:
+        err.append(f"{p} ({NIVEL[p]}): {len(dd)} guardias, tope {TOPE[p]}")
 for p,dd in dias_de.items():                          # localizada de trasplante
     if NIVEL[p] != "R4": continue
     for d,t in dd.items():

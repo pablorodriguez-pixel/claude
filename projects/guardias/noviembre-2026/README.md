@@ -39,7 +39,8 @@ días seguidos.
    sábado 7 (con su lunes festivo emparejado, el 9) no lo trabaja ningún R1.
 6. La localizada de trasplante de una R4 no cae la víspera de una guardia ni la víspera
    de un bloqueo de vacaciones.
-7. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
+7. Tope por nivel: ningún R3 pasa de 6 guardias al mes.
+8. Equidad: se iguala primero dentro de noviembre por nivel y después se usa octubre
    como desempate, con más peso en los findes que en el total.
 
 ## Lo que cuesta la fiesta de bienvenida

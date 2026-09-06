@@ -138,7 +138,8 @@ FS = (2*len(FIN_NOV) + 9)/len(GS)
 FJ = 2*len(FIN_NOV)/len(GJ)
 OBJ_F = {p: FS for p in GS};  OBJ_F.update({p: FJ for p in GJ})
 OBJ_TIPO = {"TX": 28/len(R4), "MAYOR": 28/len(MAYORES)}
-TOPE = {p: (10 if p in GS else 6) for p in list(GS)+list(GJ)}  # 9 deja el puente sin solucion
+# Tope duro por nivel: un R3 no puede pasar de 6 guardias al mes.
+TOPE = {p: (6 if NIVEL[p] in ("R1","R2","R3") else 10) for p in list(GS)+list(GJ)}
 TOPE_TIPO = {"TX": 6, "MAYOR": 6}
 OBJ_T2 = {p: (sum(OCT_TOT[q] for q in GS)+NOV_S)/len(GS) for p in GS}
 OBJ_T2.update({p: (sum(OCT_TOT[q] for q in GJ)+NOV_J)/len(GJ) for p in GJ})
