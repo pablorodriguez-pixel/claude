@@ -26,11 +26,21 @@ es un Excel que se genera desde esos datos y se puede volver a importar.
 |---|---|---|
 | 1 | Equipo de Growth | Edita el Excel en OneDrive: estados, avances, gastos, KPIs, hitos |
 | 2 | Tú | Le dices al agente **«sincroniza el Growth OS»** |
-| 3 | Agente | Descarga el Excel, ejecuta `import_excel.py`, actualiza los YAML y hace commit con el resumen de cambios |
-| 4 | Agente | Si hay cambios estructurales, ejecuta `build_excel.py` y vuelve a subir el fichero a OneDrive |
+| 3 | Agente | Lee el Excel desde OneDrive, actualiza los YAML y hace commit con el resumen de cambios |
+| 4 | Agente | Si hay cambios estructurales, ejecuta `build_excel.py` y te entrega el fichero nuevo |
 
 El paso 3 es lo que convierte esto en un sistema con memoria: cada sincronización deja un commit,
 así que se puede responder a «¿cómo estaba el portfolio hace dos meses?» con `git log`.
+
+### Qué automatiza el agente y qué no
+
+| Dirección | Estado |
+|---|---|
+| **OneDrive → repo** (leer lo que edita el equipo) | Automatizable. El conector de Microsoft 365 devuelve el contenido del `.xlsx` como filas tabuladas por hoja, que es todo lo que hace falta para reconstruir las tablas y reescribir los YAML. |
+| **repo → OneDrive** (subir un fichero regenerado) | Manual. Escribir un `.xlsx` vía el conector exige pasar el binario completo en base64 dentro de la propia conversación, y el entorno de ejecución deja fuera de contexto cualquier salida de ese tamaño. El agente genera el fichero y lo entrega; tú lo dejas caer en la carpeta. |
+
+En la práctica esto no duele: la dirección que se ejecuta cada semana es la primera. La segunda
+sólo hace falta cuando cambia la estructura del sistema, no los datos.
 
 ## Ficheros
 

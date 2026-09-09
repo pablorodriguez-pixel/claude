@@ -1116,10 +1116,11 @@ LEEME = [
     ("li", "1. Tú editas en Excel: estados, avances, gastos, fechas, KPIs, hitos. Sólo las "
            "columnas de fondo blanco."),
     ("li", "2. Guardas el fichero en su carpeta de OneDrive/SharePoint."),
-    ("li", "3. Le dices al agente «sincroniza el Growth OS». El agente lee el Excel, "
-           "actualiza los YAML del repo y hace commit: ahí queda el histórico."),
+    ("li", "3. Le dices al agente «sincroniza el Growth OS». El agente lee el Excel desde "
+           "OneDrive, actualiza los YAML del repo y hace commit: ahí queda el histórico."),
     ("li", "4. Cuando hay cambios estructurales (nuevos departamentos, columnas, métricas "
-           "o reglas de cálculo), el agente regenera el Excel y lo vuelve a subir."),
+           "o reglas de cálculo), el agente regenera el fichero y te lo entrega para que lo "
+           "dejes en la carpeta. Sustituye el anterior y sigues trabajando."),
     ("h2", "Reglas de oro"),
     ("li", "No renombres las hojas ni las cabeceras de columna: el importador las busca por nombre."),
     ("li", "No escribas en las columnas marcadas con «ƒ» ni en las de fondo gris. Son fórmulas y "
