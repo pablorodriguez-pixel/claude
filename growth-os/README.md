@@ -55,6 +55,7 @@ sólo hace falta cuando cambia la estructura del sistema, no los datos.
 | `build_web.py` | YAML → `dist/dashboard.html`, el dashboard web. Inyecta los datos en bruto; las métricas derivadas las calcula la propia página. |
 | `web/dashboard.template.html` | Plantilla del dashboard: tokens de marca, gráficos y drill-down. |
 | `import_excel.py` | `.xlsx` → YAML, con resumen de cambios. Ignora las columnas calculadas. |
+| `edit_excel.py` | Ediciones puntuales sobre el libro sin regenerarlo. La herramienta de escritura del agente. |
 | `dist/Founderz_Growth_OS.xlsx` | El Excel generado. |
 | `dist/dashboard.html` | El dashboard web generado. |
 
@@ -99,6 +100,43 @@ cambia. Si algún día reordenas las pestañas, la lectura desde OneDrive se rom
 Las tres tablas de datos llevan filas vacías de reserva con las fórmulas ya puestas
 (40 proyectos, 70 KPIs, 80 hitos), para que el equipo pueda añadir registros en Excel sin
 que nadie tenga que regenerar el fichero.
+
+## Dónde ejecutar el agente
+
+Esto es lo que decide si el agente puede **escribir** en el Excel, y no es una cuestión de
+capacidad del modelo sino de dónde corre.
+
+| Contexto | ¿Puede escribir en el libro de OneDrive? | Por qué |
+|---|---|---|
+| **Cowork o Claude Code en tu máquina**, con OneDrive sincronizado | **Sí**, celda a celda | El fichero de OneDrive es un fichero local. El agente lo edita con `edit_excel.py` y el cliente de OneDrive lo sube solo. El agente nunca habla con OneDrive. |
+| **Claude para Excel**, dentro del libro abierto | **Sí**, celda a celda | Corre dentro de la aplicación, con acceso directo al modelo de objetos de Excel. |
+| **Claude Code en la nube** (como esta sesión) | **No** | Sólo llega por el conector de Microsoft 365, que expone operaciones de fichero completo. Reemplazar el binario exige pegarlo entero en la llamada: ~130.000 caracteres de base64. Leer sí funciona. |
+
+O sea: **el agente se ejecuta donde está el fichero.** En la nube sirve para leer, versionar y
+regenerar el dashboard; para escribir en el libro, en local o desde dentro de Excel.
+
+## Editar sin regenerar
+
+`build_excel.py` reconstruye el libro desde los YAML, lo que pisa cualquier cosa que el equipo
+haya escrito a mano. Para el día a día está `edit_excel.py`, que abre el libro que el equipo
+está usando y toca **sólo** las celdas indicadas:
+
+```bash
+python3 growth-os/edit_excel.py ~/OneDrive/Founderz_Growth_OS.xlsx --ops '[
+  {"id": "GRW-004", "estado": "En curso", "avance_pct": "70%"},
+  {"id": "H-015", "estado": "Completado"},
+  {"nuevo": "proyecto", "id": "GRW-013", "nombre": "...", "departamento": "Growth", "...": "..."}
+]'
+```
+
+Lo que impone, y que es la razón de que exista en lugar de editar a mano:
+
+- **Sólo columnas de entrada.** Un intento de escribir en una columna ƒ se rechaza: sobreescribir
+  una fórmula rompe el recálculo de toda la columna.
+- **Validación contra la taxonomía.** `estado: "Casi listo"` se rechaza antes de abrir el fichero.
+- **Todo o nada.** Si una sola operación es inválida, no se escribe ninguna.
+- **Las filas nuevas van a la primera fila libre de reserva**, que ya trae sus fórmulas puestas.
+- El `--dry-run` enseña cada celda como `antes → después` sin tocar nada.
 
 ## Dos renderizadores, una fuente
 
