@@ -81,8 +81,8 @@ cd projects/founderz-empresas
 vercel --prod
 ```
 
-**Dominio**: apuntar el subdominio (p. ej. `empresas.founderz.com`) en Vercel y actualizar el
-`<link rel="canonical">` de `index.html` si cambia.
+**Dominio**: `ia.founderz.com` (ya puesto en `canonical` y `og:url`). Se añade en Vercel →
+Settings → Domains y se crea un CNAME `ia` → `cname.vercel-dns.com` en el DNS de founderz.com.
 
 **CSP** (opcional, si seguridad lo pide): la LP necesita permitir
 `js-eu1.hsforms.net`, `js.hsforms.net`, `forms-eu1.hsforms.com`, `player.vimeo.com`,
