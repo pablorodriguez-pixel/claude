@@ -1,0 +1,21 @@
+# Árbol organizativo. El "zoom in" del Excel se construye sobre departamento > subárea > proyecto.
+# Para añadir un departamento nuevo: copia el bloque, cambia nombre/owner/subareas y regenera.
+
+- nombre: Growth
+  owner: Pablo Rodríguez
+  descripcion: Adquisición, conversión y retención de alumnos. Dueño del funnel end-to-end.
+  subareas:
+    - nombre: Paid Media
+      owner: Por asignar
+    - nombre: SEO & Contenido
+      owner: Por asignar
+    - nombre: CRO & Web
+      owner: Por asignar
+    - nombre: Lifecycle & CRM
+      owner: Por asignar
+    - nombre: Partnerships & Afiliación
+      owner: Por asignar
+    - nombre: Brand & Social
+      owner: Por asignar
+    - nombre: Data & Analytics
+      owner: Por asignar

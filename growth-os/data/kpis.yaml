@@ -1,0 +1,310 @@
+# ============================================================================
+# KPIs POR PROYECTO — fuente de la verdad
+# ============================================================================
+# DATOS DE EJEMPLO. proyecto_id debe existir en proyectos.yaml.
+# direccion: "Subir" (mejor más alto) | "Bajar" (mejor más bajo)
+# El Excel calcula el % de consecución con fórmula a partir de
+# baseline / target / actual — no lo escribas a mano.
+# ============================================================================
+
+- id: KPI-001
+  proyecto_id: GRW-001
+  nombre: MQL generados (trimestre)
+  unidad: "nº"
+  direccion: Subir
+  baseline: 1150
+  target: 2250
+  actual: 1480
+  frecuencia: Semanal
+  fuente: HubSpot
+- id: KPI-002
+  proyecto_id: GRW-001
+  nombre: CAC blended
+  unidad: EUR
+  direccion: Bajar
+  baseline: 690
+  target: 620
+  actual: 715
+  frecuencia: Semanal
+  fuente: Meta Ads
+- id: KPI-003
+  proyecto_id: GRW-001
+  nombre: ROAS campañas paid
+  unidad: ratio
+  direccion: Subir
+  baseline: 2.4
+  target: 3.2
+  actual: 2.6
+  frecuencia: Semanal
+  fuente: Google Ads
+
+- id: KPI-004
+  proyecto_id: GRW-002
+  nombre: CVR visita → lead
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.021
+  target: 0.028
+  actual: 0.0235
+  frecuencia: Semanal
+  fuente: GA4
+- id: KPI-005
+  proyecto_id: GRW-002
+  nombre: Scroll depth al pricing
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.34
+  target: 0.60
+  actual: 0.41
+  frecuencia: Semanal
+  fuente: GA4
+
+- id: KPI-006
+  proyecto_id: GRW-003
+  nombre: Sesiones orgánicas / mes
+  unidad: "nº"
+  direccion: Subir
+  baseline: 18000
+  target: 60000
+  actual: 27500
+  frecuencia: Mensual
+  fuente: Search Console
+- id: KPI-007
+  proyecto_id: GRW-003
+  nombre: Keywords en top 10
+  unidad: "nº"
+  direccion: Subir
+  baseline: 34
+  target: 140
+  actual: 61
+  frecuencia: Mensual
+  fuente: Search Console
+- id: KPI-008
+  proyecto_id: GRW-003
+  nombre: Artículos publicados
+  unidad: "nº"
+  direccion: Subir
+  baseline: 0
+  target: 40
+  actual: 16
+  frecuencia: Mensual
+  fuente: Manual
+
+- id: KPI-009
+  proyecto_id: GRW-004
+  nombre: Días de ciclo lead → matrícula
+  unidad: días
+  direccion: Bajar
+  baseline: 34
+  target: 26
+  actual: 31
+  frecuencia: Mensual
+  fuente: HubSpot
+- id: KPI-010
+  proyecto_id: GRW-004
+  nombre: Conversión MQL → matrícula
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.058
+  target: 0.098
+  actual: 0.067
+  frecuencia: Mensual
+  fuente: HubSpot
+- id: KPI-011
+  proyecto_id: GRW-004
+  nombre: Tasa de apertura secuencias
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.28
+  target: 0.42
+  actual: 0.355
+  frecuencia: Semanal
+  fuente: HubSpot
+
+- id: KPI-012
+  proyecto_id: GRW-005
+  nombre: Embajadores activos
+  unidad: "nº"
+  direccion: Subir
+  baseline: 0
+  target: 120
+  actual: 0
+  frecuencia: Mensual
+  fuente: Manual
+- id: KPI-013
+  proyecto_id: GRW-005
+  nombre: "% matrículas por referido"
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.012
+  target: 0.08
+  actual: 0.012
+  frecuencia: Mensual
+  fuente: HubSpot
+
+- id: KPI-014
+  proyecto_id: GRW-006
+  nombre: CVR visita → lead (Augment MBA)
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.0
+  target: 0.022
+  actual: 0.019
+  frecuencia: Semanal
+  fuente: GA4
+- id: KPI-015
+  proyecto_id: GRW-006
+  nombre: Lighthouse performance mobile
+  unidad: "nº"
+  direccion: Subir
+  baseline: 0
+  target: 90
+  actual: 94
+  frecuencia: Mensual
+  fuente: Manual
+
+- id: KPI-016
+  proyecto_id: GRW-007
+  nombre: Cobertura de conversiones trackeadas
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.52
+  target: 0.95
+  actual: 0.74
+  frecuencia: Semanal
+  fuente: GA4
+- id: KPI-017
+  proyecto_id: GRW-007
+  nombre: Desviación GA4 vs HubSpot
+  unidad: "%"
+  direccion: Bajar
+  baseline: 0.31
+  target: 0.05
+  actual: 0.14
+  frecuencia: Semanal
+  fuente: GA4
+
+- id: KPI-018
+  proyecto_id: GRW-008
+  nombre: Leads por webinar
+  unidad: "nº"
+  direccion: Subir
+  baseline: 180
+  target: 400
+  actual: 305
+  frecuencia: Mensual
+  fuente: HubSpot
+- id: KPI-019
+  proyecto_id: GRW-008
+  nombre: Show-up rate
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.32
+  target: 0.45
+  actual: 0.39
+  frecuencia: Mensual
+  fuente: Manual
+- id: KPI-020
+  proyecto_id: GRW-008
+  nombre: CPL webinar
+  unidad: EUR
+  direccion: Bajar
+  baseline: 42
+  target: 28
+  actual: 33
+  frecuencia: Mensual
+  fuente: Meta Ads
+
+- id: KPI-021
+  proyecto_id: GRW-009
+  nombre: Cuentas corporativas firmadas
+  unidad: "nº"
+  direccion: Subir
+  baseline: 2
+  target: 14
+  actual: 2
+  frecuencia: Mensual
+  fuente: HubSpot
+- id: KPI-022
+  proyecto_id: GRW-009
+  nombre: Pipeline B2B generado
+  unidad: EUR
+  direccion: Subir
+  baseline: 0
+  target: 750000
+  actual: 60000
+  frecuencia: Mensual
+  fuente: HubSpot
+
+- id: KPI-023
+  proyecto_id: GRW-010
+  nombre: Abandono en checkout
+  unidad: "%"
+  direccion: Bajar
+  baseline: 0.68
+  target: 0.56
+  actual: 0.585
+  frecuencia: Semanal
+  fuente: GA4
+- id: KPI-024
+  proyecto_id: GRW-010
+  nombre: "% matrículas con financiación"
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.41
+  target: 0.55
+  actual: 0.505
+  frecuencia: Mensual
+  fuente: HubSpot
+
+- id: KPI-025
+  proyecto_id: GRW-011
+  nombre: Suscriptores
+  unidad: "nº"
+  direccion: Subir
+  baseline: 12000
+  target: 50000
+  actual: 27400
+  frecuencia: Semanal
+  fuente: HubSpot
+- id: KPI-026
+  proyecto_id: GRW-011
+  nombre: CTR newsletter
+  unidad: "%"
+  direccion: Subir
+  baseline: 0.024
+  target: 0.045
+  actual: 0.031
+  frecuencia: Semanal
+  fuente: HubSpot
+- id: KPI-027
+  proyecto_id: GRW-011
+  nombre: Bajas mensuales
+  unidad: "%"
+  direccion: Bajar
+  baseline: 0.021
+  target: 0.012
+  actual: 0.018
+  frecuencia: Mensual
+  fuente: HubSpot
+
+- id: KPI-028
+  proyecto_id: GRW-012
+  nombre: Horas/semana de reporting manual
+  unidad: días
+  direccion: Bajar
+  baseline: 6
+  target: 0.5
+  actual: 6
+  frecuencia: Semanal
+  fuente: Manual
+- id: KPI-029
+  proyecto_id: GRW-012
+  nombre: Dashboards automatizados
+  unidad: "nº"
+  direccion: Subir
+  baseline: 0
+  target: 5
+  actual: 0
+  frecuencia: Mensual
+  fuente: Make

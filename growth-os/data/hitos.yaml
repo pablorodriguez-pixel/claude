@@ -1,0 +1,306 @@
+# ============================================================================
+# HITOS POR PROYECTO — fuente de la verdad
+# ============================================================================
+# DATOS DE EJEMPLO. proyecto_id debe existir en proyectos.yaml.
+# El Excel marca en rojo los hitos con fecha_objetivo pasada y estado
+# distinto de Completado/Cancelado (fórmula, no valor fijo).
+# ============================================================================
+
+- id: H-001
+  proyecto_id: GRW-001
+  nombre: Estructura de cuentas y naming de campañas
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-05
+  estado: Completado
+  entregable: Documento de nomenclatura + cuentas creadas
+- id: H-002
+  proyecto_id: GRW-001
+  nombre: Producción de 12 creatividades por programa
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-19
+  estado: En curso
+  entregable: Batch de vídeos y estáticos en Drive
+- id: H-003
+  proyecto_id: GRW-001
+  nombre: Activación de smart bidding a matrícula
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-15
+  estado: Pendiente
+  entregable: Campañas migradas a tCPA
+- id: H-004
+  proyecto_id: GRW-001
+  nombre: Revisión de mid-quarter y reasignación de budget
+  responsable: Por asignar
+  fecha_objetivo: 2026-11-10
+  estado: Pendiente
+  entregable: Informe de reasignación
+
+- id: H-005
+  proyecto_id: GRW-002
+  nombre: Auditoría CRO de la landing actual
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-29
+  estado: Completado
+  entregable: Informe con 18 hipótesis priorizadas
+- id: H-006
+  proyecto_id: GRW-002
+  nombre: Wireframes mobile-first aprobados
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-12
+  estado: En curso
+  entregable: Figma con hero + pricing card
+- id: H-007
+  proyecto_id: GRW-002
+  nombre: Maquetación HTML/CSS con tokens de marca
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-10
+  estado: Pendiente
+  entregable: LP en staging
+- id: H-008
+  proyecto_id: GRW-002
+  nombre: Lanzamiento test A/B contra control
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-31
+  estado: Pendiente
+  entregable: Test en marcha con tamaño de muestra calculado
+
+- id: H-009
+  proyecto_id: GRW-003
+  nombre: Keyword research y mapa de cluster
+  responsable: Por asignar
+  fecha_objetivo: 2026-06-30
+  estado: Completado
+  entregable: Hoja con 40 keywords y intención
+- id: H-010
+  proyecto_id: GRW-003
+  nombre: 20 artículos publicados
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-01
+  estado: Retrasado
+  entregable: 20 URLs indexadas
+- id: H-011
+  proyecto_id: GRW-003
+  nombre: 40 artículos publicados
+  responsable: Por asignar
+  fecha_objetivo: 2026-12-15
+  estado: Pendiente
+  entregable: Cluster completo con enlazado interno
+- id: H-012
+  proyecto_id: GRW-003
+  nombre: Campaña de link building a pilares
+  responsable: Por asignar
+  fecha_objetivo: 2027-01-31
+  estado: Pendiente
+  entregable: 25 backlinks DR>40
+
+- id: H-013
+  proyecto_id: GRW-004
+  nombre: Limpieza y deduplicado de contactos
+  responsable: Por asignar
+  fecha_objetivo: 2026-07-31
+  estado: Completado
+  entregable: Base con 0% duplicados
+- id: H-014
+  proyecto_id: GRW-004
+  nombre: Definición de scoring MQL
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-22
+  estado: Completado
+  entregable: Modelo de scoring documentado
+- id: H-015
+  proyecto_id: GRW-004
+  nombre: 5 secuencias por programa en producción
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-05
+  estado: Retrasado
+  entregable: Workflows activos en HubSpot
+- id: H-016
+  proyecto_id: GRW-004
+  nombre: Handoff automático a Ventas
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-15
+  estado: Pendiente
+  entregable: SLA de contacto <2h configurado
+
+- id: H-017
+  proyecto_id: GRW-005
+  nombre: Modelo de comisión aprobado por Finanzas
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-10
+  estado: Pendiente
+  entregable: Acta de aprobación
+- id: H-018
+  proyecto_id: GRW-005
+  nombre: Plataforma de tracking de referidos elegida
+  responsable: Por asignar
+  fecha_objetivo: 2026-11-14
+  estado: Pendiente
+  entregable: Comparativa y contrato firmado
+- id: H-019
+  proyecto_id: GRW-005
+  nombre: Onboarding de los 20 primeros embajadores
+  responsable: Por asignar
+  fecha_objetivo: 2027-01-16
+  estado: Pendiente
+  entregable: 20 embajadores con enlace activo
+
+- id: H-020
+  proyecto_id: GRW-006
+  nombre: Copy y estructura de secciones
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-05
+  estado: Completado
+  entregable: Documento de copy aprobado
+- id: H-021
+  proyecto_id: GRW-006
+  nombre: Maquetación y QA responsive
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-22
+  estado: Completado
+  entregable: index.html en el repo
+- id: H-022
+  proyecto_id: GRW-006
+  nombre: Publicación en producción
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-29
+  estado: Completado
+  entregable: URL pública con tracking
+
+- id: H-023
+  proyecto_id: GRW-007
+  nombre: Auditoría del dataLayer actual
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-08
+  estado: Completado
+  entregable: Informe de eventos perdidos
+- id: H-024
+  proyecto_id: GRW-007
+  nombre: Contenedor server-side desplegado
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-05
+  estado: Completado
+  entregable: GTM SS en producción
+- id: H-025
+  proyecto_id: GRW-007
+  nombre: Conversiones enhanced a Meta y Google
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-26
+  estado: En curso
+  entregable: Eventos de matrícula llegando a las plataformas
+- id: H-026
+  proyecto_id: GRW-007
+  nombre: Reconciliación GA4 vs HubSpot <5%
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-10
+  estado: Pendiente
+  entregable: Informe de desviación firmado
+
+- id: H-027
+  proyecto_id: GRW-008
+  nombre: Calendario editorial Q4 con profesores
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-15
+  estado: En curso
+  entregable: 6 sesiones con ponente confirmado
+- id: H-028
+  proyecto_id: GRW-008
+  nombre: Automatización de recordatorios
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-03
+  estado: Pendiente
+  entregable: Secuencia de 3 recordatorios activa
+- id: H-029
+  proyecto_id: GRW-008
+  nombre: Paso a 2 sesiones/mes
+  responsable: Por asignar
+  fecha_objetivo: 2026-11-01
+  estado: Pendiente
+  entregable: Dos webinars ejecutados en el mes
+
+- id: H-030
+  proyecto_id: GRW-009
+  nombre: Pricing y catálogo B2B aprobados
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-20
+  estado: Pendiente
+  entregable: Tarifario corporativo
+- id: H-031
+  proyecto_id: GRW-009
+  nombre: Landing y formulario B2B
+  responsable: Por asignar
+  fecha_objetivo: 2026-11-21
+  estado: Pendiente
+  entregable: LP empresas publicada
+- id: H-032
+  proyecto_id: GRW-009
+  nombre: Primeras 3 cuentas en pipeline
+  responsable: Por asignar
+  fecha_objetivo: 2027-01-15
+  estado: Pendiente
+  entregable: 3 oportunidades en HubSpot
+
+- id: H-033
+  proyecto_id: GRW-010
+  nombre: Mapa de embudo de checkout con drop-offs
+  responsable: Por asignar
+  fecha_objetivo: 2026-06-20
+  estado: Completado
+  entregable: Funnel en GA4
+- id: H-034
+  proyecto_id: GRW-010
+  nombre: Variante con financiación en primer paso
+  responsable: Por asignar
+  fecha_objetivo: 2026-08-01
+  estado: Completado
+  entregable: Variante B en producción
+- id: H-035
+  proyecto_id: GRW-010
+  nombre: Cierre del test y decisión
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-30
+  estado: En curso
+  entregable: Informe de significancia y rollout
+
+- id: H-036
+  proyecto_id: GRW-011
+  nombre: Rediseño de plantilla con tokens de marca
+  responsable: Por asignar
+  fecha_objetivo: 2026-05-15
+  estado: Completado
+  entregable: Plantilla en HubSpot
+- id: H-037
+  proyecto_id: GRW-011
+  nombre: Captación cruzada desde webinars y LPs
+  responsable: Por asignar
+  fecha_objetivo: 2026-09-30
+  estado: En curso
+  entregable: Formularios de suscripción en 8 páginas
+- id: H-038
+  proyecto_id: GRW-011
+  nombre: 50.000 suscriptores
+  responsable: Por asignar
+  fecha_objetivo: 2026-12-31
+  estado: Pendiente
+  entregable: Base a 50k con <1,2% de bajas
+
+- id: H-039
+  proyecto_id: GRW-012
+  nombre: Inventario de informes manuales
+  responsable: Por asignar
+  fecha_objetivo: 2026-10-24
+  estado: Pendiente
+  entregable: Lista de 5 informes a automatizar
+- id: H-040
+  proyecto_id: GRW-012
+  nombre: Escenarios de Make en producción
+  responsable: Por asignar
+  fecha_objetivo: 2026-11-28
+  estado: Pendiente
+  entregable: 5 escenarios activos y monitorizados
+- id: H-041
+  proyecto_id: GRW-012
+  nombre: Primer informe semanal automático enviado
+  responsable: Por asignar
+  fecha_objetivo: 2026-12-15
+  estado: Pendiente
+  entregable: Email automático a Dirección

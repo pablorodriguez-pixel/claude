@@ -1,0 +1,78 @@
+# Taxonomía cerrada del sistema.
+# Todo valor de estas listas alimenta los desplegables (data validation) del Excel.
+# Si añades un valor aquí, aparecerá como opción válida en el Excel al regenerarlo.
+
+estado_proyecto:
+  - Backlog
+  - En curso
+  - En riesgo
+  - Bloqueado
+  - Completado
+  - Cancelado
+
+# Estados que cuentan como "activo" para el dashboard
+estado_activo:
+  - En curso
+  - En riesgo
+  - Bloqueado
+
+fase:
+  - Discovery
+  - Diseño
+  - Ejecución
+  - Medición
+  - Cerrado
+
+prioridad:
+  - P0
+  - P1
+  - P2
+
+tipo_proyecto:
+  - Adquisición
+  - Conversión
+  - Retención
+  - Marca
+  - Producto
+  - Proceso interno
+  - Experimento
+
+riesgo:
+  - Bajo
+  - Medio
+  - Alto
+
+estado_hito:
+  - Pendiente
+  - En curso
+  - Completado
+  - Retrasado
+  - Cancelado
+
+unidad_kpi:
+  - EUR
+  - "%"
+  - "nº"
+  - ratio
+  - días
+
+direccion_kpi:
+  - Subir   # mejor cuanto más alto (ej. matrículas, CVR)
+  - Bajar   # mejor cuanto más bajo (ej. CAC, CPL)
+
+frecuencia_kpi:
+  - Diaria
+  - Semanal
+  - Mensual
+  - Trimestral
+
+fuente_dato:
+  - HubSpot
+  - GA4
+  - Meta Ads
+  - Google Ads
+  - LinkedIn Ads
+  - Search Console
+  - Make
+  - ClickUp
+  - Manual

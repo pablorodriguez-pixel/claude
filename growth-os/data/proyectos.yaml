@@ -1,0 +1,239 @@
+# ============================================================================
+# PORTFOLIO DE PROYECTOS — fuente de la verdad
+# ============================================================================
+# DATOS DE EJEMPLO: realistas pero inventados. Sustitúyelos por los reales.
+# El id es la clave que enlaza con kpis.yaml y hitos.yaml. No lo cambies
+# sin actualizar también esos ficheros.
+#
+# Campos obligatorios: id, nombre, departamento, subarea, owner, estado,
+# fase, prioridad, tipo, fecha_inicio, fecha_fin_prevista, avance_pct
+# avance_pct se expresa 0-1 (0.35 = 35%)
+# ============================================================================
+
+- id: GRW-001
+  nombre: Escalado Paid Q4 — Meta + Google
+  departamento: Growth
+  subarea: Paid Media
+  owner: Por asignar
+  tipo: Adquisición
+  prioridad: P0
+  estado: En curso
+  fase: Ejecución
+  fecha_inicio: 2026-09-01
+  fecha_fin_prevista: 2026-12-20
+  avance_pct: 0.25
+  presupuesto_eur: 180000
+  gasto_eur: 41500
+  riesgo: Medio
+  objetivo: Duplicar el volumen de leads cualificados de la edición 2027 sin degradar el CAC.
+  impacto_esperado: +1.100 MQL y 140 matrículas incrementales en el trimestre.
+  notas: Depende de que GRW-007 (tracking server-side) esté cerrado para optimizar a matrícula.
+
+- id: GRW-002
+  nombre: Rediseño LP Máster IA para Creativos
+  departamento: Growth
+  subarea: CRO & Web
+  owner: Por asignar
+  tipo: Conversión
+  prioridad: P0
+  estado: En curso
+  fase: Diseño
+  fecha_inicio: 2026-08-18
+  fecha_fin_prevista: 2026-10-31
+  avance_pct: 0.45
+  presupuesto_eur: 22000
+  gasto_eur: 9800
+  riesgo: Bajo
+  objetivo: Subir la conversión visita→lead de la landing principal del máster.
+  impacto_esperado: +35% CVR sobre la maqueta actual.
+  notas: Hipótesis principal — pricing card en hero above the fold y social proof (Microsoft/Freepik) subido al hero.
+
+- id: GRW-003
+  nombre: Cluster SEO "IA aplicada a negocio"
+  departamento: Growth
+  subarea: SEO & Contenido
+  owner: Por asignar
+  tipo: Adquisición
+  prioridad: P1
+  estado: En curso
+  fase: Ejecución
+  fecha_inicio: 2026-06-15
+  fecha_fin_prevista: 2027-01-31
+  avance_pct: 0.40
+  presupuesto_eur: 36000
+  gasto_eur: 15200
+  riesgo: Medio
+  objetivo: Construir autoridad orgánica en 40 keywords de intención informacional y comercial.
+  impacto_esperado: 60.000 sesiones orgánicas/mes a 6 meses vista.
+  notas: 16 de 40 artículos publicados. Cuello de botella en revisión editorial.
+
+- id: GRW-004
+  nombre: Nurturing lead → matrícula (HubSpot)
+  departamento: Growth
+  subarea: Lifecycle & CRM
+  owner: Por asignar
+  tipo: Conversión
+  prioridad: P0
+  estado: En riesgo
+  fase: Ejecución
+  fecha_inicio: 2026-07-01
+  fecha_fin_prevista: 2026-10-15
+  avance_pct: 0.55
+  presupuesto_eur: 18000
+  gasto_eur: 12400
+  riesgo: Alto
+  objetivo: Reducir el tiempo de ciclo lead→matrícula con secuencias segmentadas por programa.
+  impacto_esperado: -8 días de ciclo y +4pp de conversión MQL→matrícula.
+  notas: En riesgo por dependencia de datos limpios en HubSpot. Escalado a Ventas.
+
+- id: GRW-005
+  nombre: Programa de embajadores alumni
+  departamento: Growth
+  subarea: Partnerships & Afiliación
+  owner: Por asignar
+  tipo: Adquisición
+  prioridad: P1
+  estado: Backlog
+  fase: Discovery
+  fecha_inicio: 2026-10-01
+  fecha_fin_prevista: 2027-02-28
+  avance_pct: 0.0
+  presupuesto_eur: 45000
+  gasto_eur: 0
+  riesgo: Medio
+  objetivo: Activar la base de alumni como canal de referidos con incentivo económico.
+  impacto_esperado: 8% de las matrículas por referido a 12 meses.
+  notas: Pendiente definir modelo de comisión con Finanzas.
+
+- id: GRW-006
+  nombre: Landing Augment MBA
+  departamento: Growth
+  subarea: CRO & Web
+  owner: Por asignar
+  tipo: Conversión
+  prioridad: P1
+  estado: Completado
+  fase: Cerrado
+  fecha_inicio: 2026-07-20
+  fecha_fin_prevista: 2026-08-29
+  avance_pct: 1.0
+  presupuesto_eur: 12000
+  gasto_eur: 11300
+  riesgo: Bajo
+  objetivo: Lanzar la landing del programa Augment MBA con estructura canónica Founderz.
+  impacto_esperado: Canal propio de captación para el nuevo programa.
+  notas: Maquetada en projects/augment-mba/. Pendiente pasar a medición en GRW-007.
+
+- id: GRW-007
+  nombre: Tracking server-side + GA4 limpio
+  departamento: Growth
+  subarea: Data & Analytics
+  owner: Por asignar
+  tipo: Proceso interno
+  prioridad: P0
+  estado: En curso
+  fase: Ejecución
+  fecha_inicio: 2026-08-01
+  fecha_fin_prevista: 2026-10-10
+  avance_pct: 0.60
+  presupuesto_eur: 28000
+  gasto_eur: 16900
+  riesgo: Alto
+  objetivo: Recuperar señal de conversión para optimizar campañas a matrícula, no a lead.
+  impacto_esperado: Habilita smart bidding real. Bloquea GRW-001 y GRW-010.
+  notas: Bloqueante de dos proyectos P0. Máxima prioridad de desbloqueo.
+
+- id: GRW-008
+  nombre: Webinars mensuales de captación
+  departamento: Growth
+  subarea: Brand & Social
+  owner: Por asignar
+  tipo: Adquisición
+  prioridad: P2
+  estado: En curso
+  fase: Ejecución
+  fecha_inicio: 2026-05-01
+  fecha_fin_prevista: 2026-12-31
+  avance_pct: 0.65
+  presupuesto_eur: 24000
+  gasto_eur: 14800
+  riesgo: Bajo
+  objetivo: Generar leads de alta intención con sesiones en directo con profesores.
+  impacto_esperado: 400 leads/mes con conversión a matrícula 3x la media.
+  notas: Formato validado. Escalar de 1 a 2 sesiones al mes en Q4.
+
+- id: GRW-009
+  nombre: Motor de lead gen B2B (empresas)
+  departamento: Growth
+  subarea: Partnerships & Afiliación
+  owner: Por asignar
+  tipo: Adquisición
+  prioridad: P1
+  estado: Bloqueado
+  fase: Discovery
+  fecha_inicio: 2026-09-15
+  fecha_fin_prevista: 2027-01-15
+  avance_pct: 0.10
+  presupuesto_eur: 60000
+  gasto_eur: 3200
+  riesgo: Alto
+  objetivo: Abrir el canal de formación para empresas con oferta y funnel propios.
+  impacto_esperado: 12 cuentas corporativas firmadas en el primer año.
+  notas: Bloqueado hasta que exista pricing B2B aprobado.
+
+- id: GRW-010
+  nombre: Optimización checkout y financiación
+  departamento: Growth
+  subarea: CRO & Web
+  owner: Por asignar
+  tipo: Conversión
+  prioridad: P0
+  estado: En curso
+  fase: Medición
+  fecha_inicio: 2026-06-01
+  fecha_fin_prevista: 2026-09-30
+  avance_pct: 0.80
+  presupuesto_eur: 20000
+  gasto_eur: 17600
+  riesgo: Medio
+  objetivo: Reducir el abandono en el paso de pago mostrando financiación antes del precio total.
+  impacto_esperado: -12pp de abandono en checkout.
+  notas: Test A/B en marcha, 2 semanas para significancia.
+
+- id: GRW-011
+  nombre: Newsletter Founderz a 50k
+  departamento: Growth
+  subarea: Brand & Social
+  owner: Por asignar
+  tipo: Retención
+  prioridad: P2
+  estado: En curso
+  fase: Ejecución
+  fecha_inicio: 2026-04-01
+  fecha_fin_prevista: 2026-12-31
+  avance_pct: 0.50
+  presupuesto_eur: 15000
+  gasto_eur: 7100
+  riesgo: Bajo
+  objetivo: Construir audiencia propia para reducir dependencia de paid.
+  impacto_esperado: 50.000 suscriptores y 15% de las matrículas atribuidas a canal propio.
+  notas: 27.400 suscriptores actuales.
+
+- id: GRW-012
+  nombre: Reporting Growth automatizado (Make + HubSpot)
+  departamento: Growth
+  subarea: Data & Analytics
+  owner: Por asignar
+  tipo: Proceso interno
+  prioridad: P1
+  estado: Backlog
+  fase: Discovery
+  fecha_inicio: 2026-10-15
+  fecha_fin_prevista: 2026-12-15
+  avance_pct: 0.0
+  presupuesto_eur: 9000
+  gasto_eur: 0
+  riesgo: Bajo
+  objetivo: Eliminar el reporting manual semanal del equipo de Growth.
+  impacto_esperado: 6 h/semana liberadas y dato único compartido con Dirección.
+  notas: Depende de GRW-007 para que la capa de datos sea fiable.
