@@ -52,14 +52,20 @@ sólo hace falta cuando cambia la estructura del sistema, no los datos.
 | `data/hitos.yaml` | Hitos con fecha objetivo y responsable, ligados a `proyecto_id`. |
 | `data/taxonomia.yaml` | Listas cerradas (estados, fases, prioridades…). Alimentan los desplegables del Excel. |
 | `build_excel.py` | YAML → `.xlsx`. Escribe fórmulas, nunca resultados. |
+| `build_web.py` | YAML → `dist/dashboard.html`, el dashboard web. Inyecta los datos en bruto; las métricas derivadas las calcula la propia página. |
+| `web/dashboard.template.html` | Plantilla del dashboard: tokens de marca, gráficos y drill-down. |
 | `import_excel.py` | `.xlsx` → YAML, con resumen de cambios. Ignora las columnas calculadas. |
-| `dist/Founderz_Growth_OS.xlsx` | El fichero generado. |
+| `dist/Founderz_Growth_OS.xlsx` | El Excel generado. |
+| `dist/dashboard.html` | El dashboard web generado. |
 
 ## Uso
 
 ```bash
 # Generar el Excel desde los YAML
 python3 growth-os/build_excel.py
+
+# Generar el dashboard web desde los mismos YAML
+python3 growth-os/build_web.py
 
 # Traer de vuelta lo editado en Excel (--dry-run para ver los cambios sin escribir)
 python3 growth-os/import_excel.py ruta/al/Founderz_Growth_OS.xlsx --dry-run
@@ -86,6 +92,19 @@ hitos que apuntan a un proyecto que no existe.
 Las tres tablas de datos llevan filas vacías de reserva con las fórmulas ya puestas
 (40 proyectos, 70 KPIs, 80 hitos), para que el equipo pueda añadir registros en Excel sin
 que nadie tenga que regenerar el fichero.
+
+## Dos renderizadores, una fuente
+
+El Excel es la interfaz de escritura; el dashboard web es la interfaz de lectura, con URL propia
+para poder mirarlo desde el móvil o compartirlo. Los dos se generan de los mismos YAML, así que no
+pueden contradecirse en los datos.
+
+Lo que sí se implementa dos veces son las **reglas derivadas** (avance esperado, desviación,
+semáforo, % de consecución de KPIs, alertas de hitos): una vez como fórmulas de Excel en
+`build_excel.py` y otra en JavaScript dentro de la plantilla web. No hay forma de evitarlo sin
+convertir una de las dos vistas en una imagen muerta. Para que no divergan en silencio, los
+umbrales están agrupados en un único bloque en cada lado — `TH` en la plantilla web, y las
+constantes de las fórmulas en `build_excel.py`. Si cambias un umbral, cámbialo en los dos.
 
 ## Reglas de cálculo
 

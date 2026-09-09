@@ -1,0 +1,877 @@
+<title>Founderz Growth OS</title>
+<style>
+/* ---------------------------------------------------------------------------
+   Tokens — derivados de los tokens de marca de CLAUDE.md (purple web #5045c8,
+   ink #111115, tracking 2%). Los neutros llevan sesgo hacia el púrpura para
+   que no lean como gris de plantilla.
+   --------------------------------------------------------------------------- */
+:root {
+  color-scheme: light;
+
+  --purple: #5045c8;
+  --purple-deep: #2f2976;
+  --purple-soft: #edebfa;
+  --purple-line: #cdc8ee;
+
+  --ground: #fbfbfd;
+  --surface: #ffffff;
+  --surface-sunk: #f4f3f9;
+  --border: #e2e0ee;
+  --border-strong: #cfccdf;
+
+  --ink: #111115;
+  --ink-2: #4a4757;
+  --ink-3: #736f83;
+
+  /* Estado semántico — reservado, nunca reutilizado como color de serie */
+  --ok-fill: #2f8f6d;      --ok-ink: #1a5642;      --ok-wash: #e8f5ef;
+  --warn-fill: #e08a12;    --warn-ink: #7d4200;    --warn-wash: #fdefdd;
+  --crit-fill: #b3181f;    --crit-ink: #8c1f16;    --crit-wash: #fde3e0;
+  --idle-fill: #8e8a9e;    --idle-ink: #5f5c6d;    --idle-wash: #f0eff5;
+
+  /* Rampa secuencial de una sola tinta, para magnitudes */
+  --seq-1: #e6e3f7;
+  --seq-3: #9a90dd;
+  --seq-6: #5045c8;
+  --seq-8: #2f2976;
+
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 18px;
+  --r-pill: 100rem;
+
+  --font: RundDisplay, "Trebuchet MS", "Lucida Grande", Helvetica, sans-serif;
+  --font-num: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+  --ease: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --purple: #9b90ee;
+    --purple-deep: #c3bbf6;
+    --purple-soft: #251f42;
+    --purple-line: #3d3564;
+
+    --ground: #0e0d14;
+    --surface: #16151f;
+    --surface-sunk: #1d1b28;
+    --border: #2b2839;
+    --border-strong: #3b3750;
+
+    --ink: #f4f3f8;
+    --ink-2: #bdb9cc;
+    --ink-3: #8b8799;
+
+    --ok-fill: #3fa07f;   --ok-ink: #9fe0c6;   --ok-wash: #142c24;
+    --warn-fill: #d18f28; --warn-ink: #f5bd7d; --warn-wash: #2e2113;
+    --crit-fill: #e0574c; --crit-ink: #f6a49b; --crit-wash: #2e1614;
+    --idle-fill: #77738a; --idle-ink: #9a96a9; --idle-wash: #201e2b;
+
+    --seq-1: #2a2547;
+    --seq-3: #4a3f95;
+    --seq-6: #7d72dd;
+    --seq-8: #b3aaf2;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --purple: #9b90ee;
+  --purple-deep: #c3bbf6;
+  --purple-soft: #251f42;
+  --purple-line: #3d3564;
+
+  --ground: #0e0d14;
+  --surface: #16151f;
+  --surface-sunk: #1d1b28;
+  --border: #2b2839;
+  --border-strong: #3b3750;
+
+  --ink: #f4f3f8;
+  --ink-2: #bdb9cc;
+  --ink-3: #8b8799;
+
+  --ok-fill: #3fa07f;   --ok-ink: #9fe0c6;   --ok-wash: #142c24;
+  --warn-fill: #d18f28; --warn-ink: #f5bd7d; --warn-wash: #2e2113;
+  --crit-fill: #e0574c; --crit-ink: #f6a49b; --crit-wash: #2e1614;
+  --idle-fill: #77738a; --idle-ink: #9a96a9; --idle-wash: #201e2b;
+
+  --seq-1: #2a2547;
+  --seq-3: #4a3f95;
+  --seq-6: #7d72dd;
+  --seq-8: #b3aaf2;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding-inline: 20px;
+  padding-block: 40px 72px;
+}
+
+/* --- Cabecera ----------------------------------------------------------- */
+.masthead { border-bottom: 2px solid var(--ink); padding-bottom: 20px; }
+.eyebrow {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.14em; color: var(--purple); margin: 0 0 10px;
+}
+h1 {
+  font-size: clamp(2rem, 5.5vw, 3.1rem);
+  line-height: 1.02; font-weight: 600; margin: 0 0 14px;
+  text-wrap: balance; letter-spacing: 0.01em;
+}
+.standfirst {
+  margin: 0; max-width: 62ch; color: var(--ink-2); font-size: 1.0625rem;
+}
+.meta {
+  display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px;
+  font-size: 12px; color: var(--ink-3);
+}
+.meta b { color: var(--ink-2); font-weight: 600; }
+.meta .num { font-family: var(--font-num); font-size: 11.5px; }
+
+/* --- Secciones ---------------------------------------------------------- */
+section { margin-top: 56px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.sec-title { font-size: 1.375rem; font-weight: 600; margin: 0; letter-spacing: 0.01em; }
+.sec-note { margin: 6px 0 0; font-size: 13px; color: var(--ink-3); max-width: 68ch; }
+.rule { height: 1px; background: var(--border); margin: 16px 0 24px; border: 0; }
+
+.step {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--ink-3);
+}
+.step i {
+  display: grid; place-items: center; width: 20px; height: 20px;
+  border-radius: var(--r-pill); background: var(--purple-soft);
+  color: var(--purple); font-style: normal; font-family: var(--font-num);
+  font-size: 11px; font-weight: 700;
+}
+</style>
+<style>
+/* --- Tarjetas de resumen ------------------------------------------------- */
+.tiles {
+  display: grid; gap: 2px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--border); border: 1px solid var(--border);
+  border-radius: var(--r-md); overflow: hidden;
+}
+.tile { background: var(--surface); padding: 16px 18px 18px; }
+.tile.flag { background: var(--crit-wash); }
+.tile-label {
+  font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.12em; color: var(--ink-3); margin: 0 0 8px;
+}
+.tile.flag .tile-label { color: var(--crit-ink); }
+.tile-value {
+  font-family: var(--font-num); font-size: 1.9rem; font-weight: 600;
+  line-height: 1; letter-spacing: -0.01em; font-variant-numeric: tabular-nums;
+}
+.tile.flag .tile-value { color: var(--crit-ink); }
+.tile-sub { margin: 7px 0 0; font-size: 11.5px; color: var(--ink-3); }
+.tile.flag .tile-sub { color: var(--crit-ink); opacity: 0.85; }
+
+/* --- Gráficos ----------------------------------------------------------- */
+.charts { display: grid; gap: 34px; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); }
+.chart-title { font-size: 13px; font-weight: 600; margin: 0 0 3px; }
+.chart-sub { font-size: 11.5px; color: var(--ink-3); margin: 0 0 16px; }
+.legend { display: flex; gap: 14px; margin: 0 0 14px; font-size: 11.5px; color: var(--ink-2); flex-wrap: wrap; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.swatch { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+.bars { display: flex; flex-direction: column; gap: 9px; }
+.bar-row { display: grid; grid-template-columns: 106px 1fr auto; gap: 12px; align-items: center; }
+.bar-name { font-size: 12px; color: var(--ink-2); text-align: right; overflow-wrap: anywhere; }
+.track { position: relative; height: 15px; background: var(--surface-sunk); border-radius: 0 var(--r-sm) var(--r-sm) 0; }
+.fill { position: absolute; inset: 0 auto 0 0; border-radius: 0 4px 4px 0; min-width: 2px; }
+.fill.under {
+  /* Gasto sobre presupuesto: 2px de hueco con el color de fondo para que
+     los dos rellenos no se toquen. */
+  height: 9px; top: 3px; box-shadow: 0 0 0 2px var(--surface);
+  border-radius: 0 3px 3px 0;
+}
+.bar-val {
+  font-family: var(--font-num); font-size: 11.5px; color: var(--ink-2);
+  font-variant-numeric: tabular-nums; min-width: 62px; text-align: right;
+}
+.scale {
+  display: flex; justify-content: space-between; margin-top: 10px;
+  padding-left: 118px; font-family: var(--font-num); font-size: 10.5px;
+  color: var(--ink-3); border-top: 1px solid var(--border); padding-top: 6px;
+}
+
+/* --- Chips de filtro ---------------------------------------------------- */
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  font: inherit; font-size: 12px; letter-spacing: 0.02em;
+  padding: 7px 14px; border-radius: var(--r-pill); cursor: pointer;
+  background: var(--surface); color: var(--ink-2);
+  border: 1px solid var(--border-strong);
+  transition: background 180ms var(--ease), color 180ms var(--ease), border-color 180ms var(--ease);
+}
+.chip:hover { border-color: var(--purple); color: var(--purple); }
+.chip[aria-pressed="true"] {
+  background: var(--purple); border-color: var(--purple); color: #fff; font-weight: 600;
+}
+:root[data-theme="dark"] .chip[aria-pressed="true"],
+.chip[aria-pressed="true"] { color: #fff; }
+.chip .n { font-family: var(--font-num); opacity: 0.7; margin-left: 5px; }
+
+/* --- Tabla de proyectos ------------------------------------------------- */
+.scroller { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 880px; }
+thead th {
+  text-align: left; font-size: 10.5px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--ink-3); padding: 0 10px 9px;
+  border-bottom: 1px solid var(--border-strong); white-space: nowrap;
+}
+thead th.r { text-align: right; }
+tbody tr.proj { border-bottom: 1px solid var(--border); cursor: pointer; }
+tbody tr.proj:hover { background: var(--purple-soft); }
+tbody tr.proj:focus-visible { outline: 2px solid var(--purple); outline-offset: -2px; }
+tbody td { padding: 11px 10px; font-size: 13px; vertical-align: middle; }
+tbody td.r { text-align: right; }
+.stripe { width: 3px; padding: 0 !important; }
+.name { font-weight: 600; }
+.name small { display: block; font-weight: 400; font-size: 11.5px; color: var(--ink-3); margin-top: 2px; }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; font-size: 12px; }
+.caret { color: var(--ink-3); font-size: 11px; transition: transform 180ms var(--ease); display: inline-block; }
+tr.proj[aria-expanded="true"] .caret { transform: rotate(90deg); }
+tr.proj[aria-expanded="true"] { background: var(--purple-soft); }
+
+.pill {
+  display: inline-block; padding: 3px 9px; border-radius: var(--r-pill);
+  font-size: 10.5px; font-weight: 600; letter-spacing: 0.04em; white-space: nowrap;
+}
+.pill.ok { background: var(--ok-wash); color: var(--ok-ink); }
+.pill.warn { background: var(--warn-wash); color: var(--warn-ink); }
+.pill.crit { background: var(--crit-wash); color: var(--crit-ink); }
+.pill.idle { background: var(--idle-wash); color: var(--idle-ink); }
+.pill.brand { background: var(--purple-soft); color: var(--purple-deep); }
+
+.prio { font-family: var(--font-num); font-size: 11px; font-weight: 700; color: var(--ink-3); }
+.prio.p0 { color: var(--crit-ink); }
+
+/* Barra bullet: avance real + marca del avance esperado */
+.bullet { position: relative; height: 14px; width: 92px; background: var(--surface-sunk); border-radius: 0 4px 4px 0; }
+.bullet .done { position: absolute; inset: 0 auto 0 0; background: var(--seq-6); border-radius: 0 3px 3px 0; }
+.bullet .target { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink); border-radius: 1px; }
+.bullet.behind .done { background: var(--warn-fill); }
+
+/* --- Panel de detalle --------------------------------------------------- */
+tr.detail > td { padding: 0; background: var(--surface-sunk); }
+.panel { padding: 22px 24px 26px; border-bottom: 1px solid var(--border-strong); }
+.panel-goal { margin: 0 0 20px; font-size: 13.5px; color: var(--ink-2); max-width: 78ch; }
+.panel-goal b { color: var(--ink); font-weight: 600; }
+.panel-cols { display: grid; gap: 30px; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
+.panel h4 {
+  font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--purple); margin: 0 0 12px;
+}
+.kpi { display: grid; grid-template-columns: 1fr 78px; gap: 4px 12px; padding: 9px 0; border-top: 1px solid var(--border); }
+.kpi:last-child { border-bottom: 1px solid var(--border); }
+.kpi-name { font-size: 12.5px; font-weight: 600; }
+.kpi-nums { font-family: var(--font-num); font-size: 11px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.kpi-right { text-align: right; }
+.kpi-bar { height: 5px; background: var(--surface); border-radius: 0 3px 3px 0; margin-top: 5px; border: 1px solid var(--border); }
+.kpi-bar > i { display: block; height: 100%; border-radius: 0 2px 2px 0; }
+
+.mstone { display: grid; grid-template-columns: 62px 1fr auto; gap: 12px; align-items: start; padding: 9px 0; border-top: 1px solid var(--border); }
+.mstone:last-child { border-bottom: 1px solid var(--border); }
+.mstone-date { font-family: var(--font-num); font-size: 11px; color: var(--ink-3); padding-top: 2px; }
+.mstone-name { font-size: 12.5px; }
+.mstone-name small { display: block; color: var(--ink-3); font-size: 11px; margin-top: 2px; }
+
+/* --- Hitos calientes ---------------------------------------------------- */
+.hot { display: flex; flex-direction: column; }
+.hot-row {
+  display: grid; grid-template-columns: 72px 96px 1fr 200px; gap: 14px;
+  align-items: center; padding: 11px 0; border-top: 1px solid var(--border);
+}
+.hot-row:last-child { border-bottom: 1px solid var(--border); }
+.hot-date { font-family: var(--font-num); font-size: 12px; color: var(--ink-2); }
+.hot-name { font-size: 13px; }
+.hot-proj { font-size: 11.5px; color: var(--ink-3); text-align: right; }
+.empty { padding: 20px 0; color: var(--ink-3); font-size: 13px; }
+
+/* --- Pie ---------------------------------------------------------------- */
+.foot { margin-top: 64px; border-top: 2px solid var(--ink); padding-top: 24px; }
+.loop { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 20px 0 0; }
+.loop-item h5 { font-size: 12.5px; font-weight: 600; margin: 8px 0 5px; }
+.loop-item p { margin: 0; font-size: 12.5px; color: var(--ink-3); }
+code {
+  font-family: var(--font-num); font-size: 0.88em; background: var(--surface-sunk);
+  padding: 1px 5px; border-radius: var(--r-sm); border: 1px solid var(--border);
+}
+.disclaimer {
+  margin-top: 28px; padding: 14px 16px; border-left: 3px solid var(--warn-fill);
+  background: var(--warn-wash); color: var(--warn-ink); font-size: 12.5px; border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+.disclaimer b { font-weight: 600; }
+
+/* --- Tooltip ------------------------------------------------------------ */
+#tip {
+  position: fixed; z-index: 40; pointer-events: none; opacity: 0;
+  transform: translate(-50%, -120%); transition: opacity 120ms linear;
+  background: var(--ink); color: var(--ground); padding: 8px 11px;
+  border-radius: var(--r-sm); font-size: 11.5px; line-height: 1.45;
+  max-width: 260px; box-shadow: 0 8px 26px rgba(17, 17, 21, 0.28);
+}
+#tip b { font-weight: 600; }
+#tip .tnum { font-family: var(--font-num); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
+@media (max-width: 900px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 460px) { .tiles { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 620px) {
+  .hot-row { grid-template-columns: 68px 1fr; row-gap: 4px; }
+  .hot-proj { text-align: left; grid-column: 1 / -1; }
+  .bar-row { grid-template-columns: 84px 1fr auto; }
+  .scale { padding-left: 96px; }
+}
+</style>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Founderz · Growth OS</p>
+    <h1>Portfolio de Growth</h1>
+    <p class="standfirst">Todos los proyectos del departamento, sus métricas de éxito y sus hitos,
+      con tres niveles de zoom: cómo va la compañía, cómo va cada subárea y cómo va cada proyecto.</p>
+    <div class="meta">
+      <span><b>Datos</b> <span class="num" id="m-fecha"></span></span>
+      <span><b>Fuente</b> <span id="m-fuente">growth-os/data/*.yaml</span></span>
+      <span><b>Volumen</b> <span class="num" id="m-vol"></span></span>
+      <span><b>Fechas calculadas a</b> <span class="num" id="m-hoy"></span></span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <span class="step"><i>1</i>Nivel compañía</span>
+        <h2 class="sec-title">Cómo va el portfolio</h2>
+        <p class="sec-note">Los cuatro números que deciden si hay que intervenir esta semana están
+          destacados en rojo. El avance medio compara con calendario, no con optimismo.</p>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="tiles" id="tiles"></div>
+
+    <div class="charts" style="margin-top:38px">
+      <div>
+        <p class="chart-title">Reparto del portfolio por estado</p>
+        <p class="chart-sub">Número de proyectos. Pasa por encima para ver presupuesto y avance.</p>
+        <div class="bars" id="chart-estado"></div>
+        <div class="scale"><span>0</span><span id="scale-estado"></span></div>
+      </div>
+      <div>
+        <p class="chart-title">Presupuesto y gasto por subárea</p>
+        <p class="chart-sub">La cifra de la derecha es el porcentaje de presupuesto ya consumido.</p>
+        <div class="legend">
+          <span><i class="swatch" style="background:var(--seq-3)"></i>Presupuesto</span>
+          <span><i class="swatch" style="background:var(--seq-6)"></i>Gasto</span>
+        </div>
+        <div class="bars" id="chart-subarea"></div>
+        <div class="scale"><span>0 €</span><span id="scale-subarea"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <span class="step"><i>2</i>Nivel departamento y subárea</span>
+        <h2 class="sec-title">Zoom por subárea</h2>
+        <p class="sec-note">Filtra por subárea y ordena por urgencia: primero los P0, y dentro de
+          cada prioridad los más desviados del calendario. <b>Nivel 3:</b> abre cualquier fila para
+          ver los KPIs y los hitos de ese proyecto.</p>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="chips" id="chips"></div>
+    <div class="scroller" style="margin-top:22px">
+      <table>
+        <thead>
+          <tr>
+            <th class="stripe"></th>
+            <th>Proyecto</th>
+            <th>Owner</th>
+            <th>Prio</th>
+            <th>Estado</th>
+            <th>Fin previsto</th>
+            <th>Avance vs calendario</th>
+            <th class="r">Desv.</th>
+            <th>Plazo</th>
+            <th class="r">KPIs</th>
+            <th class="r">Hitos ⚠</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+    <p class="sec-note" id="count-note" style="margin-top:14px"></p>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <div>
+        <h2 class="sec-title">Hitos vencidos y de los próximos 30 días</h2>
+        <p class="sec-note">Todo el departamento, en orden cronológico. Lo vencido primero.</p>
+      </div>
+    </div>
+    <hr class="rule">
+    <div class="hot" id="hot"></div>
+  </section>
+
+  <footer class="foot">
+    <span class="step"><i>↻</i>Cómo se mantiene</span>
+    <div class="loop">
+      <div class="loop-item">
+        <h5>1. El equipo edita en Excel</h5>
+        <p>El <code>.xlsx</code> vive en OneDrive. Estados, avances, gastos, KPIs e hitos se tocan ahí.</p>
+      </div>
+      <div class="loop-item">
+        <h5>2. El agente sincroniza</h5>
+        <p>Lee el Excel, reescribe los YAML del repo y hace commit. Cada sincronización queda en el histórico.</p>
+      </div>
+      <div class="loop-item">
+        <h5>3. Esta página se regenera</h5>
+        <p><code>build_web.py</code> la reconstruye desde los mismos YAML, así que Excel y web nunca se contradicen.</p>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <b>Datos de ejemplo.</b> Los 12 proyectos, 29 KPIs y 41 hitos de esta página son realistas y
+      están atados al stack real (HubSpot, Make, GA4), pero están inventados. Sirven para ver el
+      sistema funcionando y como plantilla de formato. Sustitúyelos por el portfolio real.
+    </div>
+  </footer>
+</div>
+
+<div id="tip" role="status" aria-live="polite"></div>
+
+<script type="application/json" id="gos-data">{"generado":"2026-09-09","taxonomia":{"estado_proyecto":["Backlog","En curso","En riesgo","Bloqueado","Completado","Cancelado"],"estado_activo":["En curso","En riesgo","Bloqueado"],"fase":["Discovery","Diseño","Ejecución","Medición","Cerrado"],"prioridad":["P0","P1","P2"],"tipo_proyecto":["Adquisición","Conversión","Retención","Marca","Producto","Proceso interno","Experimento"],"riesgo":["Bajo","Medio","Alto"],"estado_hito":["Pendiente","En curso","Completado","Retrasado","Cancelado"],"unidad_kpi":["EUR","%","nº","ratio","días"],"direccion_kpi":["Subir","Bajar"],"frecuencia_kpi":["Diaria","Semanal","Mensual","Trimestral"],"fuente_dato":["HubSpot","GA4","Meta Ads","Google Ads","LinkedIn Ads","Search Console","Make","ClickUp","Manual"]},"departamentos":[{"nombre":"Growth","owner":"Pablo Rodríguez","descripcion":"Adquisición, conversión y retención de alumnos. Dueño del funnel end-to-end.","subareas":[{"nombre":"Paid Media","owner":"Por asignar"},{"nombre":"SEO & Contenido","owner":"Por asignar"},{"nombre":"CRO & Web","owner":"Por asignar"},{"nombre":"Lifecycle & CRM","owner":"Por asignar"},{"nombre":"Partnerships & Afiliación","owner":"Por asignar"},{"nombre":"Brand & Social","owner":"Por asignar"},{"nombre":"Data & Analytics","owner":"Por asignar"}]}],"proyectos":[{"id":"GRW-001","nombre":"Escalado Paid Q4 — Meta + Google","departamento":"Growth","subarea":"Paid Media","owner":"Por asignar","tipo":"Adquisición","prioridad":"P0","estado":"En curso","fase":"Ejecución","fecha_inicio":"2026-09-01","fecha_fin_prevista":"2026-12-20","avance_pct":0.25,"presupuesto_eur":180000,"gasto_eur":41500,"riesgo":"Medio","objetivo":"Duplicar el volumen de leads cualificados de la edición 2027 sin degradar el CAC.","impacto_esperado":"+1.100 MQL y 140 matrículas incrementales en el trimestre.","notas":"Depende de que GRW-007 (tracking server-side) esté cerrado para optimizar a matrícula."},{"id":"GRW-002","nombre":"Rediseño LP Máster IA para Creativos","departamento":"Growth","subarea":"CRO & Web","owner":"Por asignar","tipo":"Conversión","prioridad":"P0","estado":"En curso","fase":"Diseño","fecha_inicio":"2026-08-18","fecha_fin_prevista":"2026-10-31","avance_pct":0.45,"presupuesto_eur":22000,"gasto_eur":9800,"riesgo":"Bajo","objetivo":"Subir la conversión visita→lead de la landing principal del máster.","impacto_esperado":"+35% CVR sobre la maqueta actual.","notas":"Hipótesis principal — pricing card en hero above the fold y social proof (Microsoft/Freepik) subido al hero."},{"id":"GRW-003","nombre":"Cluster SEO \"IA aplicada a negocio\"","departamento":"Growth","subarea":"SEO & Contenido","owner":"Por asignar","tipo":"Adquisición","prioridad":"P1","estado":"En curso","fase":"Ejecución","fecha_inicio":"2026-06-15","fecha_fin_prevista":"2027-01-31","avance_pct":0.4,"presupuesto_eur":36000,"gasto_eur":15200,"riesgo":"Medio","objetivo":"Construir autoridad orgánica en 40 keywords de intención informacional y comercial.","impacto_esperado":"60.000 sesiones orgánicas/mes a 6 meses vista.","notas":"16 de 40 artículos publicados. Cuello de botella en revisión editorial."},{"id":"GRW-004","nombre":"Nurturing lead → matrícula (HubSpot)","departamento":"Growth","subarea":"Lifecycle & CRM","owner":"Por asignar","tipo":"Conversión","prioridad":"P0","estado":"En riesgo","fase":"Ejecución","fecha_inicio":"2026-07-01","fecha_fin_prevista":"2026-10-15","avance_pct":0.55,"presupuesto_eur":18000,"gasto_eur":12400,"riesgo":"Alto","objetivo":"Reducir el tiempo de ciclo lead→matrícula con secuencias segmentadas por programa.","impacto_esperado":"-8 días de ciclo y +4pp de conversión MQL→matrícula.","notas":"En riesgo por dependencia de datos limpios en HubSpot. Escalado a Ventas."},{"id":"GRW-005","nombre":"Programa de embajadores alumni","departamento":"Growth","subarea":"Partnerships & Afiliación","owner":"Por asignar","tipo":"Adquisición","prioridad":"P1","estado":"Backlog","fase":"Discovery","fecha_inicio":"2026-10-01","fecha_fin_prevista":"2027-02-28","avance_pct":0.0,"presupuesto_eur":45000,"gasto_eur":0,"riesgo":"Medio","objetivo":"Activar la base de alumni como canal de referidos con incentivo económico.","impacto_esperado":"8% de las matrículas por referido a 12 meses.","notas":"Pendiente definir modelo de comisión con Finanzas."},{"id":"GRW-006","nombre":"Landing Augment MBA","departamento":"Growth","subarea":"CRO & Web","owner":"Por asignar","tipo":"Conversión","prioridad":"P1","estado":"Completado","fase":"Cerrado","fecha_inicio":"2026-07-20","fecha_fin_prevista":"2026-08-29","avance_pct":1.0,"presupuesto_eur":12000,"gasto_eur":11300,"riesgo":"Bajo","objetivo":"Lanzar la landing del programa Augment MBA con estructura canónica Founderz.","impacto_esperado":"Canal propio de captación para el nuevo programa.","notas":"Maquetada en projects/augment-mba/. Pendiente pasar a medición en GRW-007."},{"id":"GRW-007","nombre":"Tracking server-side + GA4 limpio","departamento":"Growth","subarea":"Data & Analytics","owner":"Por asignar","tipo":"Proceso interno","prioridad":"P0","estado":"En curso","fase":"Ejecución","fecha_inicio":"2026-08-01","fecha_fin_prevista":"2026-10-10","avance_pct":0.6,"presupuesto_eur":28000,"gasto_eur":16900,"riesgo":"Alto","objetivo":"Recuperar señal de conversión para optimizar campañas a matrícula, no a lead.","impacto_esperado":"Habilita smart bidding real. Bloquea GRW-001 y GRW-010.","notas":"Bloqueante de dos proyectos P0. Máxima prioridad de desbloqueo."},{"id":"GRW-008","nombre":"Webinars mensuales de captación","departamento":"Growth","subarea":"Brand & Social","owner":"Por asignar","tipo":"Adquisición","prioridad":"P2","estado":"En curso","fase":"Ejecución","fecha_inicio":"2026-05-01","fecha_fin_prevista":"2026-12-31","avance_pct":0.65,"presupuesto_eur":24000,"gasto_eur":14800,"riesgo":"Bajo","objetivo":"Generar leads de alta intención con sesiones en directo con profesores.","impacto_esperado":"400 leads/mes con conversión a matrícula 3x la media.","notas":"Formato validado. Escalar de 1 a 2 sesiones al mes en Q4."},{"id":"GRW-009","nombre":"Motor de lead gen B2B (empresas)","departamento":"Growth","subarea":"Partnerships & Afiliación","owner":"Por asignar","tipo":"Adquisición","prioridad":"P1","estado":"Bloqueado","fase":"Discovery","fecha_inicio":"2026-09-15","fecha_fin_prevista":"2027-01-15","avance_pct":0.1,"presupuesto_eur":60000,"gasto_eur":3200,"riesgo":"Alto","objetivo":"Abrir el canal de formación para empresas con oferta y funnel propios.","impacto_esperado":"12 cuentas corporativas firmadas en el primer año.","notas":"Bloqueado hasta que exista pricing B2B aprobado."},{"id":"GRW-010","nombre":"Optimización checkout y financiación","departamento":"Growth","subarea":"CRO & Web","owner":"Por asignar","tipo":"Conversión","prioridad":"P0","estado":"En curso","fase":"Medición","fecha_inicio":"2026-06-01","fecha_fin_prevista":"2026-09-30","avance_pct":0.8,"presupuesto_eur":20000,"gasto_eur":17600,"riesgo":"Medio","objetivo":"Reducir el abandono en el paso de pago mostrando financiación antes del precio total.","impacto_esperado":"-12pp de abandono en checkout.","notas":"Test A/B en marcha, 2 semanas para significancia."},{"id":"GRW-011","nombre":"Newsletter Founderz a 50k","departamento":"Growth","subarea":"Brand & Social","owner":"Por asignar","tipo":"Retención","prioridad":"P2","estado":"En curso","fase":"Ejecución","fecha_inicio":"2026-04-01","fecha_fin_prevista":"2026-12-31","avance_pct":0.5,"presupuesto_eur":15000,"gasto_eur":7100,"riesgo":"Bajo","objetivo":"Construir audiencia propia para reducir dependencia de paid.","impacto_esperado":"50.000 suscriptores y 15% de las matrículas atribuidas a canal propio.","notas":"27.400 suscriptores actuales."},{"id":"GRW-012","nombre":"Reporting Growth automatizado (Make + HubSpot)","departamento":"Growth","subarea":"Data & Analytics","owner":"Por asignar","tipo":"Proceso interno","prioridad":"P1","estado":"Backlog","fase":"Discovery","fecha_inicio":"2026-10-15","fecha_fin_prevista":"2026-12-15","avance_pct":0.0,"presupuesto_eur":9000,"gasto_eur":0,"riesgo":"Bajo","objetivo":"Eliminar el reporting manual semanal del equipo de Growth.","impacto_esperado":"6 h/semana liberadas y dato único compartido con Dirección.","notas":"Depende de GRW-007 para que la capa de datos sea fiable."}],"kpis":[{"id":"KPI-001","proyecto_id":"GRW-001","nombre":"MQL generados (trimestre)","unidad":"nº","direccion":"Subir","baseline":1150,"target":2250,"actual":1480,"frecuencia":"Semanal","fuente":"HubSpot"},{"id":"KPI-002","proyecto_id":"GRW-001","nombre":"CAC blended","unidad":"EUR","direccion":"Bajar","baseline":690,"target":620,"actual":715,"frecuencia":"Semanal","fuente":"Meta Ads"},{"id":"KPI-003","proyecto_id":"GRW-001","nombre":"ROAS campañas paid","unidad":"ratio","direccion":"Subir","baseline":2.4,"target":3.2,"actual":2.6,"frecuencia":"Semanal","fuente":"Google Ads"},{"id":"KPI-004","proyecto_id":"GRW-002","nombre":"CVR visita → lead","unidad":"%","direccion":"Subir","baseline":0.021,"target":0.028,"actual":0.0235,"frecuencia":"Semanal","fuente":"GA4"},{"id":"KPI-005","proyecto_id":"GRW-002","nombre":"Scroll depth al pricing","unidad":"%","direccion":"Subir","baseline":0.34,"target":0.6,"actual":0.41,"frecuencia":"Semanal","fuente":"GA4"},{"id":"KPI-006","proyecto_id":"GRW-003","nombre":"Sesiones orgánicas / mes","unidad":"nº","direccion":"Subir","baseline":18000,"target":60000,"actual":27500,"frecuencia":"Mensual","fuente":"Search Console"},{"id":"KPI-007","proyecto_id":"GRW-003","nombre":"Keywords en top 10","unidad":"nº","direccion":"Subir","baseline":34,"target":140,"actual":61,"frecuencia":"Mensual","fuente":"Search Console"},{"id":"KPI-008","proyecto_id":"GRW-003","nombre":"Artículos publicados","unidad":"nº","direccion":"Subir","baseline":0,"target":40,"actual":16,"frecuencia":"Mensual","fuente":"Manual"},{"id":"KPI-009","proyecto_id":"GRW-004","nombre":"Días de ciclo lead → matrícula","unidad":"días","direccion":"Bajar","baseline":34,"target":26,"actual":31,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-010","proyecto_id":"GRW-004","nombre":"Conversión MQL → matrícula","unidad":"%","direccion":"Subir","baseline":0.058,"target":0.098,"actual":0.067,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-011","proyecto_id":"GRW-004","nombre":"Tasa de apertura secuencias","unidad":"%","direccion":"Subir","baseline":0.28,"target":0.42,"actual":0.355,"frecuencia":"Semanal","fuente":"HubSpot"},{"id":"KPI-012","proyecto_id":"GRW-005","nombre":"Embajadores activos","unidad":"nº","direccion":"Subir","baseline":0,"target":120,"actual":0,"frecuencia":"Mensual","fuente":"Manual"},{"id":"KPI-013","proyecto_id":"GRW-005","nombre":"% matrículas por referido","unidad":"%","direccion":"Subir","baseline":0.012,"target":0.08,"actual":0.012,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-014","proyecto_id":"GRW-006","nombre":"CVR visita → lead (Augment MBA)","unidad":"%","direccion":"Subir","baseline":0.0,"target":0.022,"actual":0.019,"frecuencia":"Semanal","fuente":"GA4"},{"id":"KPI-015","proyecto_id":"GRW-006","nombre":"Lighthouse performance mobile","unidad":"nº","direccion":"Subir","baseline":0,"target":90,"actual":94,"frecuencia":"Mensual","fuente":"Manual"},{"id":"KPI-016","proyecto_id":"GRW-007","nombre":"Cobertura de conversiones trackeadas","unidad":"%","direccion":"Subir","baseline":0.52,"target":0.95,"actual":0.74,"frecuencia":"Semanal","fuente":"GA4"},{"id":"KPI-017","proyecto_id":"GRW-007","nombre":"Desviación GA4 vs HubSpot","unidad":"%","direccion":"Bajar","baseline":0.31,"target":0.05,"actual":0.14,"frecuencia":"Semanal","fuente":"GA4"},{"id":"KPI-018","proyecto_id":"GRW-008","nombre":"Leads por webinar","unidad":"nº","direccion":"Subir","baseline":180,"target":400,"actual":305,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-019","proyecto_id":"GRW-008","nombre":"Show-up rate","unidad":"%","direccion":"Subir","baseline":0.32,"target":0.45,"actual":0.39,"frecuencia":"Mensual","fuente":"Manual"},{"id":"KPI-020","proyecto_id":"GRW-008","nombre":"CPL webinar","unidad":"EUR","direccion":"Bajar","baseline":42,"target":28,"actual":33,"frecuencia":"Mensual","fuente":"Meta Ads"},{"id":"KPI-021","proyecto_id":"GRW-009","nombre":"Cuentas corporativas firmadas","unidad":"nº","direccion":"Subir","baseline":2,"target":14,"actual":2,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-022","proyecto_id":"GRW-009","nombre":"Pipeline B2B generado","unidad":"EUR","direccion":"Subir","baseline":0,"target":750000,"actual":60000,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-023","proyecto_id":"GRW-010","nombre":"Abandono en checkout","unidad":"%","direccion":"Bajar","baseline":0.68,"target":0.56,"actual":0.585,"frecuencia":"Semanal","fuente":"GA4"},{"id":"KPI-024","proyecto_id":"GRW-010","nombre":"% matrículas con financiación","unidad":"%","direccion":"Subir","baseline":0.41,"target":0.55,"actual":0.505,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-025","proyecto_id":"GRW-011","nombre":"Suscriptores","unidad":"nº","direccion":"Subir","baseline":12000,"target":50000,"actual":27400,"frecuencia":"Semanal","fuente":"HubSpot"},{"id":"KPI-026","proyecto_id":"GRW-011","nombre":"CTR newsletter","unidad":"%","direccion":"Subir","baseline":0.024,"target":0.045,"actual":0.031,"frecuencia":"Semanal","fuente":"HubSpot"},{"id":"KPI-027","proyecto_id":"GRW-011","nombre":"Bajas mensuales","unidad":"%","direccion":"Bajar","baseline":0.021,"target":0.012,"actual":0.018,"frecuencia":"Mensual","fuente":"HubSpot"},{"id":"KPI-028","proyecto_id":"GRW-012","nombre":"Horas/semana de reporting manual","unidad":"días","direccion":"Bajar","baseline":6,"target":0.5,"actual":6,"frecuencia":"Semanal","fuente":"Manual"},{"id":"KPI-029","proyecto_id":"GRW-012","nombre":"Dashboards automatizados","unidad":"nº","direccion":"Subir","baseline":0,"target":5,"actual":0,"frecuencia":"Mensual","fuente":"Make"}],"hitos":[{"id":"H-036","proyecto_id":"GRW-011","nombre":"Rediseño de plantilla con tokens de marca","responsable":"Por asignar","fecha_objetivo":"2026-05-15","estado":"Completado","entregable":"Plantilla en HubSpot"},{"id":"H-033","proyecto_id":"GRW-010","nombre":"Mapa de embudo de checkout con drop-offs","responsable":"Por asignar","fecha_objetivo":"2026-06-20","estado":"Completado","entregable":"Funnel en GA4"},{"id":"H-009","proyecto_id":"GRW-003","nombre":"Keyword research y mapa de cluster","responsable":"Por asignar","fecha_objetivo":"2026-06-30","estado":"Completado","entregable":"Hoja con 40 keywords y intención"},{"id":"H-013","proyecto_id":"GRW-004","nombre":"Limpieza y deduplicado de contactos","responsable":"Por asignar","fecha_objetivo":"2026-07-31","estado":"Completado","entregable":"Base con 0% duplicados"},{"id":"H-034","proyecto_id":"GRW-010","nombre":"Variante con financiación en primer paso","responsable":"Por asignar","fecha_objetivo":"2026-08-01","estado":"Completado","entregable":"Variante B en producción"},{"id":"H-020","proyecto_id":"GRW-006","nombre":"Copy y estructura de secciones","responsable":"Por asignar","fecha_objetivo":"2026-08-05","estado":"Completado","entregable":"Documento de copy aprobado"},{"id":"H-023","proyecto_id":"GRW-007","nombre":"Auditoría del dataLayer actual","responsable":"Por asignar","fecha_objetivo":"2026-08-08","estado":"Completado","entregable":"Informe de eventos perdidos"},{"id":"H-014","proyecto_id":"GRW-004","nombre":"Definición de scoring MQL","responsable":"Por asignar","fecha_objetivo":"2026-08-22","estado":"Completado","entregable":"Modelo de scoring documentado"},{"id":"H-021","proyecto_id":"GRW-006","nombre":"Maquetación y QA responsive","responsable":"Por asignar","fecha_objetivo":"2026-08-22","estado":"Completado","entregable":"index.html en el repo"},{"id":"H-005","proyecto_id":"GRW-002","nombre":"Auditoría CRO de la landing actual","responsable":"Por asignar","fecha_objetivo":"2026-08-29","estado":"Completado","entregable":"Informe con 18 hipótesis priorizadas"},{"id":"H-022","proyecto_id":"GRW-006","nombre":"Publicación en producción","responsable":"Por asignar","fecha_objetivo":"2026-08-29","estado":"Completado","entregable":"URL pública con tracking"},{"id":"H-010","proyecto_id":"GRW-003","nombre":"20 artículos publicados","responsable":"Por asignar","fecha_objetivo":"2026-09-01","estado":"Retrasado","entregable":"20 URLs indexadas"},{"id":"H-001","proyecto_id":"GRW-001","nombre":"Estructura de cuentas y naming de campañas","responsable":"Por asignar","fecha_objetivo":"2026-09-05","estado":"Completado","entregable":"Documento de nomenclatura + cuentas creadas"},{"id":"H-015","proyecto_id":"GRW-004","nombre":"5 secuencias por programa en producción","responsable":"Por asignar","fecha_objetivo":"2026-09-05","estado":"Retrasado","entregable":"Workflows activos en HubSpot"},{"id":"H-024","proyecto_id":"GRW-007","nombre":"Contenedor server-side desplegado","responsable":"Por asignar","fecha_objetivo":"2026-09-05","estado":"Completado","entregable":"GTM SS en producción"},{"id":"H-006","proyecto_id":"GRW-002","nombre":"Wireframes mobile-first aprobados","responsable":"Por asignar","fecha_objetivo":"2026-09-12","estado":"En curso","entregable":"Figma con hero + pricing card"},{"id":"H-027","proyecto_id":"GRW-008","nombre":"Calendario editorial Q4 con profesores","responsable":"Por asignar","fecha_objetivo":"2026-09-15","estado":"En curso","entregable":"6 sesiones con ponente confirmado"},{"id":"H-002","proyecto_id":"GRW-001","nombre":"Producción de 12 creatividades por programa","responsable":"Por asignar","fecha_objetivo":"2026-09-19","estado":"En curso","entregable":"Batch de vídeos y estáticos en Drive"},{"id":"H-025","proyecto_id":"GRW-007","nombre":"Conversiones enhanced a Meta y Google","responsable":"Por asignar","fecha_objetivo":"2026-09-26","estado":"En curso","entregable":"Eventos de matrícula llegando a las plataformas"},{"id":"H-035","proyecto_id":"GRW-010","nombre":"Cierre del test y decisión","responsable":"Por asignar","fecha_objetivo":"2026-09-30","estado":"En curso","entregable":"Informe de significancia y rollout"},{"id":"H-037","proyecto_id":"GRW-011","nombre":"Captación cruzada desde webinars y LPs","responsable":"Por asignar","fecha_objetivo":"2026-09-30","estado":"En curso","entregable":"Formularios de suscripción en 8 páginas"},{"id":"H-028","proyecto_id":"GRW-008","nombre":"Automatización de recordatorios","responsable":"Por asignar","fecha_objetivo":"2026-10-03","estado":"Pendiente","entregable":"Secuencia de 3 recordatorios activa"},{"id":"H-007","proyecto_id":"GRW-002","nombre":"Maquetación HTML/CSS con tokens de marca","responsable":"Por asignar","fecha_objetivo":"2026-10-10","estado":"Pendiente","entregable":"LP en staging"},{"id":"H-017","proyecto_id":"GRW-005","nombre":"Modelo de comisión aprobado por Finanzas","responsable":"Por asignar","fecha_objetivo":"2026-10-10","estado":"Pendiente","entregable":"Acta de aprobación"},{"id":"H-026","proyecto_id":"GRW-007","nombre":"Reconciliación GA4 vs HubSpot <5%","responsable":"Por asignar","fecha_objetivo":"2026-10-10","estado":"Pendiente","entregable":"Informe de desviación firmado"},{"id":"H-003","proyecto_id":"GRW-001","nombre":"Activación de smart bidding a matrícula","responsable":"Por asignar","fecha_objetivo":"2026-10-15","estado":"Pendiente","entregable":"Campañas migradas a tCPA"},{"id":"H-016","proyecto_id":"GRW-004","nombre":"Handoff automático a Ventas","responsable":"Por asignar","fecha_objetivo":"2026-10-15","estado":"Pendiente","entregable":"SLA de contacto <2h configurado"},{"id":"H-030","proyecto_id":"GRW-009","nombre":"Pricing y catálogo B2B aprobados","responsable":"Por asignar","fecha_objetivo":"2026-10-20","estado":"Pendiente","entregable":"Tarifario corporativo"},{"id":"H-039","proyecto_id":"GRW-012","nombre":"Inventario de informes manuales","responsable":"Por asignar","fecha_objetivo":"2026-10-24","estado":"Pendiente","entregable":"Lista de 5 informes a automatizar"},{"id":"H-008","proyecto_id":"GRW-002","nombre":"Lanzamiento test A/B contra control","responsable":"Por asignar","fecha_objetivo":"2026-10-31","estado":"Pendiente","entregable":"Test en marcha con tamaño de muestra calculado"},{"id":"H-029","proyecto_id":"GRW-008","nombre":"Paso a 2 sesiones/mes","responsable":"Por asignar","fecha_objetivo":"2026-11-01","estado":"Pendiente","entregable":"Dos webinars ejecutados en el mes"},{"id":"H-004","proyecto_id":"GRW-001","nombre":"Revisión de mid-quarter y reasignación de budget","responsable":"Por asignar","fecha_objetivo":"2026-11-10","estado":"Pendiente","entregable":"Informe de reasignación"},{"id":"H-018","proyecto_id":"GRW-005","nombre":"Plataforma de tracking de referidos elegida","responsable":"Por asignar","fecha_objetivo":"2026-11-14","estado":"Pendiente","entregable":"Comparativa y contrato firmado"},{"id":"H-031","proyecto_id":"GRW-009","nombre":"Landing y formulario B2B","responsable":"Por asignar","fecha_objetivo":"2026-11-21","estado":"Pendiente","entregable":"LP empresas publicada"},{"id":"H-040","proyecto_id":"GRW-012","nombre":"Escenarios de Make en producción","responsable":"Por asignar","fecha_objetivo":"2026-11-28","estado":"Pendiente","entregable":"5 escenarios activos y monitorizados"},{"id":"H-011","proyecto_id":"GRW-003","nombre":"40 artículos publicados","responsable":"Por asignar","fecha_objetivo":"2026-12-15","estado":"Pendiente","entregable":"Cluster completo con enlazado interno"},{"id":"H-041","proyecto_id":"GRW-012","nombre":"Primer informe semanal automático enviado","responsable":"Por asignar","fecha_objetivo":"2026-12-15","estado":"Pendiente","entregable":"Email automático a Dirección"},{"id":"H-038","proyecto_id":"GRW-011","nombre":"50.000 suscriptores","responsable":"Por asignar","fecha_objetivo":"2026-12-31","estado":"Pendiente","entregable":"Base a 50k con <1,2% de bajas"},{"id":"H-032","proyecto_id":"GRW-009","nombre":"Primeras 3 cuentas en pipeline","responsable":"Por asignar","fecha_objetivo":"2027-01-15","estado":"Pendiente","entregable":"3 oportunidades en HubSpot"},{"id":"H-019","proyecto_id":"GRW-005","nombre":"Onboarding de los 20 primeros embajadores","responsable":"Por asignar","fecha_objetivo":"2027-01-16","estado":"Pendiente","entregable":"20 embajadores con enlace activo"},{"id":"H-012","proyecto_id":"GRW-003","nombre":"Campaña de link building a pilares","responsable":"Por asignar","fecha_objetivo":"2027-01-31","estado":"Pendiente","entregable":"25 backlinks DR>40"}]}</script>
+<script>
+(function () {
+  "use strict";
+  var D = JSON.parse(document.getElementById("gos-data").textContent);
+
+  /* -------------------------------------------------------------------------
+     Umbrales. Son los mismos que aplica build_excel.py en las fórmulas del
+     Excel; si cambian allí, cambian aquí. Cada renderizador implementa las
+     reglas una vez, y sólo una vez.
+     ------------------------------------------------------------------------- */
+  var TH = {
+    desviacion: -0.15,   // por debajo de -15pp el proyecto está Desviado
+    inminente: 14,       // días para marcar el fin como Inminente
+    kpi: { conseguido: 1, camino: 0.7, atencion: 0.3 },
+    hito: { semana: 7, proximos: 30 }
+  };
+  var CERRADO = { Completado: 1, Cancelado: 1 };
+  var DAY = 86400000;
+
+  var HOY = new Date(); HOY.setHours(0, 0, 0, 0);
+
+  function pd(s) { var a = String(s).split("-"); return new Date(+a[0], a[1] - 1, +a[2]); }
+  function dias(a, b) { return Math.round((a - b) / DAY); }
+  function clamp(v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; }
+
+  var nf0 = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 0 });
+  var nfEur = new Intl.NumberFormat("es-ES", { style: "currency", currency: "EUR", maximumFractionDigits: 0 });
+  var dfShort = new Intl.DateTimeFormat("es-ES", { day: "2-digit", month: "short" });
+  var dfFull = new Intl.DateTimeFormat("es-ES", { day: "2-digit", month: "2-digit", year: "numeric" });
+
+  function eur(n) { return n == null ? "—" : nfEur.format(n); }
+  function pct(n, dec) {
+    if (n == null || !isFinite(n)) return "—";
+    return new Intl.NumberFormat("es-ES", { style: "percent", maximumFractionDigits: dec || 0 }).format(n);
+  }
+  function sig(n) { return n == null ? "—" : (n > 0 ? "+" : "") + pct(n); }
+  var nf1 = new Intl.NumberFormat("es-ES", { maximumFractionDigits: 1 });
+  var nf2 = new Intl.NumberFormat("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function kpiVal(k, v) {
+    if (v == null) return "—";
+    if (k.unidad === "%") return pct(v, 1);
+    if (k.unidad === "EUR") return eur(v);
+    if (k.unidad === "ratio") return nf2.format(v) + "x";
+    if (k.unidad === "días") return nf1.format(v) + " d";
+    return nf0.format(v);
+  }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+    return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  /* --- Derivación --------------------------------------------------------- */
+  function kpiPct(k) {
+    var base = k.baseline, tgt = k.target, act = k.actual;
+    if (base == null || tgt == null || act == null || !k.direccion) return null;
+    var span = k.direccion === "Bajar" ? base - tgt : tgt - base;
+    if (!span) return null;
+    return (k.direccion === "Bajar" ? base - act : act - base) / span;
+  }
+  function kpiEstado(p) {
+    if (p == null) return null;
+    if (p >= TH.kpi.conseguido) return "Conseguido";
+    if (p >= TH.kpi.camino) return "En camino";
+    if (p >= TH.kpi.atencion) return "Atención";
+    return "Crítico";
+  }
+  function hitoAlerta(h) {
+    if (CERRADO[h.estado]) return "Cerrado";
+    if (!h.fecha_objetivo) return null;
+    var d = dias(pd(h.fecha_objetivo), HOY);
+    if (d < 0) return "Vencido";
+    if (d <= TH.hito.semana) return "Esta semana";
+    if (d <= TH.hito.proximos) return "Próximos 30 días";
+    return "En plazo";
+  }
+
+  var kpisByProj = {}, hitosByProj = {};
+  D.kpis.forEach(function (k) {
+    k._pct = kpiPct(k); k._estado = kpiEstado(k._pct);
+    (kpisByProj[k.proyecto_id] = kpisByProj[k.proyecto_id] || []).push(k);
+  });
+  D.hitos.forEach(function (h) {
+    h._alerta = hitoAlerta(h);
+    h._dias = h.fecha_objetivo && !CERRADO[h.estado] ? dias(pd(h.fecha_objetivo), HOY) : null;
+    (hitosByProj[h.proyecto_id] = hitosByProj[h.proyecto_id] || []).push(h);
+  });
+
+  var P = D.proyectos.map(function (p) {
+    var cerrado = !!CERRADO[p.estado];
+    var ini = pd(p.fecha_inicio), fin = pd(p.fecha_fin_prevista);
+    var span = dias(fin, ini);
+    p._cerrado = cerrado;
+    p._dias = cerrado ? null : dias(fin, HOY);
+    p._esperado = cerrado || !span ? null : clamp(dias(HOY, ini) / span, 0, 1);
+    p._desv = p._esperado == null ? null : p.avance_pct - p._esperado;
+    p._consumido = p.presupuesto_eur ? p.gasto_eur / p.presupuesto_eur : null;
+    p._kpis = kpisByProj[p.id] || [];
+    p._hitos = hitosByProj[p.id] || [];
+    var medidos = p._kpis.filter(function (k) { return k._pct != null; });
+    p._pctKpis = medidos.length
+      ? medidos.reduce(function (a, k) { return a + k._pct; }, 0) / medidos.length : null;
+    p._hitosVenc = p._hitos.filter(function (h) { return h._alerta === "Vencido"; }).length;
+    p._hitosOk = p._hitos.filter(function (h) { return h.estado === "Completado"; }).length;
+
+    if (cerrado) p._semaforo = "Cerrado";
+    else if (p._dias < 0) p._semaforo = "Vencido";
+    else if (p._dias <= TH.inminente) p._semaforo = "Inminente";
+    else if (p._desv != null && p._desv < TH.desviacion) p._semaforo = "Desviado";
+    else p._semaforo = "En plazo";
+
+    p._atencion = p.estado === "En riesgo" || p.estado === "Bloqueado" ||
+      p._hitosVenc > 0 || (p._desv != null && p._desv < TH.desviacion);
+    return p;
+  });
+
+  /* --- Escalas de color --------------------------------------------------- */
+  var PILL = {
+    Backlog: "idle", "En curso": "brand", "En riesgo": "warn", Bloqueado: "crit",
+    Completado: "ok", Cancelado: "idle",
+    Vencido: "crit", Desviado: "warn", Inminente: "warn", "En plazo": "ok", Cerrado: "idle",
+    Conseguido: "ok", "En camino": "brand", "Atención": "warn", "Crítico": "crit",
+    "Esta semana": "warn", "Próximos 30 días": "brand",
+    Pendiente: "idle", Retrasado: "crit"
+  };
+  // Relleno de estado para las barras de KPI. Es una escala de ESTADO, no una
+  // paleta categórica: cada barra lleva su píldora con el nombre al lado, así
+  // que el color refuerza pero nunca es el único portador de la información.
+  var FILL = {
+    Conseguido: "var(--ok-fill)", "En camino": "var(--seq-6)",
+    "Atención": "var(--warn-fill)", "Crítico": "var(--crit-fill)"
+  };
+  function pill(v) { return v ? '<span class="pill ' + (PILL[v] || "idle") + '">' + esc(v) + "</span>" : "—"; }
+
+  /* --- Cabecera ----------------------------------------------------------- */
+  document.getElementById("m-fecha").textContent = dfFull.format(pd(D.generado));
+  document.getElementById("m-hoy").textContent = dfFull.format(HOY);
+  document.getElementById("m-vol").textContent =
+    P.length + " proyectos · " + D.kpis.length + " KPIs · " + D.hitos.length + " hitos";
+
+  /* --- Tarjetas ----------------------------------------------------------- */
+  var activos = P.filter(function (p) { return D.taxonomia.estado_activo.indexOf(p.estado) > -1; });
+  var vivos = P.filter(function (p) { return p.estado !== "Cancelado"; });
+  var riesgo = P.filter(function (p) { return p.estado === "En riesgo" || p.estado === "Bloqueado"; });
+  var ppto = vivos.reduce(function (a, p) { return a + (p.presupuesto_eur || 0); }, 0);
+  var gasto = vivos.reduce(function (a, p) { return a + (p.gasto_eur || 0); }, 0);
+  var avanceMedio = vivos.length
+    ? vivos.reduce(function (a, p) { return a + p.avance_pct; }, 0) / vivos.length : null;
+  var hitosVenc = D.hitos.filter(function (h) { return h._alerta === "Vencido"; }).length;
+  var kpisCrit = D.kpis.filter(function (k) { return k._estado === "Crítico"; }).length;
+  var desviados = P.filter(function (p) { return p._desv != null && p._desv < TH.desviacion; }).length;
+
+  var TILES = [
+    { l: "Proyectos activos", v: activos.length, s: "de " + P.length + " en el portfolio" },
+    { l: "En riesgo o bloqueados", v: riesgo.length, s: riesgo.length ? riesgo.map(function (p) { return p.id; }).join(" · ") : "ninguno", flag: riesgo.length > 0 },
+    { l: "Desviados del calendario", v: desviados, s: "más de 15pp por detrás", flag: desviados > 0 },
+    { l: "Hitos vencidos", v: hitosVenc, s: "fecha pasada y sin cerrar", flag: hitosVenc > 0 },
+    { l: "KPIs en crítico", v: kpisCrit, s: "de " + D.kpis.length + " medidos", flag: kpisCrit > 0 },
+    { l: "Avance medio", v: pct(avanceMedio), s: "media de los no cancelados" },
+    { l: "Presupuesto", v: eur(ppto), s: "comprometido en el año" },
+    { l: "Consumido", v: pct(ppto ? gasto / ppto : null), s: eur(gasto) + " gastados" }
+  ];
+  document.getElementById("tiles").innerHTML = TILES.map(function (t) {
+    return '<div class="tile' + (t.flag ? " flag" : "") + '">' +
+      '<p class="tile-label">' + esc(t.l) + "</p>" +
+      '<div class="tile-value">' + esc(t.v) + "</div>" +
+      '<p class="tile-sub">' + esc(t.s) + "</p></div>";
+  }).join("");
+
+  /* --- Gráfico: por estado ------------------------------------------------ */
+  var porEstado = D.taxonomia.estado_proyecto.map(function (e) {
+    var g = P.filter(function (p) { return p.estado === e; });
+    return {
+      k: e, n: g.length,
+      ppto: g.reduce(function (a, p) { return a + (p.presupuesto_eur || 0); }, 0),
+      gasto: g.reduce(function (a, p) { return a + (p.gasto_eur || 0); }, 0),
+      avance: g.length ? g.reduce(function (a, p) { return a + p.avance_pct; }, 0) / g.length : null
+    };
+  });
+  var maxN = Math.max.apply(null, porEstado.map(function (r) { return r.n; })) || 1;
+  document.getElementById("scale-estado").textContent = maxN + " proyectos";
+  document.getElementById("chart-estado").innerHTML = porEstado.map(function (r) {
+    var tip = "<b>" + esc(r.k) + "</b><br>" + r.n + " proyecto" + (r.n === 1 ? "" : "s") +
+      '<br><span class="tnum">' + eur(r.ppto) + "</span> de presupuesto" +
+      '<br><span class="tnum">' + eur(r.gasto) + "</span> gastados" +
+      (r.avance == null ? "" : "<br>Avance medio " + pct(r.avance));
+    return '<div class="bar-row" data-tip="' + esc(tip) + '">' +
+      '<div class="bar-name">' + esc(r.k) + "</div>" +
+      '<div class="track">' + (r.n
+        ? '<div class="fill" style="width:' + Math.max(r.n / maxN * 100, 1.5) +
+          '%;background:var(--seq-6)"></div>'
+        : "") + "</div>" +
+      '<div class="bar-val">' + r.n + "</div></div>";
+  }).join("");
+
+  /* --- Gráfico: por subárea ----------------------------------------------- */
+  var SUBS = [];
+  D.departamentos.forEach(function (d) {
+    d.subareas.forEach(function (s) { SUBS.push({ dep: d.nombre, nombre: s.nombre }); });
+  });
+  var porSub = SUBS.map(function (s) {
+    var g = P.filter(function (p) { return p.subarea === s.nombre; });
+    return {
+      k: s.nombre, n: g.length,
+      ppto: g.reduce(function (a, p) { return a + (p.presupuesto_eur || 0); }, 0),
+      gasto: g.reduce(function (a, p) { return a + (p.gasto_eur || 0); }, 0)
+    };
+  });
+  var maxP = Math.max.apply(null, porSub.map(function (r) { return r.ppto; })) || 1;
+  document.getElementById("scale-subarea").textContent = eur(maxP);
+  document.getElementById("chart-subarea").innerHTML = porSub.map(function (r) {
+    var cons = r.ppto ? r.gasto / r.ppto : null;
+    var tip = "<b>" + esc(r.k) + "</b><br>" + r.n + " proyecto" + (r.n === 1 ? "" : "s") +
+      '<br>Presupuesto <span class="tnum">' + eur(r.ppto) + "</span>" +
+      '<br>Gasto <span class="tnum">' + eur(r.gasto) + "</span>" +
+      "<br>Consumido " + pct(cons);
+    return '<div class="bar-row" data-tip="' + esc(tip) + '">' +
+      '<div class="bar-name">' + esc(r.k) + "</div>" +
+      '<div class="track">' +
+        '<div class="fill" style="width:' + (r.ppto / maxP * 100) + '%;background:var(--seq-3)"></div>' +
+        '<div class="fill under" style="width:' + (r.gasto / maxP * 100) + '%;background:var(--seq-6)"></div>' +
+      "</div>" +
+      '<div class="bar-val">' + (cons == null ? "—" : pct(cons)) + "</div></div>";
+  }).join("");
+
+  /* --- Estado de la vista ------------------------------------------------- */
+  var view = { sub: "all", soloAtencion: false, open: null };
+  try {
+    var saved = JSON.parse(localStorage.getItem("gos.view") || "null");
+    if (saved && typeof saved.sub === "string") {
+      view.sub = saved.sub; view.soloAtencion = !!saved.soloAtencion;
+    }
+  } catch (e) { /* almacenamiento no disponible: seguimos con los valores por defecto */ }
+  function save() {
+    try { localStorage.setItem("gos.view", JSON.stringify({ sub: view.sub, soloAtencion: view.soloAtencion })); }
+    catch (e) { /* sin persistencia, la vista sigue funcionando */ }
+  }
+
+  /* --- Chips -------------------------------------------------------------- */
+  function renderChips() {
+    var out = ['<button class="chip" type="button" data-sub="all" aria-pressed="' +
+      (view.sub === "all") + '">Todas las subáreas<span class="n">' + P.length + "</span></button>"];
+    porSub.forEach(function (r) {
+      if (!r.n) return;
+      out.push('<button class="chip" type="button" data-sub="' + esc(r.k) + '" aria-pressed="' +
+        (view.sub === r.k) + '">' + esc(r.k) + '<span class="n">' + r.n + "</span></button>");
+    });
+    out.push('<button class="chip" type="button" data-atencion="1" aria-pressed="' +
+      view.soloAtencion + '" style="margin-left:auto">Sólo los que requieren atención<span class="n">' +
+      P.filter(function (p) { return p._atencion; }).length + "</span></button>");
+    document.getElementById("chips").innerHTML = out.join("");
+  }
+
+  /* --- Tabla -------------------------------------------------------------- */
+  var PRIO_ORDER = { P0: 0, P1: 1, P2: 2 };
+  function visible() {
+    return P.filter(function (p) {
+      if (view.sub !== "all" && p.subarea !== view.sub) return false;
+      if (view.soloAtencion && !p._atencion) return false;
+      return true;
+    }).sort(function (a, b) {
+      var d = (PRIO_ORDER[a.prioridad] ?? 9) - (PRIO_ORDER[b.prioridad] ?? 9);
+      if (d) return d;
+      return (a._desv == null ? 9 : a._desv) - (b._desv == null ? 9 : b._desv);
+    });
+  }
+
+  function bullet(p) {
+    if (p._cerrado) {
+      return '<div class="bullet" data-tip="Proyecto ' + esc(p.estado.toLowerCase()) +
+        '"><div class="done" style="width:' + (p.avance_pct * 100) +
+        '%;background:var(--ok-fill)"></div></div>';
+    }
+    var behind = p._desv != null && p._desv < TH.desviacion;
+    var tip = "Avance real <b>" + pct(p.avance_pct) + "</b><br>Esperado por calendario <b>" +
+      pct(p._esperado) + "</b><br>Desviación <b>" + sig(p._desv) + "</b>";
+    return '<div class="bullet' + (behind ? " behind" : "") + '" data-tip="' + esc(tip) + '">' +
+      '<div class="done" style="width:' + (p.avance_pct * 100) + '%"></div>' +
+      (p._esperado == null ? "" : '<div class="target" style="left:' + (p._esperado * 100) + '%"></div>') +
+      "</div>";
+  }
+
+  function panel(p) {
+    var kpis = p._kpis.length ? p._kpis.map(function (k) {
+      var w = k._pct == null ? 0 : clamp(k._pct, 0, 1) * 100;
+      return '<div class="kpi"><div><div class="kpi-name">' + esc(k.nombre) + "</div>" +
+        '<div class="kpi-nums">' + esc(k.direccion === "Bajar" ? "bajar" : "subir") + " · " +
+        kpiVal(k, k.baseline) + " → " + kpiVal(k, k.target) + " · hoy " + kpiVal(k, k.actual) +
+        " · " + esc(k.fuente) + "</div>" +
+        '<div class="kpi-bar"><i style="width:' + w + "%;background:" +
+          (FILL[k._estado] || "var(--idle-fill)") + '"></i></div></div>' +
+        '<div class="kpi-right"><div class="num">' + pct(k._pct) + "</div>" +
+        '<div style="margin-top:4px">' + pill(k._estado) + "</div></div></div>";
+    }).join("") : '<p class="empty">Sin KPIs asignados todavía.</p>';
+
+    var hitos = p._hitos.length ? p._hitos.map(function (h) {
+      return '<div class="mstone"><div class="mstone-date">' +
+        (h.fecha_objetivo ? esc(dfShort.format(pd(h.fecha_objetivo))) : "—") + "</div>" +
+        '<div class="mstone-name">' + esc(h.nombre) +
+        "<small>" + esc(h.entregable || "") + (h.responsable ? " · " + esc(h.responsable) : "") + "</small></div>" +
+        "<div>" + pill(h.estado) + "</div></div>";
+    }).join("") : '<p class="empty">Sin hitos definidos todavía.</p>';
+
+    return '<div class="panel">' +
+      '<p class="panel-goal"><b>Objetivo.</b> ' + esc(p.objetivo || "—") +
+      " <b>Impacto esperado.</b> " + esc(p.impacto_esperado || "—") +
+      (p.notas ? " <b>Nota.</b> " + esc(p.notas) : "") + "</p>" +
+      '<div class="panel-cols">' +
+        "<div><h4>KPIs · " + p._kpis.length + "</h4>" + kpis + "</div>" +
+        "<div><h4>Hitos · " + p._hitosOk + " de " + p._hitos.length + " completados</h4>" + hitos + "</div>" +
+      "</div></div>";
+  }
+
+  var STRIPE = { Vencido: "var(--crit-fill)", Desviado: "var(--warn-fill)",
+    Inminente: "var(--warn-fill)", "En plazo": "var(--ok-fill)", Cerrado: "var(--idle-fill)" };
+
+  function renderRows() {
+    var list = visible();
+    var html = list.map(function (p) {
+      var open = view.open === p.id;
+      var row = '<tr class="proj" tabindex="0" role="button" data-id="' + esc(p.id) +
+        '" aria-expanded="' + open + '">' +
+        '<td class="stripe" style="background:' + (STRIPE[p._semaforo] || "transparent") + '"></td>' +
+        '<td class="name">' + esc(p.nombre) + "<small>" + esc(p.id) + " · " + esc(p.subarea) + "</small></td>" +
+        "<td>" + esc(p.owner) + "</td>" +
+        '<td><span class="prio ' + (p.prioridad === "P0" ? "p0" : "") + '">' + esc(p.prioridad) + "</span></td>" +
+        "<td>" + pill(p.estado) + "</td>" +
+        '<td class="num">' + esc(dfFull.format(pd(p.fecha_fin_prevista))) +
+          (p._dias == null ? "" : '<small style="color:var(--ink-3)"> · ' +
+            (p._dias < 0 ? Math.abs(p._dias) + "d de retraso" : p._dias + "d") + "</small>") + "</td>" +
+        "<td>" + bullet(p) + "</td>" +
+        '<td class="r num">' + sig(p._desv) + "</td>" +
+        "<td>" + pill(p._semaforo) + "</td>" +
+        '<td class="r num">' + (p._pctKpis == null ? "—" : pct(p._pctKpis)) + "</td>" +
+        '<td class="r num">' + (p._hitosVenc || "—") + "</td>" +
+        '<td><span class="caret">▶</span></td></tr>';
+      return row + (open ? '<tr class="detail"><td colspan="12">' + panel(p) + "</td></tr>" : "");
+    }).join("");
+
+    document.getElementById("rows").innerHTML = html ||
+      '<tr><td colspan="12"><p class="empty">Ningún proyecto cumple el filtro.</p></td></tr>';
+    document.getElementById("count-note").textContent =
+      list.length + (list.length === 1 ? " proyecto" : " proyectos") +
+      (view.sub === "all" ? " en todo el departamento" : " en " + view.sub) +
+      (view.soloAtencion ? ", filtrando a los que requieren atención" : "") + ".";
+  }
+
+  /* --- Hitos calientes ---------------------------------------------------- */
+  var CALIENTE = { Vencido: 1, "Esta semana": 1, "Próximos 30 días": 1 };
+  var hot = D.hitos.filter(function (h) { return CALIENTE[h._alerta]; });
+  document.getElementById("hot").innerHTML = hot.length ? hot.map(function (h) {
+    var proj = P.filter(function (p) { return p.id === h.proyecto_id; })[0];
+    return '<div class="hot-row">' +
+      '<div class="hot-date">' + esc(dfShort.format(pd(h.fecha_objetivo))) + "</div>" +
+      "<div>" + pill(h._alerta) + "</div>" +
+      '<div class="hot-name">' + esc(h.nombre) +
+        (h.responsable ? ' <span style="color:var(--ink-3);font-size:11.5px">· ' + esc(h.responsable) + "</span>" : "") +
+      "</div>" +
+      '<div class="hot-proj">' + esc(proj ? proj.nombre : h.proyecto_id) + "</div></div>";
+  }).join("") : '<p class="empty">Nada vencido ni en los próximos 30 días.</p>';
+
+  /* --- Interacción -------------------------------------------------------- */
+  document.getElementById("chips").addEventListener("click", function (e) {
+    var b = e.target.closest(".chip");
+    if (!b) return;
+    if (b.dataset.atencion) view.soloAtencion = !view.soloAtencion;
+    else view.sub = b.dataset.sub;
+    view.open = null;
+    save(); renderChips(); renderRows();
+  });
+
+  function toggle(id) {
+    view.open = view.open === id ? null : id;
+    renderRows();
+    var el = document.querySelector('tr.proj[data-id="' + id + '"]');
+    if (el) el.focus();
+  }
+  var tbody = document.getElementById("rows");
+  tbody.addEventListener("click", function (e) {
+    var tr = e.target.closest("tr.proj");
+    if (tr) toggle(tr.dataset.id);
+  });
+  tbody.addEventListener("keydown", function (e) {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    var tr = e.target.closest("tr.proj");
+    if (!tr) return;
+    e.preventDefault(); toggle(tr.dataset.id);
+  });
+
+  /* --- Tooltip ------------------------------------------------------------ */
+  var tip = document.getElementById("tip"), tipFor = null;
+  document.addEventListener("mousemove", function (e) {
+    var host = e.target.closest("[data-tip]");
+    if (!host) {
+      if (tipFor) { tip.style.opacity = 0; tipFor = null; }
+      return;
+    }
+    if (host !== tipFor) { tip.innerHTML = host.dataset.tip; tipFor = host; tip.style.opacity = 1; }
+    tip.style.left = e.clientX + "px";
+    tip.style.top = e.clientY - 8 + "px";
+  });
+
+  /* --- Arranque ----------------------------------------------------------- */
+  renderChips();
+  // Se abre de entrada el proyecto más crítico, para que el primer vistazo ya
+  // muestre el nivel de proyecto sin tener que hacer clic.
+  var first = visible();
+  var critico = first.filter(function (p) { return p._atencion; })[0] || first[0];
+  if (critico) view.open = critico.id;
+  renderRows();
+})();
+</script>
