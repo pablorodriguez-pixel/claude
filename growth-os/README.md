@@ -89,6 +89,13 @@ hitos que apuntan a un proyecto que no existe.
 | **Hitos** | Datos | Tabla de entrada. Columnas A–G editables, H–L calculadas |
 | **Config** | — | Listas de los desplegables, generadas desde `taxonomia.yaml` |
 
+**El orden de las pestañas no es estético.** El conector de Microsoft 365 vuelca el libro en orden
+de pestañas y corta al agotar su presupuesto de lectura. Con Dashboard y Zoom delante (66 y 70
+columnas, casi todas fórmulas auxiliares ocultas) el volcado se agotaba antes de llegar a
+Proyectos, KPIs e Hitos, y la sincronización era imposible. Por eso las hojas de datos van
+primero; `wb.active` sigue abriendo el libro en el Dashboard, así que lo que ve quien lo abre no
+cambia. Si algún día reordenas las pestañas, la lectura desde OneDrive se rompe.
+
 Las tres tablas de datos llevan filas vacías de reserva con las fórmulas ya puestas
 (40 proyectos, 70 KPIs, 80 hitos), para que el equipo pueda añadir registros en Excel sin
 que nadie tenga que regenerar el fichero.

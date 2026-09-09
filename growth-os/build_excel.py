@@ -57,6 +57,7 @@ H_FIRST, H_LAST = 2, 81    # Hitos
 FMT_EUR = '#,##0 €'
 FMT_PCT0 = '0%'
 FMT_PCT1 = '0.0%'
+FMT_PCT_IN = '0.#%'   # columnas de entrada: no redondea a entero al exportar
 FMT_DATE = 'dd/mm/yyyy'
 FMT_INT = '#,##0'
 FMT_NUM = '#,##0.###'
@@ -389,7 +390,9 @@ def build_proyectos(wb, proys, dvs):
                 c.number_format = FMT_DATE
             elif L in (P_PPTO, P_GASTO):
                 c.number_format = FMT_EUR
-            elif L in (P_AVA, P_CONS, P_AVAE, P_PKPI):
+            elif L == P_AVA:
+                c.number_format = FMT_PCT_IN
+            elif L in (P_CONS, P_AVAE, P_PKPI):
                 c.number_format = FMT_PCT0
             elif L == P_DESV:
                 c.number_format = '+0%;-0%;0%'
@@ -1227,8 +1230,8 @@ def main():
     build_detalle(wb, dvs, proys)
     build_leeme(wb)
 
-    order = ["Léeme", "Dashboard", "Zoom departamento", "Detalle proyecto",
-             "Proyectos", "KPIs", "Hitos", "Config"]
+    order = ["Proyectos", "KPIs", "Hitos", "Léeme", "Dashboard",
+             "Zoom departamento", "Detalle proyecto", "Config"]
     wb._sheets = [wb[n] for n in order]
     wb.active = order.index("Dashboard")
 
