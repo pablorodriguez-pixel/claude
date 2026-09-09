@@ -55,7 +55,8 @@ sólo hace falta cuando cambia la estructura del sistema, no los datos.
 | `build_web.py` | YAML → `dist/dashboard.html`, el dashboard web. Inyecta los datos en bruto; las métricas derivadas las calcula la propia página. |
 | `web/dashboard.template.html` | Plantilla del dashboard: tokens de marca, gráficos y drill-down. |
 | `import_excel.py` | `.xlsx` → YAML, con resumen de cambios. Ignora las columnas calculadas. |
-| `edit_excel.py` | Ediciones puntuales sobre el libro sin regenerarlo. La herramienta de escritura del agente. |
+| `edit_excel.py` | Ediciones puntuales sobre el libro sin regenerarlo. La herramienta de escritura del agente en local. |
+| `build_csv.py` | Exporta las tres tablas a CSV. Es la capa de datos que una sesión en la nube **sí** puede escribir en OneDrive. |
 | `dist/Founderz_Growth_OS.xlsx` | El Excel generado. |
 | `dist/dashboard.html` | El dashboard web generado. |
 
@@ -110,10 +111,32 @@ capacidad del modelo sino de dónde corre.
 |---|---|---|
 | **Cowork o Claude Code en tu máquina**, con OneDrive sincronizado | **Sí**, celda a celda | El fichero de OneDrive es un fichero local. El agente lo edita con `edit_excel.py` y el cliente de OneDrive lo sube solo. El agente nunca habla con OneDrive. |
 | **Claude para Excel**, dentro del libro abierto | **Sí**, celda a celda | Corre dentro de la aplicación, con acceso directo al modelo de objetos de Excel. |
-| **Claude Code en la nube** (como esta sesión) | **No** | Sólo llega por el conector de Microsoft 365, que expone operaciones de fichero completo. Reemplazar el binario exige pegarlo entero en la llamada: ~130.000 caracteres de base64. Leer sí funciona. |
+| **Claude Code en la nube** (como esta sesión) | **El `.xlsx` no; los CSV sí** | El conector sólo acepta el contenido pegado en la llamada. Un `.xlsx` hay que enviarlo en base64 (~130.000 caracteres, probado y fallido: se reproduce truncado y corrupto). Un **CSV es texto plano** y se envía sin codificar, así que se escribe sin problema. Leer el `.xlsx` sí funciona. |
 
 O sea: **el agente se ejecuta donde está el fichero.** En la nube sirve para leer, versionar y
 regenerar el dashboard; para escribir en el libro, en local o desde dentro de Excel.
+
+## La capa de datos en CSV
+
+El hallazgo que desbloquea la escritura desde la nube: el conector rechaza binarios grandes pero
+acepta **texto plano**. Así que las tres tablas viven también como CSV en OneDrive, y esos
+ficheros los puede escribir cualquiera de los tres:
+
+| Quién | Cómo |
+|---|---|
+| El agente en la nube (esta sesión) | Los sube como texto plano por el conector. Sin permisos ni integraciones. |
+| El equipo | Los abre en Excel Online o de escritorio y los edita como una hoja normal. |
+| Claude para Excel | Los edita con el fichero abierto. |
+
+Separador `;` para que Excel en español los abra en columnas al hacer doble clic.
+
+El precio es que un CSV no tiene fórmulas, ni desplegables, ni formato condicional. Por eso el
+análisis (semáforos, desviaciones, % de consecución) vive en el **dashboard web**, que se genera
+de los mismos datos, y el libro `.xlsx` queda como superficie de lectura que se puede refrescar
+desde los CSV con *Datos → Obtener datos → Desde texto/CSV*.
+
+Es un reparto honesto: **un sitio donde escribir** (los CSV, accesibles a todos) y **dos sitios
+donde mirar** (el dashboard web y el libro de Excel).
 
 ## Editar sin regenerar
 

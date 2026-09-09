@@ -1,0 +1,42 @@
+id;proyecto_id;nombre;responsable;fecha_objetivo;estado;entregable
+H-036;GRW-011;Rediseño de plantilla con tokens de marca;Por asignar;2026-05-15;Completado;Plantilla en HubSpot
+H-033;GRW-010;Mapa de embudo de checkout con drop-offs;Por asignar;2026-06-20;Completado;Funnel en GA4
+H-009;GRW-003;Keyword research y mapa de cluster;Por asignar;2026-06-30;Completado;Hoja con 40 keywords y intención
+H-013;GRW-004;Limpieza y deduplicado de contactos;Por asignar;2026-07-31;Completado;Base con 0% duplicados
+H-034;GRW-010;Variante con financiación en primer paso;Por asignar;2026-08-01;Completado;Variante B en producción
+H-020;GRW-006;Copy y estructura de secciones;Por asignar;2026-08-05;Completado;Documento de copy aprobado
+H-023;GRW-007;Auditoría del dataLayer actual;Por asignar;2026-08-08;Completado;Informe de eventos perdidos
+H-014;GRW-004;Definición de scoring MQL;Por asignar;2026-08-22;Completado;Modelo de scoring documentado
+H-021;GRW-006;Maquetación y QA responsive;Por asignar;2026-08-22;Completado;index.html en el repo
+H-005;GRW-002;Auditoría CRO de la landing actual;Por asignar;2026-08-29;Completado;Informe con 18 hipótesis priorizadas
+H-022;GRW-006;Publicación en producción;Por asignar;2026-08-29;Completado;URL pública con tracking
+H-010;GRW-003;20 artículos publicados;Por asignar;2026-09-01;Retrasado;20 URLs indexadas
+H-001;GRW-001;Estructura de cuentas y naming de campañas;Por asignar;2026-09-05;Completado;Documento de nomenclatura + cuentas creadas
+H-015;GRW-004;5 secuencias por programa en producción;Por asignar;2026-09-05;Retrasado;Workflows activos en HubSpot
+H-024;GRW-007;Contenedor server-side desplegado;Por asignar;2026-09-05;Completado;GTM SS en producción
+H-006;GRW-002;Wireframes mobile-first aprobados;Por asignar;2026-09-12;En curso;Figma con hero + pricing card
+H-027;GRW-008;Calendario editorial Q4 con profesores;Por asignar;2026-09-15;En curso;6 sesiones con ponente confirmado
+H-002;GRW-001;Producción de 12 creatividades por programa;Por asignar;2026-09-19;En curso;Batch de vídeos y estáticos en Drive
+H-025;GRW-007;Conversiones enhanced a Meta y Google;Por asignar;2026-09-26;En curso;Eventos de matrícula llegando a las plataformas
+H-035;GRW-010;Cierre del test y decisión;Por asignar;2026-09-30;En curso;Informe de significancia y rollout
+H-037;GRW-011;Captación cruzada desde webinars y LPs;Por asignar;2026-09-30;En curso;Formularios de suscripción en 8 páginas
+H-028;GRW-008;Automatización de recordatorios;Por asignar;2026-10-03;Pendiente;Secuencia de 3 recordatorios activa
+H-007;GRW-002;Maquetación HTML/CSS con tokens de marca;Por asignar;2026-10-10;Pendiente;LP en staging
+H-017;GRW-005;Modelo de comisión aprobado por Finanzas;Por asignar;2026-10-10;Pendiente;Acta de aprobación
+H-026;GRW-007;Reconciliación GA4 vs HubSpot <5%;Por asignar;2026-10-10;Pendiente;Informe de desviación firmado
+H-003;GRW-001;Activación de smart bidding a matrícula;Por asignar;2026-10-15;Pendiente;Campañas migradas a tCPA
+H-016;GRW-004;Handoff automático a Ventas;Por asignar;2026-10-15;Pendiente;SLA de contacto <2h configurado
+H-030;GRW-009;Pricing y catálogo B2B aprobados;Por asignar;2026-10-20;Pendiente;Tarifario corporativo
+H-039;GRW-012;Inventario de informes manuales;Por asignar;2026-10-24;Pendiente;Lista de 5 informes a automatizar
+H-008;GRW-002;Lanzamiento test A/B contra control;Por asignar;2026-10-31;Pendiente;Test en marcha con tamaño de muestra calculado
+H-029;GRW-008;Paso a 2 sesiones/mes;Por asignar;2026-11-01;Pendiente;Dos webinars ejecutados en el mes
+H-004;GRW-001;Revisión de mid-quarter y reasignación de budget;Por asignar;2026-11-10;Pendiente;Informe de reasignación
+H-018;GRW-005;Plataforma de tracking de referidos elegida;Por asignar;2026-11-14;Pendiente;Comparativa y contrato firmado
+H-031;GRW-009;Landing y formulario B2B;Por asignar;2026-11-21;Pendiente;LP empresas publicada
+H-040;GRW-012;Escenarios de Make en producción;Por asignar;2026-11-28;Pendiente;5 escenarios activos y monitorizados
+H-011;GRW-003;40 artículos publicados;Por asignar;2026-12-15;Pendiente;Cluster completo con enlazado interno
+H-041;GRW-012;Primer informe semanal automático enviado;Por asignar;2026-12-15;Pendiente;Email automático a Dirección
+H-038;GRW-011;50.000 suscriptores;Por asignar;2026-12-31;Pendiente;Base a 50k con <1,2% de bajas
+H-032;GRW-009;Primeras 3 cuentas en pipeline;Por asignar;2027-01-15;Pendiente;3 oportunidades en HubSpot
+H-019;GRW-005;Onboarding de los 20 primeros embajadores;Por asignar;2027-01-16;Pendiente;20 embajadores con enlace activo
+H-012;GRW-003;Campaña de link building a pilares;Por asignar;2027-01-31;Pendiente;25 backlinks DR>40

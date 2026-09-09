@@ -1,0 +1,30 @@
+id;proyecto_id;nombre;unidad;direccion;baseline;target;actual;frecuencia;fuente
+KPI-001;GRW-001;MQL generados (trimestre);nº;Subir;1150;2250;1480;Semanal;HubSpot
+KPI-002;GRW-001;CAC blended;EUR;Bajar;690;620;715;Semanal;Meta Ads
+KPI-003;GRW-001;ROAS campañas paid;ratio;Subir;2.4;3.2;2.6;Semanal;Google Ads
+KPI-004;GRW-002;CVR visita → lead;%;Subir;0.021;0.028;0.0235;Semanal;GA4
+KPI-005;GRW-002;Scroll depth al pricing;%;Subir;0.34;0.6;0.41;Semanal;GA4
+KPI-006;GRW-003;Sesiones orgánicas / mes;nº;Subir;18000;60000;27500;Mensual;Search Console
+KPI-007;GRW-003;Keywords en top 10;nº;Subir;34;140;61;Mensual;Search Console
+KPI-008;GRW-003;Artículos publicados;nº;Subir;0;40;16;Mensual;Manual
+KPI-009;GRW-004;Días de ciclo lead → matrícula;días;Bajar;34;26;31;Mensual;HubSpot
+KPI-010;GRW-004;Conversión MQL → matrícula;%;Subir;0.058;0.098;0.067;Mensual;HubSpot
+KPI-011;GRW-004;Tasa de apertura secuencias;%;Subir;0.28;0.42;0.355;Semanal;HubSpot
+KPI-012;GRW-005;Embajadores activos;nº;Subir;0;120;0;Mensual;Manual
+KPI-013;GRW-005;% matrículas por referido;%;Subir;0.012;0.08;0.012;Mensual;HubSpot
+KPI-014;GRW-006;CVR visita → lead (Augment MBA);%;Subir;0.0;0.022;0.019;Semanal;GA4
+KPI-015;GRW-006;Lighthouse performance mobile;nº;Subir;0;90;94;Mensual;Manual
+KPI-016;GRW-007;Cobertura de conversiones trackeadas;%;Subir;0.52;0.95;0.74;Semanal;GA4
+KPI-017;GRW-007;Desviación GA4 vs HubSpot;%;Bajar;0.31;0.05;0.14;Semanal;GA4
+KPI-018;GRW-008;Leads por webinar;nº;Subir;180;400;305;Mensual;HubSpot
+KPI-019;GRW-008;Show-up rate;%;Subir;0.32;0.45;0.39;Mensual;Manual
+KPI-020;GRW-008;CPL webinar;EUR;Bajar;42;28;33;Mensual;Meta Ads
+KPI-021;GRW-009;Cuentas corporativas firmadas;nº;Subir;2;14;2;Mensual;HubSpot
+KPI-022;GRW-009;Pipeline B2B generado;EUR;Subir;0;750000;60000;Mensual;HubSpot
+KPI-023;GRW-010;Abandono en checkout;%;Bajar;0.68;0.56;0.585;Semanal;GA4
+KPI-024;GRW-010;% matrículas con financiación;%;Subir;0.41;0.55;0.505;Mensual;HubSpot
+KPI-025;GRW-011;Suscriptores;nº;Subir;12000;50000;27400;Semanal;HubSpot
+KPI-026;GRW-011;CTR newsletter;%;Subir;0.024;0.045;0.031;Semanal;HubSpot
+KPI-027;GRW-011;Bajas mensuales;%;Bajar;0.021;0.012;0.018;Mensual;HubSpot
+KPI-028;GRW-012;Horas/semana de reporting manual;días;Bajar;6;0.5;6;Semanal;Manual
+KPI-029;GRW-012;Dashboards automatizados;nº;Subir;0;5;0;Mensual;Make
