@@ -51,7 +51,9 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 - **R1**: 3 guardias exactas y 1 finde como máximo. **R3**: 5-6. Nadie por encima de 6 sin
   contar trasplante.
 - **R4**: como máximo **1 finde de quirófano/UCQ** y **1 tanda de finde de localizada**.
-- **Patricia**: 5 guardias (fijado expresamente).
+- **Patri (R3)**: 5 guardias. **Patricia (R2, rotante de UCQ)**: 6 días de UCQ.
+  > Son dos personas distintas y se confundieron en la v7. Patri es el R3 que cubre el
+  > puesto de mayor; Patricia es la R2 que rota por la unidad.
 - **Isabel**: no se la deja a cero de localizadas; coge 2 de las de María.
 - Racha máxima de trasplante: 5 días (jueves a lunes).
 

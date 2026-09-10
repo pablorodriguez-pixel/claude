@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v7)
+# Guardias · Noviembre 2026 (reparto v8)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -66,8 +66,9 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 
 Acumulado de localizadas 32-40. Isabel se queda en 2 localizadas y María carga 9.
 
-Carga presencial: R1 los ocho a 3; R2 no rotantes los siete a 4 y Patricia a 5;
-R3 los cuatro a 6; R4 que no rotan a 5 exactas; Carlota 6 y María 5 de UCQ.
+Carga presencial: R1 los ocho a 3; R2 no rotantes los siete a 4 y Patricia a 6;
+R3: Candela, Fabián y Tony a 6, Patri a 5; R4 que no rotan a 5 exactas;
+Patricia y Carlota a 6 de UCQ y María a 5.
 
 Tandas de finde, una por R4: Ana G. el puente (6-9), Sandra el 13-15, María el 20-22 y
 Almudena el 27-29. **Carlota e Isabel, ninguna.**

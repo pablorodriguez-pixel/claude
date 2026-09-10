@@ -103,7 +103,8 @@ for p in ALL:
 for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
 for p in R3NR: m.Add(load[p]>=5)
-m.Add(ucq["Tony"]>=5); m.Add(ucq["Patricia"]==5)
+m.Add(ucq["Tony"]>=5); m.Add(ucq["Patricia"]==6)   # Patricia R2, rotante: 6 de UCQ
+m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
 for p in R4:   m.Add(fin[p]<=1)                      # 1 finde de qx/ucq como maximo
 for p in R4ROT: m.Add(ucq[p]>=4)
