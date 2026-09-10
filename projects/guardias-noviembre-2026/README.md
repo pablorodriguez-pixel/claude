@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v3)
+# Guardias · Noviembre 2026 (reparto v4)
 
 Cuadrante de guardias de 26 residentes (8 R1, 8 R2, 4 R3, 6 R4) sobre 28 días
 (3–30 de noviembre) y 5 puestos diarios: TX (trasplante, localizada), UCQ, mayor
@@ -26,15 +26,18 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 
 ## Reglas modeladas
 
-- **Elegibilidad**: TX solo R4; UCQ rotantes (Tony, Patricia, María, Carlota) o R2;
-  mayor R3 o R4; quirófano R1 o R2 (relajado el viernes 6, que solo tiene R3/R4).
-- **Topes**: R1 ≤ 3 guardias y ≤ 1 finde; R3 = 6; nadie por encima de 6 sin contar
+- **La rotación de UCQ es estructura, no reparto.** Los cuatro rotantes (Tony, Patricia,
+  María, Carlota) hacen 5-6 guardias de UCQ cada uno y como máximo 1 fuera de la unidad;
+  solo los días sueltos que quedan caen en R2. Romper esto fue el error de las v2 y v3.
+- **Elegibilidad**: TX solo R4; UCQ rotantes o R2; mayor R3 o R4; quirófano R1 o R2
+  (relajado el viernes 6, que solo tiene R3/R4 disponibles).
+- **Topes**: R1 = 3 guardias y ≤ 1 finde; R3 entre 5 y 6; nadie por encima de 6 sin contar
   trasplante; R4 ≤ 1 finde de quirófano/UCQ/mayor y ≤ 1 tanda de finde de trasplante.
 - **Tandas de trasplante**: consecutivas, de 2 a 4 días, sin días sueltos; las de finde
   cogen viernes→domingo, y viernes→lunes en el puente. Ninguna para Carlota ni Isabel.
 - **Equidad de localizadas**: el modelo parte del contaje real de junio a octubre
-  (Isabel 38, Almudena 36, Carlota 34, Sandra 33, Ana G. 32, María 23) y acerca a cada
-  R4 a la media del grupo (37), con techo de 39 acumuladas y máximo 9 en el mes.
+  (Isabel 38, Almudena 36, Carlota 34, Sandra 33, Ana G. 32, María 23) y minimiza el
+  máximo acumulado, con tope de 6 localizadas al mes y de 5 para las dos rotantes.
 - **Descanso**: nunca dos días presenciales seguidos. La localizada puede pegarse a una
   guardia del día anterior, pero nunca es víspera de guardia. La regla cruza el mes.
 - **Emparejamientos**: viernes y domingo llevan el mismo equipo; el sábado 7 repite el
@@ -48,15 +51,18 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 
 | R4 | Jun-oct | Findes | Nov | Findes | Acumulado | Findes |
 |---|---|---|---|---|---|---|
-| Isabel | 38 | 16 | +0 | +0 | 38 | 16 |
-| Almudena | 36 | 12 | +3 | +3 | 39 | 15 |
+| Isabel | 38 | 16 | +2 | +0 | 40 | 16 |
+| Almudena | 36 | 12 | +4 | +3 | 40 | 15 |
 | Carlota | 34 | 18 | +5 | +0 | 39 | 18 |
-| Sandra | 33 | 16 | +4 | +3 | 37 | 19 |
-| Ana G. | 32 | 9 | +7 | +3 | 39 | 12 |
-| María | 23 | 11 | +9 | +3 | 32 | 14 |
+| Sandra | 33 | 16 | +6 | +3 | 39 | 19 |
+| Ana G. | 32 | 9 | +6 | +3 | 38 | 12 |
+| María | 23 | 11 | +5 | +3 | 28 | 14 |
 | Gerard | 15 | 9 | fuera | fuera | 15 | 9 |
 
-El abanico de localizadas se cierra de 15 puntos a 7.
+Nadie pasa de 40 acumuladas. Isabel baja de 6 localizadas en el mes a 2.
+
+Carga presencial: R1 los ocho a 3; R2 siete a 5 y Patricia a 6; R3 entre 5 y 6;
+R4 entre 1 y 6 sin contar trasplante.
 
 ## Los tres puntos que no cierran
 
@@ -66,6 +72,10 @@ El abanico de localizadas se cierra de 15 puntos a 7.
   candidatas (16 frente a 18). Coste: Sandra pasa a 19 findes y adelanta a Carlota.
   Se compensa dejándola sin ningún finde presencial y con el acumulado total más bajo
   de las cinco (37).
+- **Isabel y Almudena no pueden bajar de 40.** Son 28 localizadas al mes entre seis R4,
+  y María y Carlota están rotando en UCQ: con 6 guardias de unidad cada una no pasan de
+  5 localizadas. Eso deja 18 de las 28 en las otras cuatro, dos de las cuales son las que
+  más acumulan. Lo que sí se corrige del todo son los findes.
 - **Gerard queda pendiente.** Con 15 localizadas y 9 findes desde junio es el que menos
   acumula del servicio, pero está fuera del reparto de noviembre. Si entrase, la tanda
   del puente sería suya y Carlota, Isabel y Sandra se quedarían las tres a cero.

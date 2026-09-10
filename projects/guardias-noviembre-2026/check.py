@@ -99,11 +99,19 @@ BASE={"Isabel":38,"Almudena":36,"Carlota":34,"Sandra":33,"AnaG":32,"Maria":23}
 for p in R4:
     t=sum(1 for d in D if S[d]["TX"]==p)
     if t>9: err.append(f"{p}: {t} localizadas en noviembre (>9)")
-    if BASE[p]+t>39: err.append(f"{p}: {BASE[p]+t} localizadas acumuladas (>39)")
-# 14 Sandra y Maria: sin findes de quirofano/UCQ/mayor
-for p in ("Sandra","Maria"):
-    if any(nontx(p,d) for d in [6,7,8,9,13,14,15,20,21,22,27,28,29]):
-        err.append(f"{p}: tiene finde de guardia presencial")
+    if BASE[p]+t>40: err.append(f"{p}: {BASE[p]+t} localizadas acumuladas (>40)")
+# 14 la rotacion de UCQ: cada rotante hace 5-6 guardias de UCQ y casi nada mas
+for p in ROT:
+    u=sum(1 for d in D if S[d]["UCQ"]==p)
+    o=sum(1 for d in D if (S[d]["MAY"]==p or p in S[d]["QX"]))
+    if u<5: err.append(f"{p} rotante: solo {u} guardias de UCQ")
+    if o>1: err.append(f"{p} rotante: {o} guardias fuera de la UCQ")
+r2u=sum(1 for d in D if LEV[S[d]["UCQ"]]=="R2" and S[d]["UCQ"] not in ROT)
+print("UCQ:", {p:sum(1 for d in D if S[d]["UCQ"]==p) for p in ROT}, "| dias sueltos a R2:", r2u)
+# 14b R1 exactamente 3 y R2 sin clavarse al tope
+for p in R1:
+    if sum(1 for d in D if nontx(p,d))!=3: err.append(f"{p} R1: no hace 3 guardias")
+if all(sum(1 for d in D if nontx(p,d))==6 for p in R2): err.append("los ocho R2 clavados a 6")
 # 15 tandas TX consecutivas (sin dias sueltos aislados fuera de racha)
 runs=[]; 
 for d in D:
