@@ -28,22 +28,36 @@
 > De esta forma. Las r4 tienen solo 1 finde de guardia de qx/ucq + 1 finde de localizada?
 > No quiero que las r4 tengas más de 1 finde de qx/ucq
 
-## La norma que más veces se ha incumplido
+## La norma del tándem de fin de semana
 
-**La tanda de trasplante de fin de semana va de VIERNES a DOMINGO con la MISMA persona**
-(de viernes a lunes en el puente), y va **cerrada por los dos lados**: el jueves anterior
-y el día siguiente al cierre los lleva otra persona. El bloque del finde no se parte ni
-se estira.
+**El bloque VIERNES-SÁBADO-DOMINGO lo lleva UNA SOLA persona** (de viernes a lunes en el
+puente). Lo intocable es que el finde no se parta entre dos R4.
 
-Ejemplos de lo que está MAL y se ha colado en versiones anteriores:
+**La tanda NO va cerrada.** Puede arrancar el jueves o seguir más allá del domingo o del
+lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 
-| Tanda | Por qué está mal |
-|---|---|
-| `María 20-23` | Viernes a lunes sin ser puente |
-| `Ana G. 12-15` | Arranca el jueves y se come el finde |
-| `Almudena 26-29` | Arranca el jueves y se come el finde |
+> Ojo: en la v5 se cerró la tanda por los dos lados por interpretar mal esta norma. Fue un
+> error de sobre-restricción: se corrigió en la v6.
 
-En `check.py` esto lo verifica el bloque **10b**.
+## Topes por nivel (v6)
+
+- **R4 que no rotan por UCQ** (Isabel, Almudena, Ana G., Sandra): **5 guardias presenciales
+  exactas** cada una. El trasplante suma aparte. Si el puesto de mayor no llega para las 20,
+  **se completa con puestos de quirófano** (residente pequeño) — en la v6 son 9.
+- **Los rotantes de UCQ SOLO hacen UCQ.** Tony, Patricia, María y Carlota no pisan el puesto
+  de mayor ni quirófano ningún día. Tony no sale el domingo 8.
+- Los días de UCQ que no cubren los rotantes se rellenan con **R2** (pueden acabar con 5 QX
+  + 1 UCQ, o 4 QX + 2 UCQ).
+- **R1**: 3 guardias exactas y 1 finde como máximo. **R3**: 5-6. Nadie por encima de 6 sin
+  contar trasplante.
+- **R4**: como máximo **1 finde de quirófano/UCQ**. (El límite de 1 finde de localizada era
+  una pregunta del usuario, no una norma: Ana G. lleva dos en la v6 y está autorizado.)
+
+## Excepciones autorizadas expresamente
+
+- **Ana G. hace los tres puentes.** Autorizado para que cubra el puente de trasplante y
+  liberar a Sandra. Almudena sigue librando el puente completo.
+- **María pasa de 5 localizadas** (9 en la v6) para descargar a Isabel, Almudena y Carlota.
 
 ## Estructura del servicio
 
@@ -81,18 +95,16 @@ En `check.py` esto lo verifica el bloque **10b**.
 **Gerard está fuera del reparto de noviembre** y no cubre ningún puesto. Es el que menos
 acumula del servicio: en diciembre debería entrar por delante de todos.
 
-## Las dos cosas que no tienen solución en noviembre
+## Lo que no tiene solución en noviembre
 
-1. **La tanda de trasplante del puente (6-9)** no se puede sacar de Carlota/Isabel/Sandra.
-   El trasplante solo lo firma una R4: María e Isabel están de vacaciones del 1 al 9, y
-   Almudena y Ana G. libran el puente por llevar 2 de 3. Quedan Carlota y Sandra. Va a
-   **Sandra**, que acumula menos por los dos criterios (33 frente a 34 localizadas, 16
-   frente a 18 findes). Coste: Sandra pasa a 19 findes y adelanta a Carlota.
-2. **El viernes 6 y el domingo 8 no se pueden emparejar.** El 6 solo admite R3/R4 por la
+1. **El viernes 6 y el domingo 8 no se pueden emparejar.** El 6 solo admite R3/R4 por la
    libranza de la fiesta, y el 8 deja cuatro personas elegibles para cinco puestos. Se
-   aplica la alternativa del brief: **el domingo 8 va a R1 y R2**, con un R3 de mayor
-   porque ese puesto solo lo firma un R3 o una R4. La unión del sábado 7 con el lunes 9
-   se mantiene.
+   aplica la alternativa del brief: **el domingo 8 va a R1 y R2**, con un R3 o una R4 de
+   mayor porque ese puesto no lo puede firmar un residente pequeño. La unión del sábado 7
+   con el lunes 9 se mantiene.
+2. **La tanda del 13-15** no la puede coger nadie salvo Ana G. o Sandra: Carlota, Isabel y
+   María están de vacaciones esos días y Almudena tiene bloqueado el 13. Se le da a Ana G.
+   como segunda tanda para que Sandra se quede sin ninguna.
 
 ## Bloqueos de noviembre
 

@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v5)
+# Guardias · Noviembre 2026 (reparto v6)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -56,21 +56,22 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 
 | R4 | Jun-oct | Findes | Nov | Findes | Acumulado | Findes |
 |---|---|---|---|---|---|---|
-| Isabel | 38 | 16 | +2 | +0 | 40 | 16 |
+| Isabel | 38 | 16 | +0 | +0 | 38 | 16 |
 | Almudena | 36 | 12 | +3 | +3 | 39 | 15 |
-| Carlota | 34 | 18 | +6 | +0 | 40 | 18 |
-| Sandra | 33 | 16 | +6 | +3 | 39 | 19 |
-| Ana G. | 32 | 9 | +5 | +3 | 37 | 12 |
-| María | 23 | 11 | +6 | +3 | 29 | 14 |
+| Carlota | 34 | 18 | +3 | +0 | 37 | 18 |
+| Sandra | 33 | 16 | +6 | +0 | 39 | 16 |
+| Ana G. | 32 | 9 | +7 | +6 | 39 | 15 |
+| María | 23 | 11 | +9 | +3 | 32 | 14 |
 | Gerard | 15 | 9 | fuera | fuera | 15 | 9 |
 
-Nadie pasa de 40 acumuladas. Isabel baja de 6 localizadas en el mes a 2.
+Acumulado de localizadas 32-39; de findes de localizada, 14-18 (venía de 9-18).
+Isabel no hace ninguna localizada en noviembre.
 
-Carga presencial: R1 los ocho a 3; R2 siete a 5 y Patricia a 6; R3 entre 5 y 6
-(Candela 5, Fabián 6, Patri 6, Tony 6); R4 entre 2 y 6 sin contar trasplante.
+Carga presencial: R1 los ocho a 3; R2 no rotantes los siete a 4 y Patricia a 5;
+R3 los cuatro a 6; R4 que no rotan a 5 exactas; Carlota 6 y María 5 de UCQ.
 
-Tandas de finde: Sandra el puente (6-9), Ana G. el 13-15, María el 20-22 y Almudena el
-27-29. Carlota e Isabel, ninguna.
+Tandas de finde: Ana G. el puente (6-9) y el 13-15, María el 20-22 y Almudena el 27-29.
+**Carlota, Isabel y Sandra, ninguna.**
 
 ## Los tres puntos que no cierran
 
@@ -80,10 +81,9 @@ Tandas de finde: Sandra el puente (6-9), Ana G. el 13-15, María el 20-22 y Almu
   candidatas (16 frente a 18). Coste: Sandra pasa a 19 findes y adelanta a Carlota.
   Se compensa dejándola sin ningún finde presencial y con el acumulado total más bajo
   de las cinco (37).
-- **Nadie puede quedar por debajo de 40 como techo.** Con el techo a 39 el modelo es
-  infeasible, y forzar a Isabel a 0 localizadas también: los 15 días de laborables van en
-  tandas rígidas (3+3+4+4+1 entre finde y finde) y el resto no las absorbe. 40 es el
-  mínimo alcanzable, e Isabel se queda en 2 localizadas.
+- **Ana G. carga dos tandas de finde** (el puente y el 13-15). Es la única forma de dejar
+  a Sandra sin ninguna, porque el 13-15 no lo puede coger nadie más. Aun así Ana G. queda
+  en 15 findes de localizada, por debajo de Carlota (18), Isabel (16) y Sandra (16).
 - **Gerard queda pendiente.** Con 15 localizadas y 9 findes desde junio es el que menos
   acumula del servicio, pero está fuera del reparto de noviembre. Si entrase, la tanda
   del puente sería suya y Carlota, Isabel y Sandra se quedarían las tres a cero.

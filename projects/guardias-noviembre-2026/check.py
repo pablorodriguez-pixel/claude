@@ -1,10 +1,11 @@
 import json
-S=json.load(open('sol.json'))['sched']; S={int(k):v for k,v in S.items()}
+S={int(k):v for k,v in json.load(open('sol.json'))['sched'].items()}
 R1=["Aitor","Arturo","Cristina","David","Fatima","Mercedes","Rosario","Miriam"]
 R2=["Patricia","Ana","Antonio","Asis","Emilio","Eva","Tania","Marc"]
 R3=["Candela","Fabian","Patri","Tony"]; R4=["Carlota","Isabel","Maria","Almudena","AnaG","Sandra"]
 LEV={p:"R1" for p in R1}|{p:"R2" for p in R2}|{p:"R3" for p in R3}|{p:"R4" for p in R4}
-ROT=["Tony","Patricia","Maria","Carlota"]
+ROT=["Tony","Patricia","Maria","Carlota"]; R4NR=["Isabel","Almudena","AnaG","Sandra"]
+R2NR=[p for p in R2 if p not in ROT]; R3NR=[p for p in R3 if p not in ROT]
 BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30],"David":[],
 "Fatima":[13,14,15,27,28,29],"Mercedes":[26,27,28,29,30],"Rosario":[13,14,15,20,21,22],
 "Miriam":[6,7,8,9,20,21,22],"Patricia":[],"Ana":[6,7,8,20,21],"Antonio":[6,7,8,9],
@@ -14,121 +15,98 @@ BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30]
 "Isabel":[6,7,8,9,14,15],"Maria":[1,2,3,4,5,6,7,8,9,13,14,15],"Almudena":[11,12,13,20,21,22],
 "AnaG":[],"Sandra":[27,28,29]}
 OCTP={"Aitor":1,"Arturo":0,"Cristina":1,"David":0,"Fatima":1,"Mercedes":1,"Rosario":1,"Miriam":1,
-"Patricia":1,"Ana":1,"Antonio":1,"Asis":0,"Emilio":1,"Eva":1,"Tania":1,"Marc":0,
-"Candela":0,"Fabian":1,"Patri":0,"Tony":0,"Carlota":1,"Isabel":1,"Maria":0,"Almudena":2,"AnaG":2,"Sandra":1}
+"Patricia":1,"Ana":1,"Antonio":1,"Asis":0,"Emilio":1,"Eva":1,"Tania":1,"Marc":0,"Candela":0,
+"Fabian":1,"Patri":0,"Tony":0,"Carlota":1,"Isabel":1,"Maria":0,"Almudena":2,"AnaG":2,"Sandra":1}
+BASE={"Isabel":38,"Almudena":36,"Carlota":34,"Sandra":33,"AnaG":32,"Maria":23}
+W={"W1":[6,7,8,9],"W2":[13,14,15],"W3":[20,21,22],"W4":[27,28,29]}
+FINDE_D=[6,7,8,13,14,15,20,21,22,27,28,29]
 D=range(3,31); err=[]
-def nontx(p,d):
-    r=S[d]; return (r["UCQ"]==p) or (r["MAY"]==p) or (p in r["QX"])
-def anyw(p,d): return nontx(p,d) or S[d]["TX"]==p
+nontx=lambda p,d: S[d]["UCQ"]==p or S[d]["MAY"]==p or p in S[d]["QX"]
+anyw =lambda p,d: nontx(p,d) or S[d]["TX"]==p
 
-# 1 cobertura y unicidad de puesto
 for d in D:
-    r=S[d]; people=[r["TX"],r["UCQ"],r["MAY"]]+r["QX"]
-    if len(people)!=5: err.append(f"d{d}: {len(people)} puestos")
-    if len(set(people))!=5: err.append(f"d{d}: persona duplicada {people}")
-# 2 elegibilidad de puesto
-for d in D:
-    r=S[d]
-    if LEV[r["TX"]]!="R4": err.append(f"d{d}: TX no R4")
-    if not (r["UCQ"] in ROT or LEV[r["UCQ"]]=="R2"): err.append(f"d{d}: UCQ {r['UCQ']} no rotante/R2")
-    if LEV[r["MAY"]] not in ("R3","R4"): err.append(f"d{d}: MAY {r['MAY']} no R3/R4")
-    for q in r["QX"]:
-        if LEV[q] not in ("R1","R2") and d!=6: err.append(f"d{d}: QX {q} no R1/R2")
-# 3 bloqueos de vacaciones
+    pe=[S[d]["TX"],S[d]["UCQ"],S[d]["MAY"]]+S[d]["QX"]
+    if len(pe)!=5 or len(set(pe))!=5: err.append(f"d{d}: puestos mal {pe}")
+    if LEV[S[d]["TX"]]!="R4": err.append(f"d{d}: TX no es R4")
+    if not (S[d]["UCQ"] in ROT or LEV[S[d]["UCQ"]]=="R2"): err.append(f"d{d}: UCQ {S[d]['UCQ']}")
+    if LEV[S[d]["MAY"]] not in ("R3","R4"): err.append(f"d{d}: mayor {S[d]['MAY']}")
+    for q in S[d]["QX"]:
+        if LEV[q] not in ("R1","R2","R4"): err.append(f"d{d}: quirofano {q}")
+# LOS ROTANTES SOLO HACEN UCQ (Tony incluido el domingo 8)
+for p in ROT:
+    fuera=[d for d in D if S[d]["MAY"]==p or p in S[d]["QX"]]
+    if fuera: err.append(f"{p} rotante: sale de la UCQ los dias {fuera}")
+# bloqueos
 for p in LEV:
     for d in D:
-        if d in BLOCK[p] and anyw(p,d): err.append(f"{p}: trabaja el {d} estando bloqueado")
-# 4 descanso: nunca dos dias presenciales seguidos; TX nunca vispera de guardia
+        if d in BLOCK[p] and anyw(p,d): err.append(f"{p}: trabaja el {d} bloqueado")
+# descanso y vispera
 for p in LEV:
     for d in D:
         if d+1 in D:
             if nontx(p,d) and nontx(p,d+1): err.append(f"{p}: {d}+{d+1} seguidos")
-            if S[d]["TX"]==p and nontx(p,d+1): err.append(f"{p}: TX {d} vispera de guardia {d+1}")
-# frontera de mes: dia 2 = Almudena TX, Tania/Fabian/Fatima/Miriam presencial
+            if S[d]["TX"]==p and nontx(p,d+1): err.append(f"{p}: TX el {d}, vispera del {d+1}")
 for p in ["Tania","Fabian","Fatima","Miriam"]:
     if nontx(p,3): err.append(f"{p}: guardia el 2 y el 3")
 if nontx("Almudena",3): err.append("Almudena: TX el 2, vispera del 3")
-# 5 emparejamientos
+# emparejamientos
 for a,b in [(13,15),(20,22),(27,29),(7,9)]:
-    if S[a]!=S[b]: err.append(f"equipos {a} y {b} no coinciden")
-# 6 fiesta
-for p in [S[6]["UCQ"],S[6]["MAY"]]+S[6]["QX"]+[S[6]["TX"]]:
+    if S[a]!=S[b]: err.append(f"equipos {a} y {b} distintos")
+# fiesta
+for p in [S[6]["TX"],S[6]["UCQ"],S[6]["MAY"]]+S[6]["QX"]:
     if LEV[p] in ("R1","R2"): err.append(f"viernes 6: {p} es {LEV[p]}")
-for p in [S[7]["UCQ"],S[7]["MAY"]]+S[7]["QX"]+[S[7]["TX"]]:
+for p in [S[7]["TX"],S[7]["UCQ"],S[7]["MAY"]]+S[7]["QX"]:
     if LEV[p]=="R1": err.append(f"sabado 7: {p} es R1")
-# 7 puentes <= 2 de 3
+# domingo 8 a resis pequenos (UCQ y quirofano)
+if LEV[S[8]["UCQ"]]!="R2": err.append("domingo 8: la UCQ no la lleva un R2")
+for q in S[8]["QX"]:
+    if LEV[q]!="R1": err.append(f"domingo 8: {q} en quirofano no es R1")
+# puentes: 2 de 3, con Ana G. exenta por peticion expresa
 for p in LEV:
     n=OCTP[p]+(1 if any(anyw(p,d) for d in (7,8,9)) else 0)
-    if n>2: err.append(f"{p}: {n}/3 puentes")
-# 8 curso R4 del dia 30
+    if n>2 and p!="AnaG": err.append(f"{p}: {n}/3 puentes")
+# curso R4 del dia 30
 for p in [S[30]["UCQ"],S[30]["MAY"]]+S[30]["QX"]:
     if LEV[p]=="R4": err.append(f"dia 30: {p} R4 presencial")
-# 9 topes de carga
-W={"W1":[6,7,8,9],"W2":[13,14,15],"W3":[20,21,22],"W4":[27,28,29]}
-for p in LEV:
-    L=sum(1 for d in D if nontx(p,d)); T=sum(1 for d in D if S[d]["TX"]==p)
-    F=sum(1 for w in W.values() if any(nontx(p,d) for d in w))
-    FT=sum(1 for w in W.values() if any(S[d]["TX"]==p for d in w))
-    if L>6: err.append(f"{p}: {L} guardias no-TX (>6)")
-    if LEV[p]=="R1" and L>3: err.append(f"{p} R1: {L} guardias (>3)")
-    if LEV[p]=="R3" and not 5<=L<=6: err.append(f"{p} R3: {L} guardias")
-    if LEV[p]=="R4" and F>1: err.append(f"{p} R4: {F} findes de qx/ucq (>1)")
-    if LEV[p]=="R4" and FT>1: err.append(f"{p} R4: {FT} findes de TX (>1)")
-# 10 tandas TX: viernes->domingo (viernes->lunes en el puente)
-for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]):
-    if len({S[d]["TX"] for d in ds})!=1: err.append(f"tanda TX {ds} partida")
-# 10b LA TANDA DE FINDE ES EXACTAMENTE VIERNES->DOMINGO (->LUNES EN EL PUENTE)
-for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]):
-    who=S[ds[0]]["TX"]
-    if any(S[d]["TX"]!=who for d in ds):
-        err.append(f"tanda {ds}: no la hace la misma persona")
-    if ds[0]-1 in D and S[ds[0]-1]["TX"]==who:
-        err.append(f"tanda {ds}: arranca antes del viernes ({who} el {ds[0]-1})")
-    if ds[-1]+1 in D and S[ds[-1]+1]["TX"]==who:
-        err.append(f"tanda {ds}: se prolonga pasado el domingo ({who} el {ds[-1]+1})")
-# 11 una sola tanda de finde de TX por R4, y ninguna para Carlota ni Isabel
-for p in R4:
-    k=sum(1 for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]) if S[ds[0]]["TX"]==p)
-    if k>1: err.append(f"{p}: {k} tandas de finde de TX")
-    if p in ("Carlota","Isabel") and k: err.append(f"{p}: tiene tanda de finde de TX")
-# 12 forma de las tandas: nada de dias sueltos (salvo el 30) ni rachas de mas de 4
+# EL BLOQUE VIERNES-DOMINGO, UNA SOLA PERSONA (la tanda puede venir de antes o seguir despues)
+for w,ds in W.items():
+    if len({S[d]["TX"] for d in ds})!=1: err.append(f"{w} {ds}: el bloque no es de una sola persona")
+# tandas sin dias sueltos
 for p in R4:
     ds=[d for d in D if S[d]["TX"]==p]
-    for a,b in zip([None]+ds,ds):
-        pass
-    for i,dd in enumerate(ds):
-        prv = dd-1 in ds; nxt = dd+1 in ds
-        if not prv and not nxt and dd!=30: err.append(f"{p}: TX suelta el {dd}")
-    run=1
-    for i in range(1,len(ds)):
-        run = run+1 if ds[i]==ds[i-1]+1 else 1
-        if run>4: err.append(f"{p}: racha de TX de {run} dias hasta el {ds[i]}")
-# 13 tope de localizadas y acumulado desde junio
-BASE={"Isabel":38,"Almudena":36,"Carlota":34,"Sandra":33,"AnaG":32,"Maria":23}
-for p in R4:
-    t=sum(1 for d in D if S[d]["TX"]==p)
-    if t>9: err.append(f"{p}: {t} localizadas en noviembre (>9)")
-    if BASE[p]+t>40: err.append(f"{p}: {BASE[p]+t} localizadas acumuladas (>40)")
-# 14 la rotacion de UCQ: cada rotante hace 5-6 guardias de UCQ y casi nada mas
-for p in ROT:
-    u=sum(1 for d in D if S[d]["UCQ"]==p)
-    o=sum(1 for d in D if (S[d]["MAY"]==p or p in S[d]["QX"]))
-    if u<5: err.append(f"{p} rotante: solo {u} guardias de UCQ")
-    if o>1: err.append(f"{p} rotante: {o} guardias fuera de la UCQ")
-r2u=sum(1 for d in D if LEV[S[d]["UCQ"]]=="R2" and S[d]["UCQ"] not in ROT)
-print("UCQ:", {p:sum(1 for d in D if S[d]["UCQ"]==p) for p in ROT}, "| dias sueltos a R2:", r2u)
-# 14b R1 exactamente 3 y R2 sin clavarse al tope
-for p in R1:
-    if sum(1 for d in D if nontx(p,d))!=3: err.append(f"{p} R1: no hace 3 guardias")
-if all(sum(1 for d in D if nontx(p,d))==6 for p in R2): err.append("los ocho R2 clavados a 6")
-# 15 tandas TX consecutivas (sin dias sueltos aislados fuera de racha)
-runs=[]; 
+    for dd in ds:
+        if dd!=30 and dd-1 not in ds and dd+1 not in ds: err.append(f"{p}: TX suelta el {dd}")
+# tandas de finde: ninguna para Carlota, Isabel ni Sandra
+for p in ("Carlota","Isabel","Sandra"):
+    k=[w for w,ds in W.items() if S[ds[0]]["TX"]==p]
+    if k: err.append(f"{p}: tiene tanda de finde {k}")
+# topes de carga
+for p in LEV:
+    L=sum(1 for d in D if nontx(p,d))
+    F=sum(1 for ds in W.values() if any(nontx(p,d) for d in ds))
+    if L>6: err.append(f"{p}: {L} guardias presenciales (>6)")
+    if LEV[p]=="R1" and L!=3: err.append(f"{p} R1: {L} guardias")
+    if LEV[p]=="R1" and F>1: err.append(f"{p} R1: {F} findes")
+    if p in R3NR and not 5<=L<=6: err.append(f"{p} R3: {L} guardias")
+    if p in R4NR and L!=5: err.append(f"{p} R4 no rotante: {L} guardias (deben ser 5)")
+    if LEV[p]=="R4" and F>1: err.append(f"{p} R4: {F} findes de qx/ucq (>1)")
+ucq={p:sum(1 for d in D if S[d]["UCQ"]==p) for p in ROT}
+print("rotantes UCQ:", ucq, "| dias a R2:", sum(1 for d in D if S[d]["UCQ"] not in ROT))
+print("R2 no rotantes:", {p:sum(1 for d in D if nontx(p,d)) for p in R2NR})
+runs=[]
 for d in D:
     p=S[d]["TX"]
     if runs and runs[-1][0]==p and runs[-1][2]==d-1: runs[-1][2]=d
     else: runs.append([p,d,d])
-print("tandas TX:", ", ".join(f"{p} {a}-{b}" for p,a,b in runs))
-print("findes TX:", {p:sum(1 for w in W.values() if any(S[d]['TX']==p for d in w)) for p in R4})
-print()
-print("ERRORES:", len(err))
+DOW={d:["dom","lun","mar","mié","jue","vie","sáb"][(d-1)%7] for d in range(1,31)}
+print("\ntandas TX:")
+for p,a,b in runs:
+    wk=[w for w,ds in W.items() if a<=ds[0]<=b]
+    print(f"  {p:9s} {a:2d} {DOW[a]} -> {b:2d} {DOW[b]} ({b-a+1}d)" + (f"  incluye {wk[0]}" if wk else ""))
+print("\nlocalizadas acumuladas / findes de localizada:")
+for p in R4:
+    t=sum(1 for d in D if S[d]["TX"]==p); ft=sum(1 for d in FINDE_D if S[d]["TX"]==p)
+    bf={"Isabel":16,"Almudena":12,"Carlota":18,"Sandra":16,"AnaG":9,"Maria":11}[p]
+    print(f"  {p:9s} {BASE[p]}+{t} = {BASE[p]+t:3d}   findes {bf}+{ft} = {bf+ft}")
+print("\nERRORES:", len(err))
 for e in err: print(" -", e)
