@@ -77,7 +77,34 @@ for p in LEV:
 # 10 tandas TX: viernes->domingo (viernes->lunes en el puente)
 for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]):
     if len({S[d]["TX"] for d in ds})!=1: err.append(f"tanda TX {ds} partida")
-# 11 tandas TX consecutivas (sin dias sueltos aislados fuera de racha)
+# 11 una sola tanda de finde de TX por R4, y ninguna para Carlota ni Isabel
+for p in R4:
+    k=sum(1 for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]) if S[ds[0]]["TX"]==p)
+    if k>1: err.append(f"{p}: {k} tandas de finde de TX")
+    if p in ("Carlota","Isabel") and k: err.append(f"{p}: tiene tanda de finde de TX")
+# 12 forma de las tandas: nada de dias sueltos (salvo el 30) ni rachas de mas de 4
+for p in R4:
+    ds=[d for d in D if S[d]["TX"]==p]
+    for a,b in zip([None]+ds,ds):
+        pass
+    for i,dd in enumerate(ds):
+        prv = dd-1 in ds; nxt = dd+1 in ds
+        if not prv and not nxt and dd!=30: err.append(f"{p}: TX suelta el {dd}")
+    run=1
+    for i in range(1,len(ds)):
+        run = run+1 if ds[i]==ds[i-1]+1 else 1
+        if run>4: err.append(f"{p}: racha de TX de {run} dias hasta el {ds[i]}")
+# 13 tope de localizadas y acumulado desde junio
+BASE={"Isabel":38,"Almudena":36,"Carlota":34,"Sandra":33,"AnaG":32,"Maria":23}
+for p in R4:
+    t=sum(1 for d in D if S[d]["TX"]==p)
+    if t>9: err.append(f"{p}: {t} localizadas en noviembre (>9)")
+    if BASE[p]+t>39: err.append(f"{p}: {BASE[p]+t} localizadas acumuladas (>39)")
+# 14 Sandra y Maria: sin findes de quirofano/UCQ/mayor
+for p in ("Sandra","Maria"):
+    if any(nontx(p,d) for d in [6,7,8,9,13,14,15,20,21,22,27,28,29]):
+        err.append(f"{p}: tiene finde de guardia presencial")
+# 15 tandas TX consecutivas (sin dias sueltos aislados fuera de racha)
 runs=[]; 
 for d in D:
     p=S[d]["TX"]
