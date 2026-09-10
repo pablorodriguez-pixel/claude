@@ -56,7 +56,8 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 - **R1**: 3 guardias exactas y 1 finde como máximo. **R3**: 5-6. Nadie por encima de 6 sin
   contar trasplante.
 - **R4**: como máximo **1 finde de quirófano/UCQ** y **1 tanda de finde de localizada**.
-- **Patri (R3)**: 5 guardias. **Patricia (R2, rotante de UCQ)**: 6 días de UCQ.
+- **R3 que no rotan** (Candela, Fabián, Patri): 5 guardias los tres. Candela cedió su sexta
+  a un R2. **Patricia (R2, rotante de UCQ)**: 6 días de UCQ.
   > Son dos personas distintas y se confundieron en la v7. Patri es el R3 que cubre el
   > puesto de mayor; Patricia es la R2 que rota por la unidad.
 - **Isabel**: no se la deja a cero de localizadas; coge 2 de las de María.
@@ -64,6 +65,11 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 - **Sin tripletes**: nadie hace **3 guardias presenciales en 7 días**, y la ventana cruza la
   frontera del mes (quien trabajó el 1 o el 2 arrastra ese día). La localizada de trasplante
   no cuenta para esto: va en tandas por diseño.
+- **Dobletes**: un doblete es trabajar el día *d* y el *d*+2 sin que sea el viernes-domingo
+  ni el sábado-lunes propios. Se minimizan, no se prohíben: el mínimo alcanzable es **4** y
+  forzar 3 es infeasible. Los cuatro son estructurales — Carlota 16+18 y María 10+12 y 17+19
+  son las rotantes de UCQ, que necesitan 6 guardias en ventanas muy justas, y Sandra 6+8 es el
+  finde de la fiesta, que va partido.
 - **Nunca dos R1 juntos** en quirófano: siempre un R1 con un residente mayor. La excepción es
   el domingo 8, que va con dos R1 por la norma de la fiesta.
 
@@ -120,7 +126,7 @@ Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a 
 | R3 (Candela 5 + Fabián 5 + Patri 5 + Tony 6) | 21 |
 | Rotantes de UCQ (los cuatro a 6) | 24 |
 | R4 que no rotan (4 × 5) | 20 |
-| **R2 que no rotan (7)** | **28 → 4 cada uno** |
+| **R2 que no rotan (7)** | **29 → Ana 5, los otros seis 4** |
 
 **Quitarles guardias a los R1 no sube a los R2.** Comprobado con el modelo: con las R4 que no
 rotan fijas en 5 guardias, los siete R2 no pasan de **29 puestos en total** aunque se deje a

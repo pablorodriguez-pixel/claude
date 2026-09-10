@@ -88,6 +88,14 @@ for p in ALL:
             m.Add(n[p,d]+n[p,d+1]<=1)
             if p in R4: m.Add(n[p,d+1]==0).OnlyEnforceIf(tx[p,d])
 m.Add(n["Almudena",3]==0)
+PROPIOS={(7,9),(13,15),(20,22),(27,29)}
+dobs=[]
+for p in ALL:
+    for d in DAYS:
+        if d+2 in DAYS and (d,d+2) not in PROPIOS:
+            b=m.NewBoolVar(f"db_{p}_{d}")
+            m.Add(n[p,d] + n[p,d+2] - 1 <= b)
+            dobs.append(b)
 for p in ALL:
     for d in DAYS:
         w=[n[p,k] for k in range(d,d+7) if k in DAYS]
@@ -111,7 +119,7 @@ for p in ALL:
     F=m.NewIntVar(0,4,""); m.Add(F==sum(fs)); fin[p]=F
 for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
-for p in R3NR: m.Add(load[p]>=5)
+for p in R3NR: m.Add(load[p]==5)   # Candela cede su sexta guardia a un R2
 for p in ROT: m.Add(ucq[p]==6)                      # los cuatro rotantes, 6 guardias
 m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
@@ -124,6 +132,8 @@ for p in R2NR:
 m.Add(fin["Tony"]<=2); m.Add(fin["Patricia"]<=2)
 for p in R3NR: m.Add(fin[p]<=2)
 
+maxr2=m.NewIntVar(0,7,"maxr2")
+for q in R2NR: m.Add(maxr2>=load[q])
 dev=[]; mxc=m.NewIntVar(0,60,"mxc")
 for p in R4:
     c=m.NewIntVar(0,60,""); m.Add(c==BASE[p]+sum(tx[p,d] for d in DAYS))
@@ -145,9 +155,9 @@ mx3=m.NewIntVar(0,6,"mx3"); mn3=m.NewIntVar(0,6,"mn3")
 for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
 carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
 
-m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 + 30*sum(dobles) + 30*(mx1-mn1) + 60*(mx2-mn2) + 30*(mx3-mn3))
+m.Minimize(400*sum(dobs) + 200*mxc + 10*sum(dev) + 6*carga3 - 80*maxr2 + 30*sum(dobles) + 30*(mx1-mn1) + 60*(mx2-mn2) + 30*(mx3-mn3))
 s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=240; s.parameters.num_workers=8
-st=s.Solve(m); print("status:",s.StatusName(st))
+st=s.Solve(m); print("status:",s.StatusName(st));print("dobletes:",sum(s.Value(b) for b in dobs))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)
 sched={}
 for d in DAYS:

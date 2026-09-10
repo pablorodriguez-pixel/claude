@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v11)
+# Guardias · Noviembre 2026 (reparto v12)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -26,6 +26,14 @@ python3 check.py      # debe imprimir "ERRORES: 0"
 python3 data.py       # escribe tab.json
 python3 gen.py        # escribe guardias-noviembre-2026.html
 ```
+
+## Dobletes
+
+Un doblete es trabajar el día *d* y el *d*+2 sin ser el viernes-domingo ni el sábado-lunes
+propios. Se han reducido de **10 a 4**, que es el mínimo alcanzable (forzar 3 es infeasible).
+Los cuatro son estructurales: Carlota 16+18 y María 10+12 y 17+19 son las dos rotantes de UCQ,
+que necesitan 6 guardias de unidad en ventanas muy justas —María está bloqueada del 1 al 9 y
+del 13 al 15—, y Sandra 6+8 es el fin de semana de la fiesta, que va partido.
 
 ## Sin tripletes
 
@@ -73,8 +81,8 @@ el domingo 8 por la norma de la fiesta.
 
 Acumulado de localizadas 32-40. Isabel se queda en 2 localizadas y María carga 9.
 
-Carga presencial: R1 los ocho a 3; R2 no rotantes a 4 (nunca más de 2 días de UCQ) y Patricia a 6;
-R3: Candela y Tony a 6, Fabián y Patri a 5; R4 que no rotan a 5 exactas; los cuatro
+Carga presencial: R1 los ocho a 3; R2 no rotantes: Ana a 5 y los otros seis a 4 (nunca más de 2 días de UCQ), Patricia a 6;
+R3: Candela, Fabián y Patri a 5, Tony a 6; R4 que no rotan a 5 exactas; los cuatro
 rotantes a 6 de UCQ (24 de 28 días), con 4 huecos para R2.
 
 Tandas de finde, una por R4: Ana G. el puente (6-9), Sandra el 13-15, María el 20-22 y
