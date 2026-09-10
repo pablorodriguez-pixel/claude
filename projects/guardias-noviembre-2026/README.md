@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v10)
+# Guardias · Noviembre 2026 (reparto v11)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -26,6 +26,13 @@ python3 check.py      # debe imprimir "ERRORES: 0"
 python3 data.py       # escribe tab.json
 python3 gen.py        # escribe guardias-noviembre-2026.html
 ```
+
+## Sin tripletes
+
+Nadie hace 3 guardias presenciales en 7 días, ventana que cruza la frontera del mes. El
+cuadrante anterior tenía cuatro tripletes de 3 en 5 días: Aitor 20-22-24, Marc 20-22-24,
+María 25-27-29 y Sandra 6-8-10. Además ningún día lleva dos R1 juntos en quirófano, salvo
+el domingo 8 por la norma de la fiesta.
 
 ## Reglas modeladas
 
@@ -66,8 +73,8 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 
 Acumulado de localizadas 32-40. Isabel se queda en 2 localizadas y María carga 9.
 
-Carga presencial: R1 los ocho a 3; R2 no rotantes a 4-5 (nunca más de 2 días de UCQ y siempre más quirófano que UCQ) y Patricia a 6;
-R3: Candela, Fabián y Patri a 5, Tony a 6; R4 que no rotan a 5 exactas; los cuatro
+Carga presencial: R1 los ocho a 3; R2 no rotantes a 4 (nunca más de 2 días de UCQ) y Patricia a 6;
+R3: Candela y Tony a 6, Fabián y Patri a 5; R4 que no rotan a 5 exactas; los cuatro
 rotantes a 6 de UCQ (24 de 28 días), con 4 huecos para R2.
 
 Tandas de finde, una por R4: Ana G. el puente (6-9), Sandra el 13-15, María el 20-22 y
@@ -81,10 +88,10 @@ Almudena el 27-29. **Carlota e Isabel, ninguna.**
   candidatas (16 frente a 18). Coste: Sandra pasa a 19 findes y adelanta a Carlota.
   Se compensa dejándola sin ningún finde presencial y con el acumulado total más bajo
   de las cinco (37).
-- **Los R2 llegan a 5, no a 6.** Los 112 puestos presenciales están comprometidos: 24 R1,
-  21 R3, 24 los rotantes de UCQ y 20 las R4 que no rotan; quedan 29 para siete R2. Subir los
-  rotantes a 6 les quita 4 puestos más: las dos peticiones tiran en sentidos opuestos. Para
-  ponerlos a 6 harían falta 13 más, que solo salen bajando las R4 que no rotan de 5 a 2.
+- **Los R2 se quedan en 4, y quitarles guardias a los R1 no lo arregla.** Con las R4 que no
+  rotan fijas en 5, los siete R2 no pasan de 29 puestos aunque los R1 bajen a cero; los R1 se
+  quedan en 3 en todas las variantes. Bajando las R4 a 4 guardias, tres R2 llegarían a 5.
+  R2 a 5 los siete es imposible por cualquier vía.
 - **Sandra queda en 19 findes de localizada** acumulados, por delante de Carlota (18), al
   devolverle la tanda del 13-15. Solo Ana G. o Sandra pueden cogerla, y darle las dos a
   Ana G. rompe la norma de una tanda por R4.

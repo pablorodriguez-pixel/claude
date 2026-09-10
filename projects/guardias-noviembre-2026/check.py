@@ -79,6 +79,17 @@ for p in R4:
     for i in range(1,len(ds)):
         run = run+1 if ds[i]==ds[i-1]+1 else 1
         if run>5: err.append(f"{p}: racha de TX de {run} dias hasta el {ds[i]}")
+# SIN TRIPLETES: nunca 3 guardias presenciales en 7 dias
+for p in LEV:
+    ds=[d for d in D if nontx(p,d)]
+    for i in range(len(ds)):
+        w=[d for d in ds if ds[i]<=d<=ds[i]+6]
+        if len(w)>=3: err.append(f"{p}: triplete {w}"); break
+PREV1=["Patricia","AnaG","Mercedes","Aitor"]; PREV2=["Tania","Fabian","Fatima","Miriam"]
+for p in PREV1:
+    if sum(1 for d in (3,4,5,6,7) if nontx(p,d))>1: err.append(f"{p}: triplete cruzando el dia 1")
+for p in PREV2:
+    if sum(1 for d in (4,5,6,7,8) if nontx(p,d))>1: err.append(f"{p}: triplete cruzando el dia 2")
 # tandas sin dias sueltos
 for p in R4:
     ds=[d for d in D if S[d]["TX"]==p]
@@ -110,6 +121,8 @@ print("R2 que rellenan UCQ:", {p:f"{sum(1 for d in D if p in S[d]['QX'])}QX+{sum
       for p in R2NR if any(S[d]["UCQ"]==p for d in D)})
 ucq={p:sum(1 for d in D if S[d]["UCQ"]==p) for p in ROT}
 print("rotantes UCQ:", ucq, "| dias a R2:", sum(1 for d in D if S[d]["UCQ"] not in ROT))
+dob=[d for d in D if d!=8 and all(q in R1 for q in S[d]["QX"])]
+print("dias con 2 R1 juntos en quirofano (fuera del domingo 8):", dob or "ninguno")
 print("R2 no rotantes:", {p:sum(1 for d in D if nontx(p,d)) for p in R2NR})
 runs=[]
 for d in D:

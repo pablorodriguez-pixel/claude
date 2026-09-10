@@ -61,6 +61,11 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   > puesto de mayor; Patricia es la R2 que rota por la unidad.
 - **Isabel**: no se la deja a cero de localizadas; coge 2 de las de María.
 - Racha máxima de trasplante: 5 días (jueves a lunes).
+- **Sin tripletes**: nadie hace **3 guardias presenciales en 7 días**, y la ventana cruza la
+  frontera del mes (quien trabajó el 1 o el 2 arrastra ese día). La localizada de trasplante
+  no cuenta para esto: va en tandas por diseño.
+- **Nunca dos R1 juntos** en quirófano: siempre un R1 con un residente mayor. La excepción es
+  el domingo 8, que va con dos R1 por la norma de la fiesta.
 
 ## Excepciones autorizadas expresamente
 
@@ -115,12 +120,16 @@ Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a 
 | R3 (Candela 5 + Fabián 5 + Patri 5 + Tony 6) | 21 |
 | Rotantes de UCQ (los cuatro a 6) | 24 |
 | R4 que no rotan (4 × 5) | 20 |
-| **R2 que no rotan (7)** | **29 → 4 o 5 cada uno** |
+| **R2 que no rotan (7)** | **28 → 4 cada uno** |
 
-Las dos peticiones tiran en sentidos opuestos: subir los rotantes de 5 a 6 guardias les quita
-**4 puestos más** a los R2. Para que los siete R2 llegaran a **6** harían falta 13 puestos
-más, y solo hay dos sitios de donde sacarlos: los R1 (topados en 3) o las **R4 que no rotan,
-que tendrían que bajar de 5 guardias a 2**. Como la norma de las 5 es rígida, se prioriza esa.
+**Quitarles guardias a los R1 no sube a los R2.** Comprobado con el modelo: con las R4 que no
+rotan fijas en 5 guardias, los siete R2 no pasan de **29 puestos en total** aunque se deje a
+los R1 bajar hasta cero. Los puestos que les faltarían los tienen las R4, no los R1, que se
+quedan en 3 en todas las variantes.
+
+- Bajando las R4 que no rotan de 5 a 4 guardias, **tres R2 llegan a 5** (total 31-33).
+- **R2 a 5 los siete es imposible** por cualquier vía: ni bajando las R4 a 2, ni con la
+  versión suave del triplete (3 en 5 días en lugar de 3 en 7).
 
 ## Lo que no tiene solución en noviembre
 

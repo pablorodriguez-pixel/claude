@@ -88,6 +88,15 @@ for p in ALL:
             m.Add(n[p,d]+n[p,d+1]<=1)
             if p in R4: m.Add(n[p,d+1]==0).OnlyEnforceIf(tx[p,d])
 m.Add(n["Almudena",3]==0)
+for p in ALL:
+    for d in DAYS:
+        w=[n[p,k] for k in range(d,d+7) if k in DAYS]
+        if len(w)==7: m.Add(sum(w)<=2)
+# la ventana cruza la frontera de mes: dia 1 y dia 2 del cuadrante de octubre
+for p in ("Patricia","AnaG","Mercedes","Aitor"):          # trabajaron el dia 1
+    m.Add(sum(n[p,d] for d in (3,4,5,6,7))<=1)
+for p in ("Tania","Fabian","Fatima","Miriam"):            # trabajaron el dia 2
+    m.Add(sum(n[p,d] for d in (4,5,6,7,8))<=1)
 for a,b in VD+SF:
     for p in ALL:
         for r in ROLES: m.Add(x[p,a,r]==x[p,b,r])
@@ -121,13 +130,22 @@ for p in R4:
     m.Add(mxc>=c)
     a=m.NewIntVar(0,60,""); m.AddAbsEquality(a,c-37); dev.append(a)
     e=m.NewIntVar(0,60,""); m.AddMaxEquality(e,[c-38,m.NewConstant(0)]); dev.append(e); dev.append(e)
+dobles=[]
+for d in DAYS:
+    if d==8: continue
+    b=m.NewBoolVar(f"dob_{d}")
+    m.Add(sum(x[p,d,"QX"] for p in R1) >= 2).OnlyEnforceIf(b)
+    m.Add(sum(x[p,d,"QX"] for p in R1) <= 1).OnlyEnforceIf(b.Not())
+    dobles.append(b)
+mx1=m.NewIntVar(0,3,"mx1b"); mn1=m.NewIntVar(0,3,"mn1b")
+for p in R1: m.Add(mx1>=load[p]); m.Add(mn1<=load[p])
 mx2=m.NewIntVar(0,6,"mx2"); mn2=m.NewIntVar(0,6,"mn2")
 for p in R2NR: m.Add(mx2>=load[p]); m.Add(mn2<=load[p])
 mx3=m.NewIntVar(0,6,"mx3"); mn3=m.NewIntVar(0,6,"mn3")
 for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
 carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
-r2total=sum(load[p] for p in R2NR)
-m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 - 40*r2total + 60*(mx2-mn2) + 30*(mx3-mn3))
+
+m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 + 30*sum(dobles) + 30*(mx1-mn1) + 60*(mx2-mn2) + 30*(mx3-mn3))
 s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=240; s.parameters.num_workers=8
 st=s.Solve(m); print("status:",s.StatusName(st))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)
