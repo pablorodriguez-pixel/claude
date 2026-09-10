@@ -108,7 +108,11 @@ m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
 for p in R4:   m.Add(fin[p]<=1)                      # 1 finde de qx/ucq como maximo
 for p in R4ROT: m.Add(ucq[p]>=4)
-for p in R2NR: m.Add(fin[p]<=2)
+m.Add(ucq["Carlota"]>=5)
+for p in R2NR:
+    m.Add(fin[p]<=2)
+    m.Add(ucq[p]<=2)                                  # como maximo 2 dias de UCQ
+    m.Add(sum(x[p,d,"QX"] for d in DAYS) >= ucq[p])   # siempre mas quirofano que UCQ
 m.Add(fin["Tony"]<=2); m.Add(fin["Patricia"]<=2)
 for p in R3NR: m.Add(fin[p]<=2)
 
@@ -122,8 +126,8 @@ for p in R2NR: m.Add(mx2>=load[p]); m.Add(mn2<=load[p])
 mx3=m.NewIntVar(0,6,"mx3"); mn3=m.NewIntVar(0,6,"mn3")
 for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
 carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
-rot=sum(ucq[p] for p in ROT)
-m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 - 15*rot + 60*(mx2-mn2) + 30*(mx3-mn3))
+r2total=sum(load[p] for p in R2NR)
+m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 - 40*r2total + 60*(mx2-mn2) + 30*(mx3-mn3))
 s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=300; s.parameters.num_workers=8
 st=s.Solve(m); print("status:",s.StatusName(st))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)

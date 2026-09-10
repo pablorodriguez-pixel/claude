@@ -46,8 +46,9 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   **se completa con puestos de quirófano** (residente pequeño) — en la v6 son 9.
 - **Los rotantes de UCQ SOLO hacen UCQ.** Tony, Patricia, María y Carlota no pisan el puesto
   de mayor ni quirófano ningún día. Tony no sale el domingo 8.
-- Los días de UCQ que no cubren los rotantes se rellenan con **R2** (pueden acabar con 5 QX
-  + 1 UCQ, o 4 QX + 2 UCQ).
+- Los días de UCQ que no cubren los rotantes se rellenan con **R2**, con esta composición:
+  **como máximo 2 días de UCQ por persona y siempre más quirófano que UCQ** (5 QX + 1 UCQ,
+  4 QX + 2 UCQ). Nunca al revés: en la v8 Antonio tenía 3 de UCQ y 1 de quirófano.
 - **R1**: 3 guardias exactas y 1 finde como máximo. **R3**: 5-6. Nadie por encima de 6 sin
   contar trasplante.
 - **R4**: como máximo **1 finde de quirófano/UCQ** y **1 tanda de finde de localizada**.
@@ -99,6 +100,24 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 
 **Gerard está fuera del reparto de noviembre** y no cubre ningún puesto. Es el que menos
 acumula del servicio: en diciembre debería entrar por delante de todos.
+
+## El cuello de botella de los 112 puestos
+
+Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a la vez:
+
+| | Puestos |
+|---|---|
+| R1 (8 × 3) | 24 |
+| R3 (4 × 5) | 20 |
+| Rotantes de UCQ R4 (Carlota 5 + María 4) | 9 |
+| Patricia (R2 rotante) | 6 |
+| R4 que no rotan (4 × 5) | 20 |
+| **R2 que no rotan (7)** | **33 → 4 o 5 cada uno** |
+
+Para que los siete R2 llegaran a **6** harían falta 9 puestos más, y solo hay dos sitios de
+donde sacarlos: los R1 (topados en 3) o las **R4 que no rotan, que tendrían que bajar de 5
+guardias a 3**. Como la norma de las 5 es rígida, se prioriza esa y los R3 se dejan en el
+mínimo de su horquilla (5) para dar todo el margen posible a los R2.
 
 ## Lo que no tiene solución en noviembre
 

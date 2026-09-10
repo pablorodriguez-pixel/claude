@@ -102,6 +102,13 @@ for p in LEV:
     if p in R3NR and not 5<=L<=6: err.append(f"{p} R3: {L} guardias")
     if p in R4NR and L!=5: err.append(f"{p} R4 no rotante: {L} guardias (deben ser 5)")
     if LEV[p]=="R4" and F>1: err.append(f"{p} R4: {F} findes de qx/ucq (>1)")
+# composicion de los R2 que rellenan huecos de UCQ: como maximo 2 de UCQ y mas QX que UCQ
+for p in R2NR:
+    u=sum(1 for d in D if S[d]["UCQ"]==p); q=sum(1 for d in D if p in S[d]["QX"])
+    if u>2: err.append(f"{p} R2: {u} dias de UCQ (>2)")
+    if q<u:  err.append(f"{p} R2: {q} de quirofano y {u} de UCQ (mas UCQ que quirofano)")
+print("R2 que rellenan UCQ:", {p:f"{sum(1 for d in D if p in S[d]['QX'])}QX+{sum(1 for d in D if S[d]['UCQ']==p)}UCQ"
+      for p in R2NR if any(S[d]["UCQ"]==p for d in D)})
 ucq={p:sum(1 for d in D if S[d]["UCQ"]==p) for p in ROT}
 print("rotantes UCQ:", ucq, "| dias a R2:", sum(1 for d in D if S[d]["UCQ"] not in ROT))
 print("R2 no rotantes:", {p:sum(1 for d in D if nontx(p,d)) for p in R2NR})
