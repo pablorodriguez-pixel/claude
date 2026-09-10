@@ -77,6 +77,15 @@ for p in LEV:
 # 10 tandas TX: viernes->domingo (viernes->lunes en el puente)
 for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]):
     if len({S[d]["TX"] for d in ds})!=1: err.append(f"tanda TX {ds} partida")
+# 10b LA TANDA DE FINDE ES EXACTAMENTE VIERNES->DOMINGO (->LUNES EN EL PUENTE)
+for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]):
+    who=S[ds[0]]["TX"]
+    if any(S[d]["TX"]!=who for d in ds):
+        err.append(f"tanda {ds}: no la hace la misma persona")
+    if ds[0]-1 in D and S[ds[0]-1]["TX"]==who:
+        err.append(f"tanda {ds}: arranca antes del viernes ({who} el {ds[0]-1})")
+    if ds[-1]+1 in D and S[ds[-1]+1]["TX"]==who:
+        err.append(f"tanda {ds}: se prolonga pasado el domingo ({who} el {ds[-1]+1})")
 # 11 una sola tanda de finde de TX por R4, y ninguna para Carlota ni Isabel
 for p in R4:
     k=sum(1 for ds in ([6,7,8,9],[13,14,15],[20,21,22],[27,28,29]) if S[ds[0]]["TX"]==p)

@@ -42,6 +42,12 @@ for ds in WKND.values():
         for k in ds[1:]: m.Add(tx[p,ds[0]]==tx[p,k])
     for p in ("Carlota","Isabel"): m.Add(tx[p,ds[0]]==0)
 for p in R4: m.Add(sum(tx[p,ds[0]] for ds in WKND.values())<=1)
+# LA TANDA DE FINDE ES EXACTAMENTE VIERNES->DOMINGO (viernes->lunes en el puente):
+# cerrada por los dos lados, no arranca el jueves ni se prolonga al dia siguiente
+for ds in WKND.values():
+    for p in R4:
+        if ds[0]-1 in DAYS:  m.Add(tx[p,ds[0]-1] + tx[p,ds[0]]  <= 1)
+        if ds[-1]+1 in DAYS: m.Add(tx[p,ds[-1]] + tx[p,ds[-1]+1] <= 1)
 
 # ---------- elegibilidad por puesto (estructura de la rotacion) ----------
 def elig(p,d,r):
@@ -96,12 +102,13 @@ for p in R3:    m.Add(load[p]>=5); m.Add(fin[p]<=2)
 for p in R4:    m.Add(fin[p]<=1)                   # un solo finde de qx/ucq/mayor
 # la rotacion de UCQ: cada rotante hace 5-6 guardias de UCQ y practicamente nada mas
 for p in ROT:   m.Add(ucq[p]>=5); m.Add(load[p]-ucq[p]<=1)
-for p in R4ROT: m.Add(sum(tx[p,d] for d in DAYS)<=5)   # ya cargan la UCQ entera
+for p in R4ROT: m.Add(sum(tx[p,d] for d in DAYS)<=6)   # ya cargan la UCQ entera
 
 dev=[]; mxc=m.NewIntVar(0,60,"mxc")
 for p in R4:
     c=m.NewIntVar(0,60,""); m.Add(c==BASE[p]+sum(tx[p,d] for d in DAYS))
     m.Add(mxc>=c)
+    m.Add(c<=40)
     a=m.NewIntVar(0,60,""); m.AddAbsEquality(a,c-37); dev.append(a)
 mx2=m.NewIntVar(0,6,""); mn2=m.NewIntVar(0,6,"")
 for p in R2: m.Add(mx2>=load[p]); m.Add(mn2<=load[p])
