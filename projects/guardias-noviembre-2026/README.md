@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v15)
+# Guardias · Noviembre 2026 (reparto v16)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -30,8 +30,9 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 ## Dobletes
 
 Un doblete es trabajar el día *d* y el *d*+2 sin ser el viernes-domingo ni el sábado-lunes
-propios. Se han reducido de **10 a 1**, y Carlota no tiene ninguno. Queda Sandra 6+8: el fin de semana
-de la fiesta va partido porque el viernes 6 y el domingo 8 no se pueden emparejar.
+propios. Se han reducido de **10 a 2**, y Carlota no tiene ninguno. Quedan Sandra 6+8 —el fin de semana
+de la fiesta va partido porque el viernes 6 y el domingo 8 no se pueden emparejar— y
+María 16+18, el precio de encajarle 6 de UCQ y 7 localizadas.
 
 ## Sin tripletes
 
@@ -73,9 +74,9 @@ el domingo 8 por la norma de la fiesta.
 | Isabel | 38 | 16 | +2 | +0 | 40 | 16 |
 | Almudena | 36 | 12 | +3 | +3 | 39 | 15 |
 | Carlota | 34 | 18 | +3 | +0 | 37 | 18 |
-| Sandra | 33 | 16 | +7 | +3 | 40 | 19 |
+| Sandra | 33 | 16 | +6 | +3 | 39 | 19 |
 | Ana G. | 32 | 9 | +7 | +3 | 39 | 12 |
-| María | 23 | 11 | +6 | +3 | 29 | 14 |
+| María | 23 | 11 | +7 | +3 | 30 | 14 |
 | Gerard | 15 | 9 | fuera | fuera | 15 | 9 |
 
 Acumulado de localizadas 32-40. Isabel se queda en 2 localizadas y María carga 9.

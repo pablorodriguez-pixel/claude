@@ -142,7 +142,7 @@ for q,v in {"Isabel":2,"Almudena":3,"Carlota":3}.items():
     m.Add(sum(tx[q,d] for d in DAYS)==v)
 txM=sum(tx["Maria",d] for d in DAYS)
 txA=sum(tx["AnaG",d] for d in DAYS); txS=sum(tx["Sandra",d] for d in DAYS)
-m.Add(txA>=5); m.Add(txS>=4)
+m.Add(txA==7); m.Add(txS==6); m.Add(txM==7)
 difAS=m.NewIntVar(0,28,"difAS"); m.AddAbsEquality(difAS, txA-txS)
 dev=[]; mxc=m.NewIntVar(0,60,"mxc")
 for p in R4:

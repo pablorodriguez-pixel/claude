@@ -60,9 +60,9 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   a un R2. **Patricia (R2, rotante de UCQ)**: 6 días de UCQ.
   > Son dos personas distintas y se confundieron en la v7. Patri es el R3 que cubre el
   > puesto de mayor; Patricia es la R2 que rota por la unidad.
-- **Localizadas** (v15): Isabel 2, Almudena 3 y Carlota 3 clavadas; María 6, Ana G. 7,
-  Sandra 7. El vector pedido era María 9, pero cede 3 para poder llegar a 6 guardias de UCQ, y
-  las reparten Ana G. y Sandra.
+- **Localizadas** (v16): Isabel 2, Almudena 3, Carlota 3, **María 7, Ana G. 7, Sandra 6**.
+  Con esto solo Isabel llega a 40 acumuladas desde junio. El vector inicial pedía María 9,
+  pero 7 es su techo si quiere sus 6 guardias de UCQ.
 - Racha máxima de trasplante: 5 días (jueves a lunes).
 - **Sin tripletes**: nadie hace **3 guardias presenciales en 5 días**, y la ventana cruza la
   frontera del mes (quien trabajó el 1 o el 2 arrastra ese día). La localizada de trasplante
@@ -144,7 +144,9 @@ guardia de UCQ.
 | 6 UCQ + 6 localizadas | cabe |
 | 5 UCQ + 8 localizadas | cabe (v14) |
 | 4 UCQ + 9 localizadas | cabe (v13) |
-| **6 UCQ + 6 localizadas, con el triplete de 5 días** | cabe — es lo elegido (v15) |
+| 6 UCQ + 6 localizadas, con el triplete de 5 días | cabe (v15) |
+| **6 UCQ + 7 localizadas, con el triplete de 5 días** | cabe — es lo elegido (v16) |
+| 6 UCQ + 8 o 9 localizadas | infeasible con cualquier triplete |
 
 *(Las filas de arriba son todas con el triplete de 7 días.)*
 
