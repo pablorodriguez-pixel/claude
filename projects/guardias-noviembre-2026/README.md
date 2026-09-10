@@ -12,6 +12,8 @@ y 2 de quirófano. 140 puestos en total.
 | Fichero | Qué es |
 |---|---|
 | `index.html` | El cuadrante publicable (calendario + control por residente + reglas) |
+| `Guardias_Noviembre_2026.docx` | El mismo cuadrante en Word, tabla calendario en horizontal + resúmenes |
+| `mkdoc.js` | Genera el Word con docx-js a partir de `docdata.json` |
 | `solve.py` | Modelo CP-SAT: reparte las 28 localizadas y los 112 puestos presenciales |
 | `check.py` | Verificador independiente: re-comprueba las 11 familias de reglas desde cero |
 | `data.py` | Recuento por residente (guardias, findes, puentes, desglose por puesto) |
@@ -25,6 +27,8 @@ python3 solve.py      # escribe sol.json
 python3 check.py      # debe imprimir "ERRORES: 0"
 python3 data.py       # escribe tab.json
 python3 gen.py        # escribe guardias-noviembre-2026.html
+npm install docx      # solo la primera vez
+node mkdoc.js         # escribe Guardias_Noviembre_2026.docx
 ```
 
 ## Dobletes
