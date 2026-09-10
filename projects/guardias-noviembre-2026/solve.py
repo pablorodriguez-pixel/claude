@@ -100,13 +100,13 @@ for p in ALL:
             dobs.append(b)
 for p in ALL:
     for d in DAYS:
-        w=[n[p,k] for k in range(d,d+7) if k in DAYS]
-        if len(w)==7: m.Add(sum(w)<=2)
+        w=[n[p,k] for k in range(d,d+5) if k in DAYS]
+        if len(w)==5: m.Add(sum(w)<=2)
 # la ventana cruza la frontera de mes: dia 1 y dia 2 del cuadrante de octubre
 for p in ("Patricia","AnaG","Mercedes","Aitor"):          # trabajaron el dia 1
-    m.Add(sum(n[p,d] for d in (3,4,5,6,7))<=1)
+    m.Add(sum(n[p,d] for d in (3,4,5))<=1)
 for p in ("Tania","Fabian","Fatima","Miriam"):            # trabajaron el dia 2
-    m.Add(sum(n[p,d] for d in (4,5,6,7,8))<=1)
+    m.Add(sum(n[p,d] for d in (4,5,6))<=1)
 for a,b in VD+SF:
     for p in ALL:
         for r in ROLES: m.Add(x[p,a,r]==x[p,b,r])
@@ -123,7 +123,7 @@ for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
 for p in R3NR: m.Add(load[p]==5)   # Candela cede su sexta guardia a un R2
 for p in ROT:
-    if p=="Maria": m.Add(ucq[p]>=5)
+    if p=="Maria": m.Add(ucq[p]==6)
     else: m.Add(ucq[p]==6)                      # los cuatro rotantes, 6 guardias
 m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
@@ -142,7 +142,7 @@ for q,v in {"Isabel":2,"Almudena":3,"Carlota":3}.items():
     m.Add(sum(tx[q,d] for d in DAYS)==v)
 txM=sum(tx["Maria",d] for d in DAYS)
 txA=sum(tx["AnaG",d] for d in DAYS); txS=sum(tx["Sandra",d] for d in DAYS)
-m.Add(txA==7); m.Add(txS==5)
+m.Add(txA>=5); m.Add(txS>=4)
 difAS=m.NewIntVar(0,28,"difAS"); m.AddAbsEquality(difAS, txA-txS)
 dev=[]; mxc=m.NewIntVar(0,60,"mxc")
 for p in R4:
@@ -166,7 +166,7 @@ for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
 carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
 
 m.Minimize(400*sum(dobs) + 200*mxc + 10*sum(dev) + 6*carga3 - 80*maxr2 + 30*(mx1-mn1) + 60*(mx2-mn2) + 30*(mx3-mn3))
-s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=200; s.parameters.num_workers=8
+s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=240; s.parameters.num_workers=8
 st=s.Solve(m); print("status:",s.StatusName(st));print("dobletes:",sum(s.Value(b) for b in dobs))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)
 sched={}

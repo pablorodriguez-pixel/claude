@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v14)
+# Guardias · Noviembre 2026 (reparto v15)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -30,13 +30,13 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 ## Dobletes
 
 Un doblete es trabajar el día *d* y el *d*+2 sin ser el viernes-domingo ni el sábado-lunes
-propios. Se han reducido de **10 a 2**, y Carlota no tiene ninguno. Quedan Sandra 6+8 —el fin de semana
-de la fiesta va partido porque el viernes 6 y el domingo 8 no se pueden emparejar— y
-María 10+12, que aparece al subirle la UCQ a 5.
+propios. Se han reducido de **10 a 1**, y Carlota no tiene ninguno. Queda Sandra 6+8: el fin de semana
+de la fiesta va partido porque el viernes 6 y el domingo 8 no se pueden emparejar.
 
 ## Sin tripletes
 
-Nadie hace 3 guardias presenciales en 7 días, ventana que cruza la frontera del mes. El
+Nadie hace 3 guardias presenciales en 5 días, ventana que cruza la frontera del mes. **Ojo:
+la versión de 7 días le quita a María su sexta guardia de UCQ** — fue el fallo de las v11-v14. El
 cuadrante anterior tenía cuatro tripletes de 3 en 5 días: Aitor 20-22-24, Marc 20-22-24,
 María 25-27-29 y Sandra 6-8-10. Además ningún día lleva dos R1 juntos en quirófano, salvo
 el domingo 8 por la norma de la fiesta.
@@ -73,17 +73,16 @@ el domingo 8 por la norma de la fiesta.
 | Isabel | 38 | 16 | +2 | +0 | 40 | 16 |
 | Almudena | 36 | 12 | +3 | +3 | 39 | 15 |
 | Carlota | 34 | 18 | +3 | +0 | 37 | 18 |
-| Sandra | 33 | 16 | +5 | +3 | 38 | 19 |
+| Sandra | 33 | 16 | +7 | +3 | 40 | 19 |
 | Ana G. | 32 | 9 | +7 | +3 | 39 | 12 |
-| María | 23 | 11 | +8 | +3 | 31 | 14 |
+| María | 23 | 11 | +6 | +3 | 29 | 14 |
 | Gerard | 15 | 9 | fuera | fuera | 15 | 9 |
 
 Acumulado de localizadas 32-40. Isabel se queda en 2 localizadas y María carga 9.
 
-Carga presencial: R1 los ocho a 3; R2 no rotantes: Asís y Emilio a 5, y Ana, Antonio, Eva, Tania y Marc a 4 (nunca más de
-2 días de UCQ), Patricia a 6;
-R3: Candela, Fabián y Patri a 5, Tony a 6; R4 que no rotan a 5 exactas; Tony, Patricia y
-Carlota a 6 de UCQ y María a 5 (23 de 28 días), con 5 huecos para R2.
+Carga presencial: R1 los ocho a 3; R2 no rotantes: Marc a 5 y los otros seis a 4 (nunca más de 2 días de UCQ), Patricia a 6;
+R3: Candela, Fabián y Patri a 5, Tony a 6; R4 que no rotan a 5 exactas; los cuatro
+rotantes a 6 de UCQ (24 de 28 días), con 4 huecos para R2.
 
 Tandas de finde, una por R4: Ana G. el puente (6-9), Sandra el 13-15, María el 20-22 y
 Almudena el 27-29. **Carlota e Isabel, ninguna.**

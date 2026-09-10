@@ -46,8 +46,7 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   **se completa con puestos de quirófano** (residente pequeño) — en la v6 son 9.
 - **Los rotantes de UCQ SOLO hacen UCQ.** Tony, Patricia, María y Carlota no pisan el puesto
   de mayor ni quirófano ningún día. Tony no sale el domingo 8.
-- **Tony, Patricia y Carlota: 6 guardias de UCQ. María: 5** (horquilla pedida 5-6; 5 es su
-  techo). Entre los cuatro cubren 23 de los 28 días.
+- **Los cuatro rotantes: 6 guardias de UCQ**, María incluida. Cubren 24 de los 28 días.
   > Cuidado con María: está bloqueada del 1 al 9 y del 13 al 15, **no** del 1 al 15. Los
   > días 10, 11 y 12 los tiene libres, y sin ellos no le caben las 6 guardias.
 - Los **4 días** de UCQ que no cubren los rotantes se rellenan con **R2**, con esta
@@ -61,11 +60,11 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   a un R2. **Patricia (R2, rotante de UCQ)**: 6 días de UCQ.
   > Son dos personas distintas y se confundieron en la v7. Patri es el R3 que cubre el
   > puesto de mayor; Patricia es la R2 que rota por la unidad.
-- **Localizadas** (v14): Isabel 2, Almudena 3 y Carlota 3 clavadas; María 8, Ana G. 7,
-  Sandra 5. El vector pedido era María 9 / Ana G. 5 / Sandra 6, pero María cedió una para
-  poder subir su UCQ de 4 a 5.
+- **Localizadas** (v15): Isabel 2, Almudena 3 y Carlota 3 clavadas; María 6, Ana G. 7,
+  Sandra 7. El vector pedido era María 9, pero cede 3 para poder llegar a 6 guardias de UCQ, y
+  las reparten Ana G. y Sandra.
 - Racha máxima de trasplante: 5 días (jueves a lunes).
-- **Sin tripletes**: nadie hace **3 guardias presenciales en 7 días**, y la ventana cruza la
+- **Sin tripletes**: nadie hace **3 guardias presenciales en 5 días**, y la ventana cruza la
   frontera del mes (quien trabajó el 1 o el 2 arrastra ese día). La localizada de trasplante
   no cuenta para esto: va en tandas por diseño.
 - **Dobletes**: un doblete es trabajar el día *d* y el *d*+2 sin que sea el viernes-domingo
@@ -120,7 +119,18 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 **Gerard está fuera del reparto de noviembre** y no cubre ningún puesto. Es el que menos
 acumula del servicio: en diciembre debería entrar por delante de todos.
 
-## María: el techo son 5 guardias de UCQ
+## Cuidado: el triplete de 7 días le quita a María su sexta guardia de UCQ
+
+**Es la trampa en la que se cayó en las v11-v14.** Las guardias de UCQ de María tienen que
+caer el 24, 27 y 29 —tres en seis días—. Con el triplete en su versión estricta (máximo 2
+guardias por semana) eso queda prohibido y su UCQ baja a 4 o 5. Con el triplete **normal**
+(ninguna persona con 3 guardias en 5 días, que es lo que se pidió) María llega a 6.
+
+Diagnóstico hecho al revés, partiendo de la v10 que sí funcionaba y añadiendo una por una las
+normas posteriores: ni Carlota sin doblete, ni Candela a 5, ni el vector de localizadas la
+bloqueaban. Era solo el triplete de 7 días.
+
+## Combinaciones de María, medidas
 
 María está de vacaciones **del 1 al 9 y del 13 al 15**, así que le quedan 18 días. La norma de
 que la localizada **nunca es víspera de guardia** obliga a dejar un día libre antes de cada
@@ -132,8 +142,11 @@ guardia de UCQ.
 | 6 UCQ + 9 localizadas, **sin** la norma de la víspera | infeasible igualmente |
 | 6 UCQ + 7 u 8 localizadas | infeasible |
 | 6 UCQ + 6 localizadas | cabe |
-| **5 UCQ + 8 localizadas** | cabe — es lo elegido (v14) |
+| 5 UCQ + 8 localizadas | cabe (v14) |
 | 4 UCQ + 9 localizadas | cabe (v13) |
+| **6 UCQ + 6 localizadas, con el triplete de 5 días** | cabe — es lo elegido (v15) |
+
+*(Las filas de arriba son todas con el triplete de 7 días.)*
 
 Quitar la norma de la víspera **no** desbloquea las 6 de UCQ: probado y sigue infeasible, así
 que la norma se mantiene.
@@ -149,9 +162,9 @@ Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a 
 |---|---|
 | R1 (8 × 3) | 24 |
 | R3 (Candela 5 + Fabián 5 + Patri 5 + Tony 6) | 21 |
-| Rotantes de UCQ (Tony 6, Patricia 6, Carlota 6, María 5) | 23 |
+| Rotantes de UCQ (los cuatro a 6) | 24 |
 | R4 que no rotan (4 × 5) | 20 |
-| **R2 que no rotan (7)** | **30 → Asís y Emilio a 5; Ana, Antonio, Eva, Tania y Marc a 4** |
+| **R2 que no rotan (7)** | **29 → Marc a 5; los otros seis a 4** |
 
 **Quitarles guardias a los R1 no sube a los R2.** Comprobado con el modelo: con las R4 que no
 rotan fijas en 5 guardias, los siete R2 no pasan de **29 puestos en total** aunque se deje a

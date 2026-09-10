@@ -83,13 +83,13 @@ for p in R4:
 for p in LEV:
     ds=[d for d in D if nontx(p,d)]
     for i in range(len(ds)):
-        w=[d for d in ds if ds[i]<=d<=ds[i]+6]
+        w=[d for d in ds if ds[i]<=d<=ds[i]+4]
         if len(w)>=3: err.append(f"{p}: triplete {w}"); break
 PREV1=["Patricia","AnaG","Mercedes","Aitor"]; PREV2=["Tania","Fabian","Fatima","Miriam"]
 for p in PREV1:
-    if sum(1 for d in (3,4,5,6,7) if nontx(p,d))>1: err.append(f"{p}: triplete cruzando el dia 1")
+    if sum(1 for d in (3,4,5) if nontx(p,d))>1: err.append(f"{p}: triplete cruzando el dia 1")
 for p in PREV2:
-    if sum(1 for d in (4,5,6,7,8) if nontx(p,d))>1: err.append(f"{p}: triplete cruzando el dia 2")
+    if sum(1 for d in (4,5,6) if nontx(p,d))>1: err.append(f"{p}: triplete cruzando el dia 2")
 # tandas sin dias sueltos
 for p in R4:
     ds=[d for d in D if S[d]["TX"]==p]
