@@ -44,9 +44,10 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 - **R4 que no rotan por UCQ** (Isabel, Almudena, Ana G., Sandra): **5 guardias presenciales
   exactas** cada una. El trasplante suma aparte. Si el puesto de mayor no llega para las 20,
   **se completa con puestos de quirófano** (residente pequeño) — en la v6 son 9.
-- **Los rotantes de UCQ SOLO hacen UCQ, y los cuatro hacen 6 guardias.** Tony, Patricia,
-  María y Carlota no pisan el puesto de mayor ni quirófano ningún día. Tony no sale el
-  domingo 8. Entre los cuatro cubren 24 de los 28 días.
+- **Los rotantes de UCQ SOLO hacen UCQ.** Tony, Patricia, María y Carlota no pisan el puesto
+  de mayor ni quirófano ningún día. Tony no sale el domingo 8.
+- **Tony, Patricia y Carlota: 6 guardias de UCQ. María: 4.** Sus 9 localizadas y 6 guardias de
+  unidad no caben juntas — ver el apartado del cuello de botella.
   > Cuidado con María: está bloqueada del 1 al 9 y del 13 al 15, **no** del 1 al 15. Los
   > días 10, 11 y 12 los tiene libres, y sin ellos no le caben las 6 guardias.
 - Los **4 días** de UCQ que no cubren los rotantes se rellenan con **R2**, con esta
@@ -60,7 +61,8 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   a un R2. **Patricia (R2, rotante de UCQ)**: 6 días de UCQ.
   > Son dos personas distintas y se confundieron en la v7. Patri es el R3 que cubre el
   > puesto de mayor; Patricia es la R2 que rota por la unidad.
-- **Isabel**: no se la deja a cero de localizadas; coge 2 de las de María.
+- **Vector de localizadas pedido** (v13, clavado): Isabel 2, Almudena 3, Carlota 3,
+  Ana G. 5, Sandra 6, María 9.
 - Racha máxima de trasplante: 5 días (jueves a lunes).
 - **Sin tripletes**: nadie hace **3 guardias presenciales en 7 días**, y la ventana cruza la
   frontera del mes (quien trabajó el 1 o el 2 arrastra ese día). La localizada de trasplante
@@ -70,8 +72,9 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   forzar 3 es infeasible. Los cuatro son estructurales — Carlota 16+18 y María 10+12 y 17+19
   son las rotantes de UCQ, que necesitan 6 guardias en ventanas muy justas, y Sandra 6+8 es el
   finde de la fiesta, que va partido.
-- **Nunca dos R1 juntos** en quirófano: siempre un R1 con un residente mayor. La excepción es
-  el domingo 8, que va con dos R1 por la norma de la fiesta.
+- **NO hace falta que haya un R1 de guardia todos los días** (indicación expresa del usuario).
+  Con 8 R1 a 3 guardias son 24 puestos para 28 días, así que es imposible. Quedan 9 días sin
+  ningún R1 y 5 con dos.
 
 ## Excepciones autorizadas expresamente
 
@@ -116,6 +119,19 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 **Gerard está fuera del reparto de noviembre** y no cubre ningún puesto. Es el que menos
 acumula del servicio: en diciembre debería entrar por delante de todos.
 
+## María: 9 localizadas o 6 de UCQ, no las dos
+
+María está de vacaciones **del 1 al 9 y del 13 al 15**, así que le quedan 18 días. La norma de
+que la localizada **nunca es víspera de guardia** obliga a dejar un día libre antes de cada
+guardia de UCQ, y con 9 días de localizada encima no quedan huecos suficientes.
+
+- Con **6 guardias de UCQ**, María no pasa de **6 localizadas** (7, 8 y 9 son infeasible).
+- Con **9 localizadas**, su UCQ baja a **4**.
+
+En la v13 se eligió lo segundo, porque el vector de localizadas era la petición. Efecto
+lateral bueno: los 2 días de unidad que suelta se suman a los de R2 y, con la sexta que cede
+Candela, Antonio, Emilio y Eva llegan a 5 guardias.
+
 ## El cuello de botella de los 112 puestos
 
 Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a la vez:
@@ -124,9 +140,9 @@ Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a 
 |---|---|
 | R1 (8 × 3) | 24 |
 | R3 (Candela 5 + Fabián 5 + Patri 5 + Tony 6) | 21 |
-| Rotantes de UCQ (los cuatro a 6) | 24 |
+| Rotantes de UCQ (Tony 6, Patricia 6, Carlota 6, María 4) | 22 |
 | R4 que no rotan (4 × 5) | 20 |
-| **R2 que no rotan (7)** | **29 → Ana 5, los otros seis 4** |
+| **R2 que no rotan (7)** | **31 → Antonio, Emilio y Eva a 5; Ana, Asís, Tania y Marc a 4** |
 
 **Quitarles guardias a los R1 no sube a los R2.** Comprobado con el modelo: con las R4 que no
 rotan fijas en 5 guardias, los siete R2 no pasan de **29 puestos en total** aunque se deje a
