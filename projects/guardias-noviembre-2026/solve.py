@@ -103,12 +103,11 @@ for p in ALL:
 for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
 for p in R3NR: m.Add(load[p]>=5)
-m.Add(ucq["Tony"]>=5); m.Add(ucq["Patricia"]==6)   # Patricia R2, rotante: 6 de UCQ
+for p in ROT: m.Add(ucq[p]==6)                      # los cuatro rotantes, 6 guardias
 m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
 for p in R4:   m.Add(fin[p]<=1)                      # 1 finde de qx/ucq como maximo
-for p in R4ROT: m.Add(ucq[p]>=4)
-m.Add(ucq["Carlota"]>=5)
+
 for p in R2NR:
     m.Add(fin[p]<=2)
     m.Add(ucq[p]<=2)                                  # como maximo 2 dias de UCQ
@@ -121,6 +120,7 @@ for p in R4:
     c=m.NewIntVar(0,60,""); m.Add(c==BASE[p]+sum(tx[p,d] for d in DAYS))
     m.Add(mxc>=c)
     a=m.NewIntVar(0,60,""); m.AddAbsEquality(a,c-37); dev.append(a)
+    e=m.NewIntVar(0,60,""); m.AddMaxEquality(e,[c-38,m.NewConstant(0)]); dev.append(e); dev.append(e)
 mx2=m.NewIntVar(0,6,"mx2"); mn2=m.NewIntVar(0,6,"mn2")
 for p in R2NR: m.Add(mx2>=load[p]); m.Add(mn2<=load[p])
 mx3=m.NewIntVar(0,6,"mx3"); mn3=m.NewIntVar(0,6,"mn3")
@@ -128,7 +128,7 @@ for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
 carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
 r2total=sum(load[p] for p in R2NR)
 m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 - 40*r2total + 60*(mx2-mn2) + 30*(mx3-mn3))
-s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=300; s.parameters.num_workers=8
+s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=240; s.parameters.num_workers=8
 st=s.Solve(m); print("status:",s.StatusName(st))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)
 sched={}

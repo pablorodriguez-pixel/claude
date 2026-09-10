@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (reparto v9)
+# Guardias · Noviembre 2026 (reparto v10)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -67,8 +67,8 @@ python3 gen.py        # escribe guardias-noviembre-2026.html
 Acumulado de localizadas 32-40. Isabel se queda en 2 localizadas y María carga 9.
 
 Carga presencial: R1 los ocho a 3; R2 no rotantes a 4-5 (nunca más de 2 días de UCQ y siempre más quirófano que UCQ) y Patricia a 6;
-R3: los cuatro a 5; R4 que no rotan a 5 exactas; Patricia 6, Tony 5, Carlota 5 y María 4
-de UCQ, con 8 huecos para R2.
+R3: Candela, Fabián y Patri a 5, Tony a 6; R4 que no rotan a 5 exactas; los cuatro
+rotantes a 6 de UCQ (24 de 28 días), con 4 huecos para R2.
 
 Tandas de finde, una por R4: Ana G. el puente (6-9), Sandra el 13-15, María el 20-22 y
 Almudena el 27-29. **Carlota e Isabel, ninguna.**
@@ -82,8 +82,9 @@ Almudena el 27-29. **Carlota e Isabel, ninguna.**
   Se compensa dejándola sin ningún finde presencial y con el acumulado total más bajo
   de las cinco (37).
 - **Los R2 llegan a 5, no a 6.** Los 112 puestos presenciales están comprometidos: 24 R1,
-  20 R3, 15 rotantes, 6 Patricia y 20 las R4 que no rotan; quedan 33 para siete R2. Para
-  ponerlos a 6 harían falta 9 más, que solo salen bajando las R4 que no rotan de 5 a 3.
+  21 R3, 24 los rotantes de UCQ y 20 las R4 que no rotan; quedan 29 para siete R2. Subir los
+  rotantes a 6 les quita 4 puestos más: las dos peticiones tiran en sentidos opuestos. Para
+  ponerlos a 6 harían falta 13 más, que solo salen bajando las R4 que no rotan de 5 a 2.
 - **Sandra queda en 19 findes de localizada** acumulados, por delante de Carlota (18), al
   devolverle la tanda del 13-15. Solo Ana G. o Sandra pueden cogerla, y darle las dos a
   Ana G. rompe la norma de una tanda por R4.

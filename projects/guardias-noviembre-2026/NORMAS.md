@@ -44,11 +44,15 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
 - **R4 que no rotan por UCQ** (Isabel, Almudena, Ana G., Sandra): **5 guardias presenciales
   exactas** cada una. El trasplante suma aparte. Si el puesto de mayor no llega para las 20,
   **se completa con puestos de quirófano** (residente pequeño) — en la v6 son 9.
-- **Los rotantes de UCQ SOLO hacen UCQ.** Tony, Patricia, María y Carlota no pisan el puesto
-  de mayor ni quirófano ningún día. Tony no sale el domingo 8.
-- Los días de UCQ que no cubren los rotantes se rellenan con **R2**, con esta composición:
-  **como máximo 2 días de UCQ por persona y siempre más quirófano que UCQ** (5 QX + 1 UCQ,
-  4 QX + 2 UCQ). Nunca al revés: en la v8 Antonio tenía 3 de UCQ y 1 de quirófano.
+- **Los rotantes de UCQ SOLO hacen UCQ, y los cuatro hacen 6 guardias.** Tony, Patricia,
+  María y Carlota no pisan el puesto de mayor ni quirófano ningún día. Tony no sale el
+  domingo 8. Entre los cuatro cubren 24 de los 28 días.
+  > Cuidado con María: está bloqueada del 1 al 9 y del 13 al 15, **no** del 1 al 15. Los
+  > días 10, 11 y 12 los tiene libres, y sin ellos no le caben las 6 guardias.
+- Los **4 días** de UCQ que no cubren los rotantes se rellenan con **R2**, con esta
+  composición: **como máximo 1-2 días de UCQ por persona y siempre más quirófano que UCQ**
+  (5 QX + 1 UCQ, 4 QX + 2 UCQ). Nunca al revés: en la v8 Antonio tenía 3 de UCQ y 1 de
+  quirófano.
 - **R1**: 3 guardias exactas y 1 finde como máximo. **R3**: 5-6. Nadie por encima de 6 sin
   contar trasplante.
 - **R4**: como máximo **1 finde de quirófano/UCQ** y **1 tanda de finde de localizada**.
@@ -108,16 +112,15 @@ Los 112 puestos presenciales del mes no dan para todo lo que piden las normas a 
 | | Puestos |
 |---|---|
 | R1 (8 × 3) | 24 |
-| R3 (4 × 5) | 20 |
-| Rotantes de UCQ R4 (Carlota 5 + María 4) | 9 |
-| Patricia (R2 rotante) | 6 |
+| R3 (Candela 5 + Fabián 5 + Patri 5 + Tony 6) | 21 |
+| Rotantes de UCQ (los cuatro a 6) | 24 |
 | R4 que no rotan (4 × 5) | 20 |
-| **R2 que no rotan (7)** | **33 → 4 o 5 cada uno** |
+| **R2 que no rotan (7)** | **29 → 4 o 5 cada uno** |
 
-Para que los siete R2 llegaran a **6** harían falta 9 puestos más, y solo hay dos sitios de
-donde sacarlos: los R1 (topados en 3) o las **R4 que no rotan, que tendrían que bajar de 5
-guardias a 3**. Como la norma de las 5 es rígida, se prioriza esa y los R3 se dejan en el
-mínimo de su horquilla (5) para dar todo el margen posible a los R2.
+Las dos peticiones tiran en sentidos opuestos: subir los rotantes de 5 a 6 guardias les quita
+**4 puestos más** a los R2. Para que los siete R2 llegaran a **6** harían falta 13 puestos
+más, y solo hay dos sitios de donde sacarlos: los R1 (topados en 3) o las **R4 que no rotan,
+que tendrían que bajar de 5 guardias a 2**. Como la norma de las 5 es rígida, se prioriza esa.
 
 ## Lo que no tiene solución en noviembre
 

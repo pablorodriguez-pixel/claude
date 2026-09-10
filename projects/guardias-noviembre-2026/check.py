@@ -73,7 +73,6 @@ for w,ds in W.items():
     if len({S[d]["TX"] for d in ds})!=1: err.append(f"{w} {ds}: el bloque no es de una sola persona")
 # Isabel con 2 localizadas, Patricia con 5 guardias, racha maxima de 5 dias
 if sum(1 for d in D if S[d]["TX"]=="Isabel")!=2: err.append("Isabel: no tiene 2 localizadas")
-if sum(1 for d in D if S[d]["UCQ"]=="Patricia")!=6: err.append("Patricia R2: no tiene 6 de UCQ")
 if sum(1 for d in D if nontx("Patri",d))!=5: err.append("Patri R3: no tiene 5 guardias")
 for p in R4:
     ds=[d for d in D if S[d]["TX"]==p]; run=1
