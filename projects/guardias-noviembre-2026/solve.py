@@ -123,7 +123,7 @@ for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
 for p in R3NR: m.Add(load[p]==5)   # Candela cede su sexta guardia a un R2
 for p in ROT:
-    if p=="Maria": m.Add(ucq[p]>=4)
+    if p=="Maria": m.Add(ucq[p]>=5)
     else: m.Add(ucq[p]==6)                      # los cuatro rotantes, 6 guardias
 m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
@@ -138,8 +138,12 @@ for p in R3NR: m.Add(fin[p]<=2)
 
 maxr2=m.NewIntVar(0,7,"maxr2")
 for q in R2NR: m.Add(maxr2>=load[q])
-TGT={"Isabel":2,"Almudena":3,"Carlota":3,"AnaG":5,"Sandra":6,"Maria":9}
-for q,v in TGT.items(): m.Add(sum(tx[q,d] for d in DAYS)==v)
+for q,v in {"Isabel":2,"Almudena":3,"Carlota":3}.items():
+    m.Add(sum(tx[q,d] for d in DAYS)==v)
+txM=sum(tx["Maria",d] for d in DAYS)
+txA=sum(tx["AnaG",d] for d in DAYS); txS=sum(tx["Sandra",d] for d in DAYS)
+m.Add(txA==7); m.Add(txS==5)
+difAS=m.NewIntVar(0,28,"difAS"); m.AddAbsEquality(difAS, txA-txS)
 dev=[]; mxc=m.NewIntVar(0,60,"mxc")
 for p in R4:
     c=m.NewIntVar(0,60,""); m.Add(c==BASE[p]+sum(tx[p,d] for d in DAYS))
