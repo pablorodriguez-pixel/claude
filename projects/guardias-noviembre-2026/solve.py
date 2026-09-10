@@ -36,19 +36,20 @@ for p in R4:
     for d in DAYS:                      # tandas: ningun dia suelto, racha maxima 6
         ad=[tx[p,k] for k in (d-1,d+1) if k in DAYS]
         if d!=30 and ad: m.Add(sum(ad)>=1).OnlyEnforceIf(tx[p,d])
-        w=[tx[p,k] for k in range(d,d+7) if k in DAYS]
-        if len(w)==7: m.Add(sum(w)<=6)
+        w=[tx[p,k] for k in range(d,d+6) if k in DAYS]
+        if len(w)==6: m.Add(sum(w)<=5)
 # el bloque viernes-domingo (viernes-lunes en el puente) lo hace UNA SOLA persona.
 # La tanda puede venir del jueves o seguir despues: no va cerrada.
 for ds in WKND.values():
     for p in R4:
         for k in ds[1:]: m.Add(tx[p,ds[0]]==tx[p,k])
 # Ana G. coge la tanda del puente; Carlota, Isabel y Sandra, ninguna tanda de finde
-m.Add(tx["AnaG",6]==1)
-for p in ("Carlota","Isabel","Sandra"):
+m.Add(tx["AnaG",6]==1)                  # Ana G. coge el puente (excepcion a los 2/3)
+m.Add(tx["Sandra",13]==1)               # el 13-15 vuelve a Sandra
+for p in ("Carlota","Isabel"):
     for ds in WKND.values(): m.Add(tx[p,ds[0]]==0)
-for p in R4:                            # 1 tanda de finde, salvo Ana G. que puede con 2
-    m.Add(sum(tx[p,ds[0]] for ds in WKND.values()) <= (2 if p=="AnaG" else 1))
+for p in R4: m.Add(sum(tx[p,ds[0]] for ds in WKND.values())<=1)
+m.Add(sum(tx["Isabel",d] for d in DAYS)==2)
 m.Add(sum(tx["Maria",d] for d in DAYS)<=9)
 for p in R4:
     if p!="Maria": m.Add(sum(tx[p,d] for d in DAYS)<=8)
@@ -102,7 +103,7 @@ for p in ALL:
 for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
 for p in R3NR: m.Add(load[p]>=5)
-m.Add(ucq["Tony"]>=5)
+m.Add(ucq["Tony"]>=5); m.Add(ucq["Patricia"]==5)
 for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
 for p in R4:   m.Add(fin[p]<=1)                      # 1 finde de qx/ucq como maximo
 for p in R4ROT: m.Add(ucq[p]>=4)
@@ -119,9 +120,9 @@ mx2=m.NewIntVar(0,6,"mx2"); mn2=m.NewIntVar(0,6,"mn2")
 for p in R2NR: m.Add(mx2>=load[p]); m.Add(mn2<=load[p])
 mx3=m.NewIntVar(0,6,"mx3"); mn3=m.NewIntVar(0,6,"mn3")
 for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
-carga3=sum(tx[p,d] for p in ("Isabel","Almudena","Carlota") for d in DAYS)
+carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
 rot=sum(ucq[p] for p in ROT)
-m.Minimize(200*mxc + 10*sum(dev) + 25*carga3 - 15*rot + 60*(mx2-mn2) + 30*(mx3-mn3))
+m.Minimize(200*mxc + 10*sum(dev) + 6*carga3 - 15*rot + 60*(mx2-mn2) + 30*(mx3-mn3))
 s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=300; s.parameters.num_workers=8
 st=s.Solve(m); print("status:",s.StatusName(st))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)

@@ -50,14 +50,17 @@ lunes. `María 19-23` (jueves a lunes, con el bloque 20-22 entero) es correcto.
   + 1 UCQ, o 4 QX + 2 UCQ).
 - **R1**: 3 guardias exactas y 1 finde como máximo. **R3**: 5-6. Nadie por encima de 6 sin
   contar trasplante.
-- **R4**: como máximo **1 finde de quirófano/UCQ**. (El límite de 1 finde de localizada era
-  una pregunta del usuario, no una norma: Ana G. lleva dos en la v6 y está autorizado.)
+- **R4**: como máximo **1 finde de quirófano/UCQ** y **1 tanda de finde de localizada**.
+- **Patricia**: 5 guardias (fijado expresamente).
+- **Isabel**: no se la deja a cero de localizadas; coge 2 de las de María.
+- Racha máxima de trasplante: 5 días (jueves a lunes).
 
 ## Excepciones autorizadas expresamente
 
 - **Ana G. hace los tres puentes.** Autorizado para que cubra el puente de trasplante y
   liberar a Sandra. Almudena sigue librando el puente completo.
-- **María pasa de 5 localizadas** (9 en la v6) para descargar a Isabel, Almudena y Carlota.
+- **María pasa de 5 localizadas** (9) para descargar a Almudena y Carlota, que se quedan
+  en 3, e Isabel en 2.
 
 ## Estructura del servicio
 
@@ -103,8 +106,9 @@ acumula del servicio: en diciembre debería entrar por delante de todos.
    mayor porque ese puesto no lo puede firmar un residente pequeño. La unión del sábado 7
    con el lunes 9 se mantiene.
 2. **La tanda del 13-15** no la puede coger nadie salvo Ana G. o Sandra: Carlota, Isabel y
-   María están de vacaciones esos días y Almudena tiene bloqueado el 13. Se le da a Ana G.
-   como segunda tanda para que Sandra se quede sin ninguna.
+   María están de vacaciones esos días y Almudena tiene bloqueado el 13. Va a **Sandra**
+   (decisión expresa del usuario en la v7), lo que la deja en 19 findes de localizada
+   acumulados, por delante de Carlota (18). Es el precio de que cada R4 tenga una sola tanda.
 
 ## Bloqueos de noviembre
 

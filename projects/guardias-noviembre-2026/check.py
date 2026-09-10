@@ -71,13 +71,24 @@ for p in [S[30]["UCQ"],S[30]["MAY"]]+S[30]["QX"]:
 # EL BLOQUE VIERNES-DOMINGO, UNA SOLA PERSONA (la tanda puede venir de antes o seguir despues)
 for w,ds in W.items():
     if len({S[d]["TX"] for d in ds})!=1: err.append(f"{w} {ds}: el bloque no es de una sola persona")
+# Isabel con 2 localizadas, Patricia con 5 guardias, racha maxima de 5 dias
+if sum(1 for d in D if S[d]["TX"]=="Isabel")!=2: err.append("Isabel: no tiene 2 localizadas")
+if sum(1 for d in D if S[d]["UCQ"]=="Patricia")!=5: err.append("Patricia: no tiene 5 guardias")
+for p in R4:
+    ds=[d for d in D if S[d]["TX"]==p]; run=1
+    for i in range(1,len(ds)):
+        run = run+1 if ds[i]==ds[i-1]+1 else 1
+        if run>5: err.append(f"{p}: racha de TX de {run} dias hasta el {ds[i]}")
 # tandas sin dias sueltos
 for p in R4:
     ds=[d for d in D if S[d]["TX"]==p]
     for dd in ds:
         if dd!=30 and dd-1 not in ds and dd+1 not in ds: err.append(f"{p}: TX suelta el {dd}")
-# tandas de finde: ninguna para Carlota, Isabel ni Sandra
-for p in ("Carlota","Isabel","Sandra"):
+# tandas de finde: ninguna para Carlota ni Isabel; una como maximo cada R4
+for p in R4:
+    k=sum(1 for ds in W.values() if S[ds[0]]["TX"]==p)
+    if k>1: err.append(f"{p}: {k} tandas de finde de TX")
+for p in ("Carlota","Isabel"):
     k=[w for w,ds in W.items() if S[ds[0]]["TX"]==p]
     if k: err.append(f"{p}: tiene tanda de finde {k}")
 # topes de carga
