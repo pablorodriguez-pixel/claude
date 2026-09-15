@@ -43,11 +43,14 @@ for p in R1+R2+R3+R4:
     nov=sum(cnt.values()); ntx=nov-cnt["TX"]
     fin=sum(1 for w in W.values() if any(roles(p,d) for d in w))
     finn=sum(1 for w in W.values() if any([r for r in roles(p,d) if r!="TX"] for d in w))
+    # el finde del puente del 31-oct (dias 1 y 2) tambien cuenta, como en tu lista
+    w0=1 if any(p==PREV[dd]["UCQ"] or p==PREV[dd]["MAY"] or p in PREV[dd]["QX"] for dd in PREV) else 0
+    finn12=finn+w0
     fint=sum(1 for w in W.values() if any(S[d]["TX"]==p for d in w))
     pue=OCTP[p]+(1 if any(roles(p,d) for d in (7,8,9)) else 0)
     rows.append(dict(name=DISP.get(p,p),lev=LEV[p],octg=OCT[p][0],octf=OCT[p][1],nov=nov,ntx=ntx,
       fin=fin,finn=finn,fint=fint,cnt=cnt,tot=OCT[p][0]+nov,fin2=OCT[p][1]+fin,pue=pue,
-      blk=BLOCK[p],tx12=tx12))
+      blk=BLOCK[p],tx12=tx12,finn12=finn12,w0=w0))
 json.dump({"rows":rows,"sched":{str(d):{k:(v if k!="QX" else v) for k,v in S[d].items()} for d in D},
            "disp":DISP},open('tab.json','w'),ensure_ascii=False,indent=1)
 print(f"{'':12s} noTX nov fnd fTX pue")

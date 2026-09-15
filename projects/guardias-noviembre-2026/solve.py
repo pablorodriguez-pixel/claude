@@ -137,7 +137,10 @@ for p in ALL:
         b=m.NewBoolVar(""); m.AddMaxEquality(b,[n[p,d] for d in ds]); fs.append(b)
     F=m.NewIntVar(0,4,""); m.Add(F==sum(fs)); fin[p]=F
 for p in ALL:  m.Add(load[p]<=6)
-for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
+for p in R1:
+    m.Add(load[p]==3)
+    m.Add(fin[p]<=1)
+    if os.environ.get("R1FIN")=="1": m.Add(fin[p]==1)
 for p in R3NR: m.Add(load[p]>=5); m.Add(load[p]<=6)
 for p in ROT:  m.Add(ucq[p]==6)
 m.Add(load["Patri"]==5)
@@ -147,8 +150,12 @@ for p in R4NR: m.Add(fin[p]<=1)
 m.Add(x["Carlota",21,"UCQ"]==1); m.Add(load["Carlota"]==6); m.Add(fin["Carlota"]==2)
 # punto 4: Eva se queda en 5 guardias y 1 finde
 m.Add(load["Eva"]==5); m.Add(fin["Eva"]==1)
+TGT=os.environ.get("TGT")
+if TGT: m.Add(ucq[TGT]>=1)
+if os.environ.get("ANA0")=="1": m.Add(ucq["Ana"]==0)
 for p in R2NR:
     m.Add(load[p]>=4)
+    if os.environ.get("R2FIN")=="1": m.Add(fin[p]>=1)
     m.Add(fin[p]<=2); m.Add(ucq[p]<=2)
     m.Add(sum(x[p,d,"QX"] for d in DAYS) >= ucq[p])
 m.Add(fin["Tony"]<=2); m.Add(fin["Patricia"]<=2)
@@ -160,6 +167,8 @@ for q,v in {"Carlota":2,"Isabel":3,"Almudena":3,"Sandra":6,"Maria":7,"AnaG":7}.i
     m.Add(sum(tx[q,d] for d in DAYS)==v)
 
 # objetivo: parecerse lo mas posible al calendario manual
+BASE_S={int(k):v for k,v in json.load(open('sol_v19.json'))['sched'].items()}
+MAN={d:(v["TX"],v["UCQ"],v["MAY"],v["QX"][0],v["QX"][1]) for d,v in BASE_S.items()}
 same=[]; wsame=[]
 for d,v in MAN.items():
     same.append(tx[v[0],d]); wsame.append(tx[v[0],d])

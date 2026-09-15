@@ -243,7 +243,7 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 <div class="wrap">
 <header class="top">
   <div>
-    <div class="eyebrow">Programación de residentes · v18 sobre tu calendario</div>
+    <div class="eyebrow">Programación de residentes · v20 sobre tu calendario</div>
     <h1>Guardias · Noviembre 2026</h1>
     <p>Tu calendario con los arreglos que pediste: el viernes 6 intacto, todas las vacaciones
     respetadas, el triplete de Almudena deshecho, la UCQ del 21 para Carlota y Carlota sin
@@ -407,9 +407,11 @@ __BODY__
 
 <section>
   <div class="shead"><h2>Resumen por residente</h2>
-    <p>Guardias presenciales y findes de guardia. Entre paréntesis, las localizadas de las R4
-    —incluyendo el 1 y el 2— y los días de UCQ de los R2 que rellenan huecos. Los cuatro
-    rotantes van marcados con <b>(UCQ)</b>.</p></div>
+    <p>Guardias presenciales del 3 al 30. Los <b>findes incluyen el 1 y el 2</b>, que son el
+    puente del 31 de octubre: por eso Aitor, Mercedes, Fátima, Miriam, Patricia, Tania, Fabián y
+    Ana G. llevan uno más del que se ve en el cuadrante de noviembre. Entre paréntesis, las
+    localizadas de las R4 —también con el 1 y el 2— y los días de UCQ de los R2 que rellenan
+    huecos. Los cuatro rotantes van marcados con <b>(UCQ)</b>.</p></div>
   <div class="listas">
 __RESUMEN__
   </div>
@@ -452,11 +454,14 @@ __RESUMEN__
     <div class="note"><h3>La UCQ</h3>
       <p>Los cuatro rotantes solo hacen UCQ y cubren <b>24 de los 28 días</b>: Tony, Carlota, María
       y Patricia a 6 cada uno.</p>
-      <p>Los <b>4 huecos</b> los rellenan R2, todos con más quirófano que unidad: Marc el 4, Ana el
-      13 y el 15, y Emilio el 28.</p></div>
+      <p>Los <b>4 huecos</b> los rellenan R2, todos con más quirófano que unidad: Marc el 4,
+      <b>Eva el 13 y el 15</b>, y Emilio el 28. Eva y Ana se intercambian el puesto esos dos días:
+      Eva pasa a la unidad y Ana a quirófano. El 13 y el 15 van emparejados, así que las dos UCQ
+      de Ana se mueven juntas: no se puede pasar solo una.</p></div>
     <div class="note"><h3>Cargas</h3>
-      <p><b>R1</b>: los ocho a 3 guardias; siete con 1 finde y Miriam con ninguno. <b>R2</b>:
-      Patricia 6; Eva 5; Ana, Antonio, Asís, Emilio, Tania y Marc a 4.</p>
+      <p><b>R1</b>: los ocho a 3 guardias y <b>1 finde cada uno</b> dentro del cuadrante de
+      noviembre. <b>R2</b>: Patricia 6; Eva 5; Ana, Antonio, Asís, Emilio, Tania y Marc a 4, y
+      ninguno se queda sin finde.</p>
       <p><b>R3</b>: Tony 6; Candela, Fabián y Patri a 5. <b>R4</b>: Carlota y María 6; Isabel,
       Almudena, Ana G. y Sandra a 5, sin contar trasplante.</p>
       <p>Dobletes: <b>1</b> —María el 16 y el 18—, frente a los 6 de tu versión.</p></div>
@@ -474,7 +479,7 @@ de descanso: 0 conflictos</footer>
 """
 ROTS={"Tony","Patricia","María","Carlota"}
 def linea(r):
-    g=r["ntx"]; f=r["finn"]
+    g=r["ntx"]; f=r["finn12"]
     nm=r["name"].upper()+(' <span class="px">(UCQ)</span>' if r["name"] in ROTS else "")
     ex=""
     if r["lev"]=="R4":

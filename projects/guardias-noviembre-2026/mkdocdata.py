@@ -19,7 +19,7 @@ for r in rows:
     nm=r["name"]; k=inv.get(nm,nm)
     ntx=r["cnt"]["TX"]
     nf=sum(1 for x in FINDE_D if S[x]["TX"]==k) if ntx else 0
-    resumen.append([r["lev"],nm,r["ntx"],r["fin"] if False else r["finn"],
+    resumen.append([r["lev"],nm,r["ntx"],r["finn12"],
                     ntx if ntx else "—", (nf if nf else "—") if ntx else "—"])
 ACC={"Isabel":(38,16),"Almudena":(36,12),"Ana G.":(32,9),"Sandra":(33,16),
      "Carlota":(34,18),"María":(23,11)}

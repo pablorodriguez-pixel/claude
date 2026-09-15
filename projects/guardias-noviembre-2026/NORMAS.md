@@ -225,6 +225,30 @@ Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
 
+## v20 — Eva a la UCQ, todos con finde, y el contaje de findes con el 1 y el 2
+
+Tres cambios sobre la v18, en 5 días del cuadrante:
+
+1. **Eva coge la UCQ del 13 y el 15**, y Ana pasa a quirófano esos dos días. El 13 y el 15
+   van emparejados, así que **las dos UCQ de Ana se mueven juntas**: no se puede pasar solo
+   una. Eva queda con 2 días de unidad y 3 de quirófano; Ana, con 4 de quirófano.
+2. **Nadie se queda sin finde.** Antes Miriam (R1) no tenía ninguno dentro del 3-30 y, tras
+   el primer arreglo, tampoco Antonio (R2). Ahora los ocho R1 tienen exactamente 1 finde y
+   ningún R2 se queda a cero. Cambian los días 10, 26 y 28.
+3. **El contaje de findes incluye el 1 y el 2**, igual que ya hacía el de localizadas. Son
+   el puente del 31 de octubre. Por eso Aitor, Mercedes, Fátima, Miriam, Patricia, Tania,
+   Fabián y Ana G. aparecen con un finde más del que se ve en el cuadrante de noviembre.
+
+Criterio de contaje, que es el de la lista manual del usuario:
+
+| Concepto | Días que cuentan |
+|---|---|
+| Guardias presenciales | 3 al 30 |
+| Findes de guardia | 1 al 30 (el 1 y el 2 son el puente del 31-oct) |
+| Localizadas (Tx) | 1 al 30 |
+
+`check.py` sigue dando **0 errores** y las mismas 3 normas saltadas a propósito.
+
 ## v18 — el viernes 6 intacto y el contaje con el 1 y el 2
 
 Sustituye a la v17. Dos cambios sobre ella:
