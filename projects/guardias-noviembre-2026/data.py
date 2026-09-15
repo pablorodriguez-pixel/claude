@@ -23,6 +23,9 @@ BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30]
 DISP={"Fatima":"Fátima","Asis":"Asís","Fabian":"Fabián","Maria":"María","AnaG":"Ana G."}
 W={"W1":[6,7,8,9],"W2":[13,14,15],"W3":[20,21,22],"W4":[27,28,29]}
 D=range(3,31)
+# el 1 y el 2 de noviembre vienen del cuadrante de octubre pero cuentan como localizadas del mes
+PREV={1:{"TX":"Almudena","UCQ":"Patricia","MAY":"AnaG","QX":["Mercedes","Aitor"]},
+      2:{"TX":"Almudena","UCQ":"Tania","MAY":"Fabian","QX":["Fatima","Miriam"]}}
 def roles(p,d):
     r=S[d]; out=[]
     if r["TX"]==p: out.append("TX")
@@ -35,6 +38,8 @@ for p in R1+R2+R3+R4:
     cnt={"TX":0,"UCQ":0,"MAY":0,"QX":0}
     for d in D:
         for r in roles(p,d): cnt[r]+=1
+    tx12=sum(1 for dd in PREV if PREV[dd]["TX"]==p)
+    cnt["TX"]+=tx12
     nov=sum(cnt.values()); ntx=nov-cnt["TX"]
     fin=sum(1 for w in W.values() if any(roles(p,d) for d in w))
     finn=sum(1 for w in W.values() if any([r for r in roles(p,d) if r!="TX"] for d in w))
@@ -42,10 +47,11 @@ for p in R1+R2+R3+R4:
     pue=OCTP[p]+(1 if any(roles(p,d) for d in (7,8,9)) else 0)
     rows.append(dict(name=DISP.get(p,p),lev=LEV[p],octg=OCT[p][0],octf=OCT[p][1],nov=nov,ntx=ntx,
       fin=fin,finn=finn,fint=fint,cnt=cnt,tot=OCT[p][0]+nov,fin2=OCT[p][1]+fin,pue=pue,
-      blk=BLOCK[p]))
+      blk=BLOCK[p],tx12=tx12))
 json.dump({"rows":rows,"sched":{str(d):{k:(v if k!="QX" else v) for k,v in S[d].items()} for d in D},
            "disp":DISP},open('tab.json','w'),ensure_ascii=False,indent=1)
 print(f"{'':12s} noTX nov fnd fTX pue")
 for r in rows:
     print(f"{r['lev']} {r['name']:10s} {r['ntx']:3d} {r['nov']:3d} {r['finn']:3d} {r['fint']:3d} {r['pue']}/3   {r['cnt']}")
-print("\ntotales:", sum(r['nov'] for r in rows))
+print("\ntotales:", sum(r['nov'] for r in rows), "(incluye 2 localizadas del 1 y el 2)")
+print("localizadas del mes:", {r['name']:r['cnt']['TX'] for r in rows if r['cnt']['TX']})

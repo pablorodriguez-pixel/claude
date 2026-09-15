@@ -50,18 +50,18 @@ for p in ["Tania","Fabian","Fatima","Miriam"]:
     if nontx(p,3): err.append(f"{p}: guardia el 2 y el 3")
 if nontx("Almudena",3): err.append("Almudena: TX el 2, vispera del 3")
 # emparejamientos
-for a,b in [(6,8),(13,15),(20,22),(27,29),(7,9)]:
-    if a==6:
-        if {S[a]["TX"],S[a]["UCQ"],S[a]["MAY"]}|set(S[a]["QX"]) != {S[b]["TX"],S[b]["UCQ"],S[b]["MAY"]}|set(S[b]["QX"]):
-            err.append(f"equipos {a} y {b} distintos")
-    elif S[a]!=S[b]: err.append(f"equipos {a} y {b} distintos")
-# fiesta: libranza de R1 y R2 el viernes 6. Se admite UN solo R2 en quirofano (excepcion para poder emparejar 6 y 8)
-peq6=[p for p in [S[6]["TX"],S[6]["UCQ"],S[6]["MAY"]]+S[6]["QX"] if LEV[p] in ("R1","R2")]
-for p in peq6:
-    if LEV[p]=="R1": err.append(f"viernes 6: {p} es R1 (libranza de la fiesta)")
-    elif p not in S[6]["QX"]: err.append(f"viernes 6: {p} es R2 y no esta en quirofano")
-if len(peq6)>1: err.append(f"viernes 6: {len(peq6)} residentes pequenos ({peq6}), solo se admite 1")
-EXC=[f"viernes 6 y domingo 8: {peq6[0]} (R2) entra en quirofano — unica forma de emparejar el 6 con el 8"] if peq6 else []
+for a,b in [(13,15),(20,22),(27,29),(7,9)]:
+    if S[a]!=S[b]: err.append(f"equipos {a} y {b} distintos")
+# el 6 y el 8: como mucho una persona distinta, y la del domingo es Tania
+eq=lambda d: {S[d]["TX"],S[d]["UCQ"],S[d]["MAY"]}|set(S[d]["QX"])
+fuera=eq(6)-eq(8); dentro=eq(8)-eq(6)
+if len(fuera)>1: err.append(f"el 6 y el 8 se diferencian en {len(fuera)} personas: sale {sorted(fuera)}, entra {sorted(dentro)}")
+if dentro and dentro!={"Tania"}: err.append(f"el domingo 8 no lo cubre Tania sino {sorted(dentro)}")
+if fuera and LEV[list(fuera)[0]] not in ("R3","R4"): err.append(f"el viernes 6 suelto no lo cubre un mayor sino {list(fuera)[0]}")
+# fiesta: libranza completa de R1 y R2 el viernes 6, y de R1 el sabado 7
+for p in [S[6]["TX"],S[6]["UCQ"],S[6]["MAY"]]+S[6]["QX"]:
+    if LEV[p] in ("R1","R2"): err.append(f"viernes 6: {p} es {LEV[p]} (libranza de la fiesta)")
+EXC=[]
 for p in [S[7]["TX"],S[7]["UCQ"],S[7]["MAY"]]+S[7]["QX"]:
     if LEV[p]=="R1": err.append(f"sabado 7: {p} es R1")
 # puentes: 2 de 3, con Ana G. y Almudena exentas por peticion expresa
@@ -148,9 +148,15 @@ print("\ntandas TX:")
 for p,a,b in runs:
     wk=[w for w,ds in W.items() if a<=ds[0]<=b]
     print(f"  {p:9s} {a:2d} {DOW[a]} -> {b:2d} {DOW[b]} ({b-a+1}d)" + (f"  incluye {wk[0]}" if wk else ""))
+PREV_TX={1:"Almudena",2:"Almudena"}
+print("\nlocalizadas del mes (incluyendo el 1 y el 2, del cuadrante de octubre):")
+for p in R4:
+    n30=sum(1 for d in D if S[d]["TX"]==p); n12=sum(1 for d,q in PREV_TX.items() if q==p)
+    print(f"  {p:9s} {n30} del 3-30 + {n12} del 1-2 = {n30+n12}")
 print("\nlocalizadas acumuladas / findes de localizada:")
 for p in R4:
-    t=sum(1 for d in D if S[d]["TX"]==p); ft=sum(1 for d in FINDE_D if S[d]["TX"]==p)
+    t=sum(1 for d in D if S[d]["TX"]==p)+sum(1 for d,q in PREV_TX.items() if q==p)
+    ft=sum(1 for d in FINDE_D if S[d]["TX"]==p)
     bf={"Isabel":16,"Almudena":12,"Carlota":18,"Sandra":16,"AnaG":9,"Maria":11}[p]
     print(f"  {p:9s} {BASE[p]}+{t} = {BASE[p]+t:3d}   findes {bf}+{ft} = {bf+ft}")
 PROPIOS={(6,8),(7,9),(13,15),(20,22),(27,29)}

@@ -225,6 +225,46 @@ Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
 
+## v18 — el viernes 6 intacto y el contaje con el 1 y el 2
+
+Sustituye a la v17. Dos cambios sobre ella:
+
+1. **Tania no puede trabajar el viernes 6** (libranza de la fiesta de R1 y R2, sin
+   excepciones). En su lugar **Fabián hace el viernes 6 suelto** —tiene bloqueados el 7 y el
+   8, pero el 6 no— y **Tania cubre el domingo 8**. El viernes 6 queda **exactamente** como
+   estaba en el calendario manual, celda por celda. El domingo 8 repite a cuatro de los cinco
+   y Almudena pasa de quirófano a mayor para cubrir el puesto de Fabián.
+2. **El contaje de localizadas incluye los días 1 y 2**, que vienen del cuadrante de octubre
+   (en la foto salen en gris). Los dos los lleva Almudena, así que su cifra del mes es **5**,
+   no 3. El mes suma 30 localizadas: las 28 del 3 al 30 más esas 2.
+
+### Reparto final de localizadas (mes completo, 1-30)
+
+Ana G. 7 · María 7 · Sandra 6 · **Almudena 5** · Isabel 3 · Carlota 2.
+
+Acumulado desde junio: Isabel 41, **Almudena 41**, Ana G. 39, Sandra 39, Carlota 36,
+María 30. Findes de localizada: Sandra 19, Carlota 18, Isabel 16, Almudena 15, María 14,
+Ana G. 12. Gerard sigue fuera, en 15/9.
+
+**Almudena no puede bajar de 5.** Su tanda del 27-29 es indivisible y no la puede coger
+nadie más: Sandra está de vacaciones ese finde, María y Ana G. ya llevan la suya, y Carlota
+e Isabel quedan fuera por acumulado.
+
+### Estado
+
+127 de las 140 celdas quedan como en el calendario manual. Dobletes: 1 (María 16+18).
+`check.py` da **0 errores** y solo 3 normas saltadas a propósito, las tres autorizadas:
+Almudena 3/3 puentes, Ana G. 3/3 puentes y Carlota con 2 findes de quirófano/UCQ.
+La libranza de la fiesta queda **entera**: ningún R1 ni R2 trabaja el viernes 6, y ningún
+R1 el sábado 7.
+
+### Lo que la v17 hacía y ya no hace
+
+La v17 metía a Tania en quirófano el 6 **y** el 8 para que los dos días llevaran equipos
+idénticos. Romper esa identidad en una sola persona —un mayor el viernes, Tania el
+domingo— resuelve lo mismo sin tocar la libranza, y además sube las celdas conservadas de
+122 a 127.
+
 ## v17 — los seis arreglos sobre el calendario manual
 
 1. **Todos los bloqueos respetados.** Emilio libra el 18 y Fabián el 8 y el 7.

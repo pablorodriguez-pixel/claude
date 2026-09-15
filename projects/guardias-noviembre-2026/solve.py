@@ -64,10 +64,7 @@ if MODE!="carlota_tanda":
 def elig(p,d,r):
     if d in BLOCK[p]: return False
     if d==30 and LEV[p]=="R4": return False
-    if d==6 and LEV[p] in ("R1","R2"):
-        if MODE=="libranza" and r=="QX": pass
-        elif MODE=="libranza_r2" and r=="QX" and LEV[p]=="R2": pass
-        else: return False
+    if d==6 and LEV[p] in ("R1","R2"): return False
     if d==7 and LEV[p]=="R1": return False
     if d in PUENTE and p in NO_PUENTE: return False
     if d==3 and p in DAY2: return False
@@ -84,16 +81,29 @@ for p in ALL:
             if not elig(p,d,r): m.Add(x[p,d,r]==0)
 for d in DAYS:
     for r in ROLES: m.Add(sum(x[p,d,r] for p in ALL)==CAP[r])
-if MODE in ("libranza","libranza_r2"):
-    m.Add(sum(x[p,6,r] for p in R1+R2 for r in ROLES)<=1)
+
 
 n={}
 for p in ALL:
     for d in DAYS:
         v=m.NewBoolVar(""); m.Add(v==sum(x[p,d,r] for r in ROLES)); n[p,d]=v
         if p in R4: m.Add(v+tx[p,d]<=1)
-# el 6 y el 8, las mismas personas
-for p in ALL: m.Add(n[p,6]==n[p,8])
+# el 6 y el 8: como mucho una persona distinta. El viernes lo cubre un mayor suelto
+# (R3/R4, por la libranza de la fiesta) y el domingo lo cubre Tania.
+a68={}
+for p in ALL:
+    for d in (6,8):
+        v=m.NewBoolVar("")
+        if p in R4: m.Add(v==n[p,d]+tx[p,d])
+        else: m.Add(v==n[p,d])
+        a68[p,d]=v
+dif68=[]
+for p in ALL:
+    b=m.NewBoolVar(f"dif68_{p}")
+    m.Add(a68[p,6]-a68[p,8]<=b); m.Add(a68[p,8]-a68[p,6]<=b); dif68.append(b)
+m.Add(sum(dif68)<=2)
+m.Add(x["Tania",8,"QX"]==1)          # Tania cubre el domingo 8
+m.Add(sum(n[p,6] for p in R1+R2)==0) # el viernes 6, ningun residente pequeno
 for p in ALL:
     for d in DAYS:
         if d+1 in DAYS:
@@ -128,7 +138,7 @@ for p in ALL:
     F=m.NewIntVar(0,4,""); m.Add(F==sum(fs)); fin[p]=F
 for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
-for p in R3NR: m.Add(load[p]==5)
+for p in R3NR: m.Add(load[p]>=5); m.Add(load[p]<=6)
 for p in ROT:  m.Add(ucq[p]==6)
 m.Add(load["Patri"]==5)
 for p in R4NR: m.Add(load[p]==5)
@@ -138,6 +148,7 @@ m.Add(x["Carlota",21,"UCQ"]==1); m.Add(load["Carlota"]==6); m.Add(fin["Carlota"]
 # punto 4: Eva se queda en 5 guardias y 1 finde
 m.Add(load["Eva"]==5); m.Add(fin["Eva"]==1)
 for p in R2NR:
+    m.Add(load[p]>=4)
     m.Add(fin[p]<=2); m.Add(ucq[p]<=2)
     m.Add(sum(x[p,d,"QX"] for d in DAYS) >= ucq[p])
 m.Add(fin["Tony"]<=2); m.Add(fin["Patricia"]<=2)

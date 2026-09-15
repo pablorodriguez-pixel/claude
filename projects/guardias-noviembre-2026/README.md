@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (v17 — calendario manual corregido)
+# Guardias · Noviembre 2026 (v18 — calendario manual corregido)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
@@ -127,19 +127,23 @@ Consecuencia del reparto: con los R1 a 3 y las R4 limitadas a un finde, los ocho
 quedan a 6 guardias (venían de 4). Es el precio de los topes nuevos: para bajarles a 5
 hay que subir a los R1 a 4 o dejar que alguna R4 haga un segundo finde.
 
-## Qué se movió del calendario manual (18 celdas)
+## Qué se movió del calendario manual (13 celdas)
 
 | Días | Cambio | Por qué |
 |---|---|---|
-| 6 y 8 | Sale Fabián, entra Tania en quirófano; Sandra pasa de quirófano a mayor | Fabián tiene el 7 y el 8 de vacaciones |
+| 6 | **nada** | El viernes queda intacto; Fabián lo hace suelto |
+| 8 | Entra Tania por Fabián; Almudena pasa de quirófano a mayor | Fabián tiene el 7 y el 8 de vacaciones |
 | 5 | La localizada pasa de Carlota a Ana G. | Carlota no puede tener localizada en víspera de su guardia del 6 |
 | 10 | Sale Almudena | Deshace su triplete 6-8-10 |
 | 18 | Sale Emilio | Lo tiene de vacaciones |
 | 21 | La UCQ pasa de Eva a Carlota; Eva recupera su quinta guardia el 19 | Petición expresa |
 
-Las 4 normas que se saltan a propósito (todas autorizadas salvo la primera, explicada en
-`NORMAS.md`): Tania (R2) en quirófano el 6 y el 8 · Almudena 3/3 puentes · Ana G. 3/3
-puentes · Carlota con 2 findes de quirófano/UCQ.
+Las 3 normas que se saltan a propósito, todas autorizadas: Almudena 3/3 puentes · Ana G.
+3/3 puentes · Carlota con 2 findes de quirófano/UCQ. La libranza de la fiesta queda entera.
+
+**El contaje de localizadas incluye los días 1 y 2** (cuadrante de octubre): Ana G. 7,
+María 7, Sandra 6, Almudena 5, Isabel 3, Carlota 2 — 30 en total.
+
 
 Las tablas de resumen de `index.html` y del Word se recalculan siempre desde el
 calendario (`data.py`), no desde listas escritas a mano. Las listas resumen que acompañaban
