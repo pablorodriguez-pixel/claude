@@ -1,7 +1,12 @@
-# Guardias · Noviembre 2026 (reparto v16)
+# Guardias · Noviembre 2026 (versión PROVISIONAL — calendario manual)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
+
+> **Esta versión NO es la del solver.** El cuadrante publicado es el que editó a mano el
+> usuario (transcrito en `transcripcion_manual.py`, volcado a `sol.json`). Rompe 5 reglas
+> del servicio, listadas en `index.html` y más abajo. El reparto del solver que sí cumple
+> las 14 familias de reglas está en el histórico de esta rama (commit `1e55d3a`, v16).
 
 Cuadrante de guardias de 26 residentes (8 R1, 8 R2, 4 R3, 6 R4) sobre 28 días
 (3–30 de noviembre) y 5 puestos diarios: TX (trasplante, localizada), UCQ, mayor
@@ -18,6 +23,10 @@ y 2 de quirófano. 140 puestos en total.
 | `check.py` | Verificador independiente: re-comprueba las 11 familias de reglas desde cero |
 | `data.py` | Recuento por residente (guardias, findes, puentes, desglose por puesto) |
 | `gen.py` | Genera `index.html` a partir de la solución |
+| `transcripcion_manual.py` | Transcripción del calendario manual del usuario + reconciliación con sus listas resumen |
+| `mkdocdata.py` | Construye `docdata.json` (celdas del calendario + resúmenes) desde `tab.json` |
+| `sol.json` | El cuadrante vigente (aquí, el manual) |
+| `tab.json` | Recuentos por residente calculados desde `sol.json` |
 
 ## Uso
 
@@ -117,3 +126,21 @@ Almudena el 27-29. **Carlota e Isabel, ninguna.**
 Consecuencia del reparto: con los R1 a 3 y las R4 limitadas a un finde, los ocho R2
 quedan a 6 guardias (venían de 4). Es el precio de los topes nuevos: para bajarles a 5
 hay que subir a los R1 a 4 o dejar que alguna R4 haga un segundo finde.
+
+## Las 5 reglas que rompe el calendario manual
+
+| Regla | Qué pasa |
+|---|---|
+| Puentes (máx. 2/3) | Almudena llega a **3/3** (12-oct, 31-oct y 9-nov) |
+| Sin tripletes | Almudena hace **6, 8 y 10** — tres guardias en cinco días |
+| Vacaciones | **Emilio** trabaja el 18, que tiene bloqueado |
+| Vacaciones | **Fabián** trabaja el 8, que tiene bloqueado |
+| TX nunca víspera de guardia | **Carlota** tiene localizada el 5 y guardia el 6 |
+
+Cuatro de las cinco vienen de emparejar el viernes 6 con el domingo 8, que el servicio no
+admite (ver *Lo que no tiene solución en noviembre* en `NORMAS.md`). Además hay **6
+dobletes** fuera de los propios V+D / S+F: Fabián 6+8, Carlota 6+8, Almudena 6+8,
+Almudena 8+10, Sandra 6+8 y María 16+18.
+
+Las tablas de resumen de `index.html` y del Word se recalculan siempre desde el
+calendario (`data.py`), no desde listas escritas a mano.

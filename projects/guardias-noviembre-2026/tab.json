@@ -1,0 +1,953 @@
+{
+ "rows": [
+  {
+   "name": "Aitor",
+   "lev": "R1",
+   "octg": 5,
+   "octf": 1,
+   "nov": 2,
+   "ntx": 2,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 2
+   },
+   "tot": 7,
+   "fin2": 2,
+   "pue": 1,
+   "blk": [
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "name": "Arturo",
+   "lev": "R1",
+   "octg": 4,
+   "octf": 1,
+   "nov": 3,
+   "ntx": 3,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 3
+   },
+   "tot": 7,
+   "fin2": 2,
+   "pue": 0,
+   "blk": []
+  },
+  {
+   "name": "Cristina",
+   "lev": "R1",
+   "octg": 4,
+   "octf": 3,
+   "nov": 3,
+   "ntx": 3,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 3
+   },
+   "tot": 7,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    13,
+    14,
+    15,
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "name": "David",
+   "lev": "R1",
+   "octg": 4,
+   "octf": 2,
+   "nov": 3,
+   "ntx": 3,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 3
+   },
+   "tot": 7,
+   "fin2": 3,
+   "pue": 0,
+   "blk": []
+  },
+  {
+   "name": "Fátima",
+   "lev": "R1",
+   "octg": 5,
+   "octf": 3,
+   "nov": 2,
+   "ntx": 2,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 2
+   },
+   "tot": 7,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    13,
+    14,
+    15,
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "Mercedes",
+   "lev": "R1",
+   "octg": 4,
+   "octf": 2,
+   "nov": 2,
+   "ntx": 2,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 2
+   },
+   "tot": 6,
+   "fin2": 3,
+   "pue": 1,
+   "blk": [
+    26,
+    27,
+    28,
+    29,
+    30
+   ]
+  },
+  {
+   "name": "Rosario",
+   "lev": "R1",
+   "octg": 4,
+   "octf": 2,
+   "nov": 3,
+   "ntx": 3,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 3
+   },
+   "tot": 7,
+   "fin2": 3,
+   "pue": 1,
+   "blk": [
+    13,
+    14,
+    15,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "name": "Miriam",
+   "lev": "R1",
+   "octg": 7,
+   "octf": 3,
+   "nov": 2,
+   "ntx": 2,
+   "fin": 0,
+   "finn": 0,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 2
+   },
+   "tot": 9,
+   "fin2": 3,
+   "pue": 1,
+   "blk": [
+    6,
+    7,
+    8,
+    9,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "name": "Patricia",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 2,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 5,
+    "MAY": 0,
+    "QX": 0
+   },
+   "tot": 11,
+   "fin2": 3,
+   "pue": 1,
+   "blk": []
+  },
+  {
+   "name": "Ana",
+   "lev": "R2",
+   "octg": 5,
+   "octf": 2,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 3,
+    "MAY": 0,
+    "QX": 2
+   },
+   "tot": 10,
+   "fin2": 3,
+   "pue": 1,
+   "blk": [
+    6,
+    7,
+    8,
+    20,
+    21
+   ]
+  },
+  {
+   "name": "Antonio",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 2,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 5
+   },
+   "tot": 11,
+   "fin2": 3,
+   "pue": 1,
+   "blk": [
+    6,
+    7,
+    8,
+    9
+   ]
+  },
+  {
+   "name": "Asís",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 1,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 5
+   },
+   "tot": 11,
+   "fin2": 3,
+   "pue": 1,
+   "blk": [
+    12,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "name": "Emilio",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 2,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 1,
+    "MAY": 0,
+    "QX": 4
+   },
+   "tot": 11,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    4,
+    18
+   ]
+  },
+  {
+   "name": "Eva",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 3,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 1,
+    "MAY": 0,
+    "QX": 4
+   },
+   "tot": 11,
+   "fin2": 5,
+   "pue": 1,
+   "blk": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "Tania",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 3,
+   "nov": 4,
+   "ntx": 4,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 4
+   },
+   "tot": 10,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    18,
+    19,
+    20,
+    21,
+    22,
+    23
+   ]
+  },
+  {
+   "name": "Marc",
+   "lev": "R2",
+   "octg": 6,
+   "octf": 1,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 0,
+    "QX": 5
+   },
+   "tot": 11,
+   "fin2": 2,
+   "pue": 1,
+   "blk": [
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "Candela",
+   "lev": "R3",
+   "octg": 6,
+   "octf": 2,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 5,
+    "QX": 0
+   },
+   "tot": 11,
+   "fin2": 4,
+   "pue": 0,
+   "blk": [
+    6,
+    7,
+    8,
+    9,
+    17,
+    18,
+    26,
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "Fabián",
+   "lev": "R3",
+   "octg": 7,
+   "octf": 3,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 5,
+    "QX": 0
+   },
+   "tot": 12,
+   "fin2": 5,
+   "pue": 2,
+   "blk": [
+    7,
+    8
+   ]
+  },
+  {
+   "name": "Patri",
+   "lev": "R3",
+   "octg": 6,
+   "octf": 2,
+   "nov": 5,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 0,
+    "MAY": 5,
+    "QX": 0
+   },
+   "tot": 11,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    20,
+    21,
+    22,
+    26,
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "Tony",
+   "lev": "R3",
+   "octg": 6,
+   "octf": 2,
+   "nov": 6,
+   "ntx": 6,
+   "fin": 2,
+   "finn": 2,
+   "fint": 0,
+   "cnt": {
+    "TX": 0,
+    "UCQ": 6,
+    "MAY": 0,
+    "QX": 0
+   },
+   "tot": 12,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    27,
+    28,
+    29
+   ]
+  },
+  {
+   "name": "Carlota",
+   "lev": "R4",
+   "octg": 12,
+   "octf": 4,
+   "nov": 9,
+   "ntx": 6,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 3,
+    "UCQ": 6,
+    "MAY": 0,
+    "QX": 0
+   },
+   "tot": 21,
+   "fin2": 5,
+   "pue": 2,
+   "blk": [
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "name": "Isabel",
+   "lev": "R4",
+   "octg": 11,
+   "octf": 3,
+   "nov": 8,
+   "ntx": 5,
+   "fin": 1,
+   "finn": 1,
+   "fint": 0,
+   "cnt": {
+    "TX": 3,
+    "UCQ": 0,
+    "MAY": 4,
+    "QX": 1
+   },
+   "tot": 19,
+   "fin2": 4,
+   "pue": 1,
+   "blk": [
+    6,
+    7,
+    8,
+    9,
+    14,
+    15
+   ]
+  },
+  {
+   "name": "María",
+   "lev": "R4",
+   "octg": 0,
+   "octf": 0,
+   "nov": 13,
+   "ntx": 6,
+   "fin": 2,
+   "finn": 1,
+   "fint": 1,
+   "cnt": {
+    "TX": 7,
+    "UCQ": 6,
+    "MAY": 0,
+    "QX": 0
+   },
+   "tot": 13,
+   "fin2": 2,
+   "pue": 0,
+   "blk": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "name": "Almudena",
+   "lev": "R4",
+   "octg": 13,
+   "octf": 5,
+   "nov": 8,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 1,
+   "fint": 1,
+   "cnt": {
+    "TX": 3,
+    "UCQ": 0,
+    "MAY": 2,
+    "QX": 3
+   },
+   "tot": 21,
+   "fin2": 7,
+   "pue": 3,
+   "blk": [
+    11,
+    12,
+    13,
+    20,
+    21,
+    22
+   ]
+  },
+  {
+   "name": "Ana G.",
+   "lev": "R4",
+   "octg": 8,
+   "octf": 2,
+   "nov": 11,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 1,
+   "fint": 1,
+   "cnt": {
+    "TX": 6,
+    "UCQ": 0,
+    "MAY": 5,
+    "QX": 0
+   },
+   "tot": 19,
+   "fin2": 4,
+   "pue": 3,
+   "blk": []
+  },
+  {
+   "name": "Sandra",
+   "lev": "R4",
+   "octg": 12,
+   "octf": 4,
+   "nov": 11,
+   "ntx": 5,
+   "fin": 2,
+   "finn": 1,
+   "fint": 1,
+   "cnt": {
+    "TX": 6,
+    "UCQ": 0,
+    "MAY": 2,
+    "QX": 3
+   },
+   "tot": 23,
+   "fin2": 6,
+   "pue": 2,
+   "blk": [
+    27,
+    28,
+    29
+   ]
+  }
+ ],
+ "sched": {
+  "3": {
+   "TX": "Carlota",
+   "UCQ": "Tony",
+   "MAY": "Isabel",
+   "QX": [
+    "Aitor",
+    "Eva"
+   ]
+  },
+  "4": {
+   "TX": "Carlota",
+   "UCQ": "Ana",
+   "MAY": "Patri",
+   "QX": [
+    "Mercedes",
+    "Antonio"
+   ]
+  },
+  "5": {
+   "TX": "Carlota",
+   "UCQ": "Patricia",
+   "MAY": "Candela",
+   "QX": [
+    "Fatima",
+    "Tania"
+   ]
+  },
+  "6": {
+   "TX": "AnaG",
+   "UCQ": "Carlota",
+   "MAY": "Fabian",
+   "QX": [
+    "Almudena",
+    "Sandra"
+   ]
+  },
+  "7": {
+   "TX": "AnaG",
+   "UCQ": "Tony",
+   "MAY": "Patri",
+   "QX": [
+    "Asis",
+    "Marc"
+   ]
+  },
+  "8": {
+   "TX": "AnaG",
+   "UCQ": "Carlota",
+   "MAY": "Fabian",
+   "QX": [
+    "Sandra",
+    "Almudena"
+   ]
+  },
+  "9": {
+   "TX": "AnaG",
+   "UCQ": "Tony",
+   "MAY": "Patri",
+   "QX": [
+    "Asis",
+    "Marc"
+   ]
+  },
+  "10": {
+   "TX": "Isabel",
+   "UCQ": "Maria",
+   "MAY": "Almudena",
+   "QX": [
+    "Miriam",
+    "Emilio"
+   ]
+  },
+  "11": {
+   "TX": "Maria",
+   "UCQ": "Patricia",
+   "MAY": "AnaG",
+   "QX": [
+    "Cristina",
+    "Antonio"
+   ]
+  },
+  "12": {
+   "TX": "Maria",
+   "UCQ": "Carlota",
+   "MAY": "Sandra",
+   "QX": [
+    "Rosario",
+    "Tania"
+   ]
+  },
+  "13": {
+   "TX": "Sandra",
+   "UCQ": "Ana",
+   "MAY": "Patri",
+   "QX": [
+    "David",
+    "Eva"
+   ]
+  },
+  "14": {
+   "TX": "Sandra",
+   "UCQ": "Patricia",
+   "MAY": "Candela",
+   "QX": [
+    "Aitor",
+    "Mercedes"
+   ]
+  },
+  "15": {
+   "TX": "Sandra",
+   "UCQ": "Ana",
+   "MAY": "Patri",
+   "QX": [
+    "David",
+    "Eva"
+   ]
+  },
+  "16": {
+   "TX": "Sandra",
+   "UCQ": "Maria",
+   "MAY": "AnaG",
+   "QX": [
+    "Marc",
+    "Miriam"
+   ]
+  },
+  "17": {
+   "TX": "Isabel",
+   "UCQ": "Carlota",
+   "MAY": "Fabian",
+   "QX": [
+    "Antonio",
+    "Tania"
+   ]
+  },
+  "18": {
+   "TX": "AnaG",
+   "UCQ": "Maria",
+   "MAY": "Sandra",
+   "QX": [
+    "Emilio",
+    "Ana"
+   ]
+  },
+  "19": {
+   "TX": "Maria",
+   "UCQ": "Patricia",
+   "MAY": "Isabel",
+   "QX": [
+    "Asis",
+    "Marc"
+   ]
+  },
+  "20": {
+   "TX": "Maria",
+   "UCQ": "Tony",
+   "MAY": "AnaG",
+   "QX": [
+    "Arturo",
+    "Cristina"
+   ]
+  },
+  "21": {
+   "TX": "Maria",
+   "UCQ": "Eva",
+   "MAY": "Candela",
+   "QX": [
+    "Emilio",
+    "Fatima"
+   ]
+  },
+  "22": {
+   "TX": "Maria",
+   "UCQ": "Tony",
+   "MAY": "AnaG",
+   "QX": [
+    "Arturo",
+    "Cristina"
+   ]
+  },
+  "23": {
+   "TX": "Sandra",
+   "UCQ": "Carlota",
+   "MAY": "Fabian",
+   "QX": [
+    "Almudena",
+    "Isabel"
+   ]
+  },
+  "24": {
+   "TX": "Sandra",
+   "UCQ": "Maria",
+   "MAY": "Candela",
+   "QX": [
+    "Eva",
+    "Antonio"
+   ]
+  },
+  "25": {
+   "TX": "Isabel",
+   "UCQ": "Tony",
+   "MAY": "AnaG",
+   "QX": [
+    "Emilio",
+    "Marc"
+   ]
+  },
+  "26": {
+   "TX": "AnaG",
+   "UCQ": "Carlota",
+   "MAY": "Almudena",
+   "QX": [
+    "David",
+    "Sandra"
+   ]
+  },
+  "27": {
+   "TX": "Almudena",
+   "UCQ": "Maria",
+   "MAY": "Isabel",
+   "QX": [
+    "Rosario",
+    "Asis"
+   ]
+  },
+  "28": {
+   "TX": "Almudena",
+   "UCQ": "Emilio",
+   "MAY": "Fabian",
+   "QX": [
+    "Antonio",
+    "Tania"
+   ]
+  },
+  "29": {
+   "TX": "Almudena",
+   "UCQ": "Maria",
+   "MAY": "Isabel",
+   "QX": [
+    "Rosario",
+    "Asis"
+   ]
+  },
+  "30": {
+   "TX": "Maria",
+   "UCQ": "Patricia",
+   "MAY": "Candela",
+   "QX": [
+    "Arturo",
+    "Ana"
+   ]
+  }
+ },
+ "disp": {
+  "Fatima": "Fátima",
+  "Asis": "Asís",
+  "Fabian": "Fabián",
+  "Maria": "María",
+  "AnaG": "Ana G."
+ }
+}

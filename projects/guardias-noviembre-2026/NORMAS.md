@@ -201,3 +201,26 @@ R3 — Candela 6-9, 17-18, 26-29 · Fabián 7-8 · Patri 20-22, 26-29 · Tony 27
 
 R4 — Carlota 13-15 · Isabel 6-9, 14-15 · María 1-15 · Almudena 11-13, 20-22 (+ exenta
 del puente 7-9) · Ana G. exenta del puente 7-9 · Sandra 27-29
+
+## Versión provisional con el calendario manual (integrada)
+
+El cuadrante publicado ya no es el del solver, sino el que editó a mano el usuario. Se
+transcribió desde su pantallazo en `transcripcion_manual.py`. Dos precisiones de la
+transcripción:
+
+- **El sábado 21 lleva la localizada de María, no de Sandra.** El bloque 20-21-22 tiene que
+  ser de una sola persona y así cuadran los totales del propio usuario (María 7, Sandra 6).
+- **El sábado 21 la UCQ es de Eva**, como pidió expresamente.
+
+Localizadas que salen del calendario manual: Isabel 3, Almudena 3, Carlota 3, Ana G. 6,
+Sandra 6, María 7. (Los objetivos de la v16 eran Isabel 2 y Ana G. 7.)
+
+Las listas resumen que envió el usuario **no cuadran con su propio calendario**: suman 117
+guardias y 29 días de UCQ, cuando el calendario tiene 112 presenciales y 28 de UCQ.
+Patricia, Tania, Aitor, Mercedes, Miriam y Fátima aparecen con una guardia de más; Emilio
+con una de menos. El calendario es internamente consistente; las listas están desfasadas.
+Todos los recuentos de los documentos se calculan desde el calendario.
+
+Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio trabaja el
+18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
+(víspera). Dobletes fuera de los propios: 6.
