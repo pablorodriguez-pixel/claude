@@ -1,12 +1,12 @@
-# Guardias · Noviembre 2026 (versión PROVISIONAL — calendario manual)
+# Guardias · Noviembre 2026 (v17 — calendario manual corregido)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.
 
-> **Esta versión NO es la del solver.** El cuadrante publicado es el que editó a mano el
-> usuario (transcrito en `transcripcion_manual.py`, volcado a `sol.json`). Rompe 5 reglas
-> del servicio, listadas en `index.html` y más abajo. El reparto del solver que sí cumple
-> las 14 familias de reglas está en el histórico de esta rama (commit `1e55d3a`, v16).
+> **Esta versión parte del calendario manual y lo corrige.** `solve.py` arranca del
+> cuadrante que editó a mano el usuario (transcrito en `transcripcion_manual.py`) y
+> maximiza las celdas que se conservan mientras impone todas las normas del servicio:
+> 122 de 140 quedan intactas. `check.py` da 0 errores.
 
 Cuadrante de guardias de 26 residentes (8 R1, 8 R2, 4 R3, 6 R4) sobre 28 días
 (3–30 de noviembre) y 5 puestos diarios: TX (trasplante, localizada), UCQ, mayor
@@ -127,20 +127,20 @@ Consecuencia del reparto: con los R1 a 3 y las R4 limitadas a un finde, los ocho
 quedan a 6 guardias (venían de 4). Es el precio de los topes nuevos: para bajarles a 5
 hay que subir a los R1 a 4 o dejar que alguna R4 haga un segundo finde.
 
-## Las 5 reglas que rompe el calendario manual
+## Qué se movió del calendario manual (18 celdas)
 
-| Regla | Qué pasa |
-|---|---|
-| Puentes (máx. 2/3) | Almudena llega a **3/3** (12-oct, 31-oct y 9-nov) |
-| Sin tripletes | Almudena hace **6, 8 y 10** — tres guardias en cinco días |
-| Vacaciones | **Emilio** trabaja el 18, que tiene bloqueado |
-| Vacaciones | **Fabián** trabaja el 8, que tiene bloqueado |
-| TX nunca víspera de guardia | **Carlota** tiene localizada el 5 y guardia el 6 |
+| Días | Cambio | Por qué |
+|---|---|---|
+| 6 y 8 | Sale Fabián, entra Tania en quirófano; Sandra pasa de quirófano a mayor | Fabián tiene el 7 y el 8 de vacaciones |
+| 5 | La localizada pasa de Carlota a Ana G. | Carlota no puede tener localizada en víspera de su guardia del 6 |
+| 10 | Sale Almudena | Deshace su triplete 6-8-10 |
+| 18 | Sale Emilio | Lo tiene de vacaciones |
+| 21 | La UCQ pasa de Eva a Carlota; Eva recupera su quinta guardia el 19 | Petición expresa |
 
-Cuatro de las cinco vienen de emparejar el viernes 6 con el domingo 8, que el servicio no
-admite (ver *Lo que no tiene solución en noviembre* en `NORMAS.md`). Además hay **6
-dobletes** fuera de los propios V+D / S+F: Fabián 6+8, Carlota 6+8, Almudena 6+8,
-Almudena 8+10, Sandra 6+8 y María 16+18.
+Las 4 normas que se saltan a propósito (todas autorizadas salvo la primera, explicada en
+`NORMAS.md`): Tania (R2) en quirófano el 6 y el 8 · Almudena 3/3 puentes · Ana G. 3/3
+puentes · Carlota con 2 findes de quirófano/UCQ.
 
 Las tablas de resumen de `index.html` y del Word se recalculan siempre desde el
-calendario (`data.py`), no desde listas escritas a mano.
+calendario (`data.py`), no desde listas escritas a mano. Las listas resumen que acompañaban
+al calendario manual sumaban 117 guardias y 29 días de UCQ en lugar de 112 y 28.

@@ -1,12 +1,13 @@
 from ortools.sat.python import cp_model
-import json, sys
+import json, sys, os
+MODE=os.environ.get("MODE","base")
 R1=["Aitor","Arturo","Cristina","David","Fatima","Mercedes","Rosario","Miriam"]
 R2=["Patricia","Ana","Antonio","Asis","Emilio","Eva","Tania","Marc"]
 R3=["Candela","Fabian","Patri","Tony"]; R4=["Carlota","Isabel","Maria","Almudena","AnaG","Sandra"]
 LEV={p:"R1" for p in R1}|{p:"R2" for p in R2}|{p:"R3" for p in R3}|{p:"R4" for p in R4}
 ALL=R1+R2+R3+R4
-ROT=["Tony","Patricia","Maria","Carlota"]      # rotantes de UCQ: SOLO UCQ
-R4ROT=["Maria","Carlota"]; R4NR=["Isabel","Almudena","AnaG","Sandra"]
+ROT=["Tony","Patricia","Maria","Carlota"]
+R4NR=["Isabel","Almudena","AnaG","Sandra"]
 R2NR=[p for p in R2 if p not in ROT]; R3NR=[p for p in R3 if p not in ROT]
 BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30],"David":[],
 "Fatima":[13,14,15,27,28,29],"Mercedes":[26,27,28,29,30],"Rosario":[13,14,15,20,21,22],
@@ -18,56 +19,64 @@ BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30]
 "AnaG":[],"Sandra":[27,28,29]}
 BASE={"Isabel":38,"Almudena":36,"Carlota":34,"Sandra":33,"AnaG":32,"Maria":23}
 DAYS=list(range(3,31)); PUENTE=[7,8,9]
-NO_PUENTE=["Almudena"]            # Ana G. queda exenta de esta norma por peticion expresa
+NO_PUENTE=[]                       # Almudena y Ana G. exentas por peticion expresa
 WKND={"W1":[6,7,8,9],"W2":[13,14,15],"W3":[20,21,22],"W4":[27,28,29]}
-FINDE_D=[6,7,8,13,14,15,20,21,22,27,28,29]
 VD=[(13,15),(20,22),(27,29)]; SF=[(7,9)]
 DAY2=["Tania","Fabian","Fatima","Miriam"]
+MAN={3:("Carlota","Tony","Isabel","Aitor","Eva"),4:("Carlota","Ana","Patri","Mercedes","Antonio"),
+5:("Carlota","Patricia","Candela","Fatima","Tania"),6:("AnaG","Carlota","Fabian","Almudena","Sandra"),
+7:("AnaG","Tony","Patri","Asis","Marc"),8:("AnaG","Carlota","Fabian","Sandra","Almudena"),
+9:("AnaG","Tony","Patri","Asis","Marc"),10:("Isabel","Maria","Almudena","Miriam","Emilio"),
+11:("Maria","Patricia","AnaG","Cristina","Antonio"),12:("Maria","Carlota","Sandra","Rosario","Tania"),
+13:("Sandra","Ana","Patri","David","Eva"),14:("Sandra","Patricia","Candela","Aitor","Mercedes"),
+15:("Sandra","Ana","Patri","David","Eva"),16:("Sandra","Maria","AnaG","Marc","Miriam"),
+17:("Isabel","Carlota","Fabian","Antonio","Tania"),18:("AnaG","Maria","Sandra","Emilio","Ana"),
+19:("Maria","Patricia","Isabel","Asis","Marc"),20:("Maria","Tony","AnaG","Arturo","Cristina"),
+21:("Maria","Eva","Candela","Emilio","Fatima"),22:("Maria","Tony","AnaG","Arturo","Cristina"),
+23:("Sandra","Carlota","Fabian","Almudena","Isabel"),24:("Sandra","Maria","Candela","Eva","Antonio"),
+25:("Isabel","Tony","AnaG","Emilio","Marc"),26:("AnaG","Carlota","Almudena","David","Sandra"),
+27:("Almudena","Maria","Isabel","Rosario","Asis"),28:("Almudena","Emilio","Fabian","Antonio","Tania"),
+29:("Almudena","Maria","Isabel","Rosario","Asis"),30:("Maria","Patricia","Candela","Arturo","Ana")}
+
+SUELTAS=os.environ.get("SUELTAS")=="1"
 m=cp_model.CpModel(); ROLES=["UCQ","MAY","QX"]; CAP={"UCQ":1,"MAY":1,"QX":2}
 tx={(p,d):m.NewBoolVar("") for p in R4 for d in DAYS}
 x={(p,d,r):m.NewBoolVar("") for p in ALL for d in DAYS for r in ROLES}
 
-# ---------- trasplante ----------
 for d in DAYS: m.Add(sum(tx[p,d] for p in R4)==1)
 for p in R4:
     for d in DAYS:
         if d in BLOCK[p] or (d in PUENTE and p in NO_PUENTE): m.Add(tx[p,d]==0)
     if p=="Almudena": m.Add(tx[p,3]==0)
-    for d in DAYS:                      # tandas: ningun dia suelto, racha maxima 6
+    for d in DAYS:
         ad=[tx[p,k] for k in (d-1,d+1) if k in DAYS]
-        if d!=30 and ad: m.Add(sum(ad)>=1).OnlyEnforceIf(tx[p,d])
+        if d!=30 and ad and not SUELTAS: m.Add(sum(ad)>=1).OnlyEnforceIf(tx[p,d])
         w=[tx[p,k] for k in range(d,d+6) if k in DAYS]
         if len(w)==6: m.Add(sum(w)<=5)
-# el bloque viernes-domingo (viernes-lunes en el puente) lo hace UNA SOLA persona.
-# La tanda puede venir del jueves o seguir despues: no va cerrada.
 for ds in WKND.values():
     for p in R4:
         for k in ds[1:]: m.Add(tx[p,ds[0]]==tx[p,k])
-# Ana G. coge la tanda del puente; Carlota, Isabel y Sandra, ninguna tanda de finde
-m.Add(tx["AnaG",6]==1)                  # Ana G. coge el puente (excepcion a los 2/3)
-m.Add(tx["Sandra",13]==1)               # el 13-15 vuelve a Sandra
-for p in ("Carlota","Isabel"):
-    for ds in WKND.values(): m.Add(tx[p,ds[0]]==0)
 for p in R4: m.Add(sum(tx[p,ds[0]] for ds in WKND.values())<=1)
-m.Add(sum(tx["Isabel",d] for d in DAYS)==2)
-m.Add(sum(tx["Maria",d] for d in DAYS)<=9)
-for p in R4:
-    if p!="Maria": m.Add(sum(tx[p,d] for d in DAYS)<=8)
+if MODE!="carlota_tanda":
+    for p in ("Carlota","Isabel"):
+        for ds in WKND.values(): m.Add(tx[p,ds[0]]==0)
 
-# ---------- puestos ----------
 def elig(p,d,r):
     if d in BLOCK[p]: return False
     if d==30 and LEV[p]=="R4": return False
-    if d==6 and LEV[p] in ("R1","R2"): return False
+    if d==6 and LEV[p] in ("R1","R2"):
+        if MODE=="libranza" and r=="QX": pass
+        elif MODE=="libranza_r2" and r=="QX" and LEV[p]=="R2": pass
+        else: return False
     if d==7 and LEV[p]=="R1": return False
     if d in PUENTE and p in NO_PUENTE: return False
     if d==3 and p in DAY2: return False
-    if p in ROT: return r=="UCQ"                     # los rotantes SOLO hacen UCQ
+    if p in ROT:
+        if MODE=="rot_qx" and p=="Carlota" and r=="QX" and d in (6,8): return True
+        return r=="UCQ"
     if r=="UCQ": return LEV[p]=="R2"
     if r=="MAY": return LEV[p] in ("R3","R4")
-    if r=="QX":
-        if d==8: return LEV[p]=="R1"                 # domingo 8: quirofano para R1
-        return LEV[p] in ("R1","R2","R4")            # las R4 pueden sumar en quirofano
+    if r=="QX": return LEV[p] in ("R1","R2","R4")
     return False
 for p in ALL:
     for d in DAYS:
@@ -75,38 +84,36 @@ for p in ALL:
             if not elig(p,d,r): m.Add(x[p,d,r]==0)
 for d in DAYS:
     for r in ROLES: m.Add(sum(x[p,d,r] for p in ALL)==CAP[r])
-m.Add(sum(x[p,8,"UCQ"] for p in R2)==1)              # domingo 8: UCQ para un R2
+if MODE in ("libranza","libranza_r2"):
+    m.Add(sum(x[p,6,r] for p in R1+R2 for r in ROLES)<=1)
 
 n={}
 for p in ALL:
     for d in DAYS:
         v=m.NewBoolVar(""); m.Add(v==sum(x[p,d,r] for r in ROLES)); n[p,d]=v
         if p in R4: m.Add(v+tx[p,d]<=1)
+# el 6 y el 8, las mismas personas
+for p in ALL: m.Add(n[p,6]==n[p,8])
 for p in ALL:
     for d in DAYS:
         if d+1 in DAYS:
             m.Add(n[p,d]+n[p,d+1]<=1)
             if p in R4: m.Add(n[p,d+1]==0).OnlyEnforceIf(tx[p,d])
 m.Add(n["Almudena",3]==0)
-PROPIOS={(7,9),(13,15),(20,22),(27,29)}
+PROPIOS={(6,8),(7,9),(13,15),(20,22),(27,29)}
 dobs=[]
 for p in ALL:
     for d in DAYS:
         if d+2 in DAYS and (d,d+2) not in PROPIOS:
-            if p=="Carlota":
-                m.Add(n[p,d] + n[p,d+2] <= 1); continue
             b=m.NewBoolVar(f"db_{p}_{d}")
-            m.Add(n[p,d] + n[p,d+2] - 1 <= b)
-            dobs.append(b)
+            m.Add(n[p,d] + n[p,d+2] - 1 <= b); dobs.append(b)
+# sin tripletes: maximo 2 guardias en cualquier ventana de 5 dias
 for p in ALL:
     for d in DAYS:
         w=[n[p,k] for k in range(d,d+5) if k in DAYS]
         if len(w)==5: m.Add(sum(w)<=2)
-# la ventana cruza la frontera de mes: dia 1 y dia 2 del cuadrante de octubre
-for p in ("Patricia","AnaG","Mercedes","Aitor"):          # trabajaron el dia 1
-    m.Add(sum(n[p,d] for d in (3,4,5))<=1)
-for p in ("Tania","Fabian","Fatima","Miriam"):            # trabajaron el dia 2
-    m.Add(sum(n[p,d] for d in (4,5,6))<=1)
+for p in ("Patricia","AnaG","Mercedes","Aitor"): m.Add(sum(n[p,d] for d in (3,4,5))<=1)
+for p in ("Tania","Fabian","Fatima","Miriam"):   m.Add(sum(n[p,d] for d in (4,5,6))<=1)
 for a,b in VD+SF:
     for p in ALL:
         for r in ROLES: m.Add(x[p,a,r]==x[p,b,r])
@@ -121,69 +128,49 @@ for p in ALL:
     F=m.NewIntVar(0,4,""); m.Add(F==sum(fs)); fin[p]=F
 for p in ALL:  m.Add(load[p]<=6)
 for p in R1:   m.Add(load[p]==3); m.Add(fin[p]<=1)
-for p in R3NR: m.Add(load[p]==5)   # Candela cede su sexta guardia a un R2
-for p in ROT:
-    if p=="Maria": m.Add(ucq[p]==6)
-    else: m.Add(ucq[p]==6)                      # los cuatro rotantes, 6 guardias
-m.Add(load["Patri"]==5)                            # Patri R3: 5 guardias
-for p in R4NR: m.Add(load[p]==5)                     # TOPE: 5 guardias, trasplante aparte
-for p in R4:   m.Add(fin[p]<=1)                      # 1 finde de qx/ucq como maximo
-
+for p in R3NR: m.Add(load[p]==5)
+for p in ROT:  m.Add(ucq[p]==6)
+m.Add(load["Patri"]==5)
+for p in R4NR: m.Add(load[p]==5)
+for p in R4NR: m.Add(fin[p]<=1)
+# punto 4: Carlota 6 guardias y 2 findes, con la UCQ del 21
+m.Add(x["Carlota",21,"UCQ"]==1); m.Add(load["Carlota"]==6); m.Add(fin["Carlota"]==2)
+# punto 4: Eva se queda en 5 guardias y 1 finde
+m.Add(load["Eva"]==5); m.Add(fin["Eva"]==1)
 for p in R2NR:
-    m.Add(fin[p]<=2)
-    m.Add(ucq[p]<=2)                                  # como maximo 2 dias de UCQ
-    m.Add(sum(x[p,d,"QX"] for d in DAYS) >= ucq[p])   # siempre mas quirofano que UCQ
+    m.Add(fin[p]<=2); m.Add(ucq[p]<=2)
+    m.Add(sum(x[p,d,"QX"] for d in DAYS) >= ucq[p])
 m.Add(fin["Tony"]<=2); m.Add(fin["Patricia"]<=2)
 for p in R3NR: m.Add(fin[p]<=2)
 
-maxr2=m.NewIntVar(0,7,"maxr2")
-for q in R2NR: m.Add(maxr2>=load[q])
-for q,v in {"Isabel":2,"Almudena":3,"Carlota":3}.items():
+m.Add(tx["Carlota",3]==1); m.Add(tx["Carlota",4]==1)   # Carlota mantiene su tanda del 3-4
+# localizadas: como en tu calendario, salvo la del 5 que Carlota pierde por la norma de la vispera
+for q,v in {"Carlota":2,"Isabel":3,"Almudena":3,"Sandra":6,"Maria":7,"AnaG":7}.items():
     m.Add(sum(tx[q,d] for d in DAYS)==v)
-txM=sum(tx["Maria",d] for d in DAYS)
-txA=sum(tx["AnaG",d] for d in DAYS); txS=sum(tx["Sandra",d] for d in DAYS)
-m.Add(txA==7); m.Add(txS==6); m.Add(txM==7)
-difAS=m.NewIntVar(0,28,"difAS"); m.AddAbsEquality(difAS, txA-txS)
-dev=[]; mxc=m.NewIntVar(0,60,"mxc")
-for p in R4:
-    c=m.NewIntVar(0,60,""); m.Add(c==BASE[p]+sum(tx[p,d] for d in DAYS))
-    m.Add(mxc>=c)
-    a=m.NewIntVar(0,60,""); m.AddAbsEquality(a,c-37); dev.append(a)
-    e=m.NewIntVar(0,60,""); m.AddMaxEquality(e,[c-38,m.NewConstant(0)]); dev.append(e); dev.append(e)
-dobles=[]
-for d in DAYS:
-    if d==8: continue
-    b=m.NewBoolVar(f"dob_{d}")
-    m.Add(sum(x[p,d,"QX"] for p in R1) >= 2).OnlyEnforceIf(b)
-    m.Add(sum(x[p,d,"QX"] for p in R1) <= 1).OnlyEnforceIf(b.Not())
-    dobles.append(b)
-mx1=m.NewIntVar(0,3,"mx1b"); mn1=m.NewIntVar(0,3,"mn1b")
-for p in R1: m.Add(mx1>=load[p]); m.Add(mn1<=load[p])
-mx2=m.NewIntVar(0,6,"mx2"); mn2=m.NewIntVar(0,6,"mn2")
-for p in R2NR: m.Add(mx2>=load[p]); m.Add(mn2<=load[p])
-mx3=m.NewIntVar(0,6,"mx3"); mn3=m.NewIntVar(0,6,"mn3")
-for p in R3NR: m.Add(mx3>=load[p]); m.Add(mn3<=load[p])
-carga3=sum(tx[p,d] for p in ("Almudena","Carlota") for d in DAYS)
 
-m.Minimize(400*sum(dobs) + 200*mxc + 10*sum(dev) + 6*carga3 - 80*maxr2 + 30*(mx1-mn1) + 60*(mx2-mn2) + 30*(mx3-mn3))
-s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=240; s.parameters.num_workers=8
-st=s.Solve(m); print("status:",s.StatusName(st));print("dobletes:",sum(s.Value(b) for b in dobs))
+# objetivo: parecerse lo mas posible al calendario manual
+same=[]; wsame=[]
+for d,v in MAN.items():
+    same.append(tx[v[0],d]); wsame.append(tx[v[0],d])
+    for r,who in (("UCQ",v[1]),("MAY",v[2]),("QX",v[3]),("QX",v[4])):
+        same.append(x[who,d,r]); wsame.append(x[who,d,r])
+m.Maximize(100*sum(wsame) - 120*sum(dobs))
+s=cp_model.CpSolver(); s.parameters.max_time_in_seconds=420; s.parameters.num_workers=8
+st=s.Solve(m); print("MODE",MODE,"status:",s.StatusName(st))
 if st not in (cp_model.OPTIMAL,cp_model.FEASIBLE): sys.exit(1)
+print("coincidencias con tu calendario:",sum(s.Value(b) for b in same),"/140  | dobletes:",sum(s.Value(b) for b in dobs))
 sched={}
 for d in DAYS:
     row={"TX":[p for p in R4 if s.Value(tx[p,d])][0]}
     for r in ROLES:
         w=[p for p in ALL if s.Value(x[p,d,r])]; row[r]=w[0] if r!="QX" else w
     sched[d]=row
-json.dump({"sched":sched},open("sol.json","w"),indent=1)
+json.dump({"sched":sched},open(f"sol_{MODE}.json","w"),indent=1)
 DOW={d:["dom","lun","mar","mie","jue","vie","sab"][(d-1)%7] for d in range(1,31)}
 for d in DAYS:
-    r=sched[d]; print(f"{d:2d} {DOW[d]}  TX {r['TX']:9s} UCQ {r['UCQ']:9s} MAY {r['MAY']:9s} QX {r['QX'][0]:9s} {r['QX'][1]:9s}")
-print("\nrotantes UCQ:", {p:s.Value(ucq[p]) for p in ROT}, "| dias de UCQ a R2:", sum(s.Value(ucq[p]) for p in R2NR))
-print("\n           jun-oct  nov  ->  acum | findesTX | presencial findes")
+    r=sched[d]; mk="" if [r["TX"],r["UCQ"],r["MAY"]]+sorted(r["QX"])==[MAN[d][0],MAN[d][1],MAN[d][2]]+sorted(MAN[d][3:]) else "  <-- cambia"
+    print(f"{d:2d} {DOW[d]}  TX {r['TX']:9s} UCQ {r['UCQ']:9s} MAY {r['MAY']:9s} QX {r['QX'][0]:9s} {r['QX'][1]:9s}{mk}")
+print("\nCarlota:",s.Value(load["Carlota"]),"guardias /",s.Value(fin["Carlota"]),"findes | Eva:",s.Value(load["Eva"]),"/",s.Value(fin["Eva"]))
 for p in R4:
     t=sum(1 for d in DAYS if sched[d]["TX"]==p); ft=sum(1 for w in WKND.values() if sched[w[0]]["TX"]==p)
-    print(f"{p:10s} {BASE[p]:6d} {t:4d}  -> {BASE[p]+t:4d} |    {ft}     | {s.Value(load[p])}   {s.Value(fin[p])}")
-print()
-for g,nm in ((R1,"R1"),(R2,"R2"),(R3,"R3")):
-    print(nm, {p:(s.Value(load[p]),s.Value(fin[p])) for p in g})
+    print(f"{p:10s} loc {t}  findesTX {ft}  acum {BASE[p]+t}  presencial {s.Value(load[p])}/{s.Value(fin[p])}")

@@ -224,3 +224,50 @@ Todos los recuentos de los documentos se calculan desde el calendario.
 Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio trabaja el
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
+
+## v17 — los seis arreglos sobre el calendario manual
+
+1. **Todos los bloqueos respetados.** Emilio libra el 18 y Fabián el 8 y el 7.
+2. **El 6 y el 8, el mismo equipo:** Ana G. (TX), Carlota (UCQ), Sandra (mayor), Tania y
+   Almudena (quirófano).
+3. **Almudena exenta del tope de 2/3 puentes** (petición expresa). Ana G. ya lo estaba.
+4. **La UCQ del 21 pasa de Eva a Carlota.** Carlota queda en 6 guardias / 2 findes
+   (6, 8, 12, 17, 21, 26); Eva en 5 guardias / 1 finde (3, 13, 15, 19, 24).
+5. **Almudena sin triplete.** Hacía 6-8-10; ahora 6, 8, 18, 23, 26. No queda ningún
+   triplete en todo el mes.
+6. **Carlota sin localizada en víspera de guardia.** Su tanda se acorta al 3 y el 4; el
+   jueves 5 pasa a Ana G., que entra al puente desde el jueves.
+
+### La excepción que no se pidió: un R2 el viernes de la fiesta
+
+Emparejar el 6 con el 8 exige cinco personas libres los dos días. El viernes 6 solo admite
+R3 y R4 por la libranza de la fiesta, y de ese grupo caen Fabián (vacaciones el 7 y el 8),
+Isabel y Candela (6-9) y María (hasta el 15). Quedan Patri, Tony, Carlota, Almudena,
+Ana G. y Sandra: seis personas para cubrir el 6, el 8, la localizada del puente y el mayor
+del sábado 7 —que también tiene que ser R3 o R4—. **Falta exactamente una persona.**
+
+Probado con el solver: con la libranza intacta el modelo es INFEASIBLE. Las dos únicas
+salidas son:
+
+- **Meter un solo R2 en quirófano el 6 y el 8** (Tania). Ningún R1 trabaja el 6 ni el 7.
+  Es la elegida.
+- **Dar a Carlota la tanda de localizada del puente**, que la dejaría en 19 findes de
+  localizada acumulados, el récord del servicio, deshaciendo el objetivo del reparto.
+
+Una tercera vía —Carlota, rotante, saliendo a quirófano el 6 y el 8— también es INFEASIBLE.
+
+### Localizadas sueltas entre semana
+
+El calendario manual las tiene (Isabel el 10, el 17 y el 25). Se admiten entre semana; en
+finde sigue exigiéndose el bloque viernes-domingo de una sola persona.
+
+### Reparto final
+
+Localizadas: Carlota 2, Isabel 3, Almudena 3, Sandra 6, Ana G. 7, María 7.
+Acumulado desde junio: Isabel 41, Almudena 39, Ana G. 39, Sandra 39, Carlota 36, María 30.
+Findes de localizada acumulados: Sandra 19, Carlota 18, Isabel 16, Almudena 15, María 14,
+Ana G. 12. Gerard sigue fuera, en 15/9.
+
+122 de las 140 celdas quedan como estaban en el calendario manual. Dobletes: 1
+(María 16+18), frente a los 6 de la versión manual. `check.py` da **0 errores** y lista
+aparte las 4 normas saltadas a propósito.

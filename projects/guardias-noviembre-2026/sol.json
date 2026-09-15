@@ -1,1 +1,256 @@
-{"sched": {"3": {"TX": "Carlota", "UCQ": "Tony", "MAY": "Isabel", "QX": ["Aitor", "Eva"]}, "4": {"TX": "Carlota", "UCQ": "Ana", "MAY": "Patri", "QX": ["Mercedes", "Antonio"]}, "5": {"TX": "Carlota", "UCQ": "Patricia", "MAY": "Candela", "QX": ["Fatima", "Tania"]}, "6": {"TX": "AnaG", "UCQ": "Carlota", "MAY": "Fabian", "QX": ["Almudena", "Sandra"]}, "7": {"TX": "AnaG", "UCQ": "Tony", "MAY": "Patri", "QX": ["Asis", "Marc"]}, "8": {"TX": "AnaG", "UCQ": "Carlota", "MAY": "Fabian", "QX": ["Sandra", "Almudena"]}, "9": {"TX": "AnaG", "UCQ": "Tony", "MAY": "Patri", "QX": ["Asis", "Marc"]}, "10": {"TX": "Isabel", "UCQ": "Maria", "MAY": "Almudena", "QX": ["Miriam", "Emilio"]}, "11": {"TX": "Maria", "UCQ": "Patricia", "MAY": "AnaG", "QX": ["Cristina", "Antonio"]}, "12": {"TX": "Maria", "UCQ": "Carlota", "MAY": "Sandra", "QX": ["Rosario", "Tania"]}, "13": {"TX": "Sandra", "UCQ": "Ana", "MAY": "Patri", "QX": ["David", "Eva"]}, "14": {"TX": "Sandra", "UCQ": "Patricia", "MAY": "Candela", "QX": ["Aitor", "Mercedes"]}, "15": {"TX": "Sandra", "UCQ": "Ana", "MAY": "Patri", "QX": ["David", "Eva"]}, "16": {"TX": "Sandra", "UCQ": "Maria", "MAY": "AnaG", "QX": ["Marc", "Miriam"]}, "17": {"TX": "Isabel", "UCQ": "Carlota", "MAY": "Fabian", "QX": ["Antonio", "Tania"]}, "18": {"TX": "AnaG", "UCQ": "Maria", "MAY": "Sandra", "QX": ["Emilio", "Ana"]}, "19": {"TX": "Maria", "UCQ": "Patricia", "MAY": "Isabel", "QX": ["Asis", "Marc"]}, "20": {"TX": "Maria", "UCQ": "Tony", "MAY": "AnaG", "QX": ["Arturo", "Cristina"]}, "21": {"TX": "Maria", "UCQ": "Eva", "MAY": "Candela", "QX": ["Emilio", "Fatima"]}, "22": {"TX": "Maria", "UCQ": "Tony", "MAY": "AnaG", "QX": ["Arturo", "Cristina"]}, "23": {"TX": "Sandra", "UCQ": "Carlota", "MAY": "Fabian", "QX": ["Almudena", "Isabel"]}, "24": {"TX": "Sandra", "UCQ": "Maria", "MAY": "Candela", "QX": ["Eva", "Antonio"]}, "25": {"TX": "Isabel", "UCQ": "Tony", "MAY": "AnaG", "QX": ["Emilio", "Marc"]}, "26": {"TX": "AnaG", "UCQ": "Carlota", "MAY": "Almudena", "QX": ["David", "Sandra"]}, "27": {"TX": "Almudena", "UCQ": "Maria", "MAY": "Isabel", "QX": ["Rosario", "Asis"]}, "28": {"TX": "Almudena", "UCQ": "Emilio", "MAY": "Fabian", "QX": ["Antonio", "Tania"]}, "29": {"TX": "Almudena", "UCQ": "Maria", "MAY": "Isabel", "QX": ["Rosario", "Asis"]}, "30": {"TX": "Maria", "UCQ": "Patricia", "MAY": "Candela", "QX": ["Arturo", "Ana"]}}}
+{
+ "sched": {
+  "3": {
+   "TX": "Carlota",
+   "UCQ": "Tony",
+   "MAY": "Isabel",
+   "QX": [
+    "Aitor",
+    "Eva"
+   ]
+  },
+  "4": {
+   "TX": "Carlota",
+   "UCQ": "Marc",
+   "MAY": "Fabian",
+   "QX": [
+    "Mercedes",
+    "Antonio"
+   ]
+  },
+  "5": {
+   "TX": "AnaG",
+   "UCQ": "Patricia",
+   "MAY": "Candela",
+   "QX": [
+    "Fatima",
+    "Miriam"
+   ]
+  },
+  "6": {
+   "TX": "AnaG",
+   "UCQ": "Carlota",
+   "MAY": "Sandra",
+   "QX": [
+    "Tania",
+    "Almudena"
+   ]
+  },
+  "7": {
+   "TX": "AnaG",
+   "UCQ": "Tony",
+   "MAY": "Patri",
+   "QX": [
+    "Asis",
+    "Marc"
+   ]
+  },
+  "8": {
+   "TX": "AnaG",
+   "UCQ": "Carlota",
+   "MAY": "Sandra",
+   "QX": [
+    "Tania",
+    "Almudena"
+   ]
+  },
+  "9": {
+   "TX": "AnaG",
+   "UCQ": "Tony",
+   "MAY": "Patri",
+   "QX": [
+    "Asis",
+    "Marc"
+   ]
+  },
+  "10": {
+   "TX": "Isabel",
+   "UCQ": "Maria",
+   "MAY": "Fabian",
+   "QX": [
+    "Mercedes",
+    "Miriam"
+   ]
+  },
+  "11": {
+   "TX": "Maria",
+   "UCQ": "Patricia",
+   "MAY": "AnaG",
+   "QX": [
+    "Cristina",
+    "Antonio"
+   ]
+  },
+  "12": {
+   "TX": "Maria",
+   "UCQ": "Carlota",
+   "MAY": "Sandra",
+   "QX": [
+    "Fatima",
+    "Rosario"
+   ]
+  },
+  "13": {
+   "TX": "Sandra",
+   "UCQ": "Ana",
+   "MAY": "Patri",
+   "QX": [
+    "David",
+    "Eva"
+   ]
+  },
+  "14": {
+   "TX": "Sandra",
+   "UCQ": "Patricia",
+   "MAY": "Candela",
+   "QX": [
+    "Aitor",
+    "Mercedes"
+   ]
+  },
+  "15": {
+   "TX": "Sandra",
+   "UCQ": "Ana",
+   "MAY": "Patri",
+   "QX": [
+    "David",
+    "Eva"
+   ]
+  },
+  "16": {
+   "TX": "Sandra",
+   "UCQ": "Maria",
+   "MAY": "AnaG",
+   "QX": [
+    "Miriam",
+    "Marc"
+   ]
+  },
+  "17": {
+   "TX": "Isabel",
+   "UCQ": "Carlota",
+   "MAY": "Fabian",
+   "QX": [
+    "Aitor",
+    "Antonio"
+   ]
+  },
+  "18": {
+   "TX": "AnaG",
+   "UCQ": "Maria",
+   "MAY": "Sandra",
+   "QX": [
+    "Ana",
+    "Almudena"
+   ]
+  },
+  "19": {
+   "TX": "Maria",
+   "UCQ": "Patricia",
+   "MAY": "Isabel",
+   "QX": [
+    "Eva",
+    "Marc"
+   ]
+  },
+  "20": {
+   "TX": "Maria",
+   "UCQ": "Tony",
+   "MAY": "AnaG",
+   "QX": [
+    "Arturo",
+    "Cristina"
+   ]
+  },
+  "21": {
+   "TX": "Maria",
+   "UCQ": "Carlota",
+   "MAY": "Candela",
+   "QX": [
+    "Fatima",
+    "Emilio"
+   ]
+  },
+  "22": {
+   "TX": "Maria",
+   "UCQ": "Tony",
+   "MAY": "AnaG",
+   "QX": [
+    "Arturo",
+    "Cristina"
+   ]
+  },
+  "23": {
+   "TX": "Sandra",
+   "UCQ": "Patricia",
+   "MAY": "Fabian",
+   "QX": [
+    "Isabel",
+    "Almudena"
+   ]
+  },
+  "24": {
+   "TX": "Sandra",
+   "UCQ": "Maria",
+   "MAY": "Candela",
+   "QX": [
+    "Antonio",
+    "Eva"
+   ]
+  },
+  "25": {
+   "TX": "Isabel",
+   "UCQ": "Tony",
+   "MAY": "Patri",
+   "QX": [
+    "Emilio",
+    "AnaG"
+   ]
+  },
+  "26": {
+   "TX": "AnaG",
+   "UCQ": "Carlota",
+   "MAY": "Almudena",
+   "QX": [
+    "David",
+    "Sandra"
+   ]
+  },
+  "27": {
+   "TX": "Almudena",
+   "UCQ": "Maria",
+   "MAY": "Isabel",
+   "QX": [
+    "Rosario",
+    "Asis"
+   ]
+  },
+  "28": {
+   "TX": "Almudena",
+   "UCQ": "Emilio",
+   "MAY": "Fabian",
+   "QX": [
+    "Antonio",
+    "Tania"
+   ]
+  },
+  "29": {
+   "TX": "Almudena",
+   "UCQ": "Maria",
+   "MAY": "Isabel",
+   "QX": [
+    "Rosario",
+    "Asis"
+   ]
+  },
+  "30": {
+   "TX": "Maria",
+   "UCQ": "Patricia",
+   "MAY": "Candela",
+   "QX": [
+    "Arturo",
+    "Ana"
+   ]
+  }
+ }
+}

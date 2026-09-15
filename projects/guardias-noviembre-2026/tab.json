@@ -5,8 +5,8 @@
    "lev": "R1",
    "octg": 5,
    "octf": 1,
-   "nov": 2,
-   "ntx": 2,
+   "nov": 3,
+   "ntx": 3,
    "fin": 1,
    "finn": 1,
    "fint": 0,
@@ -14,9 +14,9 @@
     "TX": 0,
     "UCQ": 0,
     "MAY": 0,
-    "QX": 2
+    "QX": 3
    },
-   "tot": 7,
+   "tot": 8,
    "fin2": 2,
    "pue": 1,
    "blk": [
@@ -104,8 +104,8 @@
    "lev": "R1",
    "octg": 5,
    "octf": 3,
-   "nov": 2,
-   "ntx": 2,
+   "nov": 3,
+   "ntx": 3,
    "fin": 1,
    "finn": 1,
    "fint": 0,
@@ -113,9 +113,9 @@
     "TX": 0,
     "UCQ": 0,
     "MAY": 0,
-    "QX": 2
+    "QX": 3
    },
-   "tot": 7,
+   "tot": 8,
    "fin2": 4,
    "pue": 1,
    "blk": [
@@ -132,8 +132,8 @@
    "lev": "R1",
    "octg": 4,
    "octf": 2,
-   "nov": 2,
-   "ntx": 2,
+   "nov": 3,
+   "ntx": 3,
    "fin": 1,
    "finn": 1,
    "fint": 0,
@@ -141,9 +141,9 @@
     "TX": 0,
     "UCQ": 0,
     "MAY": 0,
-    "QX": 2
+    "QX": 3
    },
-   "tot": 6,
+   "tot": 7,
    "fin2": 3,
    "pue": 1,
    "blk": [
@@ -187,8 +187,8 @@
    "lev": "R1",
    "octg": 7,
    "octf": 3,
-   "nov": 2,
-   "ntx": 2,
+   "nov": 3,
+   "ntx": 3,
    "fin": 0,
    "finn": 0,
    "fint": 0,
@@ -196,9 +196,9 @@
     "TX": 0,
     "UCQ": 0,
     "MAY": 0,
-    "QX": 2
+    "QX": 3
    },
-   "tot": 9,
+   "tot": 10,
    "fin2": 3,
    "pue": 1,
    "blk": [
@@ -216,18 +216,18 @@
    "lev": "R2",
    "octg": 6,
    "octf": 2,
-   "nov": 5,
-   "ntx": 5,
+   "nov": 6,
+   "ntx": 6,
    "fin": 1,
    "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
-    "UCQ": 5,
+    "UCQ": 6,
     "MAY": 0,
     "QX": 0
    },
-   "tot": 11,
+   "tot": 12,
    "fin2": 3,
    "pue": 1,
    "blk": []
@@ -237,18 +237,18 @@
    "lev": "R2",
    "octg": 5,
    "octf": 2,
-   "nov": 5,
-   "ntx": 5,
+   "nov": 4,
+   "ntx": 4,
    "fin": 1,
    "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
-    "UCQ": 3,
+    "UCQ": 2,
     "MAY": 0,
     "QX": 2
    },
-   "tot": 10,
+   "tot": 9,
    "fin2": 3,
    "pue": 1,
    "blk": [
@@ -290,8 +290,8 @@
    "lev": "R2",
    "octg": 6,
    "octf": 1,
-   "nov": 5,
-   "ntx": 5,
+   "nov": 4,
+   "ntx": 4,
    "fin": 2,
    "finn": 2,
    "fint": 0,
@@ -299,9 +299,9 @@
     "TX": 0,
     "UCQ": 0,
     "MAY": 0,
-    "QX": 5
+    "QX": 4
    },
-   "tot": 11,
+   "tot": 10,
    "fin2": 3,
    "pue": 1,
    "blk": [
@@ -316,8 +316,8 @@
    "lev": "R2",
    "octg": 6,
    "octf": 2,
-   "nov": 5,
-   "ntx": 5,
+   "nov": 3,
+   "ntx": 3,
    "fin": 2,
    "finn": 2,
    "fint": 0,
@@ -325,9 +325,9 @@
     "TX": 0,
     "UCQ": 1,
     "MAY": 0,
-    "QX": 4
+    "QX": 2
    },
-   "tot": 11,
+   "tot": 9,
    "fin2": 4,
    "pue": 1,
    "blk": [
@@ -342,17 +342,17 @@
    "octf": 3,
    "nov": 5,
    "ntx": 5,
-   "fin": 2,
-   "finn": 2,
+   "fin": 1,
+   "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
-    "UCQ": 1,
+    "UCQ": 0,
     "MAY": 0,
-    "QX": 4
+    "QX": 5
    },
    "tot": 11,
-   "fin2": 5,
+   "fin2": 4,
    "pue": 1,
    "blk": [
     6,
@@ -369,20 +369,20 @@
    "lev": "R2",
    "octg": 6,
    "octf": 3,
-   "nov": 4,
-   "ntx": 4,
-   "fin": 1,
-   "finn": 1,
+   "nov": 3,
+   "ntx": 3,
+   "fin": 2,
+   "finn": 2,
    "fint": 0,
    "cnt": {
     "TX": 0,
     "UCQ": 0,
     "MAY": 0,
-    "QX": 4
+    "QX": 3
    },
-   "tot": 10,
-   "fin2": 4,
-   "pue": 1,
+   "tot": 9,
+   "fin2": 5,
+   "pue": 2,
    "blk": [
     18,
     19,
@@ -404,9 +404,9 @@
    "fint": 0,
    "cnt": {
     "TX": 0,
-    "UCQ": 0,
+    "UCQ": 1,
     "MAY": 0,
-    "QX": 5
+    "QX": 4
    },
    "tot": 11,
    "fin2": 2,
@@ -456,8 +456,8 @@
    "octf": 3,
    "nov": 5,
    "ntx": 5,
-   "fin": 2,
-   "finn": 2,
+   "fin": 1,
+   "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -466,8 +466,8 @@
     "QX": 0
    },
    "tot": 12,
-   "fin2": 5,
-   "pue": 2,
+   "fin2": 4,
+   "pue": 1,
    "blk": [
     7,
     8
@@ -532,19 +532,19 @@
    "lev": "R4",
    "octg": 12,
    "octf": 4,
-   "nov": 9,
+   "nov": 8,
    "ntx": 6,
-   "fin": 1,
-   "finn": 1,
+   "fin": 2,
+   "finn": 2,
    "fint": 0,
    "cnt": {
-    "TX": 3,
+    "TX": 2,
     "UCQ": 6,
     "MAY": 0,
     "QX": 0
    },
-   "tot": 21,
-   "fin2": 5,
+   "tot": 20,
+   "fin2": 6,
    "pue": 2,
    "blk": [
     13,
@@ -627,8 +627,8 @@
    "cnt": {
     "TX": 3,
     "UCQ": 0,
-    "MAY": 2,
-    "QX": 3
+    "MAY": 1,
+    "QX": 4
    },
    "tot": 21,
    "fin2": 7,
@@ -647,18 +647,18 @@
    "lev": "R4",
    "octg": 8,
    "octf": 2,
-   "nov": 11,
+   "nov": 12,
    "ntx": 5,
    "fin": 2,
    "finn": 1,
    "fint": 1,
    "cnt": {
-    "TX": 6,
+    "TX": 7,
     "UCQ": 0,
-    "MAY": 5,
-    "QX": 0
+    "MAY": 4,
+    "QX": 1
    },
-   "tot": 19,
+   "tot": 20,
    "fin2": 4,
    "pue": 3,
    "blk": []
@@ -676,8 +676,8 @@
    "cnt": {
     "TX": 6,
     "UCQ": 0,
-    "MAY": 2,
-    "QX": 3
+    "MAY": 4,
+    "QX": 1
    },
    "tot": 23,
    "fin2": 6,
@@ -701,29 +701,29 @@
   },
   "4": {
    "TX": "Carlota",
-   "UCQ": "Ana",
-   "MAY": "Patri",
+   "UCQ": "Marc",
+   "MAY": "Fabian",
    "QX": [
     "Mercedes",
     "Antonio"
    ]
   },
   "5": {
-   "TX": "Carlota",
+   "TX": "AnaG",
    "UCQ": "Patricia",
    "MAY": "Candela",
    "QX": [
     "Fatima",
-    "Tania"
+    "Miriam"
    ]
   },
   "6": {
    "TX": "AnaG",
    "UCQ": "Carlota",
-   "MAY": "Fabian",
+   "MAY": "Sandra",
    "QX": [
-    "Almudena",
-    "Sandra"
+    "Tania",
+    "Almudena"
    ]
   },
   "7": {
@@ -738,9 +738,9 @@
   "8": {
    "TX": "AnaG",
    "UCQ": "Carlota",
-   "MAY": "Fabian",
+   "MAY": "Sandra",
    "QX": [
-    "Sandra",
+    "Tania",
     "Almudena"
    ]
   },
@@ -756,10 +756,10 @@
   "10": {
    "TX": "Isabel",
    "UCQ": "Maria",
-   "MAY": "Almudena",
+   "MAY": "Fabian",
    "QX": [
-    "Miriam",
-    "Emilio"
+    "Mercedes",
+    "Miriam"
    ]
   },
   "11": {
@@ -776,8 +776,8 @@
    "UCQ": "Carlota",
    "MAY": "Sandra",
    "QX": [
-    "Rosario",
-    "Tania"
+    "Fatima",
+    "Rosario"
    ]
   },
   "13": {
@@ -812,8 +812,8 @@
    "UCQ": "Maria",
    "MAY": "AnaG",
    "QX": [
-    "Marc",
-    "Miriam"
+    "Miriam",
+    "Marc"
    ]
   },
   "17": {
@@ -821,8 +821,8 @@
    "UCQ": "Carlota",
    "MAY": "Fabian",
    "QX": [
-    "Antonio",
-    "Tania"
+    "Aitor",
+    "Antonio"
    ]
   },
   "18": {
@@ -830,8 +830,8 @@
    "UCQ": "Maria",
    "MAY": "Sandra",
    "QX": [
-    "Emilio",
-    "Ana"
+    "Ana",
+    "Almudena"
    ]
   },
   "19": {
@@ -839,7 +839,7 @@
    "UCQ": "Patricia",
    "MAY": "Isabel",
    "QX": [
-    "Asis",
+    "Eva",
     "Marc"
    ]
   },
@@ -854,11 +854,11 @@
   },
   "21": {
    "TX": "Maria",
-   "UCQ": "Eva",
+   "UCQ": "Carlota",
    "MAY": "Candela",
    "QX": [
-    "Emilio",
-    "Fatima"
+    "Fatima",
+    "Emilio"
    ]
   },
   "22": {
@@ -872,11 +872,11 @@
   },
   "23": {
    "TX": "Sandra",
-   "UCQ": "Carlota",
+   "UCQ": "Patricia",
    "MAY": "Fabian",
    "QX": [
-    "Almudena",
-    "Isabel"
+    "Isabel",
+    "Almudena"
    ]
   },
   "24": {
@@ -884,17 +884,17 @@
    "UCQ": "Maria",
    "MAY": "Candela",
    "QX": [
-    "Eva",
-    "Antonio"
+    "Antonio",
+    "Eva"
    ]
   },
   "25": {
    "TX": "Isabel",
    "UCQ": "Tony",
-   "MAY": "AnaG",
+   "MAY": "Patri",
    "QX": [
     "Emilio",
-    "Marc"
+    "AnaG"
    ]
   },
   "26": {

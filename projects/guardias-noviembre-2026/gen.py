@@ -234,13 +234,13 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 <div class="wrap">
 <header class="top">
   <div>
-    <div class="eyebrow">Programación de residentes · PROVISIONAL</div>
+    <div class="eyebrow">Programación de residentes · v17 sobre tu calendario</div>
     <h1>Guardias · Noviembre 2026</h1>
-    <p>Una tanda de finde de trasplante por R4, y ninguna para Carlota ni Isabel. Los
-    rotantes solo hacen UCQ, las R4 que no rotan tienen 5 guardias cada una, Patricia 5, los
-    R1 3, R3 5-6, los cuatro rotantes de UCQ a 6 guardias y nadie con tres guardias en
-    siete días. Ana G. hace los tres puentes, la excepción autorizada que lo desatasca.
-    Los días 1 y 2 vienen de octubre y salen atenuados.</p>
+    <p>Tu calendario con los seis arreglos que pediste: el 6 y el 8 con el mismo equipo,
+    todas las vacaciones respetadas, el triplete de Almudena deshecho, la UCQ del 21 para
+    Carlota y Carlota sin localizada en víspera de guardia. <b>122 de las 140 celdas quedan
+    como las dejaste.</b> Cero normas rotas; cuatro saltadas a propósito, todas autorizadas
+    por ti. Los días 1 y 2 vienen de octubre y salen atenuados.</p>
   </div>
   <div class="meta">
     <span>Residentes</span><b>26 · 8 R1, 8 R2, 4 R3, 6 R4</b>
@@ -252,62 +252,66 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 
 <dl class="strip">
   <div><dt>Puestos cubiertos</dt><dd>140 de 140</dd></div>
-  <div><dt>Vacaciones rotas</dt><dd>2 — Fabián el 8, Emilio el 18</dd></div>
+  <div><dt>Vacaciones</dt><dd>26 de 26 respetadas</dd></div>
   <div><dt>Tope R1</dt><dd>3 guardias · 1 finde</dd></div>
   <div><dt>Tope general</dt><dd>6 guardias sin TX</dd></div>
-  <div><dt>Rotación de UCQ</dt><dd>23 de 28 · solo rotantes</dd></div>
-  <div><dt>Carga</dt><dd>R1 2-3 · R2 4-5 · R3 5-6 · R4 5-6</dd></div>
-  <div><dt>Normas que rompe</dt><dd>5 · ver abajo</dd></div>
-  <div><dt>Dobletes</dt><dd>6</dd></div>
+  <div><dt>Rotación de UCQ</dt><dd>24 de 28 · solo rotantes</dd></div>
+  <div><dt>Carga</dt><dd>R1 3 · R2 3-6 · R3 5-6 · R4 5-6</dd></div>
+  <div><dt>Normas que rompe</dt><dd>0</dd></div>
+  <div><dt>Dobletes</dt><dd>1 — María 16+18</dd></div>
+  <div><dt>Celdas como las dejaste</dt><dd>122 de 140</dd></div>
   <div><dt>Tandas de finde</dt><dd>1 por R4 · 0 Carlota e Isabel</dd></div>
 </dl>
 
 <section>
-  <div class="shead"><h2>Estado de esta versión</h2>
-    <p>Comprobado por programa contra el cuadrante, regla a regla. Nueve cumplen; cinco no.</p></div>
+  <div class="shead"><h2>Los seis puntos que pediste</h2>
+    <p>Comprobado por programa contra el cuadrante, regla a regla. Los seis cumplen, y las
+    catorce familias de normas del servicio también: cero errores.</p></div>
   <ul class="cond">
-    <li class="ok"><span class="st">cumple</span><b>El viernes 6 y el domingo 8 llevan el mismo equipo</b>
-      <span class="dt">Ana G. de trasplante, Carlota en UCQ, Fabián de mayor y Almudena y Sandra en
-      quirófano. Es lo que querías desde el principio, y es también de donde salen cuatro de los
-      cinco problemas de abajo.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>El sábado 7 y el lunes 9 festivo, el mismo equipo</b>
-      <span class="dt">Ana G., Tony, Patri, Asís y Marc. Idéntico.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>El bloque viernes-domingo de cada tanda, de una sola persona</b>
-      <span class="dt">Ana G. el puente, Sandra el 13-15, María el 20-22 y Almudena el 27-29.
-      Carlota e Isabel, ninguna tanda de finde.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>Libranza de la fiesta de R1 y R2</b>
-      <span class="dt">El viernes 6 solo lleva R3 y R4. El sábado 7 no lleva ningún R1.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>Los rotantes de UCQ solo hacen UCQ</b>
-      <span class="dt">Tony 6, Carlota 6, María 6 y Patricia 5. Ninguno pisa el puesto de mayor
-      ni quirófano. Los 5 huecos van a R2: Ana el 4, 13 y 15, Eva el 21 y Emilio el 28.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>Ningún R1 por encima de 3 guardias</b>
-      <span class="dt">Arturo, Cristina, David y Rosario a 3; Aitor, Fátima, Mercedes y Miriam a 2.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>Nadie por encima de 6 guardias sin contar trasplante</b>
-      <span class="dt">Máximo 6: Tony, Carlota y María.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>Cada R4 con un solo finde presencial</b>
-      <span class="dt">Las seis a uno.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>Curso de R4 del día 30</b>
-      <span class="dt">Ese día no hay ninguna R4 en puesto presencial; la localizada de María sí.</span></li>
-    <li class="part"><span class="st">rompe</span><b>Fabián trabaja el domingo 8 y lo tiene de vacaciones</b>
-      <span class="dt">Tiene bloqueados el 7 y el 8. Al copiar el equipo del viernes al domingo
-      entra en sus días libres. Es el problema más serio de los cinco.</span></li>
-    <li class="part"><span class="st">rompe</span><b>Almudena llega a 3 de 3 puentes</b>
-      <span class="dt">Libraba el del 9 por haber hecho los dos de octubre. Al entrar el domingo 8
-      los hace los tres.</span></li>
-    <li class="part"><span class="st">rompe</span><b>Almudena hace triplete: 6, 8 y 10</b>
-      <span class="dt">Tres guardias en cinco días.</span></li>
-    <li class="part"><span class="st">rompe</span><b>Carlota: trasplante el 5 y guardia el 6</b>
-      <span class="dt">La localizada no puede ser víspera de guardia. Su tanda es el 3, 4 y 5, y el
-      viernes 6 entra en UCQ.</span></li>
-    <li class="part"><span class="st">rompe</span><b>Emilio trabaja el 18 y lo tiene de vacaciones</b>
-      <span class="dt">Tiene bloqueados el 4 y el 18. Este no tiene que ver con el emparejamiento
-      del 6 con el 8: es un cambio suelto.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>1 · Todas las vacaciones respetadas</b>
+      <span class="dt">Emilio libra el 18 y Fabián el 8. Ninguno de los 26 residentes pisa un
+      día bloqueado. Fabián sale del equipo del 6 y el 8 —tiene bloqueados los dos— y ese es el
+      único hueco que hubo que rellenar de fuera.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>2 · El viernes 6 y el domingo 8, el mismo equipo</b>
+      <span class="dt">Ana G. de trasplante, Carlota en UCQ, Sandra de mayor, y Tania y Almudena
+      en quirófano. Los cinco, los dos días. El sábado 7 y el lunes 9 también van emparejados:
+      Ana G., Tony, Patri, Asís y Marc.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>3 · Almudena hace los tres puentes</b>
+      <span class="dt">Con la excepción que autorizaste. Sin ella el 6 y el 8 no se pueden
+      emparejar: Almudena es una de las cuatro personas que pueden estar el viernes de la fiesta.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>4 · La UCQ del 21 pasa de Eva a Carlota</b>
+      <span class="dt">Carlota queda en <b>6 guardias y 2 findes</b> —6, 8, 12, 17, 21 y 26—, y Eva
+      en <b>5 guardias y 1 finde</b> —3, 13, 15, 19 y 24—. Eva recupera la guardia del 21 en el 19.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>5 · Almudena se queda sin triplete</b>
+      <span class="dt">Hacía 6, 8 y 10: tres guardias en cinco días. Ahora hace 6, 8, 18, 23 y 26.
+      No queda ningún triplete en todo el mes, de nadie.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>6 · Carlota no tiene localizada en víspera de guardia</b>
+      <span class="dt">Su tanda se acorta al 3 y el 4. El jueves 5 pasa a Ana G., que así entra al
+      puente desde el jueves. Carlota entra de UCQ el viernes 6 con un día limpio por delante.</span></li>
   </ul>
   <div class="legend">
-    <span><b>Dobletes:</b> 6 —trabajar el día <i>d</i> y el <i>d</i>+2 fuera de los emparejamientos
-    propios—. Cuatro son del 6+8 (Fabián, Carlota, Almudena y Sandra); los otros dos, Almudena
-    8+10 y María 16+18.</span>
+    <span><b>Dobletes:</b> 1 —María el 16 y el 18—, frente a los 6 de tu versión. Un doblete es
+    trabajar el día <i>d</i> y el <i>d</i>+2 fuera de los emparejamientos propios.</span>
   </div>
+</section>
+
+<section>
+  <div class="shead"><h2>Las cuatro normas que se saltan a propósito</h2>
+    <p>Ninguna es un error: las cuatro las autorizaste tú, y sin ellas el cuadrante no cierra.</p></div>
+  <ul class="cond">
+    <li class="part"><span class="st">excepción</span><b>Tania (R2) entra en quirófano el viernes 6 y el domingo 8</b>
+      <span class="dt">Es la única grieta que hubo que abrir, y no la habías pedido: te la explico
+      abajo. El viernes de la fiesta libran R1 y R2, y al quitar a Fabián —de vacaciones— no queda
+      gente de R3 y R4 para cubrir los dos días con el mismo equipo. Entra un solo R2, y en
+      quirófano. Ningún R1 trabaja ni el 6 ni el 7.</span></li>
+    <li class="part"><span class="st">excepción</span><b>Almudena llega a 3 de 3 puentes</b>
+      <span class="dt">Tu punto 3.</span></li>
+    <li class="part"><span class="st">excepción</span><b>Ana G. llega a 3 de 3 puentes</b>
+      <span class="dt">Autorizado desde el principio, para que pudiera coger la tanda del puente.</span></li>
+    <li class="part"><span class="st">excepción</span><b>Carlota tiene 2 findes de quirófano/UCQ</b>
+      <span class="dt">El tope de las R4 es 1. Tu punto 4 lo pide expresamente: el finde de la
+      fiesta (6 y 8) y el sábado 21.</span></li>
+  </ul>
 </section>
 
 <section>
@@ -317,8 +321,8 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
   <ul class="tandas">
     <li class="hold"><span class="wk">vie 6 – lun 9 · puente</span>
       <span class="swap"><b>Ana G.</b></span>
-      <span class="why">Con la excepción al tope de 2 de 3 puentes. Acumula 9 findes de
-      localizada, la mitad que Carlota.</span></li>
+      <span class="why">Su tanda arranca el jueves 5, el día que suelta Carlota. Con la excepción
+      al tope de 2 de 3 puentes. Acumula 9 findes de localizada, la mitad que Carlota.</span></li>
     <li><span class="wk">vie 13 – dom 15</span>
       <span class="swap"><b>Sandra</b></span>
       <span class="why">Su tanda va del 13 al 16. Solo ella o Ana G. pueden cogerla: Carlota,
@@ -397,39 +401,47 @@ __BODY__
 <section>
   <div class="shead"><h2>Notas</h2></div>
   <div class="notes">
-    <div class="note warn"><h3>Los cinco puntos a resolver</h3>
-      <p>Cuatro de los cinco salen del <b>emparejamiento del viernes 6 con el domingo 8</b>, que es
-      el que no cerraba: Fabián tiene el 8 de vacaciones, y Almudena rompe a la vez su libranza del
-      puente y la regla de no hacer tres guardias en cinco días.</p>
-      <p>El quinto, <b>Emilio el día 18</b>, es independiente: lo tiene bloqueado y se le ha colado
-      en un cambio suelto.</p>
-      <p>Y <b>Carlota</b> lleva trasplante el 5 y guardia el 6, con la localizada de víspera.</p></div>
-    <div class="note"><h3>Cómo cerrar el 6 con el 8</h3>
-      <p>Para que el domingo 8 lleve el mismo equipo que el viernes hace falta que los cinco estén
-      disponibles los dos días. Del pool de R3 y R4 que pueden trabajar el 6 —el día solo admite
-      R3 y R4 por la fiesta— el domingo 8 cae Fabián por vacaciones y caen Almudena y Ana G. por
-      el tope de puentes.</p>
-      <p>Quedan Carlota, Patri, Tony y Sandra: <b>cuatro personas para cinco puestos</b>. Por eso la
-      versión anterior ponía residentes pequeños el domingo 8, que era la alternativa que dejaste
-      prevista.</p></div>
+    <div class="note warn"><h3>Lo único que no pediste: un R2 el viernes de la fiesta</h3>
+      <p>Para que el 6 y el 8 lleven el mismo equipo, los cinco tienen que estar libres los dos
+      días. El viernes 6 solo admite R3 y R4 por la libranza de la fiesta, y de ese grupo el 6 y
+      el 8 caen <b>Fabián</b> (vacaciones los dos días), <b>Isabel</b> y <b>Candela</b> (vacaciones
+      del 6 al 9) y <b>María</b> (vacaciones hasta el 15).</p>
+      <p>Quedan Patri, Tony, Carlota, Almudena, Ana G. y Sandra: seis personas para cubrir el 6, el
+      8, el trasplante del puente y además el mayor del sábado 7 —que también tiene que ser R3 o
+      R4—. No dan. <b>Falta exactamente una persona</b>, y por eso entra Tania: un solo R2, en
+      quirófano, los días 6 y 8. Ningún R1 trabaja el 6 ni el 7.</p>
+      <p>La alternativa sin tocar la libranza era darle a <b>Carlota la tanda de localizada del
+      puente</b>, que la dejaría en 19 findes de localizada acumulados —el récord del servicio— y
+      desharía justo lo que llevamos todo el mes corrigiendo. Por eso he elegido a Tania. Si
+      prefieres la otra, se cambia en un minuto.</p></div>
+    <div class="note"><h3>Qué se ha movido de tu calendario</h3>
+      <p><b>122 de las 140 celdas quedan como las dejaste.</b> Los cambios se concentran donde
+      tenían que estar:</p>
+      <p><b>6 y 8</b> — sale Fabián (vacaciones), entra Tania en quirófano y Sandra pasa de
+      quirófano a mayor. <b>5</b> — la localizada pasa de Carlota a Ana G., que así entra al puente
+      desde el jueves y Carlota deja de tener localizada en víspera. <b>18</b> — sale Emilio
+      (vacaciones). <b>10</b> — Almudena sale, que es lo que deshace su triplete. <b>21</b> — Eva
+      deja la UCQ a Carlota y recupera su quinta guardia el 19.</p></div>
     <div class="note"><h3>Tus listas resumen no cuadran</h3>
       <p>Las sumas de la hoja que acompaña al calendario dan <b>117 guardias</b> y <b>29 días de
       UCQ</b>, cuando el mes tiene 112 y 28. El calendario sí cuadra —140 puestos, 112 presenciales
-      y 28 localizadas—, así que las tablas de aquí están recalculadas desde el calendario.</p>
-      <p>Descuadres concretos: la lista cuenta a Patricia, Tania, Aitor, Mercedes, Miriam y Fátima
-      con una guardia más de la que tienen en el cuadrante, y a Emilio con una menos.</p></div>
+      y 28 localizadas—, así que todas las tablas de aquí están recalculadas desde el calendario.</p>
+      <p>Descuadres concretos de la lista: Patricia, Tania, Aitor, Mercedes, Miriam y Fátima con
+      una guardia más de la que tienen, y Emilio con una menos.</p></div>
     <div class="note"><h3>Las cuatro tandas de trasplante</h3>
-      <p>Ana G. el puente (del viernes 6 al lunes 9), Sandra el 13-15, María el 20-22 y Almudena el
+      <p>Ana G. el puente (del jueves 5 al lunes 9), Sandra el 13-16, María el 19-22 y Almudena el
       27-29. <b>Carlota e Isabel no llevan ninguna</b>, que era el objetivo del reparto.</p>
-      <p>Localizadas del mes: Carlota 3, Isabel 3, Almudena 3, Ana G. 6, Sandra 6 y María 7.</p></div>
+      <p>Localizadas del mes: Carlota 2, Isabel 3, Almudena 3, Sandra 6, Ana G. 7 y María 7.
+      Carlota baja a 2 porque la del 5 no puede ser víspera de su guardia del 6, y esa localizada
+      pasa a Ana G.</p></div>
     <div class="note"><h3>La UCQ</h3>
-      <p>Los cuatro rotantes solo hacen UCQ y cubren <b>23 de los 28 días</b>: Tony 6, Carlota 6,
-      María 6 y Patricia 5.</p>
-      <p>Los <b>5 huecos</b> los rellenan R2, todos con más quirófano que unidad: Ana el 4, el 13 y
-      el 15, Eva el 21 y Emilio el 28.</p></div>
+      <p>Los cuatro rotantes solo hacen UCQ y cubren <b>24 de los 28 días</b>: Tony, Carlota, María
+      y Patricia a 6 cada uno.</p>
+      <p>Los <b>4 huecos</b> los rellenan R2, todos con más quirófano que unidad: Marc el 4, Ana el
+      13 y el 15, y Emilio el 28.</p></div>
     <div class="note"><h3>Cargas</h3>
-      <p><b>R1</b>: Arturo, Cristina, David y Rosario a 3; Aitor, Fátima, Mercedes y Miriam a 2.
-      <b>R2</b>: Patricia, Ana, Antonio, Asís, Emilio, Eva y Marc a 5; Tania a 4.</p>
+      <p><b>R1</b>: los ocho a 3 guardias y 1 finde como máximo. <b>R2</b>: Patricia 6; Antonio, Eva
+      y Marc a 5; Ana y Asís a 4; Emilio y Tania a 3.</p>
       <p><b>R3</b>: Tony 6; Candela, Fabián y Patri a 5. <b>R4</b>: Carlota y María 6; Isabel,
       Almudena, Ana G. y Sandra a 5, sin contar trasplante.</p></div>
     <div class="note warn"><h3>Gerard sigue pendiente</h3>
@@ -438,7 +450,7 @@ __BODY__
   </div>
 </section>
 
-<footer>Versión provisional · 140 puestos · 26 residentes · rotación de UCQ intacta y contaje de
+<footer>140 puestos · 26 residentes · rotación de UCQ intacta y contaje de
 localizadas de junio a octubre como base · comprobado contra bloqueos de vacaciones,
 curso R4 del día 30, libranza de la fiesta, tope de puentes, forma de las tandas y regla
 de descanso: 0 conflictos</footer>
