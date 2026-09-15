@@ -125,6 +125,15 @@ tbody tr.ghost td { color:var(--ink-3); }
   letter-spacing:.1em; color:var(--flag); margin-left:6px; }
 .up { color:var(--flag); font-weight:600; }
 .eq { color:var(--ink-3); }
+.listas { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+.listas section { background:var(--surface); padding:16px 18px; }
+.listas h3 { margin:0 0 10px; font:600 10.5px/1 "IBM Plex Mono", monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); }
+.listas ul { list-style:none; margin:0; padding:0; }
+.listas li { font-size:14px; line-height:1.55; }
+.listas .nm { font-weight:600; }
+.listas .px { color:var(--ink-2); }
 .tandas { list-style:none; margin:0; padding:0; display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px;
   background:var(--line); border:1px solid var(--line); }
@@ -689,6 +698,19 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 </section>
 
 <section>
+  <div class="shead"><h2>Resumen por residente</h2>
+    <p>Guardias presenciales y findes de guardia. Entre paréntesis, las localizadas de las R4
+    —incluyendo el 1 y el 2— y los días de UCQ de los R2 que rellenan huecos. Los cuatro
+    rotantes van marcados con <b>(UCQ)</b>.</p></div>
+  <div class="listas">
+<section><h3>R4</h3><ul><li><span class="nm">CARLOTA <span class="px">(UCQ)</span></span> 6 guardias, 2 findes <span class="px">(2 Tx)</span></li><li><span class="nm">MARÍA <span class="px">(UCQ)</span></span> 6 guardias, 1 finde <span class="px">(7 Tx)</span></li><li><span class="nm">ALMUDENA</span> 5 guardias, 1 finde <span class="px">(5 Tx)</span></li><li><span class="nm">ANA G.</span> 5 guardias, 1 finde <span class="px">(7 Tx)</span></li><li><span class="nm">ISABEL</span> 5 guardias, 1 finde <span class="px">(3 Tx)</span></li><li><span class="nm">SANDRA</span> 5 guardias, 1 finde <span class="px">(6 Tx)</span></li></ul></section>
+<section><h3>R3</h3><ul><li><span class="nm">TONY <span class="px">(UCQ)</span></span> 6 guardias, 2 findes</li><li><span class="nm">CANDELA</span> 5 guardias, 2 findes</li><li><span class="nm">FABIÁN</span> 5 guardias, 2 findes</li><li><span class="nm">PATRI</span> 5 guardias, 2 findes</li></ul></section>
+<section><h3>R2</h3><ul><li><span class="nm">PATRICIA <span class="px">(UCQ)</span></span> 6 guardias, 1 finde</li><li><span class="nm">EVA</span> 5 guardias, 1 finde</li><li><span class="nm">ANA</span> 4 guardias, 1 finde <span class="px">(2 UCQ)</span></li><li><span class="nm">ANTONIO</span> 4 guardias, 1 finde</li><li><span class="nm">ASÍS</span> 4 guardias, 2 findes</li><li><span class="nm">EMILIO</span> 4 guardias, 2 findes <span class="px">(1 UCQ)</span></li><li><span class="nm">MARC</span> 4 guardias, 1 finde <span class="px">(1 UCQ)</span></li><li><span class="nm">TANIA</span> 4 guardias, 2 findes</li></ul></section>
+<section><h3>R1</h3><ul><li><span class="nm">AITOR</span> 3 guardias, 1 finde</li><li><span class="nm">ARTURO</span> 3 guardias, 1 finde</li><li><span class="nm">CRISTINA</span> 3 guardias, 1 finde</li><li><span class="nm">DAVID</span> 3 guardias, 1 finde</li><li><span class="nm">FÁTIMA</span> 3 guardias, 1 finde</li><li><span class="nm">MERCEDES</span> 3 guardias, 1 finde</li><li><span class="nm">MIRIAM</span> 3 guardias, 0 findes</li><li><span class="nm">ROSARIO</span> 3 guardias, 1 finde</li></ul></section>
+  </div>
+</section>
+
+<section>
   <div class="shead"><h2>Notas</h2></div>
   <div class="notes">
     <div class="note"><h3>El viernes 6 y el domingo 8</h3>
@@ -728,8 +750,8 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
       <p>Los <b>4 huecos</b> los rellenan R2, todos con más quirófano que unidad: Marc el 4, Ana el
       13 y el 15, y Emilio el 28.</p></div>
     <div class="note"><h3>Cargas</h3>
-      <p><b>R1</b>: los ocho a 3 guardias y 1 finde como máximo. <b>R2</b>: Patricia 6; Eva, Tania
-      y Marc a 5; Ana, Antonio, Asís y Emilio a 4.</p>
+      <p><b>R1</b>: los ocho a 3 guardias; siete con 1 finde y Miriam con ninguno. <b>R2</b>:
+      Patricia 6; Eva 5; Ana, Antonio, Asís, Emilio, Tania y Marc a 4.</p>
       <p><b>R3</b>: Tony 6; Candela, Fabián y Patri a 5. <b>R4</b>: Carlota y María 6; Isabel,
       Almudena, Ana G. y Sandra a 5, sin contar trasplante.</p>
       <p>Dobletes: <b>1</b> —María el 16 y el 18—, frente a los 6 de tu versión.</p></div>

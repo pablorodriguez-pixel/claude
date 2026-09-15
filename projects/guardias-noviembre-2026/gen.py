@@ -208,6 +208,15 @@ tbody tr.ghost td { color:var(--ink-3); }
   letter-spacing:.1em; color:var(--flag); margin-left:6px; }
 .up { color:var(--flag); font-weight:600; }
 .eq { color:var(--ink-3); }
+.listas { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1px;
+  background:var(--line); border:1px solid var(--line); border-radius:10px; overflow:hidden; }
+.listas section { background:var(--surface); padding:16px 18px; }
+.listas h3 { margin:0 0 10px; font:600 10.5px/1 "IBM Plex Mono", monospace; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); }
+.listas ul { list-style:none; margin:0; padding:0; }
+.listas li { font-size:14px; line-height:1.55; }
+.listas .nm { font-weight:600; }
+.listas .px { color:var(--ink-2); }
 .tandas { list-style:none; margin:0; padding:0; display:grid;
   grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1px;
   background:var(--line); border:1px solid var(--line); }
@@ -397,6 +406,16 @@ __BODY__
 </section>
 
 <section>
+  <div class="shead"><h2>Resumen por residente</h2>
+    <p>Guardias presenciales y findes de guardia. Entre paréntesis, las localizadas de las R4
+    —incluyendo el 1 y el 2— y los días de UCQ de los R2 que rellenan huecos. Los cuatro
+    rotantes van marcados con <b>(UCQ)</b>.</p></div>
+  <div class="listas">
+__RESUMEN__
+  </div>
+</section>
+
+<section>
   <div class="shead"><h2>Notas</h2></div>
   <div class="notes">
     <div class="note"><h3>El viernes 6 y el domingo 8</h3>
@@ -436,8 +455,8 @@ __BODY__
       <p>Los <b>4 huecos</b> los rellenan R2, todos con más quirófano que unidad: Marc el 4, Ana el
       13 y el 15, y Emilio el 28.</p></div>
     <div class="note"><h3>Cargas</h3>
-      <p><b>R1</b>: los ocho a 3 guardias y 1 finde como máximo. <b>R2</b>: Patricia 6; Eva, Tania
-      y Marc a 5; Ana, Antonio, Asís y Emilio a 4.</p>
+      <p><b>R1</b>: los ocho a 3 guardias; siete con 1 finde y Miriam con ninguno. <b>R2</b>:
+      Patricia 6; Eva 5; Ana, Antonio, Asís, Emilio, Tania y Marc a 4.</p>
       <p><b>R3</b>: Tony 6; Candela, Fabián y Patri a 5. <b>R4</b>: Carlota y María 6; Isabel,
       Almudena, Ana G. y Sandra a 5, sin contar trasplante.</p>
       <p>Dobletes: <b>1</b> —María el 16 y el 18—, frente a los 6 de tu versión.</p></div>
@@ -453,7 +472,24 @@ curso R4 del día 30, libranza de la fiesta, tope de puentes, forma de las tanda
 de descanso: 0 conflictos</footer>
 </div>
 """
-HTML = (HTML.replace("__CAL__", "\n".join(cal))
+ROTS={"Tony","Patricia","María","Carlota"}
+def linea(r):
+    g=r["ntx"]; f=r["finn"]
+    nm=r["name"].upper()+(' <span class="px">(UCQ)</span>' if r["name"] in ROTS else "")
+    ex=""
+    if r["lev"]=="R4":
+        ex=f' <span class="px">({r["cnt"]["TX"]} Tx)</span>'
+    elif r["lev"]=="R2" and r["name"] not in ROTS and r["cnt"]["UCQ"]:
+        ex=f' <span class="px">({r["cnt"]["UCQ"]} UCQ)</span>'
+    fw="finde" if f==1 else "findes"
+    return f'<li><span class="nm">{nm}</span> {g} guardias, {f} {fw}{ex}</li>'
+bloques=[]
+for lv in ("R4","R3","R2","R1"):
+    ls=sorted([r for r in rows if r["lev"]==lv], key=lambda r:(-r["ntx"], r["name"]))
+    bloques.append(f'<section><h3>{lv}</h3><ul>'+"".join(linea(r) for r in ls)+'</ul></section>')
+
+HTML = (HTML.replace("__RESUMEN__", "\n".join(bloques))
+            .replace("__CAL__", "\n".join(cal))
             .replace("__BODY__", "\n".join(body))
             .replace("__R4TAB__", "\n".join(r4tab)))
 open('guardias-noviembre-2026.html','w').write(HTML)
