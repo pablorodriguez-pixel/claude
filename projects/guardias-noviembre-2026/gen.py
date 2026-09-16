@@ -243,14 +243,14 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 <div class="wrap">
 <header class="top">
   <div>
-    <div class="eyebrow">Programación de residentes · v23 sobre tu calendario</div>
+    <div class="eyebrow">Programación de residentes · v24 sobre tu calendario</div>
     <h1>Guardias · Noviembre 2026</h1>
-    <p>Tu calendario con los arreglos que pediste. <b>Isabel entra en el doblete viernes-domingo</b>
-    para cubrir el hueco que deja Fabián, que libra el finde completo de la fiesta. Con eso el
-    viernes 6 vuelve a ser solo de R3 y R4 —la libranza de la fiesta queda entera— y
-    <b>Almudena baja a 2 de 3 puentes</b>, así que ya no necesita su excepción. Quedan tres normas
-    saltadas a propósito. Los días 1 y 2 vienen del cuadrante de octubre, salen atenuados y
-    <b>sus localizadas y findes sí cuentan</b> en el contaje del mes.</p>
+    <p>Tu calendario con los arreglos que pediste. El <b>doblete viernes-domingo lo llevan
+    Almudena, Sandra e Isabel</b>, las tres los dos días, con Ana G. de trasplante y Carlota en
+    UCQ: el 6 y el 8 son <b>las mismas cinco personas</b>, y solo se intercambian los puestos.
+    Tania sale de los dos días, así que la libranza de la fiesta queda entera. Los días 1 y 2
+    vienen del cuadrante de octubre, salen atenuados y <b>sus localizadas y findes sí cuentan</b>
+    en el contaje del mes.</p>
   </div>
   <div class="meta">
     <span>Residentes</span><b>26 · 8 R1, 8 R2, 4 R3, 6 R4</b>
@@ -283,14 +283,15 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
       completo. La única excepción es <b>Isabel, que entra el 6 y el 8</b> aunque los tenga
       bloqueados: es tu decisión y es lo que permite cubrir el viernes sin R1 ni R2. Sigue librando
       el 7 y el 9.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>2 · El viernes 6 y el domingo 8, con un solo relevo</b>
-      <span class="dt">Los dos días llevan a Ana G. de trasplante, Carlota en UCQ, y a Isabel y
-      Sandra. El único relevo es <b>Almudena el viernes y Tania el domingo</b>. El viernes 6 solo
-      lleva R3 y R4: la libranza de la fiesta queda entera, y ningún R1 trabaja el 6 ni el 7. El
-      sábado 7 y el lunes 9 siguen emparejados: Ana G., Tony, Patri, Asís y Marc.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>2 · El viernes 6 y el domingo 8, las mismas cinco personas</b>
+      <span class="dt">Ana G. de trasplante, Carlota en UCQ, y <b>Almudena, Sandra e Isabel</b> en
+      el mayor y los dos de quirófano. Sin relevos: solo se intercambian los puestos —Sandra de
+      mayor el viernes, Isabel el domingo—. <b>Ni un R1 ni un R2 en ninguno de los dos días</b>,
+      así que la libranza de la fiesta queda entera. El sábado 7 y el lunes 9 siguen emparejados:
+      Ana G., Tony, Patri, Asís y Marc.</span></li>
     <li class="ok"><span class="st">cumple</span><b>3 · Almudena hace los tres puentes</b>
-      <span class="dt"><b>Ya no hace falta.</b> Al entrar Isabel el 6 y el 8, Almudena solo trabaja
-      el viernes 6, que no es día de puente. Se queda en <b>2 de 3</b>, dentro de la norma.</span></li>
+      <span class="dt">Tu punto 3. Almudena entra en el doblete, así que trabaja el domingo 8, que
+      sí es día de puente.</span></li>
     <li class="ok"><span class="st">cumple</span><b>4 · La UCQ del 21 pasa de Eva a Carlota</b>
       <span class="dt">Carlota queda en <b>6 guardias y 2 findes</b> —6, 8, 12, 17, 21 y 26—, y Eva
       en <b>5 guardias y 1 finde</b> —3, 13, 15, 19 y 24—. Eva recupera la guardia del 21 en el 19.</span></li>
@@ -308,14 +309,16 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 </section>
 
 <section>
-  <div class="shead"><h2>Las tres normas que se saltan a propósito</h2>
-    <p>Las tres las decidiste tú. Sin ellas el cuadrante no cierra.</p></div>
+  <div class="shead"><h2>Las cuatro normas que se saltan a propósito</h2>
+    <p>Las cuatro las decidiste tú. Sin ellas el cuadrante no cierra.</p></div>
   <ul class="cond">
     <li class="part"><span class="st">excepción</span><b>Isabel trabaja el 6 y el 8, que tiene de vacaciones</b>
       <span class="dt">El viernes de la fiesta libran R1 y R2. Con Fabián librando el 6, el 7 y el
       8, solo quedaban seis personas de R3 y R4 para siete puestos: la localizada del 6 al 9, los
       cuatro del viernes y el mayor del sábado 7. <b>Faltaba exactamente una</b>, y la pones tú:
       Isabel. Sigue librando el 7 y el 9, y mantiene su tope de 5 guardias y 1 finde.</span></li>
+    <li class="part"><span class="st">excepción</span><b>Almudena llega a 3 de 3 puentes</b>
+      <span class="dt">Tu punto 3. Entra en el doblete, y el domingo 8 es día de puente.</span></li>
     <li class="part"><span class="st">excepción</span><b>Ana G. llega a 3 de 3 puentes</b>
       <span class="dt">Autorizado desde el principio, para que pudiera coger la tanda del puente.</span></li>
     <li class="part"><span class="st">excepción</span><b>Carlota tiene 2 findes de quirófano/UCQ</b>
@@ -438,10 +441,10 @@ __RESUMEN__
       en quirófano el 6 —rompiendo la libranza de la fiesta—, dar a Carlota la tanda de localizada
       del puente —que la subiría a 40 localizadas acumuladas y 19 findes, el récord del servicio— o
       <b>meter a Isabel el 6 y el 8</b>, que es la que has elegido.</p>
-      <p>Es la que menos rompe: la libranza de la fiesta queda entera, ningún R1 ni R2 trabaja el
-      viernes, Isabel mantiene su tope de 5 guardias y 1 finde, y <b>Almudena deja de necesitar su
-      excepción de puentes</b> porque el viernes 6 no es día de puente. A cambio, Isabel trabaja
-      dos días que tenía de vacaciones; sigue librando el 7 y el 9.</p></div>
+      <p>Con Almudena, Sandra e Isabel cubriendo los dos días, el 6 y el 8 quedan con las mismas
+      cinco personas y <b>ni un residente pequeño en ninguno de los dos</b>. Isabel mantiene su
+      tope de 5 guardias y 1 finde, y sigue librando el 7 y el 9. Lo único que se cede es que
+      trabaja dos días que tenía de vacaciones.</p></div>
     <div class="note"><h3>Qué se ha movido de tu calendario</h3>
       <p><b>127 de las 140 celdas quedan como las dejaste.</b> Los cambios se concentran donde
       tenían que estar:</p>

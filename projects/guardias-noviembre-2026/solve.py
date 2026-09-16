@@ -105,8 +105,12 @@ LIM=int(os.environ.get("DIF68","2"))
 if LIM<=4: m.Add(sum(dif68)<=LIM)
 if os.environ.get("TANIA8")=="1": m.Add(x["Tania",8,"QX"]==1)
 m.Add(sum(n[p,6] for p in R1+R2)==0)
-if os.environ.get("ISA68")=="1":
-    m.Add(n["Isabel",6]==1); m.Add(n["Isabel",8]==1)
+# el doblete viernes-domingo: Almudena, Sandra e Isabel los dos dias. Tania fuera.
+for p in ("Almudena","Sandra","Isabel"):
+    m.Add(n[p,6]==1); m.Add(n[p,8]==1)
+m.Add(x["Carlota",6,"UCQ"]==1); m.Add(x["Carlota",8,"UCQ"]==1)
+m.Add(tx["AnaG",6]==1)
+m.Add(sum(n[p,8] for p in R1+R2)==0)   # el domingo 8 tampoco lleva R1 ni R2
 for p in ALL:
     for d in DAYS:
         if d+1 in DAYS:
@@ -174,7 +178,7 @@ if os.environ.get("NOTGT")!="1":
         m.Add(sum(tx[q,d] for d in DAYS)==v)
 
 # objetivo: parecerse lo mas posible al calendario manual
-BASE_S={int(k):v for k,v in json.load(open('sol_v22.json'))['sched'].items()}
+BASE_S={int(k):v for k,v in json.load(open('sol_v23.json'))['sched'].items()}
 MAN={d:(v["TX"],v["UCQ"],v["MAY"],v["QX"][0],v["QX"][1]) for d,v in BASE_S.items()}
 same=[]; wsame=[]
 for d,v in MAN.items():

@@ -225,6 +225,39 @@ Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
 
+## v24 — el doblete viernes-domingo lo llevan Almudena, Sandra e Isabel
+
+Tania sale del 6 y del 8. Las tres R4 cubren los dos días, con Ana G. de trasplante y
+Carlota en UCQ, así que el **6 y el 8 son las mismas cinco personas**: sin relevos, solo se
+intercambian los puestos.
+
+| Día | TX | UCQ | Mayor | Quirófano |
+|---|---|---|---|---|
+| vie 6 | Ana G. | Carlota | **Sandra** | **Isabel** · **Almudena** |
+| sáb 7 | Ana G. | Tony | Patri | Asís · Marc |
+| dom 8 | Ana G. | Carlota | **Isabel** | **Almudena** · **Sandra** |
+| lun 9 | Ana G. | Tony | Patri | Asís · Marc |
+
+**Ni un R1 ni un R2 en ninguno de los dos días**, así que la libranza de la fiesta queda
+entera. Tania pasa a trabajar el 5, el 12, el 17 y el 28.
+
+### Lo que cuesta
+
+Almudena vuelve a **3 de 3 puentes**, porque ahora trabaja el domingo 8 (en la v23 solo
+hacía el viernes 6, que no es día de puente). Vuelve a hacer falta su excepción, la de tu
+punto 3. Con eso las normas saltadas a propósito son **4**:
+
+1. Isabel trabaja el 6 y el 8, que tiene de vacaciones.
+2. Almudena, 3 de 3 puentes.
+3. Ana G., 3 de 3 puentes.
+4. Carlota, 2 findes de quirófano/UCQ.
+
+### Estado
+
+Cambian 5 días respecto a la v23: el 8, el 10, el 12, el 17 y el 18. Localizadas y cargas no
+se mueven: Carlota 2 Tx / 6 guardias / 2 findes, Isabel 3, Almudena 5 (con el 1 y el 2),
+Sandra 6, Ana G. 7, María 7. 1 doblete (María 16+18). `check.py` da **0 errores**.
+
 ## v23 — Isabel entra en el doblete viernes-domingo
 
 Sustituye la salida de la v22. En vez de meter a Tania (R2) en quirófano el viernes de la

@@ -413,8 +413,8 @@
    "octf": 3,
    "nov": 4,
    "ntx": 4,
-   "fin": 2,
-   "finn": 2,
+   "fin": 1,
+   "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -423,8 +423,8 @@
     "QX": 4
    },
    "tot": 10,
-   "fin2": 5,
-   "pue": 2,
+   "fin2": 4,
+   "pue": 1,
    "blk": [
     18,
     19,
@@ -434,7 +434,7 @@
     23
    ],
    "tx12": 0,
-   "finn12": 3,
+   "finn12": 2,
    "w0": 1
   },
   {
@@ -701,7 +701,7 @@
    },
    "tot": 23,
    "fin2": 7,
-   "pue": 2,
+   "pue": 3,
    "blk": [
     11,
     12,
@@ -818,7 +818,7 @@
    "UCQ": "Carlota",
    "MAY": "Isabel",
    "QX": [
-    "Tania",
+    "Almudena",
     "Sandra"
    ]
   },
@@ -834,7 +834,7 @@
   "10": {
    "TX": "Isabel",
    "UCQ": "Maria",
-   "MAY": "Almudena",
+   "MAY": "Fabian",
    "QX": [
     "Miriam",
     "Emilio"
@@ -855,7 +855,7 @@
    "MAY": "Sandra",
    "QX": [
     "Fatima",
-    "Rosario"
+    "Tania"
    ]
   },
   "13": {
@@ -897,7 +897,7 @@
   "17": {
    "TX": "Isabel",
    "UCQ": "Carlota",
-   "MAY": "Fabian",
+   "MAY": "Almudena",
    "QX": [
     "Antonio",
     "Tania"
@@ -908,8 +908,8 @@
    "UCQ": "Maria",
    "MAY": "Sandra",
    "QX": [
-    "Ana",
-    "Almudena"
+    "Rosario",
+    "Ana"
    ]
   },
   "19": {

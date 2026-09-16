@@ -50,7 +50,7 @@
    "UCQ": "Carlota",
    "MAY": "Isabel",
    "QX": [
-    "Tania",
+    "Almudena",
     "Sandra"
    ]
   },
@@ -66,7 +66,7 @@
   "10": {
    "TX": "Isabel",
    "UCQ": "Maria",
-   "MAY": "Almudena",
+   "MAY": "Fabian",
    "QX": [
     "Miriam",
     "Emilio"
@@ -87,7 +87,7 @@
    "MAY": "Sandra",
    "QX": [
     "Fatima",
-    "Rosario"
+    "Tania"
    ]
   },
   "13": {
@@ -129,7 +129,7 @@
   "17": {
    "TX": "Isabel",
    "UCQ": "Carlota",
-   "MAY": "Fabian",
+   "MAY": "Almudena",
    "QX": [
     "Antonio",
     "Tania"
@@ -140,8 +140,8 @@
    "UCQ": "Maria",
    "MAY": "Sandra",
    "QX": [
-    "Ana",
-    "Almudena"
+    "Rosario",
+    "Ana"
    ]
   },
   "19": {
