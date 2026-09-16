@@ -225,6 +225,59 @@ Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
 
+## v22 — Fabián libra el finde completo de la fiesta (6, 7 y 8)
+
+Su bloqueo pasa de `[7, 8]` a `[6, 7, 8]`. Eso quita la pieza que sostenía el viernes 6 en
+la v18-v21, donde Fabián hacía el viernes suelto.
+
+### El viernes 6, contado
+
+Por la libranza de la fiesta el 6 solo admite R3 y R4. De ese grupo quedan **seis**
+personas: Patri, Tony, Carlota, Almudena, Ana G. y Sandra (Candela e Isabel están de
+vacaciones del 6 al 9, María hasta el 15, Fabián del 6 al 8).
+
+Y hacen falta **siete** cuerpos de R3/R4 en el puente:
+
+1. La localizada del 6 al 9 — una R4, que no puede estar presencial esos días.
+2. El viernes 6: UCQ (solo rotante), mayor (R3/R4 no rotante) y **los dos de quirófano**,
+   que con R1 y R2 librando también tienen que ser R4 no rotante.
+3. El mayor del sábado 7, que no puede coincidir con nadie del viernes (días seguidos).
+
+**Falta exactamente una persona.** Probado con el solver: sin ceder en algo, INFEASIBLE,
+incluso relajando las cargas, los findes y el reparto de localizadas.
+
+### Las salidas que existen, y la elegida
+
+| Salida | Coste |
+|---|---|
+| **Un R2 en quirófano el 6** ← elegida | Rompe la libranza para una persona un día. 4 días cambian. Todas las cuentas intactas. 1 doblete. |
+| Carlota con la tanda del puente | Carlota a 6 localizadas, 40 acumuladas y 19 findes de localizada (récord del servicio); Ana G. baja a 2 y 34; Isabel sube a 42. 11 días cambian, 4 dobletes. Deshace el equilibrado del mes. |
+| Un rotante de mayor en el puente | INFEASIBLE. |
+| Carlota (rotante) a quirófano el 6 y el 8 | INFEASIBLE. |
+| Partir la tanda del puente entre dos R4 | INFEASIBLE. |
+
+Elegida la primera: **Tania (R2) entra en quirófano el viernes 6 y el domingo 8**. Ningún
+R1 trabaja el 6 ni el 7, y es un solo R2 en un solo puesto.
+
+### El puente queda así
+
+| Día | TX | UCQ | Mayor | Quirófano |
+|---|---|---|---|---|
+| vie 6 | Ana G. | Carlota | Sandra | Tania · Almudena |
+| sáb 7 | Ana G. | Tony | Patri | Asís · Marc |
+| dom 8 | Ana G. | Carlota | Almudena | Tania · Sandra |
+| lun 9 | Ana G. | Tony | Patri | Asís · Marc |
+
+El 6 y el 8 llevan **las mismas cinco personas**; lo único que se intercambia es quién
+firma el puesto de mayor. El 7 y el 9 siguen idénticos.
+
+### Estado
+
+Cambian 4 días respecto a la v21: el 3, el 4, el 5 y el 6. Localizadas, cargas y findes
+quedan igual: Carlota 2 Tx / 6 guardias / 2 findes, Isabel 3, Almudena 5 (con el 1 y el 2),
+Sandra 6, Ana G. 7, María 7. 1 doblete (María 16+18). `check.py` da **0 errores** y lista
+4 normas saltadas a propósito: la de Tania y las tres que ya autorizaste.
+
 ## v21 — se deshacen los cambios de la v20, salvo el contaje
 
 La v20 hizo tres cosas. Las dos primeras se han deshecho por petición expresa:

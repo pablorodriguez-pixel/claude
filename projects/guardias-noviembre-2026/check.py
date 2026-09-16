@@ -10,7 +10,7 @@ BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30]
 "Fatima":[13,14,15,27,28,29],"Mercedes":[26,27,28,29,30],"Rosario":[13,14,15,20,21,22],
 "Miriam":[6,7,8,9,20,21,22],"Patricia":[],"Ana":[6,7,8,20,21],"Antonio":[6,7,8,9],
 "Asis":[12,20,21,22],"Emilio":[4,18],"Eva":[6,7,8,9,10,28,29],"Tania":[18,19,20,21,22,23],
-"Marc":[27,28,29],"Candela":[6,7,8,9,17,18,26,27,28,29],"Fabian":[7,8],
+"Marc":[27,28,29],"Candela":[6,7,8,9,17,18,26,27,28,29],"Fabian":[6,7,8],
 "Patri":[20,21,22,26,27,28,29],"Tony":[27,28,29],"Carlota":[13,14,15],
 "Isabel":[6,7,8,9,14,15],"Maria":[1,2,3,4,5,6,7,8,9,13,14,15],"Almudena":[11,12,13,20,21,22],
 "AnaG":[],"Sandra":[27,28,29]}
@@ -58,10 +58,14 @@ fuera=eq(6)-eq(8); dentro=eq(8)-eq(6)
 if len(fuera)>1: err.append(f"el 6 y el 8 se diferencian en {len(fuera)} personas: sale {sorted(fuera)}, entra {sorted(dentro)}")
 if dentro and dentro!={"Tania"}: err.append(f"el domingo 8 no lo cubre Tania sino {sorted(dentro)}")
 if fuera and LEV[list(fuera)[0]] not in ("R3","R4"): err.append(f"el viernes 6 suelto no lo cubre un mayor sino {list(fuera)[0]}")
-# fiesta: libranza completa de R1 y R2 el viernes 6, y de R1 el sabado 7
-for p in [S[6]["TX"],S[6]["UCQ"],S[6]["MAY"]]+S[6]["QX"]:
-    if LEV[p] in ("R1","R2"): err.append(f"viernes 6: {p} es {LEV[p]} (libranza de la fiesta)")
+# fiesta: libranza de R1 y R2 el viernes 6. Se admite UN R2, y solo en quirofano.
+peq6=[p for p in [S[6]["TX"],S[6]["UCQ"],S[6]["MAY"]]+S[6]["QX"] if LEV[p] in ("R1","R2")]
 EXC=[]
+for p in peq6:
+    if LEV[p]=="R1": err.append(f"viernes 6: {p} es R1 (libranza de la fiesta)")
+    elif p not in S[6]["QX"]: err.append(f"viernes 6: {p} es R2 y no esta en quirofano")
+if len(peq6)>1: err.append(f"viernes 6: {len(peq6)} residentes pequenos ({peq6}), solo se admite 1")
+if peq6: EXC.append(f"viernes 6: {peq6[0]} (R2) entra en quirofano — falta una persona de R3/R4 ese dia")
 for p in [S[7]["TX"],S[7]["UCQ"],S[7]["MAY"]]+S[7]["QX"]:
     if LEV[p]=="R1": err.append(f"sabado 7: {p} es R1")
 # puentes: 2 de 3, con Ana G. y Almudena exentas por peticion expresa

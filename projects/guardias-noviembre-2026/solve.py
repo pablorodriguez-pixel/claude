@@ -13,7 +13,7 @@ BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30]
 "Fatima":[13,14,15,27,28,29],"Mercedes":[26,27,28,29,30],"Rosario":[13,14,15,20,21,22],
 "Miriam":[6,7,8,9,20,21,22],"Patricia":[],"Ana":[6,7,8,20,21],"Antonio":[6,7,8,9],
 "Asis":[12,20,21,22],"Emilio":[4,18],"Eva":[6,7,8,9,10,28,29],"Tania":[18,19,20,21,22,23],
-"Marc":[27,28,29],"Candela":[6,7,8,9,17,18,26,27,28,29],"Fabian":[7,8],
+"Marc":[27,28,29],"Candela":[6,7,8,9,17,18,26,27,28,29],"Fabian":[6,7,8],
 "Patri":[20,21,22,26,27,28,29],"Tony":[27,28,29],"Carlota":[13,14,15],
 "Isabel":[6,7,8,9,14,15],"Maria":[1,2,3,4,5,6,7,8,9,13,14,15],"Almudena":[11,12,13,20,21,22],
 "AnaG":[],"Sandra":[27,28,29]}
@@ -64,7 +64,9 @@ if MODE!="carlota_tanda":
 def elig(p,d,r):
     if d in BLOCK[p]: return False
     if d==30 and LEV[p]=="R4": return False
-    if d==6 and LEV[p] in ("R1","R2"): return False
+    if d==6 and LEV[p] in ("R1","R2"):
+        if MODE=="r2_en_6" and r=="QX" and LEV[p]=="R2": pass
+        else: return False
     if d==7 and LEV[p]=="R1": return False
     if d in PUENTE and p in NO_PUENTE: return False
     if d==3 and p in DAY2: return False
@@ -101,9 +103,11 @@ dif68=[]
 for p in ALL:
     b=m.NewBoolVar(f"dif68_{p}")
     m.Add(a68[p,6]-a68[p,8]<=b); m.Add(a68[p,8]-a68[p,6]<=b); dif68.append(b)
-m.Add(sum(dif68)<=2)
-m.Add(x["Tania",8,"QX"]==1)          # Tania cubre el domingo 8
-m.Add(sum(n[p,6] for p in R1+R2)==0) # el viernes 6, ningun residente pequeno
+LIM=int(os.environ.get("DIF68","2"))
+if LIM<=4: m.Add(sum(dif68)<=LIM)
+if os.environ.get("TANIA8")=="1": m.Add(x["Tania",8,"QX"]==1)
+if MODE=="r2_en_6": m.Add(sum(n[p,6] for p in R1+R2)<=1)
+else: m.Add(sum(n[p,6] for p in R1+R2)==0)
 for p in ALL:
     for d in DAYS:
         if d+1 in DAYS:
@@ -144,10 +148,13 @@ for p in R1:
 for p in R3NR: m.Add(load[p]>=5); m.Add(load[p]<=6)
 for p in ROT:  m.Add(ucq[p]==6)
 m.Add(load["Patri"]==5)
-for p in R4NR: m.Add(load[p]==5)
-for p in R4NR: m.Add(fin[p]<=1)
+for p in R4NR:
+    if os.environ.get("NOR4L")=="1": m.Add(load[p]>=4); m.Add(load[p]<=6)
+    else: m.Add(load[p]==5)
+for p in R4NR: m.Add(fin[p]<=(2 if os.environ.get("NOR4F")=="1" else 1))
 # punto 4: Carlota 6 guardias y 2 findes, con la UCQ del 21
-m.Add(x["Carlota",21,"UCQ"]==1); m.Add(load["Carlota"]==6); m.Add(fin["Carlota"]==2)
+if os.environ.get("NOCARL")!="1":
+    m.Add(x["Carlota",21,"UCQ"]==1); m.Add(load["Carlota"]==6); m.Add(fin["Carlota"]==2)
 # punto 4: Eva se queda en 5 guardias y 1 finde
 m.Add(load["Eva"]==5); m.Add(fin["Eva"]==1)
 TGT=os.environ.get("TGT")
@@ -163,8 +170,9 @@ for p in R3NR: m.Add(fin[p]<=2)
 
 m.Add(tx["Carlota",3]==1); m.Add(tx["Carlota",4]==1)   # Carlota mantiene su tanda del 3-4
 # localizadas: como en tu calendario, salvo la del 5 que Carlota pierde por la norma de la vispera
-for q,v in {"Carlota":2,"Isabel":3,"Almudena":3,"Sandra":6,"Maria":7,"AnaG":7}.items():
-    m.Add(sum(tx[q,d] for d in DAYS)==v)
+if os.environ.get("NOTGT")!="1":
+    for q,v in {"Carlota":2,"Isabel":3,"Almudena":3,"Sandra":6,"Maria":7,"AnaG":7}.items():
+        m.Add(sum(tx[q,d] for d in DAYS)==v)
 
 # objetivo: parecerse lo mas posible al calendario manual
 BASE_S={int(k):v for k,v in json.load(open('sol_v19.json'))['sched'].items()}

@@ -507,8 +507,8 @@
    "octf": 3,
    "nov": 5,
    "ntx": 5,
-   "fin": 2,
-   "finn": 2,
+   "fin": 1,
+   "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -517,14 +517,14 @@
     "QX": 0
    },
    "tot": 12,
-   "fin2": 5,
+   "fin2": 4,
    "pue": 1,
    "blk": [
     7,
     8
    ],
    "tx12": 0,
-   "finn12": 3,
+   "finn12": 2,
    "w0": 1
   },
   {
@@ -628,8 +628,8 @@
    "cnt": {
     "TX": 3,
     "UCQ": 0,
-    "MAY": 4,
-    "QX": 1
+    "MAY": 3,
+    "QX": 2
    },
    "tot": 19,
    "fin2": 4,
@@ -751,8 +751,8 @@
    "cnt": {
     "TX": 6,
     "UCQ": 0,
-    "MAY": 2,
-    "QX": 3
+    "MAY": 3,
+    "QX": 2
    },
    "tot": 23,
    "fin2": 6,
@@ -771,7 +771,7 @@
   "3": {
    "TX": "Carlota",
    "UCQ": "Tony",
-   "MAY": "Isabel",
+   "MAY": "Patri",
    "QX": [
     "Aitor",
     "Eva"
@@ -780,7 +780,7 @@
   "4": {
    "TX": "Carlota",
    "UCQ": "Marc",
-   "MAY": "Patri",
+   "MAY": "Fabian",
    "QX": [
     "Mercedes",
     "Antonio"
@@ -792,16 +792,16 @@
    "MAY": "Candela",
    "QX": [
     "Fatima",
-    "Tania"
+    "Isabel"
    ]
   },
   "6": {
    "TX": "AnaG",
    "UCQ": "Carlota",
-   "MAY": "Fabian",
+   "MAY": "Sandra",
    "QX": [
-    "Almudena",
-    "Sandra"
+    "Tania",
+    "Almudena"
    ]
   },
   "7": {
