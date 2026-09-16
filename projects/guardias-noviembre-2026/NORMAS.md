@@ -191,16 +191,55 @@ quedan en 3 en todas las variantes.
 
 ## Bloqueos de noviembre
 
-R1 — Aitor 26-30 · Cristina 13-15, 26-30 · Fátima 13-15, 27-29 · Mercedes 26-30 ·
-Rosario 13-15, 20-22 · Miriam 6-9, 20-22 · Arturo y David sin bloqueos
+**Fuente de verdad.** `check_bloqueos.py` compara esta tabla con la que usa `solve.py` y
+falla si no coinciden. Si cambias un bloqueo, cámbialo en los dos sitios.
 
-R2 — Ana 6-8, 20-21 · Antonio 6-9 · Asís 12, 20-22 · Emilio 4, 18 · Eva 6-10, 28-29 ·
-Tania 18-23 · Marc 27-29 · Patricia sin bloqueos
+| | Residente | Días bloqueados |
+|---|---|---|
+| R1 | Aitor | 26-30 |
+| R1 | Arturo | — |
+| R1 | Cristina | 13-15, 26-30 |
+| R1 | David | — |
+| R1 | Fátima | 13-15, 27-29 |
+| R1 | Mercedes | 26-30 |
+| R1 | Rosario | 13-15, 20-22 |
+| R1 | Miriam | 6-9, 20-22 |
+| R2 | Patricia | — |
+| R2 | Ana | 6-8, 20-21 |
+| R2 | Antonio | 6-9 |
+| R2 | Asís | 12, 20-22 |
+| R2 | Emilio | 4, 18 |
+| R2 | Eva | 6-10, 28-29 |
+| R2 | Tania | 18-23 |
+| R2 | Marc | 27-29 |
+| R3 | Candela | 6-9, 17-18, 26-29 |
+| R3 | **Fabián** | **6-8** |
+| R3 | Patri | 20-22, 26-29 |
+| R3 | Tony | 27-29 |
+| R4 | Carlota | 13-15 |
+| R4 | Isabel | 6-9, 14-15 |
+| R4 | **María** | **1-9 y 13-15** |
+| R4 | Almudena | 11-13, 20-22 |
+| R4 | Ana G. | — |
+| R4 | Sandra | 27-29 |
 
-R3 — Candela 6-9, 17-18, 26-29 · Fabián 7-8 · Patri 20-22, 26-29 · Tony 27-29
+### Tres avisos sobre esta tabla
 
-R4 — Carlota 13-15 · Isabel 6-9, 14-15 · María 1-15 · Almudena 11-13, 20-22 (+ exenta
-del puente 7-9) · Ana G. exenta del puente 7-9 · Sandra 27-29
+1. **Fabián son 6-8, el finde de la fiesta completo.** Hasta la v21 estaba apuntado como
+   7-8 y por eso hacía el viernes 6 suelto. Corregido en la v22.
+2. **María NO es 1-15.** Son **1-9 y 13-15**: los días **10, 11 y 12 los tiene libres**, y
+   de ahí salen guardias suyas de UCQ. Apuntarlo como 1-15 lleva a concluir, falsamente,
+   que no puede llegar a 6 guardias de unidad.
+3. **Isabel trabaja el 6 y el 8 pese a tenerlos bloqueados.** Es la excepción que autorizó
+   el usuario para poder cubrir el viernes de la fiesta sin R1 ni R2 (ver v23 y v24). En
+   `solve.py` está implementada quitándole esos dos días del bloqueo; su bloqueo real es
+   6-9. Sigue librando el 7 y el 9.
+
+### Exenciones del tope de puentes
+
+No son bloqueos, son excepciones a la norma de «no más de 2 de 3 puentes»: **Ana G.** y
+**Almudena** están exentas por petición expresa, y las dos hacen los tres (12-oct, 31-oct
+y 9-nov).
 
 ## Versión provisional con el calendario manual (integrada)
 

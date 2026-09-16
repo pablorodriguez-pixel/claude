@@ -20,7 +20,9 @@ y 2 de quirófano. 140 puestos en total.
 | `Guardias_Noviembre_2026.docx` | El mismo cuadrante en Word, tabla calendario en horizontal + resúmenes |
 | `mkdoc.js` | Genera el Word con docx-js a partir de `docdata.json` |
 | `solve.py` | Modelo CP-SAT: reparte las 28 localizadas y los 112 puestos presenciales |
-| `check.py` | Verificador independiente: re-comprueba las 11 familias de reglas desde cero |
+| `check.py` | Verificador independiente: re-comprueba las familias de reglas desde cero |
+| `audit.py` | Auditoría de tres normas críticas (vacaciones, víspera de localizada, tripletes), escrita aparte de `check.py` |
+| `check_bloqueos.py` | Comprueba que la tabla de bloqueos de `NORMAS.md` coincide con la que usa `solve.py` |
 | `data.py` | Recuento por residente (guardias, findes, puentes, desglose por puesto) |
 | `gen.py` | Genera `index.html` a partir de la solución |
 | `transcripcion_manual.py` | Transcripción del calendario manual del usuario + reconciliación con sus listas resumen |
