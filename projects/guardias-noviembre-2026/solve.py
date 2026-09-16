@@ -15,7 +15,7 @@ BLOCK={"Aitor":[26,27,28,29,30],"Arturo":[],"Cristina":[13,14,15,26,27,28,29,30]
 "Asis":[12,20,21,22],"Emilio":[4,18],"Eva":[6,7,8,9,10,28,29],"Tania":[18,19,20,21,22,23],
 "Marc":[27,28,29],"Candela":[6,7,8,9,17,18,26,27,28,29],"Fabian":[6,7,8],
 "Patri":[20,21,22,26,27,28,29],"Tony":[27,28,29],"Carlota":[13,14,15],
-"Isabel":[6,7,8,9,14,15],"Maria":[1,2,3,4,5,6,7,8,9,13,14,15],"Almudena":[11,12,13,20,21,22],
+"Isabel":[7,9,14,15],"Maria":[1,2,3,4,5,6,7,8,9,13,14,15],"Almudena":[11,12,13,20,21,22],
 "AnaG":[],"Sandra":[27,28,29]}
 BASE={"Isabel":38,"Almudena":36,"Carlota":34,"Sandra":33,"AnaG":32,"Maria":23}
 DAYS=list(range(3,31)); PUENTE=[7,8,9]
@@ -64,9 +64,7 @@ if MODE!="carlota_tanda":
 def elig(p,d,r):
     if d in BLOCK[p]: return False
     if d==30 and LEV[p]=="R4": return False
-    if d==6 and LEV[p] in ("R1","R2"):
-        if MODE=="r2_en_6" and r=="QX" and LEV[p]=="R2": pass
-        else: return False
+    if d==6 and LEV[p] in ("R1","R2"): return False
     if d==7 and LEV[p]=="R1": return False
     if d in PUENTE and p in NO_PUENTE: return False
     if d==3 and p in DAY2: return False
@@ -106,8 +104,9 @@ for p in ALL:
 LIM=int(os.environ.get("DIF68","2"))
 if LIM<=4: m.Add(sum(dif68)<=LIM)
 if os.environ.get("TANIA8")=="1": m.Add(x["Tania",8,"QX"]==1)
-if MODE=="r2_en_6": m.Add(sum(n[p,6] for p in R1+R2)<=1)
-else: m.Add(sum(n[p,6] for p in R1+R2)==0)
+m.Add(sum(n[p,6] for p in R1+R2)==0)
+if os.environ.get("ISA68")=="1":
+    m.Add(n["Isabel",6]==1); m.Add(n["Isabel",8]==1)
 for p in ALL:
     for d in DAYS:
         if d+1 in DAYS:
@@ -175,7 +174,7 @@ if os.environ.get("NOTGT")!="1":
         m.Add(sum(tx[q,d] for d in DAYS)==v)
 
 # objetivo: parecerse lo mas posible al calendario manual
-BASE_S={int(k):v for k,v in json.load(open('sol_v19.json'))['sched'].items()}
+BASE_S={int(k):v for k,v in json.load(open('sol_v22.json'))['sched'].items()}
 MAN={d:(v["TX"],v["UCQ"],v["MAY"],v["QX"][0],v["QX"][1]) for d,v in BASE_S.items()}
 same=[]; wsame=[]
 for d,v in MAN.items():

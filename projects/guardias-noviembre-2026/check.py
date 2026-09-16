@@ -24,6 +24,11 @@ D=range(3,31); err=[]
 nontx=lambda p,d: S[d]["UCQ"]==p or S[d]["MAY"]==p or p in S[d]["QX"]
 anyw =lambda p,d: nontx(p,d) or S[d]["TX"]==p
 
+# Isabel entra en el doblete viernes-domingo pese a tener el 6-9 de vacaciones
+ISA=[d for d in (6,7,8,9) if anyw("Isabel",d)]
+if ISA: EXC0=[f"Isabel trabaja el {ISA} pese a tener del 6 al 9 de vacaciones — peticion expresa"]
+else: EXC0=[]
+BLOCK["Isabel"]=[d for d in BLOCK["Isabel"] if d not in ISA]
 for d in D:
     pe=[S[d]["TX"],S[d]["UCQ"],S[d]["MAY"]]+S[d]["QX"]
     if len(pe)!=5 or len(set(pe))!=5: err.append(f"d{d}: puestos mal {pe}")
@@ -66,6 +71,7 @@ for p in peq6:
     elif p not in S[6]["QX"]: err.append(f"viernes 6: {p} es R2 y no esta en quirofano")
 if len(peq6)>1: err.append(f"viernes 6: {len(peq6)} residentes pequenos ({peq6}), solo se admite 1")
 if peq6: EXC.append(f"viernes 6: {peq6[0]} (R2) entra en quirofano — falta una persona de R3/R4 ese dia")
+EXC=EXC0+EXC
 for p in [S[7]["TX"],S[7]["UCQ"],S[7]["MAY"]]+S[7]["QX"]:
     if LEV[p]=="R1": err.append(f"sabado 7: {p} es R1")
 # puentes: 2 de 3, con Ana G. y Almudena exentas por peticion expresa
@@ -122,7 +128,9 @@ for p in LEV:
     if LEV[p]=="R1" and F>1: err.append(f"{p} R1: {F} findes")
     if p in R3NR and not 5<=L<=6: err.append(f"{p} R3: {L} guardias")
     if p in R4NR and L!=5: err.append(f"{p} R4 no rotante: {L} guardias (deben ser 5)")
-    if LEV[p]=="R4" and F>1 and p!="Carlota": err.append(f"{p} R4: {F} findes de qx/ucq (>1)")
+    if LEV[p]=="R4" and F>1 and p!="Carlota":
+        if p=="Isabel" and F==2 and ISA: EXC.append(f"Isabel R4: 2 findes de qx/ucq (el tope es 1)")
+        else: err.append(f"{p} R4: {F} findes de qx/ucq (>1)")
 # punto 4: Carlota 6 guardias y 2 findes con la UCQ del 21; Eva 5 guardias y 1 finde
 LC=sum(1 for d in D if nontx("Carlota",d)); FC=sum(1 for ds in W.values() if any(nontx("Carlota",d) for d in ds))
 if LC!=6 or FC!=2: err.append(f"Carlota: {LC} guardias / {FC} findes (deben ser 6 y 2)")

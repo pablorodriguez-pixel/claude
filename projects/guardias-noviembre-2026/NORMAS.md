@@ -225,6 +225,58 @@ Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
 
+## v23 — Isabel entra en el doblete viernes-domingo
+
+Sustituye la salida de la v22. En vez de meter a Tania (R2) en quirófano el viernes de la
+fiesta, **Isabel cubre el 6 y el 8** pese a tenerlos de vacaciones. Es petición expresa del
+usuario y es la salida que menos rompe:
+
+- **La libranza de la fiesta queda entera.** El viernes 6 solo lleva R3 y R4, y ningún R1
+  trabaja el 6 ni el 7.
+- **Almudena deja de necesitar su excepción de puentes.** Al entrar Isabel, Almudena solo
+  trabaja el viernes 6, que no es día de puente: se queda en **2 de 3**.
+- **Isabel mantiene sus topes**: 5 guardias y 1 finde presencial. Sigue librando el 7 y el 9.
+- Bajan de 4 a **3** las normas saltadas a propósito.
+
+### El puente queda así
+
+| Día | TX | UCQ | Mayor | Quirófano |
+|---|---|---|---|---|
+| jue 5 | Ana G. | Patricia | Candela | Fátima · Tania |
+| vie 6 | Ana G. | Carlota | Sandra | **Isabel** · Almudena |
+| sáb 7 | Ana G. | Tony | Patri | Asís · Marc |
+| dom 8 | Ana G. | Carlota | **Isabel** | Tania · Sandra |
+| lun 9 | Ana G. | Tony | Patri | Asís · Marc |
+
+El 6 y el 8 comparten cuatro de cinco: Ana G., Carlota, Isabel y Sandra. El único relevo es
+Almudena el viernes y Tania el domingo.
+
+### Puentes por R4 tras el cambio
+
+| | 12-oct | 31-oct | nov | Total |
+|---|:---:|:---:|:---:|:---:|
+| Ana G. | sí | sí | 7, 8 y 9 (localizada) | **3/3** |
+| Carlota | sí | — | 8 | 2/3 |
+| Isabel | — | sí | 8 | 2/3 |
+| Sandra | sí | — | 8 | 2/3 |
+| **Almudena** | sí | sí | — | **2/3** |
+| María | — | — | — | 0/3 |
+
+### Estado
+
+Cambian 12 días respecto a la v22 (3, 4, 5, 6, 8, 10, 20, 22, 23, 27, 28 y 29): al ocupar
+Isabel su único finde en el de la fiesta, deja el mayor del 27-29 a Fabián y eso arrastra a
+Ana G. y a Patri. Localizadas y cargas no se mueven: Carlota 2 Tx / 6 guardias / 2 findes,
+Isabel 3, Almudena 5 (con el 1 y el 2), Sandra 6, Ana G. 7, María 7. 1 doblete (María
+16+18). `check.py` da **0 errores** y 3 normas saltadas a propósito: Isabel el 6 y el 8,
+Ana G. 3/3 puentes y Carlota con 2 findes de quirófano/UCQ.
+
+### Alternativa descartada
+
+Permitirle a Isabel 2 findes presenciales bajaba los cambios de 12 a 5 días, pero le rompía
+dos normas en vez de una (las vacaciones **y** el tope de 1 finde de las R4) y la ponía a
+trabajar el finde de la fiesta y el último del mes. Se descartó.
+
 ## v22 — Fabián libra el finde completo de la fiesta (6, 7 y 8)
 
 Su bloqueo pasa de `[7, 8]` a `[6, 7, 8]`. Eso quita la pieza que sostenía el viernes 6 en

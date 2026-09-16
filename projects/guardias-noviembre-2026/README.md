@@ -1,4 +1,4 @@
-# Guardias · Noviembre 2026 (v22 — calendario manual corregido)
+# Guardias · Noviembre 2026 (v23 — calendario manual corregido)
 
 > **Lee `NORMAS.md` antes de tocar nada.** Contiene el brief literal y las reglas del
 > servicio. Es la fuente de verdad.

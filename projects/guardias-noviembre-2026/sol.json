@@ -3,7 +3,7 @@
   "3": {
    "TX": "Carlota",
    "UCQ": "Tony",
-   "MAY": "Patri",
+   "MAY": "Isabel",
    "QX": [
     "Aitor",
     "Eva"
@@ -12,7 +12,7 @@
   "4": {
    "TX": "Carlota",
    "UCQ": "Marc",
-   "MAY": "Fabian",
+   "MAY": "AnaG",
    "QX": [
     "Mercedes",
     "Antonio"
@@ -24,7 +24,7 @@
    "MAY": "Candela",
    "QX": [
     "Fatima",
-    "Isabel"
+    "Tania"
    ]
   },
   "6": {
@@ -32,7 +32,7 @@
    "UCQ": "Carlota",
    "MAY": "Sandra",
    "QX": [
-    "Tania",
+    "Isabel",
     "Almudena"
    ]
   },
@@ -48,7 +48,7 @@
   "8": {
    "TX": "AnaG",
    "UCQ": "Carlota",
-   "MAY": "Almudena",
+   "MAY": "Isabel",
    "QX": [
     "Tania",
     "Sandra"
@@ -66,7 +66,7 @@
   "10": {
    "TX": "Isabel",
    "UCQ": "Maria",
-   "MAY": "Fabian",
+   "MAY": "Almudena",
    "QX": [
     "Miriam",
     "Emilio"
@@ -156,7 +156,7 @@
   "20": {
    "TX": "Maria",
    "UCQ": "Tony",
-   "MAY": "AnaG",
+   "MAY": "Fabian",
    "QX": [
     "Arturo",
     "Cristina"
@@ -174,7 +174,7 @@
   "22": {
    "TX": "Maria",
    "UCQ": "Tony",
-   "MAY": "AnaG",
+   "MAY": "Fabian",
    "QX": [
     "Arturo",
     "Cristina"
@@ -183,7 +183,7 @@
   "23": {
    "TX": "Sandra",
    "UCQ": "Patricia",
-   "MAY": "Fabian",
+   "MAY": "Patri",
    "QX": [
     "Isabel",
     "Almudena"
@@ -219,7 +219,7 @@
   "27": {
    "TX": "Almudena",
    "UCQ": "Maria",
-   "MAY": "Isabel",
+   "MAY": "Fabian",
    "QX": [
     "Rosario",
     "Asis"
@@ -228,7 +228,7 @@
   "28": {
    "TX": "Almudena",
    "UCQ": "Emilio",
-   "MAY": "Fabian",
+   "MAY": "AnaG",
    "QX": [
     "Antonio",
     "Tania"
@@ -237,7 +237,7 @@
   "29": {
    "TX": "Almudena",
    "UCQ": "Maria",
-   "MAY": "Isabel",
+   "MAY": "Fabian",
    "QX": [
     "Rosario",
     "Asis"

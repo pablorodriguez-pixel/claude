@@ -243,15 +243,14 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 <div class="wrap">
 <header class="top">
   <div>
-    <div class="eyebrow">Programación de residentes · v22 sobre tu calendario</div>
+    <div class="eyebrow">Programación de residentes · v23 sobre tu calendario</div>
     <h1>Guardias · Noviembre 2026</h1>
-    <p>Tu calendario con los arreglos que pediste: todas las vacaciones respetadas —incluido el
-    finde completo de Fabián, del 6 al 8—, el 6 y el 8 con el mismo equipo salvo un relevo, el
-    triplete de Almudena deshecho, la UCQ del 21 para Carlota y Carlota sin localizada en víspera
-    de guardia. Cero normas rotas; cuatro saltadas a propósito, y <b>una de ellas no la pediste</b>:
-    Tania (R2) entra en quirófano el viernes de la fiesta, porque sin Fabián faltaba exactamente
-    una persona de R3 o R4 ese día. Los días 1 y 2 vienen del cuadrante de octubre, salen
-    atenuados y <b>sus localizadas y findes sí cuentan</b> en el contaje del mes.</p>
+    <p>Tu calendario con los arreglos que pediste. <b>Isabel entra en el doblete viernes-domingo</b>
+    para cubrir el hueco que deja Fabián, que libra el finde completo de la fiesta. Con eso el
+    viernes 6 vuelve a ser solo de R3 y R4 —la libranza de la fiesta queda entera— y
+    <b>Almudena baja a 2 de 3 puentes</b>, así que ya no necesita su excepción. Quedan tres normas
+    saltadas a propósito. Los días 1 y 2 vienen del cuadrante de octubre, salen atenuados y
+    <b>sus localizadas y findes sí cuentan</b> en el contaje del mes.</p>
   </div>
   <div class="meta">
     <span>Residentes</span><b>26 · 8 R1, 8 R2, 4 R3, 6 R4</b>
@@ -281,15 +280,17 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
   <ul class="cond">
     <li class="ok"><span class="st">cumple</span><b>1 · Todas las vacaciones respetadas</b>
       <span class="dt">Emilio libra el 18, y <b>Fabián el 6, el 7 y el 8</b>: el finde de la fiesta
-      completo. Ninguno de los 26 residentes pisa un día bloqueado.</span></li>
-    <li class="ok"><span class="st">cumple</span><b>2 · El viernes 6 y el domingo 8, con un solo cambio</b>
-      <span class="dt">Los dos días llevan a Ana G. de trasplante, Carlota en UCQ, Tania en
-      quirófano y a Almudena y Sandra; lo único que se intercambia entre ellos es quién firma el
-      puesto de mayor —Sandra el viernes, Almudena el domingo—. El sábado 7 y el lunes 9 siguen
-      emparejados: Ana G., Tony, Patri, Asís y Marc.</span></li>
+      completo. La única excepción es <b>Isabel, que entra el 6 y el 8</b> aunque los tenga
+      bloqueados: es tu decisión y es lo que permite cubrir el viernes sin R1 ni R2. Sigue librando
+      el 7 y el 9.</span></li>
+    <li class="ok"><span class="st">cumple</span><b>2 · El viernes 6 y el domingo 8, con un solo relevo</b>
+      <span class="dt">Los dos días llevan a Ana G. de trasplante, Carlota en UCQ, y a Isabel y
+      Sandra. El único relevo es <b>Almudena el viernes y Tania el domingo</b>. El viernes 6 solo
+      lleva R3 y R4: la libranza de la fiesta queda entera, y ningún R1 trabaja el 6 ni el 7. El
+      sábado 7 y el lunes 9 siguen emparejados: Ana G., Tony, Patri, Asís y Marc.</span></li>
     <li class="ok"><span class="st">cumple</span><b>3 · Almudena hace los tres puentes</b>
-      <span class="dt">Con la excepción que autorizaste. Sin ella no hay gente para cubrir el
-      domingo 8 con el equipo del viernes: Almudena es una de las pocas que puede estar los dos días.</span></li>
+      <span class="dt"><b>Ya no hace falta.</b> Al entrar Isabel el 6 y el 8, Almudena solo trabaja
+      el viernes 6, que no es día de puente. Se queda en <b>2 de 3</b>, dentro de la norma.</span></li>
     <li class="ok"><span class="st">cumple</span><b>4 · La UCQ del 21 pasa de Eva a Carlota</b>
       <span class="dt">Carlota queda en <b>6 guardias y 2 findes</b> —6, 8, 12, 17, 21 y 26—, y Eva
       en <b>5 guardias y 1 finde</b> —3, 13, 15, 19 y 24—. Eva recupera la guardia del 21 en el 19.</span></li>
@@ -307,17 +308,14 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 </section>
 
 <section>
-  <div class="shead"><h2>Las cuatro normas que se saltan a propósito</h2>
-    <p>Tres las autorizaste tú. La primera no: es la única salida que quedaba, y está explicada
-    abajo.</p></div>
+  <div class="shead"><h2>Las tres normas que se saltan a propósito</h2>
+    <p>Las tres las decidiste tú. Sin ellas el cuadrante no cierra.</p></div>
   <ul class="cond">
-    <li class="part"><span class="st">excepción</span><b>Tania (R2) entra en quirófano el viernes 6</b>
-      <span class="dt">El viernes de la fiesta libran R1 y R2. Con Fabián de vacaciones el 6, el 7
-      y el 8, solo quedan seis personas de R3 y R4 para cubrir el 6, el 8, la localizada del puente
-      y el mayor del sábado 7 —que también tiene que ser R3 o R4—. <b>Falta exactamente una.</b>
-      Entra un solo R2, y en quirófano. Ningún R1 trabaja el 6 ni el 7.</span></li>
-    <li class="part"><span class="st">excepción</span><b>Almudena llega a 3 de 3 puentes</b>
-      <span class="dt">Tu punto 3.</span></li>
+    <li class="part"><span class="st">excepción</span><b>Isabel trabaja el 6 y el 8, que tiene de vacaciones</b>
+      <span class="dt">El viernes de la fiesta libran R1 y R2. Con Fabián librando el 6, el 7 y el
+      8, solo quedaban seis personas de R3 y R4 para siete puestos: la localizada del 6 al 9, los
+      cuatro del viernes y el mayor del sábado 7. <b>Faltaba exactamente una</b>, y la pones tú:
+      Isabel. Sigue librando el 7 y el 9, y mantiene su tope de 5 guardias y 1 finde.</span></li>
     <li class="part"><span class="st">excepción</span><b>Ana G. llega a 3 de 3 puentes</b>
       <span class="dt">Autorizado desde el principio, para que pudiera coger la tanda del puente.</span></li>
     <li class="part"><span class="st">excepción</span><b>Carlota tiene 2 findes de quirófano/UCQ</b>
@@ -426,7 +424,7 @@ __RESUMEN__
 <section>
   <div class="shead"><h2>Notas</h2></div>
   <div class="notes">
-    <div class="note warn"><h3>Por qué entra un R2 el viernes de la fiesta</h3>
+    <div class="note warn"><h3>Por qué hacía falta una persona más el viernes 6</h3>
       <p>Con Fabián librando el finde completo (6, 7 y 8), el viernes 6 solo puede trabajar gente
       de R3 y R4, y de ese grupo caen además <b>Candela e Isabel</b> (vacaciones del 6 al 9) y
       <b>María</b> (hasta el 15). Quedan seis: <b>Patri, Tony, Carlota, Almudena, Ana G. y
@@ -436,11 +434,14 @@ __RESUMEN__
       para R3/R4 no rotante y los dos de quirófano, que con R1 y R2 librando también tienen que ser
       R4— y el mayor del sábado 7, que no puede coincidir con nadie del viernes. <b>Falta
       exactamente una persona.</b></p>
-      <p>Comprobado con el solver: sin tocar nada, el mes no cierra. Las dos únicas salidas son
-      <b>meter un R2 en quirófano el 6</b> —la elegida: un solo R2, un solo puesto, y ningún R1 ni
-      el 6 ni el 7— o <b>dar a Carlota la tanda de localizada del puente</b>, que la subiría a 6
-      localizadas, 40 acumuladas y 19 findes de localizada, el récord del servicio, deshaciendo el
-      equilibrado de todo el mes. Por eso he elegido la primera.</p></div>
+      <p>Comprobado con el solver: sin tocar nada, el mes no cierra. Las salidas eran meter un R2
+      en quirófano el 6 —rompiendo la libranza de la fiesta—, dar a Carlota la tanda de localizada
+      del puente —que la subiría a 40 localizadas acumuladas y 19 findes, el récord del servicio— o
+      <b>meter a Isabel el 6 y el 8</b>, que es la que has elegido.</p>
+      <p>Es la que menos rompe: la libranza de la fiesta queda entera, ningún R1 ni R2 trabaja el
+      viernes, Isabel mantiene su tope de 5 guardias y 1 finde, y <b>Almudena deja de necesitar su
+      excepción de puentes</b> porque el viernes 6 no es día de puente. A cambio, Isabel trabaja
+      dos días que tenía de vacaciones; sigue librando el 7 y el 9.</p></div>
     <div class="note"><h3>Qué se ha movido de tu calendario</h3>
       <p><b>127 de las 140 celdas quedan como las dejaste.</b> Los cambios se concentran donde
       tenían que estar:</p>
