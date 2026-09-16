@@ -210,8 +210,8 @@
    "octf": 3,
    "nov": 3,
    "ntx": 3,
-   "fin": 0,
-   "finn": 0,
+   "fin": 1,
+   "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -220,7 +220,7 @@
     "QX": 3
    },
    "tot": 10,
-   "fin2": 3,
+   "fin2": 4,
    "pue": 1,
    "blk": [
     6,
@@ -232,7 +232,7 @@
     22
    ],
    "tx12": 0,
-   "finn12": 1,
+   "finn12": 2,
    "w0": 1
   },
   {
@@ -354,8 +354,8 @@
    "octf": 2,
    "nov": 4,
    "ntx": 4,
-   "fin": 2,
-   "finn": 2,
+   "fin": 1,
+   "finn": 1,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -364,14 +364,14 @@
     "QX": 3
    },
    "tot": 10,
-   "fin2": 4,
+   "fin2": 3,
    "pue": 1,
    "blk": [
     4,
     18
    ],
    "tx12": 0,
-   "finn12": 2,
+   "finn12": 1,
    "w0": 0
   },
   {
@@ -413,8 +413,8 @@
    "octf": 3,
    "nov": 4,
    "ntx": 4,
-   "fin": 1,
-   "finn": 1,
+   "fin": 0,
+   "finn": 0,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -423,7 +423,7 @@
     "QX": 4
    },
    "tot": 10,
-   "fin2": 4,
+   "fin2": 3,
    "pue": 1,
    "blk": [
     18,
@@ -434,7 +434,7 @@
     23
    ],
    "tx12": 0,
-   "finn12": 2,
+   "finn12": 1,
    "w0": 1
   },
   {
@@ -444,8 +444,8 @@
    "octf": 1,
    "nov": 4,
    "ntx": 4,
-   "fin": 1,
-   "finn": 1,
+   "fin": 2,
+   "finn": 2,
    "fint": 0,
    "cnt": {
     "TX": 0,
@@ -454,7 +454,7 @@
     "QX": 3
    },
    "tot": 10,
-   "fin2": 2,
+   "fin2": 3,
    "pue": 1,
    "blk": [
     27,
@@ -462,7 +462,7 @@
     29
    ],
    "tx12": 0,
-   "finn12": 1,
+   "finn12": 2,
    "w0": 0
   },
   {
@@ -836,8 +836,8 @@
    "UCQ": "Maria",
    "MAY": "Fabian",
    "QX": [
-    "Miriam",
-    "Emilio"
+    "Emilio",
+    "Tania"
    ]
   },
   "11": {
@@ -855,7 +855,7 @@
    "MAY": "Sandra",
    "QX": [
     "Fatima",
-    "Tania"
+    "Rosario"
    ]
   },
   "13": {
@@ -891,7 +891,7 @@
    "MAY": "AnaG",
    "QX": [
     "Miriam",
-    "Marc"
+    "Emilio"
    ]
   },
   "17": {
@@ -908,7 +908,7 @@
    "UCQ": "Maria",
    "MAY": "Sandra",
    "QX": [
-    "Rosario",
+    "Aitor",
     "Ana"
    ]
   },
@@ -936,7 +936,7 @@
    "MAY": "Candela",
    "QX": [
     "Fatima",
-    "Emilio"
+    "Marc"
    ]
   },
   "22": {
@@ -962,8 +962,8 @@
    "UCQ": "Maria",
    "MAY": "Candela",
    "QX": [
-    "Aitor",
-    "Eva"
+    "Eva",
+    "Tania"
    ]
   },
   "25": {
@@ -998,8 +998,8 @@
    "UCQ": "Emilio",
    "MAY": "AnaG",
    "QX": [
-    "Antonio",
-    "Tania"
+    "Miriam",
+    "Antonio"
    ]
   },
   "29": {

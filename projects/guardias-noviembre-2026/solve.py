@@ -168,6 +168,9 @@ for p in R2NR:
     if os.environ.get("R2FIN")=="1": m.Add(fin[p]>=1)
     m.Add(fin[p]<=2); m.Add(ucq[p]<=2)
     m.Add(sum(x[p,d,"QX"] for d in DAYS) >= ucq[p])
+# igualar findes acumulados de los R2: Tania sin finde en noviembre, Marc con dos
+if os.environ.get("TAMA")=="1":
+    m.Add(fin["Tania"]==0); m.Add(fin["Marc"]==2)
 m.Add(fin["Tony"]<=2); m.Add(fin["Patricia"]<=2)
 for p in R3NR: m.Add(fin[p]<=2)
 

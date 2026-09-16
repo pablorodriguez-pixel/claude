@@ -243,7 +243,7 @@ footer { margin-top:8px; padding-top:16px; border-top:1px solid var(--line);
 <div class="wrap">
 <header class="top">
   <div>
-    <div class="eyebrow">Programación de residentes · v24 sobre tu calendario</div>
+    <div class="eyebrow">Programación de residentes · v25 sobre tu calendario</div>
     <h1>Guardias · Noviembre 2026</h1>
     <p>Tu calendario con los arreglos que pediste. El <b>doblete viernes-domingo lo llevan
     Almudena, Sandra e Isabel</b>, las tres los dos días, con Ana G. de trasplante y Carlota en
@@ -478,6 +478,9 @@ __RESUMEN__
       <p><b>R1</b>: los ocho a 3 guardias y 1 finde, salvo Miriam, cuyo único finde es el día 2
       del puente del 31 de octubre. <b>R2</b>: Patricia 6; Eva 5; Ana, Antonio, Asís, Emilio,
       Tania y Marc a 4. Eva no lleva ningún día de unidad: la del 21 pasó a Carlota.</p>
+      <p><b>Findes acumulados de los R2</b>, contando desde junio: siete de los ocho a <b>3</b> y
+      solo Eva a 4. Tania no hace ningún finde en noviembre —su acumulado ya era el más alto— y
+      Marc hace dos, el de la fiesta y el sábado 21, que era el que menos llevaba.</p>
       <p><b>R3</b>: Tony 6; Candela, Fabián y Patri a 5. <b>R4</b>: Carlota y María 6; Isabel,
       Almudena, Ana G. y Sandra a 5, sin contar trasplante.</p>
       <p>Dobletes: <b>1</b> —María el 16 y el 18—, frente a los 6 de tu versión.</p></div>

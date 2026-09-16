@@ -225,6 +225,35 @@ Reglas que rompe (5): Almudena 3/3 puentes · Almudena triplete 6-8-10 · Emilio
 18 (vacaciones) · Fabián trabaja el 8 (vacaciones) · Carlota TX el 5 y guardia el 6
 (víspera). Dobletes fuera de los propios: 6.
 
+## v25 — findes acumulados de los R2 igualados
+
+**Marc no puede coger el sábado 28: tiene el 27, el 28 y el 29 de vacaciones.** El
+reequilibrio se hace igual pero con otro finde:
+
+- **Tania sale de todos los findes de noviembre.** Pasa a 5, 10, 17 y 24, todos entre
+  semana. Sigue con 4 guardias. Su acumulado de findes baja de **4 a 3**.
+- **Marc hace dos findes**: el de la fiesta (7 y 9, que ya tenía) y el **sábado 21**. Pasa a
+  4, 7, 9 y 21, también con 4 guardias. Su acumulado sube de **2 a 3**.
+- De rebote **Emilio** baja de 2 findes a 1 (pasa del 21 al 16) y su acumulado queda en 3.
+
+Resultado: **siete de los ocho R2 a 3 findes acumulados** y solo Eva a 4. Antes el abanico
+iba de 2 a 4.
+
+| | Jun-oct | Nov | Acum. | Findes nov | Findes acum. | Días |
+|---|:---:|:---:|:---:|:---:|:---:|---|
+| Patricia (UCQ) | 6 | 6 | 12 | 1 | 3 | 5, 11, 14, 19, 23, 30 |
+| Eva | 6 | 5 | 11 | 1 | **4** | 3, 13, 15, 19, 24 |
+| Antonio | 6 | 4 | 10 | 1 | 3 | 4, 11, 17, 28 |
+| Asís | 6 | 4 | 10 | 2 | 3 | 7, 9, 27, 29 |
+| Emilio | 6 | 4 | 10 | 1 | 3 | 10, 16, 25, 28 |
+| **Tania** | 6 | 4 | 10 | **0** | **3** | 5, 10, 17, 24 |
+| **Marc** | 6 | 4 | 10 | **2** | **3** | 4, 7, 9, 21 |
+| Ana | 5 | 4 | 9 | 1 | 3 | 13, 15, 18, 30 |
+
+Cambian 7 días respecto a la v24: el 10, 12, 16, 18, 21, 24 y 28. El puente y las
+localizadas no se tocan. `check.py` da **0 errores** y las mismas 4 normas saltadas a
+propósito.
+
 ## v24 — el doblete viernes-domingo lo llevan Almudena, Sandra e Isabel
 
 Tania sale del 6 y del 8. Las tres R4 cubren los dos días, con Ana G. de trasplante y
