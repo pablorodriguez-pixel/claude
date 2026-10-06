@@ -1,0 +1,8 @@
+*.wav
+voice_raw.mp3
+music.mp3
+**/build/video_noaudio.mp4
+**/build/video.html
+**/build/*.jpg
+**/sheet*.jpg
+voto-correo-tiktok.mp4

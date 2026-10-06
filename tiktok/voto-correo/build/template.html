@@ -1,0 +1,324 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Archivo;src:url(archivo.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#101114}
+body{font-family:Archivo,sans-serif;color:#F2EFEA;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:#101114}
+#cam{position:absolute;inset:0;transform-origin:540px 800px}
+.grid{position:absolute;inset:-200px;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:60px 60px}
+.scene{position:absolute;inset:0;opacity:0;display:none}
+.photo{position:absolute;inset:0;background-size:cover;background-position:center;will-change:transform}
+.shade{position:absolute;inset:0}
+.abs{position:absolute}
+.cond{font-stretch:72%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9}
+.tag{position:absolute;left:70px;top:250px;font-weight:800;font-size:34px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;border-radius:8px;background:#FFE14D;color:#101114}
+.tag.red{background:#FF2D55;color:#fff}
+.src{position:absolute;left:70px;right:70px;top:1130px;font-size:26px;color:rgba(242,239,234,.6);font-weight:500;letter-spacing:.02em}
+.card{position:absolute;background:#1B1C21;border:2px solid rgba(255,255,255,.08);border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.stamp{position:absolute;border:12px solid #FF2D55;color:#FF2D55;font-stretch:72%;font-weight:900;text-transform:uppercase;padding:10px 34px;border-radius:18px;letter-spacing:.02em;background:rgba(16,17,20,.55)}
+.sq{position:absolute;width:30px;height:30px;border-radius:6px;background:rgba(255,255,255,.1)}
+#subs{position:absolute;left:0;right:0;top:1235px;text-align:center;font-stretch:72%;font-weight:900;font-size:104px;line-height:1;text-transform:uppercase;paint-order:stroke fill;-webkit-text-stroke:14px #0b0b0d;letter-spacing:.005em;padding:0 50px}
+#subs span{display:inline-block;margin:0 14px}
+#top{position:absolute;left:0;right:0;top:0;height:8px;background:rgba(255,255,255,.12)}
+#bar{height:100%;background:#FFE14D;width:0}
+#brand{position:absolute;left:70px;top:120px;font-weight:800;font-size:30px;letter-spacing:.2em;color:rgba(242,239,234,.75)}
+#brand b{color:#FF2D55}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#vign{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(0,0,0,.55));pointer-events:none}
+.person{position:absolute;width:120px;height:200px}
+.person i{position:absolute;left:30px;top:0;width:60px;height:60px;border-radius:50%;background:currentColor}
+.person b{position:absolute;left:10px;top:70px;width:100px;height:130px;border-radius:50px 50px 14px 14px;background:currentColor}
+.bill{position:absolute;width:230px;height:118px;border-radius:12px;background:linear-gradient(135deg,#7BE38B,#3c9d5a);border:4px solid #1d5a33;color:#0f3a20;font-weight:900;font-size:54px;display:flex;align-items:center;justify-content:center;font-stretch:80%}
+.pin{position:absolute;width:56px;height:56px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#FF2D55;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+.pin:after{content:"";position:absolute;left:18px;top:18px;width:20px;height:20px;border-radius:50%;background:#101114}
+.chip{position:absolute;padding:18px 34px;border-radius:100px;font-weight:800;font-size:44px;background:#26272B;border:3px solid rgba(255,255,255,.18);letter-spacing:.02em}
+</style></head>
+<body><div id="stage"><div id="cam">
+<div class="grid" id="grid"></div>
+
+<!-- S1 HOOK -->
+<div class="scene" id="s1">
+  <div class="photo" id="p1" style="background-image:url(../img/urna.jpg);background-position:50% 70%"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(16,17,20,.92) 0%,rgba(16,17,20,.55) 40%,rgba(16,17,20,.35) 60%,rgba(16,17,20,.9) 100%)"></div>
+  <div class="tag" id="s1tag">Melilla · 2023</div>
+  <div class="abs cond" id="s1h" style="left:70px;right:70px;top:350px;font-size:150px">1 de cada 5<br><span style="color:#FFE14D">pidió votar<br>por correo</span></div>
+  <div id="s1p"></div>
+</div>
+
+<!-- S2 GRIDS -->
+<div class="scene" id="s2">
+  <div class="abs cond" style="left:70px;top:250px;font-size:64px;color:#FFE14D">Melilla</div>
+  <div class="abs cond" style="left:570px;top:250px;font-size:64px;color:#3B82F6">Resto de España</div>
+  <div id="g1" class="abs" style="left:70px;top:350px;width:440px;height:440px"></div>
+  <div id="g2" class="abs" style="left:570px;top:350px;width:440px;height:440px"></div>
+  <div class="abs cond" id="n1" style="left:70px;top:830px;font-size:190px;color:#FFE14D">21%</div>
+  <div class="abs cond" id="n2" style="left:570px;top:830px;font-size:190px;color:#3B82F6">~3%</div>
+  <div class="src">Solicitudes de voto por correo sobre el censo · Municipales 28M 2023</div>
+</div>
+
+<!-- S3 POLICE -->
+<div class="scene" id="s3">
+  <div class="photo" id="p3" style="background-image:url(../img/policia.jpg)"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(16,17,20,.85),rgba(80,0,20,.35) 45%,rgba(16,17,20,.95))"></div>
+  <div class="tag red">Investigación policial</div>
+  <div class="abs cond" id="s3h" style="left:70px;right:70px;top:400px;font-size:140px">Tiraron<br>del hilo…</div>
+</div>
+
+<!-- S4 DETENIDOS -->
+<div class="scene" id="s4">
+  <div class="photo" id="p4" style="background-image:url(../img/melilla.jpg);filter:grayscale(.6)"></div>
+  <div class="shade" style="background:rgba(16,17,20,.82)"></div>
+  <div class="tag">Melilla · mayo 2023</div>
+  <div id="s4p" class="abs" style="left:60px;top:360px;width:960px;height:420px"></div>
+  <div class="stamp" id="s4st" style="left:150px;top:470px;font-size:150px">~10 detenidos</div>
+  <div class="card" id="s4c" style="left:170px;top:330px;width:740px;height:620px;padding:46px 56px">
+    <div style="font-weight:800;font-size:34px;letter-spacing:.14em;color:rgba(242,239,234,.6)">LISTA ELECTORAL</div>
+    <div id="s4list"></div>
+  </div>
+  <div class="src">Entre ellos, el nº 3 de la lista de Coalición por Melilla · Fuente: Policía Nacional / prensa</div>
+</div>
+
+<!-- S5 PERO ESPERA -->
+<div class="scene" id="s5">
+  <div class="abs cond" id="s5h" style="left:0;right:0;top:420px;text-align:center;font-size:190px">Pero<br><span style="color:#FFE14D">espera…</span></div>
+  <div class="abs" id="s5q" style="left:0;right:0;top:830px;text-align:center;font-weight:800;font-size:54px;color:rgba(242,239,234,.8)">Melilla no fue el único sitio</div>
+</div>
+
+<!-- S6 MOJACAR -->
+<div class="scene" id="s6">
+  <div class="photo" id="p6" style="background-image:url(../img/mojacar.jpg);background-position:40% 50%"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(16,17,20,.75),rgba(16,17,20,.4) 35%,rgba(16,17,20,.92) 62%)"></div>
+  <div class="tag">Mojácar · Almería</div>
+  <div id="s6bills"></div>
+  <div class="abs cond" id="s6n" style="left:0;right:0;top:470px;text-align:center;font-size:250px;color:#7BE38B;text-shadow:0 10px 40px rgba(0,0,0,.6)">100 €</div>
+  <div class="abs cond" id="s6l" style="left:0;right:0;top:720px;text-align:center;font-size:90px">por cada voto</div>
+  <div class="abs" id="s6w" style="left:0;right:0;top:850px;text-align:center"><span style="display:inline-block;padding:12px 26px;border:3px solid #FFE14D;border-radius:12px;color:#FFE14D;font-weight:800;font-size:36px;letter-spacing:.12em">PRESUNTAMENTE · CASO EN INSTRUCCIÓN</span></div>
+  <div class="src">Detenidos el nº2 y el nº5 de la lista del PSOE local · Fuente: Fiscalía Anticorrupción / prensa, mayo 2023</div>
+</div>
+
+<!-- S7 16 MUNICIPIOS -->
+<div class="scene" id="s7">
+  <div class="abs cond" id="s7n" style="left:70px;top:250px;font-size:330px;color:#FF2D55">16</div>
+  <div class="abs cond" style="left:450px;top:300px;font-size:92px">municipios<br>investigados</div>
+  <div id="s7pins" class="abs" style="left:70px;top:620px;width:940px;height:200px"></div>
+  <div id="s7chips" class="abs" style="left:0;top:850px;width:1080px;height:200px"></div>
+  <div class="src">Elecciones municipales 2023 · Casos en investigación en distintos partidos</div>
+</div>
+
+<!-- S8 SUPREMO -->
+<div class="scene" id="s8">
+  <div class="photo" id="p8" style="background-image:url(../img/supremo.jpg);background-position:50% 30%"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(16,17,20,.88),rgba(16,17,20,.5) 40%,rgba(16,17,20,.95) 70%)"></div>
+  <div class="tag">Tribunal Supremo</div>
+  <div class="abs cond" id="s8y" style="left:70px;top:330px;font-size:260px">2021</div>
+  <div class="stamp" id="s8st" style="left:110px;top:620px;font-size:118px">Condena firme</div>
+  <div class="card" id="s8c" style="left:110px;top:860px;width:860px;height:200px;display:flex;align-items:center;justify-content:center;gap:40px;font-weight:900;font-size:60px;font-stretch:80%">
+    <span>✉ VOTOS</span><span style="color:#FFE14D;font-size:80px">⇄</span><span>EMPLEO</span>
+  </div>
+  <div class="src" style="top:1100px">Compra de voto por correo en las elecciones al Senado de 2008 en Melilla</div>
+</div>
+
+<!-- S9 LO FUERTE -->
+<div class="scene" id="s9">
+  <div class="abs cond" id="s9a" style="left:0;right:0;top:330px;text-align:center;font-size:120px;color:rgba(242,239,234,.85)">Ahora viene<br>lo fuerte</div>
+  <div class="abs cond" id="s9q" style="left:0;right:0;top:600px;text-align:center;font-size:420px;color:#FFE14D">?</div>
+</div>
+
+<!-- S10 DNI -->
+<div class="scene" id="s10">
+  <div class="photo" id="p10" style="background-image:url(../img/buzon.jpg);filter:saturate(.8)"></div>
+  <div class="shade" style="background:rgba(16,17,20,.8)"></div>
+  <div class="tag">La solución</div>
+  <div class="card" id="dni" style="left:140px;top:380px;width:800px;height:500px;background:linear-gradient(135deg,#e9e4d6,#c9d6e3);border:none;color:#1b2430;overflow:hidden">
+    <div style="position:absolute;left:0;right:0;top:0;height:90px;background:#b8202f;color:#fff;font-weight:900;font-size:36px;padding:24px 40px;letter-spacing:.06em">DOCUMENTO DE IDENTIDAD</div>
+    <div style="position:absolute;left:40px;top:130px;width:220px;height:290px;border-radius:16px;background:#8fa0b3"><div style="position:absolute;left:55px;top:40px;width:110px;height:110px;border-radius:50%;background:#5f7186"></div><div style="position:absolute;left:25px;top:165px;width:170px;height:125px;border-radius:85px 85px 0 0;background:#5f7186"></div></div>
+    <div style="position:absolute;left:300px;top:150px;width:420px;height:26px;border-radius:13px;background:rgba(27,36,48,.25)"></div>
+    <div style="position:absolute;left:300px;top:210px;width:340px;height:26px;border-radius:13px;background:rgba(27,36,48,.2)"></div>
+    <div style="position:absolute;left:300px;top:270px;width:380px;height:26px;border-radius:13px;background:rgba(27,36,48,.2)"></div>
+    <div style="position:absolute;left:300px;top:340px;font-weight:900;font-size:80px;letter-spacing:.06em">DNI</div>
+  </div>
+  <div class="stamp" id="s10st" style="left:250px;top:780px;font-size:110px;border-color:#7BE38B;color:#7BE38B">En persona</div>
+</div>
+
+<!-- S11 BARS -->
+<div class="scene" id="s11">
+  <div class="abs cond" style="left:70px;top:240px;font-size:76px">Voto por correo<br><span style="color:#FFE14D">en Melilla</span></div>
+  <div class="abs" style="left:110px;top:1040px;width:860px;height:4px;background:rgba(255,255,255,.3)"></div>
+  <div class="abs" id="b1" style="left:150px;bottom:880px;width:300px;background:#FF2D55;border-radius:16px 16px 0 0"></div>
+  <div class="abs" id="b2" style="left:630px;bottom:880px;width:300px;background:#7BE38B;border-radius:16px 16px 0 0"></div>
+  <div class="abs cond" id="b1n" style="left:150px;width:300px;text-align:center;font-size:130px">21%</div>
+  <div class="abs cond" id="b2n" style="left:630px;width:300px;text-align:center;font-size:130px">9%</div>
+  <div class="abs" style="left:150px;top:1060px;width:300px;text-align:center;font-weight:800;font-size:34px;line-height:1.15">MUNICIPALES 28M<br><span style="color:rgba(242,239,234,.6)">sin DNI en persona</span></div>
+  <div class="abs" style="left:630px;top:1060px;width:300px;text-align:center;font-weight:800;font-size:34px;line-height:1.15">GENERALES 23J<br><span style="color:rgba(242,239,234,.6)">con DNI</span></div>
+  <div class="src" style="top:1160px;display:none">.</div>
+</div>
+
+<!-- S12 OJO -->
+<div class="scene" id="s12">
+  <div class="card" id="s12c" style="left:90px;top:330px;width:900px;height:700px;padding:70px;border:4px solid #FFE14D">
+    <div style="width:150px;height:150px;border-radius:50%;background:#FFE14D;color:#101114;font-weight:900;font-size:120px;display:flex;align-items:center;justify-content:center">!</div>
+    <div class="cond" style="font-size:120px;margin-top:50px;color:#FFE14D">Ojo</div>
+    <div style="font-weight:800;font-size:58px;line-height:1.15;margin-top:30px">No hay pruebas de que esto cambiara unas elecciones generales.</div>
+  </div>
+</div>
+
+<!-- S13 RECORD -->
+<div class="scene" id="s13">
+  <div class="photo" id="p13" style="background-image:url(../img/urna.jpg);background-position:50% 80%"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(16,17,20,.9),rgba(16,17,20,.6) 45%,rgba(16,17,20,.95))"></div>
+  <div class="tag">Generales 23J · 2023</div>
+  <div class="abs cond" id="s13n" style="left:0;right:0;top:420px;text-align:center;font-size:200px;color:#FFE14D">0</div>
+  <div class="abs cond" style="left:0;right:0;top:640px;text-align:center;font-size:84px">solicitudes de voto<br>por correo</div>
+  <div class="stamp" id="s13st" style="left:270px;top:860px;font-size:140px">Récord</div>
+  <div class="src">Fuente: Correos · el doble que en abril de 2019</div>
+</div>
+
+<!-- S14 SI / NO -->
+<div class="scene" id="s14">
+  <div class="abs cond" style="left:0;right:0;top:250px;text-align:center;font-size:82px">¿Te fías del<br><span style="color:#FFE14D">voto por correo?</span></div>
+  <div class="card" id="si" style="left:70px;top:520px;width:450px;height:450px;background:#7BE38B;border:none;color:#101114;display:flex;align-items:center;justify-content:center"><span class="cond" style="font-size:240px">SÍ</span></div>
+  <div class="card" id="no" style="left:560px;top:520px;width:450px;height:450px;background:#FF2D55;border:none;color:#fff;display:flex;align-items:center;justify-content:center"><span class="cond" style="font-size:240px">NO</span></div>
+  <div class="abs" id="s14c" style="left:0;right:0;top:1020px;text-align:center;font-weight:800;font-size:48px;letter-spacing:.06em">💬 RESPONDE CON UNA PALABRA</div>
+</div>
+
+<!-- S15 SHARE + LOOP -->
+<div class="scene" id="s15">
+  <div class="photo" id="p15" style="background-image:url(../img/urna.jpg);background-position:50% 70%"></div>
+  <div class="shade" id="s15sh" style="background:rgba(16,17,20,.9)"></div>
+  <div class="abs cond" id="s15h" style="left:70px;right:70px;top:330px;font-size:110px">Envíaselo<br>a quien vote<br><span style="color:#FFE14D">por correo</span></div>
+  <div class="abs" id="s15i" style="left:70px;top:760px;width:180px;height:180px;border-radius:50%;background:#FFE14D;color:#101114;font-size:110px;font-weight:900;display:flex;align-items:center;justify-content:center">➦</div>
+  <div class="abs cond" id="s15l" style="left:70px;right:70px;top:350px;font-size:150px;opacity:0">1 de cada 5<br><span style="color:#FFE14D">pidió votar<br>por correo</span></div>
+</div>
+
+</div>
+<div id="vign"></div>
+<div id="subs"></div>
+<div id="brand">VOTO POR CORREO <b>●</b> ESPAÑA</div>
+<div id="top"><div id="bar"></div></div>
+<div id="flash"></div>
+</div>
+<script>
+const SUBS=__SUBS__; const DUR=__DUR__;
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-cl(x),3);
+const eback=x=>{x=cl(x);const c=1.9;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const p=(t,a,d=.35)=>cl((t-a)/d);
+// scenes [id,start,end]
+const SC=[['s1',0,3.40],['s2',3.40,6.10],['s3',6.10,8.70],['s4',8.70,12.92],['s5',12.92,15.30],['s6',15.30,20.50],['s7',20.50,25.08],['s8',25.08,31.18],['s9',31.18,33.58],['s10',33.58,37.15],['s11',37.15,41.55],['s12',41.55,44.45],['s13',44.45,48.95],['s14',48.95,53.15],['s15',53.15,99]];
+// build static bits
+(function(){
+  const g1=$('g1'),g2=$('g2');
+  for(let i=0;i<100;i++){for(const g of[g1,g2]){const d=document.createElement('div');d.className='sq';d.style.left=(i%10)*44+'px';d.style.top=Math.floor(i/10)*44+'px';g.appendChild(d)}}
+  const s1p=$('s1p');for(let i=0;i<5;i++){const d=document.createElement('div');d.className='person';d.innerHTML='<i></i><b></b>';d.style.left=(110+i*180)+'px';d.style.top='930px';d.style.color='rgba(242,239,234,.35)';s1p.appendChild(d)}
+  const s4p=$('s4p');for(let i=0;i<10;i++){const d=document.createElement('div');d.className='person';d.innerHTML='<i></i><b></b>';d.style.left=(i%5)*190+'px';d.style.top=Math.floor(i/5)*215+'px';d.style.color='#F2EFEA';s4p.appendChild(d)}
+  const L=$('s4list');for(let i=1;i<=6;i++){const r=document.createElement('div');r.style.cssText='display:flex;align-items:center;gap:24px;margin-top:22px;height:62px;border-radius:12px;padding:0 20px;font-weight:800;font-size:40px';r.innerHTML='<span style="width:50px">'+i+'.</span><span style="flex:1;height:22px;border-radius:11px;background:rgba(242,239,234,.25)"></span>';r.id='li'+i;L.appendChild(r)}
+  const b=$('s6bills');for(let i=0;i<9;i++){const d=document.createElement('div');d.className='bill';d.textContent=i%2?'50 €':'100 €';b.appendChild(d)}
+  const pins=$('s7pins');for(let i=0;i<16;i++){const d=document.createElement('div');d.className='pin';d.style.left=(i%8)*118+20+'px';d.style.top=Math.floor(i/8)*100+20+'px';pins.appendChild(d)}
+  const ch=$('s7chips');[['PP',90],['PSOE',330],['CpM',620],['Otros',820]].forEach(([t,x],i)=>{const d=document.createElement('div');d.className='chip';d.textContent=t;d.style.left=x+'px';d.style.top=(i%2?90:0)+'px';ch.appendChild(d)});
+})();
+function photoKB(el,t,a,b,z0=1.08,z1=1.2,dx=0,dy=0){const k=cl((t-a)/(b-a));el.style.transform=`scale(${z0+(z1-z0)*k}) translate(${dx*k}px,${dy*k}px)`}
+function pop(el,t,a,dur=.35,from=.6){const k=p(t,a,dur);el.style.opacity=cl(k*2);el.style.transform=`scale(${from+(1-from)*eback(k)})`}
+function rise(el,t,a,dur=.4,dist=80){const k=eo(p(t,a,dur));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*dist}px)`}
+function stamp(el,t,a,rot=-8){const k=p(t,a,.22);el.style.opacity=k>0?1:0;const s=k<1?2.6-1.6*eo(k):1;el.style.transform=`rotate(${rot}deg) scale(${s})`}
+function fmt(n){return Math.round(n).toLocaleString('es-ES').replace(/,/g,'.')}
+function fmtES(n){let s=String(Math.round(n));return s.replace(/\B(?=(\d{3})+(?!\d))/g,'.')}
+
+window.render=function(t){
+  $('bar').style.width=(100*cl(t/DUR))+'%';
+  // camera punch at scene cuts
+  let cam=1,camR=0,flash=0,shakeX=0,shakeY=0;
+  for(const [id,a,b] of SC){
+    const el=$(id); const on=t>=a-0.18&&t<b+0.18;
+    el.style.display=on?'block':'none';
+    if(!on) continue;
+    // whip transition: in from right with blur, out to left
+    const ki=cl((t-(a-0.18))/0.36), ko=cl((t-(b-0.18))/0.36);
+    let x=0,o=1;
+    if(t<a+0.18&&a>0){x=(1-eo(ki))*260;o=ki}
+    if(t>b-0.18){x=-eo(ko)*260;o=1-ko}
+    el.style.opacity=o; el.style.transform=`translateX(${x}px)`;
+    el.style.filter=(o<1)?`blur(${(1-o)*14}px)`:'none';
+    const dcut=t-a; if(dcut>=0&&dcut<.3) cam=1.06-0.06*eo(dcut/.3);
+  }
+  $('grid').style.transform=`translate(${(t*12)%60}px,${(t*18)%60}px)`;
+
+  // S1
+  photoKB($('p1'),t,0,3.6,1.12,1.22,0,-30);
+  $('s1h').style.transform=`scale(${1+0.03*Math.sin(t*3)})`;
+  [...$('s1p').children].forEach((d,i)=>{const k=eback(p(t,0.8+i*.09,.3));d.style.transform=`scale(${k})`;d.style.opacity=cl(k);d.style.color=(i==2&&t>1.28)?'#FFE14D':'rgba(242,239,234,.35)';if(i==2&&t>1.28){const q=p(t,1.28,.25);d.style.transform=`scale(${1+0.25*Math.sin(q*Math.PI)+0.12})`}});
+  // S2
+  {const g1=$('g1').children,g2=$('g2').children;
+   const k1=cl((t-3.5)/1.0),k2=cl((t-4.5)/.5);
+   for(let i=0;i<100;i++){g1[i].style.background=i<21*k1?'#FFE14D':'rgba(255,255,255,.1)';g2[i].style.background=i<3*k2?'#3B82F6':'rgba(255,255,255,.1)'}
+   $('n1').textContent=Math.round(21*k1)+'%';pop($('n1'),t,3.5);
+   $('n2').textContent='~'+Math.round(3*k2)+'%';pop($('n2'),t,4.5);}
+  // S3
+  photoKB($('p3'),t,6.1,8.7,1.05,1.25,-40,0);
+  rise($('s3h'),t,6.5);
+  // S4
+  photoKB($('p4'),t,8.7,12.9,1.1,1.2);
+  {const ps=[...$('s4p').children];ps.forEach((d,i)=>{const k=eback(p(t,8.8+i*.06,.25));d.style.transform=`scale(${k})`;d.style.opacity=cl(k)});
+   const out=p(t,10.9,.3); $('s4p').style.opacity=1-out; stamp($('s4st'),t,9.55); if(t>10.9) $('s4st').style.opacity=1-out;
+   const c=$('s4c'); const kc=eo(p(t,10.95,.4)); c.style.opacity=kc; c.style.transform=`translateY(${(1-kc)*200}px)`;
+   const l3=$('li3'); const h=p(t,11.45,.25); l3.style.background=`rgba(255,45,85,${.9*h})`; l3.style.transform=`scale(${1+.06*h})`; l3.style.color=h>0?'#fff':'';
+   if(t>9.55&&t<9.8) {shakeX=Math.sin(t*120)*14;shakeY=Math.cos(t*100)*10}}
+  // S5
+  {const k=p(t,12.95,.3);$('s5h').style.transform=`scale(${1.4-.4*eo(k)})`;$('s5h').style.opacity=k;rise($('s5q'),t,13.7);
+   $('s5h').style.transform+=` translateX(${t>13.1&&t<13.3?Math.sin(t*150)*12:0}px)`}
+  // S6
+  photoKB($('p6'),t,15.3,20.5,1.06,1.18,30,0);
+  {const n=$('s6n'); const k=cl((t-18.05)/1.0); const v=t<18.05?100:100+150*eo(k);
+   n.textContent=(Math.round(v/10)*10)+' €'; pop(n,t,17.75,.35); rise($('s6l'),t,19.55); rise($('s6w'),t,16.75);
+   [...$('s6bills').children].forEach((d,i)=>{const a=18.1+i*.12;const k=cl((t-a)/1.6);d.style.opacity=k>0&&k<1?1:0;
+     const x=60+((i*233)%820); const y=-150+k*1500; d.style.left=x+'px';d.style.top=y+'px';d.style.transform=`rotate(${(i%2?1:-1)*(15+k*200)}deg)`})}
+  // S7
+  {const k=cl((t-21.6)/.6);$('s7n').textContent=Math.max(1,Math.round(16*eo(k)));pop($('s7n'),t,21.55);
+   [...$('s7pins').children].forEach((d,i)=>{const kk=eback(p(t,21.6+i*.04,.25));d.style.opacity=cl(kk);d.style.transform=`rotate(-45deg) scale(${kk})`});
+   [...$('s7chips').children].forEach((d,i)=>pop(d,t,23.5+i*.12,.3))}
+  // S8
+  photoKB($('p8'),t,25.1,31.2,1.04,1.16,0,20);
+  pop($('s8y'),t,26.3,.3,.4); stamp($('s8st'),t,28.1,-6); rise($('s8c'),t,29.5);
+  if(t>28.1&&t<28.35){shakeX=Math.sin(t*130)*14;shakeY=Math.cos(t*90)*10}
+  // S9
+  {rise($('s9a'),t,31.25,.35);const k=p(t,32.45,.3);const q=$('s9q');q.style.opacity=k;q.style.transform=`scale(${.3+.7*eback(k)+0.05*Math.sin(t*10)}) rotate(${Math.sin(t*6)*6}deg)`}
+  // S10
+  photoKB($('p10'),t,33.6,37.2,1.05,1.15);
+  {const d=$('dni');const k=eo(p(t,34.6,.45));d.style.opacity=k;d.style.transform=`translateY(${(1-k)*400}px) rotate(${(1-k)*-12}deg)`;stamp($('s10st'),t,35.45,-7);
+   if(t>35.45&&t<35.7){shakeX=Math.sin(t*130)*12}}
+  // S11
+  {const k1=eo(p(t,37.4,.6)); const H=440; let h2=H*21/21; const kd=eo(p(t,39.45,1.2)); h2=H*(1-(1-9/21)*kd)*eo(p(t,37.7,.6));
+   $('b1').style.height=H*k1+'px'; $('b2').style.height=h2+'px';
+   $('b1n').style.top=(1040-H*k1-150)+'px'; $('b1n').style.opacity=k1; $('b1n').textContent=Math.round(21*k1)+'%';
+   $('b2n').style.top=(1040-h2-150)+'px'; $('b2n').style.opacity=eo(p(t,37.7,.6)); $('b2n').textContent=Math.round(21-12*kd)+'%';
+   $('b2').style.background=kd>0.5?'#7BE38B':'#FF2D55'}
+  // S12
+  {const c=$('s12c');pop(c,t,41.6,.4,.7);if(t>41.6&&t<41.85){shakeX=Math.sin(t*120)*8}}
+  // S13
+  photoKB($('p13'),t,44.45,49,1.1,1.22);
+  {const k=cl((t-44.9)/2.4);$('s13n').textContent=fmtES(2622808*eo(k));pop($('s13n'),t,44.85);stamp($('s13st'),t,48.33,-6);
+   if(t>48.33&&t<48.6){shakeX=Math.sin(t*130)*14;shakeY=Math.cos(t*90)*10}}
+  // S14
+  {pop($('si'),t,52.45,.3,.3);pop($('no'),t,52.68,.3,.3);rise($('s14c'),t,49.9);
+   const pulse=t>53?0.04*Math.sin(t*9):0; if(t>52.8){$('si').style.transform=`scale(${1+pulse})`;$('no').style.transform=`scale(${1-pulse})`}}
+  // S15 share -> loop back to hook
+  {rise($('s15h'),t,53.25);pop($('s15i'),t,53.8,.35,.3);
+   const kl=eo(p(t,55.5,.6)); $('s15h').style.opacity=1-kl; $('s15i').style.opacity=(t>53.8?1:0)*(1-kl);
+   $('s15sh').style.background=`linear-gradient(180deg,rgba(16,17,20,${.9-.0*kl}) 0%,rgba(16,17,20,${.9-.35*kl}) 40%,rgba(16,17,20,${.9-.55*kl}) 60%,rgba(16,17,20,.9) 100%)`;
+   $('s15l').style.opacity=kl; photoKB($('p15'),t,53.2,58,1.25,1.12)}
+
+  $('cam').style.transform=`scale(${cam}) translate(${shakeX}px,${shakeY}px)`;
+  // subtitles
+  const sub=$('subs'); let html='';
+  for(const c of SUBS){ if(t>=c.s-0.02&&t<c.e){ const k=p(t,c.s-0.02,.12);
+      html=c.w.map(w=>{const act=t>=w.s-0.03; const num=/\d|%|€/.test(w.t)||/^(UNO|CINCO|TRES|CIEN|DIECISÉIS|DOSCIENTOS|CINCUENTA|DOS|MILLONES|SEISCIENTAS|MIL|DECENA)$/.test(w.t);
+        const col=act&&(t<w.e+.05)?(num?'#FF7A4D':'#FFE14D'):'#F2EFEA';
+        return `<span style="color:${col};opacity:${act?1:.0}">${w.t}</span>`}).join('');
+      sub.style.transform=`scale(${.85+.15*eback(k)})`; break; } }
+  sub.innerHTML=html;
+  // hide subs during pure-text title moments where it duplicates? keep.
+};
+window.ready=document.fonts.ready.then(()=>true);
+</script></body></html>
