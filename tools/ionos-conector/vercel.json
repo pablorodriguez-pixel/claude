@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [{ "source": "/:ruta*", "destination": "/api/main?ruta=:ruta*" }],
+  "functions": { "api/main.ts": { "maxDuration": 60 } },
+  "crons": [{ "path": "/cron", "schedule": "0 5 * * *" }]
+}
