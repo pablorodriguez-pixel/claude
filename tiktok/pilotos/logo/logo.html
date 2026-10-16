@@ -1,0 +1,77 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>html,body{width:1080px;height:auto;background:#fff;overflow:visible}.v{width:1080px;height:1080px;position:relative}
+svg text{font-kerning:normal}</style></head><body>
+<script src="figs_v1.js"></script><script src="figs_v2.js"></script>
+<div id="A" class="v"></div><div id="A2" class="v"></div><div id="B" class="v"></div><div id="C" class="v"></div>
+<script>
+const defs = `<defs>${globalDefs()}<radialGradient id="yg" cx="50%" cy="40%" r="70%"><stop offset="0" stop-color="#FFF27A"/><stop offset="1" stop-color="#FFE600"/></radialGradient>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse" patternTransform="rotate(30)"><circle cx="5" cy="5" r="2.4" fill="rgba(43,33,24,.10)"/></pattern></defs>`;
+function book(x, y, w, h, rot) {
+  const sp = 70; // lomo
+  let s = `<g transform="translate(${x},${y}) rotate(${rot})">`;
+  const cover = `M0,0 H${w} V${h} H0 Z`;
+  s += cut(`<path d="M-18,-10 H${w + 10} V${h + 14} H-18 Z"/>`, 14, 16);
+  // páginas (canto superior y derecho)
+  s += `<path d="M10,-26 H${w + 6} L${w + 6},${h - 10} L${w - 6},${h} L${w - 6},-14 Z" fill="#f7efdc" stroke="${INK}" stroke-width="5"/>`;
+  let pl = ''; for (let i = 0; i < 7; i++) pl += `M${w - 4 + i * 1.6},${-8 - i * 2.4} V${h - 6 - i * 1.4}`;
+  s += `<path d="${pl}" stroke="${INK}" stroke-width="1.6" opacity=".6"/>`;
+  s += `<path d="${cover}" fill="${LEATHER}" stroke="${INK}" stroke-width="6"/>`;
+  s += `<path d="${cover}" fill="url(#hB)" opacity=".55"/>`;
+  s += `<rect x="0" y="0" width="${sp}" height="${h}" fill="#2f1a0e" stroke="${INK}" stroke-width="5"/>`;
+  [0.18, 0.38, 0.62, 0.82].forEach(f => s += `<rect x="-4" y="${h * f - 9}" width="${sp + 8}" height="18" rx="6" fill="#C9A24A" stroke="${INK}" stroke-width="4"/>`);
+  s += `<rect x="${sp + 34}" y="40" width="${w - sp - 68}" height="${h - 80}" fill="none" stroke="#C9A24A" stroke-width="6"/>`;
+  s += `<rect x="${sp + 50}" y="56" width="${w - sp - 100}" height="${h - 112}" fill="none" stroke="#C9A24A" stroke-width="2.5"/>`;
+  const cx = sp + (w - sp) / 2;
+  s += `<text x="${cx}" y="${h * 0.52}" text-anchor="middle" font-family="Rye" font-size="${w * 0.13}" fill="#E8C766" stroke="${INK}" stroke-width="3" paint-order="stroke">HISTORIA</text>`;
+  s += `<path d="M${cx - 110},${h * 0.6} H${cx + 110}" stroke="#C9A24A" stroke-width="4"/><text x="${cx}" y="${h * 0.71}" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="700" font-size="${w * 0.055}" fill="#E8C766">Tomo I</text>`;
+  return s + `</g>`;
+}
+// --- A / A2: libro + emú atrapado (A2 con el bombín del Vecino) ---
+function bowler(cx, cy, k) {
+  const crown = `M${cx - 70 * k},${cy} C${cx - 74 * k},${cy - 78 * k} ${cx - 40 * k},${cy - 104 * k} ${cx},${cy - 104 * k} C${cx + 40 * k},${cy - 104 * k} ${cx + 74 * k},${cy - 78 * k} ${cx + 70 * k},${cy} Z`;
+  return cut(`<path d="${crown}"/><ellipse cx="${cx}" cy="${cy}" rx="${122 * k}" ry="${22 * k}"/>`, 8, 10) +
+    `<path d="${crown}" fill="#3a2f26" stroke="${INK}" stroke-width="6"/><path d="${crown}" fill="url(#hD)" opacity=".5"/>` +
+    `<path d="M${cx - 69 * k},${cy - 16 * k} Q${cx},${cy - 28 * k} ${cx + 69 * k},${cy - 16 * k} L${cx + 70 * k},${cy} Q${cx},${cy - 12 * k} ${cx - 70 * k},${cy} Z" fill="${PINK}" stroke="${INK}" stroke-width="5"/>` +
+    `<ellipse cx="${cx}" cy="${cy}" rx="${122 * k}" ry="${22 * k}" fill="#3a2f26" stroke="${INK}" stroke-width="6"/><path d="M${cx - 30 * k},${cy - 84 * k} Q${cx},${cy - 96 * k} ${cx + 34 * k},${cy - 88 * k}" stroke="#fff" stroke-width="5" opacity=".35" fill="none"/>`;
+}
+function logoA(id, hat) {
+  const s = 1.55, ex = 540 - 200 * s, ey = (hat ? 372 : 342) - 222 * s;
+  let svg = `<svg width="1080" height="1080" viewBox="0 0 1080 1080">${defs}
+  <circle cx="540" cy="540" r="540" fill="url(#yg)"/><circle cx="540" cy="540" r="540" fill="url(#dots)"/>
+  <g transform="translate(${ex},${ey}) scale(${s})">${emuFrontInner()}</g>
+  ${hat ? bowler(540, ey + 128 * s, 1.5) : ''}
+  ${book(262, 600, 560, 380, -4)}
+  ${hat ? '' : `<g stroke="${INK}" stroke-width="8" stroke-linecap="round"><path d="M268,190 l-40,-30 M300,140 l-16,-44 M812,190 l40,-30 M780,140 l16,-44"/></g>`}
+  </svg>`;
+  document.getElementById(id).innerHTML = svg;
+}
+logoA('A', false); logoA('A2', true);
+// --- B: El Vecino en su óvalo ---
+(function () {
+  let svg = `<svg width="1080" height="1080" viewBox="0 0 1080 1080">${defs}
+  <circle cx="540" cy="540" r="540" fill="#FF3EA5"/><circle cx="540" cy="540" r="540" fill="url(#dots)"/>
+  <ellipse cx="540" cy="560" rx="360" ry="440" fill="#C9A24A" stroke="${INK}" stroke-width="10"/>
+  <ellipse cx="540" cy="560" rx="318" ry="398" fill="#EADFC8" stroke="${INK}" stroke-width="6"/>
+  <clipPath id="ov"><ellipse cx="540" cy="560" rx="318" ry="398"/></clipPath>
+  <g clip-path="url(#ov)"><rect x="0" y="0" width="1080" height="1080" fill="url(#hP)"/>
+  <g transform="translate(${540 - 210 * 1.75},${250 - 30 * 1.75}) scale(1.75)">${vecinaInner({ seed: 4 })}</g></g>
+  </svg>`;
+  document.getElementById('B').innerHTML = svg;
+})();
+// --- C: tipográfico ---
+(function () {
+  const s = 0.62;
+  let svg = `<svg width="1080" height="1080" viewBox="0 0 1080 1080">${defs}
+  <circle cx="540" cy="540" r="540" fill="#EADFC8"/><circle cx="540" cy="540" r="540" fill="url(#hP)" opacity=".5"/>
+  <g transform="rotate(-4 540 540)">
+  <rect x="150" y="300" width="560" height="74" fill="${YEL}" transform="skewX(-8)"/>
+  <text x="540" y="360" text-anchor="middle" font-family="Playfair" font-weight="900" font-style="italic" font-size="150" fill="${INK}">esto no</text>
+  <text x="540" y="515" text-anchor="middle" font-family="Playfair" font-weight="900" font-style="italic" font-size="150" fill="${INK}">venía en</text>
+  <rect x="300" y="610" width="520" height="74" fill="${YEL}" transform="skewX(-8)"/>
+  <text x="540" y="670" text-anchor="middle" font-family="Playfair" font-weight="900" font-style="italic" font-size="150" fill="${INK}">el libro</text></g>
+  <g transform="translate(${760},${640}) scale(${s}) rotate(12 200 300)">${emuFrontInner()}</g>
+  </svg>`;
+  document.getElementById('C').innerHTML = svg;
+})();
+document.fonts.ready.then(() => window.ready = true);
+</script></body></html>
