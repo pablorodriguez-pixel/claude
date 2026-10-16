@@ -1,0 +1,13 @@
+Dicen que la inteligencia artificial hace a los programadores muchísimo más rápidos. Tranqui. Alguien lo midió.
+Dos preguntas. ¿Qué pasó? Y, ¿qué significa para ti?
+Julio de dos mil veinticinco. Un laboratorio independiente, Meter, junta a dieciséis programadores con experiencia. Doscientas cuarenta y seis tareas reales, en proyectos que conocen de memoria. Cada tarea se sortea: con inteligencia artificial, o sin ella.
+Antes de empezar, esperaban ir un veinticuatro por ciento más rápido.
+Al terminar, creían que habían ido un veinte por ciento más rápido.
+¿El resultado real?... Fueron un diecinueve por ciento más lentos.
+Sí. Más lentos. Y convencidos de lo contrario.
+¿Por qué? Escribir la petición, esperar, revisar y corregir se comía el tiempo que ahorraban.
+Ojo: eran dieciséis personas, en código que dominaban, con herramientas de principios de dos mil veinticinco. El propio estudio dice que no vale para todo el mundo. Y estas herramientas mejoran cada pocos meses.
+O sea: sentir que vas rápido no es lo mismo que ir rápido.
+¿Y qué significa para ti? Mide. Cronometra una tarea con inteligencia artificial, y otra sin ella.
+Y ahora dime: en tu trabajo, la inteligencia artificial... A: me acelera. B: me frena. C: no lo he medido.
+Tranqui.
