@@ -40,10 +40,17 @@ audio=[];t=0.12;W=[];LN=[];audio.append(np.zeros(int(0.12*SR)))
 for n,L in enumerate(cfg["lines"]):
     vid,stab,tempo=cfg["voices"][L["who"]]
     al=json.load(open(f"{d}/clips/{n:02d}.json")); ws=words_of(al)
-    a0=max(0,ws[0][1]-0.04); a1=ws[-1][2]+0.1
+    a0=max(0,ws[0][1]-0.04)
+    # el fin de la última palabra según la alineación suele quedarse corto: buscamos el final REAL por energía
+    subprocess.run(["ffmpeg","-v","error","-y","-i",f"{d}/clips/{n:02d}.mp3","-ac","1","-ar",str(SR),f"{d}/clips/{n:02d}_raw.wav"],check=True)
+    _w=wave.open(f"{d}/clips/{n:02d}_raw.wav"); _x=np.frombuffer(_w.readframes(_w.getnframes()),np.int16).astype(np.float32)/32768
+    _hop=int(0.01*SR); _nb=len(_x)//_hop; _e=np.sqrt(np.mean(_x[:_nb*_hop].reshape(_nb,_hop)**2,axis=1)+1e-12)
+    _thr=np.max(_e)*10**(-38/20); _i=int(ws[-1][2]/0.01)
+    while _i<_nb-1 and (_e[_i]>_thr or _e[min(_i+1,_nb-1)]>_thr or _e[min(_i+2,_nb-1)]>_thr): _i+=1
+    a1=min(len(_x)/SR,max(ws[-1][2]+0.1,_i*0.01+0.12))
     if "slot" in L:  # encajar la frase en una duración fija (para conservar la sincronía de una animación existente)
         tempo=min(1.45,max(0.85,(a1-a0)/L["slot"]))
-    subprocess.run(["ffmpeg","-v","error","-y","-i",f"{d}/clips/{n:02d}.mp3","-ss",str(a0),"-to",str(a1),"-af",f"atempo={tempo}","-ac","1","-ar",str(SR),f"{d}/clips/{n:02d}.wav"],check=True)
+    subprocess.run(["ffmpeg","-v","error","-y","-ss",str(a0),"-to",str(a1),"-i",f"{d}/clips/{n:02d}.mp3","-af",f"atempo={tempo}","-ac","1","-ar",str(SR),f"{d}/clips/{n:02d}.wav"],check=True)
     w=wave.open(f"{d}/clips/{n:02d}.wav"); x=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(np.float32)/32768
     # compactar silencios internos largos (>0.45s) no es necesario en frases cortas
     ls=t
