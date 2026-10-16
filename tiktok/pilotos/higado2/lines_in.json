@@ -1,0 +1,19 @@
+{"voices":{"HIGADO":["YDDaC9XKjODs7hY78qEW",0.0,1.1],"CEREBRO":["7QQzpAyzlKTVrRzQJmTE",0.0,1.05]},"gap":0.22,
+"lines":[
+{"who":"HIGADO","text":"[dramatic] Hoy han pasado por mí más de dos mil litros de sangre."},
+{"who":"HIGADO","text":"¿Y tú cómo me das las gracias? [sighs] Con un chupito.","gap_after":0.35},
+{"who":"HIGADO","text":"Soy tu hígado. Y te voy a enseñar lo que pasa dentro de ti un sábado por la noche. En tiempo real.","gap_after":0.35},
+{"who":"HIGADO","text":"Dos de la mañana. Tú, bailando. Yo, con cuatro cañas en cola."},
+{"who":"HIGADO","text":"Te cuento un secreto: voy a una caña por hora, más o menos. No hay atajos.","gap_after":0.35},
+{"who":"HIGADO","text":"Tres de la mañana. Y el jefe, el cerebro, decide..."},
+{"who":"CEREBRO","text":"[excited] ¡Otra ronda!"},
+{"who":"HIGADO","text":"[exasperated] Gracias, cerebro.","gap_after":0.35},
+{"who":"HIGADO","text":"Cuatro de la mañana. El alcohol lo convierto en acetaldehído. Es tóxico, así que lo limpio rápido... y tú me mandas nachos.","gap_after":0.35},
+{"who":"HIGADO","text":"Cinco de la mañana. Tú te duermes. Yo no. Y con alcohol, tu sueño es peor: te levantas igual de cansado.","gap_after":0.35},
+{"who":"HIGADO","text":"¿El café de la mañana? ¿La ducha fría? [laughs] A ti te despiertan. A mí no me ayudan. Lo único que funciona es el tiempo.","gap_after":0.35},
+{"who":"HIGADO","text":"Nueve de la mañana. Por fin. Cola vacía.","gap_after":0.4},
+{"who":"HIGADO","text":"O sea: tú sales una noche. Yo hago el turno de noche... y el de mañana.","gap_after":0.4},
+{"who":"HIGADO","text":"Ojo: puedo regenerarme. Soy de los pocos órganos que lo hacen. Pero si me castigas durante años, en vez de regenerarme, cicatrizo. Y eso, a partir de cierto punto, no tiene vuelta atrás.","gap_after":0.4},
+{"who":"HIGADO","text":"Y ahora dime: ¿cuántas llevabas el sábado? A: una o dos. B: perdí la cuenta. C: no preguntes.","gap_after":0.4},
+{"who":"HIGADO","text":"[tired] Bueno... otro día más."}
+]}

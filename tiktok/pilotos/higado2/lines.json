@@ -1,0 +1,114 @@
+[
+ {
+  "line": 0,
+  "who": "HIGADO",
+  "text": "Hoy han pasado por mí más de dos mil litros de sangre.",
+  "s": 0.12,
+  "e": 2.438
+ },
+ {
+  "line": 1,
+  "who": "HIGADO",
+  "text": "¿Y tú cómo me das las gracias? Con un chupito.",
+  "s": 2.658,
+  "e": 5.717
+ },
+ {
+  "line": 2,
+  "who": "HIGADO",
+  "text": "Soy tu hígado. Y te voy a enseñar lo que pasa dentro de ti un sábado por la noche. En tiempo real.",
+  "s": 6.067,
+  "e": 11.31
+ },
+ {
+  "line": 3,
+  "who": "HIGADO",
+  "text": "Dos de la mañana. Tú, bailando. Yo, con cuatro cañas en cola.",
+  "s": 11.66,
+  "e": 16.182
+ },
+ {
+  "line": 4,
+  "who": "HIGADO",
+  "text": "Te cuento un secreto: voy a una caña por hora, más o menos. No hay atajos.",
+  "s": 16.402,
+  "e": 21.713
+ },
+ {
+  "line": 5,
+  "who": "HIGADO",
+  "text": "Tres de la mañana. Y el jefe, el cerebro, decide...",
+  "s": 22.063,
+  "e": 25.489
+ },
+ {
+  "line": 6,
+  "who": "CEREBRO",
+  "text": "¡Otra ronda!",
+  "s": 25.709,
+  "e": 26.749
+ },
+ {
+  "line": 7,
+  "who": "HIGADO",
+  "text": "Gracias, cerebro.",
+  "s": 26.969,
+  "e": 28.908
+ },
+ {
+  "line": 8,
+  "who": "HIGADO",
+  "text": "Cuatro de la mañana. El alcohol lo convierto en acetaldehído. Es tóxico, así que lo limpio rápido... y tú me mandas nachos.",
+  "s": 29.258,
+  "e": 36.763
+ },
+ {
+  "line": 9,
+  "who": "HIGADO",
+  "text": "Cinco de la mañana. Tú te duermes. Yo no. Y con alcohol, tu sueño es peor: te levantas igual de cansado.",
+  "s": 37.113,
+  "e": 44.902
+ },
+ {
+  "line": 10,
+  "who": "HIGADO",
+  "text": "¿El café de la mañana? ¿La ducha fría? A ti te despiertan. A mí no me ayudan. Lo único que funciona es el tiempo.",
+  "s": 45.252,
+  "e": 53.402
+ },
+ {
+  "line": 11,
+  "who": "HIGADO",
+  "text": "Nueve de la mañana. Por fin. Cola vacía.",
+  "s": 53.752,
+  "e": 56.74
+ },
+ {
+  "line": 12,
+  "who": "HIGADO",
+  "text": "O sea: tú sales una noche. Yo hago el turno de noche... y el de mañana.",
+  "s": 57.14,
+  "e": 61.805
+ },
+ {
+  "line": 13,
+  "who": "HIGADO",
+  "text": "Ojo: puedo regenerarme. Soy de los pocos órganos que lo hacen. Pero si me castigas durante años, en vez de regenerarme, cicatrizo. Y eso, a partir de cierto punto, no tiene vuelta atrás.",
+  "s": 62.205,
+  "e": 73.999
+ },
+ {
+  "line": 14,
+  "who": "HIGADO",
+  "text": "Y ahora dime: ¿cuántas llevabas el sábado? A: una o dos. B: perdí la cuenta. C: no preguntes.",
+  "s": 74.399,
+  "e": 83.499
+ },
+ {
+  "line": 15,
+  "who": "HIGADO",
+  "text": "Bueno... otro día más.",
+  "s": 83.899,
+  "e": 85.436
+ }
+]

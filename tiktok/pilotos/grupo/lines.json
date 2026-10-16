@@ -1,0 +1,149 @@
+[
+ {
+  "line": 0,
+  "who": "CEREBRO",
+  "text": "¡Chicos! ¿Otra ronda?",
+  "s": 0.12,
+  "e": 2.163
+ },
+ {
+  "line": 1,
+  "who": "HIGADO",
+  "text": "No.",
+  "s": 2.543,
+  "e": 3.206
+ },
+ {
+  "line": 2,
+  "who": "HIGADO",
+  "text": "Llevo cuatro cañas en cola. Voy a una por hora, cariño. No hago milagros.",
+  "s": 3.506,
+  "e": 7.506
+ },
+ {
+  "line": 3,
+  "who": "CEREBRO",
+  "text": "Venga, la última.",
+  "s": 7.886,
+  "e": 8.495
+ },
+ {
+  "line": 4,
+  "who": "ESTOMAGO",
+  "text": "Eso dijiste hace tres.",
+  "s": 8.875,
+  "e": 10.7
+ },
+ {
+  "line": 5,
+  "who": "RINONES",
+  "text": "Y nosotros meando sin parar, porque alguien ha apagado la hormona que retiene el agua.",
+  "s": 11.08,
+  "e": 15.082
+ },
+ {
+  "line": 6,
+  "who": "RINONES",
+  "text": "Cerebro. Te hablamos a ti.",
+  "s": 15.462,
+  "e": 17.101
+ },
+ {
+  "line": 7,
+  "who": "CEREBRO",
+  "text": "¿Yo? Yo no he hecho nada.",
+  "s": 17.481,
+  "e": 18.86
+ },
+ {
+  "line": 8,
+  "who": "ESTOMAGO",
+  "text": "¿Alguien me explica los nachos?",
+  "s": 19.24,
+  "e": 20.813
+ },
+ {
+  "line": 9,
+  "who": "CEREBRO",
+  "text": "¿Qué nachos?",
+  "s": 21.193,
+  "e": 21.888
+ },
+ {
+  "line": 10,
+  "who": "HIGADO",
+  "text": "Estoy pasando el alcohol a acetaldehído. Es tóxico. Lo estoy limpiando. No me mandéis nada más.",
+  "s": 22.268,
+  "e": 28.177
+ },
+ {
+  "line": 11,
+  "who": "CEREBRO",
+  "text": "Me voy a dormir.",
+  "s": 28.557,
+  "e": 30.648
+ },
+ {
+  "line": 12,
+  "who": "HIGADO",
+  "text": "Tú duermes. Yo no. Y con alcohol, duermes peor.",
+  "s": 31.028,
+  "e": 34.679
+ },
+ {
+  "line": 13,
+  "who": "CEREBRO",
+  "text": "¿Por qué me duele todo?",
+  "s": 36.279,
+  "e": 37.914
+ },
+ {
+  "line": 14,
+  "who": "RINONES",
+  "text": "En parte, deshidratación. De nada.",
+  "s": 38.294,
+  "e": 40.23
+ },
+ {
+  "line": 15,
+  "who": "CEREBRO",
+  "text": "Me tomo un café y listo.",
+  "s": 40.61,
+  "e": 42.22
+ },
+ {
+  "line": 16,
+  "who": "HIGADO",
+  "text": "El café te despierta. A mí no me ayuda. Lo único que funciona es el tiempo.",
+  "s": 42.6,
+  "e": 47.626
+ },
+ {
+  "line": 17,
+  "who": "ESTOMAGO",
+  "text": "Y un poco de respeto.",
+  "s": 48.006,
+  "e": 49.273
+ },
+ {
+  "line": 18,
+  "who": "CEREBRO",
+  "text": "Bueno... ¿el sábado repetimos?",
+  "s": 49.653,
+  "e": 51.945
+ },
+ {
+  "line": 19,
+  "who": "ESTOMAGO",
+  "text": "Encuesta para ti, que nos estás leyendo: ¿quién tiene razón? A: el cerebro. B: el hígado. C: los nachos.",
+  "s": 52.445,
+  "e": 61.791
+ },
+ {
+  "line": 20,
+  "who": "SISTEMA",
+  "text": "El hígado ha abandonado el grupo.",
+  "s": 62.391,
+  "e": 64.064
+ }
+]
