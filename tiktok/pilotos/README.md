@@ -13,3 +13,7 @@ La voz tiene que oírse siempre clara por encima de la música. La mezcla la hac
 `audio.py` tiene un control de calidad que **falla** si la voz no queda al menos **20 dB por encima de la música durante el habla**,
 si el volumen final se desvía más de 1 LU o si hay picos por encima de -1 dBFS. Un vídeo que no pasa ese control no se entrega.
 Cada mezcla deja su informe en `mix_report.json`.
+
+## Regla del gancho (obligatoria)
+Los primeros 3 segundos se locutan con energía y a volumen pleno. Nunca susurrado ni en tono ASMR: en el feed no se oye y no para el dedo.
+El susurro solo como recurso a mitad del vídeo o en el cierre.
