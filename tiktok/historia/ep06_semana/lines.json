@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Por qué la semana tiene siete días? No hay nada natural en eso. Es por los planetas.",
+  "s": 0.12,
+  "e": 4.493
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y cuando alguien intentó cambiarla... fracasó.",
+  "s": 4.773,
+  "e": 7.907
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 8.257,
+  "e": 10.773
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Los antiguos miraban al cielo y veían siete cuerpos que se movían distinto que las estrellas: el Sol, la Luna, Marte, Mercurio, Júpiter, Venus y Saturno.",
+  "s": 11.123,
+  "e": 20.817
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Y le dieron un día a cada uno.",
+  "s": 21.097,
+  "e": 23.01
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Fíjate en el español: lunes, de la Luna. Martes, de Marte. Miércoles, de Mercurio. Jueves, de Júpiter. Viernes, de Venus.",
+  "s": 23.29,
+  "e": 35.934
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "¿Y el fin de semana? Aquí cambia. Sábado viene del sabbat hebreo, el día de descanso. Y domingo, del latín: el día del Señor.",
+  "s": 36.214,
+  "e": 44.605
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "En inglés se ve mejor el origen: Saturday es el día de Saturno. Y Sunday, el día del Sol.",
+  "s": 44.885,
+  "e": 50.997
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo, que viene lo bueno. En la Revolución Francesa decidieron que la semana tendría diez días. Más racional. Con un día de descanso cada diez.",
+  "s": 51.277,
+  "e": 58.991
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "A la gente le encantó... no. Duró unos doce años, y Napoleón acabó con ella.",
+  "s": 59.271,
+  "e": 65.149
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: cada vez que dices lunes, estás nombrando a la Luna.",
+  "s": 65.429,
+  "e": 69.858
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Cuál es tu día favorito de la semana? Y no vale decir viernes. Os leo.",
+  "s": 70.138,
+  "e": 73.953
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 74.233,
+  "e": 76.141
+ }
+]

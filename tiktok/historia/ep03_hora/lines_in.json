@@ -1,0 +1,63 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.97
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡En España vivimos con la hora equivocada! Y llevamos así desde mil novecientos cuarenta."
+},
+{
+"who": "VECINO",
+"text": "Mira un mapa: el meridiano de Greenwich, el de Londres... pasa por España.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Por geografía, nos tocaría la misma hora que Portugal, Reino Unido o Canarias."
+},
+{
+"who": "VECINO",
+"text": "Pero en mil novecientos cuarenta, en plena Segunda Guerra Mundial, Franco adelantó el reloj una hora. Para ir con la hora de Alemania y de buena parte de Europa."
+},
+{
+"who": "VECINO",
+"text": "La guerra terminó. Y el cambio... se quedó."
+},
+{
+"who": "VECINO",
+"text": "Resultado: en invierno vamos más o menos una hora por delante del sol. Y en verano, unas dos."
+},
+{
+"who": "VECINO",
+"text": "Por eso en Galicia, a finales de junio, puede ser de día pasadas las diez de la noche."
+},
+{
+"who": "VECINO",
+"text": "Ojo: mucha gente dice que por esto cenamos tan tarde. Influye, pero no lo explica todo. También pesan los horarios de trabajo y las costumbres."
+},
+{
+"who": "VECINO",
+"text": "O sea: parte de lo que llamamos cenar tarde... es que nuestro reloj va adelantado."
+},
+{
+"who": "VECINO",
+"text": "Y ahora dime: ¿volverías a la hora de Portugal? A: sí. B: no. C: me da igual mientras haya siesta."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

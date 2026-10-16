@@ -1,0 +1,71 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.94
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡Colón no demostró que la Tierra era redonda! Eso ya se sabía desde hacía casi dos mil años."
+},
+{
+"who": "VECINO",
+"text": "Y lo mejor: los que le dijeron que no... tenían razón.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "En el siglo tercero antes de Cristo, un griego llamado Eratóstenes midió la Tierra usando sombras. Y casi la clavó."
+},
+{
+"who": "VECINO",
+"text": "En la época de Colón, cualquier persona culta sabía que la Tierra era redonda. La discusión era otra: cómo de grande."
+},
+{
+"who": "VECINO",
+"text": "Colón calculó que Japón estaba a unos cuatro mil quinientos kilómetros navegando hacia el oeste."
+},
+{
+"who": "VECINO",
+"text": "En realidad, está a casi veinte mil."
+},
+{
+"who": "VECINO",
+"text": "Los expertos que revisaron su plan le dijeron: tus números están mal. Y tenían razón."
+},
+{
+"who": "VECINO",
+"text": "Si no llega a haber un continente en medio, que nadie esperaba, Colón y su tripulación se habrían quedado sin comida en mitad del océano."
+},
+{
+"who": "VECINO",
+"text": "¿Y de dónde sale el mito? De una biografía de Colón muy novelada, de mil ochocientos veintiocho, escrita por Washington Irving."
+},
+{
+"who": "VECINO",
+"text": "Ojo: Colón tiene su mérito. Cruzar el Atlántico era una locura. Pero no por lo que te contaron."
+},
+{
+"who": "VECINO",
+"text": "O sea: Colón no acertó con la forma de la Tierra. Se equivocó con el tamaño... y le salió bien por suerte."
+},
+{
+"who": "VECINO",
+"text": "¿Qué otro mito del colegio queréis que desmonte? Os leo."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

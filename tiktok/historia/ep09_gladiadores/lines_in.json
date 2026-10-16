@@ -1,0 +1,67 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.97
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡El pulgar hacia abajo no significaba mátalo! O, por lo menos, no lo sabemos."
+},
+{
+"who": "VECINO",
+"text": "Ese gesto te lo enseñó un cuadro. No los romanos.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Los textos romanos hablan de pollice verso: pulgar girado. Pero no dicen hacia dónde."
+},
+{
+"who": "VECINO",
+"text": "La imagen del pulgar hacia abajo la hizo famosa un cuadro de mil ochocientos setenta y dos, de Jean-Léon Gérôme. Y después, el cine la copió."
+},
+{
+"who": "VECINO",
+"text": "Y hay más: muchos combates de gladiadores no acababan en muerte."
+},
+{
+"who": "VECINO",
+"text": "Un gladiador era carísimo. Había que comprarlo, alimentarlo y entrenarlo durante años. Matarlo en cada pelea era tirar el dinero."
+},
+{
+"who": "VECINO",
+"text": "El que perdía podía pedir clemencia. Y muchas veces se la concedían."
+},
+{
+"who": "VECINO",
+"text": "Incluso el emperador Augusto llegó a prohibir los combates sin posibilidad de perdón."
+},
+{
+"who": "VECINO",
+"text": "Ojo: morían gladiadores, claro. Era un espectáculo brutal. Pero no era una matanza en cada combate, como en las películas."
+},
+{
+"who": "VECINO",
+"text": "O sea: los gladiadores se parecían más a deportistas de élite... que a carne de cañón."
+},
+{
+"who": "VECINO",
+"text": "¿Qué película de romanos te has creído entera? Os leo."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

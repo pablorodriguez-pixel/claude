@@ -1,0 +1,67 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+1.05
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¿Por qué la semana tiene siete días? No hay nada natural en eso. Es por los planetas."
+},
+{
+"who": "VECINO",
+"text": "Y cuando alguien intentó cambiarla... fracasó.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Los antiguos miraban al cielo y veían siete cuerpos que se movían distinto que las estrellas: el Sol, la Luna, Marte, Mercurio, Júpiter, Venus y Saturno."
+},
+{
+"who": "VECINO",
+"text": "Y le dieron un día a cada uno."
+},
+{
+"who": "VECINO",
+"text": "Fíjate en el español: lunes, de la Luna. Martes, de Marte. Miércoles, de Mercurio. Jueves, de Júpiter. Viernes, de Venus."
+},
+{
+"who": "VECINO",
+"text": "¿Y el fin de semana? Aquí cambia. Sábado viene del sabbat hebreo, el día de descanso. Y domingo, del latín: el día del Señor."
+},
+{
+"who": "VECINO",
+"text": "En inglés se ve mejor el origen: Saturday es el día de Saturno. Y Sunday, el día del Sol."
+},
+{
+"who": "VECINO",
+"text": "Ojo, que viene lo bueno. En la Revolución Francesa decidieron que la semana tendría diez días. Más racional. Con un día de descanso cada diez."
+},
+{
+"who": "VECINO",
+"text": "A la gente le encantó... no. Duró unos doce años, y Napoleón acabó con ella."
+},
+{
+"who": "VECINO",
+"text": "O sea: cada vez que dices lunes, estás nombrando a la Luna."
+},
+{
+"who": "VECINO",
+"text": "¿Cuál es tu día favorito de la semana? Y no vale decir viernes. Os leo."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

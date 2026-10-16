@@ -1,0 +1,63 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+1.08
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡Napoleón no era bajito! Te lo han colado durante doscientos años."
+},
+{
+"who": "VECINO",
+"text": "Medía alrededor de un metro sesenta y ocho. Lo normal en su época... o incluso un poco más.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "¿Entonces por qué todo el mundo cree lo contrario? Por tres cosas."
+},
+{
+"who": "VECINO",
+"text": "Una: las pulgadas. Cuando murió, midieron cinco pies y dos pulgadas. Pero eran pies y pulgadas franceses, más largos que los ingleses. En medidas inglesas, parecía mucho más bajo."
+},
+{
+"who": "VECINO",
+"text": "Dos: los ingleses. Sus caricaturistas lo dibujaban diminuto y con rabietas. Propaganda de guerra."
+},
+{
+"who": "VECINO",
+"text": "Y tres: su mote. Le llamaban el pequeño cabo... y era una forma de cariño, no una medida."
+},
+{
+"who": "VECINO",
+"text": "Además, solía ir rodeado de su guardia, soldados escogidos, entre otras cosas, por ser altos. Al lado de ellos, cualquiera parece pequeño."
+},
+{
+"who": "VECINO",
+"text": "Ojo: no era ningún gigante. Era un hombre de estatura normal... con muy mala prensa."
+},
+{
+"who": "VECINO",
+"text": "O sea: la propaganda fue tan buena que todavía funciona."
+},
+{
+"who": "VECINO",
+"text": "¿Qué otro personaje crees que tiene una fama injusta? Os leo."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

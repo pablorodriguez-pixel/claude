@@ -1,0 +1,63 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.98
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡La palabra más usada del mundo nació como un chiste! Y con una falta de ortografía."
+},
+{
+"who": "VECINO",
+"text": "Hablo de OK.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Boston, mil ochocientos treinta y nueve. Los periódicos tenían una moda: abreviar frases mal escritas a propósito, para hacer gracia."
+},
+{
+"who": "VECINO",
+"text": "Y un periódico escribe O.K.: las iniciales de oll korrect. O sea, all correct, todo correcto... pero escrito como lo escribiría alguien que no sabe escribir."
+},
+{
+"who": "VECINO",
+"text": "Era un chiste de periodistas. Debería haber muerto en una semana."
+},
+{
+"who": "VECINO",
+"text": "Pero al año siguiente llegó la campaña presidencial de Martin Van Buren. Era de un pueblo llamado Kinderhook, y le apodaban Old Kinderhook."
+},
+{
+"who": "VECINO",
+"text": "Sus seguidores montaron los OK Clubs. Y la palabra se hizo famosa en todo el país."
+},
+{
+"who": "VECINO",
+"text": "Ojo: durante años circularon otras teorías sobre su origen. Pero un lingüista, Allen Walker Read, rastreó los periódicos de la época y encontró este. Hoy es la explicación más aceptada."
+},
+{
+"who": "VECINO",
+"text": "O sea: la palabra que usas veinte veces al día... es una falta de ortografía de hace casi doscientos años."
+},
+{
+"who": "VECINO",
+"text": "¿Qué otra palabra queréis que investigue? Os leo."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

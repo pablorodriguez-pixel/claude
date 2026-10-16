@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡En España vivimos con la hora equivocada! Y llevamos así desde mil novecientos cuarenta.",
+  "s": 0.12,
+  "e": 5.036
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Mira un mapa: el meridiano de Greenwich, el de Londres... pasa por España.",
+  "s": 5.316,
+  "e": 10.328
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 10.678,
+  "e": 13.23
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Por geografía, nos tocaría la misma hora que Portugal, Reino Unido o Canarias.",
+  "s": 13.58,
+  "e": 18.019
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero en mil novecientos cuarenta, en plena Segunda Guerra Mundial, Franco adelantó el reloj una hora. Para ir con la hora de Alemania y de buena parte de Europa.",
+  "s": 18.299,
+  "e": 26.952
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La guerra terminó. Y el cambio... se quedó.",
+  "s": 27.232,
+  "e": 30.853
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Resultado: en invierno vamos más o menos una hora por delante del sol. Y en verano, unas dos.",
+  "s": 31.133,
+  "e": 37.604
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Por eso en Galicia, a finales de junio, puede ser de día pasadas las diez de la noche.",
+  "s": 37.884,
+  "e": 41.99
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: mucha gente dice que por esto cenamos tan tarde. Influye, pero no lo explica todo. También pesan los horarios de trabajo y las costumbres.",
+  "s": 42.27,
+  "e": 50.915
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: parte de lo que llamamos cenar tarde... es que nuestro reloj va adelantado.",
+  "s": 51.195,
+  "e": 56.953
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y ahora dime: ¿volverías a la hora de Portugal? A: sí. B: no. C: me da igual mientras haya siesta.",
+  "s": 57.233,
+  "e": 66.02
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 66.3,
+  "e": 68.736
+ }
+]
