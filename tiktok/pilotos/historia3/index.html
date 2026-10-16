@@ -1,0 +1,19 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="base.css">
+<style>#stage{background:#EADFC8}#stage svg *{transform-origin:0 0}</style></head><body><div id="stage"></div>
+<script src="words_old.js"></script><script src="words_new.js"></script><script src="../engine/engine.js"></script><script src="figs_v1.js"></script><script src="figs_v2.js"></script>
+<script src="base_v2.js"></script><script src="globals_v2.js"></script><script src="scenes_a.js"></script><script src="scenes_b.js"></script><script src="frame_v2.js"></script><script src="sfx_v2.js"></script>
+<script>Engine.start({ captions: { y: 1380, font: 'Bricolage', size: 50, weight: 800, bg: '#111', color: '#fff', hi: '#FFE600', radius: 40, pad: '12px 30px 14px', maxWords: 3 } });</script>
+<script>
+/* Re-locución con otra voz: la animación vive en la línea temporal antigua (WORDS) y aquí se
+   proyecta el tiempo nuevo (WORDS_NEW) palabra a palabra sobre el antiguo. */
+(function(){
+  const O=window.WORDS, N=window.WORDS_NEW, oldDur=window.DURATION, tail=oldDur-O[O.length-1].e;
+  const kn=[[0,0]]; N.forEach((n,i)=>{kn.push([n.s,O[i].s]);kn.push([n.e,O[i].e]);});
+  const newDur=N[N.length-1].e+tail; kn.push([newDur,oldDur]);
+  const map=(t,a,b)=>{ if(t<=kn[0][a]) return kn[0][b]; for(let i=1;i<kn.length;i++){const p=kn[i-1],q=kn[i]; if(t<=q[a]){const d=q[a]-p[a]; return d<=1e-6?q[b]:p[b]+(q[b]-p[b])*(t-p[a])/d;}} return kn[kn.length-1][b]+(t-kn[kn.length-1][a]); };
+  const r=window.render; window.render=t=>r(map(t,0,1));
+  window.SFX=window.SFX.map(x=>Object.assign({},x,{t:+map(x.t,1,0).toFixed(3)}));
+  window.DURATION=newDur;
+})();
+</script>
+</body></html>

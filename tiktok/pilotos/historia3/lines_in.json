@@ -1,0 +1,156 @@
+{
+"voices": {
+"VECINA": [
+"AxFLn9byyiDbMn5fmyqu",
+0.0,
+1.22
+],
+"MEREDITH": [
+"YKrm0N1EAM9Bw27j8kuD",
+0.0,
+1.1
+],
+"MINISTRO": [
+"5IDdqnXnlsZ1FCxoOFYg",
+0.5,
+1.12
+],
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+1.1
+]
+},
+"gap": 0.2,
+"lines": [
+{
+"who": "VECINO",
+"text": "[whispers] Esto es un mayor del ejército australiano intentando matar a un pájaro que no sabe volar.",
+"slot": 4.505
+},
+{
+"who": "VECINO",
+"text": "Diez balas por pájaro... [laughs] y aun así, perdieron.",
+"gap_after": 0.3,
+"slot": 3.309
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro. Siéntate, que te lo cuento.",
+"gap_after": 0.3,
+"slot": 3.474
+},
+{
+"who": "VECINO",
+"text": "Mil novecientos treinta y dos. Australia. Los granjeros, muchos veteranos de la Primera Guerra Mundial, plantando trigo en plena crisis.",
+"slot": 6.508
+},
+{
+"who": "VECINO",
+"text": "Y de repente... veinte mil emús. Comiéndose el trigo. Rompiendo las vallas. [gasps] Un desastre.",
+"gap_after": 0.3,
+"slot": 8.002
+},
+{
+"who": "VECINO",
+"text": "¿Y qué hace el gobierno? [whispers] Agárrate... Manda al ejército.",
+"gap_after": 0.3,
+"slot": 3.815
+},
+{
+"who": "VECINO",
+"text": "Un mayor, Meredith. Dos soldados. Dos ametralladoras. Diez mil balas. Ojo, que esto se pone bueno.",
+"gap_after": 0.3,
+"slot": 5.643
+},
+{
+"who": "VECINO",
+"text": "Intento uno.",
+"slot": 0.796
+},
+{
+"who": "MEREDITH",
+"text": "[serious] Objetivo a la vista. Abriendo fuego.",
+"slot": 2.237
+},
+{
+"who": "VECINO",
+"text": "Y los emús... se dispersan. Fuera de alcance.",
+"gap_after": 0.3,
+"slot": 3.416
+},
+{
+"who": "VECINO",
+"text": "Intento dos. Una emboscada a cerca de mil emús.",
+"slot": 3.03
+},
+{
+"who": "MEREDITH",
+"text": "[confident] Esta vez no se escapan.",
+"slot": 1.744
+},
+{
+"who": "VECINO",
+"text": "Y la ametralladora... se encasquilla. [laughs]",
+"gap_after": 0.3,
+"slot": 3.46
+},
+{
+"who": "VECINO",
+"text": "Intento tres: montan la ametralladora en un camión.",
+"slot": 2.762
+},
+{
+"who": "MINISTRO",
+"text": "¿En un camión? ¿Seguro?",
+"slot": 1.578
+},
+{
+"who": "VECINO",
+"text": "Los emús corren más. Y el camión bota tanto que no hay quien apunte.",
+"gap_after": 0.3,
+"slot": 3.927
+},
+{
+"who": "VECINO",
+"text": "Retirada. Vuelven unos días después. Y al final, Meredith dice haber abatido novecientos ochenta y seis emús... con nueve mil ochocientas sesenta balas. Diez balas por emú.",
+"gap_after": 0.3,
+"slot": 10.367
+},
+{
+"who": "VECINO",
+"text": "Y el hombre, orgulloso, suelta esto:",
+"slot": 2.112
+},
+{
+"who": "MEREDITH",
+"text": "[proud] Con una división que aguantara las balas como estos pájaros, me enfrentaría a cualquier ejército del mundo.",
+"gap_after": 0.3,
+"slot": 5.234
+},
+{
+"who": "VECINO",
+"text": "Ojo: la operación no resolvió el problema. Lo que funcionó después fueron recompensas y vallas. Menos épico. Más útil.",
+"gap_after": 0.3,
+"slot": 7.43
+},
+{
+"who": "VECINO",
+"text": "O sea: un ejército contra unos pájaros que no saben volar. Y los pájaros, ni se enteraron.",
+"gap_after": 0.3,
+"slot": 4.927
+},
+{
+"who": "VECINO",
+"text": "¿Qué otra guerra absurda queréis que os cuente? Os leo en comentarios.",
+"gap_after": 0.3,
+"slot": 2.702
+},
+{
+"who": "VECINO",
+"text": "[whispers] Y esto... no venía en el libro.",
+"slot": 1.822
+}
+],
+"inner_cap": 9
+}

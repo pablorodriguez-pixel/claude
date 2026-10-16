@@ -41,12 +41,31 @@ for n,L in enumerate(cfg["lines"]):
     vid,stab,tempo=cfg["voices"][L["who"]]
     al=json.load(open(f"{d}/clips/{n:02d}.json")); ws=words_of(al)
     a0=max(0,ws[0][1]-0.04); a1=ws[-1][2]+0.1
+    if "slot" in L:  # encajar la frase en una duración fija (para conservar la sincronía de una animación existente)
+        tempo=min(1.45,max(0.85,(a1-a0)/L["slot"]))
     subprocess.run(["ffmpeg","-v","error","-y","-i",f"{d}/clips/{n:02d}.mp3","-ss",str(a0),"-to",str(a1),"-af",f"atempo={tempo}","-ac","1","-ar",str(SR),f"{d}/clips/{n:02d}.wav"],check=True)
     w=wave.open(f"{d}/clips/{n:02d}.wav"); x=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(np.float32)/32768
     # compactar silencios internos largos (>0.45s) no es necesario en frases cortas
     ls=t
-    for (txt,s,e) in ws:
-        W.append({"i":len(W),"w":txt,"s":round(t+(s-a0)/tempo,3),"e":round(t+(e-a0)/tempo,3),"line":n,"who":L["who"]})
+    # compactar pausas internas largas (cap configurable)
+    cap=cfg.get("inner_cap",9); rel=[[txt,(s-a0)/tempo,(e-a0)/tempo] for (txt,s,e) in ws]; cuts=[]
+    for j in range(len(rel)-1):
+        g=rel[j+1][1]-rel[j][2]
+        if g>cap:
+            m=(rel[j][2]+rel[j+1][1])/2; r=g-cap; cuts.append((int((m-r/2)*SR),int((m+r/2)*SR)))
+    if cuts:
+        keep=[];prev=0
+        for c0,c1 in cuts: keep.append(x[prev:c0]); prev=c1
+        keep.append(x[prev:]); x=np.concatenate(keep)
+    def rm(tt):
+        sh=0
+        for c0,c1 in cuts:
+            if tt*SR>=c1: sh+=c1-c0
+            elif tt*SR>c0: sh+=tt*SR-c0
+        return tt-sh/SR
+    for (txt,s,e) in rel:
+        W.append({"i":len(W),"w":txt,"s":round(t+rm(s),3),"e":round(t+rm(e),3),"line":n,"who":L["who"]})
+    if "slot" in L and len(x)<int(L["slot"]*SR): x=np.concatenate([x,np.zeros(int(L["slot"]*SR)-len(x))])
     t+=len(x)/SR; audio.append(x)
     clean=re.sub(r"\[[^\]]*\]\s*","",L["text"]).strip()
     LN.append({"line":n,"who":L["who"],"text":clean,"s":round(ls,3),"e":round(t,3)})
