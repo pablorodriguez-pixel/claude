@@ -313,3 +313,10 @@ Orden real de secciones extraído de `reference/founderz-maqueta/index.html`:
 ## 11. Branch de trabajo
 
 Desarrollo en `claude/spanish-greeting-5gAxM` (o la branch que indique la tarea). Commits descriptivos, push con `-u origin <branch>`.
+
+---
+
+## 12. Vídeos de TikTok (tiktok/pilotos)
+
+- Mezcla de audio: usa siempre `tiktok/pilotos/engine/audio.py`. La voz manda: se mezcla todo relativo a la voz (voz -16 LUFS, música 20 LU por debajo con EQ y ducking, final -14 LUFS, pico < -1 dBFS). Nunca subas la música a un nivel fijo "a ojo".
+- El control de calidad de `audio.py` exige que la voz quede ≥ 20 dB por encima de la música durante el habla; si falla, no se entrega el vídeo.

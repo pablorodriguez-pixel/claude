@@ -160,25 +160,89 @@ def el_music(style, dur):
     x = x[:n].copy(); fade = int(1.5 * SR); x[-fade:] *= np.linspace(1, 0, fade)
     return x
 
+# ---------------- MEZCLA ----------------
+# Reglas fijas (no tocar sin motivo): la voz manda. Todo se calcula RELATIVO a la voz.
+VOICE_LUFS = -16.0      # la voz se normaliza aquí antes de mezclar
+MUSIC_BED_LU = -20.0    # música sin voz: 20 LU por debajo de la voz
+MUSIC_DUCK_DB = -9.0    # mientras hay voz, la música baja 9 dB más
+MIN_SNR_DB = 20.0       # QA: voz vs música DURANTE el habla, mínimo exigido
+FINAL_LUFS = -14.0
+
+def lufs(x):
+    """Sonoridad integrada (LUFS, EBU R128) medida con ffmpeg."""
+    import tempfile, os, re
+    f = tempfile.NamedTemporaryFile(suffix='.wav', delete=False).name
+    o = wave.open(f, 'wb'); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes()); o.close()
+    r = subprocess.run(['ffmpeg', '-nostats', '-i', f, '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    os.remove(f)
+    return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', r)[-1])
+
+def eq_music(x):
+    """Hueco de frecuencias para la voz: baja 1–4 kHz y graves sucios en la música."""
+    import tempfile, os
+    fi = tempfile.NamedTemporaryFile(suffix='.wav', delete=False).name; fo = fi[:-4] + '_eq.wav'
+    o = wave.open(fi, 'wb'); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((np.clip(x * 0.5, -1, 1) * 32767).astype(np.int16).tobytes()); o.close()
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', fi, '-af', 'highpass=f=70,equalizer=f=2500:t=o:w=1.6:g=-6,equalizer=f=1000:t=o:w=1:g=-3', fo], check=True)
+    y = readwav(fo); os.remove(fi); os.remove(fo); return y[:len(x)]
+
+def speech_mask(v, thr_db=-38.0):
+    """Actividad de voz a 100 Hz (1 = hablando)."""
+    hop = SR // 100; n = len(v) // hop
+    rms = np.sqrt(np.mean(v[: n * hop].reshape(n, hop) ** 2, axis=1) + 1e-12)
+    ref = np.percentile(rms[rms > 1e-5], 95) if np.any(rms > 1e-5) else 1
+    act = (20 * np.log10(rms / ref) > thr_db).astype(float)
+    # rellena micro-huecos entre palabras (<250 ms) para que la música no "bombee"
+    k = 25; act = np.convolve(act, np.ones(k) / k, mode='same') > 0.01
+    return act.astype(float), hop
+
+def duck_curve(act, hop, n, depth_db):
+    """Curva de ducking: ataque 60 ms, relajación 450 ms, a 100 Hz e interpolada."""
+    g = np.ones(len(act)); low = 10 ** (depth_db / 20); cur = 1.0
+    a_att = 1 - np.exp(-1 / 6); a_rel = 1 - np.exp(-1 / 45)
+    for i, s in enumerate(act):
+        tgt = low if s else 1.0
+        cur += (tgt - cur) * (a_att if tgt < cur else a_rel); g[i] = cur
+    return np.interp(np.arange(n), np.arange(len(g)) * hop, g)
+
 def main():
     d, style = sys.argv[1], sys.argv[2]
     voice = readwav(d + '/voice_final.wav')
     dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', d + '/video_noaudio.mp4']))
-    n = int(dur * SR); mix_v = np.zeros(n); mix_v[: min(n, len(voice))] = voice[:n]
-    L = el_lib(); fx = np.zeros(n)
+    n = int(dur * SR); v = np.zeros(n); v[: min(n, len(voice))] = voice[:n]
+    v *= 10 ** ((VOICE_LUFS - lufs(v)) / 20)
+    act, hop = speech_mask(v)
+    # efectos: relativos a la voz (pico de efecto ≈ 10 dB bajo el pico de voz)
+    L = el_lib(); fx = np.zeros(n); vpk = np.percentile(np.abs(v), 99.9)
     for c in json.load(open(d + '/sfx.json')):
         x = L.get(c['name'])
         if x is None: print('sfx desconocido', c['name']); continue
-        i = int(c['t'] * SR); x = x[: max(0, n - i)]; fx[i:i + len(x)] += x * 0.28 * c.get('gain', 1)
-    m = el_music(style, dur)
-    envv = np.convolve(np.abs(mix_v), np.ones(4410) / 4410, mode='same'); duck = 1 - 0.5 * np.clip(envv / 0.05, 0, 1)
-    rms = np.sqrt(np.mean(m ** 2)) or 1
-    m = m / rms * 0.045 * duck
-    out = mix_v * 0.95 + fx + m
-    out = np.tanh(out * 1.1) / np.tanh(1.1)
+        i = int(c['t'] * SR); x = x[: max(0, n - i)]; fx[i:i + len(x)] += x / 0.9 * vpk * 0.32 * c.get('gain', 1)
+    m = eq_music(el_music(style, dur))
+    bed = MUSIC_BED_LU
+    for _ in range(6):  # QA en bucle: si la voz no destaca lo suficiente, baja la música y repite
+        mm = m * 10 ** ((VOICE_LUFS + bed - lufs(m)) / 20) * duck_curve(act, hop, n, MUSIC_DUCK_DB)
+        sp = np.repeat(act, hop)[:n] > 0; sp = np.pad(sp, (0, n - len(sp)))
+        snr = 10 * np.log10(np.mean(v[sp] ** 2) / (np.mean(mm[sp] ** 2) + 1e-12))
+        if snr >= MIN_SNR_DB: break
+        bed -= 2.0
+    out = v + fx + mm
+    # volumen final: ganancia exacta hasta FINAL_LUFS + limitador suave de picos (sin bombeo de loudnorm)
+    for _ in range(3):
+        out = out * 10 ** ((FINAL_LUFS - lufs(out)) / 20)
+        thr, ceil = 0.6, 0.8   # techo ≈ -2 dBFS para que el AAC no sature
+        a = np.abs(out); over = a > thr
+        out[over] = np.sign(out[over]) * (thr + (ceil - thr) * np.tanh((a[over] - thr) / (ceil - thr)))
     o = wave.open(d + '/mix.wav', 'wb'); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((np.clip(out, -1, 1) * 32767).astype(np.int16).tobytes()); o.close()
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', d + '/video_noaudio.mp4', '-i', d + '/mix.wav', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=7', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-shortest', d + '/final.mp4'], check=True)
-    print('ok', d + '/final.mp4')
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', d + '/video_noaudio.mp4', '-i', d + '/mix.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-shortest', d + '/final.mp4'], check=True)
+    final_lufs = lufs(out)
+    rep = {'final_LUFS': round(final_lufs, 1), 'voz_LUFS': VOICE_LUFS, 'musica_bajo_voz_LU': bed, 'ducking_dB': MUSIC_DUCK_DB, 'SNR_voz_musica_dB': round(float(snr), 1)}
+    json.dump(rep, open(d + '/mix_report.json', 'w'))
+    if abs(final_lufs - FINAL_LUFS) > 1.0: raise SystemExit(f'QA FALLIDA: volumen final {final_lufs:.1f} LUFS (objetivo {FINAL_LUFS})')
+    pk_db = 20 * np.log10(np.max(np.abs(out)) + 1e-12)
+    rep['pico_dBFS'] = round(float(pk_db), 1)
+    if pk_db > -1.0: raise SystemExit(f'QA FALLIDA: pico {pk_db:.1f} dBFS')
+    if snr < MIN_SNR_DB: raise SystemExit(f'QA FALLIDA: la voz solo está {snr:.1f} dB sobre la música (mínimo {MIN_SNR_DB})')
+    print('ok', d + '/final.mp4', rep)
 
 if __name__ == '__main__':
     main()
