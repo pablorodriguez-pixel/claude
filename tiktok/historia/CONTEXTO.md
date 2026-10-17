@@ -44,6 +44,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
   ep11 @, ep20 Cumpleaños, ep19 Pez, ep18 Himno, ep16 Uvas (Navidad), ep09 Gladiadores.
 - Próximo paso: cuando el usuario pase visualizaciones a 48 h y curvas de retención de los nuevos, medir (pts/s por frase) y ajustar.
   Si los temas cotidianos funcionan, probar UNA variante de estructura cada vez.
+- Comunidad: ver `COMUNIDAD.md` (respuestas, comentarios fijados, vídeos-respuesta).
 - Ideas de temas pendientes: buscar en Wikipedia «List of common misconceptions», r/todayilearned (top), autocompletar de TikTok, comentarios.
 
 ## Cómo se produce un episodio (desde `tiktok/historia/`)
