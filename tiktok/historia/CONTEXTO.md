@@ -57,7 +57,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 
 ## Cómo se produce un episodio (desde `tiktok/historia/`)
 0. DIRECTOR CREATIVO (obligatorio, `.claude/agents/director-creativo.md` + `director/RUBRICA.md`): aprueba la IDEA y el GUION antes de gastar
-   créditos de voz, y el VÍDEO antes de entregarlo. Sin PUBLICAR (≥ 80/100 y todas las puertas) no se entrega nada al usuario.
+   créditos de voz, y el VÍDEO antes de entregarlo (con un director INDEPENDIENTE del animador, que no vea la autoevaluación). Sin PUBLICAR (≥ 80/100 y todas las puertas) no se entrega nada al usuario.
    Si el tipo de agente no está cargado en la sesión, lanza un agente general con «actúa según .claude/agents/director-creativo.md».
    Informes en `director/informes/<ep>/informe.md`. Cada 48 h, con los datos reales, recalibrar la tabla de bandas de la rúbrica.
 1. Carpeta `epNN_tema/` con `lines_in.json` ({"voices":{"VECINO":["851ejYcv2BoNPjrkw93G",0.0,0.98]},"gap":0.24,"inner_cap":0.35,"lines":[{"who":"VECINO","text":...}]}),
@@ -67,6 +67,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 3. Animación: `index.html` + .js (reutilizar `ep10_einstein/` como plantilla v2/v3). Todo clavado por texto con `find()`/`w()`.
 4. Revisión: `bash ../engine/sheet.sh $PWD 1` y mirar todas las hojas. Render: `node ../engine/render.js $PWD video` (si se cae por carga, `engine/render_resumible.js`).
 5. Audio: `python3 -I ../engine/audio.py $PWD ragtime` (debe pasar el QA). Entregar `final.mp4`; si pesa >95 MB, re-encodificar crf 20 antes de subir al repo.
+- Audio del motor: `engine/el_sfx/*.wav` (32 efectos) y `engine/el_music/ragtime.wav` se regeneraron con ElevenLabs el 17/10 y AHORA SÍ están en git (excepción en .gitignore). Si faltan, audio.py no puede mezclar bien: no uses sustitutos sintéticos.
 - Créditos ElevenLabs: quedaban ~25.000 caracteres (≈ 30 episodios de 850 caracteres). Comprobar con la API /v1/user/subscription.
 - Cada episodio necesita `kit/` (copia de `ep07_ok/kit`) y `fonts -> ../engine/fonts`; ep10–ep20 ya los tienen (se restauraron al dividir la sesión).
 - No lances más de 3–4 renders a la vez (la máquina tiene 4 núcleos).

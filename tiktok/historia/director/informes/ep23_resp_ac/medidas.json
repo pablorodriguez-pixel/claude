@@ -1,0 +1,89 @@
+{
+ "episodio": "ep23_resp_ac",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 4.33,
+   "dur": 4.21,
+   "palabras": 12,
+   "texto": "¿Bien escrito sería A, C? Sí, Daniela. Y es aún más absurdo."
+  },
+  {
+   "n": 1,
+   "s": 4.57,
+   "e": 10.446,
+   "dur": 5.88,
+   "palabras": 17,
+   "texto": "O.K. viene de «oll korrect»: all correct, escrito mal a propósito. Bien escrito, sería A, C."
+  },
+  {
+   "n": 2,
+   "s": 10.646,
+   "e": 17.984,
+   "dur": 7.34,
+   "palabras": 19,
+   "texto": "Y no era la única. También escribían O.W.: «oll wright». Era el «ola k ase» de la época."
+  },
+  {
+   "n": 3,
+   "s": 18.184,
+   "e": 24.762,
+   "dur": 6.58,
+   "palabras": 19,
+   "texto": "¿Y por qué sobrevivió OK? Por la campaña de Van Buren: le apodaban Old Kinderhook. O.K., otra vez."
+  },
+  {
+   "n": 4,
+   "s": 24.962,
+   "e": 30.324,
+   "dur": 5.36,
+   "palabras": 18,
+   "texto": "Si lo hubieran escrito bien, hoy contestarías «A, C». ¿Qué palabra te huele rara a ti? Os leo."
+  },
+  {
+   "n": 5,
+   "s": 30.524,
+   "e": 33.506,
+   "dur": 2.98,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "bien",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 4.21,
+ "gancho_palabras": 12,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": true,
+ "marca_linea": 5,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 30.524,
+ "ojo_dur": null,
+ "cta_tipo": "abierta",
+ "cta_texto": "Si lo hubieran escrito bien, hoy contestarías «A, C». ¿Qué palabra te huele rara a ti? Os leo.",
+ "n_lineas": 6,
+ "n_palabras": 95,
+ "duracion_voz": 33.51,
+ "ppm": 170.1,
+ "lineas_mas_largas": [
+  [
+   2,
+   7.34,
+   "Y no era la única. También escribían O.W.: «oll wright». Era el «ola k"
+  ],
+  [
+   3,
+   6.58,
+   "¿Y por qué sobrevivió OK? Por la campaña de Van Buren: le apodaban Old"
+  ],
+  [
+   1,
+   5.88,
+   "O.K. viene de «oll korrect»: all correct, escrito mal a propósito. Bie"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep23_resp_ac/final.mp4",
+ "duracion_video": 34.13
+}

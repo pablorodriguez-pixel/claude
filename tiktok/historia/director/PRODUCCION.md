@@ -16,6 +16,7 @@ Pasos:
 6. DIRECTOR modo VÍDEO: sigue tú mismo .claude/agents/director-creativo.md sobre tu final.mp4 con ojos de director exigente, sin autocomplacencia
    (ejecuta director/medir.py y mira los fotogramas). Escribe director/informes/<ep>/informe.md. Si la nota es < 80 o falla una puerta,
    aplica la edición propuesta y repite 5–6 (máximo 2 vueltas más). Sé honesto con la nota final.
+6b. Tu autoevaluación NO basta: después, el coordinador lanza un DIRECTOR INDEPENDIENTE que no ve tu nota. Sin su PUBLICAR no se entrega.
 7. No hagas commits. Devuelve: ruta de final.mp4, duración, nota final del director con el desglose, caracteres gastados, texto del post y comentario fijado,
    y cualquier dato que siga «a verificar».
 No lances más de un render a la vez (hay otros dos animadores en la máquina de 4 núcleos).

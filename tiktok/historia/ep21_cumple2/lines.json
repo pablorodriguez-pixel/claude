@@ -60,20 +60,20 @@
   "who": "VECINO",
   "text": "Ojo: en tu casa siempre fue gratis. Nadie te manda la factura de tus seis años.",
   "s": 42.515,
-  "e": 48.753
+  "e": 48.453
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "O sea: la canción que más has cantado tenía un dueño... que no lo era. ¿Y en tu casa, cómo se canta? Os leo.",
-  "s": 48.993,
-  "e": 57.954
+  "s": 48.693,
+  "e": 57.655
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Soy tu vecino... y esto no venía en el libro.",
-  "s": 58.194,
-  "e": 61.769
+  "s": 57.895,
+  "e": 61.47
  }
 ]

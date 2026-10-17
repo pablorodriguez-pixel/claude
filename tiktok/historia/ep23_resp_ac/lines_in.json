@@ -1,13 +1,13 @@
 {
- "voices": {"VECINO": ["851ejYcv2BoNPjrkw93G", 0.0, 0.96]},
- "gap": 0.24,
- "inner_cap": 0.35,
+ "voices": {"VECINO": ["851ejYcv2BoNPjrkw93G", 0.0, 1.2]},
+ "gap": 0.2,
+ "inner_cap": 0.28,
  "lines": [
-  {"who": "VECINO", "text": "[excited] ¿Bien escrito sería A, C? Daniela: sí. Y es aún más absurdo.", "gap_after": 0.3},
+  {"who": "VECINO", "text": "[excited] ¿Bien escrito sería A, C? Sí, Daniela. Y es aún más absurdo.", "gap_after": 0.24},
   {"who": "VECINO", "text": "O.K. viene de «oll korrect»: all correct, escrito mal a propósito. Bien escrito, sería A, C."},
-  {"who": "VECINO", "text": "Y no era la única. También escribían O.W.: «oll wright», o sea, all right. Era el «ola k ase» de la época."},
-  {"who": "VECINO", "text": "¿Y por qué sobrevivió OK? Por la campaña de Van Buren, al año siguiente: le apodaban Old Kinderhook. O.K., otra vez."},
-  {"who": "VECINO", "text": "O sea: si lo hubieran escrito bien, hoy le contestarías a tu madre «A, C». ¿Qué palabra te huele rara a ti? Os leo."},
+  {"who": "VECINO", "text": "Y no era la única. También escribían O.W.: «oll wright». Era el «ola k ase» de la época."},
+  {"who": "VECINO", "text": "¿Y por qué sobrevivió OK? Por la campaña de Van Buren: le apodaban Old Kinderhook. O.K., otra vez."},
+  {"who": "VECINO", "text": "Si lo hubieran escrito bien, hoy contestarías «A, C». ¿Qué palabra te huele rara a ti? Os leo."},
   {"who": "VECINO", "text": "[mischievously] Soy tu vecino... y esto no venía en el libro."}
  ]
 }
