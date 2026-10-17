@@ -31,7 +31,7 @@ const coverCurve = t => u => { const w = 0.18 * Math.sin(t * 1.3); return [540 +
 /* ======================================================================
    B · «LA MAYORÍA NO LLEGA NI A LA MITAD» — milpiés recto, la mitad trasera tachada
    ====================================================================== */
-headline(S.B[0], S.B[1], 'La mayoría: ni *la mitad*', { size: 96, hlT: K.mitad, y: 262 });
+headline(S.B[0], S.B[1], 'La mayoría: ni *la mitad*', { size: 84, hlT: K.mitad, y: 262 });
 {
   const c = scene(S.B[0], S.B[1], t => {
     const cr = t > K.mitad + 0.05;
@@ -46,20 +46,20 @@ headline(S.B[0], S.B[1], 'La mayoría: ni *la mitad*', { size: 96, hlT: K.mitad,
   const mil = mkMilli(c, { n: 30, rx: 24, ry: 46, legL: 66, col: '#B0703F', z: 6 });
   const sh = box(c, 90, 700, 470, 240, { zIndex: 7, transformOrigin: 'left center', background: 'rgba(234,223,200,.55)', backgroundImage: `repeating-linear-gradient(45deg, ${RED} 0 6px, transparent 6px 26px)`, opacity: 0.85, border: `5px dashed ${RED}`, borderRadius: '20px' });
   const half = chip(c, 150, 960, 'esta mitad, ni de broma', { size: 44, bg: INK, color: YEL, z: 22 });
-  const st = stamp(c, 230, 520, 'NI LA MITAD', { size: 104, bw: 13, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const st = stamp(c, 150, 520, 'NI LA MITAD', { size: 96, bw: 13, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const sweat = el('div', c, { left: '1010px', top: '740px', fontSize: '50px', zIndex: 9, color: '#6fb1d6', textShadow: `2px 2px 0 ${INK}` }, '💧');
 }
 
 /* ======================================================================
    C · «EL PRIMERO CON MÁS DE MIL… 2021» — el milpiés récord, enrollado, con lupa
    ====================================================================== */
-const HW = { color: '#FBF6EA', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}` };
-headline(S.C[0], K.conocio - 0.06, 'El primero con *más de mil*…', Object.assign({ size: 88, hlT: K.mil1, y: 262 }, HW));
-headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', Object.assign({ size: 92, y: 262 }, HW));
+const HW = {};
+headline(S.C[0], K.conocio - 0.06, 'El primero con *más de mil*…', Object.assign({ size: 74, hlT: K.mil1, y: 262 }, HW));
+headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', Object.assign({ size: 84, y: 262 }, HW));
 {
   const spiral = t => u => { const a = 0.6 + u * Math.PI * 4.1 + t * 0.25, r = 340 * (1 - 0.78 * u); return [540 + Math.cos(a) * r, 860 + Math.sin(a) * r * 0.92]; };
   const c = scene(S.C[0], S.C[1], t => {
-    set(cam, { s: lerp(1.0, 1.1, p(t, S.C[0], 3.6, E.inOutCubic)), r: lerp(-4, 2, p(t, S.C[0], 3.6)) });
+    set(cam, { s: lerp(1.03, 1.12, p(t, S.C[0], 3.6, E.inOutCubic)) });
     mil.update(spiral(t), t, { speed: 13, amp: 0.5, look: [2, 0], seed: 2 });
     const lk = p(t, S.C[0] + 0.2, K.veintiuno - S.C[0] - 0.3, E.inOutCubic);
     set(lupa, { x: lerp(-260, 120, lk) + Math.sin(t * 3) * 20, y: lerp(260, -120, lk) + Math.cos(t * 2.5) * 16, r: -20 });
@@ -78,6 +78,7 @@ headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', Object.assign({ si
     for (let k = 0; k < 6; k++) { const x = r() * 1080; s += `<path d="M${f1(x)},360 C${f1(x + 60)},520 ${f1(x - 50)},700 ${f1(x + 30)},900" stroke="#c9a77a" stroke-width="7" fill="none" opacity=".6"/>`; }
     soil.innerHTML = `<svg width="1080" height="1920">${s}</svg>`;
   }
+  paperPiece(c, -20, 244, 1120, 140, { seed: 88, bg: '#F6ECD4' }).wrap.style.zIndex = 30;
   const mil = mkMilli(cam, { n: 92, rx: 11, ry: 19, legL: 30, lw: 3.4, sw: 2.6, col: '#F1E4C2', z: 6, head: 1.6 });
   const lupa = box(cam, 520, 700, 300, 300, { zIndex: 12 });
   lupa.innerHTML = `<svg viewBox="0 0 300 300" width="300" height="300" style="overflow:visible">${cut('<circle cx="120" cy="120" r="100"/><path d="M190,190 L280,280"/>')}<path d="M190,190 L280,280" stroke="${INK}" stroke-width="44" stroke-linecap="round"/><path d="M190,190 L280,280" stroke="${WOOD}" stroke-width="30" stroke-linecap="round"/><circle cx="120" cy="120" r="100" fill="rgba(255,255,255,.18)" stroke="${INK}" stroke-width="16"/><circle cx="120" cy="120" r="100" fill="none" stroke="${BRASS}" stroke-width="9"/><path d="M60,80 Q80,50 116,44" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/></svg>`;
@@ -95,8 +96,8 @@ colorHit(S.D[0], S.D[1], YEL, c => {
   const big = bigTxt(c, 0, 450, 1080, '1.000', { size: 330 });
   const vec = bigTxt(c, 0, 790, 1080, 'VECINOS', { size: 150, color: INK, sh: `6px 6px 0 #fff` });
   const C = paperConfetti(c, 46, 91, [PINK, '#fff', '#8a6a4a', RED, '#F4ECDB'], { z: 30, vy: 1100, spread: 300 });
-  const emuW = box(c, 560, 930, 420, 560, { overflow: 'hidden', zIndex: 20 });
-  const emu = mk(emuW, [40, 120, 320, 480], emuFrontInner() + partyOver(), '0 -80 400 680', 'emuF');
+  const emuW = box(c, 60, 840, 520, 680, { overflow: 'hidden', zIndex: 20 });
+  const emu = mk(emuW, [40, 120, 400, 600], emuFrontInner() + partyOver(), '0 -80 400 680', 'emuF');
   const blow = emu.d.querySelector('.blow');
   return t => {
     popA(l0, t, K.hoy, { rise: 30 });
@@ -147,10 +148,10 @@ headline(S.E[0], S.E[1], 'Van *tres más*', { size: 110, hlT: K.tres, y: 262 });
    BOOK · «DOS: LAS MIL Y UNA NOCHES. ALADINO NO VENÍA EN EL LIBRO: LO COLÓ UN FRANCÉS…»
    un solo decorado con 4 planos de cámara (libro cerrado → abierto → Aladino → el francés)
    ====================================================================== */
-headline(S.BOOK[0], K.aladino - 0.06, 'Dos: *«Las mil y una noches»*', Object.assign({ size: 80, hlT: K.las, y: 262, keyColor: INK }, HW));
-headline(K.aladino - 0.06, S.H[0], '*Aladino* no venía…', Object.assign({ size: 104, hlT: K.aladino, y: 262, keyColor: INK }, HW));
-headline(S.H[1], K.siglos - 0.06, 'Lo coló *un francés*', Object.assign({ size: 104, hlT: K.frances, y: 262, keyColor: INK }, HW));
-headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 110, hlT: K.siglos, y: 262, keyColor: INK }, HW));
+headline(S.BOOK[0], K.aladino - 0.06, 'Dos: *«Las mil y una noches»*', Object.assign({ size: 70, hlT: K.las, y: 262, keyColor: INK }, HW));
+headline(K.aladino - 0.06, S.H[0], '*Aladino* no venía…', Object.assign({ size: 92, hlT: K.aladino, y: 262, keyColor: INK }, HW));
+headline(S.H[1], K.siglos - 0.06, 'Lo coló *un francés*', Object.assign({ size: 92, hlT: K.frances, y: 262, keyColor: INK }, HW));
+headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 96, hlT: K.siglos, y: 262, keyColor: INK }, HW));
 {
   const TO = K.las - 0.05;
   const c = scene(S.BOOK[0], S.BOOK[1], t => {
@@ -196,6 +197,7 @@ headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 
     s += `<path d="M0,1330 L80,1330 L80,1180 Q110,1120 140,1180 L140,1330 L260,1330 L260,1220 L300,1160 L340,1220 L340,1330 L520,1330 L520,1150 Q560,1060 600,1150 L600,1330 L760,1330 L760,1240 L820,1190 L880,1240 L880,1330 L1080,1330 L1080,1400 L0,1400 Z" fill="#1e1a30" stroke="${INK}" stroke-width="4"/>`;
     sky.innerHTML = `<svg width="1080" height="1920">${s}</svg>`;
   }
+  paperPiece(c, -20, 244, 1120, 140, { seed: 88, bg: '#F6ECD4' }).wrap.style.zIndex = 30;
   const bookW = box(cam, 0, 0, 1080, 1920, { transformOrigin: '540px 900px', zIndex: 4 });
   const bs = svgLayer(bookW, 1);
   const scrib = (x0, x1, y0, n, seed) => { const r = rng(seed); let s = ''; for (let i = 0; i < n; i++) { const y = y0 + i * 34; let d = `M${x1},${y}`; for (let x = x1; x > x0; x -= 18) d += ` q-9,${f1(-6 - r() * 8)} -18,0`; s += `<path d="${d}" stroke="${INK}" stroke-width="3.4" fill="none" opacity=".55"/><circle cx="${f1(x0 + r() * (x1 - x0))}" cy="${y - 14}" r="3" fill="${INK}" opacity=".5"/>`; } return s; };
@@ -215,7 +217,7 @@ headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 
   const quill = box(cam, 380, 930, 140, 280, { zIndex: 9 });
   quill.innerHTML = `<svg viewBox="0 0 120 240" width="140" height="280" style="overflow:visible">${cut('<path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z"/>', 4, 6)}<path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/><path d="M60,232 C64,150 80,70 98,8" stroke="${INK}" stroke-width="3" fill="none"/><path d="M40,120 l16,6 M36,96 l20,6 M40,70 l18,6" stroke="${INK}" stroke-width="2"/></svg>`;
   const gn = chip(cam, 60, 1250, 'Antoine Galland, traductor', { size: 40, bg: INK, color: YEL, z: 20 });
-  const add = stamp(cam, 560, 640, 'AÑADIDO', { size: 88, bw: 14, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  const add = stamp(cam, 590, 1000, 'AÑADIDO', { size: 72, bw: 14, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
   const sg = chip(cam, 560, 1150, 'siglos después', { size: 60, bg: PINK, z: 20 });
   const hg = el('div', cam, { left: '440px', top: '1110px', fontSize: '100px', zIndex: 21 }, '⏳');
 }
@@ -254,29 +256,29 @@ headline(K.viene - 0.06, S.J[1], 'Del italiano: *«mil grande»*', { size: 86, h
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
   sceneBg(cam, { background: '#E9DFC6', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 46px)' });
   rays(cam, -160, 160, 1400, 24, 'rgba(255,62,165,.08)', 'rgba(0,0,0,0)', 0);
-  const str = box(cam, 520, 1030, 60, 260, { zIndex: 4, transformOrigin: '50% 0' }); str.innerHTML = `<svg width="60" height="260" style="overflow:visible"><path d="M30,0 C0,60 60,120 30,180 C10,220 40,240 30,260" stroke="${INK}" stroke-width="5" fill="none"/></svg>`;
-  const bal = box(cam, 90, 420, 900, 640, { zIndex: 6, transformOrigin: '50% 95%' });
+  const str = box(cam, 520, 1080, 60, 260, { zIndex: 4, transformOrigin: '50% 0' }); str.innerHTML = `<svg width="60" height="260" style="overflow:visible"><path d="M30,0 C0,60 60,120 30,180 C10,220 40,240 30,260" stroke="${INK}" stroke-width="5" fill="none"/></svg>`;
+  const bal = box(cam, 90, 470, 900, 640, { zIndex: 6, transformOrigin: '50% 95%' });
   bal.innerHTML = `<svg viewBox="0 0 900 640" width="900" height="640" style="overflow:visible">${cut('<ellipse cx="450" cy="300" rx="430" ry="290"/><path d="M420,580 L480,580 L470,620 L430,620 Z"/>')}
     <ellipse cx="450" cy="300" rx="430" ry="290" fill="${PINK}" stroke="${INK}" stroke-width="7"/><ellipse cx="520" cy="360" rx="360" ry="220" fill="url(#hA)" opacity=".35"/>
     <ellipse cx="250" cy="150" rx="90" ry="40" fill="#fff" opacity=".55" transform="rotate(-24 250 150)"/><path d="M420,584 L480,584 L470,624 L430,624 Z" fill="${PINK}" stroke="${INK}" stroke-width="5"/></svg>`;
   const mT = el('div', bal, { left: '0', top: '170px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '230px', lineHeight: 1, color: '#fff', textShadow: `8px 8px 0 ${INK}, -4px -4px 0 ${INK}, 4px -4px 0 ${INK}, -4px 4px 0 ${INK}` }, 'MIL');
   const mL = el('div', bal, { left: '0', top: '190px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '200px', lineHeight: 1, color: '#fff', textShadow: `8px 8px 0 ${INK}, -4px -4px 0 ${INK}, 4px -4px 0 ${INK}, -4px 4px 0 ${INK}` }, 'MILLÓN');
-  const pump = box(cam, 700, 1080, 200, 230, { zIndex: 3 }); pump.innerHTML = `<svg viewBox="0 0 200 230" width="200" height="230" style="overflow:visible">${cut('<rect x="70" y="60" width="60" height="160" rx="8"/><rect x="40" y="0" width="120" height="26" rx="10"/>')}<path d="M100,26 V70" stroke="${INK}" stroke-width="10"/><rect x="40" y="0" width="120" height="26" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="4"/><rect x="70" y="60" width="60" height="160" rx="8" fill="${METAL}" stroke="${INK}" stroke-width="4"/><rect x="70" y="60" width="60" height="160" fill="url(#hD)" opacity=".4"/></svg>`;
-  const it = el('div', cam, { left: '300px', top: '380px', display: 'flex', border: `5px solid ${INK}`, borderRadius: '14px', overflow: 'hidden', boxShadow: `6px 6px 0 ${INK}`, zIndex: 20, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '48px', color: INK }, `<span style="background:#3d8a4a;width:26px"></span><span style="background:#fff;padding:6px 22px 10px">del italiano</span><span style="background:${RED};width:26px"></span>`);
-  const mg = stamp(cam, 210, 830, '= MIL GRANDE', { size: 92, bw: 13, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const pump = box(cam, 770, 1060, 200, 230, { zIndex: 3 }); pump.innerHTML = `<svg viewBox="0 0 200 230" width="200" height="230" style="overflow:visible">${cut('<rect x="70" y="60" width="60" height="160" rx="8"/><rect x="40" y="0" width="120" height="26" rx="10"/>')}<path d="M100,26 V70" stroke="${INK}" stroke-width="10"/><rect x="40" y="0" width="120" height="26" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="4"/><rect x="70" y="60" width="60" height="160" rx="8" fill="${METAL}" stroke="${INK}" stroke-width="4"/><rect x="70" y="60" width="60" height="160" fill="url(#hD)" opacity=".4"/></svg>`;
+  const it = el('div', cam, { left: '390px', top: '1150px', display: 'flex', border: `5px solid ${INK}`, borderRadius: '14px', overflow: 'hidden', boxShadow: `6px 6px 0 ${INK}`, zIndex: 20, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '48px', color: INK }, `<span style="background:#3d8a4a;width:26px"></span><span style="background:#fff;padding:6px 22px 10px">del italiano</span><span style="background:${RED};width:26px"></span>`);
+  const mg = stamp(cam, 210, 880, '= MIL GRANDE', { size: 92, bw: 13, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 /* JH · GOLPE AMARILLO: «UN MILOTE» (el Vecino se tapa la boca de risa en su óvalo) */
 colorHit(S.JH[0], S.JH[1], YEL, c => {
   const l0 = el('div', c, { left: 0, top: '330px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '120px', color: INK, zIndex: 10 }, 'Un…');
   const big = bigTxt(c, 0, 500, 1080, 'MILOTE', { size: 250 });
-  const bal = box(c, 330, 820, 420, 300, { zIndex: 6, filter: SIL }); bal.innerHTML = `<svg viewBox="0 0 900 640" width="420" height="300" style="overflow:visible"><ellipse cx="450" cy="300" rx="430" ry="290" fill="${INK}"/><path d="M420,584 L480,584 L470,624 L430,624 Z" fill="${INK}"/></svg>`;
+  const bal = chip(c, 380, 870, '= millón', { size: 70, bg: INK, color: YEL, z: 12 });
   const jas = [jaT(c, 700, 860, '¡JA!', 90), jaT(c, 760, 1000, '¡JA, JA!', 70)];
   return t => {
     popA(l0, t, K.un, { rise: 30 });
     const kb = p(t, K.milote - 0.02, 0.2, E.outBack);
     set(big, { s: t < K.milote - 0.02 ? 0 : lerp(1.8, 1, kb), r: -3, o: t < K.milote - 0.02 ? 0 : 1 });
     big.style.textShadow = (glitch(t, K.milote, 0.25) ? glitch(t, K.milote, 0.25) + ', ' : '') + `10px 10px 0 ${INK}, -5px -5px 0 ${INK}, 5px -5px 0 ${INK}, -5px 5px 0 ${INK}`;
-    set(bal, { s: pop(t, K.milote, 0.4) * (1 + 0.05 * Math.sin(t * 8)), y: Math.sin(t * 3) * 10, o: t > K.milote ? 1 : 0 });
+    set(bal, { s: pop(t, K.milote + 0.2, 0.4), r: -3, o: t > K.milote + 0.2 ? 1 : 0 });
     jas.forEach((j, i) => { const t0 = K.milote + 0.15 + i * 0.15; set(j, { s: pop(t, t0, 0.3), r: [-10, 8][i], y: -p(t, t0, 0.8) * 30, o: t < t0 ? 0 : 1 }); });
   };
 });

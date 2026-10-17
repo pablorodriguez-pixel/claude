@@ -2,3 +2,4 @@
 # Recursos de audio del motor generados con ElevenLabs (no regenerables gratis): se versionan
 !tiktok/engine/el_sfx/*.wav
 !tiktok/engine/el_music/*.wav
+**/shots/

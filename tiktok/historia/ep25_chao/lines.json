@@ -1,0 +1,79 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Chao! Crees que es adiós... y era una promesa.",
+  "s": 0.12,
+  "e": 3.411
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Una promesa que hoy no le harías ni a tu jefe. Ni por un aumento.",
+  "s": 3.651,
+  "e": 7.804
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Viene de Venecia. Allí se saludaban con «eschao vostro». Significa: «soy su esclavo».",
+  "s": 8.044,
+  "e": 13.956
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Se dijo tanto que se gastó: de «eschao vostro» a «ciao».",
+  "s": 14.196,
+  "e": 17.847
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Y saltó al español: «chao». O «chau», si eres de Argentina o Uruguay.",
+  "s": 18.087,
+  "e": 22.38
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Ojo: nadie se vendía. Era pura educación, como nuestro «servidor» o el «a sus órdenes».",
+  "s": 22.62,
+  "e": 29.468
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "¿Cuántas veces lo has dicho hoy? Pues eso: esclavo de medio barrio. Y no eres el único.",
+  "s": 29.708,
+  "e": 34.862
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "En Brasil dicen «chau». En Alemania, «chau». En Chequia... «chau».",
+  "s": 35.102,
+  "e": 40.835
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y lo mejor: en Austria y en Baviera se saludan con «servus». Que en latín significa... esclavo.",
+  "s": 41.075,
+  "e": 48.986
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: media Europa se saluda como un esclavo. ¿Y tú, cómo te despides en tu país? Os leo.",
+  "s": 49.226,
+  "e": 56.932
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 57.172,
+  "e": 60.72
+ }
+]

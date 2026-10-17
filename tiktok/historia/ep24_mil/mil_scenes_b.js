@@ -6,7 +6,7 @@
    ====================================================================== */
 headline(S.ROM[0], K.era - 0.06, 'Cuatro: el *mil romano*', { size: 96, hlT: K.mil5, y: 262 });
 headline(K.era - 0.06, K.partelo - 0.06, 'Era *este garabato*', { size: 110, hlT: K.garabato, y: 262 });
-headline(K.partelo - 0.06, K.sale - 0.06, 'Pártelo *por la mitad*…', { size: 96, hlT: K.mitad6, y: 262 });
+headline(K.partelo - 0.06, K.sale - 0.06, 'Pártelo *por la mitad*…', { size: 84, hlT: K.mitad6, y: 262 });
 headline(K.sale - 0.06, S.ROM[1], '…y sale *la D*', { size: 120, hlT: K.D, y: 262 });
 {
   const TCH0 = K.era + 0.1, TCH1 = K.garabatoE - 0.05; // cincelado del círculo + barra
@@ -15,14 +15,14 @@ headline(K.sale - 0.06, S.ROM[1], '…y sale *la D*', { size: 120, hlT: K.D, y: 
   const c = scene(S.ROM[0], S.ROM[1], t => {
     // cámara
     let cs = 1, cy = 0;
-    if (t < K.era - 0.06) cs = lerp(0.96, 1.02, p(t, S.ROM[0], 3, E.linear));
+    if (t < K.era - 0.06) cs = lerp(1.0, 1.05, p(t, S.ROM[0], 3, E.linear));
     else if (t < K.partelo - 0.06) { cs = 1.12; cy = 40; }
     else if (t < K.sale - 0.06) { cs = 1.0; cy = 0; }
-    else { cs = lerp(1.0, 0.94, p(t, K.sale - 0.06, 0.5, E.outCubic)); }
+    else { cs = lerp(1.0, 1.04, p(t, K.sale - 0.06, 2, E.linear)); }
     set(cam, { s: cs, y: cy });
     // M fantasma (aún no hay garabato)
     const showM = t < K.era - 0.03;
-    set(ghostM, { s: pop(t, K.M5 - 0.1, 0.35), o: showM && t > K.M5 - 0.1 ? 0.9 : 0, r: -2 });
+    set(ghostM, { s: pop(t, S.ROM[0] + 0.2, 0.4) * (1 + 0.03 * Math.sin(t * 4)), o: showM && t > S.ROM[0] + 0.2 ? 0.9 : 0, r: -2 });
     set(mx, { s: pop(t, K.M5 + 0.12, 0.25), o: showM && t > K.M5 + 0.12 ? 1 : 0 });
     popA(rc, t, S.ROM[0] + 0.25, { r: -3 });
     set(rc, { s: pop(t, S.ROM[0] + 0.25, 0.4), r: -3, o: t > S.ROM[0] + 0.25 && showM ? 1 : 0 });
@@ -112,9 +112,9 @@ headline(S.N[0], S.N[1], 'La *M* ganó luego', { size: 120, hlT: K.M6, y: 262 })
 /* ======================================================================
    O · «OJO: HAY QUIEN CREE QUE DE ESTE GARABATO SALIÓ EL INFINITO. NADIE LO HA PROBADO.»
    ====================================================================== */
-headline(K.hay - 0.05, K.salio - 0.06, 'Hay quien cree…', Object.assign({ size: 104, y: 262 }, HW));
-headline(K.salio - 0.06, K.nadie - 0.06, '¿…salió *el infinito*?', Object.assign({ size: 100, hlT: K.infinito, y: 262, keyColor: INK }, HW));
-headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 104, hlT: K.nadie, y: 262, hlc: PINK, keyColor: INK }, HW));
+headline(K.hay - 0.05, K.salio - 0.06, 'Hay quien cree…', Object.assign({ size: 92, y: 262 }, HW));
+headline(K.salio - 0.06, K.nadie - 0.06, '¿…salió *el infinito*?', Object.assign({ size: 88, hlT: K.infinito, y: 262, keyColor: INK }, HW));
+headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 88, hlT: K.nadie, y: 262, hlc: PINK, keyColor: INK }, HW));
 {
   const TM = K.salio - 0.05;
   const c = scene(S.O[0], S.O[1], t => {
@@ -138,16 +138,17 @@ headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 760px' });
   sceneBg(cam, { background: '#3a3354', backgroundImage: 'radial-gradient(circle at 50% 44%, #5a5080 0%, #3a3354 55%, #241f36 100%)' });
   halftone(cam, 'rgba(255,255,255,.05)', 0);
+  paperPiece(c, -20, 244, 1120, 140, { seed: 89, bg: '#F6ECD4' }).wrap.style.zIndex = 30;
   const gly = box(cam, 290, 450, 500, 500, { zIndex: 6 });
   gly.innerHTML = `<svg viewBox="0 0 500 500" width="500" height="500" style="overflow:visible">${chisel(gC, 'o1')}${chisel(gD, 'o2')}${chisel(gBar, 'o3')}</svg>`;
   const inf = box(cam, 190, 400, 700, 700, { zIndex: 7 });
   inf.innerHTML = `<svg viewBox="0 0 500 500" width="700" height="700" style="overflow:visible"><path class="infG" d="${gInf}" stroke="${YEL}" stroke-width="80" fill="none" stroke-linejoin="round" style="opacity:0"/><path d="${gInf}" stroke="#fff" stroke-width="58" fill="none"/><path d="${gInf}" stroke="${INK}" stroke-width="40" fill="none"/><path d="${gInf}" stroke="#E2DACA" stroke-width="16" fill="none"/></svg>`;
   const infG = inf.querySelector('.infG');
-  const oj = stamp(cam, 330, 380, '¡OJO!', { size: 170, bw: 18, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
-  const SCH = [mk(cam, [420, 960, 230, 294], bustInner({ uniform: 'farmer', beard: true, seed: 33 }) + specsOver(), '0 0 360 460', 'bust'), mk(cam, [660, 980, 220, 281], journalistInner(44, 1), '0 0 360 460', 'bust')];
+  const oj = stamp(cam, 300, 560, '¡OJO!', { size: 130, bw: 18, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const SCH = [mk(cam, [400, 990, 270, 345], bustInner({ uniform: 'farmer', beard: true, seed: 33 }) + specsOver(), '0 0 360 460', 'bust'), mk(cam, [660, 1000, 260, 332], journalistInner(44, 1), '0 0 360 460', 'bust')];
   SCH.forEach(f => (f.d.style.zIndex = 8));
-  const BU = [[430, 860], [680, 880]].map(([x, y], i) => el('div', cam, { left: px(x), top: px(y), width: '140px', height: '90px', borderRadius: '50%', background: '#fff', border: `4px solid ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '60px', lineHeight: '84px', textAlign: 'center', color: INK, zIndex: 9 }, i ? '∞?' : '🤔'));
-  const np = stamp(cam, 180, 640, 'SIN PROBAR', { size: 120, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const BU = [[450, 880], [700, 890]].map(([x, y], i) => el('div', cam, { left: px(x), top: px(y), width: '140px', height: '90px', borderRadius: '50%', background: '#fff', border: `4px solid ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '60px', lineHeight: '84px', textAlign: 'center', color: INK, zIndex: 9 }, i ? '❓' : '🤔'));
+  const np = stamp(cam, 170, 640, 'SIN PROBAR', { size: 100, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const hp = chip(cam, 380, 860, 'HIPÓTESIS', { size: 64, bg: PINK, z: 41 });
 }
 
@@ -157,7 +158,7 @@ headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 
 {
   const c = scene(S.P[0], S.P[1], t => {
     const zo = p(t, K.y8 - 0.05, 0.35, E.inOutCubic);
-    set(cam, { s: lerp(1.0 + 0.04 * p(t, S.P[0], 3, E.linear), 1.5, zo), y: zo * 120 });
+    set(cam, { s: lerp(1.0 + 0.04 * p(t, S.P[0], 3, E.linear), 1.28, zo), y: zo * 60 });
     const kx = p(t, K.mil8, 0.25, E.outCubic);
     set(sInf, { o: 1 - kx, s: 1 - 0.3 * kx }); set(s1000, { o: kx, s: lerp(1.5, 1, p(t, K.mil8, 0.25, E.outBack)) });
     popA(ci, t, K.casi, { r: 4 });
@@ -168,7 +169,7 @@ headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 
     TE.forEach((d, i) => { const ph = ((t - K.casi) * 1.6 + i * 0.5) % 1; set(d, { y: ph * 120, o: tears ? 1 - ph : 0 }); });
     HE.forEach((h, i) => { const ph = ((t * 0.5 + i * 0.23) % 1); set(h, { y: -ph * 600, x: Math.sin(t * 2 + i) * 30, o: Math.sin(ph * Math.PI) * 0.9, r: Math.sin(t * 3 + i) * 15 }); });
     popA(oc, t, K.conozco, { r: -3 });
-    set(oc, { s: pop(t, K.conozco, 0.35) / 1.3, r: -3, o: t > K.conozco ? 1 : 0 });
+    set(oc, { s: pop(t, K.conozco, 0.35), r: -3, o: t > K.conozco ? 1 : 0 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 640px' });
   sceneBg(cam, { background: '#F4CFDA', backgroundImage: 'repeating-linear-gradient(90deg, #F4CFDA 0 22px, #F9E3EA 22px 44px)' });
@@ -181,7 +182,7 @@ headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 
   const ci = chip(cam, 640, 640, 'casi ∞', { size: 60, bg: PINK, z: 20 });
   const vec = mkVec(cam, [190, 640, 700, 867]); vec.d.style.zIndex = 6;
   const TE = [0, 1].map(i => el('div', cam, { left: px(i ? 640 : 430), top: px(880), fontSize: '44px', zIndex: 7 }, '💧'));
-  const oc = chip(cam, 580, 600, 'os conozco 👀', { size: 66, bg: YEL, color: INK, z: 22 });
+  const oc = chip(c, 560, 1180, 'os conozco 👀', { size: 66, bg: YEL, color: INK, z: 22 });
 }
 
 /* ======================================================================
@@ -198,9 +199,9 @@ headline(S.R1[0], S.R1[1], 'Daniela *nos pilló*', { size: 100, hlT: K.pillo, y:
   }, { clip: true });
   sceneBg(c, { background: '#EFE1C6' });
   rays(c, -160, 100, 1400, 26, 'rgba(255,62,165,.09)', 'rgba(0,0,0,0)', 0);
-  const cd = commentCard(c, 60, 420, `osea q bien escrito sería ${hlSpan('ac', 'ahl')}?`, { user: 'danielaaaablopp', likes: 75, size: 66, h: 330, seed: 72 });
+  const cd = commentCard(c, 60, 420, `osea q bien escrito sería ${hlSpan('ac', 'ahl')}?`, { user: 'danielaaaablopp', likes: 75, size: 78, h: 400, seed: 72 });
   const hl = cd.wrap.querySelector('.ahl');
-  const o1 = mkSort(c, [430, 830, 200, 313], 'O'), k1 = mkSort(c, [660, 840, 200, 313], 'K');
+  const o1 = mkSort(c, [430, 860, 200, 313], 'O'), k1 = mkSort(c, [660, 870, 200, 313], 'K');
   [o1, k1].forEach(f => (f.d.style.zIndex = 8));
   const pl = stamp(c, 420, 1150, '¡PILLADOS!', { size: 84, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
@@ -216,7 +217,7 @@ headline(S.R2[0], S.R2[1], 'Otro, *bronca* al lunes', { size: 96, hlT: K.bronca,
     browL.setAttribute('transform', `rotate(${ang ? 18 : 0} 110 210)`); browR.setAttribute('transform', `rotate(${ang ? -18 : 0} 190 210)`);
   }, { clip: true });
   sceneBg(c, { background: '#E9DFC6', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 46px)' });
-  const cd = commentCard(c, 70, 420, `le agarre ${hlSpan('bronca', 'bhl', PINK)} al lunes`, { size: 72, h: 300, seed: 74 });
+  const cd = commentCard(c, 70, 420, `le agarre ${hlSpan('bronca', 'bhl', PINK)} al lunes`, { size: 86, h: 330, seed: 74 });
   const hl = cd.wrap.querySelector('.bhl');
   const cal = box(c, 470, 800, 300, 340, { zIndex: 8 });
   cal.innerHTML = `<svg viewBox="0 0 300 340" width="300" height="340" style="overflow:visible">${cut('<rect x="10" y="20" width="280" height="310" rx="18"/>')}<rect x="10" y="20" width="280" height="310" rx="18" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="10" y="20" width="280" height="80" rx="18" fill="${RED}" stroke="${INK}" stroke-width="6"/><text x="150" y="80" text-anchor="middle" font-family="Rye" font-size="46" fill="#fff">LUNES</text><circle cx="80" cy="20" r="10" fill="${INK}"/><circle cx="220" cy="20" r="10" fill="${INK}"/>
@@ -253,7 +254,7 @@ colorHit(S.SJ[0], S.SJ[1], PINK, c => {
   return t => {
     set(cd.wrap, { s: pop(t, S.SJ[0], 0.3), r: -2, y: wobble(t, 0.6, 4) });
     const kr = p(t, K.no10, 0.35, E.outCubic), kf = p(t, K.soy10, 0.6, E.inCubic);
-    set(tag, { x: kr * 80 + kf * 160, y: -kr * 40 + kf * 700, r: kr * 20 + kf * 70 });
+    set(tag, { x: kr * 80 - kf * 330, y: -kr * 40 + kf * 140, r: kr * 20 - kf * 40 });
     set(tx, { s: pop(t, K.jose, 0.25), o: t > K.jose ? 1 : 0, x: 0, y: 0 });
     tx.style.visibility = t > K.jose && t < K.soy10 ? 'visible' : 'hidden';
     vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: [0, 0], bL: 16, bR: 4, fan: Math.sin(t * 22) * 12, seed: 0.2 });
@@ -270,7 +271,7 @@ colorHit(S.SJ[0], S.SJ[1], PINK, c => {
    T · VOTACIÓN «EL PRÓXIMO LO ELEGÍS: A, B o C»
    ====================================================================== */
 headline(S.T[0], K.alejandro - 0.06, 'El próximo *lo elegís*', { size: 100, hlT: K.elegis, y: 262 });
-headline(K.alejandro - 0.06, S.T[1], 'Vota *A, B o C*', { size: 110, hlT: K.vota, y: 262 });
+headline(K.alejandro - 0.06, S.T[1], 'Elige: *A, B o C*', { size: 110, hlT: K.vota, y: 262 });
 {
   const CT = [K.alejandro, K.cero, K.revancha], LT = [K.A11, K.B11, K.C11];
   const CDS = [];
@@ -304,11 +305,11 @@ headline(K.alejandro - 0.06, S.T[1], 'Vota *A, B o C*', { size: 110, hlT: K.vota
     const back = box(flip, 0, 0, 290, 640, { background: '#3a2a1e', border: `6px solid ${INK}`, borderRadius: '28px', boxShadow: `9px 11px 0 ${SH}`, backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 10px, transparent 10px 24px)' });
     el('div', back, { left: '0', top: '200px', width: '278px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '200px', lineHeight: '220px', color: YEL, textShadow: `5px 5px 0 ${INK}` }, '?');
     const front = box(flip, 0, 0, 290, 640, { background: '#FBF6EA', border: `6px solid ${INK}`, borderRadius: '28px', boxShadow: `9px 11px 0 ${SH}`, overflow: 'hidden' });
-    el('div', front, { left: '0', top: '472px', width: '278px', textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '36px', lineHeight: 1.08, color: INK }, NAMES[i]);
+    el('div', front, { left: '0', top: '500px', width: '278px', textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '36px', lineHeight: 1.08, color: INK }, NAMES[i]);
     [back, front].forEach(f => el('div', f, { left: '14px', top: '12px', width: '84px', height: '84px', borderRadius: '50%', background: [PINK, YEL, '#7ac08a'][i], border: `5px solid ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '58px', lineHeight: '74px', textAlign: 'center', color: INK, zIndex: 5 }, 'ABC'[i]));
     CDS.push({ e, flip, back, front, glow, r });
   });
-  const alx = mk(CDS[0].front, [-20, 90, 330, 422], alexInner(), '0 0 360 460', 'bust');
+  const alx = mk(CDS[0].front, [-5, 96, 300, 383], alexInner(), '0 0 360 460', 'bust');
   const bo = mkSort(CDS[1].front, [20, 150, 130, 204], 'O'), bk = mkSort(CDS[1].front, [140, 160, 130, 204], 'K');
   el('div', CDS[1].front, { left: '0', top: '380px', width: '278px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '40px', color: RED }, '«0 killed»');
   const NW = box(CDS[2].front, 10, 40, 400, 470, { transformOrigin: '0 0', transform: 'scale(0.8)' });
@@ -379,7 +380,7 @@ headline(K.alejandro - 0.06, S.T[1], 'Vota *A, B o C*', { size: 110, hlT: K.vota
    ====================================================================== */
 headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 });
 {
-  const TC = K.libro - 0.05;
+  const TC = K.libro - 0.22;
   const c = scene(S.BK[0], LOOP, t => {
     const k = p(t, TC, 0.3, E.inCubic); const sx = 1 - 2 * k;
     flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);

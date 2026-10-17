@@ -55,7 +55,7 @@ function updOval(t) {
 const LB_ON = [S.B[0], S.P[0]], LB_IN = [S.B[0] + 0.05, K.tres, K.miles, K.mas], LB_CUR = [S.B[0], K.dos3, K.tres4, K.cuatro, 1e9];
 function updBar(t) {
   const on = t >= LB_ON[0] && t < LB_ON[1];
-  LB.wrap.style.visibility = on ? 'visible' : 'hidden'; if (!on) return;
+  LB.wrap.style.display = on ? 'flex' : 'none'; if (!on) return;
   let cur = 0; for (let i = 0; i < 4; i++) if (t >= LB_CUR[i]) cur = i;
   LB.items.forEach((e, i) => {
     const k = pop(t, LB_IN[i], 0.4);
