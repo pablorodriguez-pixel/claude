@@ -268,6 +268,9 @@ headline(K.os - 0.06, S.Q[1], '*Os leo* 👇', { size: 130, hlT: K.os });
     el('div', e, { left: '130px', top: '50px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, whiteSpace: 'nowrap' }, m[2]);
     CM.push({ e, t: m[3] });
   });
+  // rótulo: son ejemplos, no comentarios reales
+  const imag = el('div', c, { left: '40px', top: '1016px', width: '560px', textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 600, fontStyle: 'italic', fontSize: '32px', color: '#7a6a58', whiteSpace: 'nowrap', zIndex: 40 }, '(comentarios imaginarios)');
+  CM.push({ e: imag, t: cms[0][3] });
 }
 
 /* ======================================================================
