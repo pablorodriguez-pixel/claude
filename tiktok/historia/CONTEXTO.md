@@ -17,11 +17,12 @@ Documento de traspaso para continuar el canal en una sesión nueva. Léelo enter
 ## Datos reales del canal (lo aprendido)
 | Vídeo | Visualizaciones | Por qué |
 |---|---|---|
-| Napoleón no era bajito | 53 mil | Toca al espectador (su altura), contradice, debate |
-| OK es una falta de ortografía | 39 mil | Palabra que usa a diario, hueco de curiosidad («Hablo de OK») |
+| Napoleón no era bajito | 64 mil (17/10) | Toca al espectador (su altura), contradice, debate |
+| OK es una falta de ortografía | 44,7 mil (17/10) | Palabra que usa a diario, hueco de curiosidad («Hablo de OK») |
 | Hora equivocada / Semana | 11–12 mil | Día a día en España |
-| Einstein | 7,6 mil | Algo personal (suspensos) |
+| Einstein | 11,4 mil (17/10) | Algo personal (suspensos) |
 | SOS, Vikingos, Muralla, Colón | < 750 | «Historia de otros», mitos ya muy desmontados |
+| @ (trigo) | 440 (recién subido, medir a 48 h) | — |
 | Cleopatra / Emú | 1,2 mil / 180 | Hay que hacer cuentas / tema desconocido |
 
 Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el s 7–10 perdía 2,4–3,2 pts/s; el contexto (fechas, nombres)
@@ -39,9 +40,9 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 8. Precisión: solo datos del guion; lo dudoso va en el «Ojo».
 
 ## Estado
-- Publicados: Emú, Cleopatra, Hora, Napoleón, Semana, OK, Einstein, SOS, Vikingos, Muralla, Colón.
-- Pendientes de publicar (en este orden, uno al día; textos en `PUBLICAR_pendientes.txt`): ep13 Septiembre, ep17 Cerebro, ep15 Toro, ep14 Ñ,
-  ep11 @, ep20 Cumpleaños, ep19 Pez, ep18 Himno, ep16 Uvas (Navidad), ep09 Gladiadores.
+- Publicados: Emú, Cleopatra, Hora, Napoleón, Semana, OK, Einstein, SOS, Vikingos, Muralla, Colón, @ (ep11).
+- Entregados al usuario el 17/10 para subir: ep13 Septiembre, ep17 Cerebro, ep15 Toro.
+- Pendientes de publicar (en este orden, uno al día; textos en `PUBLICAR_pendientes.txt`): ep14 Ñ, ep20 Cumpleaños, ep19 Pez, ep18 Himno, ep16 Uvas (Navidad), ep09 Gladiadores.
 - Próximo paso: cuando el usuario pase visualizaciones a 48 h y curvas de retención de los nuevos, medir (pts/s por frase) y ajustar.
   Si los temas cotidianos funcionan, probar UNA variante de estructura cada vez.
 - Comunidad: ver `COMUNIDAD.md` (respuestas, comentarios fijados, vídeos-respuesta).
