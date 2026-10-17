@@ -1,20 +1,20 @@
 /* ======================================================================
    S6a · EL MITO ES MÁS ANTIGUO QUE LOS VIAJES ESPACIALES (31.85 – 35.8)  L6a
    ====================================================================== */
-headline(31.85, 34.1, 'Lo curioso: el mito es más *antiguo*…', { size: 76, hlT: 33.47 });
-headline(34.1, 35.8, '…que los viajes *espaciales*', { size: 84, hlT: 34.46 });
+headline(T(31.85), T(34.1), 'Lo curioso: el mito es más *antiguo*…', { size: 76, hlT: T(33.47) });
+headline(T(34.1), T(35.8), '…que los viajes *espaciales*', { size: 84, hlT: T(34.46) });
 const gazetteSvg = (w, h) => `<svg viewBox="0 0 300 360" width="${w}" height="${h}" style="overflow:visible">${cut('<rect x="10" y="10" width="280" height="340" rx="4"/>')}<rect x="10" y="10" width="280" height="340" rx="4" fill="#EFE3C4" stroke="${INK}" stroke-width="4"/><rect x="10" y="10" width="280" height="340" fill="url(#hP)"/><text x="150" y="62" text-anchor="middle" font-family="Rye" font-size="38" fill="${INK}">GACETA</text><path d="M30,76 H270 M30,82 H270" stroke="${INK}" stroke-width="3"/><circle cx="96" cy="160" r="52" fill="#E3DED2" stroke="${INK}" stroke-width="4"/><circle cx="80" cy="146" r="10" fill="none" stroke="${INK}" stroke-width="3"/><circle cx="112" cy="178" r="7" fill="none" stroke="${INK}" stroke-width="3"/><path d="M164,120 H270 M164,140 H270 M164,160 H250 M164,180 H270 M164,200 H230 M30,240 H270 M30,260 H270 M30,280 H210 M30,300 H270 M30,320 H250" stroke="${INK}" stroke-width="5" opacity=".45"/></svg>`;
 {
-  const c = scene(31.85, 35.8, t => {
-    const kl = p(t, 31.95, 0.6, E.inOutCubic); line.style.clipPath = `inset(0 ${f1((1 - kl) * 100)}% 0 0)`;
-    const km = p(t, 33.28, 0.55, E.inOutCubic);
-    set(cM, { s: pop(t, 32.02, 0.45), x: lerp(200, 0, km), r: -4 + wobble(t, 0.5, 1), o: t < 32.02 ? 0 : 1 });
-    set(cR, { s: pop(t, 34.12, 0.45), r: 3, o: t < 34.12 ? 0 : 1 });
-    const kr = p(t, 34.6, 1.0, E.inCubic); set(rk.d, { y: -kr * 60 + (t > 34.6 ? Math.sin(t * 60) * 2 : 0) });
-    rk.d.querySelector('.flame').style.opacity = t > 34.5 ? (Math.sin(t * 40) > -0.3 ? 1 : 0.6) : 0;
-    set(chA, { s: pop(t, 33.47, 0.4), r: -3, o: t < 33.47 ? 0 : 1 });
-    const ka = p(t, 33.5, 0.5); arr.style.clipPath = `inset(0 0 0 ${f1((1 - ka) * 100)}%)`;
-    set(dM, { o: t > 32.02 ? 1 : 0, x: lerp(200, 0, km) }); set(dR, { o: t > 34.12 ? 1 : 0 });
+  const c = scene(T(31.85), T(35.8), t => {
+    const kl = p(t, T(31.95), 0.6, E.inOutCubic); line.style.clipPath = `inset(0 ${f1((1 - kl) * 100)}% 0 0)`;
+    const km = p(t, T(33.28), 0.55, E.inOutCubic);
+    set(cM, { s: pop(t, T(32.02), 0.45), x: lerp(200, 0, km), r: -4 + wobble(t, 0.5, 1), o: t < T(32.02) ? 0 : 1 });
+    set(cR, { s: pop(t, T(34.12), 0.45), r: 3, o: t < T(34.12) ? 0 : 1 });
+    const kr = p(t, T(34.6), 1.0, E.inCubic); set(rk.d, { y: -kr * 60 + (t > T(34.6) ? Math.sin(t * 60) * 2 : 0) });
+    rk.d.querySelector('.flame').style.opacity = t > T(34.5) ? (Math.sin(t * 40) > -0.3 ? 1 : 0.6) : 0;
+    set(chA, { s: pop(t, T(33.47), 0.4), r: -3, o: t < T(33.47) ? 0 : 1 });
+    const ka = p(t, T(33.5), 0.5); arr.style.clipPath = `inset(0 0 0 ${f1((1 - ka) * 100)}%)`;
+    set(dM, { o: t > T(32.02) ? 1 : 0, x: lerp(200, 0, km) }); set(dR, { o: t > T(34.12) ? 1 : 0 });
   }, { clip: true });
   const line = box(c, 60, 960, 960, 80, { zIndex: 2 }); line.innerHTML = arrowSvg('M10,40 H930 M930,40 L896,16 M930,40 L896,64', INK, 10);
   el('div', c, { left: '700px', top: '1030px', fontFamily: 'SpecialElite', fontSize: '40px', color: INK, whiteSpace: 'nowrap' }, 'tiempo →');
@@ -32,17 +32,17 @@ const gazetteSvg = (w, h) => `<svg viewBox="0 0 300 360" width="${w}" height="${
 /* ======================================================================
    S6b · YA SE DECÍA… DESDE LA LUNA (35.8 – 39.95)  L6b
    ====================================================================== */
-headline(35.8, 38.08, 'Ya se decía que se veía desde la *Luna*…', { size: 68, hlT: 37.27, color: PAPER, shadow: `4px 4px 0 ${INK}` });
-headline(38.08, 39.95, '…antes de que *nadie* hubiera ido', { size: 76, hlT: 38.69, color: PAPER, shadow: `4px 4px 0 ${INK}` });
+headline(T(35.8), T(38.08), 'Ya se decía que se veía desde la *Luna*…', { size: 68, hlT: T(37.27), color: PAPER, shadow: `4px 4px 0 ${INK}` });
+headline(T(38.08), T(39.95), '…antes de que *nadie* hubiera ido', { size: 76, hlT: T(38.69), color: PAPER, shadow: `4px 4px 0 ${INK}` });
 {
-  const c = scene(35.8, 39.95, t => {
-    set(np.wrap, { s: lerp(0.95, 1.04, p(t, 35.8, 4, E.linear)) * pop(t, 35.82, 0.45), r: -3 + p(t, 35.8, 4) * 2, o: 1 });
+  const c = scene(T(35.8), T(39.95), t => {
+    set(np.wrap, { s: lerp(0.95, 1.04, p(t, T(35.8), 4, E.linear)) * pop(t, T(35.82), 0.45), r: -3 + p(t, T(35.8), 4) * 2, o: 1 });
     hw.forEach(q => set(q.e, { o: t >= q.t - 0.04 ? 1 : 0, s: t >= q.t - 0.04 ? 1 + 0.25 * (1 - p(t, q.t - 0.04, 0.2)) : 1 }));
-    set(moon, { r: wobble(t, 0.3, 4), s: pop(t, 37.27, 0.4) });
-    set(sight, { o: t > 37.4 ? 1 : 0 }); sight.style.clipPath = `inset(0 0 0 ${f1((1 - p(t, 37.4, 0.4)) * 100)}%)`;
-    set(rk.d, { s: pop(t, 38.12, 0.45), r: 12 + wobble(t, 0.6, 2), o: t < 38.1 ? 0 : 1 });
-    const kx = p(t, 38.69, 0.2); set(xx, { s: lerp(1.6, 1, kx), o: t < 38.69 ? 0 : kx });
-    popA(chN, t, 39.0, { r: 3 });
+    set(moon, { r: wobble(t, 0.3, 4), s: pop(t, T(37.27), 0.4) });
+    set(sight, { o: t > T(37.4) ? 1 : 0 }); sight.style.clipPath = `inset(0 0 0 ${f1((1 - p(t, T(37.4), 0.4)) * 100)}%)`;
+    set(rk.d, { s: pop(t, T(38.12), 0.45), r: 12 + wobble(t, 0.6, 2), o: t < T(38.1) ? 0 : 1 });
+    const kx = p(t, T(38.69), 0.2); set(xx, { s: lerp(1.6, 1, kx), o: t < T(38.69) ? 0 : kx });
+    popA(chN, t, T(39.0), { r: 3 });
   }, { clip: true });
   sceneBg(c, { background: '#3B2E25', backgroundImage: 'repeating-linear-gradient(92deg, rgba(0,0,0,.18) 0 3px, transparent 3px 40px)' });
   const np = paperPiece(c, 80, 450, 920, 760, { seed: 44, bg: '#EFE3C4' });
@@ -51,7 +51,7 @@ headline(38.08, 39.95, '…antes de que *nadie* hubiera ido', { size: 76, hlT: 3
   el('div', np.inner, { left: '30px', top: '142px', fontFamily: 'SpecialElite', fontSize: '26px', color: INK, whiteSpace: 'nowrap' }, 'Curiosidades del mundo · Edición extraordinaria');
   const hd = el('div', np.inner, { left: '30px', top: '190px', width: '842px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '68px', lineHeight: 1.05, color: INK });
   const hw = [];
-  [['«La', 101], ['Gran', 102], ['Muralla', 103], ['se', 104], ['ve', 105], ['desde', 106], ['la', 107], ['Luna»', 108]].forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.textContent = q[0]; if (q[0] === 'Luna»') s.style.fontStyle = 'italic'; hd.appendChild(s); hw.push({ e: s, t: W[q[1]].s }); });
+  [['«La', 1], ['Gran', 2], ['Muralla', 3], ['se', 4], ['ve', 5], ['desde', 6], ['la', 7], ['Luna»', 8]].map(q => [q[0], find('ya se decia que se veia desde la luna') + q[1]]).forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.textContent = q[0]; if (q[0] === 'Luna»') s.style.fontStyle = 'italic'; hd.appendChild(s); hw.push({ e: s, t: W[q[1]].s }); });
   const ill = box(np.inner, 40, 370, 520, 320, { background: '#E6D9BA', border: `4px solid ${INK}` });
   const moon = box(ill, 330, 20, 170, 170); moon.innerHTML = `<svg viewBox="0 0 170 170" width="170" height="170"><circle cx="85" cy="85" r="78" fill="#F4ECDB" stroke="${INK}" stroke-width="5"/><circle cx="110" cy="100" r="70" fill="url(#hA)" opacity=".7"/><circle cx="60" cy="60" r="14" fill="none" stroke="${INK}" stroke-width="3"/><circle cx="100" cy="110" r="10" fill="none" stroke="${INK}" stroke-width="3"/><circle cx="58" cy="112" r="6" fill="none" stroke="${INK}" stroke-width="3"/><path d="M50,92 q6,6 12,0 M90,70 q6,6 12,0 M66,130 q20,10 40,0" stroke="${INK}" stroke-width="3" fill="none"/></svg>`;
   const wl = box(ill, 0, 0, 520, 320); wl.innerHTML = `<svg width="520" height="320">${ridge(77, 300, 70, 6, '#D9C8A3', 520)}${wallStroke('M-10,300 Q100,240 200,262 T420,236', 10)}</svg>`;
@@ -66,25 +66,25 @@ headline(38.08, 39.95, '…antes de que *nadie* hubiera ido', { size: 76, hlT: 3
 /* ======================================================================
    S7 · DESDE LA LUNA (39.95 – 46.55)  L7
    ====================================================================== */
-headline(39.95, 43.6, 'Desde la Luna: *ninguna* construcción humana', Object.assign({ size: 70 }, DARK));
-headline(43.6, 46.55, 'Se ven continentes, *nubes* y océanos', Object.assign({ size: 74 }, DARK));
+headline(T(39.95), T(43.6), 'Desde la Luna: *ninguna* construcción humana', Object.assign({ size: 70 }, DARK));
+headline(T(43.6), T(46.55), 'Se ven continentes, *nubes* y océanos', Object.assign({ size: 74 }, DARK));
 {
   const EC = [540, 660], ER = 165;
-  const c = scene(39.95, 46.55, t => {
-    set(cam, { s: lerp(1.1, 1, p(t, 39.95, 1.2, E.outCubic)) });
+  const c = scene(T(39.95), T(46.55), t => {
+    set(cam, { s: lerp(1.1, 1, p(t, T(39.95), 1.2, E.outCubic)) });
     set(earth.d, { r: t * 2 });
     // lupa: entra, recorre la Tierra, se va
-    const k = clamp((t - 41.3) / 2.2), out = p(t, 43.5, 0.4, E.inCubic), ink = p(t, 41.0, 0.4, E.outBack);
+    const k = clamp((t - T(41.3)) / 2.2), out = p(t, T(43.5), 0.4, E.inCubic), ink = p(t, T(41.0), 0.4, E.outBack);
     const a = k * Math.PI * 1.6 + 0.6;
     const lx = EC[0] + Math.cos(a) * 70 + out * 600 + (1 - ink) * 700, ly = EC[1] + Math.sin(a) * 50 - 20;
-    set(lupa, { x: lx - 130, y: ly - 130, r: -6, o: t > 40.9 && t < 44 ? 1 : 0 });
-    set(lens, { x: lx - 104, y: ly - 104, o: t > 40.9 && t < 44 ? 1 : 0 });
+    set(lupa, { x: lx - 130, y: ly - 130, r: -6, o: t > T(40.9) && t < 44 ? 1 : 0 });
+    set(lens, { x: lx - 104, y: ly - 104, o: t > T(40.9) && t < 44 ? 1 : 0 });
     set(earth2, { x: (EC[0] - lx) * 2.2 + 104 - ER * 2.2, y: (EC[1] - ly) * 2.2 + 104 - ER * 2.2 });
     earth2.firstChild.style.transform = `rotate(${f1(t * 2)}deg)`;
-    set(qq, { s: pop(t, 42.06, 0.35), o: t > 42.06 && t < 44 ? 1 : 0, x: lx - 40, y: ly - 70 });
-    popA(chN, t, 42.48, { r: -3 });
-    set(card.wrap, { y: (1 - p(t, 43.62, 0.4, E.outBack)) * 900, r: 2, o: t < 43.6 ? 0 : 1 });
-    rows.forEach((r, i) => set(r, { s: pop(t, [43.91, 44.91, 45.68, 46.05][i], 0.35), o: t < [43.91, 44.91, 45.68, 46.05][i] ? 0 : 1 }));
+    set(qq, { s: pop(t, T(42.06), 0.35), o: t > T(42.06) && t < 44 ? 1 : 0, x: lx - 40, y: ly - 70 });
+    popA(chN, t, T(42.48), { r: -3 });
+    set(card.wrap, { y: (1 - p(t, T(43.62), 0.4, E.outBack)) * 900, r: 2, o: t < T(43.6) ? 0 : 1 });
+    rows.forEach((r, i) => set(r, { s: pop(t, [T(43.91), T(44.91), T(45.68), T(46.05)][i], 0.35), o: t < [T(43.91), T(44.91), T(45.68), T(46.05)][i] ? 0 : 1 }));
   }, { clip: true, cut: true });
   sceneBg(c, { background: SKY });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
@@ -104,24 +104,24 @@ headline(43.6, 46.55, 'Se ven continentes, *nubes* y océanos', Object.assign({ 
 /* ======================================================================
    S8a · ¡OJO! CÁMARAS Y ZOOM DESDE LA ÓRBITA (46.55 – 52.0)  L8a
    ====================================================================== */
-headline(47.2, 52.0, 'Con cámaras y *zoom…* sí aparece', Object.assign({ size: 80 }, DARK));
+headline(T(47.2), T(52.0), 'Con cámaras y *zoom…* sí aparece', Object.assign({ size: 80 }, DARK));
 {
-  const c = scene(46.55, 52.0, t => {
-    set(cam, { s: 1 + 0.05 * p(t, 46.55, 5.4, E.linear) });
+  const c = scene(T(46.55), T(52.0), t => {
+    set(cam, { s: 1 + 0.05 * p(t, T(46.55), 5.4, E.linear) });
     set(earth.d, { r: t * 1.2 });
-    stampA(ojo, t, 46.66, -10, 1);
-    const ko = p(t, 47.25, 0.3, E.inOutCubic);
-    set(ojo, { s: lerp(1, 0.42, ko) * (t < 46.66 ? 0 : 1) * (t < 46.84 ? lerp(2.3, 1, p(t, 46.66, 0.18)) : 1), x: ko * -310, y: ko * -150, r: -10, o: t < 46.66 ? 0 : 1 });
-    set(camG, { x: (1 - p(t, 47.25, 0.5, E.outBack)) * -700, y: wobble(t, 0.3, 6), r: 24 + wobble(t, 0.25, 1.5) });
-    const kz = p(t, 48.41, 0.5, E.outBack); set(lensT, { sx: lerp(0.35, 1.25, kz) });
-    popA(chZ, t, 48.5, { r: -4 });
-    const kor = p(t, 49.4, 0.7, E.inOutCubic); orb.style.clipPath = `inset(0 ${f1((1 - kor) * 100)}% 0 0)`;
-    popA(chO, t, 49.45, { r: 3 });
-    const fOn = t > 50.69 && t < 50.85; flash.style.opacity = fOn ? 1 - (t - 50.69) / 0.16 : 0; flash.style.visibility = fOn ? 'visible' : 'hidden';
-    camF.style.opacity = t > 50.6 && t < 50.9 ? 1 : 0;
-    const kp = p(t, 50.75, 0.5, E.outBack); set(photo.wrap, { y: (1 - kp) * 260, x: (1 - kp) * -200, s: lerp(0.3, 1, kp), r: lerp(30, 6, kp), o: t < 50.72 ? 0 : 1 });
-    reveal(circ, cL, p(t, 51.25, 0.45, E.inOutCubic));
-    popA(chA, t, 51.3, { r: -5 });
+    stampA(ojo, t, T(46.66), -10, 1);
+    const ko = p(t, T(47.25), 0.3, E.inOutCubic);
+    set(ojo, { s: lerp(1, 0.42, ko) * (t < T(46.66) ? 0 : 1) * (t < T(46.84) ? lerp(2.3, 1, p(t, T(46.66), 0.18)) : 1), x: ko * -310, y: ko * -150, r: -10, o: t < T(46.66) ? 0 : 1 });
+    set(camG, { x: (1 - p(t, T(47.25), 0.5, E.outBack)) * -700, y: wobble(t, 0.3, 6), r: 24 + wobble(t, 0.25, 1.5) });
+    const kz = p(t, T(48.41), 0.5, E.outBack); set(lensT, { sx: lerp(0.35, 1.25, kz) });
+    popA(chZ, t, T(48.5), { r: -4 });
+    const kor = p(t, T(49.4), 0.7, E.inOutCubic); orb.style.clipPath = `inset(0 ${f1((1 - kor) * 100)}% 0 0)`;
+    popA(chO, t, T(49.45), { r: 3 });
+    const fOn = t > T(50.69) && t < T(50.85); flash.style.opacity = fOn ? 1 - (t - T(50.69)) / 0.16 : 0; flash.style.visibility = fOn ? 'visible' : 'hidden';
+    camF.style.opacity = t > T(50.6) && t < T(50.9) ? 1 : 0;
+    const kp = p(t, T(50.75), 0.5, E.outBack); set(photo.wrap, { y: (1 - kp) * 260, x: (1 - kp) * -200, s: lerp(0.3, 1, kp), r: lerp(30, 6, kp), o: t < T(50.72) ? 0 : 1 });
+    reveal(circ, cL, p(t, T(51.25), 0.45, E.inOutCubic));
+    popA(chA, t, T(51.3), { r: -5 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: SKY });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
@@ -147,14 +147,14 @@ headline(47.2, 52.0, 'Con cámaras y *zoom…* sí aparece', Object.assign({ siz
 /* ======================================================================
    S8b · A SIMPLE VISTA, NO (52.0 – 55.4)  L8b
    ====================================================================== */
-headline(52.0, 55.4, 'Pero a *simple vista,* no', { size: 92, hlT: 52.84 });
+headline(T(52.0), T(55.4), 'Pero a *simple vista,* no', { size: 92, hlT: T(52.84) });
 {
-  const c = scene(52.0, 55.4, t => {
-    set(cA.wrap, { s: pop(t, 52.05, 0.4), r: -3, o: 1 }); set(cB.wrap, { s: pop(t, 52.84, 0.4), r: 3, o: t < 52.84 ? 0 : 1 });
+  const c = scene(T(52.0), T(55.4), t => {
+    set(cA.wrap, { s: pop(t, T(52.05), 0.4), r: -3, o: 1 }); set(cB.wrap, { s: pop(t, T(52.84), 0.4), r: 3, o: t < T(52.84) ? 0 : 1 });
     const iris = eye.d.querySelector('.iris'); iris.setAttribute('transform', `translate(${f1(Math.sin(t * 3.2) * 40)},${f1(Math.cos(t * 2.1) * 10)})`);
-    const kx = p(t, 53.98, 0.2); set(xx, { s: lerp(1.8, 1, kx), o: t < 53.98 ? 0 : 1 });
-    set(okA, { s: pop(t, 52.3, 0.4), o: t < 52.3 ? 0 : 1 });
-    popA(chC, t, 54.4, { r: -2, rise: 40 });
+    const kx = p(t, T(53.98), 0.2); set(xx, { s: lerp(1.8, 1, kx), o: t < T(53.98) ? 0 : 1 });
+    set(okA, { s: pop(t, T(52.3), 0.4), o: t < T(52.3) ? 0 : 1 });
+    popA(chC, t, T(54.4), { r: -2, rise: 40 });
     set(dotE, { s: 0.6 + 0.1 * Math.sin(t * 6) });
   }, { clip: true });
   const cA = paperPiece(c, 60, 470, 430, 560, { seed: 81, bg: '#FBF6EA' });
@@ -173,15 +173,15 @@ headline(52.0, 55.4, 'Pero a *simple vista,* no', { size: 92, hlT: 52.84 });
 /* ======================================================================
    S9 · UNA DE LAS MAYORES CONSTRUCCIONES… (55.4 – 60.5)  L9
    ====================================================================== */
-headline(55.4, 59.58, 'Una de las mayores *construcciones* de la historia…', { size: 68, hlT: 57.51 });
-headline(59.58, 60.5, '…y desde *arriba*', { size: 100, hlT: 60.0 });
+headline(T(55.4), T(59.58), 'Una de las mayores *construcciones* de la historia…', { size: 68, hlT: T(57.51) });
+headline(T(59.58), T(60.5), '…y desde *arriba*', { size: 100, hlT: T(60.0) });
 {
-  const c = scene(55.4, 60.5, t => {
-    const kz = p(t, 59.62, 0.8, E.inCubic);
-    set(near, { s: (1 + 0.06 * p(t, 55.4, 4.2, E.linear)) * lerp(1, 0.05, kz), o: 1 - p(t, 60.1, 0.3) });
-    set(far, { s: lerp(4, 1, p(t, 59.75, 0.7, E.outCubic)), o: p(t, 59.85, 0.3) });
+  const c = scene(T(55.4), T(60.5), t => {
+    const kz = p(t, T(59.62), 0.8, E.inCubic);
+    set(near, { s: (1 + 0.06 * p(t, T(55.4), 4.2, E.linear)) * lerp(1, 0.05, kz), o: 1 - p(t, T(60.1), 0.3) });
+    set(far, { s: lerp(4, 1, p(t, T(59.75), 0.7, E.outCubic)), o: p(t, T(59.85), 0.3) });
     ppl.forEach((q, i) => set(q, { y: -Math.abs(Math.sin(t * 6 + i)) * 4 }));
-    popA(chP, t, 56.3, { r: -3 });
+    popA(chP, t, T(56.3), { r: -3 });
     set(clouds, { x: -t * 14 });
   }, { clip: true });
   sceneBg(c, { background: '#F1E6CC' });
@@ -203,111 +203,4 @@ headline(59.58, 60.5, '…y desde *arriba*', { size: 100, hlT: 60.0 });
   }
   const ppl = [...near.querySelectorAll('.pp')];
   const chP = chip(c, 360, 1236, 'personas, a escala', { size: 34, bg: '#fff', color: INK });
-}
-colorHit(60.5, 62.0, PINK, c => {
-  const thr = box(c, 0, 0, 1080, 1920, { zIndex: 2 }); thr.innerHTML = `<svg width="1080" height="1920"><path d="M-20,1150 C200,1080 300,980 470,960 S700,880 820,820 S1000,760 1120,740" stroke="${INK}" stroke-width="3" fill="none" stroke-dasharray="40 26"/></svg>`;
-  const t0 = el('div', c, { left: '0', top: '360px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '130px', lineHeight: 1, color: INK, zIndex: 4 }, 'casi');
-  const t1 = el('div', c, { left: '0', top: '520px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '168px', lineHeight: 1, color: INK, zIndex: 4, letterSpacing: '-0.01em' });
-  const L = [...'INVISIBLE'].map(ch => { const s = document.createElement('span'); s.textContent = ch; s.style.display = 'inline-block'; t1.appendChild(s); return s; });
-  const lup = box(c, 640, 820, 300, 420, { zIndex: 5 }); lup.innerHTML = lupaFrame();
-  return t => {
-    set(t0, { s: lerp(1.4, 1, p(t, 60.5, 0.2)), o: 1 }); t0.style.textShadow = glitch(t, 60.5, 0.25);
-    L.forEach((s, i) => { const k = p(t, 61.12 + i * 0.05, 0.3); s.style.opacity = f1(lerp(1, 0.18 + 0.12 * Math.sin(t * 7 + i), k) * 100) / 100; });
-    set(t1, { s: pop(t, 60.6, 0.4), o: t < 60.6 ? 0 : 1 });
-    set(lup, { x: Math.sin(t * 2.5) * 160 - 120, y: Math.cos(t * 3) * 40, r: -10, s: 0.9 });
-  };
-});
-
-/* ======================================================================
-   S10 · CTA (62.0 – 65.25)  L10 — Vecino a pantalla completa + comentarios
-   ====================================================================== */
-headline(62.0, 64.4, '¿Qué otro dato del *colegio* resultó ser falso?', { size: 70, hlT: 62.83 });
-headline(64.4, 65.25, 'Os *leo*', { size: 110, hlT: 64.77 });
-{
-  const CM = [];
-  const c = scene(62.0, 65.25, t => {
-    set(vec.d, { y: wobble(t, 0.5, 3), s: 1 + 0.03 * p(t, 62, 3, E.linear) });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t < 63.2 ? [0, 0] : [-4, 6], bL: t > 62.8 && t < 63.3 ? 10 : 2, bR: t > 62.8 && t < 63.3 ? 14 : 6, noFan: true, noCup: true, seed: 2 });
-    set(nb.wrap, { y: (1 - p(t, 62.05, 0.4, E.outBack)) * 500, r: -6, o: 1 });
-    nbT.textContent = typeText('Datos falsos\ndel cole:\n1. muralla ✓\n2. …', t, 62.4, 18);
-    const qx = 230 + Math.min(1, (t - 62.4) / 2) * 120 + Math.sin(t * 18) * 12, qy = 1000 + Math.cos(t * 9) * 8 + Math.floor(clamp((t - 62.4) / 2.2) * 3) * 40;
-    set(quill, { x: qx, y: qy, r: -20 + Math.sin(t * 18) * 6, o: t > 62.2 ? 1 : 0 });
-    CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
-  }, { clip: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, #F4CFDA 0 30px, #F9E3EA 30px 60px)` });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
-  const frame = box(c, 650, 440, 280, 330, { border: `14px solid ${BRASS}`, outline: `4px solid ${INK}`, background: '#E7D8B6', boxShadow: `8px 8px 0 ${SH}`, overflow: 'hidden' });
-  frame.innerHTML = `<svg width="252" height="302">${ridge(101, 200, 80, 6, '#DDC9A0', 252)}${wallStroke('M-10,260 Q80,180 140,200 T270,150', 12)}</svg>`;
-  const vec = mkVec(c, [120, 380, 660, 817]);
-  const nb = paperPiece(c, 30, 1000, 340, 300, { seed: 77, bg: '#FBF6EA' });
-  box(nb.inner, 0, 0, 322, 282, { backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.18) 0 2px, transparent 2px 44px)', backgroundPosition: '0 30px' });
-  const nbT = el('div', nb.inner, { left: '26px', top: '26px', fontFamily: 'SpecialElite', fontSize: '40px', lineHeight: '44px', color: INK, whiteSpace: 'pre' }, '');
-  const quill = box(c, 0, 0, 160, 260, { zIndex: 30 }); quill.innerHTML = `<svg viewBox="0 0 80 200" width="160" height="260" style="overflow:visible"><path d="M10,196 L22,150" stroke="${INK}" stroke-width="5"/><path d="M22,150 C10,100 30,30 76,2 C70,60 58,120 22,150 Z" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M22,150 Q50,80 74,8" stroke="${INK}" stroke-width="2.5" fill="none"/><path d="M30,120 l-10,-8 M38,96 l-12,-8 M46,72 l-12,-8 M54,50 l-10,-8 M42,128 l10,-10 M50,104 l12,-10 M58,80 l12,-10" stroke="${INK}" stroke-width="2"/></svg>`;
-  const cms = [['FAR', '@paco_mapas', '¿y las pirámides sí se ven?', 63.25], ['SOL', '@lucia.geo', 'mi profe de geografía me debe una explicación', 63.85], ['MEREDITH', '@el_mayor', 'Yo lo puse en un examen…', 64.5]];
-  let yy = 790;
-  cms.forEach((m, i) => {
-    const e = el('div', c, { left: px(320 + (i % 2) * 14), top: px(yy), width: '600px', minHeight: '96px', background: '#fff', border: `4px solid ${INK}`, borderRadius: '48px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40, padding: '8px 30px 14px 104px' });
-    avatar(e, 10, 8, 76, m[0], { bw: 3 });
-    e.insertAdjacentHTML('beforeend', `<div style="font-family:Bricolage;font-weight:600;font-size:24px;color:#7a6a58">${m[1]}</div><div style="font-family:Bricolage;font-weight:800;font-size:31px;line-height:1.15;color:${INK}">${m[2]}</div>`);
-    CM.push({ e, t: m[3] });
-    yy += i === 1 ? 150 : 116;
-  });
-}
-
-/* ======================================================================
-   S11 · Y ESTO… NO VENÍA EN EL LIBRO (65.25 – 67.75)  L11
-   ====================================================================== */
-headline(65.25, 66.55, 'Y esto…', { size: 120, color: YEL, y: 200, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` });
-headline(66.55, 67.75, '…no venía en el *libro.*', { size: 84, hlT: 67.28 });
-{
-  const c = scene(65.25, 66.55, t => {
-    const k = p(t, 65.25, 1.2, E.inOutCubic);
-    set(vec.d, { s: 1 + 0.12 * k, y: k * 20, r: -k * 4 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO') * 0.6, look: [0, 1], bL: 10, bR: 14, fan: -30, half: true, blink: false });
-    vec.hMouth.setAttribute('transform', 'translate(64,-34) rotate(-20 206 318)'); vec.hMouth.style.opacity = 1; vec.cup.style.opacity = 0;
-  }, { cut: true, clip: true });
-  sceneBg(c, { background: INK });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 46%, rgba(255,230,180,.35), rgba(0,0,0,0) 55%)', zIndex: 1 });
-  const vec = mkVec(c, [40, 420, 1000, 1238]); vec.d.style.zIndex = 2; vec.d.style.transformOrigin = '540px 650px';
-}
-{
-  const c = scene(66.55, 67.75, t => {
-    const k = p(t, 66.95, 0.32, E.inCubic); const sx = 1 - 2 * k;
-    flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
-    pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
-    const closed = t > 67.27;
-    set(bookW, { s: 1.25 * pop(t, 66.56, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, 67.28, 0.3)) : 0)), o: 1 });
-    dust.forEach((s, i) => { const kd = p(t, 67.28, 0.45, E.outCubic); set(s, { x: (i - 2.5) * 110 * kd, y: -kd * 120 + kd * kd * 60, o: closed ? 1 - kd * 0.6 : 0, s: 0.6 + kd }); });
-  });
-  const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  const bs = svgLayer(bookW, 1);
-  let lines = ''; for (let i = 0; i < 8; i++) lines += `<path d="M180,${930 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  bs.innerHTML = `<g>${cut('<rect x="110" y="630" width="440" height="570" rx="14"/>')}<rect x="110" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/></g>
-   <rect x="130" y="646" width="410" height="536" fill="#F7F0E0" stroke="${INK}" stroke-width="4"/><rect x="130" y="646" width="410" height="536" fill="url(#hP)" opacity=".5"/>
-   <text x="335" y="720" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="44" fill="${INK}">GRANDES</text><text x="335" y="760" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="700" font-size="36" fill="${INK}">mitos</text>
-   <g transform="translate(170,780)"><rect width="330" height="130" fill="#E7D8B6" stroke="${INK}" stroke-width="3"/>${clipG(uid('bm'), 'M0,0 h330 v130 h-330 Z', ridge(111, 120, 50, 6, '#DDC9A0', 330) + wallStroke('M-10,120 Q80,70 160,86 T340,50', 9))}</g>${lines}
-   <g class="flap">${cut('<rect x="530" y="630" width="440" height="570" rx="14"/>')}<rect x="530" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><g class="pageF"><rect x="540" y="646" width="410" height="536" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/>${lines2}</g>
-    <g class="coverF"><rect x="540" y="630" width="430" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="566" y="656" width="378" height="518" rx="8" fill="none" stroke="#c9a24a" stroke-width="4"/>
-    <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
-  const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
-  const dust = []; for (let i = 0; i < 6; i++) { const d = box(bookW, 500, 1130, 80, 60, { zIndex: 3 }); d.innerHTML = `<svg width="80" height="60" style="overflow:visible"><path d="M10,50 q-6,-26 20,-26 q8,-22 30,-8 q20,0 16,34 Z" fill="${PAPER}" stroke="${INK}" stroke-width="3"/></svg>`; dust.push(d); }
-}
-
-/* ======================================================================
-   TARJETA FINAL (67.75 – fin)
-   ====================================================================== */
-{
-  const c = scene(67.75, 999, t => {
-    set(lt, { s: pop(t, 67.95, 0.45), o: t < 67.95 ? 0 : 1 }); paint(lhl, t, 68.3, 0.4);
-    popA(ttl, t, 68.45, { r: -1 }); popA(src, t, 68.7, { rise: 30 });
-    set(rib, { r: wobble(t, 0.3, 1) });
-  }, { cut: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, rgba(244,207,218,.55) 0 30px, rgba(249,227,234,.55) 30px 60px)` });
-  const rib = box(c, 0, 0, 1080, 1920); rib.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><path d="M-20,640 C200,560 300,520 470,520 S760,560 1100,470" stroke="${INK}" stroke-width="3" fill="none" stroke-dasharray="30 18" opacity=".35"/></svg>`;
-  const lt = box(c, 40, 820, 1000, 240, { textAlign: 'center', zIndex: 3 });
-  lt.innerHTML = `<div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:92px;line-height:1;color:${INK}">esto no venía</div><div style="font-family:Playfair;font-weight:900;font-size:104px;line-height:1.1;color:${INK}">en el ${hlSpan('libro', 'lhl')}</div>`;
-  const lhl = lt.querySelector('.lhl');
-  const ttl = el('div', c, { left: '90px', top: '1070px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '58px', color: '#fff', background: INK, padding: '14px 10px 18px', borderRadius: '14px', boxShadow: `7px 7px 0 ${PINK}`, zIndex: 3 }, 'Ep. 8 · La muralla invisible');
-  const src = el('div', c, { left: '90px', top: '1196px', width: '900px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '32px', lineHeight: 1.3, color: INK, zIndex: 3 }, 'Fuentes: declaraciones de Yang Liwei (2003) · NASA');
 }

@@ -16,71 +16,57 @@
  {
   "line": 2,
   "who": "VECINO",
-  "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 7.671,
-  "e": 10.804
+  "text": "Casco vikingo casi completo, se ha encontrado prácticamente uno. En Noruega, en mil novecientos cuarenta y tres. Redondo, con protección para los ojos. Ni rastro de cuernos.",
+  "s": 7.621,
+  "e": 17.304
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "Casco vikingo casi completo, se ha encontrado prácticamente uno. En Noruega, en mil novecientos cuarenta y tres. Redondo, con protección para los ojos. Ni rastro de cuernos.",
-  "s": 11.154,
-  "e": 20.837
+  "text": "Y tiene sentido: en una pelea, unos cuernos serían más un estorbo que otra cosa.",
+  "s": 17.584,
+  "e": 22.016
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Y tiene sentido: en una pelea, unos cuernos serían más un estorbo que otra cosa.",
-  "s": 21.117,
-  "e": 25.549
+  "text": "¿Entonces de dónde salen? Mil ochocientos setenta y seis. Alemania. Wagner estrena su gran ciclo de óperas sobre dioses y héroes nórdicos.",
+  "s": 22.296,
+  "e": 31.911
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "¿Entonces de dónde salen? Mil ochocientos setenta y seis. Alemania. Wagner estrena su gran ciclo de óperas sobre dioses y héroes nórdicos.",
-  "s": 25.829,
-  "e": 35.443
+  "text": "Y el diseñador de vestuario, Carl Emil Doepler, les pone cuernos. En el escenario quedaban espectaculares.",
+  "s": 32.191,
+  "e": 39.6
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Y el diseñador de vestuario, Carl Emil Doepler, les pone cuernos. En el escenario quedaban espectaculares.",
-  "s": 35.723,
-  "e": 43.132
+  "text": "Funcionó tan bien que desde entonces, cómics, películas y hasta equipos de fútbol americano... todos con cuernos.",
+  "s": 39.88,
+  "e": 45.61
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Funcionó tan bien que desde entonces, cómics, películas y hasta equipos de fútbol americano... todos con cuernos.",
-  "s": 43.412,
-  "e": 49.143
+  "text": "Ojo: cascos con cuernos sí existieron en Escandinavia. Pero dos mil años antes de los vikingos. Y eran ceremoniales.",
+  "s": 45.89,
+  "e": 52.93
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Ojo: cascos con cuernos sí existieron en Escandinavia. Pero en la Edad del Bronce, unos dos mil años antes de los vikingos. Y eran ceremoniales, no para la guerra.",
-  "s": 49.423,
-  "e": 58.96
+  "text": "O sea: la imagen que tienes de un vikingo... la diseñó un señor para un teatro. ¿Te lo creías? Sí o no.",
+  "s": 53.21,
+  "e": 60.139
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: la imagen que tienes de un vikingo... la diseñó un señor para un teatro.",
-  "s": 59.24,
-  "e": 64.74
- },
- {
-  "line": 10,
-  "who": "VECINO",
-  "text": "¿Qué otro mito de película queréis que desmonte? Os leo.",
-  "s": 65.02,
-  "e": 67.777
- },
- {
-  "line": 11,
-  "who": "VECINO",
-  "text": "Y esto... no venía en el libro.",
-  "s": 68.057,
-  "e": 70.177
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 60.419,
+  "e": 63.407
  }
 ]

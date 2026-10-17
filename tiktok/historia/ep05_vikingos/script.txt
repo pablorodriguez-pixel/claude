@@ -1,12 +1,10 @@
 VECINO: ¡Los vikingos nunca llevaron cuernos en el casco! Nunca.
 VECINO: Y la culpa de que lo creas... es de una ópera.
-VECINO: Soy tu vecino, y esto no venía en el libro.
 VECINO: Casco vikingo casi completo, se ha encontrado prácticamente uno. En Noruega, en mil novecientos cuarenta y tres. Redondo, con protección para los ojos. Ni rastro de cuernos.
 VECINO: Y tiene sentido: en una pelea, unos cuernos serían más un estorbo que otra cosa.
 VECINO: ¿Entonces de dónde salen? Mil ochocientos setenta y seis. Alemania. Wagner estrena su gran ciclo de óperas sobre dioses y héroes nórdicos.
 VECINO: Y el diseñador de vestuario, Carl Emil Doepler, les pone cuernos. En el escenario quedaban espectaculares.
 VECINO: Funcionó tan bien que desde entonces, cómics, películas y hasta equipos de fútbol americano... todos con cuernos.
-VECINO: Ojo: cascos con cuernos sí existieron en Escandinavia. Pero en la Edad del Bronce, unos dos mil años antes de los vikingos. Y eran ceremoniales, no para la guerra.
-VECINO: O sea: la imagen que tienes de un vikingo... la diseñó un señor para un teatro.
-VECINO: ¿Qué otro mito de película queréis que desmonte? Os leo.
-VECINO: Y esto... no venía en el libro.
+VECINO: Ojo: cascos con cuernos sí existieron en Escandinavia. Pero dos mil años antes de los vikingos. Y eran ceremoniales.
+VECINO: O sea: la imagen que tienes de un vikingo... la diseñó un señor para un teatro. ¿Te lo creías? Sí o no.
+VECINO: Soy tu vecino... y esto no venía en el libro.

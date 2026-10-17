@@ -16,12 +16,7 @@
 {
 "who": "VECINO",
 "text": "Ese dato que te enseñaron... es falso.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
@@ -49,15 +44,11 @@
 },
 {
 "who": "VECINO",
-"text": "O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible."
+"text": "O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible. ¿Te lo creías? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Qué otro dato del colegio resultó ser falso? Os leo."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

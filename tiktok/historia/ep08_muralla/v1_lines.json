@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La Gran Muralla china no se ve desde el espacio! Y el primer astronauta chino lo confirmó.",
+  "s": 0.12,
+  "e": 5.216
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Ese dato que te enseñaron... es falso.",
+  "s": 5.496,
+  "e": 8.259
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 8.609,
+  "e": 11.713
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "La muralla es larguísima, sí: miles de kilómetros. Pero estrecha. En muchos tramos, apenas unos metros de ancho.",
+  "s": 12.063,
+  "e": 19.21
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Y además es del mismo color que el terreno que la rodea. Se camufla.",
+  "s": 19.49,
+  "e": 23.597
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "En dos mil tres, Yang Liwei, el primer astronauta chino, volvió del espacio. Le preguntaron, claro. Su respuesta: no la vio.",
+  "s": 23.877,
+  "e": 31.613
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Lo curioso es que el mito es más antiguo que los viajes espaciales. Ya se decía que se veía desde la Luna... antes de que nadie hubiera ido.",
+  "s": 31.893,
+  "e": 39.79
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Desde la Luna, por cierto, no se distingue ninguna construcción humana. Se ven continentes, nubes y océanos.",
+  "s": 40.07,
+  "e": 46.378
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: con cámaras y zoom, desde la órbita, sí hay fotos donde aparece. Pero a simple vista, no es lo que te contaron.",
+  "s": 46.658,
+  "e": 55.228
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible.",
+  "s": 55.508,
+  "e": 61.816
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Qué otro dato del colegio resultó ser falso? Os leo.",
+  "s": 62.096,
+  "e": 65.027
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 65.307,
+  "e": 67.614
+ }
+]

@@ -28,7 +28,7 @@ const SKH = [[240, 170], [164, 74], [244, 140], [360, 170], [436, 74], [356, 140
    A · GANCHO (0 – 4.42)  L0 — vikingo feroz; en "nunca" los cuernos salen disparados
    ====================================================================== */
 {
-  const c = scene(-1, 4.42, t => {
+  const c = scene1(-1, 4.42, t => {
     const punch = t > 2.49 ? 0.06 * (1 - p(t, 2.49, 0.5, E.outCubic)) : 0;
     set(cam, { s: 1 + 0.05 * p(t, 0, 4.4, E.linear) + punch });
     set(sunR, { r: t * 10 });
@@ -64,10 +64,10 @@ const SKH = [[240, 170], [164, 74], [244, 140], [360, 170], [436, 74], [356, 140
 /* ======================================================================
    B · LA CULPA ES DE UNA ÓPERA (4.42 – 7.75)  L1 — telón + foco + sello MITO
    ====================================================================== */
-headline(4.42, 7.75, 'La culpa es de una *ópera*', { size: 84, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 6.97, shadow: `4px 4px 0 ${INK}` });
+headline1(4.42, 11.05, 'La culpa es de una *ópera*', { size: 84, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 6.97, shadow: `4px 4px 0 ${INK}` });
 {
   const NOTES = [];
-  const c = scene(4.42, 7.75, t => {
+  const c = scene1(4.42, 11.05, t => {
     const k = p(t, 4.65, 1.4, E.inOutCubic);
     set(cL, { x: -k * 430 }); set(cR, { x: k * 430 });
     set(spot, { o: p(t, 5.31, 0.3) * (0.85 + 0.15 * Math.sin(t * 7)) });
@@ -96,62 +96,12 @@ headline(4.42, 7.75, 'La culpa es de una *ópera*', { size: 84, color: PAPER, ke
 }
 
 /* ======================================================================
-   C · MARCA: EL VECINO EN SU BALCÓN (7.75 – 11.05)  L2
-   ====================================================================== */
-{
-  const c = scene(7.75, 11.05, t => {
-    const ex = p(t, 10.85, 0.2, E.inCubic);
-    set(cam, { s: lerp(1.04 + 0.04 * p(t, 7.75, 3.2, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
-    set(vec.d, { y: wobble(t, 0.5, 3) });
-    const fanFast = t > 7.9 && t < 8.6;
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > 9.1 && t < 9.9 ? [0, -5] : t > 10.3 ? [-4, 3] : [0, 0], bL: t > 8.0 && t < 8.9 ? 8 : 0, bR: t > 8.0 && t < 8.9 ? 12 : 0, fan: fanFast ? Math.sin(t * 22) * 14 : wobble(t, 0.9, 6), seed: 0.3 });
-    popA(tag, t, 8.01, { r: -5 });
-    const ks = p(t, 9.05, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: Math.sin(t * 2.4) * 1.5 * (1 - p(t, 9.0, 2)) + (1 - ks) * 8, o: t < 9.0 ? 0 : 1 });
-    sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
-    paint(sHL, t, 10.4, 0.35);
-    pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
-  }, { clip: true, cut: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 116px)' });
-  const win = box(cam, 0, 0, 1080, 1920); {
-    const arch = 'M160,1300 L160,640 Q160,450 540,440 Q920,450 920,640 L920,1300 Z';
-    let lace = ''; for (let y = 560; y < 1250; y += 26) lace += `<path d="M${f1(176 + Math.sin(y * 0.05) * 6)},${y} q22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/><path d="M${f1(904 - Math.sin(y * 0.05) * 6)},${y} q-22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/>`;
-    win.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">
-    <rect x="12" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="928" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/>
-    ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(k => `<path d="M24,${560 + k * 50} h116 M940,${560 + k * 50} h116" stroke="${INK}" stroke-width="3"/>`).join('')}
-    <path d="${arch}" fill="#fff" stroke="#fff" stroke-width="40"/><path d="${arch}" fill="#3a2a1e" stroke="${INK}" stroke-width="8"/><path d="${arch}" fill="url(#hW)" opacity=".25"/>
-    <path d="M168,600 C230,700 230,1100 200,1290 L168,1290 Z M912,600 C850,700 850,1100 880,1290 L912,1290 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="3"/>${lace}</svg>`;
-  }
-  const vec = mkVec(cam, [190, 430, 700, 867]);
-  const rail = box(cam, 0, 0, 1080, 1920); {
-    let bars = ''; for (let x = 140; x <= 940; x += 40) bars += `<path d="M${x},1206 V1330" stroke="${INK}" stroke-width="9"/><circle cx="${x}" cy="1268" r="9" fill="none" stroke="${INK}" stroke-width="4"/>`;
-    rail.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="110" y="1180" width="860" height="30" rx="8" fill="${INK}"/>${bars}<rect x="110" y="1322" width="860" height="40" fill="${INK}"/><rect x="80" y="1352" width="920" height="40" fill="#cdb48a" stroke="${INK}" stroke-width="5"/></svg>`;
-  }
-  const pots = [];
-  [[130, 1040], [760, 1040]].forEach(q => {
-    const d = box(cam, q[0], q[1], 200, 160); let fl = '';
-    [[40, 40], [80, 20], [120, 34], [160, 48], [70, 60], [130, 64]].forEach((f, j) => { fl += `<g><path d="M${f[0]},${f[1] + 30} L100,120" stroke="#3c5a2a" stroke-width="5"/><circle cx="${f[0]}" cy="${f[1]}" r="24" fill="${j % 2 ? RED : PINK}" stroke="${INK}" stroke-width="3.5"/><circle cx="${f[0] - 8}" cy="${f[1] - 6}" r="9" fill="#fff" opacity=".45"/><circle cx="${f[0]}" cy="${f[1]}" r="5" fill="${YEL}" stroke="${INK}" stroke-width="2"/></g>`; });
-    [[30, 96], [170, 96], [60, 110], [140, 110]].forEach(l => fl += `<ellipse cx="${l[0]}" cy="${l[1]}" rx="30" ry="14" fill="#7a9a52" stroke="${INK}" stroke-width="3" transform="rotate(${l[0] < 100 ? -20 : 20} ${l[0]} ${l[1]})"/>`);
-    d.innerHTML = `<svg viewBox="0 0 200 160" width="200" height="160" style="overflow:visible">${fl}${cut('<path d="M30,110 L170,110 L156,160 L44,160 Z"/>', 5, 6)}<path d="M30,110 L170,110 L156,160 L44,160 Z" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M30,110 L170,110 L156,160 L44,160 Z" fill="url(#hA)" opacity=".5"/><rect x="24" y="104" width="152" height="16" rx="4" fill="#C1663A" stroke="${INK}" stroke-width="4"/></svg>`;
-    pots.push(d);
-  });
-  const tag = chip(cam, 640, 610, 'tu vecino', { size: 44, bg: PINK });
-  const sign = box(cam, 120, 150, 840, 270, { zIndex: 40 });
-  sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
-  const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sl2 = el('div', sign, { left: '0', top: '146px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sw = [];
-  [['esto', 24, sl1], ['no', 25, sl1], ['venía', 26, sl1], ['en', 27, sl2], ['el', 28, sl2], ['libro', 29, sl2]].forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.innerHTML = q[0] === 'libro' ? hlSpan('libro', 'shl') : q[0]; q[2].appendChild(s); s.style.position = 'relative'; sw.push({ e: s, t: W[q[1]].s }); });
-  const sHL = sign.querySelector('.shl');
-}
-
-/* ======================================================================
    D1 · EL CASCO REAL EN SU VITRINA (11.05 – 14.72)  L3a
    ====================================================================== */
-headline(11.05, 13.0, 'Casco vikingo *casi completo*…', { size: 76, hlT: 11.82 });
-headline(13.0, 14.72, '…se ha encontrado *uno*', { size: 84, hlT: 14.34 });
+headline1(11.05, 13.0, 'Casco vikingo *casi completo*…', { size: 76, hlT: 11.82 });
+headline1(13.0, 14.72, '…se ha encontrado *uno*', { size: 84, hlT: 14.34 });
 {
-  const c = scene(11.05, 14.72, t => {
+  const c = scene1(11.05, 14.72, t => {
     set(cam, { s: 1 + 0.06 * p(t, 11.05, 3.6, E.linear) });
     const kv = p(t, 11.1, 0.5, E.outBack); set(vit, { y: (1 - kv) * 600, o: 1 });
     set(shine, { x: lerp(-300, 700, p(t, 11.6, 1.2, E.inOutCubic)) });
@@ -180,13 +130,13 @@ headline(13.0, 14.72, '…se ha encontrado *uno*', { size: 84, hlT: 14.34 });
 /* ======================================================================
    D2 · NORUEGA, 1943 (14.72 – 17.3)  L3b
    ====================================================================== */
-headline(14.72, 17.3, 'En *Noruega*…', { size: 92, hlT: 15.23 });
+headline1(14.72, 17.3, 'En *Noruega*…', { size: 92, hlT: 15.23 });
 {
-  const c = scene(14.72, 17.3, t => {
+  const c = scene1(14.72, 17.3, t => {
     const km = p(t, 14.75, 0.5, E.outBack); set(mp.d, { s: lerp(0.6, 1, km), r: lerp(-8, -2, km), o: clamp(km * 2) });
     const kp = p(t, 15.23, 0.5, E.outBounce); set(pin, { y: (1 - kp) * -300, o: t < 15.23 ? 0 : 1 });
-    const yr = Math.round(counter(t, 15.69, 1.5, 1900, 1943));
-    year.textContent = t < 15.69 ? '' : String(yr); set(year, { s: t > 17.2 ? 1 : 1 + 0.04 * Math.sin(t * 20) * (t < 17.2 ? 1 : 0), o: t < 15.69 ? 0 : 1 });
+    const ky = p(t, 15.69, 0.18, E.outCubic); // cifra final directa (sin contar), golpe de sello
+    year.textContent = '1943'; set(year, { s: t < 15.69 ? 0 : lerp(2.3, 1, ky), r: -3, o: t < 15.69 ? 0 : clamp(ky * 2) });
     popA(gjs.d, t, 16.75, { r: -6 }); popA(ch, t, 16.9, { r: -3 });
   });
   const mp = mk(c, [60, 400, 520, 563], norwayInner(), '0 0 720 780', 'map');
@@ -200,10 +150,10 @@ headline(14.72, 17.3, 'En *Noruega*…', { size: 92, hlT: 15.23 });
 /* ======================================================================
    D3 · REDONDO, CON PROTECCIÓN PARA LOS OJOS, SIN CUERNOS (17.3 – 21.0)  L3c
    ====================================================================== */
-headline(17.3, 19.62, '*Redondo*, con protección para los ojos', { size: 70, hlT: 17.34 });
-headline(19.62, 21.0, 'Ni rastro de *cuernos*', { size: 90, hlT: 20.27 });
+headline1(17.3, 19.62, '*Redondo*, con protección para los ojos', { size: 70, hlT: 17.34 });
+headline1(19.62, 21.0, 'Ni rastro de *cuernos*', { size: 90, hlT: 20.27 });
 {
-  const c = scene(17.3, 21.0, t => {
+  const c = scene1(17.3, 21.0, t => {
     set(cam, { s: 1 + 0.05 * p(t, 17.3, 3.7, E.linear) });
     circ.style.strokeDashoffset = (1 - p(t, 17.34, 0.55, E.inOutCubic)).toFixed(3);
     popA(cR, t, 17.6, { r: -4 });
@@ -240,11 +190,11 @@ headline(19.62, 21.0, 'Ni rastro de *cuernos*', { size: 90, hlT: 20.27 });
 /* ======================================================================
    E · EN UNA PELEA, LOS CUERNOS SON UN ESTORBO (21.0 – 25.72)  L4
    ====================================================================== */
-headline(21.0, 22.28, 'Y tiene *sentido*', { size: 92, hlT: 21.48 });
-headline(22.28, 25.72, 'En una *pelea*… ¡un *estorbo*!', { size: 84 });
+headline1(21.0, 22.28, 'Y tiene *sentido*', { size: 92, hlT: 21.48 });
+headline1(22.28, 25.72, 'En una *pelea*… ¡un *estorbo*!', { size: 84 });
 {
   const VS = 620 / 420; // escala del héroe
-  const c = scene(21.0, 25.72, t => {
+  const c = scene1(21.0, 25.72, t => {
     const grab = p(t, 23.15, 0.25, E.outBack), snag = p(t, 23.3, 0.3, E.outBack);
     const strug = t > 23.2 ? Math.sin(t * 13) * (t > 24.3 ? 7 : 4) : 0;
     const tilt = 9 * grab + strug;
@@ -293,9 +243,9 @@ headline(22.28, 25.72, 'En una *pelea*… ¡un *estorbo*!', { size: 84 });
 /* ======================================================================
    F1 · ¿ENTONCES DE DÓNDE SALEN? (25.72 – 27.15)  L5a
    ====================================================================== */
-headline(25.72, 27.15, '¿Entonces de dónde *salen*?', { size: 84, hlT: 26.55 });
+headline1(25.72, 27.15, '¿Entonces de dónde *salen*?', { size: 84, hlT: 26.55 });
 {
-  const c = scene(25.72, 27.15, t => {
+  const c = scene1(25.72, 27.15, t => {
     hs.forEach((h, i) => set(h, { r: t * (i ? 260 : -240), x: Math.sin(t * 2 + i) * 20, y: Math.cos(t * 2.4 + i) * 16, s: pop(t, 25.75 + i * 0.12, 0.4) }));
     const kq = pop(t, 26.0, 0.45); set(q, { s: kq, r: 8 + wobble(t, 1, 4), o: t < 26 ? 0 : 1 });
   });
@@ -308,9 +258,9 @@ headline(25.72, 27.15, '¿Entonces de dónde *salen*?', { size: 84, hlT: 26.55 }
    F2 · 1876 · ALEMANIA (27.15 – 31.25)  L5b
    ====================================================================== */
 {
-  const c = scene(27.15, 31.25, t => {
-    const yr = Math.round(counter(t, 27.24, 2.4, 1800, 1876, E.outCubic));
-    yE.textContent = String(yr); set(yE, { s: t > 29.3 ? 1 + 0.06 * (1 - p(t, 29.3, 0.4)) : 1, o: 1 });
+  const c = scene1(27.15, 31.25, t => {
+    const ky = p(t, 27.24, 0.18, E.outCubic); // cifra final directa (sin contar), golpe de sello
+    set(yE, { s: (t < 27.24 ? 0 : lerp(2.3, 1, ky)) * (t > 29.3 ? 1 + 0.06 * (1 - p(t, 29.3, 0.4)) : 1), o: t < 27.24 ? 0 : clamp(ky * 2) });
     yE.style.textShadow = `6px 6px 0 ${PINK}, 10px 10px 0 ${INK}` + (glitch(t, 29.3, 0.25) ? ',' + glitch(t, 29.3, 0.25) : '');
     const kh = p(t, 29.98, 0.6, E.outBack); set(house.d, { y: (1 - kh) * 700, o: t < 29.98 ? 0 : 1 });
     popA(ch, t, 30.0, { r: -3 });
@@ -321,7 +271,7 @@ headline(25.72, 27.15, '¿Entonces de dónde *salen*?', { size: 84, hlT: 26.55 }
   sceneBg(cam, { background: '#1d1510' });
   box(cam, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 35%, rgba(255,210,120,.25), rgba(0,0,0,0) 60%)' });
   const stars = []; const r = rng(18); for (let i = 0; i < 26; i++) stars.push(el('div', cam, { left: px(60 + r() * 940), top: px(180 + r() * 600), fontSize: px(18 + r() * 20), color: PAPER }, '✦'));
-  const yE = el('div', cam, { left: '0', top: '360px', width: '1080px', textAlign: 'center', fontFamily: 'Rye', fontSize: '260px', lineHeight: 1, color: YEL, zIndex: 5 }, '1800');
+  const yE = el('div', cam, { left: '0', top: '360px', width: '1080px', textAlign: 'center', fontFamily: 'Rye', fontSize: '260px', lineHeight: 1, color: YEL, zIndex: 5 }, '1876');
   const house = mk(cam, [300, 860, 640, 460], operaHouseInner(), '0 0 640 460', 'oh');
   const ch = chip(c, 380, 700, 'Alemania', { size: 56, bg: PINK });
 }
@@ -341,10 +291,10 @@ function operaHouseInner() {
 /* ======================================================================
    F3 · WAGNER ESTRENA SU CICLO (31.25 – 35.62)  L5c — + cameo del emú en el público
    ====================================================================== */
-headline(31.25, 33.9, 'Wagner estrena su gran *ciclo de óperas*', { size: 72, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 33.04, shadow: `4px 4px 0 ${INK}` });
-headline(33.9, 35.62, 'sobre *dioses y héroes* nórdicos', { size: 78, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 33.96, shadow: `4px 4px 0 ${INK}` });
+headline1(31.25, 33.9, 'Wagner estrena su gran *ciclo de óperas*', { size: 72, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 33.04, shadow: `4px 4px 0 ${INK}` });
+headline1(33.9, 35.62, 'sobre *dioses y héroes* nórdicos', { size: 78, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 33.96, shadow: `4px 4px 0 ${INK}` });
 {
-  const c = scene(31.25, 35.62, t => {
+  const c = scene1(31.25, 35.62, t => {
     set(cam, { s: 1 + 0.04 * p(t, 31.25, 4.3, E.linear) });
     const kp = p(t, 31.32, 0.45, E.outBack); set(post.wrap, { s: kp, r: -5, o: t < 31.32 ? 0 : 1 });
     [god, hero].forEach((f, i) => { if (f.mouth) f.mouth.setAttribute('transform', `translate(150 212) scale(1 ${f1(0.5 + 0.7 * Math.abs(Math.sin(t * (7 + i))))}) translate(-150 -212)`); set(f.d, { y: wobble(t, 0.8, 4, i) }); });
@@ -378,9 +328,9 @@ headline(33.9, 35.62, 'sobre *dioses y héroes* nórdicos', { size: 78, color: P
 /* ======================================================================
    G1 · CARL EMIL DOEPLER, DISEÑADOR DE VESTUARIO (35.62 – 38.95)  L6a
    ====================================================================== */
-headline(35.62, 38.95, 'El diseñador de *vestuario*', { size: 84, hlT: 36.45 });
+headline1(35.62, 38.95, 'El diseñador de *vestuario*', { size: 84, hlT: 36.45 });
 {
-  const c = scene(35.62, 38.95, t => {
+  const c = scene1(35.62, 38.95, t => {
     set(dp.d, { y: wobble(t, 0.5, 3) });
     face(dp, t, { look: t < 37.2 ? [-4, 2] : [0, 0], seed: 0.7, brow: t > 37.2 && t < 38.0 ? -6 : 0 });
     popA(cV, t, 36.45, { r: -3 }); popA(cN.wrapper || cN, t, 37.23, { r: 2 });
@@ -402,9 +352,9 @@ headline(35.62, 38.95, 'El diseñador de *vestuario*', { size: 84, hlT: 36.45 })
 /* ======================================================================
    G2 · ...LES PONE CUERNOS (38.95 – 40.02)  L6b — el lápiz dibuja los cuernos
    ====================================================================== */
-headline(38.95, 40.02, '…les pone *cuernos*', { size: 96, hlT: 39.28 });
+headline1(38.95, 40.02, '…les pone *cuernos*', { size: 96, hlT: 39.28 });
 {
-  const c = scene(38.95, 40.02, t => {
+  const c = scene1(38.95, 40.02, t => {
     const segs = [[39.1, 39.3], [39.3, 39.44], [39.46, 39.66], [39.66, 39.84]];
     let tip = null;
     hp.forEach((h, i) => { const k = clamp((t - segs[i][0]) / (segs[i][1] - segs[i][0])); h.style.strokeDashoffset = f1((1 - k) * 1000) / 1000; if (k > 0 && k < 1) { const L = h.getTotalLength(); const pt = h.getPointAtLength(L * k); tip = [pt.x, pt.y]; } });
@@ -425,9 +375,9 @@ headline(38.95, 40.02, '…les pone *cuernos*', { size: 96, hlT: 39.28 });
 /* ======================================================================
    G3 · EN EL ESCENARIO (40.02 – 41.72)  L6c — cantantes con cuernos y alas bajo el foco
    ====================================================================== */
-headline(40.02, 41.72, 'En el *escenario*…', { size: 92, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 40.71, shadow: `4px 4px 0 ${INK}` });
+headline1(40.02, 41.72, 'En el *escenario*…', { size: 92, color: PAPER, keyColor: YEL, hlc: 'transparent', hlT: 40.71, shadow: `4px 4px 0 ${INK}` });
 {
-  const c = scene(40.02, 41.72, t => {
+  const c = scene1(40.02, 41.72, t => {
     S.forEach((f, i) => { const k = pop(t, f.t, 0.4); set(f.d, { s: k, o: t < f.t ? 0 : 1, y: wobble(t, 0.9, 4, i) }); if (f.mouth) f.mouth.setAttribute('transform', `translate(150 212) scale(1 ${f1(0.6 + 0.6 * Math.abs(Math.sin(t * (8 + i))))}) translate(-150 -212)`); });
     set(spotL, { x: Math.sin(t * 1.5) * 60, o: 0.9 });
   }, { clip: true });
@@ -439,7 +389,7 @@ headline(40.02, 41.72, 'En el *escenario*…', { size: 92, color: PAPER, keyColo
     const f = mk(c, [q[0], q[1], 230, 491], singerInner(Object.assign({ weapon: q[2], seed: 70 + i }, q[3])), '0 0 300 640', 'sng'); f.mouth = f.d.querySelector('.mouth'); f.t = q[4]; f.d.style.zIndex = 3; f.d.style.transformOrigin = '50% 100%'; S.push(f);
   });
 }
-colorHit(41.72, 43.35, YEL, c => {
+colorHit1(41.72, 43.35, YEL, c => {
   const sil = [];
   [[60, 760, 'spear', { horns: true, wings: true, raise: true }], [380, 700, 'none', { horns: true, wings: true }], [700, 760, 'sword', { horns: true, shield: true, beard: false }]].forEach((q, i) => {
     const f = mk(c, [q[0], q[1], 300, 640], singerInner(Object.assign({ weapon: q[2], seed: 80 + i }, q[3])), '0 0 300 640', 'sng'); f.d.style.filter = SIL; f.d.style.zIndex = 3; f.d.style.transformOrigin = '50% 100%'; sil.push(f);
@@ -458,10 +408,10 @@ colorHit(41.72, 43.35, YEL, c => {
 /* ======================================================================
    H · CÓMICS, PELÍCULAS, FÚTBOL AMERICANO… TODOS CON CUERNOS (43.35 – 49.38)  L7
    ====================================================================== */
-headline(43.35, 44.4, 'Funcionó *tan bien*…', { size: 92, hlT: 43.76 });
-headline(44.4, 49.38, 'Desde entonces… todos con *cuernos*', { size: 76, hlT: 48.54 });
+headline1(43.35, 44.4, 'Funcionó *tan bien*…', { size: 92, hlT: 43.76 });
+headline1(44.4, 49.38, 'Desde entonces… todos con *cuernos*', { size: 76, hlT: 48.54 });
 {
-  const c = scene(43.35, 49.38, t => {
+  const c = scene1(43.35, 49.38, t => {
     // boceto original que se encoge a la esquina
     const ks = p(t, 44.3, 0.45, E.inOutCubic);
     set(skP.wrap, { x: lerp(0, -170, ks), y: lerp(0, -40, ks), s: lerp(1, 0.55, ks) * pop(t, 43.4, 0.4), r: lerp(-3, -8, ks), o: 1 });
@@ -499,9 +449,9 @@ headline(44.4, 49.38, 'Desde entonces… todos con *cuernos*', { size: 76, hlT: 
 /* ======================================================================
    I1 · ¡OJO! CASCOS CON CUERNOS SÍ EXISTIERON (49.38 – 53.02)  L8a
    ====================================================================== */
-headline(49.38, 53.02, 'Cascos con cuernos *sí existieron*', { size: 76, hlT: 51.25 });
+headline1(49.38, 53.02, 'Cascos con cuernos *sí existieron*', { size: 76, hlT: 51.25 });
 {
-  const c = scene(49.38, 53.02, t => {
+  const c = scene1(49.38, 53.02, t => {
     const k = p(t, 49.42, 0.18, E.outCubic), sh = p(t, 50.15, 0.35, E.inOutCubic);
     set(ojo, { s: t < 49.42 ? 0 : lerp(2.4, 1, k) * lerp(1, 0.5, sh), x: sh * 300, y: sh * -110, r: -8, o: t < 49.42 ? 0 : 1 });
     popA(h1.d, t, 50.41, { r: -4, rise: 200 }); popA(h2.d, t, 50.69, { r: 4, rise: 200 });
@@ -516,192 +466,4 @@ headline(49.38, 53.02, 'Cascos con cuernos *sí existieron*', { size: 76, hlT: 5
   const cS = chip(c, 330, 1020, 'sí existieron ✓', { size: 46, bg: YEL, color: INK });
   const cE = chip(c, 560, 1120, 'Escandinavia', { size: 42 });
 }
-
-/* ======================================================================
-   I2 · EDAD DEL BRONCE, ≈ 2.000 AÑOS ANTES (53.02 – 56.68)  L8b — línea de tiempo
-   ====================================================================== */
-headline(53.02, 56.68, 'Pero en la *Edad del Bronce*', { size: 80, hlT: 53.79 });
-{
-  const c = scene(53.02, 56.68, t => {
-    const kl = p(t, 53.1, 0.5, E.outCubic); set(line, { sx: Math.max(0.001, kl), o: 1 });
-    popA(vx.d, t, 53.6, { r: -4, rise: 100 }); popA(cB, t, 53.79, { r: -3 });
-    popA(vk.d, t, 55.84, { rise: 100 }); popA(cV, t, 55.94, { r: 3 });
-    brk.style.strokeDashoffset = f1((1 - p(t, 54.57, 1.2, E.inOutCubic)) * 1000) / 1000;
-    const n = counter(t, 54.79, 0.9, 0, 2000); num.textContent = t < 54.75 ? '' : '≈ ' + fmt(Math.round(n / 10) * 10);
-    set(numW, { s: t > 55.2 ? 1 + 0.08 * (1 - p(t, 55.2, 0.4)) : 1, o: t < 54.75 ? 0 : 1 });
-    popA(cA, t, 55.49, { r: -2 });
-    face(vk, t, { look: [-5, 0], bL: t > 56 ? 10 : 0, bR: t > 56 ? 10 : 0, seed: 0.2 });
-  });
-  const line = box(c, 80, 900, 880, 16, { background: INK, borderRadius: '8px', transformOrigin: '0 50%', zIndex: 2 });
-  box(c, 0, 0, 1080, 1920, { zIndex: 2 }).innerHTML = `<svg width="1080" height="1920"><path d="M960,908 l-34,-24 v48 Z" fill="${INK}"/><circle cx="250" cy="908" r="20" fill="${YEL}" stroke="${INK}" stroke-width="6"/><circle cx="790" cy="908" r="20" fill="${PINK}" stroke="${INK}" stroke-width="6"/></svg>`;
-  const vx = mk(c, [110, 560, 290, 305], veksoInner(), '0 0 400 420', 'vx');
-  const vk = mkVik(c, [650, 520, 280, 373], { horns: false, axe: false, seed: 39 });
-  const cB = chip(c, 110, 950, 'Edad del Bronce', { size: 40, bg: BRONZE, color: INK });
-  const cV = chip(c, 690, 950, 'vikingos', { size: 40, bg: INK, color: YEL });
-  const bL = box(c, 0, 0, 1080, 1920, { zIndex: 3 }); bL.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><path class="brk" d="M790,870 Q520,700 250,870" pathLength="1" stroke-dasharray="1" stroke="${PINK}" stroke-width="10" fill="none" stroke-linecap="round"/></svg>`;
-  const brk = bL.querySelector('.brk');
-  const numW = box(c, 200, 1040, 680, 140, { zIndex: 5 });
-  const num = el('div', numW, { left: 0, top: 0, width: '680px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '120px', lineHeight: 1, color: INK, textShadow: `6px 6px 0 ${YEL}` }, '');
-  const cA = chip(c, 400, 1180, 'años antes', { size: 40, bg: '#fff', color: INK });
-}
-
-/* ======================================================================
-   I3 · CEREMONIALES, NO PARA LA GUERRA (56.68 – 59.18)  L8c
-   ====================================================================== */
-headline(56.68, 59.18, 'Y eran *ceremoniales*', { size: 88, hlT: 57.17 });
-{
-  const c = scene(56.68, 59.18, t => {
-    set(rr, { r: t * 10, o: 0.8 });
-    [h1, h2].forEach((h, i) => set(h.d, { y: wobble(t, 0.5, 6, i * 0.5), r: (i ? 6 : -6) + wobble(t, 0.4, 2, i) }));
-    flames.forEach((f, i) => set(f, { sy: 1 + 0.15 * Math.sin(t * 17 + i * 2), sx: 1 + 0.08 * Math.sin(t * 13 + i), r: Math.sin(t * 9 + i) * 5 }));
-    popA(cC, t, 57.17, { r: -3 });
-    popA(wp, t, 58.11, { r: 0 });
-    const kx = p(t, 58.15, 0.2, E.outBack); set(wx, { s: lerp(2, 1, kx), o: t < 58.15 ? 0 : 1 });
-    popA(cN, t, 58.3, { r: 3 });
-  }, { clip: true });
-  sceneBg(c, { background: '#e7d3a8' });
-  const rr = rays(c, -60, 260, 1200, 24, 'rgba(201,162,74,.35)', 'transparent', 0); rr.style.transformOrigin = '600px 600px';
-  const cush = box(c, 0, 0, 1080, 1920, { zIndex: 2 });
-  cush.innerHTML = `<svg width="1080" height="1920"><g>${cut('<path d="M250,960 Q540,900 830,960 L850,1060 Q540,1110 230,1060 Z"/>')}<path d="M250,960 Q540,900 830,960 L850,1060 Q540,1110 230,1060 Z" fill="${CURT}" stroke="${INK}" stroke-width="5"/><path d="M250,960 Q540,900 830,960 L850,1060 Q540,1110 230,1060 Z" fill="url(#hD)" opacity=".4"/><path d="M270,975 Q540,925 810,975" stroke="${BRASS}" stroke-width="6" fill="none"/><circle cx="240" cy="1066" r="16" fill="${BRASS}" stroke="${INK}" stroke-width="3"/><circle cx="840" cy="1066" r="16" fill="${BRASS}" stroke="${INK}" stroke-width="3"/></g>
-  <rect x="210" y="1080" width="660" height="220" fill="#cdbf9f" stroke="${INK}" stroke-width="6"/><rect x="210" y="1080" width="660" height="220" fill="url(#hB)" opacity=".5"/><rect x="190" y="1070" width="700" height="30" fill="#efe4ca" stroke="${INK}" stroke-width="5"/></svg>`;
-  const flames = [];
-  [100, 900].forEach(x => {
-    box(c, x - 26, 900, 52, 260, { background: '#f4ecdb', border: `5px solid ${INK}`, borderRadius: '8px', zIndex: 2, backgroundImage: 'linear-gradient(90deg, transparent 60%, rgba(43,33,24,.2) 60%)' });
-    const f = box(c, x - 30, 810, 60, 100, { zIndex: 3, transformOrigin: '30px 100px' }); f.innerHTML = `<svg viewBox="0 0 60 100" width="60" height="100"><path d="M30,4 C46,36 56,56 54,74 A24,24 0 0,1 6,74 C4,56 14,36 30,4 Z" fill="${YEL}" stroke="${INK}" stroke-width="4"/><path d="M30,40 C38,56 42,66 40,76 A10,10 0 0,1 20,76 C18,66 22,56 30,40 Z" fill="#ff8a2a"/></svg>`; flames.push(f);
-  });
-  const h1 = mk(c, [190, 560, 360, 378], veksoInner(), '0 0 400 420', 'vx'); h1.d.style.zIndex = 3;
-  const h2 = mk(c, [530, 560, 360, 378], veksoInner(), '0 0 400 420', 'vx'); h2.d.style.zIndex = 3;
-  const cC = chip(c, 340, 1140, 'ceremoniales', { size: 50, bg: YEL, color: INK });
-  const wp = box(c, 600, 360, 340, 260, { zIndex: 5 }); wp.innerHTML = `<svg viewBox="0 0 260 200" width="100%" height="100%" style="overflow:visible"><g transform="rotate(-35 130 100)">${cut('<rect x="30" y="88" width="200" height="22" rx="6"/>', 4, 5)}<rect x="30" y="88" width="160" height="22" rx="4" fill="${IRON}" stroke="${INK}" stroke-width="4"/><rect x="186" y="78" width="14" height="42" fill="${BRASS}" stroke="${INK}" stroke-width="3"/><rect x="200" y="90" width="40" height="18" fill="${WOOD}" stroke="${INK}" stroke-width="3"/></g><g transform="rotate(35 130 100)"><rect x="30" y="88" width="200" height="14" fill="${WOOD}" stroke="${INK}" stroke-width="4"/><path d="M30,70 C60,70 70,120 30,124 Z" fill="${IRON}" stroke="${INK}" stroke-width="4"/></g></svg>`;
-  const wx = box(c, 710, 430, 120, 120, { zIndex: 6 }, XSVG);
-  const cN = chip(c, 580, 640, 'no para la guerra', { size: 36, bg: RED, color: '#fff' });
-}
-
-/* ======================================================================
-   J1 · LA IMAGEN QUE TIENES DE UN VIKINGO… (59.18 – 62.75)  L9a
-   ====================================================================== */
-headline(59.18, 62.75, 'La imagen que tienes de un *vikingo*…', { size: 74, hlT: 61.32 });
-{
-  const c = scene(59.18, 62.75, t => {
-    set(vk.d, { y: wobble(t, 0.5, 3) });
-    const lookC = t > 61.32;
-    face(vk, t, { look: lookC ? [0, 1] : [6, -1], bL: lookC ? 14 : 0, bR: lookC ? 14 : 0, jaw: lookC ? 0.35 : 0, seed: 0.9 });
-    vk.head.setAttribute('transform', `rotate(${f1(lookC ? -3 : 4)} 210 300)`);
-    const ks = p(t, 59.39, 0.45, E.outBack); set(sk.wrap, { s: ks, r: 6 + wobble(t, 0.6, 2), o: t < 59.39 ? 0 : 1 });
-    set(qm, { o: t > 61.5 ? 1 : 0, s: pop(t, 61.5, 0.35), y: Math.sin(t * 5) * 8, r: -10 });
-    set(eq, { o: t > 60.28 ? 1 : 0, s: pop(t, 60.28, 0.35) });
-  });
-  const vk = mkVik(c, [110, 560, 520, 693], { horns: true, seed: 31 });
-  const sk = paperPiece(c, 620, 520, 340, 420, { seed: 91, bg: '#FBF6EA' });
-  sk.inner.innerHTML += `<svg viewBox="0 0 600 700" width="322" height="380" style="position:absolute;left:0;top:0">${sketchFig(true, 'x')}</svg><div style="position:absolute;right:12px;bottom:6px;font-family:SpecialElite;font-size:22px;color:#5a4a3a">Doepler · 1876</div>`;
-  const eq = el('div', c, { left: '560px', top: '640px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: PINK, textShadow: `4px 4px 0 ${INK}`, zIndex: 20 }, '=');
-  const qm = el('div', c, { left: '160px', top: '470px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '130px', color: PINK, textShadow: `5px 5px 0 ${INK}`, zIndex: 20 }, '?');
-}
-colorHit(62.75, 64.95, PINK, c => {
-  const dp = mk(c, [540, 640, 440, 562], doeplerInner(), '0 0 360 460', 'bust'); dp.d.style.filter = SIL; dp.d.style.zIndex = 3;
-  const th = box(c, 70, 620, 460, 560, { zIndex: 3 });
-  th.innerHTML = `<svg viewBox="0 0 460 560" width="460" height="560" style="overflow:visible"><path d="M0,560 V120 Q0,0 230,0 Q460,0 460,120 V560 H400 V150 Q400,60 230,60 Q60,60 60,150 V560 Z" fill="${INK}"/><path d="M60,560 V150 Q60,60 230,60 Q400,60 400,150 V560 Z" fill="rgba(0,0,0,.18)"/></svg>`;
-  const vk = mk(c, [140, 760, 320, 427], vikingInner({ horns: true, seed: 31 }), '0 0 420 560', 'vik'); vk.d.style.filter = SIL; vk.d.style.zIndex = 4;
-  const pen = box(c, 560, 900, 60, 300, { zIndex: 5, transformOrigin: '30px 0' }, pencilSvg);
-  const t1 = el('div', c, { left: '0', top: '210px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '92px', lineHeight: 1.05, color: INK, zIndex: 6 });
-  const parts = [['la diseñó', 165, false], ['un', 167, false], ['SEÑOR', 168, true], ['<br>para', 169, false], ['un', 170, false], ['TEATRO', 171, true]];
-  const ws = parts.map(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; if (q[0].startsWith('<br>')) { t1.appendChild(document.createElement('br')); q[0] = q[0].slice(4); } s.innerHTML = q[2] ? `<span style="font-style:italic;color:#fff;text-shadow:5px 5px 0 ${INK}">${q[0]}</span>` : q[0]; t1.appendChild(s); return { e: s, t: W[q[1]].s }; });
-  return t => {
-    ws.forEach(q => { const k = p(t, q.t - 0.1, 0.25, E.outBack); set(q.e, { y: (1 - k) * 40, o: t < q.t - 0.1 ? 0 : 1 }); });
-    t1.style.textShadow = glitch(t, 62.8, 0.25) || glitch(t, 64.32, 0.3);
-    set(dp.d, { y: wobble(t, 0.6, 4), r: Math.sin(t * 2) * 2 });
-    set(vk.d, { y: -Math.abs(Math.sin(t * 6)) * 14, r: Math.sin(t * 6) * 4 });
-    set(pen, { x: Math.sin(t * 8) * 18, r: -20 + Math.sin(t * 8) * 8 });
-  };
-});
-
-/* ======================================================================
-   K · CTA: ¿QUÉ OTRO MITO DE PELÍCULA? (64.95 – 67.98)  L10 — Vecino a pantalla completa
-   ====================================================================== */
-headline(64.95, 67.25, '¿Qué otro *mito* de película?', { size: 78, hlT: 65.46 });
-headline(67.25, 67.98, 'Os *leo*', { size: 100, hlT: 67.44 });
-{
-  const CM = [];
-  const c = scene(64.95, 67.98, t => {
-    set(vec.d, { y: wobble(t, 0.5, 3), s: 1 + 0.03 * p(t, 64.95, 3, E.linear) });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t < 66.4 ? [0, 0] : [-4, 6], bL: t > 65.4 && t < 66.2 ? 10 : 2, bR: t > 65.4 && t < 66.2 ? 14 : 6, fan: wobble(t, 0.9, 6), noCup: true, seed: 2 });
-    CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
-    set(frameV, { r: 4 + wobble(t, 0.4, 1) });
-  }, { clip: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, #F4CFDA 0 30px, #F9E3EA 30px 60px)` });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
-  const frameV = box(c, 680, 420, 260, 330, { border: `14px solid ${BRASS}`, outline: `4px solid ${INK}`, background: PAPER, boxShadow: `8px 8px 0 ${SH}`, overflow: 'hidden' }); frameV.innerHTML = cropUse('vikS', '0 40 420 560', 420, 560);
-  const vec = mkVec(c, [100, 400, 660, 817]);
-  const cms = [['VIK', '@vikinga_de_ciudad', '¿Y los piratas con loro?', 66.19], ['FAR', '@disfraz_total', 'mi disfraz de carnaval está mal entonces 😭', 66.75], ['SOL', '@historia_sin_filtro', '¡Más mitos, porfa! 🙏', 67.4]];
-  cms.forEach((m, i) => {
-    const e = box(c, 70 + (i % 2) * 30, 930 + i * 112, 0, 96, { width: 'auto', paddingRight: '34px', background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
-    const a = avatar(e, 10, 8, 76, m[0], { bw: 3 }); a.style.position = 'absolute';
-    const u = el('div', e, { position: 'relative', marginLeft: '100px', marginTop: '6px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '24px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]); u.style.position = 'relative';
-    const tx = el('div', e, { fontFamily: 'Bricolage', fontWeight: 800, fontSize: '30px', color: INK, whiteSpace: 'nowrap', marginLeft: '100px' }, m[2]); tx.style.position = 'relative';
-    CM.push({ e, t: m[3] });
-  });
-}
-
-/* ======================================================================
-   L1 · Y ESTO… (67.98 – 69.17)   L2 · NO VENÍA EN EL LIBRO — libro que se cierra (69.17 – 70.45)
-   ====================================================================== */
-headline(67.98, 69.17, 'Y esto…', { size: 120, color: YEL, y: 200, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` });
-headline(69.17, 70.45, '…no venía en el *libro*.', { size: 84, hlT: 69.83 });
-{
-  const c = scene(67.98, 69.17, t => {
-    const k = p(t, 67.98, 1.1, E.inOutCubic);
-    set(vec.d, { s: 1 + 0.22 * k, y: k * 30, r: -k * 4 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO') * 0.6, look: [0, 1], bL: 10, bR: 14, fan: -30, half: true, blink: false });
-    vec.hMouth.setAttribute('transform', 'translate(64,-34) rotate(-20 206 318)'); vec.hMouth.style.opacity = 1; vec.cup.style.opacity = 0;
-  }, { cut: true, clip: true });
-  sceneBg(c, { background: INK });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 46%, rgba(255,230,180,.35), rgba(0,0,0,0) 55%)', zIndex: 1 });
-  const vec = mkVec(c, [-30, 300, 1140, 1411]); vec.d.style.zIndex = 2; vec.d.style.transformOrigin = '540px 650px';
-}
-{
-  const c = scene(69.17, 70.45, t => {
-    const k = p(t, 69.5, 0.3, E.inCubic); const sx = 1 - 2 * k;
-    flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
-    pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
-    const closed = t > 69.8;
-    stand.d.style.display = sx > 0.25 ? '' : 'none'; trap.style.display = sx <= 0.25 ? '' : 'none';
-    face(stand, t, { look: t > 69.35 ? [6, -5] : [-3, 2], seed: 1, jaw: t > 69.4 ? 0.5 : 0, bL: t > 69.35 ? 14 : 0, bR: t > 69.35 ? 14 : 0 }); set(stand.d, { y: wobble(t, 1, 3) });
-    set(bookW, { s: 1.25 * pop(t, 69.18, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, 69.83, 0.3)) : 0)), o: 1 });
-    stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
-    hrn.forEach((f, i) => { const kf = p(t, 69.83, 0.5, E.outCubic); set(f, { x: (i - 0.5) * 260 * kf, y: -kf * 220 + kf * kf * 160, r: t * (i ? 300 : -300), o: closed ? 1 : 0 }); });
-  });
-  const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  const bs = svgLayer(bookW, 1);
-  let lines = ''; for (let i = 0; i < 10; i++) lines += `<path d="M180,${850 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  bs.innerHTML = `<g>${cut('<rect x="110" y="630" width="440" height="570" rx="14"/>')}<rect x="110" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/></g>
-   <g class="trap"><use href="#vikS" x="250" y="520" width="260" height="347"/></g>
-   <rect x="130" y="646" width="410" height="536" fill="#F7F0E0" stroke="${INK}" stroke-width="4"/><rect x="130" y="646" width="410" height="536" fill="url(#hP)" opacity=".5"/>
-   <text x="335" y="740" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="50" fill="${INK}">VIKINGOS</text><text x="335" y="790" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="700" font-size="34" fill="${INK}">capítulo IV</text>${lines}
-   <g class="flap">${cut('<rect x="530" y="630" width="440" height="570" rx="14"/>')}<rect x="530" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><g class="pageF"><rect x="540" y="646" width="410" height="536" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/>${lines2}</g>
-    <g class="coverF"><rect x="540" y="630" width="430" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="566" y="656" width="378" height="518" rx="8" fill="none" stroke="#c9a24a" stroke-width="4"/>
-    <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
-  const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF'), trap = bs.querySelector('.trap');
-  const stand = mkVik(bookW, [600, 560, 300, 400], { horns: true, axe: true, seed: 31 }); stand.d.style.zIndex = 2;
-  const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '500px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-  const hrn = [box(bookW, 300, 520, 90, 125, { zIndex: 3 }, hornSvg()), box(bookW, 420, 520, 90, 125, { zIndex: 3 }, `<div style="width:100%;height:100%;transform:scaleX(-1)">${hornSvg()}</div>`)];
-}
-
-/* ======================================================================
-   TARJETA FINAL (70.45 – fin)
-   ====================================================================== */
-{
-  const c = scene(70.45, 999, t => {
-    set(lt, { s: pop(t, 70.7, 0.45), o: t < 70.7 ? 0 : 1 }); paint(lhl, t, 71.0, 0.4);
-    popA(ttl, t, 71.15, { r: -1 }); popA(src, t, 71.4, { rise: 30 });
-    set(peek.d, { x: (1 - p(t, 71.6, 0.45, E.outBack)) * 400, r: -10 + wobble(t, 0.6, 2), o: 1 });
-    face(peek, t, { look: [-5, 2], seed: 2, bL: 8, bR: 8 });
-  }, { clip: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, rgba(244,207,218,.55) 0 30px, rgba(249,227,234,.55) 30px 60px)` });
-  const peek = mkVik(c, [800, 1060, 300, 400], { horns: false, axe: false, seed: 40 }); peek.d.style.zIndex = 2;
-  const lt = box(c, 40, 790, 1000, 240, { textAlign: 'center', zIndex: 3 });
-  lt.innerHTML = `<div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:92px;line-height:1;color:${INK}">esto no venía</div><div style="font-family:Playfair;font-weight:900;font-size:104px;line-height:1.1;color:${INK}">en el ${hlSpan('libro', 'lhl')}</div>`;
-  const lhl = lt.querySelector('.lhl');
-  const ttl = el('div', c, { left: '90px', top: '1030px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '56px', color: '#fff', background: INK, padding: '14px 10px 18px', borderRadius: '14px', boxShadow: `7px 7px 0 ${PINK}`, zIndex: 3 }, 'Ep. 5 · Vikingos sin cuernos');
-  const src = el('div', c, { left: '80px', top: '1150px', width: '840px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '27px', lineHeight: 1.3, color: INK, zIndex: 3 }, 'Fuentes: casco de Gjermundbu (Museo de Historia Cultural, Oslo) · vestuario de Carl Emil Doepler, Bayreuth 1876 · cascos de Veksø (Museo Nacional de Dinamarca)');
-}
+/* ==== v2: final nuevo en scenes_end.js ==== */

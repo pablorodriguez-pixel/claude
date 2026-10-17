@@ -62,3 +62,5 @@ el 2–4 % ve la tarjeta final.
 5. Contexto en UNA línea; el dato raro y comprobable cuanto antes. «Ojo» ≤ 6 s.
 6. Remate + pregunta (sí/no) en UNA sola frase.
 7. Duración objetivo 55–65 s.
+8. NADA DE CONTADORES que pasen por cifras intermedias (años, km, kg): el valor final aparece DIRECTO con golpe de sello en
+   la palabra. Un fotograma con «1926» o «4.500 km» es un dato falso en pantalla (y puede ser la miniatura de alguien).

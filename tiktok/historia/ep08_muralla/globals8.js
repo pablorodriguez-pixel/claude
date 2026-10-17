@@ -1,3 +1,21 @@
+/* ======== Ep. 8 · v2 — TODO clavado por TEXTO a words.js ========
+   T(x): las escenas conservan como referencia los tiempos de la locución v1; cada línea del guion se
+   localiza en la voz nueva con find() y x se desplaza con ella (dentro de una línea, el ritmo es el mismo). */
+const RMAP = [
+  [0.16, 'la gran muralla china no se ve'], [5.50, 'ese dato que te'], [12.06, 'la muralla es larguisima'],
+  [19.49, 'y ademas es del mismo color'], [23.88, 'en dos mil tres yang'], [31.89, 'lo curioso es que el mito'],
+  [40.07, 'desde la luna por cierto'], [46.66, 'ojo con camaras'], [55.51, 'o sea una de las mayores'],
+].map(([v1, ph]) => [v1, w(ph)]);
+function T(x) { let a = RMAP[0]; for (const r of RMAP) if (r[0] <= x + 0.5) a = r; return a[1] + (x - a[0]); }
+/* anclas del tramo nuevo (pregunta SÍ/NO, firma en el balcón, libro, bucle) */
+const K = {};
+{
+  const iq = find('te lo creias'); K.te = w(iq); K.creias = w(iq + 2);
+  const is = find('si o no', iq); K.si = w(is); K.noB = w(is + 2); K.qEnd = we(is + 2);
+  const iv = find('soy tu vecino'); K.isoy = iv; K.soy = w(iv); K.vecino = w(iv + 2); K.vecE = we(iv + 2);
+  const ie = find('y esto no venia en el libro', iv); K.iye = ie; K.y = w(ie); K.esto = w(ie + 1); K.noV = w(ie + 2); K.libro = w(ie + 6); K.END = we(ie + 6);
+}
+const DUR = K.END + 0.6, LOOP = DUR - 0.4;
 /* ======== Ep. 8 · globales: Vecino en su óvalo + utilidades ======== */
 const DARK = { color: PAPER, keyColor: YEL, hlc: 'rgba(0,0,0,0)', shadow: `4px 4px 0 ${INK}` };
 function pathLen(pe) { return pe.getTotalLength(); }
@@ -39,12 +57,10 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
 const CX = -41, CY = 45;
 // [t, x, y, s, r, o]
 const OVK = [
-  [0, CX, CY, 0.75, 0, 1], [8.4, CX, CY, 0.75, 0, 1], [8.41, CX, CY, 0.75, 0, 0],
-  [11.95, CX, CY, 0.75, 0, 0], [11.96, CX, CY, 0.45, 0, 1], [12.3, CX, CY, 0.75, 0, 1],
-    [30.54, CX, CY, 0.75, 0, 1], [30.55, CX, CY, 0.75, 0, 0], [31.85, CX, CY, 0.75, 0, 0], [31.86, CX, CY, 0.45, 0, 1], [32.2, CX, CY, 0.75, 0, 1],
-  [46.5, CX, CY, 0.75, 0, 1], [46.75, 10, -30, 0.95, -3, 1], [47.6, 10, -30, 0.95, -3, 1], [47.85, CX, CY, 0.75, 0, 1],
-  [60.49, CX, CY, 0.75, 0, 1], [60.5, CX, CY, 0.75, 0, 0],
-  [67.79, 335, -600, 0.4, 0, 0], [67.8, 335, -600, 0.4, 0, 1], [68.25, 335, -600, 1.05, 0, 1],
+  [0, CX, CY, 0.75, 0, 1],
+  [T(30.54), CX, CY, 0.75, 0, 1], [T(30.55), CX, CY, 0.75, 0, 0], [T(31.85), CX, CY, 0.75, 0, 0], [T(31.86), CX, CY, 0.45, 0, 1], [T(32.2), CX, CY, 0.75, 0, 1],
+  [T(46.5), CX, CY, 0.75, 0, 1], [T(46.75), 10, -30, 0.95, -3, 1], [T(47.6), 10, -30, 0.95, -3, 1], [T(47.85), CX, CY, 0.75, 0, 1],
+  [T(60.49), CX, CY, 0.75, 0, 1], [T(60.5), CX, CY, 0.75, 0, 0],
 ];
 function ovalState(t) {
   if (t <= OVK[0][0]) return OVK[0];
@@ -54,7 +70,7 @@ function ovalState(t) {
   }
   return OVK[OVK.length - 1];
 }
-const LAUGH = [[23.0, 23.75], [60.0, 60.45]];
+const LAUGH = [[T(23.0), T(23.75)], [T(60.0), T(60.45)]];
 function updOval(t) {
   const st = ovalState(t);
   const inL = LAUGH.find(L => t >= L[0] && t < L[1]);
@@ -62,17 +78,16 @@ function updOval(t) {
   set(ovalW, { x: st[1], y: st[2] + shk + wobble(t, 0.5, 2), s: st[3], r: st[4] + (inL ? Math.sin(t * 20) * 2 : 0), o: st[5] });
   if (st[5] === 0) return;
   const o = { jaw: talkW(t, 'VECINO'), look: [0, 0], bL: 0, bR: 0, fan: wobble(t, 0.8, 5), seed: 1.3 };
-  if (t < 2.9) { o.look = [5, -4]; o.bL = 8; o.bR = 12; }
-  else if (t < 5.3) { o.look = [4, -3]; o.bR = 14; }
-  if (t > 7.8 && t < 8.4) { o.fan = Math.sin(t * 26) * 22 - 10; o.bL = 16; o.bR = 16; }
-  if (t > 13.8 && t < 15.4) { o.look = [5, -3]; o.bL = 10; o.bR = 10; }
-  if (t > 15.4 && t < 19.3) { o.look = [5, -1]; }
+  if (t < T(2.9)) { o.look = [5, -4]; o.bL = 8; o.bR = 12; }
+  else if (t < T(5.3)) { o.look = [4, -3]; o.bR = 14; }
+  if (t > T(7.8) && t < T(8.4)) { o.fan = Math.sin(t * 26) * 22 - 10; o.bL = 16; o.bR = 16; }
+  if (t > T(13.8) && t < T(15.4)) { o.look = [5, -3]; o.bL = 10; o.bR = 10; }
+  if (t > T(15.4) && t < T(19.3)) { o.look = [5, -1]; }
   if (inL) { o.hm = true; o.closed = true; o.bL = 10; o.bR = 10; o.jaw = 0.3; }
-  if (t > 31.9 && t < 33.2) { o.bR = 16; o.bL = 0; o.look = [3, -2]; }
-  if (t > 38.0 && t < 39.9) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 12; o.bR = 12; }
-  if (t > 41.3 && t < 43.6) { o.look = [5, -4]; o.half = true; }
-  if (t > 46.6 && t < 47.8) { o.bL = 16; o.bR = 16; o.fan = Math.sin(t * 26) * 22 - 10; }
-  if (t > 52.0 && t < 55.4) { o.look = [5, -2]; }
-  if (t > 68) { o.look = [0, 0]; o.bR = Math.sin(t * 3) > 0.6 ? 10 : 0; o.jaw = 0; }
+  if (t > T(31.9) && t < T(33.2)) { o.bR = 16; o.bL = 0; o.look = [3, -2]; }
+  if (t > T(38.0) && t < T(39.9)) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 12; o.bR = 12; }
+  if (t > T(41.3) && t < T(43.6)) { o.look = [5, -4]; o.half = true; }
+  if (t > T(46.6) && t < T(47.8)) { o.bL = 16; o.bR = 16; o.fan = Math.sin(t * 26) * 22 - 10; }
+  if (t > T(52.0) && t < T(55.4)) { o.look = [5, -2]; }
   vecFace(vecO, t, o);
 }

@@ -16,12 +16,7 @@
 {
 "who": "VECINO",
 "text": "Y la culpa de que lo creas... es de una ópera.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
@@ -45,19 +40,15 @@
 },
 {
 "who": "VECINO",
-"text": "Ojo: cascos con cuernos sí existieron en Escandinavia. Pero en la Edad del Bronce, unos dos mil años antes de los vikingos. Y eran ceremoniales, no para la guerra."
+"text": "Ojo: cascos con cuernos sí existieron en Escandinavia. Pero dos mil años antes de los vikingos. Y eran ceremoniales."
 },
 {
 "who": "VECINO",
-"text": "O sea: la imagen que tienes de un vikingo... la diseñó un señor para un teatro."
+"text": "O sea: la imagen que tienes de un vikingo... la diseñó un señor para un teatro. ¿Te lo creías? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Qué otro mito de película queréis que desmonte? Os leo."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

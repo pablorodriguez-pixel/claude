@@ -1,20 +1,20 @@
 /* ======================================================================
    S0 · GANCHO (0 – 5.35)  L0 — astronauta con prismáticos, la muralla como un hilo
    ====================================================================== */
-headline(-1, 2.88, 'La Gran Muralla *NO* se ve desde el espacio', Object.assign({ size: 86, y: 200 }, DARK, { keyColor: YEL }));
+headline(-1, T(2.88), 'La Gran Muralla *NO* se ve desde el espacio', Object.assign({ size: 86, y: 200 }, DARK, { keyColor: YEL }));
 HLS[HLS.length - 1].spans.forEach(s => s.t = -1);
-headline(2.88, 5.35, '…y el primer *astronauta chino* lo confirmó', Object.assign({ size: 68, y: 200 }, DARK));
+headline(T(2.88), T(5.35), '…y el primer *astronauta chino* lo confirmó', Object.assign({ size: 68, y: 200 }, DARK));
 {
-  const c = scene(-1, 5.35, t => {
+  const c = scene(-1, T(5.35), t => {
     set(cam, { s: 1 + 0.06 * p(t, 0, 5.3, E.linear) });
     set(stars, { x: -t * 6 });
     set(earth.d, { r: t * 0.8 });
     set(ship, { y: wobble(t, 0.35, 6), r: wobble(t, 0.25, 0.8) });
-    const down = p(t, 3.45, 0.35, E.inOutCubic);
+    const down = p(t, T(3.45), 0.35, E.inOutCubic);
     astro.binos.setAttribute('transform', `translate(${f1(-down * 30)},${f1(down * 150)}) rotate(${f1(-down * 18)} 150 260)`);
     face(astro, t, { look: down > 0.5 ? [0, 0] : [-5, 5], bL: 0, brow: down > 0.5 ? -10 : 0, jaw: down > 0.5 ? 0.25 + Math.abs(Math.sin(t * 7)) * 0.2 : 0, seed: 0.7 });
     set(astro.d, { r: wobble(t, 0.3, 2), y: wobble(t, 0.45, 5) });
-    qm.forEach((q, i) => { const tq = 3.9 + i * 0.22; set(q, { s: pop(t, tq, 0.4), y: Math.sin(t * 5 + i) * 8, r: (i - 1) * 14, o: t < tq ? 0 : 1 }); });
+    qm.forEach((q, i) => { const tq = T(3.9) + i * 0.22; set(q, { s: pop(t, tq, 0.4), y: Math.sin(t * 5 + i) * 8, r: (i - 1) * 14, o: t < tq ? 0 : 1 }); });
     set(thread, { o: 0.75 + 0.25 * Math.sin(t * 9) });
     const kc = pop(t, -0.5, 0.45); set(chipW, { s: kc, r: -4, o: 1 });
     const ka = p(t, -0.5, 0.35); arw.style.clipPath = `inset(0 0 ${f1((1 - ka) * 100)}% 0)`;
@@ -55,17 +55,17 @@ headline(2.88, 5.35, '…y el primer *astronauta chino* lo confirmó', Object.as
 /* ======================================================================
    S1 · EL LIBRO DE TEXTO (5.35 – 8.45)  L1 — frase tachada + sello MITO
    ====================================================================== */
-headline(5.35, 7.72, 'Ese dato que te *enseñaron…*', { size: 84, hlT: 6.15, color: PAPER, shadow: `4px 4px 0 ${INK}` });
-headline(7.72, 8.45, '…es *falso.*', { size: 120, hlT: 7.9, hlc: PINK, color: PAPER, shadow: `5px 5px 0 ${INK}` });
+headline(T(5.35), T(7.72), 'Ese dato que te *enseñaron…*', { size: 84, hlT: T(6.15), color: PAPER, shadow: `4px 4px 0 ${INK}` });
+headline(T(7.72), T(11.95), '…es *falso.*', { size: 120, hlT: T(7.9), hlc: PINK, color: PAPER, shadow: `5px 5px 0 ${INK}` });
 {
-  const c = scene(5.35, 8.45, t => {
-    const kz = p(t, 5.4, 2.4, E.inOutCubic);
-    set(bk.d, { s: lerp(0.92, 1.12, kz) * (t > 7.95 ? 1 + 0.04 * (1 - p(t, 7.95, 0.3)) : 1), r: lerp(-5, -2, kz), y: lerp(60, 0, kz), o: 1 });
-    hl.setAttribute('width', f1(p(t, 6.15, 0.6, E.inOutCubic) * 350));
-    reveal(strike, sL, p(t, 7.88, 0.25, E.linear));
-    stampA(mito, t, 7.95, -12);
-    set(apple, { s: pop(t, 5.5, 0.45), r: wobble(t, 0.6, 4), o: t < 5.5 ? 0 : 1 });
-    set(stud, { s: pop(t, 6.15, 0.45), r: 6, o: t < 6.15 ? 0 : 1 });
+  const c = scene(T(5.35), T(11.95), t => {
+    const kz = p(t, T(5.4), 2.4, E.inOutCubic);
+    set(bk.d, { s: lerp(0.92, 1.12, kz) * (t > T(7.95) ? 1 + 0.04 * (1 - p(t, T(7.95), 0.3)) : 1), r: lerp(-5, -2, kz), y: lerp(60, 0, kz), o: 1 });
+    hl.setAttribute('width', f1(p(t, T(6.15), 0.6, E.inOutCubic) * 350));
+    reveal(strike, sL, p(t, T(7.88), 0.25, E.linear));
+    stampA(mito, t, T(7.95), -12);
+    set(apple, { s: pop(t, T(5.5), 0.45), r: wobble(t, 0.6, 4), o: t < T(5.5) ? 0 : 1 });
+    set(stud, { s: pop(t, T(6.15), 0.45), r: 6, o: t < T(6.15) ? 0 : 1 });
   }, { clip: true });
   sceneBg(c, { background: '#2F4A3A', backgroundImage: 'repeating-linear-gradient(0deg, rgba(255,255,255,.04) 0 2px, transparent 2px 9px)' });
   box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,.12), rgba(0,0,0,.45) 80%)' });
@@ -81,78 +81,24 @@ headline(7.72, 8.45, '…es *falso.*', { size: 120, hlT: 7.9, hlc: PINK, color: 
 }
 
 /* ======================================================================
-   S2 · MARCA: EL VECINO EN SU BALCÓN (8.45 – 11.95)  L2
-   ====================================================================== */
-{
-  const c = scene(8.45, 11.95, t => {
-    const ex = p(t, 11.72, 0.22, E.inCubic);
-    set(cam, { s: lerp(1.04 + 0.04 * p(t, 8.45, 3.3, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
-    const lean = p(t, 11.0, 0.4, E.inOutCubic);
-    set(vec.d, { s: 1 + lean * 0.07, y: wobble(t, 0.5, 3) - lean * 20 });
-    const fanFast = t > 8.6 && t < 9.2;
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > 9.4 && t < 10.1 ? [0, -5] : t > 10.6 && t < 11.1 ? [-5, 4] : [0, 0], bL: t > 8.6 && t < 9.3 ? 8 : t > 11.2 ? 6 : 0, bR: t > 8.6 && t < 9.3 ? 8 : t > 11.2 ? 12 : 0, fan: fanFast ? Math.sin(t * 22) * 14 : (t > 10.6 && t < 11.1 ? 26 : wobble(t, 0.9, 6)), seed: 0.3 });
-    popA(tag, t, 9.01, { r: -5 });
-    const ks = p(t, 9.9, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: Math.sin(t * 2.4) * 1.5 * (1 - p(t, 9.9, 2)) + (1 - ks) * 8, o: t < 9.88 ? 0 : 1 });
-    sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
-    paint(sHL, t, 11.36, 0.3);
-    pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
-    set(bk, { s: pop(t, 11.3, 0.4), r: -8 + wobble(t, 1, 3), o: t < 11.3 ? 0 : 1 });
-  }, { clip: true, cut: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 116px)' });
-  const win = box(cam, 0, 0, 1080, 1920); {
-    const arch = 'M160,1300 L160,640 Q160,450 540,440 Q920,450 920,640 L920,1300 Z';
-    let lace = ''; for (let y = 560; y < 1250; y += 26) lace += `<path d="M${f1(176 + Math.sin(y * 0.05) * 6)},${y} q22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/><path d="M${f1(904 - Math.sin(y * 0.05) * 6)},${y} q-22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/>`;
-    win.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">
-    <rect x="12" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="928" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/>
-    ${[...Array(14)].map((_, k) => `<path d="M24,${560 + k * 50} h116 M940,${560 + k * 50} h116" stroke="${INK}" stroke-width="3"/>`).join('')}
-    <path d="${arch}" fill="#fff" stroke="#fff" stroke-width="40"/><path d="${arch}" fill="#3a2a1e" stroke="${INK}" stroke-width="8"/><path d="${arch}" fill="url(#hW)" opacity=".25"/>
-    <path d="M168,600 C230,700 230,1100 200,1290 L168,1290 Z M912,600 C850,700 850,1100 880,1290 L912,1290 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="3"/>${lace}</svg>`;
-  }
-  const vec = mkVec(cam, [190, 430, 700, 867]);
-  const rail = box(cam, 0, 0, 1080, 1920); {
-    let bars = ''; for (let x = 140; x <= 940; x += 40) bars += `<path d="M${x},1206 V1330" stroke="${INK}" stroke-width="9"/><circle cx="${x}" cy="1268" r="9" fill="none" stroke="${INK}" stroke-width="4"/>`;
-    rail.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="110" y="1180" width="860" height="30" rx="8" fill="${INK}"/>${bars}<rect x="110" y="1322" width="860" height="40" fill="${INK}"/><rect x="80" y="1352" width="920" height="40" fill="#cdb48a" stroke="${INK}" stroke-width="5"/></svg>`;
-  }
-  const pots = [];
-  [[130, 1040], [760, 1040]].forEach(q => {
-    const d = box(cam, q[0], q[1], 200, 160); let fl = '';
-    [[40, 40], [80, 20], [120, 34], [160, 48], [70, 60], [130, 64]].forEach((f, j) => { fl += `<g><path d="M${f[0]},${f[1] + 30} L100,120" stroke="#3c5a2a" stroke-width="5"/><circle cx="${f[0]}" cy="${f[1]}" r="24" fill="${j % 2 ? RED : PINK}" stroke="${INK}" stroke-width="3.5"/><circle cx="${f[0] - 8}" cy="${f[1] - 6}" r="9" fill="#fff" opacity=".45"/><circle cx="${f[0]}" cy="${f[1]}" r="5" fill="${YEL}" stroke="${INK}" stroke-width="2"/></g>`; });
-    [[30, 96], [170, 96], [60, 110], [140, 110]].forEach(l => fl += `<ellipse cx="${l[0]}" cy="${l[1]}" rx="30" ry="14" fill="#7a9a52" stroke="${INK}" stroke-width="3" transform="rotate(${l[0] < 100 ? -20 : 20} ${l[0]} ${l[1]})"/>`);
-    d.innerHTML = `<svg viewBox="0 0 200 160" width="200" height="160" style="overflow:visible">${fl}${cut('<path d="M30,110 L170,110 L156,160 L44,160 Z"/>', 5, 6)}<path d="M30,110 L170,110 L156,160 L44,160 Z" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M30,110 L170,110 L156,160 L44,160 Z" fill="url(#hA)" opacity=".5"/><rect x="24" y="104" width="152" height="16" rx="4" fill="#C1663A" stroke="${INK}" stroke-width="4"/></svg>`;
-    pots.push(d);
-  });
-  const tag = chip(cam, 640, 610, 'tu vecino', { size: 44, bg: PINK });
-  const sign = box(cam, 120, 150, 840, 270, { zIndex: 40 });
-  sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
-  const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sl2 = el('div', sign, { left: '0', top: '146px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sw = [];
-  [['esto', 28, sl1], ['no', 29, sl1], ['venía', 30, sl1], ['en', 31, sl2], ['el', 32, sl2], ['libro', 33, sl2]].forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.innerHTML = q[0] === 'libro' ? hlSpan('libro', 'shl') : q[0]; q[2].appendChild(s); s.style.position = 'relative'; sw.push({ e: s, t: W[q[1]].s }); });
-  const sHL = sign.querySelector('.shl');
-  const bk = box(cam, 680, 1010, 230, 170, { zIndex: 30 });
-  bk.innerHTML = `<svg viewBox="0 0 230 170" width="230" height="170" style="overflow:visible">${cut('<rect x="10" y="20" width="210" height="140" rx="10"/>')}<rect x="10" y="20" width="210" height="140" rx="10" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="24" y="32" width="182" height="116" rx="6" fill="none" stroke="#c9a24a" stroke-width="3"/><text x="115" y="104" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="34" fill="#e9c75c">HISTORIA</text></svg>`;
-}
-
-/* ======================================================================
    S3a · LARGUÍSIMA: MILES DE KM (11.95 – 15.38)  L3a
    ====================================================================== */
-headline(11.95, 13.86, 'La muralla es *larguísima*', { size: 86, hlT: 12.7 });
-headline(13.86, 15.38, '*miles* de kilómetros', { size: 96, hlT: 13.95 });
+headline(T(11.95), T(13.86), 'La muralla es *larguísima*', { size: 86, hlT: T(12.7) });
+headline(T(13.86), T(15.38), '*miles* de kilómetros', { size: 96, hlT: T(13.95) });
 {
   const WP = 'M60,1300 C200,1250 430,1170 380,1070 S290,940 460,890 S640,820 600,750 S690,650 800,620 S960,575 1140,530';
-  const c = scene(11.95, 15.38, t => {
-    set(cam, { s: lerp(1.14, 1, p(t, 11.95, 3.4, E.outCubic)) });
-    const k = p(t, 12.7, 2.5, E.inOutCubic);
+  const c = scene(T(11.95), T(15.38), t => {
+    set(cam, { s: lerp(1.14, 1, p(t, T(11.95), 3.4, E.outCubic)) });
+    const k = p(t, T(12.7), 2.5, E.inOutCubic);
     reveal(tape, tL, k);
     const pt = tape.getPointAtLength(Math.max(1, tL * k)), pt0 = tape.getPointAtLength(Math.max(0, tL * k - 6));
     set(head, { x: pt.x - 30, y: pt.y - 30, r: Math.atan2(pt.y - pt0.y, pt.x - pt0.x) * 180 / Math.PI, o: k > 0.01 && k < 0.995 ? 1 : 0 });
     // contador
-    const rolling = t < 13.95;
+    const rolling = t < T(13.95);
     digs.forEach((d, i) => { d.textContent = '?'; set(d, { y: Math.sin(t * 40 + i) * 3 }); d.style.visibility = rolling ? 'visible' : 'hidden'; });
-    set(odo, { s: pop(t, 12.05, 0.45) * (rolling ? 1 : 1 + 0.12 * (1 - p(t, 13.95, 0.3))), r: -2, o: t < 12.05 ? 0 : 1 });
-    set(mil, { s: rolling ? 0 : pop(t, 13.93, 0.4), o: rolling ? 0 : 1 });
-    set(lbl, { o: t > 15.0 ? 1 : 0, s: pop(t, 15.0, 0.3) });
+    set(odo, { s: pop(t, T(12.05), 0.45) * (rolling ? 1 : 1 + 0.12 * (1 - p(t, T(13.95), 0.3))), r: -2, o: t < T(12.05) ? 0 : 1 });
+    set(mil, { s: rolling ? 0 : pop(t, T(13.93), 0.4), o: rolling ? 0 : 1 });
+    set(lbl, { o: t > T(15.0) ? 1 : 0, s: pop(t, T(15.0), 0.3) });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#F1E6CC' });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 1000px' });
@@ -179,25 +125,25 @@ headline(13.86, 15.38, '*miles* de kilómetros', { size: 96, hlT: 13.95 });
 /* ======================================================================
    S3b · PERO ESTRECHA (15.38 – 19.4)  L3b — sección + regla + cameo del emú
    ====================================================================== */
-headline(15.38, 16.3, 'Pero *estrecha*', { size: 100, hlT: 15.56 });
-headline(16.3, 19.4, 'apenas unos *metros* de ancho', { size: 86, hlT: 18.36 });
+headline(T(15.38), T(17.6), 'Pero *estrecha*', { size: 100, hlT: T(15.56) });
+headline(T(17.6), T(19.4), 'apenas unos *metros* de ancho', { size: 86, hlT: T(18.36) });
 {
   const EX = 380, EY = 478;
-  const c = scene(15.38, 19.4, t => {
-    set(cam, { s: lerp(1.25, 1, p(t, 15.38, 0.6, E.outCubic)) * (1 + 0.04 * p(t, 16, 3.4, E.linear)) });
+  const c = scene(T(15.38), T(19.4), t => {
+    set(cam, { s: lerp(1.25, 1, p(t, T(15.38), 0.6, E.outCubic)) * (1 + 0.04 * p(t, T(16), 3.4, E.linear)) });
     // emú: camina, se para, mira a cámara 0,6 s, sigue
-    const walkA = clamp((t - 15.5) / 1.9), walking = (t > 15.5 && t < 17.4) || t > 18.35;
-    const x = EX + walkA * 150 + (t > 18.35 ? (t - 18.35) * 110 : 0);
-    const look = t > 17.55 && t < 18.25; const turn = look ? clamp((t - 17.55) / 0.12) * (1 - clamp((t - 18.13) / 0.12)) : 0;
+    const walkA = clamp((t - T(15.5)) / 1.9), walking = (t > T(15.5) && t < T(17.4)) || t > T(18.35);
+    const x = EX + walkA * 150 + (t > T(18.35) ? (t - T(18.35)) * 110 : 0);
+    const look = t > T(17.55) && t < T(18.25); const turn = look ? clamp((t - T(17.55)) / 0.12) * (1 - clamp((t - T(18.13)) / 0.12)) : 0;
     set(emu.d, { x: x - EX, y: -(walking ? Math.abs(Math.sin(t * 9)) * 8 : 0) });
     face(emu, t, Object.assign(walking ? run(emu, t, 10, 24) : {}, { look: [-3, 0], half: true, neck: walking ? Math.sin(t * 9) * 4 : 0, seed: 1 }));
     emu.neck.style.opacity = turn > 0.5 ? 0 : 1;
     set(efr.d, { x: x - EX, sx: Math.max(0.001, (turn - 0.5) * 2), o: turn > 0.5 ? 1 : 0 });
     face(efr, t, { half: true, blink: false, bR: turn > 0.9 ? 18 : 0 });
     // regla
-    const kr = p(t, 17.68, 0.45, E.outBack);
-    set(rul, { sx: Math.max(0.001, kr), o: t < 17.68 ? 0 : 1 });
-    popA(chA, t, 18.36, { r: -3 }); popA(chL, t, 15.9, { r: 3 });
+    const kr = p(t, T(17.68), 0.45, E.outBack);
+    set(rul, { sx: Math.max(0.001, kr), o: t < T(17.68) ? 0 : 1 });
+    popA(chA, t, T(18.36), { r: -3 }); popA(chL, t, T(15.9), { r: 3 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#F1E6CC' });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 1000px' });
@@ -228,26 +174,26 @@ headline(16.3, 19.4, 'apenas unos *metros* de ancho', { size: 86, hlT: 18.36 });
 /* ======================================================================
    S4 · CAMUFLAJE (19.4 – 23.8)  L4
    ====================================================================== */
-headline(19.4, 22.5, 'del mismo *color* que el terreno', { size: 80, hlT: 20.72 });
-headline(22.5, 23.8, 'Se *camufla*', { size: 110, hlT: 23.0 });
+headline(T(19.4), T(22.5), 'del mismo *color* que el terreno', { size: 80, hlT: T(20.72) });
+headline(T(22.5), T(23.8), 'Se *camufla*', { size: 110, hlT: T(23.0) });
 {
   const WC = 'M-60,1190 C160,1150 260,1010 420,1000 S640,1060 760,930 S960,760 1140,740';
-  const c = scene(19.4, 23.8, t => {
-    const kc = p(t, 20.72, 0.9, E.inOutCubic), kf = p(t, 22.55, 0.7, E.inOutCubic);
+  const c = scene(T(19.4), T(23.8), t => {
+    const kc = p(t, T(20.72), 0.9, E.inOutCubic), kf = p(t, T(22.55), 0.7, E.inOutCubic);
     const col = hexMix(STONE, SAND, kc);
     wf.forEach(e => e.setAttribute('stroke', col)); twr.forEach(e => e.setAttribute('fill', col));
     sw1.style.background = col;
     wo.forEach(e => e.setAttribute('opacity', f1((1 - kf * 0.8) * 100) / 100)); wd.forEach(e => e.setAttribute('opacity', f1((1 - kf * 0.85) * 100) / 100)); halo.forEach(e => e.setAttribute('opacity', f1((1 - kf) * 100) / 100));
     twg.style.opacity = 1 - kf * 0.75;
-    set(s1.wrap, { s: pop(t, 19.63, 0.45), r: -4, o: t < 19.63 ? 0 : 1 }); set(s2.wrap, { s: pop(t, 21.3, 0.45), r: 3, o: t < 21.3 ? 0 : 1 });
-    set(eq, { s: pop(t, 20.46, 0.4), o: t < 20.46 ? 0 : 1 });
-    popA(chC, t, 21.3, { r: -2 });
+    set(s1.wrap, { s: pop(t, T(19.63), 0.45), r: -4, o: t < T(19.63) ? 0 : 1 }); set(s2.wrap, { s: pop(t, T(21.3), 0.45), r: 3, o: t < T(21.3) ? 0 : 1 });
+    set(eq, { s: pop(t, T(20.46), 0.4), o: t < T(20.46) ? 0 : 1 });
+    popA(chC, t, T(21.3), { r: -2 });
     // camaleón
-    set(cham.d, { s: pop(t, 22.6, 0.5), x: Math.sin(t * 2) * 6, o: t < 22.6 ? 0 : 1 });
-    chB.setAttribute('fill', hexMix(PINK, SAND, p(t, 22.9, 0.5))); chT.setAttribute('stroke', hexMix(PINK, SAND, p(t, 22.9, 0.5)));
+    set(cham.d, { s: pop(t, T(22.6), 0.5), x: Math.sin(t * 2) * 6, o: t < T(22.6) ? 0 : 1 });
+    chB.setAttribute('fill', hexMix(PINK, SAND, p(t, T(22.9), 0.5))); chT.setAttribute('stroke', hexMix(PINK, SAND, p(t, T(22.9), 0.5)));
     face(cham, t, { look: [Math.sin(t * 3) * 4, 0] });
-    popA(chK, t, 23.05, { r: 4 });
-    set(cam, { s: 1 + 0.05 * p(t, 19.4, 4.4, E.linear) });
+    popA(chK, t, T(23.05), { r: 4 });
+    set(cam, { s: 1 + 0.05 * p(t, T(19.4), 4.4, E.linear) });
   }, { clip: true });
   sceneBg(c, { background: '#F1E6CC' });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 1000px' });
@@ -275,23 +221,24 @@ headline(22.5, 23.8, 'Se *camufla*', { size: 110, hlT: 23.0 });
 /* ======================================================================
    S5a · 2003 · YANG LIWEI (23.8 – 27.1)  L5a
    ====================================================================== */
-headline(24.75, 27.1, 'Yang Liwei, el primer *astronauta chino*', Object.assign({ size: 72 }, DARK));
+const Y2003 = w(find('en dos mil tres') + 1);
+headline(T(24.75), T(27.1), 'Yang Liwei, el primer *astronauta chino*', Object.assign({ size: 72 }, DARK));
 {
-  const c = scene(23.8, 27.1, t => {
-    const yv = Math.round(counter(t, 23.95, 0.8, 1957, 2003, E.outCubic)); if (yr.dataset.v != yv) { yr.textContent = yv; yr.dataset.v = yv; }
-    const km = p(t, 24.72, 0.4, E.inOutCubic);
-    set(yr, { s: (t < 23.9 ? 0 : 1 + 0.1 * (1 - p(t, 24.7, 0.2))) * lerp(1, 0.36, km), x: km * 300, y: km * -240, r: km * 8, o: 1 });
-    const kp = p(t, 24.82, 0.5, E.outBack);
-    set(fr.wrap, { y: (1 - kp) * 1100, r: -2 + (1 - kp) * 10, o: t < 24.8 ? 0 : 1 });
-    face(yang, t, { look: t < 26 ? [0, 0] : [-3, 1], seed: 0.2 });
+  const c = scene(T(23.8), T(27.1), t => {
+    const km = p(t, T(24.72), 0.4, E.inOutCubic);
+    const ky = p(t, Y2003, 0.18, E.outCubic); // «2003» directo, golpe de sello en «dos (mil tres)», sin contar
+    set(yr, { s: (t < Y2003 ? 0 : lerp(2.2, 1, ky) * (1 + 0.08 * (1 - p(t, Y2003 + 0.18, 0.25)))) * lerp(1, 0.36, km), o: t < Y2003 ? 0 : clamp(ky * 2), x: km * 300, y: km * -240, r: km * 8 });
+    const kp = p(t, T(24.82), 0.5, E.outBack);
+    set(fr.wrap, { y: (1 - kp) * 1100, r: -2 + (1 - kp) * 10, o: t < T(24.8) ? 0 : 1 });
+    face(yang, t, { look: t < T(26) ? [0, 0] : [-3, 1], seed: 0.2 });
     set(yang.d, { y: wobble(t, 0.5, 3) });
-    popA(nm, t, 25.11, { r: -3 });
-    popA(chY, t, 25.85, { r: 2 });
+    popA(nm, t, T(25.11), { r: -3 });
+    popA(chY, t, T(25.85), { r: 2 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: SKY });
   const st = box(c, 0, 0, 1080, 1920); st.innerHTML = starsSvg(23, 80);
   box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 45%, rgba(255,230,0,.12), rgba(0,0,0,.5) 75%)' });
-  const yr = el('div', c, { left: 0, top: '640px', width: '1080px', textAlign: 'center', fontFamily: 'Rye', fontSize: '300px', lineHeight: '320px', color: YEL, textShadow: `10px 10px 0 ${PINK}`, zIndex: 50 }, '1957'); yr.dataset.v = '1957';
+  const yr = el('div', c, { left: 0, top: '640px', width: '1080px', textAlign: 'center', fontFamily: 'Rye', fontSize: '300px', lineHeight: '320px', color: YEL, textShadow: `10px 10px 0 ${PINK}`, zIndex: 50 }, '2003');
   const fr = paperPiece(c, 240, 470, 600, 700, { seed: 21, bg: '#E9E2D2' });
   box(fr.inner, 0, 0, 582, 682, { background: 'repeating-linear-gradient(90deg, #D9CFC0 0 30px, #E6DDCF 30px 60px)' });
   const yang = mk(fr.inner, [40, 90, 500, 639], astroInner({ hair: true, flag: true, seed: 12 }), '0 0 360 460', 'bust');
@@ -302,12 +249,12 @@ headline(24.75, 27.1, 'Yang Liwei, el primer *astronauta chino*', Object.assign(
 /* ======================================================================
    S5b · VOLVIÓ DEL ESPACIO (27.1 – 28.2)
    ====================================================================== */
-headline(27.1, 28.2, '… *volvió* del espacio', { size: 96, hlT: 27.12 });
+headline(T(27.1), T(28.2), '… *volvió* del espacio', { size: 96, hlT: T(27.12) });
 {
-  const c = scene(27.1, 28.2, t => {
-    const k = p(t, 27.1, 0.95, E.outCubic);
+  const c = scene(T(27.1), T(28.2), t => {
+    const k = p(t, T(27.1), 0.95, E.outCubic);
     set(cap.d, { y: lerp(-700, 0, k), r: Math.sin(t * 5) * 4 * (1 - k * 0.7), o: 1 });
-    const kp = p(t, 27.95, 0.3, E.outCubic); set(puff, { s: t < 27.95 ? 0 : 0.6 + kp * 0.6, o: t < 27.95 ? 0 : 1 - kp * 0.6 });
+    const kp = p(t, T(27.95), 0.3, E.outCubic); set(puff, { s: t < T(27.95) ? 0 : 0.6 + kp * 0.6, o: t < T(27.95) ? 0 : 1 - kp * 0.6 });
     set(cl1, { x: -t * 30 }); set(cl2, { x: t * 20 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#DCE6E2', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.05) 0 2px, transparent 2px 10px)' });
@@ -321,19 +268,19 @@ headline(27.1, 28.2, '… *volvió* del espacio', { size: 96, hlT: 27.12 });
 /* ======================================================================
    S5c · RUEDA DE PRENSA (28.2 – 30.55)
    ====================================================================== */
-headline(28.2, 30.55, 'Le *preguntaron,* claro', Object.assign({ size: 88 }, DARK));
+headline(T(28.2), T(30.55), 'Le *preguntaron,* claro', Object.assign({ size: 88 }, DARK));
 {
   const FL = [[150, 700], [880, 620], [200, 1000], [860, 980], [520, 560], [100, 860]];
-  const c = scene(28.2, 30.55, t => {
-    set(cam, { s: 1 + 0.08 * p(t, 28.2, 2.35, E.linear) });
-    const talk = t > 29.85 ? Math.abs(Math.sin((t - 29.85) * 12)) * 0.35 : 0;
-    face(yang, t, { jaw: talk, look: t < 29.4 ? [Math.sin(t * 2) * 5, 0] : [0, 0], brow: t > 29.4 ? -4 : 0, seed: 0.5 });
+  const c = scene(T(28.2), T(30.55), t => {
+    set(cam, { s: 1 + 0.08 * p(t, T(28.2), 2.35, E.linear) });
+    const talk = t > T(29.85) ? Math.abs(Math.sin((t - T(29.85)) * 12)) * 0.35 : 0;
+    face(yang, t, { jaw: talk, look: t < T(29.4) ? [Math.sin(t * 2) * 5, 0] : [0, 0], brow: t > T(29.4) ? -4 : 0, seed: 0.5 });
     set(yang.d, { y: wobble(t, 0.5, 2) });
-    mics.forEach((m, i) => set(m, { y: (1 - p(t, 28.25 + i * 0.07, 0.35, E.outBack)) * 220, r: m.r0 + wobble(t, 0.6, 1.5, i) }));
-    fl.forEach((f, i) => { const on = t > 28.4 && t < 30.4 && ((Math.floor(t * 9 + i * 3.7) % 5) === 0); set(f, { s: on ? 1 : 0, o: on ? 1 : 0, r: i * 20 }); });
-    set(q1, { s: pop(t, 28.54, 0.35), r: -4, o: t < 28.54 || t > 29.5 ? 0 : 1 });
-    set(q2, { s: pop(t, 28.95, 0.35), r: 4, o: t < 28.95 || t > 29.5 ? 0 : 1 });
-    set(ans, { s: pop(t, 29.6, 0.35), o: t < 29.6 ? 0 : 1 });
+    mics.forEach((m, i) => set(m, { y: (1 - p(t, T(28.25) + i * 0.07, 0.35, E.outBack)) * 220, r: m.r0 + wobble(t, 0.6, 1.5, i) }));
+    fl.forEach((f, i) => { const on = t > T(28.4) && t < T(30.4) && ((Math.floor(t * 9 + i * 3.7) % 5) === 0); set(f, { s: on ? 1 : 0, o: on ? 1 : 0, r: i * 20 }); });
+    set(q1, { s: pop(t, T(28.54), 0.35), r: -4, o: t < T(28.54) || t > T(29.5) ? 0 : 1 });
+    set(q2, { s: pop(t, T(28.95), 0.35), r: 4, o: t < T(28.95) || t > T(29.5) ? 0 : 1 });
+    set(ans, { s: pop(t, T(29.6), 0.35), o: t < T(29.6) ? 0 : 1 });
     ansD.forEach((d, i) => set(d, { y: -Math.max(0, Math.sin(t * 14 - i * 0.9)) * 12 }));
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#6E1D27', backgroundImage: 'repeating-linear-gradient(90deg, rgba(0,0,0,.22) 0 26px, rgba(255,255,255,.05) 26px 60px)' });
@@ -348,13 +295,13 @@ headline(28.2, 30.55, 'Le *preguntaron,* claro', Object.assign({ size: 88 }, DAR
   const ans = bubble(cam, 650, 520, 180, '', { size: 50, z: 8, tailX: 20, pad: '20px 20px', rad: '50px' }); ans.style.height = '80px';
   const ansD = [0, 1, 2].map(k => box(ans, 30 + k * 40, 26, 20, 20, { borderRadius: '50%', background: INK }));
 }
-colorHit(30.55, 31.85, YEL, c => {
+colorHit(T(30.55), T(31.85), YEL, c => {
   const sil = mk(c, [250, 820, 580, 742], astroInner({ hair: true, seed: 12 }), '0 0 360 460', 'bust'); sil.d.style.filter = SIL; sil.d.style.zIndex = 3;
   const t1 = el('div', c, { left: '0', top: '230px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '150px', lineHeight: 1, color: INK, zIndex: 4 }, 'NO LA VIO');
   const b = bubble(c, 300, 560, 0, '«no la vi»', { size: 84, z: 6, tailX: 140, italic: true, font: 'Playfair' });
   return t => {
     set(sil.d, { y: wobble(t, 0.8, 4) });
-    set(t1, { s: lerp(1.4, 1, p(t, 30.55, 0.2)), o: 1 }); t1.style.textShadow = glitch(t, 30.6, 0.3);
-    set(b, { s: pop(t, 30.62, 0.4), r: -3, o: t < 30.62 ? 0 : 1 });
+    set(t1, { s: lerp(1.4, 1, p(t, T(30.55), 0.2)), o: 1 }); t1.style.textShadow = glitch(t, T(30.6), 0.3);
+    set(b, { s: pop(t, T(30.62), 0.4), r: -3, o: t < T(30.62) ? 0 : 1 });
   };
 });

@@ -16,12 +16,7 @@
 {
 "who": "VECINO",
 "text": "Ese gesto te lo enseñó un cuadro. No los romanos.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
@@ -53,15 +48,11 @@
 },
 {
 "who": "VECINO",
-"text": "O sea: los gladiadores se parecían más a deportistas de élite... que a carne de cañón."
+"text": "O sea: los gladiadores se parecían más a deportistas de élite... que a carne de cañón. ¿Te lo creías? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Qué película de romanos te has creído entera? Os leo."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

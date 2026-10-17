@@ -16,71 +16,57 @@
  {
   "line": 2,
   "who": "VECINO",
-  "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 8.609,
-  "e": 11.713
+  "text": "La muralla es larguísima, sí: miles de kilómetros. Pero estrecha. En muchos tramos, apenas unos metros de ancho.",
+  "s": 8.559,
+  "e": 15.705
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "La muralla es larguísima, sí: miles de kilómetros. Pero estrecha. En muchos tramos, apenas unos metros de ancho.",
-  "s": 12.063,
-  "e": 19.21
+  "text": "Y además es del mismo color que el terreno que la rodea. Se camufla.",
+  "s": 15.985,
+  "e": 20.092
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Y además es del mismo color que el terreno que la rodea. Se camufla.",
-  "s": 19.49,
-  "e": 23.597
+  "text": "En dos mil tres, Yang Liwei, el primer astronauta chino, volvió del espacio. Le preguntaron, claro. Su respuesta: no la vio.",
+  "s": 20.372,
+  "e": 28.109
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "En dos mil tres, Yang Liwei, el primer astronauta chino, volvió del espacio. Le preguntaron, claro. Su respuesta: no la vio.",
-  "s": 23.877,
-  "e": 31.613
+  "text": "Lo curioso es que el mito es más antiguo que los viajes espaciales. Ya se decía que se veía desde la Luna... antes de que nadie hubiera ido.",
+  "s": 28.389,
+  "e": 36.286
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Lo curioso es que el mito es más antiguo que los viajes espaciales. Ya se decía que se veía desde la Luna... antes de que nadie hubiera ido.",
-  "s": 31.893,
-  "e": 39.79
+  "text": "Desde la Luna, por cierto, no se distingue ninguna construcción humana. Se ven continentes, nubes y océanos.",
+  "s": 36.566,
+  "e": 42.874
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Desde la Luna, por cierto, no se distingue ninguna construcción humana. Se ven continentes, nubes y océanos.",
-  "s": 40.07,
-  "e": 46.378
+  "text": "Ojo: con cámaras y zoom, desde la órbita, sí hay fotos donde aparece. Pero a simple vista, no es lo que te contaron.",
+  "s": 43.154,
+  "e": 51.723
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Ojo: con cámaras y zoom, desde la órbita, sí hay fotos donde aparece. Pero a simple vista, no es lo que te contaron.",
-  "s": 46.658,
-  "e": 55.228
+  "text": "O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible. ¿Te lo creías? Sí o no.",
+  "s": 52.003,
+  "e": 61.281
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible.",
-  "s": 55.508,
-  "e": 61.816
- },
- {
-  "line": 10,
-  "who": "VECINO",
-  "text": "¿Qué otro dato del colegio resultó ser falso? Os leo.",
-  "s": 62.096,
-  "e": 65.027
- },
- {
-  "line": 11,
-  "who": "VECINO",
-  "text": "Y esto... no venía en el libro.",
-  "s": 65.307,
-  "e": 67.614
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 61.561,
+  "e": 65.169
  }
 ]

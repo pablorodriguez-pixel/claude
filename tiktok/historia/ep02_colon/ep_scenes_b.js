@@ -14,9 +14,9 @@ colorHit(33.2, 35.75, YEL, c => {
   return t => {
     set(t1, { s: lerp(1.3, 1, p(t, 33.25, 0.2)), o: 1 });
     popA(t2, t, 34.03, { rise: 30 });
-    const kn = p(t, 34.81, 0.6, E.outCubic); num.textContent = '≈ ' + fmt(Math.round(lerp(4500, 20000, kn) / 100) * 100);
-    set(num, { s: t < 34.81 ? 0.8 : 1 + 0.12 * (1 - p(t, 35.18, 0.3)), o: t < 34.6 ? 0 : 1 }); num.style.textShadow = glitch(t, 35.18, 0.3) || '8px 8px 0 #fff';
-    set(km, { o: t < 34.6 ? 0 : 1, s: pop(t, 34.6, 0.3) });
+    num.textContent = '≈ 20.000'; // «veinte mil»: directo, golpe de sello
+    set(num, { s: t < 34.806 ? 0 : lerp(2.2, 1, p(t, 34.806, 0.18, E.outCubic)) + 0.12 * (1 - p(t, 35.18, 0.3)) * (t > 35.18 ? 1 : 0), o: t < 34.806 ? 0 : 1 }); num.style.textShadow = glitch(t, 35.18, 0.3) || '8px 8px 0 #fff';
+    set(km, { o: t < 34.85 ? 0 : 1, s: pop(t, 34.85, 0.3) });
     const w0 = 300 * p(t, 33.3, 0.4, E.outBack), w1 = 1300 * p(t, 34.81, 0.7, E.outBack); const wR = Math.max(w0, w0 + w1);
     ruler.style.width = px(wR); set(ruler, { x: 1000 - wR, o: 1 }); set(isl, { x: 1000 - wR - 170, y: Math.sin(t * 3) * 4 });
     set(ship, { x: Math.sin(t * 2) * 6, y: Math.sin(t * 3) * 8, r: Math.sin(t * 2.5) * 4 });
@@ -125,45 +125,6 @@ headline(48.45, 49.7, '…en mitad del *océano*', { size: 86, hlT: 48.98 });
 }
 
 /* ======================================================================
-   S9 · EL ORIGEN DEL MITO: WASHINGTON IRVING, 1828 (49.7 – 57.45)  L9
-   ====================================================================== */
-headline(49.7, 51.3, '¿De dónde sale el *mito?*', { size: 84, hlT: 50.7 });
-headline(51.3, 54.05, 'Una biografía muy *novelada*', { size: 80, hlT: 53.33 });
-headline(54.05, 55.64, 'de *1828*', { size: 110, hlT: 54.86 });
-headline(55.64, 57.45, 'escrita por Washington *Irving*', { size: 76, hlT: 56.83 });
-{
-  const c = scene(49.7, 57.45, t => {
-    const km = p(t, 51.3, 0.45, E.inOutCubic);
-    set(mito, { s: (t < 49.8 ? 0 : lerp(2.2, 1, p(t, 49.8, 0.18))) * lerp(1, 0.42, km), x: km * -290, y: km * -110, r: -10, o: t < 49.8 ? 0 : 1 });
-    const kg = p(t, 50.0, 1.2, E.inOutCubic); set(mag, { x: lerp(-200, 150, kg) + Math.sin(t * 7) * 18, y: Math.cos(t * 6) * 16, o: t > 49.95 && t < 51.4 ? 1 : 0 });
-    set(qm, { o: t > 50.35 && t < 51.4 ? 1 : 0, s: pop(t, 50.35, 0.3), r: Math.sin(t * 6) * 10 });
-    const kb = p(t, 51.32, 0.55, E.outBounce); set(book, { y: (1 - kb) * -1300, r: lerp(-14, 2, kb), o: t < 51.3 ? 0 : 1, s: 1 + (t > 53.33 ? 0.03 * Math.sin((t - 53.33) * 12) * (1 - p(t, 53.33, 1.5)) : 0) });
-    if (bRays) bRays.setAttribute('transform', `rotate(${f1(t * (t > 53.33 ? 50 : 10))} 282 330)`);
-    torches.forEach((g, i) => g.setAttribute('transform', `translate(0 ${f1(Math.sin(t * 10 + i) * 4)})`));
-    stars.forEach((s, i) => { const on = t > 53.33; const a = t * 2 + i * 1.6; set(s, { x: Math.cos(a) * 40, y: Math.sin(a) * 20, s: on ? 0.8 + Math.sin(t * 9 + i) * 0.25 : 0, r: t * 90, o: on ? 1 : 0 }); });
-    popA(her, t, 53.4, { r: -8 });
-    const ky = p(t, 54.08, 0.8, E.outCubic); yr.textContent = String(Math.round(lerp(1800, 1828, ky))); set(yrW, { s: pop(t, 54.08, 0.4), r: -6, o: t < 54.08 ? 0 : 1 });
-    popA(nov, t, 55.0, { r: 3 });
-    au.textContent = typeText('WASHINGTON IRVING', t, 56.3, 24);
-    set(auW, { o: t > 56.25 ? 1 : 0 });
-  }, { clip: true });
-  sceneBg(c, { background: '#E4D4B0' });
-  halftone(c, 'rgba(43,33,24,.07)', 0);
-  const mito = stamp(c, 260, 560, 'MITO', { size: 210, bw: 16, z: 40, bg: 'rgba(255,255,255,.85)', blend: 'normal' });
-  const qm = bigText(c, 760, 470, 200, '?', { size: 260, color: PINK, z: 41, css: { textShadow: `6px 6px 0 ${INK}` } });
-  const mag = box(c, 300, 560, 220, 300, { zIndex: 42 }); mag.innerHTML = svgW(`<path d="M90,150 L140,220" stroke="${INK}" stroke-width="22" stroke-linecap="round"/><path d="M90,150 L140,220" stroke="${WOOD}" stroke-width="12" stroke-linecap="round"/><circle cx="66" cy="78" r="60" fill="rgba(255,255,255,.35)" stroke="${INK}" stroke-width="12"/><circle cx="66" cy="78" r="60" fill="none" stroke="${BRASS}" stroke-width="6"/>`, '0 0 170 230');
-  const book = box(c, 400, 450, 520, 700, { zIndex: 10 }); book.innerHTML = svgW(irvingBookInner(), '0 0 520 700');
-  const bRays = book.querySelector('.rays'), torches = [...book.querySelectorAll('.torch')];
-  const auW = box(book, 100, 540, 364, 60, { zIndex: 3 });
-  const au = el('div', auW, { left: '0', top: '6px', width: '364px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '38px', color: '#e9c75c', whiteSpace: 'nowrap' }, '');
-  const stars = []; [[150, 230], [420, 250], [180, 470], [400, 470]].forEach(q => stars.push(el('div', box(book, q[0], q[1], 1, 1, { zIndex: 4 }), { left: '-30px', top: '-40px', fontSize: '60px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}` }, '✦')));
-  const her = chip(c, 560, 700, '¡exagerada!', { size: 40, bg: YEL, color: INK, z: 30 });
-  const yrW = box(c, 60, 720, 330, 170, { zIndex: 30, background: INK, border: `6px solid ${YEL}`, borderRadius: '24px', boxShadow: `8px 8px 0 ${SH}` });
-  const yr = el('div', yrW, { left: '0', top: '10px', width: '318px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', lineHeight: 1.1, color: YEL }, '1800');
-  const nov = chip(c, 400, 1185, 'biografía novelada, 1828', { size: 36, bg: PINK, z: 31 });
-}
-
-/* ======================================================================
    S10 · ¡OJO! COLÓN TIENE SU MÉRITO (57.45 – 65.05)  L10
    ====================================================================== */
 headline(58.0, 59.9, 'Colón tiene su *mérito*', { size: 84, hlT: 58.96 });
@@ -171,9 +132,9 @@ headline(59.9, 62.25, 'Cruzar el Atlántico: una *locura*', { size: 76, hlT: 61.
 headline(62.25, 65.05, 'Pero no por lo que te *contaron*', { size: 76, hlT: 63.99 });
 {
   const c = scene(57.45, 65.05, t => {
-    const ko = p(t, 57.95, 0.35, E.inOutCubic);
+    const ko = p(t, 57.75, 0.3, E.inOutCubic);
     set(ojo, { s: (t < 57.54 ? 0 : lerp(2.3, 1, p(t, 57.54, 0.18))) * lerp(1, 0.5, ko), x: ko * 230, y: ko * -215, r: -8, o: t < 57.54 ? 0 : 1 });
-    const kc = p(t, 58.09, 0.45, E.outBack); set(col.d, { y: (1 - kc) * 900 + wobble(t, 0.5, 3), o: t < 58.05 ? 0 : 1 });
+    const kc = p(t, 57.62, 0.45, E.outBack); set(col.d, { y: (1 - kc) * 900 + wobble(t, 0.5, 3), o: t < 57.6 ? 0 : 1 });
     face(col, t, { look: t > 63.9 ? [-3, 4] : t > 62.3 ? [4, 2] : [0, -1], brow: t < 62.3 ? -6 : 6, seed: 0.9 });
     const km = p(t, 58.96, 0.5, E.outBounce); set(med, { y: (1 - km) * -700, r: Math.sin(t * 3) * 6 * (t > 59.4 ? 1 : 0), o: t < 58.9 ? 0 : 1 });
     sp.forEach((s, i) => { const a = t * 3 + i * 2.1; set(s, { x: Math.cos(a) * 90, y: Math.sin(a) * 50, s: t > 59.2 ? 0.7 + Math.sin(t * 8 + i) * 0.3 : 0, r: t * 120 }); });
@@ -254,92 +215,3 @@ colorHit(71.59, 73.0, YEL, c => {
   };
 });
 
-/* ======================================================================
-   S12 · CTA: ¿QUÉ OTRO MITO? (73.0 – 75.95)  L12
-   ====================================================================== */
-headline(73.0, 75.25, '¿Qué otro *mito* del colegio?', { size: 76, hlT: 73.47 });
-headline(75.25, 75.95, 'Os *leo*', { size: 110, hlT: 75.45 });
-{
-  const CM = [];
-  const c = scene(73.0, 75.95, t => {
-    set(vec.d, { y: wobble(t, 0.5, 3), s: 1 + 0.03 * p(t, 73, 3, E.linear) });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t < 74.6 ? [0, 0] : [-4, 6], bL: t > 73.4 && t < 74.1 ? 10 : 2, bR: t > 73.4 && t < 74.1 ? 14 : 6, noFan: true, noCup: true, seed: 2 });
-    CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
-    set(stack, { y: (1 - p(t, 73.1, 0.4, E.outBack)) * 600, r: -6 });
-  }, { clip: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, #F4CFDA 0 30px, #F9E3EA 30px 60px)` });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
-  const stack = box(c, 680, 520, 260, 300, { zIndex: 1 }); stack.innerHTML = svgW(`<use href="#globeS" x="30" y="0" width="200" height="250"/>`, '0 0 260 300');
-  const vec = mkVec(c, [120, 400, 640, 793]);
-  const cms = [['ERA', '@lucia_4B', '¿y la Tierra plana?', 74.13], ['COL', '@pablito_hist', 'mi profe me mintió 😤', 74.6], ['SAB', '@marinera_88', '¡haz uno de Magallanes!', 75.1]];
-  cms.forEach((m, i) => {
-    const e = box(c, 230 + (i % 2) * 40, 900 + i * 118, 680, 102, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '52px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
-    avatar(e, 10, 9, 78, m[0], { bw: 3 });
-    el('div', e, { left: '104px', top: '8px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '25px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
-    el('div', e, { left: '104px', top: '40px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '36px', color: INK, whiteSpace: 'nowrap' }, m[2]);
-    CM.push({ e, t: m[3] });
-  });
-  const hd = chip(c, 230, 830, '💬 comentarios', { size: 34, bg: INK, color: '#fff', z: 41 }); CM.push({ e: hd, t: 73.9 });
-}
-
-/* ======================================================================
-   S13 · Y ESTO… NO VENÍA EN EL LIBRO (75.95 – 78.85)  L13
-   ====================================================================== */
-headline(75.95, 77.36, 'Y esto…', { size: 130, color: YEL, y: 210, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` });
-headline(77.36, 78.85, '…no venía en el *libro.*', { size: 86, hlT: 78.23 });
-{
-  const c = scene(75.95, 77.36, t => {
-    const k = p(t, 75.95, 1.3, E.inOutCubic);
-    set(vec.d, { s: 1 + 0.22 * k, y: k * 30, r: -k * 4 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO') * 0.6, look: [0, 1], bL: 10, bR: 14, fan: -30, half: true, blink: false });
-    vec.hMouth.setAttribute('transform', 'translate(64,-34) rotate(-20 206 318)'); vec.hMouth.style.opacity = 1; vec.cup.style.opacity = 0;
-  }, { cut: true, clip: true });
-  sceneBg(c, { background: INK });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 46%, rgba(255,230,180,.35), rgba(0,0,0,0) 55%)', zIndex: 1 });
-  const vec = mkVec(c, [-30, 300, 1140, 1411]); vec.d.style.zIndex = 2; vec.d.style.transformOrigin = '540px 650px';
-}
-{
-  const c = scene(77.36, 78.85, t => {
-    const k = p(t, 77.92, 0.3, E.inCubic); const sx = 1 - 2 * k;
-    flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
-    pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
-    const closed = t > 78.22;
-    stand.d.style.display = sx > 0.25 ? '' : 'none';
-    face(stand, t, { look: t > 77.7 ? [6, -5] : [-3, 2], brow: t > 77.7 ? 8 : 0, seed: 1 }); set(stand.d, { y: wobble(t, 1, 3) });
-    set(bookW, { x: 270 * p(t, 77.95, 0.35, E.inOutCubic), s: 1.25 * pop(t, 77.37, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, 78.23, 0.3)) : 0)), o: 1 });
-    stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
-    const kh = p(t, 78.23, 0.6, E.outCubic); set(hat, { x: kh * 160, y: -kh * 260 + kh * kh * 200, r: kh * 300, o: closed ? 1 : 0 });
-  });
-  const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  const bs = svgLayer(bookW, 1);
-  let lines = ''; for (let i = 0; i < 12; i++) lines += `<path d="M180,${790 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  bs.innerHTML = `<g>${cut('<rect x="110" y="630" width="440" height="570" rx="14"/>')}<rect x="110" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/></g>
-   <rect x="130" y="646" width="410" height="536" fill="#F7F0E0" stroke="${INK}" stroke-width="4"/><rect x="130" y="646" width="410" height="536" fill="url(#hP)" opacity=".5"/>
-   <text x="335" y="730" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="44" fill="${INK}">COLÓN</text><text x="335" y="770" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="700" font-size="34" fill="${INK}">capítulo 1</text>${lines}
-   <g class="flap">${cut('<rect x="530" y="630" width="440" height="570" rx="14"/>')}<rect x="530" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><g class="pageF"><rect x="540" y="646" width="410" height="536" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/>${lines2}</g>
-    <g class="coverF"><rect x="540" y="630" width="430" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="566" y="656" width="378" height="518" rx="8" fill="none" stroke="#c9a24a" stroke-width="4"/>
-    <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
-  const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
-  const stand = mkCol(bookW, [640, 470, 240, 307]); stand.d.style.zIndex = 2;
-  const hat = svgBox(bookW, 690, 560, 120, 70, `<path d="M6,60 C-4,20 30,4 60,4 C90,4 124,20 114,60 Q60,48 6,60 Z" fill="#3a2a1e" stroke="${INK}" stroke-width="5"/><path d="M4,52 Q60,38 116,52 L116,66 Q60,52 4,66 Z" fill="${INK}"/>`, '0 0 120 70', { zIndex: 3 });
-  const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '500px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-}
-
-/* ======================================================================
-   TARJETA FINAL (78.85 – fin)
-   ====================================================================== */
-{
-  const c = scene(78.85, 999, t => {
-    set(lt, { s: pop(t, 79.1, 0.45), o: t < 79.1 ? 0 : 1 }); paint(lhl, t, 79.4, 0.4);
-    popA(ttl, t, 79.55, { r: -1 }); popA(src, t, 79.8, { rise: 30 });
-    set(shp, { x: lerp(1100, -300, p(t, 79.0, 3.2, E.linear)), y: Math.sin(t * 3) * 6, r: Math.sin(t * 2.4) * 3 });
-  }, { cut: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, rgba(244,207,218,.55) 0 30px, rgba(249,227,234,.55) 30px 60px)` });
-  const lt = box(c, 40, 870, 1000, 240, { textAlign: 'center', zIndex: 3 });
-  lt.innerHTML = `<div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:92px;line-height:1;color:${INK}">esto no venía</div><div style="font-family:Playfair;font-weight:900;font-size:104px;line-height:1.1;color:${INK}">en el ${hlSpan('libro', 'lhl')}</div>`;
-  const lhl = lt.querySelector('.lhl');
-  const ttl = el('div', c, { left: '70px', top: '1115px', width: '940px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '52px', color: '#fff', background: INK, padding: '14px 10px 18px', borderRadius: '14px', boxShadow: `7px 7px 0 ${PINK}`, zIndex: 3 }, 'Ep. 2 · Colón y la Tierra redonda');
-  const src = el('div', c, { left: '90px', top: '1235px', width: '900px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '27px', lineHeight: 1.3, color: INK, zIndex: 3 }, 'Fuentes: Eratóstenes (s. III a. C.) · Washington Irving, biografía de Colón (1828) · historiografía sobre la junta que evaluó el proyecto de Colón');
-  const shp = box(c, 0, 1400, 150, 155, { zIndex: 2 }); shp.innerHTML = `<svg viewBox="0 0 540 560" width="150" height="155" style="overflow:visible"><g transform="translate(540,0) scale(-1,1)"><use href="#shipS" width="540" height="560"/></g></svg>`;
-}

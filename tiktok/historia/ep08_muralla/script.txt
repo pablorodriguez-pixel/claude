@@ -1,12 +1,10 @@
 VECINO: ¡La Gran Muralla china no se ve desde el espacio! Y el primer astronauta chino lo confirmó.
 VECINO: Ese dato que te enseñaron... es falso.
-VECINO: Soy tu vecino, y esto no venía en el libro.
 VECINO: La muralla es larguísima, sí: miles de kilómetros. Pero estrecha. En muchos tramos, apenas unos metros de ancho.
 VECINO: Y además es del mismo color que el terreno que la rodea. Se camufla.
 VECINO: En dos mil tres, Yang Liwei, el primer astronauta chino, volvió del espacio. Le preguntaron, claro. Su respuesta: no la vio.
 VECINO: Lo curioso es que el mito es más antiguo que los viajes espaciales. Ya se decía que se veía desde la Luna... antes de que nadie hubiera ido.
 VECINO: Desde la Luna, por cierto, no se distingue ninguna construcción humana. Se ven continentes, nubes y océanos.
 VECINO: Ojo: con cámaras y zoom, desde la órbita, sí hay fotos donde aparece. Pero a simple vista, no es lo que te contaron.
-VECINO: O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible.
-VECINO: ¿Qué otro dato del colegio resultó ser falso? Os leo.
-VECINO: Y esto... no venía en el libro.
+VECINO: O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible. ¿Te lo creías? Sí o no.
+VECINO: Soy tu vecino... y esto no venía en el libro.

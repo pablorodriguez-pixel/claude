@@ -16,12 +16,7 @@
 {
 "who": "VECINO",
 "text": "Y lo mejor: los que le dijeron que no... tenían razón.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
@@ -49,23 +44,15 @@
 },
 {
 "who": "VECINO",
-"text": "¿Y de dónde sale el mito? De una biografía de Colón muy novelada, de mil ochocientos veintiocho, escrita por Washington Irving."
-},
-{
-"who": "VECINO",
 "text": "Ojo: Colón tiene su mérito. Cruzar el Atlántico era una locura. Pero no por lo que te contaron."
 },
 {
 "who": "VECINO",
-"text": "O sea: Colón no acertó con la forma de la Tierra. Se equivocó con el tamaño... y le salió bien por suerte."
+"text": "O sea: Colón no acertó con la forma de la Tierra. Se equivocó con el tamaño... y le salió bien por suerte. ¿Te lo habían contado así? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Qué otro mito del colegio queréis que desmonte? Os leo."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

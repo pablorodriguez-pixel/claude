@@ -1,0 +1,10 @@
+ep08_muralla 0 / 2125
+ep08_muralla 300 / 2125
+ep08_muralla 600 / 2125
+ep08_muralla 900 / 2125
+ep08_muralla 1200 / 2125
+ep08_muralla 1500 / 2125
+ep08_muralla 1800 / 2125
+ep08_muralla 2100 / 2125
+duracion 70.83
+ok /tmp/claude-0/-home-user/e7509651-8a9e-5b92-be7f-f416fbb7d9dc/scratchpad/prod/ep08_muralla/final.mp4 {'final_LUFS': -14.0, 'voz_LUFS': -16.0, 'musica_bajo_voz_LU': -20.0, 'ducking_dB': -9.0, 'SNR_voz_musica_dB': 28.5, 'pico_dBFS': -2.6}

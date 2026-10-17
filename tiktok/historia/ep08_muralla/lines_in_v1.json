@@ -1,0 +1,63 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.95
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡La Gran Muralla china no se ve desde el espacio! Y el primer astronauta chino lo confirmó."
+},
+{
+"who": "VECINO",
+"text": "Ese dato que te enseñaron... es falso.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "La muralla es larguísima, sí: miles de kilómetros. Pero estrecha. En muchos tramos, apenas unos metros de ancho."
+},
+{
+"who": "VECINO",
+"text": "Y además es del mismo color que el terreno que la rodea. Se camufla."
+},
+{
+"who": "VECINO",
+"text": "En dos mil tres, Yang Liwei, el primer astronauta chino, volvió del espacio. Le preguntaron, claro. Su respuesta: no la vio."
+},
+{
+"who": "VECINO",
+"text": "Lo curioso es que el mito es más antiguo que los viajes espaciales. Ya se decía que se veía desde la Luna... antes de que nadie hubiera ido."
+},
+{
+"who": "VECINO",
+"text": "Desde la Luna, por cierto, no se distingue ninguna construcción humana. Se ven continentes, nubes y océanos."
+},
+{
+"who": "VECINO",
+"text": "Ojo: con cámaras y zoom, desde la órbita, sí hay fotos donde aparece. Pero a simple vista, no es lo que te contaron."
+},
+{
+"who": "VECINO",
+"text": "O sea: una de las mayores construcciones de la historia... y desde arriba, casi invisible."
+},
+{
+"who": "VECINO",
+"text": "¿Qué otro dato del colegio resultó ser falso? Os leo."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

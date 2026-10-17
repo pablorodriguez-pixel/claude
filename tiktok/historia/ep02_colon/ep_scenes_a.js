@@ -20,8 +20,8 @@ headline(2.72, 6.0, 'Eso ya se *sabía*', { size: 100, hlT: 3.43, y: 210 });
     const ks = pop(t, 3.43, 0.4); set(chk.d || chk, { s: ks, o: t < 3.43 ? 0 : 1, r: -8 });
     set(drop, { y: p(t, 3.6, 1.2, E.inCubic) * 60, o: t > 3.6 && t < 5.2 ? 1 : 0 });
     // contador hacia atrás
-    const kc = p(t, 4.2, 0.35, E.outBack); set(cnt, { y: (1 - kc) * 260, o: t < 4.2 ? 0 : 1 });
-    cntN.textContent = fmt(Math.round(counter(t, 4.47, 0.5, 0, 2000)));
+    const kc = p(t, 4.37, 0.2, E.outBack); set(cnt, { y: (1 - kc) * 90, o: t < 4.37 ? 0 : 1 });
+    set(cntN, { s: t < 4.42 ? 0 : lerp(1.6, 1, p(t, 4.42, 0.18, E.outCubic)), r: -3, o: t < 4.42 ? 0 : 1 }); // «dos mil»: directo, golpe de sello
     set(rew, { r: -t * 360 * (t > 4.2 ? 1.5 : 0) });
     set(tagC, { s: pop(t, 0.2, 0.4), r: -4, o: 1 });
   }, { clip: true });
@@ -41,7 +41,7 @@ headline(2.72, 6.0, 'Eso ya se *sabía*', { size: 100, hlT: 3.43, y: 210 });
   const cnt = box(c, 120, 1120, 840, 210, { background: INK, border: `6px solid ${YEL}`, borderRadius: '28px', boxShadow: `10px 10px 0 ${SH}`, zIndex: 40 });
   const rew = el('div', cnt, { left: '26px', top: '40px', width: '120px', height: '120px', fontSize: '110px', lineHeight: '120px', textAlign: 'center', color: YEL, fontFamily: 'InterV', fontWeight: 900 }, '⟲');
   el('div', cnt, { left: '160px', top: '18px', fontFamily: 'SpecialElite', fontSize: '40px', color: PAPER, whiteSpace: 'nowrap' }, 'hace casi');
-  const cntN = el('div', cnt, { left: '160px', top: '58px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', lineHeight: 1, color: YEL, whiteSpace: 'nowrap' }, '0');
+  const cntN = el('div', cnt, { left: '160px', top: '58px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', lineHeight: 1, color: YEL, whiteSpace: 'nowrap', transformOrigin: '0% 60%' }, '2.000');
   el('div', cnt, { left: '560px', top: '96px', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '80px', lineHeight: 1, color: '#fff', whiteSpace: 'nowrap' }, 'años');
 }
 
@@ -81,55 +81,6 @@ function tableFront(c) {
   tableFront(c);
   const arw = el('div', c, { left: '640px', top: '1150px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '46px', color: PINK, textShadow: `3px 3px 0 ${INK}`, whiteSpace: 'nowrap', zIndex: 30 }, '↑ los expertos');
   const mito = stamp(c, 170, 560, 'MITO', { size: 230, bw: 18, z: 60, bg: 'rgba(255,255,255,.82)', blend: 'normal' });
-}
-
-/* ======================================================================
-   S2 · MARCA: EL VECINO EN SU BALCÓN (10.6 – 13.85)  L2
-   ====================================================================== */
-{
-  const c = scene(10.6, 13.85, t => {
-    const ex = p(t, 13.62, 0.22, E.inCubic);
-    set(cam, { s: lerp(1.04 + 0.05 * p(t, 10.6, 3.2, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > 11.1 && t < 11.9 ? [0, -4] : t > 12.1 ? [-4, 3] : [0, 0], bL: t > 10.7 && t < 11.3 ? 8 : 2, bR: t > 10.7 && t < 11.3 ? 8 : 10, fan: t > 10.7 && t < 11.2 ? Math.sin(t * 22) * 14 : wobble(t, 0.9, 6), seed: 0.3 });
-    set(vec.d, { y: wobble(t, 0.5, 3) });
-    popA(tag, t, 11.13, { r: -5 });
-    const ks = p(t, 11.94, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: (1 - ks) * 8 + Math.sin(t * 2.4) * 1.2, o: t < 11.92 ? 0 : 1 });
-    sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
-    paint(sHL, t, 13.27, 0.3);
-    pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
-  }, { clip: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 116px)' });
-  const win = box(cam, 0, 0, 1080, 1920); {
-    const arch = 'M160,1300 L160,640 Q160,450 540,440 Q920,450 920,640 L920,1300 Z';
-    let lace = ''; for (let y = 560; y < 1250; y += 26) lace += `<path d="M${f1(176 + Math.sin(y * 0.05) * 6)},${y} q22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/><path d="M${f1(904 - Math.sin(y * 0.05) * 6)},${y} q-22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/>`;
-    win.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">
-    <rect x="12" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="928" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/>
-    ${[...Array(14).keys()].map(k => `<path d="M24,${560 + k * 50} h116 M940,${560 + k * 50} h116" stroke="${INK}" stroke-width="3"/>`).join('')}
-    <path d="${arch}" fill="#fff" stroke="#fff" stroke-width="40"/><path d="${arch}" fill="#3a2a1e" stroke="${INK}" stroke-width="8"/><path d="${arch}" fill="url(#hW)" opacity=".25"/>
-    <path d="M168,600 C230,700 230,1100 200,1290 L168,1290 Z M912,600 C850,700 850,1100 880,1290 L912,1290 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="3"/>${lace}</svg>`;
-  }
-  const vec = mkVec(cam, [190, 430, 700, 867]);
-  const rail = box(cam, 0, 0, 1080, 1920); {
-    let bars = ''; for (let x = 140; x <= 940; x += 40) bars += `<path d="M${x},1206 V1330" stroke="${INK}" stroke-width="9"/><circle cx="${x}" cy="1268" r="9" fill="none" stroke="${INK}" stroke-width="4"/>`;
-    rail.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="110" y="1180" width="860" height="30" rx="8" fill="${INK}"/>${bars}<rect x="110" y="1322" width="860" height="40" fill="${INK}"/><rect x="80" y="1352" width="920" height="40" fill="#cdb48a" stroke="${INK}" stroke-width="5"/></svg>`;
-  }
-  const pots = [];
-  [[130, 1040], [760, 1040]].forEach(q => {
-    const d = box(cam, q[0], q[1], 200, 160); let fl = '';
-    [[40, 40], [80, 20], [120, 34], [160, 48], [70, 60], [130, 64]].forEach((f, j) => { fl += `<g><path d="M${f[0]},${f[1] + 30} L100,120" stroke="#3c5a2a" stroke-width="5"/><circle cx="${f[0]}" cy="${f[1]}" r="24" fill="${j % 2 ? RED : PINK}" stroke="${INK}" stroke-width="3.5"/><circle cx="${f[0] - 8}" cy="${f[1] - 6}" r="9" fill="#fff" opacity=".45"/><circle cx="${f[0]}" cy="${f[1]}" r="5" fill="${YEL}" stroke="${INK}" stroke-width="2"/></g>`; });
-    [[30, 96], [170, 96], [60, 110], [140, 110]].forEach(l => fl += `<ellipse cx="${l[0]}" cy="${l[1]}" rx="30" ry="14" fill="#7a9a52" stroke="${INK}" stroke-width="3" transform="rotate(${l[0] < 100 ? -20 : 20} ${l[0]} ${l[1]})"/>`);
-    d.innerHTML = `<svg viewBox="0 0 200 160" width="200" height="160" style="overflow:visible">${fl}${cut('<path d="M30,110 L170,110 L156,160 L44,160 Z"/>', 5, 6)}<path d="M30,110 L170,110 L156,160 L44,160 Z" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M30,110 L170,110 L156,160 L44,160 Z" fill="url(#hA)" opacity=".5"/><rect x="24" y="104" width="152" height="16" rx="4" fill="#C1663A" stroke="${INK}" stroke-width="4"/></svg>`;
-    pots.push(d);
-  });
-  const tag = chip(cam, 640, 610, 'tu vecino', { size: 46, bg: PINK });
-  const sign = box(cam, 120, 150, 840, 270, { zIndex: 40 });
-  sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
-  const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sl2 = el('div', sign, { left: '0', top: '146px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sw = [];
-  [['esto', 33, sl1], ['no', 34, sl1], ['venía', 35, sl1], ['en', 36, sl2], ['el', 37, sl2], ['libro', 38, sl2]].forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.innerHTML = q[0] === 'libro' ? hlSpan('libro', 'shl') : q[0]; q[2].appendChild(s); s.style.position = 'relative'; sw.push({ e: s, t: W[q[1]].s }); });
-  const sHL = sign.querySelector('.shl');
 }
 
 /* ======================================================================
@@ -223,12 +174,12 @@ headline(25.59, 27.04, 'La discusión era *otra*:', { size: 84, hlT: 26.31 });
 headline(27.04, 28.0, '¿cómo de *grande*?', { size: 108, hlT: 27.41 });
 {
   const c = scene(25.59, 28.0, t => {
-    const k1 = pop(t, 25.7, 0.45), k2 = pop(t, 26.0, 0.5);
-    set(gS.d, { s: k1, o: t < 25.7 ? 0 : 1, y: wobble(t, 0.7, 6) }); set(gB.d, { s: k2, o: t < 26.0 ? 0 : 1, y: wobble(t, 0.5, 8, 1) });
+    const k1 = pop(t, 25.6, 0.4), k2 = pop(t, 25.75, 0.45);
+    set(gS.d, { s: k1, o: t < 25.6 ? 0 : 1, y: wobble(t, 0.7, 6) }); set(gB.d, { s: k2, o: t < 25.75 ? 0 : 1, y: wobble(t, 0.5, 8, 1) });
     spinGlobe(gS, t, 50); spinGlobe(gB, t, 25);
     popA(l1, t, 26.31, { r: -5 }); popA(l2, t, 26.6, { r: 4 });
     const kq = pop(t, 27.06, 0.4); set(q, { s: kq * (1 + 0.08 * Math.sin(t * 9)), r: Math.sin(t * 5) * 8, o: t < 27.06 ? 0 : 1 });
-    set(vs, { s: pop(t, 26.1, 0.3), o: t < 26.1 ? 0 : 1 });
+    set(vs, { s: pop(t, 25.9, 0.3), o: t < 25.9 ? 0 : 1 });
   }, { clip: true });
   halftone(c, 'rgba(43,33,24,.08)', 0);
   const gS = mkGlobe(c, [110, 640, 220, 275]);
@@ -255,8 +206,8 @@ const MAPX = 40, MAPY = 440;
     set(thk, { o: t > 28.4 && t < 29.9 ? 1 : 0, y: Math.sin(t * 6) * 6, s: pop(t, 28.4, 0.3) });
     const kj = pop(t, 29.02, 0.45); set(cip, { s: kj, o: t < 29.02 ? 0 : 1 });
     const kr = p(t, 30.22, 0.95, E.outCubic); const wR = 560 * kr; set(ruler, { o: t < 30.2 ? 0 : 1 }); ruler.style.width = px(Math.max(1, wR)); ruler.style.left = px(810 - wR);
-    rl.textContent = '≈ ' + fmt(Math.round(counter(t, 30.22, 0.95, 0, 4500) / 10) * 10) + ' km';
-    set(rlab, { s: pop(t, 30.3, 0.35), o: t < 30.3 ? 0 : 1, r: -2 });
+    rl.textContent = '≈ 4.500 km'; // directo, sin contador
+    set(rlab, { s: t < 30.218 ? 0 : lerp(2, 1, p(t, 30.218, 0.18, E.outCubic)), o: t < 30.218 ? 0 : 1, r: -2 });
     const ks = p(t, 31.83, 1.2, E.inOutCubic); set(shp, { x: -ks * 420, y: Math.sin(t * 5) * 5, r: Math.sin(t * 4) * 4, o: t < 31.7 ? 0 : 1 });
     dash.setAttribute('stroke-dashoffset', f1(-t * 40));
     set(dashW, { o: t > 31.83 ? 1 : 0 });
