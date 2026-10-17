@@ -1,0 +1,145 @@
+{
+ "episodio": "ep24_mil",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 2.689,
+   "dur": 2.57,
+   "palabras": 9,
+   "texto": "Milpiés: te han colado lo de las mil patas."
+  },
+  {
+   "n": 1,
+   "s": 2.909,
+   "e": 8.666,
+   "dur": 5.76,
+   "palabras": 22,
+   "texto": "La mayoría no llega ni a la mitad. Y el primero con más de mil no se conoció hasta dos mil veintiuno."
+  },
+  {
+   "n": 2,
+   "s": 8.886,
+   "e": 12.944,
+   "dur": 4.06,
+   "palabras": 12,
+   "texto": "Hoy somos mil vecinos: van tres «miles» más que te han colado."
+  },
+  {
+   "n": 3,
+   "s": 13.164,
+   "e": 19.8,
+   "dur": 6.64,
+   "palabras": 18,
+   "texto": "Dos: «Las mil y una noches». Aladino no venía en el libro: lo coló un francés, siglos después."
+  },
+  {
+   "n": 4,
+   "s": 20.02,
+   "e": 25.854,
+   "dur": 5.83,
+   "palabras": 9,
+   "texto": "Tres: millón. Viene del italiano: «mil grande». Un milote."
+  },
+  {
+   "n": 5,
+   "s": 26.074,
+   "e": 31.269,
+   "dur": 5.19,
+   "palabras": 12,
+   "texto": "Y cuatro: el mil romano no era una M. Era este garabato."
+  },
+  {
+   "n": 6,
+   "s": 31.489,
+   "e": 37.965,
+   "dur": 6.48,
+   "palabras": 16,
+   "texto": "Pártelo por la mitad... y sale la D de quinientos. La M ganó luego, por «mille»."
+  },
+  {
+   "n": 7,
+   "s": 38.185,
+   "e": 44.82,
+   "dur": 6.63,
+   "palabras": 15,
+   "texto": "Ojo: hay quien cree que de este garabato salió el infinito. Nadie lo ha probado."
+  },
+  {
+   "n": 8,
+   "s": 45.04,
+   "e": 48.974,
+   "dur": 3.93,
+   "palabras": 9,
+   "texto": "Mil vecinos: para mí, casi infinito. Y os conozco."
+  },
+  {
+   "n": 9,
+   "s": 49.194,
+   "e": 54.87,
+   "dur": 5.68,
+   "palabras": 18,
+   "texto": "Daniela nos pilló el «A, C», otro le agarró bronca al lunes... y siempre hay un «yo primero»."
+  },
+  {
+   "n": 10,
+   "s": 55.09,
+   "e": 57.162,
+   "dur": 2.07,
+   "palabras": 7,
+   "texto": "Y no: no soy tu vecino José."
+  },
+  {
+   "n": 11,
+   "s": 57.382,
+   "e": 65.618,
+   "dur": 8.24,
+   "palabras": 21,
+   "texto": "El próximo lo elegís: ¿Alejandro Magno, el «cero muertos» del OK o la revancha de Napoleón? Vota A, B o C."
+  },
+  {
+   "n": 12,
+   "s": 65.838,
+   "e": 69.354,
+   "dur": 3.52,
+   "palabras": 12,
+   "texto": "Mil gracias. Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "milpies",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 2.57,
+ "gancho_palabras": 9,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 10,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 55.09,
+ "ojo_dur": 6.63,
+ "cta_tipo": "abierta",
+ "cta_texto": "El próximo lo elegís: ¿Alejandro Magno, el «cero muertos» del OK o la revancha de Napoleón? Vota A, B o C.",
+ "n_lineas": 13,
+ "n_palabras": 180,
+ "duracion_voz": 69.35,
+ "ppm": 155.7,
+ "lineas_mas_largas": [
+  [
+   11,
+   8.24,
+   "El próximo lo elegís: ¿Alejandro Magno, el «cero muertos» del OK o la "
+  ],
+  [
+   3,
+   6.64,
+   "Dos: «Las mil y una noches». Aladino no venía en el libro: lo coló un "
+  ],
+  [
+   7,
+   6.63,
+   "Ojo: hay quien cree que de este garabato salió el infinito. Nadie lo h"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep24_mil/final.mp4",
+ "duracion_video": 69.97
+}
