@@ -11,35 +11,45 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "¡Cumpleaños feliz, la que cantas en cada tarta, tenía dueño!"
+   "text": "¡Cumpleaños feliz, la de tus tartas, tenía dueño!",
+   "tempo": 1.2
   },
   {
    "who": "VECINO",
-   "text": "Haz la prueba. Cántala por dentro con esta letra: «Buenos días a todos»... ¿Encaja, eh? Te he oído."
+   "text": "Haz la prueba: cántala por dentro con esta letra: «Buenos días a ti».",
+   "gap_after": 2.6
   },
   {
    "who": "VECINO",
-   "text": "Porque esa era la canción original: la escribieron dos hermanas americanas, a finales del siglo diecinueve, para dar los buenos días en clase."
+   "text": "¿Encaja, eh? Te he oído... y desafinas un poquito."
   },
   {
    "who": "VECINO",
-   "text": "Luego alguien le puso la letra del cumpleaños... y una empresa se quedó los derechos."
+   "text": "Porque así nació: dos hermanas de Estados Unidos la compusieron para dar los buenos días en clase."
   },
   {
    "who": "VECINO",
-   "text": "Resultado: si salía en una película o en un anuncio, a pagar. Hubo restaurantes que se inventaron su propia canción para no soltar ni un dólar."
+   "text": "Luego alguien le puso la letra del cumpleaños... y una empresa dijo que era suya."
   },
   {
    "who": "VECINO",
-   "text": "Hasta que en dos mil quince un juez dijo: esos derechos no valen. Y desde dos mil dieciséis, es de todos."
+   "text": "Resultado: ¿salía en una peli o en un anuncio? A pagar."
   },
   {
    "who": "VECINO",
-   "text": "Ojo: cantarla en tu casa siempre fue gratis. Nadie te va a mandar la factura de tus seis años."
+   "text": "Y hubo restaurantes que se inventaron otra canción para no soltar ni un dólar."
   },
   {
    "who": "VECINO",
-   "text": "O sea: la canción que más has cantado en tu vida... tenía dueño. ¿Cómo se canta en tu casa? Os leo."
+   "text": "Hasta que en dos mil quince un juez de Estados Unidos dijo: esos derechos no valen. Hoy es de todos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: en tu casa siempre fue gratis. Nadie te manda la factura de tus seis años."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la canción que más has cantado tenía un dueño... que no lo era. ¿Y en tu casa, cómo se canta? Os leo."
   },
   {
    "who": "VECINO",

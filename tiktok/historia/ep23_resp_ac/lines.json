@@ -1,0 +1,44 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Bien escrito sería A, C? Daniela: sí. Y es aún más absurdo.",
+  "s": 0.12,
+  "e": 5.238
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "O.K. viene de «oll korrect»: all correct, escrito mal a propósito. Bien escrito, sería A, C.",
+  "s": 5.538,
+  "e": 12.865
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Y no era la única. También escribían O.W.: «oll wright», o sea, all right. Era el «ola k ase» de la época.",
+  "s": 13.105,
+  "e": 22.763
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Y por qué sobrevivió OK? Por la campaña de Van Buren, al año siguiente: le apodaban Old Kinderhook. O.K., otra vez.",
+  "s": 23.003,
+  "e": 32.044
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "O sea: si lo hubieran escrito bien, hoy le contestarías a tu madre «A, C». ¿Qué palabra te huele rara a ti? Os leo.",
+  "s": 32.284,
+  "e": 40.621
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 40.861,
+  "e": 44.586
+ }
+]

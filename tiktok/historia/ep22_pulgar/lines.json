@@ -1,0 +1,58 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Pulgar abajo! Ningún romano te dijo que era «mátalo».",
+  "s": 0.12,
+  "e": 3.61
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "¡Eh, no deslices! Que ese gesto te lo coló un cuadro, no un romano.",
+  "s": 3.85,
+  "e": 7.84
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "El gesto existía: pollice verso, pulgar girado, para pedir la muerte. Pero nadie escribió hacia dónde.",
+  "s": 8.08,
+  "e": 14.57
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Lo de «hacia abajo» lo hizo famoso un cuadro de mil ochocientos setenta y dos. Y el cine lo copió.",
+  "s": 14.81,
+  "e": 20.385
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "¿A que tienes el pulgar en la pantalla, listo para deslizar? Te he pillado.",
+  "s": 20.625,
+  "e": 24.776
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Ojo: nadie sabe el gesto exacto. Algunos historiadores creen que «mátalo» era... pulgar arriba.",
+  "s": 25.016,
+  "e": 32.337
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "O sea: tu like, en Roma, a lo mejor era una sentencia. ¿A quién se lo has dado hoy? Os leo.",
+  "s": 32.577,
+  "e": 39.946
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 40.186,
+  "e": 43.338
+ }
+]

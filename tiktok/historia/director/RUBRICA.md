@@ -17,10 +17,22 @@ porque enseña al algoritmo que la cuenta aburre.
 La estimación de exposición es una BANDA, no una cifra. Se razona comparando con el vídeo calibrado más parecido.
 TikTok tiene mucha varianza: un vídeo de banda B puede dar la campanada, pero uno de banda D casi nunca.
 
+### Referencia externa (banda A+): «Pues ya estaría» · Aventicum (06/10/2026)
+371,8 mil reproducciones · 48,5 mil me gusta (13 %) · 2.653 compartidos · 2.964 guardados · solo 76 comentarios · 90 s · cuenta de 20,7 mil seguidores.
+Material en `director/referencias/pye_aventicum/`. Lo que lo hizo volar:
+1. **Actualidad + historia**: noticia de hace días (Reuters) con un giro histórico. Es la ruta B del tema: no hace falta tocar la vida del espectador si es NOTICIA y es ASOMBROSA.
+2. **El misterio es un MECANISMO** («esta planta delató una ciudad romana» → ¿cómo?). La explicación visual (raíces, muros, se seca antes) da el «ahhh» que se comparte.
+3. **Renueva el bucle** cuando adivinas: «Y no, las ruinas no han salido de la tierra. Ha pasado algo más raro» (8–13 s).
+4. **Protagonista con cara**: la planta con sed, el sol cabreado. Personificar el objeto.
+5. **Revelación en lista** («¿Y qué apareció?» → termas, casas, piscina, templo): pequeñas recompensas seguidas.
+6. **Remate con referencia moderna y desvergonzada** («ha activado la capa de Roma en Google Maps»). El tono es de colega, no de profesor.
+7. Viraliza por **compartidos y guardados**, no por comentarios: el «wow» compartible es otra vía, distinta de la del debate.
+8. Dura 90 s y retiene porque cambia el plano cada 1–2 s y renueva la pregunta. La duración no es el problema; los huecos sí.
+
 ## 2. Puertas eliminatorias (si falla una → no se publica tal cual)
 - **P1 · Mito quemado.** Si la «verdad» que contamos ya es de dominio popular (vikingos sin cuernos, Muralla desde el espacio, Colón y la Tierra plana,
   …), se descarta, por bien hecho que esté. Prueba: si casi todos tus amigos dirían «ya lo sabía», está quemado.
-- **P2 · Filtro de tema ≥ 4/5:** (a) toca su vida diaria, (b) le dice que está equivocado, (c) lo puede comprobar en el momento (contar, mirar el teclado, decirlo en voz alta),
+- **P2 · Filtro de tema ≥ 4/5** (o RUTA B, actualidad: noticia de ≤ 10 días con fuente seria + mecanismo asombroso que se explica en imagen): (a) toca su vida diaria, (b) le dice que está equivocado, (c) lo puede comprobar en el momento (contar, mirar el teclado, decirlo en voz alta),
   (d) funciona en España Y en Latinoamérica (parte del público es latino), (e) genera debate o respuesta personal.
 - **P3 · Gancho:** la primera palabra es el tema; dura ≤ 3,5 s; es una afirmación que contradice y apela a «tú»; no da la respuesta.
 - **P4 · Portada (fotograma 0):** se entiende en la miniatura del perfil (≈150 px de ancho): ≤ 6 palabras grandes, un objeto icónico gigante, planteada como pregunta, y ya en movimiento.
@@ -33,8 +45,8 @@ TikTok tiene mucha varianza: un vídeo de banda B puede dar la campanada, pero u
 |---|---|---|---|
 | **Tema** | 25 | «Me lo dices a MÍ, y lo compruebo ya» (OK, Napoleón) | Curiosidad de enciclopedia sobre otros |
 | **Gancho + portada** | 20 | Miniatura que se entiende sin leer; 3 s que te obligan a quedarte | Texto pequeño, escena compleja, respuesta destripada |
-| **Retención** | 20 | Algo nuevo cada 1–2 s; contexto en una frase; ninguna línea > 7 s sin cambio de plano; «Ojo» ≤ 6 s; 55–65 s | Bloques de fechas y nombres; planos de más de 2,5 s parados |
-| **Conversación** | 15 | Debate incorporado + pregunta final que pide una respuesta personal (su mes, su palabra, su país) + comentario fijado | «¿Lo sabías? Sí o no» y nada más |
+| **Retención** | 20 | Algo nuevo cada 1–2 s; contexto en una frase; ninguna línea > 7 s sin cambio de plano; «Ojo» ≤ 6 s; la pregunta se renueva al menos una vez; 55–65 s (hasta 90 s si no hay huecos) | Bloques de fechas y nombres; planos de más de 2,5 s parados |
+| **Conversación / compartir** | 15 | Debate incorporado + pregunta final que pide una respuesta personal (su mes, su palabra, su país) + comentario fijado, O un «wow» que te hace mandárselo a alguien | «¿Lo sabías? Sí o no» y nada más |
 | **Chispa** | 15 | El Vecino tiene opinión: ironía cariñosa, ≥ 2 frases citables, un remate que darías por capturado, gag del emú | Locución de documental, sin personalidad |
 | **Factura** | 5 | Grabado limpio, sellos a tiempo, nada cortado ni fuera de las zonas seguras | Errores visibles |
 
