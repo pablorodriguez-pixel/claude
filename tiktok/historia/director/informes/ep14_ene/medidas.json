@@ -1,0 +1,121 @@
+{
+ "episodio": "ep14_ene",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.21,
+   "dur": 3.09,
+   "palabras": 8,
+   "texto": "¡La eñe nació porque unos monjes querían ahorrar!"
+  },
+  {
+   "n": 1,
+   "s": 3.51,
+   "e": 6.685,
+   "dur": 3.17,
+   "palabras": 11,
+   "texto": "Y en los noventa, Europa casi la saca de tu teclado."
+  },
+  {
+   "n": 2,
+   "s": 6.925,
+   "e": 14.674,
+   "dur": 7.75,
+   "palabras": 22,
+   "texto": "Edad Media. Los libros se copiaban a mano y el pergamino era carísimo. Así que los copistas abreviaban todo lo que podían."
+  },
+  {
+   "n": 3,
+   "s": 14.914,
+   "e": 25.137,
+   "dur": 10.22,
+   "palabras": 24,
+   "texto": "Si una letra iba doble, escribían solo una... con una rayita encima. Y la doble ene acabó siendo una ene con sombrero: la eñe."
+  },
+  {
+   "n": 4,
+   "s": 25.377,
+   "e": 29.451,
+   "dur": 4.07,
+   "palabras": 10,
+   "texto": "Por eso «año» viene del latín «annus». Con dos enes."
+  },
+  {
+   "n": 5,
+   "s": 29.691,
+   "e": 38.084,
+   "dur": 8.39,
+   "palabras": 25,
+   "texto": "Y en mil novecientos noventa y uno, desde Europa se pidió que en España se pudieran vender teclados sin eñe. Se montó un escándalo nacional."
+  },
+  {
+   "n": 6,
+   "s": 38.324,
+   "e": 42.718,
+   "dur": 4.39,
+   "palabras": 18,
+   "texto": "Al final, una norma obligó a que los teclados que se venden en España la lleven. Hasta hoy."
+  },
+  {
+   "n": 7,
+   "s": 42.958,
+   "e": 49.719,
+   "dur": 6.76,
+   "palabras": 18,
+   "texto": "Ojo: esa rayita la usaban los copistas con muchas letras. Pero en castellano se quedó como letra propia."
+  },
+  {
+   "n": 8,
+   "s": 49.959,
+   "e": 58.193,
+   "dur": 8.23,
+   "palabras": 19,
+   "texto": "O sea: la letra más española del abecedario... es un truco para ahorrar tinta. ¿Lo sabías? Sí o no."
+  },
+  {
+   "n": 9,
+   "s": 58.433,
+   "e": 61.523,
+   "dur": 3.09,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "la",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.09,
+ "gancho_palabras": 8,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": false,
+ "marca_linea": 9,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 58.433,
+ "ojo_dur": 6.76,
+ "cta_tipo": "si_o_no",
+ "cta_texto": "O sea: la letra más española del abecedario... es un truco para ahorrar tinta. ¿Lo sabías? Sí o no.",
+ "n_lineas": 10,
+ "n_palabras": 165,
+ "duracion_voz": 61.52,
+ "ppm": 160.9,
+ "lineas_mas_largas": [
+  [
+   3,
+   10.22,
+   "Si una letra iba doble, escribían solo una... con una rayita encima. Y"
+  ],
+  [
+   5,
+   8.39,
+   "Y en mil novecientos noventa y uno, desde Europa se pidió que en Españ"
+  ],
+  [
+   8,
+   8.23,
+   "O sea: la letra más española del abecedario... es un truco para ahorra"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep14_ene/final.mp4",
+ "duracion_video": 62.17
+}

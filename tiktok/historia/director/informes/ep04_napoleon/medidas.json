@@ -1,0 +1,137 @@
+{
+ "episodio": "ep04_napoleon",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.525,
+   "dur": 3.4,
+   "palabras": 11,
+   "texto": "¡Napoleón no era bajito! Te lo han colado durante doscientos años."
+  },
+  {
+   "n": 1,
+   "s": 3.805,
+   "e": 8.559,
+   "dur": 4.75,
+   "palabras": 18,
+   "texto": "Medía alrededor de un metro sesenta y ocho. Lo normal en su época... o incluso un poco más."
+  },
+  {
+   "n": 2,
+   "s": 8.909,
+   "e": 11.663,
+   "dur": 2.75,
+   "palabras": 10,
+   "texto": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "n": 3,
+   "s": 12.013,
+   "e": 16.544,
+   "dur": 4.53,
+   "palabras": 12,
+   "texto": "¿Entonces por qué todo el mundo cree lo contrario? Por tres cosas."
+  },
+  {
+   "n": 4,
+   "s": 16.824,
+   "e": 27.428,
+   "dur": 10.6,
+   "palabras": 29,
+   "texto": "Una: las pulgadas. Cuando murió, midieron cinco pies y dos pulgadas. Pero eran pies y pulgadas franceses, más largos que los ingleses. En medidas inglesas, parecía mucho más bajo."
+  },
+  {
+   "n": 5,
+   "s": 27.708,
+   "e": 33.72,
+   "dur": 6.01,
+   "palabras": 14,
+   "texto": "Dos: los ingleses. Sus caricaturistas lo dibujaban diminuto y con rabietas. Propaganda de guerra."
+  },
+  {
+   "n": 6,
+   "s": 34.0,
+   "e": 38.977,
+   "dur": 4.98,
+   "palabras": 18,
+   "texto": "Y tres: su mote. Le llamaban el pequeño cabo... y era una forma de cariño, no una medida."
+  },
+  {
+   "n": 7,
+   "s": 39.257,
+   "e": 48.013,
+   "dur": 8.76,
+   "palabras": 22,
+   "texto": "Además, solía ir rodeado de su guardia, soldados escogidos, entre otras cosas, por ser altos. Al lado de ellos, cualquiera parece pequeño."
+  },
+  {
+   "n": 8,
+   "s": 48.293,
+   "e": 54.161,
+   "dur": 5.87,
+   "palabras": 15,
+   "texto": "Ojo: no era ningún gigante. Era un hombre de estatura normal... con muy mala prensa."
+  },
+  {
+   "n": 9,
+   "s": 54.441,
+   "e": 59.345,
+   "dur": 4.9,
+   "palabras": 10,
+   "texto": "O sea: la propaganda fue tan buena que todavía funciona."
+  },
+  {
+   "n": 10,
+   "s": 59.625,
+   "e": 63.341,
+   "dur": 3.72,
+   "palabras": 11,
+   "texto": "¿Qué otro personaje crees que tiene una fama injusta? Os leo."
+  },
+  {
+   "n": 11,
+   "s": 63.621,
+   "e": 66.039,
+   "dur": 2.42,
+   "palabras": 7,
+   "texto": "Y esto... no venía en el libro."
+  }
+ ],
+ "primera_palabra": "napoleon",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.4,
+ "gancho_palabras": 11,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 2,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 8.909,
+ "ojo_dur": 5.87,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Qué otro personaje crees que tiene una fama injusta? Os leo.",
+ "n_lineas": 12,
+ "n_palabras": 177,
+ "duracion_voz": 66.04,
+ "ppm": 160.8,
+ "lineas_mas_largas": [
+  [
+   4,
+   10.6,
+   "Una: las pulgadas. Cuando murió, midieron cinco pies y dos pulgadas. P"
+  ],
+  [
+   7,
+   8.76,
+   "Además, solía ir rodeado de su guardia, soldados escogidos, entre otra"
+  ],
+  [
+   5,
+   6.01,
+   "Dos: los ingleses. Sus caricaturistas lo dibujaban diminuto y con rabi"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep04_napoleon/ep04_napoleon.mp4",
+ "duracion_video": 69.27
+}

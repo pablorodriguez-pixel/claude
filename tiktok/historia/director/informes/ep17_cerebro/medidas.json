@@ -1,0 +1,105 @@
+{
+ "episodio": "ep17_cerebro",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 4.357,
+   "dur": 4.24,
+   "palabras": 14,
+   "texto": "¡No usas solo el diez por ciento de tu cerebro! Lo usas casi todo."
+  },
+  {
+   "n": 1,
+   "s": 4.657,
+   "e": 11.289,
+   "dur": 6.63,
+   "palabras": 15,
+   "texto": "Y aunque te lo hayan dicho películas y profesores... nadie ha demostrado nunca lo contrario."
+  },
+  {
+   "n": 2,
+   "s": 11.529,
+   "e": 20.199,
+   "dur": 8.67,
+   "palabras": 25,
+   "texto": "Si te escanean el cerebro durante un día entero, se van encendiendo prácticamente todas las zonas. Unas para ver, otras para moverte, otras para recordar."
+  },
+  {
+   "n": 3,
+   "s": 20.439,
+   "e": 30.979,
+   "dur": 10.54,
+   "palabras": 29,
+   "texto": "Y una prueba más fácil: si tuvieras un noventa por ciento sin usar, una lesión pequeña no te haría nada. Y no es así: casi cualquier daño se nota."
+  },
+  {
+   "n": 4,
+   "s": 31.219,
+   "e": 41.847,
+   "dur": 10.63,
+   "palabras": 33,
+   "texto": "Además, el cerebro pesa más o menos un dos por ciento de tu cuerpo... y se lleva cerca del veinte por ciento de tu energía. Nadie gastaría tanto en algo que no usa."
+  },
+  {
+   "n": 5,
+   "s": 42.087,
+   "e": 48.205,
+   "dur": 6.12,
+   "palabras": 23,
+   "texto": "Ojo: nadie sabe bien de dónde salió el mito. Se le atribuye a Einstein... y no hay ninguna prueba de que lo dijera."
+  },
+  {
+   "n": 6,
+   "s": 48.445,
+   "e": 55.308,
+   "dur": 6.86,
+   "palabras": 18,
+   "texto": "O sea: tu cerebro trabaja entero. Hasta cuando estás en el sofá. ¿Te lo creías? Sí o no."
+  },
+  {
+   "n": 7,
+   "s": 55.548,
+   "e": 58.689,
+   "dur": 3.14,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "no",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 4.24,
+ "gancho_palabras": 14,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 7,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 55.548,
+ "ojo_dur": 6.12,
+ "cta_tipo": "si_o_no",
+ "cta_texto": "O sea: tu cerebro trabaja entero. Hasta cuando estás en el sofá. ¿Te lo creías? Sí o no.",
+ "n_lineas": 8,
+ "n_palabras": 167,
+ "duracion_voz": 58.69,
+ "ppm": 170.7,
+ "lineas_mas_largas": [
+  [
+   4,
+   10.63,
+   "Además, el cerebro pesa más o menos un dos por ciento de tu cuerpo... "
+  ],
+  [
+   3,
+   10.54,
+   "Y una prueba más fácil: si tuvieras un noventa por ciento sin usar, un"
+  ],
+  [
+   2,
+   8.67,
+   "Si te escanean el cerebro durante un día entero, se van encendiendo pr"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep17_cerebro/final.mp4",
+ "duracion_video": 59.3
+}

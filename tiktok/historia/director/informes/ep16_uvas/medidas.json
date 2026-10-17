@@ -1,0 +1,105 @@
+{
+ "episodio": "ep16_uvas",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 2.742,
+   "dur": 2.62,
+   "palabras": 8,
+   "texto": "¡Las uvas de Nochevieja empezaron como una burla!"
+  },
+  {
+   "n": 1,
+   "s": 3.042,
+   "e": 5.669,
+   "dur": 2.63,
+   "palabras": 9,
+   "texto": "Y a lo mejor, la burla era de ti."
+  },
+  {
+   "n": 2,
+   "s": 5.909,
+   "e": 14.407,
+   "dur": 8.5,
+   "palabras": 20,
+   "texto": "Madrid, años ochenta... del siglo diecinueve. Las familias ricas copiaban una moda francesa: cenar con champán y uvas en Nochevieja."
+  },
+  {
+   "n": 3,
+   "s": 14.647,
+   "e": 21.616,
+   "dur": 6.97,
+   "palabras": 28,
+   "texto": "Y a la gente de la calle le pareció tan cursi que se fue a la Puerta del Sol a comerse las uvas con las campanadas. De cachondeo."
+  },
+  {
+   "n": 4,
+   "s": 21.856,
+   "e": 24.902,
+   "dur": 3.05,
+   "palabras": 7,
+   "texto": "La broma gustó tanto... que se quedó."
+  },
+  {
+   "n": 5,
+   "s": 25.142,
+   "e": 40.164,
+   "dur": 15.02,
+   "palabras": 39,
+   "texto": "Ojo: la historia que más se cuenta es otra. En mil novecientos nueve hubo una cosecha enorme en Alicante, y los agricultores la promocionaron para vender más uva. Eso ayudó a que se extendiera, pero la costumbre ya existía."
+  },
+  {
+   "n": 6,
+   "s": 40.404,
+   "e": 47.455,
+   "dur": 7.05,
+   "palabras": 18,
+   "texto": "O sea: cada Nochevieja repites una broma de hace casi ciento cincuenta años. ¿Lo sabías? Sí o no."
+  },
+  {
+   "n": 7,
+   "s": 47.695,
+   "e": 51.255,
+   "dur": 3.56,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "las",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 2.62,
+ "gancho_palabras": 8,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": false,
+ "marca_linea": 7,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 47.695,
+ "ojo_dur": 15.02,
+ "cta_tipo": "si_o_no",
+ "cta_texto": "O sea: cada Nochevieja repites una broma de hace casi ciento cincuenta años. ¿Lo sabías? Sí o no.",
+ "n_lineas": 8,
+ "n_palabras": 139,
+ "duracion_voz": 51.26,
+ "ppm": 162.7,
+ "lineas_mas_largas": [
+  [
+   5,
+   15.02,
+   "Ojo: la historia que más se cuenta es otra. En mil novecientos nueve h"
+  ],
+  [
+   2,
+   8.5,
+   "Madrid, años ochenta... del siglo diecinueve. Las familias ricas copia"
+  ],
+  [
+   6,
+   7.05,
+   "O sea: cada Nochevieja repites una broma de hace casi ciento cincuenta"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep16_uvas/final.mp4",
+ "duracion_video": 51.9
+}
