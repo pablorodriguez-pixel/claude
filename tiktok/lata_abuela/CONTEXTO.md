@@ -1,4 +1,4 @@
-# CONTEXTO — Canal «La lata de la abuela» (trucos con la abuela Carmen) — cuenta nueva @lalatadelaabuela
+# CONTEXTO — Canal «La lata de la abuela» (trucos con la abuela Carmen) — cuenta real @consejos.de.abuela.tv («Consejos de la abuela»)
 
 Documento de traspaso para continuar el canal en una sesión nueva. Léelo entero antes de hacer nada.
 
@@ -12,7 +12,7 @@ Documento de traspaso para continuar el canal en una sesión nueva. Léelo enter
 
 ## Identidad
 - La lata azul de galletas (que nunca tiene galletas) con dorados repujados; la abuela Carmen en un medallón dorado (lip-sync, guiño, señala).
-- Logo: `logo_avatar.png`. Usuario @lalatadelaabuela. Bio: «En la lata azul no hay galletas: hay trucos 🍪 La abuela Carmen te cuenta lo que nadie te explica. Uno nuevo cada día.»
+- Logo: `logo_avatar.png`. Usuario real: @consejos.de.abuela.tv, nombre «Consejos de la abuela» (el usuario eligió este en lugar de @lalatadelaabuela). Bio: «En la lata azul no hay galletas: hay trucos 🍪 La abuela Carmen te cuenta lo que nadie te explica. Uno nuevo cada día.»
 - Voz: ElevenLabs `X1uEdaNgEu64cdmPhwUX` («Abuela Carmen»), stability 0.5, tempo 0.85 (≈170–180 ppm, ritmo de vídeo de trucos). Música: `abuela`.
 - Código de referencia: `lt02_super/` (art.js, art2.js, main.js). Brief técnico: `engine/BRIEF.md`.
 
@@ -29,7 +29,7 @@ Documento de traspaso para continuar el canal en una sesión nueva. Léelo enter
 8. Datos verificados antes de escribir (seguridad alimentaria: criterio AESAN; nada de consejos de salud dudosos).
 
 ## Estado
-- Cuenta aún sin publicar. Listos (versión de lanzamiento): `lt02_super/final.mp4` nº1 «El súper te engaña» (58 s), `lt03_fechas/final.mp4` nº2 «La fecha que te hace tirar comida» (66 s),
+- 17/10/2026: los 3 vídeos subidos (a la vez) a @consejos.de.abuela.tv → 0 visualizaciones en los tres. Diagnóstico pendiente (¿en revisión?, ¿cuenta sin calentar?, ¿mismos archivos subidos antes en otra cuenta?). Listos (versión de lanzamiento): `lt02_super/final.mp4` nº1 «El súper te engaña» (58 s), `lt03_fechas/final.mp4` nº2 «La fecha que te hace tirar comida» (66 s),
   `lt04_cocina/final.mp4` nº3 «Lo que haces mal en la cocina» (59 s). Descripciones en `PUBLICAR.txt`. Uno al día, en orden.
   (`final.mp4` en la raíz de esta carpeta = piloto antiguo de limpieza, descartado.)
 - Próximo paso: analizar visualizaciones (48 h) y curvas de retención cuando el usuario las pase; preparar nº4, 5, 6…
