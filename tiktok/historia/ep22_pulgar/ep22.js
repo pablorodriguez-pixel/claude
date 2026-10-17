@@ -590,7 +590,7 @@ headline(K.noV - 0.06, LOOP, '…no venía en el *libro*.', { size: 84, hlT: K.l
     stand.d.style.display = sx > 0.25 ? '' : 'none'; trap.style.display = sx <= 0.25 ? '' : 'none';
     const panic = t > TC - 0.35;
     gface(stand, t, { look: panic ? [4, -5] : [-3, 2], oh: panic, sweat: panic, aR: panic ? -60 : 0, seed: 1 }); set(stand.d, { y: wobble(t, 1, 3) - (panic ? Math.abs(Math.sin(t * 14)) * 10 : 0) });
-    set(bookW, { s: 1.25 * pop(t, S.book + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
+    set(bookW, { x: 210 * 1.25 * p(t, TC + 0.2, 0.25, E.outCubic), s: 1.25 * pop(t, S.book + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
     stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
     puffs.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1.5) * 150 * kf, y: -kf * 120, s: 0.5 + kf, o: closed ? 1 - kf : 0 }); });
     set(fq, { r: Math.sin(t * 3) * 6 });
