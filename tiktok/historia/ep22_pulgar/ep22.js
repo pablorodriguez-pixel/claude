@@ -86,7 +86,7 @@ const WHITE_HL = { color: '#fff', shadow: `4px 4px 0 ${INK}` };
   const l2 = el('div', ttl, { left: 0, top: '140px', width: '960px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '118px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `= <span class="mw" style="display:inline-block;font-style:italic">«${hlSpan('mátalo', 'mhl')}»</span>`);
   const mataW = l2.querySelector('.mw'); l2.querySelector('.mhl').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const qmk = el('div', ttl, { left: '832px', top: '120px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', lineHeight: 1, color: '#fff', background: RED, border: `6px solid ${INK}`, borderRadius: '22px', padding: '0 22px 8px', boxShadow: `7px 7px 0 ${INK}`, zIndex: 3 }, '?');
-  const mito = stamp(cam, 300, 760, 'MITO', { size: 200, bw: 18, z: 60, bg: 'rgba(255,255,255,.88)', blend: 'normal' });
+  const mito = stamp(cam, 150, 800, 'NO CONSTA', { size: 104, bw: 12, z: 60, bg: 'rgba(255,255,255,.88)', blend: 'normal' });
   const swp = box(c, 470, 1180, 140, 300, { zIndex: 80 });
   swp.innerHTML = `<svg width="140" height="300" style="overflow:visible"><path d="M70,280 V40" stroke="#fff" stroke-width="10" stroke-dasharray="4 18" stroke-linecap="round" opacity=".8"/><path d="M30,80 L70,30 L110,80" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="70" cy="250" r="44" fill="rgba(255,255,255,.55)" stroke="#fff" stroke-width="6"/></svg>`;
 }
@@ -125,7 +125,7 @@ headline(at(L.eh, 11, -0.04), S.C1, '…no un *romano*', { size: 96, hlT: at(L.e
 {
   const FI = { x: 170, y: 430, w: 740, h: 640 }, FC = [540, 750];
   const c = scene(S.B2, S.C1, t => {
-    set(fq, { s: pop(t, at(L.eh, 5, -0.05), 0.45), r: Math.sin(t * 3) * 6, o: t < at(L.eh, 5, -0.05) ? 0 : 1, y: Math.sin(t * 5) * 8 });
+    set(fq, { s: pop(t, S.B2 + 0.02, 0.4), r: Math.sin(t * 3) * 6, o: t < S.B2 + 0.02 ? 0 : 1, y: Math.sin(t * 5) * 8 });
     const k = p(t, at(L.eh, 8, -0.04), 0.55, E.inOutCubic), fs = lerp(2.4, 1, k);
     set(frm, { s: fs, o: t < at(L.eh, 8, -0.04) ? 0 : 1 });
     const it = FC[1] - FI.h / 2 * fs, il = FC[0] - FI.w / 2 * fs, ir = 1080 - (FC[0] + FI.w / 2 * fs), ib = 1920 - (FC[1] + FI.h / 2 * fs);
@@ -394,7 +394,7 @@ headline(at(L.ojo, 1, -0.04), S.F2, 'Nadie sabe el gesto *exacto*', { size: 80, 
   const c = scene(S.F1, S.F2, t => {
     const ko = p(t, atE(L.ojo, 0, 0.02), 0.35, E.inOutCubic);
     set(ojo, { s: lerp(1, 0.42, ko) * (t < at(L.ojo, 0) ? 0 : lerp(2.3, 1, p(t, at(L.ojo, 0), 0.18))), x: ko * 330, y: ko * -230, r: -8, o: t < at(L.ojo, 0) ? 0 : 0.97 });
-    G3.forEach((g, i) => { const t0 = at(L.ojo, 1, 0.05) + i * 0.16; set(g.e, { s: pop(t, t0, 0.4), r: g.r + Math.sin(t * 4 + i) * 8, o: t < t0 ? 0 : 1, y: Math.sin(t * 5 + i * 2) * 8 }); set(g.q, { s: pop(t, at(L.ojo, 4) + i * 0.1, 0.35), o: t < at(L.ojo, 4) + i * 0.1 ? 0 : 1, r: Math.sin(t * 6 + i) * 10 }); });
+    G3.forEach((g, i) => { const t0 = at(L.ojo, 0, 0.08) + i * 0.16; set(g.e, { s: pop(t, t0, 0.4), r: g.r + Math.sin(t * 4 + i) * 8, o: t < t0 ? 0 : 1, y: Math.sin(t * 5 + i * 2) * 8 }); set(g.q, { s: pop(t, at(L.ojo, 4) + i * 0.1, 0.35), o: t < at(L.ojo, 4) + i * 0.1 ? 0 : 1, r: Math.sin(t * 6 + i) * 10 }); });
     stampA(ns, t, at(L.ojo, 1, 0.02), -6);
     set(spot, { o: 0.9 + Math.sin(t * 3) * 0.05 });
   }, { clip: true, cut: true });
@@ -508,10 +508,10 @@ headline(S.G2, S.bal, '¿A quién se lo has *dado* hoy?', { size: 84, hlT: at(L.
   }, { clip: true });
   sceneBg(c, { background: PAPER });
   const pan = box(c, 50, 430, 980, 700, { background: '#fff', border: `5px solid ${INK}`, borderRadius: '36px', boxShadow: `10px 12px 0 ${SH}`, zIndex: 2 });
-  el('div', pan, { left: '40px', top: '24px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '38px', color: INK }, 'Comentarios');
+  el('div', pan, { left: '40px', top: '24px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '38px', color: INK }, 'Comentarios <span style="font-weight:600;font-size:28px;color:#7a6a58">(imaginarios)</span>');
   box(pan, 40, 84, 900, 4, { background: INK, opacity: 0.15 });
   const CM = [];
-  [['VECINA', '@marta_del_quinto', 'A mi jefe… y sin leer el correo 😬'], ['GLADM', '@tribuno_paco', 'Al vídeo de mi ex. Sentencia firme 💀'], ['EMU', '@emu_oficial', 'Yo solo doy alas 🪶']].forEach((m, i) => {
+  [['VECINA', '@la_vecina_del_3º', 'A mi jefe… y sin leer el correo 😬'], ['GLADM', '@gladiador_jubilado', 'Al vídeo de mi ex. Sentencia firme 💀'], ['EMU', '@emu_oficial', 'Yo solo doy alas 🪶']].forEach((m, i) => {
     const e = box(pan, 30, 110 + i * 180, 920, 160, { zIndex: 3 });
     avatar(e, 0, 14, 120, m[0], { bw: 4 });
     el('div', e, { left: '140px', top: '14px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '30px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
@@ -694,7 +694,7 @@ window.frame = t => {
 [
   [0.02, 'whoosh', .5], [at(L.gancho, 1, 0.05), 'thud', .7], [at(L.gancho, 2), 'pop', .6], [at(L.gancho, 3), 'pop2', .5], [at(L.gancho, 4), 'boing', .5], [at(L.gancho, 8), 'burst', .7], [at(L.gancho, 8, 0.05), 'stamp', 1.0],
   [atE(L.gancho, 8, -0.1), 'swoosh_up', .7], [S.B1, 'scratch', .8], [S.B1 + 0.05, 'thud', 1.0], [at(L.eh, 2), 'glitch', .6], [at(L.eh, 2, 0.02), 'boing', .6],
-  [S.B2, 'whoosh', .6], [at(L.eh, 5, -0.05), 'pop', .7], [at(L.eh, 8, -0.04), 'whoosh', .6], [at(L.eh, 8, 0.5), 'thud', .7], [at(L.eh, 10), 'ding', .6], [at(L.eh, 11, 0.02), 'swoosh_up', .5], [at(L.eh, 13, 0.08), 'pop2', .7],
+  [S.B2, 'whoosh', .6], [S.B2 + 0.02, 'pop', .7], [at(L.eh, 8, -0.04), 'whoosh', .6], [at(L.eh, 8, 0.5), 'thud', .7], [at(L.eh, 10), 'ding', .6], [at(L.eh, 11, 0.02), 'swoosh_up', .5], [at(L.eh, 13, 0.08), 'pop2', .7],
   [S.C1 + 0.05, 'paper', .7], [at(L.gesto, 2, 0.05), 'stamp', .8], [at(L.gesto, 3), 'pop', .6], [at(L.gesto, 4), 'pop', .6], [at(L.gesto, 5, 0.04), 'pop2', .6], [at(L.gesto, 6), 'swoosh_up', .5], [at(L.gesto, 10, 0.02), 'stamp', 1.0], [at(L.gesto, 10, 0.05), 'thud', .7],
   [S.C2, 'whoosh', .6], [at(L.gesto, 11, 0.05), 'swoosh_up', .4], [at(L.gesto, 13), 'type', .5], [at(L.gesto, 14), 'ping', .6], [at(L.gesto, 14, 0.12), 'ping', .6], [at(L.gesto, 15), 'boing', .6],
   [S.D1, 'whoosh', .6], [at(L.abajo, 2, -0.05), 'swoosh_up', .5], [at(L.abajo, 3), 'thud', .8], [at(L.abajo, 6, -0.02), 'sparkle', .7],
