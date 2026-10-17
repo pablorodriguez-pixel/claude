@@ -250,9 +250,9 @@ function updConf(C, t, t0, on = true) {
 }
 /* barra de la lista 1·2·3·4 (arriba, global) */
 const LB = (() => {
-  const wrap = el('div', world, { left: '0', top: '170px', width: '1080px', height: '74px', zIndex: 520, display: 'flex', justifyContent: 'center', gap: '18px' });
+  const wrap = el('div', world, { left: '0', top: '166px', width: '1080px', height: '96px', zIndex: 520, display: 'flex', justifyContent: 'center', gap: '18px' });
   const items = [1, 2, 3, 4].map(n => {
-    const e = el('div', wrap, { position: 'relative', width: '74px', height: '74px', borderRadius: '50%', border: `5px solid ${INK}`, background: '#FBF6EA', fontFamily: 'Playfair', fontWeight: 900, fontSize: '46px', lineHeight: '64px', textAlign: 'center', color: INK, boxShadow: `4px 4px 0 ${SH}` }, String(n));
+    const e = el('div', wrap, { position: 'relative', width: '92px', height: '92px', borderRadius: '50%', border: `6px solid ${INK}`, background: '#FBF6EA', fontFamily: 'Playfair', fontWeight: 900, fontSize: '58px', lineHeight: '80px', textAlign: 'center', color: INK, boxShadow: `4px 4px 0 ${SH}` }, String(n));
     e.style.position = 'relative'; return e;
   });
   return { wrap, items };

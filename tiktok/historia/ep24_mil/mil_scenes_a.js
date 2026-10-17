@@ -22,9 +22,9 @@ const coverCurve = t => u => { const w = 0.18 * Math.sin(t * 1.3); return [540 +
   const ry = rays(cam, -160, 240, 1400, 26, 'rgba(255,62,165,.10)', 'rgba(0,0,0,0)', 0);
   halftone(cam, 'rgba(43,33,24,.05)', 0);
   const mil = mkMilli(cam, { n: 54, rx: 24, ry: 44, legL: 64, col: '#B0703F', z: 6 });
-  const ttl = el('div', cam, { left: '0', top: '316px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '170px', lineHeight: '190px', color: INK, zIndex: 20, whiteSpace: 'nowrap', textShadow: `6px 6px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff` }, `¿${hlSpan('MIL', 'thl')} PATAS?`);
+  const ttl = el('div', cam, { left: '0', top: '316px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', lineHeight: '180px', color: INK, zIndex: 20, whiteSpace: 'nowrap', textShadow: `6px 6px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff` }, `¿${hlSpan('MIL', 'thl')} PATAS?`);
   const tHL = ttl.querySelector('.thl');
-  const qm = el('div', cam, { left: '850px', top: '520px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: PINK, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 21 }, '?');
+  const qm = el('div', cam, { left: '110px', top: '500px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: PINK, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 21 }, '?');
   const sp = chip(cam, 360, 1452, 'ESPECIAL 1.000', { size: 44, bg: PINK, z: 30 });
 }
 
@@ -36,7 +36,7 @@ headline(S.B[0], S.B[1], 'La mayoría: ni *la mitad*', { size: 96, hlT: K.mitad,
   const c = scene(S.B[0], S.B[1], t => {
     const cr = t > K.mitad + 0.05;
     const kin = p(t, S.B[0], 0.5, E.outCubic);
-    mil.update(u => [1000 - u * 900 + (1 - kin) * 700, 820 + Math.sin(u * 9 - t * 3) * 14], t, { speed: 12, cross: cr ? [0.5, 1] : null, look: cr ? [-4, 0] : [4, 0], seed: 1.4 });
+    mil.update(u => [930 - u * 840 + (1 - kin) * 700, 820 + Math.sin(u * 9 - t * 3) * 14], t, { speed: 12, cross: cr ? [0.5, 1] : null, look: cr ? [-4, 0] : [4, 0], seed: 1.4 });
     sh.style.transform = `scaleX(${f1(p(t, K.mitad + 0.05, 0.3) * 1000) / 1000})`;
     stampA(st, t, K.mitad + 0.05, -8, 1);
     set(half, { o: t > K.mitad + 0.1 ? 1 : 0 });
@@ -53,12 +53,13 @@ headline(S.B[0], S.B[1], 'La mayoría: ni *la mitad*', { size: 96, hlT: K.mitad,
 /* ======================================================================
    C · «EL PRIMERO CON MÁS DE MIL… 2021» — el milpiés récord, enrollado, con lupa
    ====================================================================== */
-headline(S.C[0], K.conocio - 0.06, 'El primero con *más de mil*…', { size: 88, hlT: K.mil1, y: 262 });
-headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', { size: 92, y: 262 });
+const HW = { color: '#FBF6EA', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}` };
+headline(S.C[0], K.conocio - 0.06, 'El primero con *más de mil*…', Object.assign({ size: 88, hlT: K.mil1, y: 262 }, HW));
+headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', Object.assign({ size: 92, y: 262 }, HW));
 {
   const spiral = t => u => { const a = 0.6 + u * Math.PI * 4.1 + t * 0.25, r = 340 * (1 - 0.78 * u); return [540 + Math.cos(a) * r, 860 + Math.sin(a) * r * 0.92]; };
   const c = scene(S.C[0], S.C[1], t => {
-    set(cam, { s: lerp(0.86, 1.04, p(t, S.C[0], 3.6, E.inOutCubic)), r: lerp(-4, 2, p(t, S.C[0], 3.6)) });
+    set(cam, { s: lerp(1.0, 1.1, p(t, S.C[0], 3.6, E.inOutCubic)), r: lerp(-4, 2, p(t, S.C[0], 3.6)) });
     mil.update(spiral(t), t, { speed: 13, amp: 0.5, look: [2, 0], seed: 2 });
     const lk = p(t, S.C[0] + 0.2, K.veintiuno - S.C[0] - 0.3, E.inOutCubic);
     set(lupa, { x: lerp(-260, 120, lk) + Math.sin(t * 3) * 20, y: lerp(260, -120, lk) + Math.cos(t * 2.5) * 16, r: -20 });
@@ -146,10 +147,10 @@ headline(S.E[0], S.E[1], 'Van *tres más*', { size: 110, hlT: K.tres, y: 262 });
    BOOK · «DOS: LAS MIL Y UNA NOCHES. ALADINO NO VENÍA EN EL LIBRO: LO COLÓ UN FRANCÉS…»
    un solo decorado con 4 planos de cámara (libro cerrado → abierto → Aladino → el francés)
    ====================================================================== */
-headline(S.BOOK[0], K.aladino - 0.06, 'Dos: *«Las mil y una noches»*', { size: 80, hlT: K.las, y: 262 });
-headline(K.aladino - 0.06, S.H[0], '*Aladino* no venía…', { size: 104, hlT: K.aladino, y: 262 });
-headline(S.H[1], K.siglos - 0.06, 'Lo coló *un francés*', { size: 104, hlT: K.frances, y: 262 });
-headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', { size: 110, hlT: K.siglos, y: 262 });
+headline(S.BOOK[0], K.aladino - 0.06, 'Dos: *«Las mil y una noches»*', Object.assign({ size: 80, hlT: K.las, y: 262, keyColor: INK }, HW));
+headline(K.aladino - 0.06, S.H[0], '*Aladino* no venía…', Object.assign({ size: 104, hlT: K.aladino, y: 262, keyColor: INK }, HW));
+headline(S.H[1], K.siglos - 0.06, 'Lo coló *un francés*', Object.assign({ size: 104, hlT: K.frances, y: 262, keyColor: INK }, HW));
+headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 110, hlT: K.siglos, y: 262, keyColor: INK }, HW));
 {
   const TO = K.las - 0.05;
   const c = scene(S.BOOK[0], S.BOOK[1], t => {
@@ -261,8 +262,8 @@ headline(K.viene - 0.06, S.J[1], 'Del italiano: *«mil grande»*', { size: 86, h
   const mT = el('div', bal, { left: '0', top: '170px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '230px', lineHeight: 1, color: '#fff', textShadow: `8px 8px 0 ${INK}, -4px -4px 0 ${INK}, 4px -4px 0 ${INK}, -4px 4px 0 ${INK}` }, 'MIL');
   const mL = el('div', bal, { left: '0', top: '190px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '200px', lineHeight: 1, color: '#fff', textShadow: `8px 8px 0 ${INK}, -4px -4px 0 ${INK}, 4px -4px 0 ${INK}, -4px 4px 0 ${INK}` }, 'MILLÓN');
   const pump = box(cam, 700, 1080, 200, 230, { zIndex: 3 }); pump.innerHTML = `<svg viewBox="0 0 200 230" width="200" height="230" style="overflow:visible">${cut('<rect x="70" y="60" width="60" height="160" rx="8"/><rect x="40" y="0" width="120" height="26" rx="10"/>')}<path d="M100,26 V70" stroke="${INK}" stroke-width="10"/><rect x="40" y="0" width="120" height="26" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="4"/><rect x="70" y="60" width="60" height="160" rx="8" fill="${METAL}" stroke="${INK}" stroke-width="4"/><rect x="70" y="60" width="60" height="160" fill="url(#hD)" opacity=".4"/></svg>`;
-  const it = el('div', cam, { left: '120px', top: '1110px', display: 'flex', border: `5px solid ${INK}`, borderRadius: '14px', overflow: 'hidden', boxShadow: `6px 6px 0 ${INK}`, zIndex: 20, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '48px', color: INK }, `<span style="background:#3d8a4a;width:26px"></span><span style="background:#fff;padding:6px 22px 10px">del italiano</span><span style="background:${RED};width:26px"></span>`);
-  const mg = stamp(cam, 210, 900, '= MIL GRANDE', { size: 92, bw: 13, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const it = el('div', cam, { left: '300px', top: '380px', display: 'flex', border: `5px solid ${INK}`, borderRadius: '14px', overflow: 'hidden', boxShadow: `6px 6px 0 ${INK}`, zIndex: 20, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '48px', color: INK }, `<span style="background:#3d8a4a;width:26px"></span><span style="background:#fff;padding:6px 22px 10px">del italiano</span><span style="background:${RED};width:26px"></span>`);
+  const mg = stamp(cam, 210, 830, '= MIL GRANDE', { size: 92, bw: 13, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 /* JH · GOLPE AMARILLO: «UN MILOTE» (el Vecino se tapa la boca de risa en su óvalo) */
 colorHit(S.JH[0], S.JH[1], YEL, c => {

@@ -65,15 +65,19 @@ def tine(f, dur, damp=None):
     return x
 
 n = len(v); mel = np.zeros(n); notes_out = []
+REV = [(0.023, 0.32), (0.037, 0.24), (0.053, 0.18), (0.079, 0.12), (0.113, 0.08)]   # ecos tempranos de la cajita
+# los ecos forman un filtro peine: a 880 Hz (La) restan 6 dB y a 784 Hz (Sol) suman 3 dB → se compensa nota a nota
+comb = lambda f: abs(1 + sum(g * np.exp(-2j * np.pi * f * dl) for dl, g in REV))
 for k, (nom, nn, oc, syl) in enumerate(NOTES):
     s = T0 + ONS[k] * beat
     e_ = s + DUR[k] * beat if k < len(NOTES) - 1 else s + RING * beat
     x = tine(hz(nn, oc), TEND - s, (ONS[k + 1] - ONS[k]) * beat if k < len(NOTES) - 1 else None)                                     # cada púa suena libre hasta el final del hueco
+    x /= comb(hz(nn, oc))                                                # misma intensidad percibida para todas las notas
     a = int(s * SR); mel[a:a + len(x)] += x[: n - a]
     notes_out.append({'s': round(s, 3), 'e': round(e_, 3), 'syl': syl, 'nota': nom, 'hz': round(hz(nn, oc), 1)})
 # reverberación corta de «cajita de madera» (ecos tempranos)
 rev = np.zeros(n)
-for dl, gn in [(0.023, 0.32), (0.037, 0.24), (0.053, 0.18), (0.079, 0.12), (0.113, 0.08)]:
+for dl, gn in REV:
     m = int(dl * SR); rev[m:] += mel[:-m] * gn
 mel = mel + rev
 # apagado: fundido de 0,25 s que termina exactamente en TEND, y cero absoluto fuera del hueco
