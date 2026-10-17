@@ -1,0 +1,45 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "¡Mil vecinos! Y la M de mil, en números romanos... no era una M."
+  },
+  {
+   "who": "VECINO",
+   "text": "Los romanos escribían mil con un garabato raro: un círculo partido por una raya."
+  },
+  {
+   "who": "VECINO",
+   "text": "Con los siglos, ese garabato se fue pareciendo a una M. Y como mil en latín es «mille»... se quedó la M."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y lo mejor: corta ese símbolo por la mitad... y te sale la D de quinientos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: que la M venga de «mille» es una explicación de después. El original era el garabato."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ahora, lo vuestro: Daniela nos pilló el A.C., alguien le cogió manía al lunes... y siempre hay uno que llega el primero."
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que el próximo lo elegís vosotros: ¿Alejandro Magno, Hernán Cortés o el mito de «cero killed»? Votad en comentarios."
+  },
+  {
+   "who": "VECINO",
+   "text": "Gracias, mil vecinos. Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}

@@ -397,7 +397,7 @@ headline(at(L.ojo, 1, -0.04), S.F2, 'Nadie sabe el gesto *exacto*', { size: 80, 
     G3.forEach((g, i) => { const t0 = at(L.ojo, 1, 0.05) + i * 0.16; set(g.e, { s: pop(t, t0, 0.4), r: g.r + Math.sin(t * 4 + i) * 8, o: t < t0 ? 0 : 1, y: Math.sin(t * 5 + i * 2) * 8 }); set(g.q, { s: pop(t, at(L.ojo, 4) + i * 0.1, 0.35), o: t < at(L.ojo, 4) + i * 0.1 ? 0 : 1, r: Math.sin(t * 6 + i) * 10 }); });
     stampA(ns, t, at(L.ojo, 1, 0.02), -6);
     set(spot, { o: 0.9 + Math.sin(t * 3) * 0.05 });
-  }, { clip: true });
+  }, { clip: true, cut: true });
   sceneBg(c, { background: '#2a2018' });
   const colz = box(c, 0, 0, 1080, 1920, { opacity: 0.38 }); colz.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${coliseumSvg({ top: 380, seed: 33, sky: '#4a3a2a' })}</svg>`;
   const spot = box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 55%, rgba(255,230,180,.25), rgba(0,0,0,.55) 70%)', zIndex: 1 });

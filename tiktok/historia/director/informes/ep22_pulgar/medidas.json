@@ -1,0 +1,105 @@
+{
+ "episodio": "ep22_pulgar",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.61,
+   "dur": 3.49,
+   "palabras": 9,
+   "texto": "¡Pulgar abajo! Ningún romano te dijo que era «mátalo»."
+  },
+  {
+   "n": 1,
+   "s": 3.85,
+   "e": 7.84,
+   "dur": 3.99,
+   "palabras": 14,
+   "texto": "¡Eh, no deslices! Que ese gesto te lo coló un cuadro, no un romano."
+  },
+  {
+   "n": 2,
+   "s": 8.08,
+   "e": 14.57,
+   "dur": 6.49,
+   "palabras": 16,
+   "texto": "El gesto existía: pollice verso, pulgar girado, para pedir la muerte. Pero nadie escribió hacia dónde."
+  },
+  {
+   "n": 3,
+   "s": 14.81,
+   "e": 20.385,
+   "dur": 5.58,
+   "palabras": 20,
+   "texto": "Lo de «hacia abajo» lo hizo famoso un cuadro de mil ochocientos setenta y dos. Y el cine lo copió."
+  },
+  {
+   "n": 4,
+   "s": 20.625,
+   "e": 24.776,
+   "dur": 4.15,
+   "palabras": 14,
+   "texto": "¿A que tienes el pulgar en la pantalla, listo para deslizar? Te he pillado."
+  },
+  {
+   "n": 5,
+   "s": 25.016,
+   "e": 32.337,
+   "dur": 7.32,
+   "palabras": 14,
+   "texto": "Ojo: nadie sabe el gesto exacto. Algunos historiadores creen que «mátalo» era... pulgar arriba."
+  },
+  {
+   "n": 6,
+   "s": 32.577,
+   "e": 39.946,
+   "dur": 7.37,
+   "palabras": 21,
+   "texto": "O sea: tu like, en Roma, a lo mejor era una sentencia. ¿A quién se lo has dado hoy? Os leo."
+  },
+  {
+   "n": 7,
+   "s": 40.186,
+   "e": 43.338,
+   "dur": 3.15,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "pulgar",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.49,
+ "gancho_palabras": 9,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 7,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 40.186,
+ "ojo_dur": 7.32,
+ "cta_tipo": "abierta",
+ "cta_texto": "O sea: tu like, en Roma, a lo mejor era una sentencia. ¿A quién se lo has dado hoy? Os leo.",
+ "n_lineas": 8,
+ "n_palabras": 118,
+ "duracion_voz": 43.34,
+ "ppm": 163.4,
+ "lineas_mas_largas": [
+  [
+   6,
+   7.37,
+   "O sea: tu like, en Roma, a lo mejor era una sentencia. ¿A quién se lo "
+  ],
+  [
+   5,
+   7.32,
+   "Ojo: nadie sabe el gesto exacto. Algunos historiadores creen que «máta"
+  ],
+  [
+   2,
+   6.49,
+   "El gesto existía: pollice verso, pulgar girado, para pedir la muerte. "
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep22_pulgar/final.mp4",
+ "duracion_video": 43.97
+}
