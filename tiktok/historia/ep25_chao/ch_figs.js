@@ -270,3 +270,26 @@ function tavernSignSvg() {
   <g transform="translate(560,250)"><rect x="-38" y="-50" width="76" height="100" rx="10" fill="#E9C75C" stroke="${INK}" stroke-width="4"/><path d="M38,-30 q36,0 36,30 q0,30 -36,30" stroke="${INK}" stroke-width="10" fill="none"/><path d="M-40,-50 q20,-26 40,-6 q20,-22 40,6 Z" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M-20,-30 V40 M0,-30 V40 M20,-30 V40" stroke="${INK}" stroke-width="2" opacity=".4"/></g>
   <path d="M90,330 l30,-50 l30,50 Z M150,330 l26,-40 l26,40 Z" fill="#fff" stroke="${INK}" stroke-width="3"/></svg>`;
 }
+
+/* ---------- reutilizados: globo (Ep. 12) y losa romana (Ep. 24) ---------- */
+function globeInner(phase = 0) {
+  const id = uid('gl');
+  let s = cut('<circle cx="200" cy="200" r="180"/>') + `<circle cx="200" cy="200" r="180" fill="${SEA2}" stroke="${INK}" stroke-width="6"/>`;
+  let cont = '';
+  [[-0.4, 120, 60, 50], [0.5, 150, 80, 70], [1.4, 240, 70, 46], [2.3, 160, 50, 80], [3.2, 260, 60, 40], [4.2, 130, 70, 60], [5.2, 230, 50, 50]].forEach(([a, cy, rx, ry]) => { const x = 200 + Math.sin(a + phase) * 150; if (Math.cos(a + phase) > -0.1) cont += `<ellipse cx="${f1(x)}" cy="${cy}" rx="${f1(rx * Math.max(0.2, Math.cos(a + phase)))}" ry="${ry}" fill="${FIG}" stroke="${INK}" stroke-width="3"/>`; });
+  s += clipG(id, 'M20,200 A180,180 0 1,0 380,200 A180,180 0 1,0 20,200 Z', cont + `<rect x="0" y="0" width="400" height="400" fill="url(#hP)"/><ellipse cx="250" cy="230" rx="170" ry="190" fill="url(#hA)" opacity=".5"/>`);
+  s += `<ellipse cx="200" cy="200" rx="180" ry="56" fill="none" stroke="${INK}" stroke-width="2.5"/><ellipse cx="200" cy="200" rx="70" ry="180" fill="none" stroke="${INK}" stroke-width="2.5"/><path d="M20,200 H380 M200,20 V380" stroke="${INK}" stroke-width="2.5"/>`;
+  return s;
+}
+function romanSlab(pa, x, y, w, h, o = {}) {
+  const d = box(pa, x, y, w, h, { zIndex: o.z || 4 });
+  const r = rng(o.seed || 31); let cracks = '';
+  for (let k = 0; k < 7; k++) { let cx = r() * w, cy = r() * h; cracks += `M${f1(cx)},${f1(cy)}`; for (let j = 0; j < 4; j++) { cx += (r() - 0.5) * 90; cy += r() * 60; cracks += `L${f1(cx)},${f1(cy)}`; } }
+  let lines = ''; for (let yy = 70; yy < h - 40; yy += 70) lines += `<path d="M60,${yy} H${w - 60}" stroke="${INK}" stroke-width="2" opacity=".18"/>`;
+  d.innerHTML = `<svg width="${w}" height="${h}" style="overflow:visible">${cut(`<rect x="0" y="0" width="${w}" height="${h}" rx="18"/>`)}
+   <rect x="0" y="0" width="${w}" height="${h}" rx="18" fill="#D8D1C2" stroke="${INK}" stroke-width="6"/><rect x="0" y="0" width="${w}" height="${h}" rx="18" fill="url(#hP)" opacity=".7"/>
+   <rect x="22" y="22" width="${w - 44}" height="${h - 44}" rx="8" fill="none" stroke="${INK}" stroke-width="4" opacity=".6"/><rect x="34" y="34" width="${w - 68}" height="${h - 68}" rx="6" fill="none" stroke="#fff" stroke-width="3" opacity=".6"/>
+   ${lines}<path d="${cracks}" stroke="${INK}" stroke-width="2.4" fill="none" opacity=".35"/>
+   <path d="M${w - 40},20 L${w - 20},20 L${w - 20},${h - 20} L${w - 40},${h - 20} Z" fill="url(#hA)" opacity=".5"/></svg>`;
+  return d;
+}

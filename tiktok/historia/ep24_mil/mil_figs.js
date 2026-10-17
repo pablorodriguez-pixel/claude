@@ -8,36 +8,33 @@ const K = {};
   const i1 = find('la mayoria no llega'); K.L1 = ws(i1); K.mayoria = ws(i1 + 1); K.mitad = ws(i1 + 7); K.y1 = ws(i1 + 8); K.primero = ws(i1 + 10); K.mil1 = ws(i1 + 14);
   K.conocio = ws(i1 + 17); K.dos = ws(i1 + 19); K.veintiuno = ws(i1 + 21); K.L1e = wE(i1 + 21);
   const i2 = find('hoy somos mil vecinos'); K.hoy = ws(i2); K.mil2 = ws(i2 + 2); K.vecinos2 = ws(i2 + 3); K.van = ws(i2 + 4); K.tres = ws(i2 + 5); K.miles = ws(i2 + 6); K.mas = ws(i2 + 7); K.colado2 = ws(i2 + 11);
-  const i3 = find('dos las mil y una noches'); K.dos3 = ws(i3); K.las = ws(i3 + 1); K.noches = ws(i3 + 5); K.aladino = ws(i3 + 6); K.no3 = ws(i3 + 7); K.libro3 = ws(i3 + 11);
-  K.lo3 = ws(i3 + 12); K.colo = ws(i3 + 13); K.frances = ws(i3 + 15); K.siglos = ws(i3 + 16); K.despues = ws(i3 + 17);
-  const i4 = find('tres millon'); K.tres4 = ws(i4); K.millon = ws(i4 + 1); K.viene = ws(i4 + 2); K.italiano = ws(i4 + 4); K.milG = ws(i4 + 5); K.grande = ws(i4 + 6); K.un = ws(i4 + 7); K.milote = ws(i4 + 8);
-  const i5 = find('y cuatro el mil romano'); K.y5 = ws(i5); K.cuatro = ws(i5 + 1); K.mil5 = ws(i5 + 3); K.romano = ws(i5 + 4); K.no5 = ws(i5 + 5); K.M5 = ws(i5 + 8); K.era = ws(i5 + 9); K.garabato = ws(i5 + 11); K.garabatoE = wE(i5 + 11);
+  const i4 = find('millon viene del italiano'); K.millon = ws(i4); K.tres4 = K.millon - 0.3; K.viene = ws(i4 + 1); K.italiano = ws(i4 + 3); K.milG = ws(i4 + 4); K.grande = ws(i4 + 5); K.un = ws(i4 + 6); K.milote = ws(i4 + 7);
+  const i5 = find('el mil romano no era'); K.y5 = ws(i5); K.mil5 = ws(i5 + 1); K.romano = ws(i5 + 2); K.no5 = ws(i5 + 3); K.M5 = ws(i5 + 6); K.era = ws(i5 + 7); K.garabato = ws(i5 + 9); K.garabatoE = wE(i5 + 9);
   const i6 = find('partelo por la mitad'); K.partelo = ws(i6); K.mitad6 = ws(i6 + 3); K.mitad6e = wE(i6 + 3); K.sale = ws(i6 + 5); K.D = ws(i6 + 7); K.quinientos = ws(i6 + 9);
   K.La6 = ws(i6 + 10); K.M6 = ws(i6 + 11); K.gano = ws(i6 + 12); K.luego = ws(i6 + 13); K.mille = ws(i6 + 15);
-  const i7 = find('ojo hay quien cree'); K.ojo = ws(i7); K.hay = ws(i7 + 1); K.cree = ws(i7 + 3); K.garabato7 = ws(i7 + 7); K.salio = ws(i7 + 8); K.infinito = ws(i7 + 10); K.nadie = ws(i7 + 11); K.probado = ws(i7 + 14);
   const i8 = find('mil vecinos para mi'); K.mil8 = ws(i8); K.casi = ws(i8 + 4); K.infinito8 = ws(i8 + 5); K.y8 = ws(i8 + 6); K.conozco = ws(i8 + 8);
-  const i9 = find('daniela nos pillo'); K.daniela = ws(i9); K.pillo = ws(i9 + 2); K.A9 = ws(i9 + 4); K.C9 = ws(i9 + 5); K.otro = ws(i9 + 6); K.agarro = ws(i9 + 8); K.bronca = ws(i9 + 9); K.lunes = ws(i9 + 11);
-  K.siempre = ws(i9 + 13); K.yo = ws(i9 + 16); K.primero9 = ws(i9 + 17);
   const i10 = find('y no no soy tu vecino jose'); K.yno = ws(i10); K.no10 = ws(i10 + 1); K.soy10 = ws(i10 + 3); K.vecino10 = ws(i10 + 5); K.jose = ws(i10 + 6);
-  const i11 = find('el proximo lo elegis'); K.el11 = ws(i11); K.elegis = ws(i11 + 3); K.alejandro = ws(i11 + 4); K.cero = ws(i11 + 7); K.ok11 = ws(i11 + 10); K.revancha = ws(i11 + 13); K.napoleon = ws(i11 + 15);
-  K.vota = ws(i11 + 16); K.A11 = ws(i11 + 17); K.B11 = ws(i11 + 18); K.C11 = ws(i11 + 20);
+  const i11 = find('el proximo lo elegis'); K.el11 = ws(i11); K.elegis = ws(i11 + 3); K.alejandro = ws(i11 + 4); K.cero = ws(i11 + 7); K.ok11 = ws(i11 + 11); K.revancha = ws(i11 + 14); K.napoleon = ws(i11 + 16);
+  K.vota = ws(i11 + 17); K.A11 = ws(i11 + 18); K.B11 = ws(i11 + 19); K.C11 = ws(i11 + 21);
+  // el cuarto (el gordo) va al final: Aladino
+  const i3 = find('y el cuarto el gordo'); K.y3 = ws(i3); K.cuarto = ws(i3 + 2); K.gordo = ws(i3 + 4); K.las = ws(i3 + 5); K.noches = ws(i3 + 9); K.aladino = ws(i3 + 10); K.no3 = ws(i3 + 11); K.libro3 = ws(i3 + 15);
+  K.lo3 = ws(i3 + 16); K.colo = ws(i3 + 17); K.frances = ws(i3 + 19); K.siglos = ws(i3 + 20); K.despues = ws(i3 + 21);
   const i12 = find('mil gracias'); K.mil12 = ws(i12); K.gracias = ws(i12 + 1);
   const is = find('soy tu vecino', i12); K.isoy = is; K.soy = ws(is); K.vecino = ws(is + 2);
   const iye = find('y esto no venia en el libro', is); K.iye = iye; K.esto = ws(iye + 1); K.enL = ws(iye + 4); K.libro = ws(iye + 6); K.END = wE(iye + 6);
 }
-/* cortes de escena */
+/* cortes de escena (orden nuevo: milpiés → millón → M romana → casi infinito → José → votación → Aladino → gracias) */
 const S = {
   A: [-1, K.L1 - 0.1], B: [K.L1 - 0.1, K.y1 - 0.08], C: [K.y1 - 0.08, K.hoy - 0.08],
-  D: [K.hoy - 0.08, K.van - 0.06], E: [K.van - 0.06, K.dos3 - 0.08],
-  BOOK: [K.dos3 - 0.08, K.tres4 - 0.08], H: [K.libro3 - 0.04, K.lo3 - 0.04],
-  J: [K.tres4 - 0.08, K.un - 0.08], JH: [K.un - 0.08, K.y5 - 0.08],
-  ROM: [K.y5 - 0.08, K.La6 - 0.06], N: [K.La6 - 0.06, K.ojo - 0.08], O: [K.ojo - 0.08, K.mil8 - 0.08],
-  P: [K.mil8 - 0.08, K.daniela - 0.08],
-  R1: [K.daniela - 0.08, K.otro - 0.08], R2: [K.otro - 0.08, K.siempre - 0.08], R3: [K.siempre - 0.08, K.yno - 0.08],
-  SJ: [K.yno - 0.08, K.el11 - 0.08], T: [K.el11 - 0.08, K.mil12 - 0.08],
+  D: [K.hoy - 0.08, K.van - 0.06], E: [K.van - 0.06, K.millon - 0.08],
+  J: [K.millon - 0.08, K.un - 0.08], JH: [K.un - 0.08, K.y5 - 0.08],
+  ROM: [K.y5 - 0.08, K.La6 - 0.06], N: [K.La6 - 0.06, K.mil8 - 0.08],
+  P: [K.mil8 - 0.08, K.yno - 0.08],
+  SJ: [K.yno - 0.08, K.el11 - 0.08], T: [K.el11 - 0.08, K.y3 - 0.08],
+  BOOK: [K.y3 - 0.08, K.mil12 - 0.08], H: [K.libro3 - 0.04, K.lo3 - 0.04],
   BAL: [K.mil12 - 0.08, K.enL - 0.04], BK: [K.enL - 0.04, 999],
 };
-const DUR = K.END + 0.6, LOOP = DUR - 0.4;
+const DUR = K.END + 1.4, LOOP = DUR - 0.4;
 
 /* ======================================================================
    MILPIÉS de grabado — segmentos que siguen una curva + patas en ola

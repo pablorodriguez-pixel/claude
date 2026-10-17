@@ -1,0 +1,129 @@
+{
+ "episodio": "ep25_chao",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.411,
+   "dur": 3.29,
+   "palabras": 9,
+   "texto": "¡Chao! Crees que es adiós... y era una promesa."
+  },
+  {
+   "n": 1,
+   "s": 3.651,
+   "e": 7.804,
+   "dur": 4.15,
+   "palabras": 15,
+   "texto": "Una promesa que hoy no le harías ni a tu jefe. Ni por un aumento."
+  },
+  {
+   "n": 2,
+   "s": 8.044,
+   "e": 13.956,
+   "dur": 5.91,
+   "palabras": 13,
+   "texto": "Viene de Venecia. Allí se saludaban con «eschao vostro». Significa: «soy su esclavo»."
+  },
+  {
+   "n": 3,
+   "s": 14.196,
+   "e": 17.847,
+   "dur": 3.65,
+   "palabras": 11,
+   "texto": "Se dijo tanto que se gastó: de «eschao vostro» a «ciao»."
+  },
+  {
+   "n": 4,
+   "s": 18.087,
+   "e": 22.38,
+   "dur": 4.29,
+   "palabras": 13,
+   "texto": "Y saltó al español: «chao». O «chau», si eres de Argentina o Uruguay."
+  },
+  {
+   "n": 5,
+   "s": 22.62,
+   "e": 29.468,
+   "dur": 6.85,
+   "palabras": 15,
+   "texto": "Ojo: nadie se vendía. Era pura educación, como nuestro «servidor» o el «a sus órdenes»."
+  },
+  {
+   "n": 6,
+   "s": 29.708,
+   "e": 34.862,
+   "dur": 5.15,
+   "palabras": 17,
+   "texto": "¿Cuántas veces lo has dicho hoy? Pues eso: esclavo de medio barrio. Y no eres el único."
+  },
+  {
+   "n": 7,
+   "s": 35.102,
+   "e": 40.835,
+   "dur": 5.73,
+   "palabras": 10,
+   "texto": "En Brasil dicen «chau». En Alemania, «chau». En Chequia... «chau»."
+  },
+  {
+   "n": 8,
+   "s": 41.075,
+   "e": 48.986,
+   "dur": 7.91,
+   "palabras": 17,
+   "texto": "Y lo mejor: en Austria y en Baviera se saludan con «servus». Que en latín significa... esclavo."
+  },
+  {
+   "n": 9,
+   "s": 49.226,
+   "e": 56.932,
+   "dur": 7.71,
+   "palabras": 19,
+   "texto": "O sea: media Europa se saluda como un esclavo. ¿Y tú, cómo te despides en tu país? Os leo."
+  },
+  {
+   "n": 10,
+   "s": 57.172,
+   "e": 60.72,
+   "dur": 3.55,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "chao",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.29,
+ "gancho_palabras": 9,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 10,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 57.172,
+ "ojo_dur": 6.85,
+ "cta_tipo": "abierta",
+ "cta_texto": "O sea: media Europa se saluda como un esclavo. ¿Y tú, cómo te despides en tu país? Os leo.",
+ "n_lineas": 11,
+ "n_palabras": 149,
+ "duracion_voz": 60.72,
+ "ppm": 147.2,
+ "lineas_mas_largas": [
+  [
+   8,
+   7.91,
+   "Y lo mejor: en Austria y en Baviera se saludan con «servus». Que en la"
+  ],
+  [
+   9,
+   7.71,
+   "O sea: media Europa se saluda como un esclavo. ¿Y tú, cómo te despides"
+  ],
+  [
+   5,
+   6.85,
+   "Ojo: nadie se vendía. Era pura educación, como nuestro «servidor» o el"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep25_chao/final.mp4",
+ "duracion_video": 61.37
+}

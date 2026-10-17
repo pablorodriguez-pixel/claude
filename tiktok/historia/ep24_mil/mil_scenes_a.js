@@ -81,7 +81,7 @@ headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', Object.assign({ si
   paperPiece(c, -20, 244, 1120, 140, { seed: 88, bg: '#F6ECD4' }).wrap.style.zIndex = 30;
   const mil = mkMilli(cam, { n: 92, rx: 11, ry: 19, legL: 30, lw: 3.4, sw: 2.6, col: '#F1E4C2', z: 6, head: 1.6 });
   const lupa = box(cam, 520, 700, 300, 300, { zIndex: 12 });
-  lupa.innerHTML = `<svg viewBox="0 0 300 300" width="300" height="300" style="overflow:visible">${cut('<circle cx="120" cy="120" r="100"/><path d="M190,190 L280,280"/>')}<path d="M190,190 L280,280" stroke="${INK}" stroke-width="44" stroke-linecap="round"/><path d="M190,190 L280,280" stroke="${WOOD}" stroke-width="30" stroke-linecap="round"/><circle cx="120" cy="120" r="100" fill="rgba(255,255,255,.18)" stroke="${INK}" stroke-width="16"/><circle cx="120" cy="120" r="100" fill="none" stroke="${BRASS}" stroke-width="9"/><path d="M60,80 Q80,50 116,44" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/></svg>`;
+  lupa.innerHTML = `<svg viewBox="0 0 300 300" width="300" height="300" style="overflow:visible">${cut('<circle cx="120" cy="120" r="100"/><path d="M190,190 L280,280"/>')}<path d="M190,190 L280,280" stroke="${INK}" stroke-width="44" stroke-linecap="round"/><path d="M190,190 L280,280" stroke="${WOOD}" stroke-width="30" stroke-linecap="round"/><defs><clipPath id="lupaC24"><circle cx="120" cy="120" r="94"/></clipPath></defs><g clip-path="url(#lupaC24)"><rect x="0" y="0" width="240" height="240" fill="#e9d9b4"/>${[0, 1, 2, 3].map(k => { const cy = 30 + k * 62; let lg = ''; for (let j = 0; j < 4; j++) { const xx = 60 + j * 40; lg += `<path d="M${xx},${cy - 22} l-14,-26 M${xx + 12},${cy - 22} l-6,-28 M${xx},${cy + 22} l-14,26 M${xx + 12},${cy + 22} l-6,28" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`; } return lg + `<rect x="30" y="${cy - 24}" width="190" height="48" rx="24" fill="#F1E4C2" stroke="${INK}" stroke-width="5"/><path d="M80,${cy - 24} v48 M130,${cy - 24} v48 M180,${cy - 24} v48" stroke="${INK}" stroke-width="3" opacity=".7"/>`; }).join('')}</g><circle cx="120" cy="120" r="100" fill="rgba(255,255,255,.12)" stroke="${INK}" stroke-width="16"/><circle cx="120" cy="120" r="100" fill="none" stroke="${BRASS}" stroke-width="9"/><path d="M60,80 Q80,50 116,44" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/></svg>`;
   const rec = chip(cam, 70, 440, 'el récord', { size: 46, bg: YEL, color: INK, z: 20 });
   const yr = stamp(c, 300, 760, '2021', { size: 210, bw: 18, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const ct = chip(c, 300, 1050, '1.306 PATAS', { size: 84, bg: PINK, z: 41 });
@@ -130,6 +130,7 @@ headline(S.E[0], S.E[1], 'Van *tres más*', { size: 110, hlT: K.tres, y: 262 });
     });
     mini.update(u => [235 - 160 * u + 140, 640 + Math.sin(u * 7 - t * 3) * 10], t, { speed: 12, seed: 3 });
     stampA(col, t, K.colado2, -7, 1);
+    set(gd, { s: pop(t, K.mas + 0.25, 0.35), r: 3, o: t > K.mas + 0.25 ? 1 : 0 });
   }, { clip: true });
   sceneBg(c, { background: '#EFE1C6', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.05) 0 3px, transparent 3px 64px)' });
   [[110, 430, 1, -3], [570, 430, 2, 3], [110, 820, 3, 2], [570, 820, 4, -2]].forEach(([x, y, n, r], i) => {
@@ -141,6 +142,7 @@ headline(S.E[0], S.E[1], 'Van *tres más*', { size: 110, hlT: K.tres, y: 262 });
     CD.push({ e, r, qm });
   });
   const mini = mkMilli(c, { n: 14, rx: 12, ry: 22, legL: 30, lw: 3.5, sw: 2.5, col: '#B0703F', z: 11 });
+  const gd = chip(c, 560, 1100, '4 · EL GORDO, AL FINAL', { size: 40, bg: PINK, color: INK, z: 30 });
   const col = stamp(c, 170, 1180, 'TE LOS HAN COLADO', { size: 66, bw: 11, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
@@ -148,16 +150,17 @@ headline(S.E[0], S.E[1], 'Van *tres más*', { size: 110, hlT: K.tres, y: 262 });
    BOOK · «DOS: LAS MIL Y UNA NOCHES. ALADINO NO VENÍA EN EL LIBRO: LO COLÓ UN FRANCÉS…»
    un solo decorado con 4 planos de cámara (libro cerrado → abierto → Aladino → el francés)
    ====================================================================== */
-headline(S.BOOK[0], K.aladino - 0.06, 'Dos: *«Las mil y una noches»*', Object.assign({ size: 70, hlT: K.las, y: 262, keyColor: INK }, HW));
+headline(S.BOOK[0], K.las - 0.06, 'Y el cuarto: *el gordo*', Object.assign({ size: 96, hlT: K.gordo, y: 262, keyColor: INK }, HW));
+headline(K.las - 0.06, K.aladino - 0.06, '*«Las mil y una noches»*', Object.assign({ size: 80, hlT: K.las, y: 262, keyColor: INK }, HW));
 headline(K.aladino - 0.06, S.H[0], '*Aladino* no venía…', Object.assign({ size: 92, hlT: K.aladino, y: 262, keyColor: INK }, HW));
 headline(S.H[1], K.siglos - 0.06, 'Lo coló *un francés*', Object.assign({ size: 92, hlT: K.frances, y: 262, keyColor: INK }, HW));
 headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 96, hlT: K.siglos, y: 262, keyColor: INK }, HW));
 {
-  const TO = K.las - 0.05;
+  const TO = K.las + 0.3;
   const c = scene(S.BOOK[0], S.BOOK[1], t => {
     // cámara por planos
     let cs = 1, cx = 0, cy = 0;
-    if (t < K.aladino - 0.06) { cs = lerp(1.0, 1.06, p(t, S.BOOK[0], 2.4, E.linear)); }
+    if (t < K.aladino - 0.06) { cs = lerp(1.0, 1.06, p(t, K.las, 1.8, E.linear)); }
     else if (t < S.H[1]) { cs = 1.12; cx = -40; cy = -30; }
     else { const k = p(t, S.H[1], 0.3, E.outCubic); cs = lerp(1.0, 1.04, p(t, S.H[1], 2.3, E.linear)); cx = 0; cy = 0; void k; }
     set(cam, { s: cs, x: cx, y: cy });
@@ -165,7 +168,7 @@ headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 
     const k = 1 - p(t, TO, 0.45, E.inOutCubic); const sx = 1 - 2 * k;
     flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
     pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
-    set(bookW, { x: 210 * k, s: pop(t, S.BOOK[0] + 0.01, 0.35), o: 1 });
+    set(bookW, { x: 210 * k, s: pop(t, K.las + 0.02, 0.35), o: t < K.las + 0.02 ? 0 : 1 });
     STR.forEach((s2, i) => { const a = t * 3 + i * 2.1; set(s2, { x: Math.cos(a) * 60, y: Math.sin(a) * 20, r: t * 120, o: t > TO + 0.3 && t < K.aladino ? 1 : 0 }); });
     // Aladino intenta entrar en la página (y la página lo rechaza)
     const ka = p(t, K.aladino - 0.05, 0.4, E.outBack);
@@ -239,7 +242,7 @@ colorHit(S.H[0], S.H[1], PINK, c => {
 /* ======================================================================
    J · «TRES: MILLÓN. VIENE DEL ITALIANO: "MIL GRANDE"» — el MIL se infla como un globo
    ====================================================================== */
-headline(S.J[0], K.viene - 0.06, 'Tres: *millón*', { size: 120, hlT: K.millon, y: 262 });
+headline(S.J[0], K.viene - 0.06, 'Dos: *millón*', { size: 120, hlT: K.millon, y: 262 });
 headline(K.viene - 0.06, S.J[1], 'Del italiano: *«mil grande»*', { size: 76, hlT: K.milG, y: 262 });
 {
   const c = scene(S.J[0], S.J[1], t => {
@@ -270,9 +273,9 @@ headline(K.viene - 0.06, S.J[1], 'Del italiano: *«mil grande»*', { size: 76, h
 /* JH · GOLPE AMARILLO: «UN MILOTE» (el Vecino se tapa la boca de risa en su óvalo) */
 colorHit(S.JH[0], S.JH[1], YEL, c => {
   const l0 = el('div', c, { left: 0, top: '330px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '120px', color: INK, zIndex: 10 }, 'Un…');
-  const big = bigTxt(c, 0, 500, 1080, 'MILOTE', { size: 250 });
+  const big = bigTxt(c, 0, 520, 1080, 'MILOTE', { size: 212 });
   const bal = chip(c, 380, 870, '= millón', { size: 70, bg: INK, color: YEL, z: 12 });
-  const jas = [jaT(c, 700, 860, '¡JA!', 90), jaT(c, 760, 1000, '¡JA, JA!', 70)];
+  const jas = [jaT(c, 680, 990, '¡JA!', 90), jaT(c, 420, 1100, '¡JA, JA!', 70)];
   return t => {
     popA(l0, t, K.un, { rise: 30 });
     const kb = p(t, K.milote - 0.02, 0.2, E.outBack);

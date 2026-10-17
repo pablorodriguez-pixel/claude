@@ -30,12 +30,12 @@ function mkHand(pa, x, y, sc = 1, z = 10) {
   const ry = rays(cam, -160, 120, 1400, 26, 'rgba(255,62,165,.10)', 'rgba(0,0,0,0)', 0);
   const l1 = BIGT(cam, 0, 300, 1080, `¿${hlSpan('CHAO', 'hc0')}`, { fontSize: '200px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
   l1.querySelector('.hc0').style.transform = 'scaleX(1) rotate(-1.2deg)';
-  const l2 = BIGT(cam, 0, 500, 1080, '= ADIÓS?', { fontSize: '168px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
-  const hd = mkHand(cam, 330, 700, 1.0, 10);
-  const WL = [0, 1].map(i => { const e = box(cam, i ? 790 : 140, 820, 150, 160, { zIndex: 9 }); e.innerHTML = `<svg width="150" height="160" style="overflow:visible"><path d="${i ? 'M20,20 Q70,80 20,140 M70,0 Q130,80 70,160' : 'M130,20 Q80,80 130,140 M80,0 Q20,80 80,160'}" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"/></svg>`; return e; });
-  const rib = box(cam, 640, 980, 260, 230, { zIndex: 30 });
+  const l2 = BIGT(cam, 0, 520, 1080, '= ADIÓS?', { fontSize: '168px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
+  const hd = mkHand(cam, 310, 690, 1.15, 10);
+  const WL = [0, 1].map(i => { const e = box(cam, i ? 800 : 120, 860, 150, 160, { zIndex: 9 }); e.innerHTML = `<svg width="150" height="160" style="overflow:visible"><path d="${i ? 'M20,20 Q70,80 20,140 M70,0 Q130,80 70,160' : 'M130,20 Q80,80 130,140 M80,0 Q20,80 80,160'}" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"/></svg>`; return e; });
+  const rib = box(cam, 670, 1010, 260, 230, { zIndex: 30 });
   rib.innerHTML = `<svg viewBox="0 0 260 230" width="260" height="230" style="overflow:visible">${cut('<path d="M130,90 C80,10 10,30 30,90 C46,130 100,110 130,90 Z M130,90 C180,10 250,30 230,90 C214,130 160,110 130,90 Z M110,100 L70,220 L110,196 L130,226 L140,110 Z M150,100 L190,220 L150,196 L130,226 Z"/>', 5, 7)}<path d="M110,100 L70,220 L110,196 L130,226 L140,110 Z M150,100 L190,220 L150,196 L130,226 Z" fill="${PINK}" stroke="${INK}" stroke-width="5"/><path d="M130,90 C80,10 10,30 30,90 C46,130 100,110 130,90 Z M130,90 C180,10 250,30 230,90 C214,130 160,110 130,90 Z" fill="${PINK}" stroke="${INK}" stroke-width="5"/><circle cx="130" cy="92" r="26" fill="${PINK}" stroke="${INK}" stroke-width="5"/><text x="130" y="108" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="44" fill="#fff" stroke="${INK}" stroke-width="2">?</text></svg>`;
-  const bubA = bubble(cam, 100, 760, '¿adiós…?', { size: 62, it: true, tail: 'br', z: 35 });
+  const bubA = bubble(cam, 70, 800, '¿adiós…?', { size: 62, it: true, tail: 'br', z: 35 });
 }
 
 /* ======================================================================
@@ -75,8 +75,8 @@ headline(K.ni2 - 0.06, S.C[1], 'Ni por *un aumento*', { size: 100, hlT: K.aument
   sceneBg(c, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 90px)' });
   rays(c, -160, 160, 1400, 24, 'rgba(255,255,255,.2)', 'rgba(0,0,0,0)', 0);
   const boss = mk(c, [330, 420, 520, 664], bossInner(), '0 0 360 460', 'bust'); boss.d.style.zIndex = 4;
-  const dk = box(c, 300, 1060, 700, 160, { zIndex: 6 }); dk.innerHTML = deskSvg(700, 160);
-  el('div', dk, { left: '0', top: '60px', width: '700px', textAlign: 'center', fontFamily: 'Rye', fontSize: '50px', color: GOLD, textShadow: `3px 3px 0 ${INK}` }, 'EL JEFE');
+  const dk = box(c, 320, 1060, 620, 160, { zIndex: 6 }); dk.innerHTML = deskSvg(620, 160);
+  el('div', dk, { left: '0', top: '60px', width: '620px', textAlign: 'center', fontFamily: 'Rye', fontSize: '50px', color: GOLD, textShadow: `3px 3px 0 ${INK}` }, 'EL JEFE');
   const coin = box(c, 640, 930, 140, 140, { zIndex: 8 }); coin.innerHTML = coinSvg();
   const shine = el('div', c, { left: '760px', top: '900px', fontSize: '70px', color: YEL, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 9 }, '✦');
   const nope = stamp(c, 420, 880, '¡NI ASÍ!', { size: 64, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
@@ -86,14 +86,14 @@ headline(K.ni2 - 0.06, S.C[1], 'Ni por *un aumento*', { size: 100, hlT: K.aument
    D · «VIENE DE VENECIA. ALLÍ SE SALUDABAN CON "S-CIÀO VOSTRO"» — Gran Canal y gondolero
    ====================================================================== */
 headline(S.D[0], K.alli - 0.06, 'Viene de *Venecia*', { size: 112, hlT: K.venecia, y: 200 });
-headline(K.alli - 0.06, S.D[1], 'Allí se *saludaban* con…', { size: 92, hlT: K.saludaban, y: 200 });
+headline(K.alli - 0.06, S.D[1], 'Allí se *saludaban* con…', { size: 72, hlT: K.saludaban, y: 210 });
 {
   const c = scene(S.D[0], S.D[1], t => {
     const tl = t - S.D[0];
     set(far, { x: -tl * 22 });
     set(wat, { x: -((tl * 40) % 60) });
     const kz = p(t, K.eschao1 - 0.15, 0.5, E.inOutCubic);
-    set(cam, { s: lerp(1, 1.32, kz), x: lerp(0, -120, kz), y: lerp(0, 120, kz) });
+    set(cam, { s: lerp(1, 1.15, kz) });
     const gx = lerp(-520, 60, p(t, S.D[0], 1.4, E.outCubic)) + tl * 18;
     set(gW, { x: gx, y: Math.sin(t * 2.6) * 8, r: Math.sin(t * 2.6 + 0.6) * 1.4 });
     const tip = p(t, K.saludaban - 0.1, 0.3, E.outBack) * (1 - p(t, K.saludaban + 0.6, 0.3));
@@ -104,7 +104,7 @@ headline(K.alli - 0.06, S.D[1], 'Allí se *saludaban* con…', { size: 92, hlT: 
     BW.forEach(b => set(b.e, { o: t > b.t - 0.05 ? 1 : 0.18, y: t > b.t - 0.05 ? 0 : 6 }));
     popA(chV, t, K.venecia, { r: -4 });
   }, { clip: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '700px 760px' });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 760px' });
   sceneBg(cam, { background: 'linear-gradient(180deg, #F2D9B8 0%, #EADFC8 60%)' });
   const far = box(cam, 0, 0, 1180, 1920, { zIndex: 1 }); far.innerHTML = veniceSvg();
   const wat = box(cam, 0, 0, 1180, 1920, { zIndex: 2 }); wat.innerHTML = waterSvg(1080, 440, 5);
@@ -112,11 +112,10 @@ headline(K.alli - 0.06, S.D[1], 'Allí se *saludaban* con…', { size: 92, hlT: 
   const oar = box(gW, 560, 640, 40, 640, { zIndex: 3, transformOrigin: '20px 120px' });
   oar.innerHTML = `<svg width="40" height="640" style="overflow:visible"><path d="M20,0 V600" stroke="${INK}" stroke-width="16" stroke-linecap="round"/><path d="M20,0 V600" stroke="${WOOD}" stroke-width="8" stroke-linecap="round"/><path d="M6,560 Q20,660 34,560 Z" fill="${WOOD}" stroke="${INK}" stroke-width="4"/></svg>`;
   const gd = mk(gW, [330, 640, 360, 460], gondolierInner(), '0 0 360 460', 'bust'); gd.d.style.zIndex = 4;
-  const legs = box(gW, 400, 1080, 220, 60, { zIndex: 4, background: '#1e1a17', border: `4px solid ${INK}` }); void legs;
   const gon = mk(gW, [20, 980, 900, 220], gondolaInner(), '0 0 900 220', 'gon'); gon.d.style.zIndex = 6;
-  const bub = bubble(cam, 470, 460, '', { size: 92, tail: 'bl', z: 40, font: 'Rye', fw: 400, pad: '14px 40px 18px' });
+  const bub = bubble(cam, 160, 470, '', { size: 60, tail: 'bl', z: 40, font: 'Rye', fw: 400, pad: '14px 40px 18px' });
   const BW = []; [['«S-CIÀO', K.eschao1], ['VOSTRO»', K.vostro1]].forEach(([s, tt], i) => { const e = document.createElement('span'); e.style.display = 'inline-block'; e.style.margin = '0 0.12em'; e.style.position = 'relative'; e.textContent = s; bub.insertBefore(e, bub.lastChild); BW.push({ e, t: tt }); });
-  const chV = chip(cam, 120, 400, 'Venecia, Italia', { size: 44, bg: INK, color: YEL, z: 30 });
+  const chV = chip(cam, 640, 380, 'Venecia, Italia', { size: 44, bg: INK, color: YEL, z: 30 });
 }
 
 /* ======================================================================
@@ -135,11 +134,11 @@ headline(S.F[0], S.F[1], '*Significa:*', { size: 110, hlT: K.significa });
   }, { clip: true });
   sceneBg(c, { background: '#EFE1C6' });
   const ry = rays(c, -160, 260, 1400, 24, 'rgba(200,16,46,.07)', 'rgba(0,0,0,0)', 0);
-  const b1 = bubble(c, 150, 400, '«S-CIÀO VOSTRO»', { size: 92, tail: 'bl', z: 20, font: 'Rye', fw: 400, pad: '14px 40px 18px' });
+  const b1 = bubble(c, 140, 420, '«S-CIÀO VOSTRO»', { size: 66, tail: 'bl', z: 20, font: 'Rye', fw: 400, pad: '14px 40px 18px' });
   const arr = box(c, 480, 560, 120, 160, { zIndex: 21 }); arr.innerHTML = `<svg width="120" height="160" style="overflow:visible"><path d="M60,6 V120 M24,90 L60,134 L96,90" stroke="${INK}" stroke-width="30" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M60,6 V120 M24,90 L60,134 L96,90" stroke="${PINK}" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
   const tr = BIGT(c, 0, 740, 1080, '', { fontSize: '130px', fontStyle: 'italic', zIndex: 22 });
   const TW = []; [['«soy', K.soy2], ['su…»', K.su2]].forEach(([s, tt]) => { const e = document.createElement('span'); e.style.display = 'inline-block'; e.style.margin = '0 0.14em'; e.textContent = s; tr.appendChild(e); TW.push({ e, t: tt }); });
-  const stE = stamp(c, 150, 900, 'ESCLAVO', { size: 190, bw: 18, z: 60, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const stE = stamp(c, 120, 900, 'ESCLAVO', { size: 150, bw: 18, z: 60, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const gd = mk(c, [640, 1060, 300, 383], gondolierInner(), '0 0 360 460', 'bust'); gd.d.style.zIndex = 10;
 }
 
@@ -154,10 +153,10 @@ headline(S.G[0], S.G[1], 'Se dijo *tanto*…', { size: 116, hlT: K.tanto });
   }, { clip: true });
   sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 40px)' });
   const r = rng(91);
-  const SP = [[380, 420], [120, 560], [600, 600], [330, 720], [100, 860], [560, 880], [300, 1000], [620, 1120], [380, 1220], [130, 680], [700, 420], [620, 760]];
+  const SP = [[300, 400], [80, 520], [440, 560], [200, 660], [70, 800], [430, 760], [360, 900], [420, 1060], [380, 1200], [100, 940], [460, 440], [450, 1150]];
   const span = (K.se3 - 0.1) - (S.G[0] + 0.02);
   SP.forEach((q, i) => {
-    const e = bubble(c, q[0], q[1], '«s-ciào vostro»', { size: 50, tail: i % 2 ? 'br' : 'bl', z: 20 + i, font: 'Rye', fw: 400, pad: '8px 26px 12px', bg: i % 4 === 3 ? '#FFF3A8' : '#fff' });
+    const e = bubble(c, q[0], q[1], '«s-ciào vostro»', { size: 40, tail: i % 2 ? 'br' : 'bl', z: 20 + i, font: 'Rye', fw: 400, pad: '8px 24px 12px', bg: i % 4 === 3 ? '#FFF3A8' : '#fff' });
     BB.push({ e, t: S.G[0] + 0.02 + span * Math.pow(i / SP.length, 0.8), s: 0.8 + r() * 0.35, r: (r() - 0.5) * 14 });
   });
 }
@@ -191,14 +190,14 @@ headline(K.a3 - 0.05, S.H[1], 'y quedó *«ciao»*', { size: 112, hlT: K.ciao })
   const crk = el('div', slab, { left: 0, top: 0, width: '940px', height: '420px', zIndex: 6 });
   crk.innerHTML = `<svg width="940" height="420" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M120,20 L180,120 L150,200 L230,300 L210,400 M640,10 L600,130 L690,210 L650,330 L720,410 M420,20 L440,90 L400,150" stroke="${INK}" stroke-width="5" fill="none"/></svg>`;
   const crkP = crk.querySelector('path');
-  const row = el('div', slab, { left: '0', top: '120px', width: '940px', textAlign: 'center', fontFamily: 'Rye', fontSize: '150px', lineHeight: '170px', color: INK, whiteSpace: 'nowrap', zIndex: 8 });
+  const row = el('div', slab, { left: '0', top: '120px', width: '940px', textAlign: 'center', fontFamily: 'Rye', fontSize: '90px', lineHeight: '170px', color: INK, whiteSpace: 'nowrap', zIndex: 8 });
   const word = 'S-CIÀO VOSTRO';
   const fallAt = i => i <= 1 ? K.a3 + 0.02 + i * 0.05 : i >= 7 ? K.vostro2 + (i - 7) * 0.06 : (i === 6 ? K.vostro2 : null);
   let acc = null;
   [...word].forEach((ch, i) => {
     const e = document.createElement('span'); e.style.display = 'inline-block'; e.style.position = 'relative';
     if (ch === ' ') { e.innerHTML = '&nbsp;'; }
-    else if (ch === 'À') { e.innerHTML = 'A<span class="acc" style="position:absolute;left:30%;top:-44px;display:inline-block">`</span>'; acc = e.querySelector('.acc'); }
+    else if (ch === 'À') { e.innerHTML = 'A<span class="acc" style="position:absolute;left:30%;top:-26px;display:inline-block">`</span>'; acc = e.querySelector('.acc'); }
     else e.textContent = ch;
     row.appendChild(e);
     LT.push({ e, keep: i >= 2 && i <= 5, fall: fallAt(i), rs: (i % 2 ? 1 : -1) * (160 + i * 20), dx: (i % 2 ? 1 : -1) * 80 });
@@ -241,7 +240,7 @@ headline(S.I[0], S.I[1], 'Y saltó *al español*', { size: 104, hlT: K.espanol }
   const hd = mkHand(c, 380, 640, 0.82, 10);
   const shk2 = box(c, 0, 0, 1, 1);
   // eslabones colgando del grillete (muñeca de la mano en ~ 544,1067)
-  const TX = [180, 380, 580, 780];
+  const TX = [150, 340, 530, 720];
   const ord = [K.salto, K.salto + 0.18, K.espanol - 0.05, K.espanol + 0.15];
   'CHAO'.split('').forEach((ch, i) => {
     const hx = 520 + (i % 2 ? 26 : -26), hy = 1140 + i * 70;
@@ -257,7 +256,7 @@ headline(S.I[0], S.I[1], 'Y saltó *al español*', { size: 104, hlT: K.espanol }
    J · «O "CHAU", SI ERES DE ARGENTINA O URUGUAY» — mapa con chinchetas CHAO / CHAU
    ====================================================================== */
 const MAPPINS = {
-  es: { p: [815, 495], l: [745, 620], txt: 'CHAO' }, co: { lo: -74, la: 4.6, l: [330, 600], txt: 'CHAO' }, ve: { lo: -66.9, la: 8, l: [640, 560], txt: 'CHAO' },
+  es: { p: [800, 496], l: [480, 430], txt: 'CHAO' }, co: { lo: -74, la: 4.6, l: [330, 600], txt: 'CHAO' }, ve: { lo: -66.9, la: 8, l: [650, 680], txt: 'CHAO' },
   pe: { lo: -76, la: -10, l: [190, 780], txt: 'CHAO' }, cl: { lo: -71, la: -33, l: [230, 930], txt: 'CHAO' },
   ar: { lo: -64, la: -34, l: [610, 1080], txt: 'CHAU' }, uy: { lo: -56, la: -33, l: [720, 930], txt: 'CHAU' },
   mx: { lo: -101, la: 22, l: [130, 470], txt: '' },

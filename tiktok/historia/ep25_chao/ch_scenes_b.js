@@ -34,16 +34,16 @@ headline(K.nuestro - 0.06, S.O2[1], 'como nuestro…', { size: 104 });
     face(gt, t, { look: [-4, 6], closed: bow > 0.6, bL: 8, bR: 8, seed: 0.4 });
     // la chistera se levanta en «servidor»
     const kh = p(t, K.servidor - 0.15, 0.35, E.outBack);
-    set(hat, { x: -kh * 170, y: -kh * 120 + bow * 40, r: -kh * 30, o: 1 });
+    set(hat, { x: -kh * 120, y: -kh * 140, r: -kh * 30, o: 1 });
     stampA(srv, t, K.servidor, -5, 1);
     popA(ch1, t, K.educacion + 0.1, { r: 4 });
   }, { clip: true });
   sceneBg(c, { background: '#E9DFC6', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.06) 0 3px, transparent 3px 90px)' });
   const ry = rays(c, -160, 220, 1400, 24, 'rgba(255,62,165,.08)', 'rgba(0,0,0,0)', 0);
   const gt = mk(c, [380, 520, 500, 639], gentInner(), '0 0 360 460', 'bust'); gt.d.style.zIndex = 4; gt.d.style.transformOrigin = '250px 600px';
-  const hat = box(c, 380 + 70 * 1.39, 520, 360 * 0.6 * 1.39, 200, { zIndex: 6 }); hat.innerHTML = `<svg viewBox="80 20 200 170" width="100%" height="100%" style="overflow:visible">${TOPHAT()}</svg>`;
-  const srv = stamp(c, 420, 1100, '«SERVIDOR»', { size: 96, bw: 12, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
-  const ch1 = chip(c, 640, 470, 'cortesía 🎩', { size: 46, bg: PINK, z: 30 });
+  const hs = 500 / 360; const hat = box(gt.d, 80 * hs, 20 * hs, 200 * hs, 165 * hs, { zIndex: 6 }); hat.innerHTML = `<svg viewBox="80 20 200 165" width="100%" height="100%" style="overflow:visible">${TOPHAT()}</svg>`;
+  const srv = stamp(c, 380, 1110, '«SERVIDOR»', { size: 72, bw: 11, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const ch1 = chip(c, 110, 520, 'cortesía 🎩', { size: 46, bg: PINK, z: 30 });
 }
 
 /* ======================================================================
@@ -65,13 +65,13 @@ headline(S.O3[0], S.O3[1], 'o el *«a sus órdenes»*', { size: 96, hlT: K.orden
   hand.innerHTML = `<svg viewBox="-80 -80 160 160" width="240" height="240" style="overflow:visible">${gloveHand(0, 0, -100, 1.3)}</svg>`;
   const tray = box(c, 820, 860, 200, 200, { zIndex: 5 });
   tray.innerHTML = `<svg width="200" height="200" style="overflow:visible"><path d="M40,120 h40 l-8,-70 h-24 Z" fill="#fff" stroke="${INK}" stroke-width="4" opacity=".9"/><path d="M110,120 h40 l-6,-56 h-28 Z" fill="${YEL}" stroke="${INK}" stroke-width="4"/><ellipse cx="96" cy="128" rx="96" ry="16" fill="#d8d0be" stroke="${INK}" stroke-width="5"/></svg>`;
-  const ord = stamp(c, 340, 1120, '«A SUS ÓRDENES»', { size: 80, bw: 11, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const ord = stamp(c, 330, 1120, '«A SUS ÓRDENES»', { size: 52, bw: 9, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
 }
 
 /* ======================================================================
    Q1 · «¿CUÁNTAS VECES LO HAS DICHO HOY?» — la única complicidad: tu día en «¡chao!»
    ====================================================================== */
-headline(S.Q1[0], S.Q1[1], '¿Cuántas veces lo has *dicho hoy*?', { size: 86, hlT: K.dicho });
+headline(S.Q1[0], S.Q1[1], '¿Cuántas veces lo has *dicho hoy?*', { size: 86, hlT: K.dicho });
 {
   const BB = [], TL = [];
   const c = scene(S.Q1[0], S.Q1[1], t => {
@@ -90,7 +90,7 @@ headline(S.Q1[0], S.Q1[1], '¿Cuántas veces lo has *dicho hoy*?', { size: 86, h
   const tg = box(card, 50, 110, 460, 180, { zIndex: 2 });
   const TP = [[0, 0], [36, 0], [72, 0], [108, 0], [-6, 0, 1], [190, 0], [226, 0], [262, 0], [298, 0], [184, 0, 1]];
   TP.forEach((q, i) => { const e = box(tg, 40 + q[0], 10, 150, 150, { zIndex: 2 }); e.innerHTML = q[2] ? `<svg width="150" height="150" style="overflow:visible"><path d="M0,120 L160,20" stroke="${RED}" stroke-width="14" stroke-linecap="round"/></svg>` : `<svg width="40" height="150" style="overflow:visible"><path d="M14,4 L10,140" stroke="${INK}" stroke-width="14" stroke-linecap="round"/></svg>`; TL.push(e); });
-  const SP = [[90, 460, 'la panadería'], [600, 430, 'el bus'], [120, 640, 'la oficina'], [640, 610, 'el ascensor'], [80, 820, 'tu madre'], [700, 1130, 'el grupo'], [120, 980, ''], [470, 1130, ''], [740, 1240, ''], [380, 1240, '']];
+  const SP = [[90, 460, 'la panadería'], [600, 430, 'el bus'], [120, 640, 'la oficina'], [640, 610, 'el ascensor'], [80, 820, 'tu madre'], [650, 1110, 'el grupo'], [120, 980, ''], [400, 1130, ''], [640, 1240, ''], [380, 1240, '']];
   const n = TP.length, t0 = S.Q1[0] + 0.1, span = (K.pues - 0.25) - t0;
   for (let i = 0; i < n; i++) {
     const q = SP[i];
@@ -121,7 +121,7 @@ headline(S.Q2[0], S.Q2[1], 'Pues eso…', { size: 110, y: 200 });
   }, { clip: true });
   sceneBg(c, { background: '#D9C9A8', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 3px, transparent 3px 120px)' });
   box(c, 0, 1010, 1080, 600, { zIndex: 1, background: '#B9A27E', borderTop: `6px solid ${INK}`, backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.18) 0 3px, transparent 3px 70px)' });
-  const DP = [[90, 380], [420, 380], [750, 380], [255, 700], [585, 700], [915, 700]];
+  const DP = [[150, 380], [460, 380], [770, 380], [150, 700], [460, 700], [770, 700]];
   DP.forEach((q, i) => {
     const sc = 0.5, fw = 320 * sc, fh = 600 * sc;
     const fr = box(c, q[0] - fw / 2 + 80, q[1], fw, fh, { zIndex: 2 }); fr.innerHTML = `<svg viewBox="0 0 320 600" width="100%" height="100%" style="overflow:visible">${cut('<rect x="0" y="0" width="320" height="600" rx="8"/>')}<rect x="0" y="0" width="320" height="600" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="6"/><rect x="24" y="24" width="272" height="576" fill="#3a2a1e" stroke="${INK}" stroke-width="4"/></svg>`;
@@ -131,13 +131,13 @@ headline(S.Q2[0], S.Q2[1], 'Pues eso…', { size: 110, y: 200 });
     const cuff = box(fr, 100, 200, 80, 80, { zIndex: 6 }); cuff.innerHTML = `<svg width="80" height="80" style="overflow:visible"><ellipse cx="40" cy="40" rx="30" ry="22" fill="none" stroke="${INK}" stroke-width="16"/><ellipse cx="40" cy="40" rx="30" ry="22" fill="none" stroke="${PINK}" stroke-width="8"/><path d="M68,40 h22" stroke="${INK}" stroke-width="8"/></svg>`;
     NB.push({ b, leaf, cuff });
   });
-  const ban = el('div', c, { left: '330px', top: '1080px', width: '640px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '74px', lineHeight: 1.0, color: '#fff', background: RED, border: `6px solid ${INK}`, borderRadius: '18px', padding: '10px 14px 16px', boxShadow: `9px 10px 0 ${INK}`, zIndex: 40 }, 'ESCLAVO DE<br>MEDIO BARRIO');
+  const ban = el('div', c, { left: '340px', top: '1060px', width: '560px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '74px', lineHeight: 1.0, color: '#fff', background: RED, border: `6px solid ${INK}`, borderRadius: '18px', padding: '10px 14px 16px', boxShadow: `9px 10px 0 ${INK}`, zIndex: 40 }, 'ESCLAVO DE<br>MEDIO BARRIO');
 }
 
 /* ======================================================================
    Q3 · «Y NO ERES EL ÚNICO» — zoom out al globo lleno de «chao»
    ====================================================================== */
-headline(S.Q3[0], S.Q3[1], 'Y no eres *el único*', { size: 108, hlT: K.unico });
+headline(S.Q3[0], S.Q3[1], 'Y no eres *el único*', { size: 108, hlT: K.unico, color: '#FBF6EA', keyColor: INK });
 {
   const BB = [];
   const c = scene(S.Q3[0], S.Q3[1], t => {
@@ -160,22 +160,24 @@ function countryScene(T0, T1, o) {
     popA(nm, t, o.tName, { r: -3 });
     const kb = p(t, o.tChau - 0.03, 0.3, E.outBack);
     set(bb, { s: t < o.tChau - 0.03 ? 0 : kb, r: -5 + wobble(t, 0.6, 1.5), o: t < o.tChau - 0.03 ? 0 : 1 });
+    set(wh.d, { r: WAVE(t), s: pop(t, T0 + 0.05, 0.3) }); wh.shk.style.opacity = 0; wh.ringT.style.opacity = 0;
     if (o.fn) o.fn(t);
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
   sceneBg(cam, { background: o.bg });
   box(cam, 0, 0, 1080, 1920, { zIndex: 1 }).innerHTML = o.svg;
   const nm = el('div', c, { left: '0', top: '210px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', color: INK, zIndex: 60, textShadow: `0 0 0 #fff, 5px 5px 0 rgba(255,255,255,.8)` }, `<span style="background:${o.lbg || YEL};padding:0 26px 6px;border:6px solid ${INK};border-radius:20px;box-shadow:8px 8px 0 ${INK}">${o.name}</span>`);
-  const bb = bubble(c, o.bx, o.by, o.word, { size: 150, tail: o.tail || 'bl', z: 50, pad: '10px 50px 22px' });
+  const wh = mkHand(c, o.hx || 420, 1000, 0.5, 45);
+  const bb = bubble(c, o.bx, o.by, o.word, { size: 120, tail: o.tail || 'bl', z: 50, pad: '10px 50px 22px' });
   return { c, cam };
 }
-countryScene(S.R1[0], S.R1[1], { name: 'BRASIL', tName: K.brasil, tChau: K.chau7a, word: '«TCHAU!»', bx: 200, by: 470, bg: 'linear-gradient(180deg, #F2E3A8 0%, #EFE1C6 60%)', svg: rioSvg(), lbg: '#9fd3a0' });
-countryScene(S.R2[0], S.R2[1], { name: 'ALEMANIA', tName: K.alemania, tChau: K.chau7b, word: '«TSCHAU!»', bx: 150, by: 820, bg: 'linear-gradient(180deg, #DCD6C8 0%, #EFE1C6 60%)', svg: brandenburgSvg(), lbg: '#F2C230' });
+countryScene(S.R1[0], S.R1[1], { name: 'BRASIL', tName: K.brasil, tChau: K.chau7a, word: '«TCHAU!»', bx: 300, by: 400, bg: 'linear-gradient(180deg, #F2E3A8 0%, #EFE1C6 60%)', svg: rioSvg(), lbg: '#9fd3a0' });
+countryScene(S.R2[0], S.R2[1], { name: 'ALEMANIA', tName: K.alemania, tChau: K.chau7b, word: '«TSCHAU!»', bx: 120, by: 820, bg: 'linear-gradient(180deg, #DCD6C8 0%, #EFE1C6 60%)', svg: brandenburgSvg(), lbg: '#F2C230' });
 const T_EMU = K.chau7c + 0.05;
 {
   let emu, emuW, eb;
   const r3 = countryScene(S.R3[0], S.R3[1], {
-    name: 'CHEQUIA', tName: K.chequia, tChau: K.chau7c, word: '«ČAU!»', bx: 140, by: 440, bg: 'linear-gradient(180deg, #CFD6DA 0%, #E6E0D0 60%)', svg: pragueSvg(), lbg: '#f2b880', tail: 'br',
+    name: 'CHEQUIA', tName: K.chequia, tChau: K.chau7c, word: '«ČAU!»', bx: 100, by: 440, bg: 'linear-gradient(180deg, #CFD6DA 0%, #E6E0D0 60%)', svg: pragueSvg(), lbg: '#f2b880', tail: 'br',
     fn: t => {
       // cameo del emú: asoma por el pretil del puente, mira a cámara y suelta su «čau»
       const ke = p(t, T_EMU - 0.15, 0.25, E.outBack);
@@ -185,15 +187,15 @@ const T_EMU = K.chau7c + 0.05;
       set(eb, { s: pop(t, T_EMU + 0.12, 0.3), r: 6, o: t < T_EMU + 0.12 ? 0 : 1 });
     },
   });
-  emuW = box(r3.cam, 720, 640, 300, 380, { overflow: 'hidden', zIndex: 30 });
+  emuW = box(r3.cam, 630, 640, 300, 380, { overflow: 'hidden', zIndex: 30 });
   emu = mkEmuF(emuW, [20, 30, 260, 390]);
-  eb = bubble(r3.c, 620, 560, 'čau', { size: 64, it: true, tail: 'br', z: 55, pad: '4px 28px 10px', bg: '#FFF3A8' });
+  eb = bubble(r3.c, 700, 600, 'čau', { size: 64, it: true, tail: 'br', z: 55, pad: '4px 28px 10px', bg: '#FFF3A8' });
 }
 
 /* ======================================================================
    T1 · «Y LO MEJOR: EN AUSTRIA Y EN BAVIERA» — Alpes y banderas
    ====================================================================== */
-headline(S.T1[0], S.T1[1], 'Y lo *mejor*:', { size: 116, hlT: K.mejor });
+headline(S.T1[0], S.T1[1], 'Y lo *mejor:*', { size: 116, hlT: K.mejor });
 {
   const c = scene(S.T1[0], S.T1[1], t => {
     set(mt, { y: (1 - p(t, S.T1[0], 0.45, E.outCubic)) * 300, s: 1 + 0.04 * p(t, S.T1[0], 2, E.linear) });
@@ -219,7 +221,7 @@ headline(S.T2[0], S.T2[1], 'se saludan con…', { size: 104 });
   const beam = box(c, 0, 380, 1080, 40, { zIndex: 3, background: '#6b4426', borderTop: `5px solid ${INK}`, borderBottom: `5px solid ${INK}` });
   void beam;
   const sg = box(c, 190, 420, 700, 420, { zIndex: 10, transformOrigin: '350px 0px' }); sg.innerHTML = tavernSignSvg();
-  el('div', sg, { left: '40px', top: '140px', width: '520px', textAlign: 'center', fontFamily: 'Rye', fontSize: '128px', color: GOLD, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 3 }, 'SERVUS');
+  el('div', sg, { left: '40px', top: '150px', width: '480px', textAlign: 'center', fontFamily: 'Rye', fontSize: '108px', color: GOLD, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 3 }, 'SERVUS');
   const BS = [mk(c, [380, 900, 260, 332], neighInner(91, 3), '0 0 360 460', 'bust'), mk(c, [640, 920, 250, 319], neighInner(93, 1), '0 0 360 460', 'bust')];
   BS.forEach(b => (b.d.style.zIndex = 6));
 }
@@ -238,28 +240,28 @@ headline(S.T3[0], S.T3[1], 'Que en *latín* significa…', { size: 96, hlT: K.la
     set(dr, { o: t > K.significa8 && t < K.esclavo8 ? 1 : 0, y: Math.sin(t * 30) * 4 });
   }, { clip: true });
   sceneBg(c, { background: '#D8D6C4', backgroundImage: 'linear-gradient(180deg, #C9CCC6 0%, #E1DCCB 70%)' });
-  const flip = box(c, 120, 420, 840, 520, { zIndex: 10 });
+  const flip = box(c, 120, 480, 840, 520, { zIndex: 10 });
   const flipIn = box(flip, 0, 0, 840, 520, { transformOrigin: '420px 260px' });
   const fA = box(flipIn, 70, 40, 700, 420); fA.innerHTML = tavernSignSvg();
-  el('div', fA, { left: '40px', top: '140px', width: '520px', textAlign: 'center', fontFamily: 'Rye', fontSize: '128px', color: GOLD, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` }, 'SERVUS');
+  el('div', fA, { left: '40px', top: '150px', width: '480px', textAlign: 'center', fontFamily: 'Rye', fontSize: '108px', color: GOLD, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` }, 'SERVUS');
   const fB = box(flipIn, 0, 0, 840, 520);
   romanSlab(fB, 0, 0, 840, 520, { seed: 41, z: 1 });
-  el('div', fB, { left: '0', top: '150px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '190px', letterSpacing: '0.12em', color: '#5a5248', textShadow: `3px 3px 0 #fff, -2px -2px 0 rgba(43,33,24,.6)`, zIndex: 3 }, 'SERVVS');
+  el('div', fB, { left: '0', top: '150px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', letterSpacing: '0.1em', color: '#5a5248', textShadow: `3px 3px 0 #fff, -2px -2px 0 rgba(43,33,24,.6)`, zIndex: 3 }, 'SERVVS');
   el('div', fB, { left: '0', top: '60px', width: '840px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '40px', color: INK, zIndex: 3 }, '— latín —');
-  const stE = stamp(c, 170, 860, 'ESCLAVO', { size: 190, bw: 18, z: 60, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
-  const dr = el('div', c, { left: '0', top: '1000px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: INK, zIndex: 20 }, '…');
+  const stE = stamp(c, 150, 810, 'ESCLAVO', { size: 140, bw: 18, z: 60, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const dr = el('div', c, { left: '0', top: '1020px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: INK, zIndex: 20 }, '…');
 }
 
 /* ======================================================================
    U1 · «O SEA: MEDIA EUROPA…» — el mapa se enciende de saludos
    ====================================================================== */
-headline(S.U1[0], S.U1[1], 'O sea: *media Europa*…', { size: 98, hlT: K.media });
+headline(S.U1[0], S.U1[1], 'O sea: *media Europa*', { size: 98, hlT: K.media });
 {
   const EP = [
     { k: 'IT', lo: 12.5, la: 42.6, l: [560, 1020], txt: 'CIAO', col: YEL, t: K.osea + 0.05 },
-    { k: 'AT', lo: 14.5, la: 47.5, l: [690, 820], txt: 'SERVUS', col: PINK, t: K.osea + 0.2 },
+    { k: 'AT', lo: 14.5, la: 47.5, l: [610, 850], txt: 'SERVUS', col: PINK, t: K.osea + 0.2 },
     { k: 'BY', lo: 11.5, la: 48.6, l: [70, 780], txt: 'SERVUS', col: PINK, t: K.osea + 0.35 },
-    { k: 'DE', lo: 10, la: 52, l: [90, 560], txt: 'TSCHAU', col: '#9fd3c0', t: K.media },
+    { k: 'DE', lo: 10, la: 52, l: [60, 540], txt: 'TSCHAU', col: '#9fd3c0', t: K.media },
     { k: 'CZ', lo: 15.5, la: 49.9, l: [690, 600], txt: 'ČAU', col: '#f2b880', t: K.europa },
   ];
   const c = scene(S.U1[0], S.U1[1], t => {
@@ -316,8 +318,8 @@ colorHit(S.U2[0], S.U2[1], PINK, c => {
   sceneBg(c, { background: SEA2 });
   const mp = box(c, 0, 80, 1080, 1920, { zIndex: 2 }); mp.innerHTML = latamSvg();
   box(c, 0, 0, 1080, 1920, { zIndex: 3, background: 'rgba(239,225,198,.45)' });
-  const l1 = el('div', c, { left: 0, top: '220px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });
-  const l2 = el('div', c, { left: 0, top: '330px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });
+  const l1 = el('div', c, { left: 0, top: '220px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '80px', lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });
+  const l2 = el('div', c, { left: 0, top: '316px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '80px', lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });
   const WD = []; const iq = find('y tu como te despides en tu pais');
   [['¿Y', l1], ['tú,', l1], ['cómo', l1], ['te', l2], ['despides', l2], ['en', l2], ['tu', l2], ['país?', l2]].forEach((q, k) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.1em'; if (k === 4) { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('despides', 'dhl', YEL); } else s.textContent = q[0]; q[1].appendChild(s); WD.push({ e: s, t: W[iq + k].s }); });
   const dHL = c.querySelector('.dhl');
@@ -325,7 +327,7 @@ colorHit(S.U2[0], S.U2[1], PINK, c => {
   const BP = [[300, 560, K.tu9], [740, 520, K.comoT], [560, 700, K.despides - 0.1], [330, 840, K.despides + 0.15], [660, 960, K.pais - 0.1], [470, 1100, K.pais + 0.1]];
   BP.forEach((q, i) => { const e = bubble(c, q[0], q[1], '', { size: 64, tail: i % 2 ? 'br' : 'bl', z: 25, pad: '4px 30px 10px', bg: i % 2 ? '#fff' : '#FFF3A8' }); const tx = document.createElement('span'); tx.textContent = '…'; e.insertBefore(tx, e.lastChild); QB.push({ e, tx, t: q[2], r: (i % 2 ? 1 : -1) * 5 }); });
   const ol = chip(c, 600, 1180, 'Os leo 👇', { size: 64, bg: PINK, z: 40 });
-  const hand = box(c, 860, 1230, 130, 130, { zIndex: 41 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
+  const hand = box(c, 460, 1180, 130, 130, { zIndex: 41 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
 }
 
 /* ======================================================================
@@ -334,7 +336,7 @@ colorHit(S.U2[0], S.U2[1], PINK, c => {
 {
   const T0 = S.BAL[0], T1 = S.BAL[1];
   const c = scene(T0, T1, t => {
-    const ex = p(t, T1 - 0.2, 0.2, E.inCubic);
+    const ex = 0;
     set(cam, { s: lerp(1.04 + 0.04 * p(t, T0, T1 - T0, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
     const lean = p(t, K.esto - 0.3, 0.4, E.inOutCubic);
     set(vec.d, { s: 1 + lean * 0.07, y: wobble(t, 0.5, 3) - lean * 20 });
@@ -401,7 +403,7 @@ headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 })
     vecFace(vb, t, { jaw: talkW(t, 'VECINO'), look: [0, 2], bL: 8, bR: 8, fan: closed ? Math.sin(t * 2 * Math.PI * 1.2) * 18 : wobble(t, 0.9, 6), seed: 0.7 });
   });
   const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  const vb = mk(bookW, [560, 330, 380, 470], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); vb.d.style.zIndex = 0;
+  const vb = mk(bookW, [140, 400, 380, 470], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); vb.d.style.zIndex = 0;
   const bs = svgLayer(bookW, 1);
   let lines = ''; for (let i = 0; i < 12; i++) lines += `<path d="M180,${790 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
   let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
@@ -412,8 +414,8 @@ headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 })
     <g class="coverF"><rect x="540" y="630" width="430" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="566" y="656" width="378" height="518" rx="8" fill="none" stroke="#c9a24a" stroke-width="4"/>
     <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
   const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
-  const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '700px', top: '560px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-  const epl = el('div', c, { left: '0', top: '1150px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:40px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 25 · ¿Chao = adiós?</span>`);
+  const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '1200px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
+  const epl = el('div', c, { left: '0', top: '1292px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:40px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 25 · ¿Chao = adiós?</span>`);
   const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, TC + 0.3, { r: -1 }); };
   const puffs = [0, 1, 2, 3].map(() => box(bookW, 480, 600, 120, 80, { borderRadius: '50%', background: '#F4ECDB', border: `4px solid ${INK}`, zIndex: 3 }));
 }

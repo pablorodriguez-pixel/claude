@@ -19,7 +19,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
   <g transform="translate(${cx},${OV.h + 60})"><rect x="-104" y="-26" width="208" height="46" rx="10" fill="${INK}" stroke="${BRASS}" stroke-width="4"/><text x="0" y="8" text-anchor="middle" font-family="Rye" font-size="25" fill="${YEL}">EL VECINO</text></g></svg>`;
 }
 const CX = -41, CY = 45, CS = 0.75;
-const OV_VIS = [[K.mil0 - 0.3, S.D[0]], [S.BOOK[0], S.H[1]], [S.J[0], S.P[0]], [S.R1[0], S.SJ[0]]];
+const OV_VIS = [[K.mil0 - 0.3, S.D[0]], [S.J[0], S.P[0]], [S.BOOK[0], S.H[1]]];
 function ovalState(t) {
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
     const kin = pop(t, a, 0.4), kout = p(t, b - 0.14, 0.14, E.inCubic);
@@ -27,7 +27,7 @@ function ovalState(t) {
   }
   return null;
 }
-const LAUGH = [[K.milote + 0.05, K.milote + 1.0], [K.bronca + 0.05, K.bronca + 0.9]];
+const LAUGH = [[K.milote + 0.05, K.milote + 1.0]];
 const IN = (t, a, b) => t > a && t < b;
 function updOval(t) {
   const st = ovalState(t);
@@ -41,20 +41,18 @@ function updOval(t) {
   if (IN(t, K.mitad - 0.05, K.mitad + 0.8)) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 14; o.bR = 14; o.look = [0, 0]; }
   if (IN(t, K.veintiuno, K.veintiuno + 0.8)) { o.bL = 12; o.bR = 16; o.look = [6, -4]; }
   if (IN(t, K.no3 - 0.1, S.H[0])) { o.bL = 10; o.bR = 14; o.he = true; }
+  if (IN(t, K.gordo, K.gordo + 0.8)) { o.bL = 14; o.bR = 14; o.look = [6, -6]; }
   if (IN(t, K.millon, K.millon + 0.8)) { o.bL = 14; o.bR = 14; o.look = [6, -6]; }
   if (IN(t, K.M5, K.M5 + 0.8)) { o.bL = 4; o.bR = 14; o.look = [0, 0]; }
   if (IN(t, K.D, K.quinientos + 0.8)) { o.bL = 12; o.bR = 12; o.look = [6, -4]; }
-  if (IN(t, K.ojo - 0.05, K.ojo + 0.8)) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 14; o.bR = 14; o.look = [0, 0]; }
-  if (IN(t, K.nadie, K.probado + 0.6)) { o.bL = 2; o.bR = 14; o.look = [0, 0]; }
-  if (IN(t, K.C9, K.C9 + 0.8)) { o.bL = 12; o.bR = 12; o.look = [8, -6]; }
-  if (IN(t, K.primero9, K.primero9 + 0.9)) { o.fan = Math.sin(t * 24) * 18; o.bL = 10; o.bR = 10; o.look = [6, -4]; }
   if (inL) { o.hm = true; o.closed = true; o.bL = 10; o.bR = 10; o.jaw = 0.3; }
   vecFace(vecO, t, o);
 }
 /* barra 1·2·3·4 */
-const LB_ON = [S.B[0], S.P[0]], LB_IN = [S.B[0] + 0.05, K.tres, K.miles, K.mas], LB_CUR = [S.B[0], K.dos3, K.tres4, K.cuatro, 1e9];
+/* 1 = milpiés · 2 = millón · 3 = M romana · 4 = Aladino (el gordo, al final) */
+const LB_ON = [[S.B[0], S.P[0]], [S.BOOK[0], S.BAL[0]]], LB_IN = [S.B[0] + 0.05, K.tres, K.miles, K.mas], LB_CUR = [S.B[0], K.millon - 0.08, K.y5 - 0.08, K.cuarto, 1e9];
 function updBar(t) {
-  const on = t >= LB_ON[0] && t < LB_ON[1];
+  const on = LB_ON.some(([a, b]) => t >= a && t < b);
   LB.wrap.style.display = on ? 'flex' : 'none'; if (!on) return;
   let cur = 0; for (let i = 0; i < 4; i++) if (t >= LB_CUR[i]) cur = i;
   LB.items.forEach((e, i) => {
@@ -98,7 +96,7 @@ SC.filter(s => s.t0 === S.A[0] || s.t0 === S.H[1]).forEach(s => s.cut = true);
 /* ---------- temblores ---------- */
 [[K.mitad + 0.05, .35, 16], [K.veintiuno, .4, 18], [K.mil2, .4, 18], [K.colado2, .3, 12], [K.libro3 - 0.04, .4, 18], [K.colo + 0.25, .3, 12],
  [K.millon, .3, 10], [K.milG, .3, 12], [K.milote, .4, 18], [K.M5 + 0.12, .3, 12], [K.quinientos, .35, 16], [K.gano + 0.2, .3, 10], [K.mille, .3, 12],
- [K.ojo, .35, 14], [K.nadie, .35, 14], [K.mil8, .3, 10], [K.C9 + 0.05, .3, 12], [K.lunes, .3, 10], [K.primero9 + 0.4, .35, 14], [K.jose, .35, 16],
+ [K.mil8, .3, 10], [K.casi - 0.04, .25, 8], [K.jose, .35, 16], [K.gordo, .35, 14],
  [K.vota, .3, 10], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
@@ -106,20 +104,17 @@ SC.filter(s => s.t0 === S.A[0] || s.t0 === S.H[1]).forEach(s => s.cut = true);
   [S.B[0] + 0.03, 'whoosh', .6], [K.mitad + 0.05, 'stamp', 1.0], [S.C[0] + 0.05, 'whoosh', .6], [K.conocio, 'tick', .5], [K.veintiuno, 'stamp', 1.0], [K.veintiuno + 0.22, 'ding', .7],
   [S.D[0], 'burst', .8], [K.mil2, 'tada', .8], [K.mil2 + 0.05, 'paper', .5], [T_EMU, 'emu', .9], [T_EMU + 0.2, 'squish', .5],
   [S.E[0], 'whoosh', .5], [K.tres, 'pop', .5], [K.miles, 'pop', .5], [K.mas, 'pop', .5], [K.colado2, 'stamp', .9],
-  [S.BOOK[0], 'whoosh', .6], [K.las - 0.05, 'paper', .8], [K.aladino - 0.05, 'swoosh_up', .6], [K.no3, 'error', .6],
+  [S.BOOK[0], 'whoosh', .6], [K.gordo, 'stamp', 1.0], [K.las - 0.1, 'paper', .8], [K.las + 0.05, 'pop', .6], [K.aladino - 0.05, 'swoosh_up', .6], [K.no3, 'error', .6],
   [S.H[0], 'burst', .8], [S.H[0] + 0.02, 'glitch', .5], [S.H[1], 'whoosh', .6], [K.colo + 0.25, 'stamp', 1.0], [K.frances + 0.05, 'pop', .5], [K.siglos, 'clockfast', .5],
   [S.J[0], 'whoosh', .6], [K.tres4 + 0.2, 'squish', .5], [K.millon, 'boing', .8], [K.italiano, 'pop', .5], [K.milG, 'stamp', .9],
   [S.JH[0], 'burst', .8], [K.milote, 'glitch', .5], [K.milote + 0.15, 'pop2', .6],
   [S.ROM[0], 'whoosh', .6], [K.M5 + 0.12, 'error', .6], [K.era + 0.1, 'scratch', .6], [K.era + 0.6, 'tick', .4], [K.garabatoE - 0.1, 'ding', .6],
   [K.partelo, 'scratch', .8], [K.sale - 0.15, 'swoosh_up', .6], [K.D, 'pop', .7], [K.quinientos, 'stamp', 1.0],
   [S.N[0], 'whoosh', .6], [K.gano - 0.05, 'tada', .5], [K.mille - 0.05, 'paper', .6],
-  [K.ojo, 'stamp', 1.0], [K.hay, 'pop', .5], [K.cree, 'pop2', .5], [K.salio - 0.05, 'sparkle', .7], [K.nadie, 'stamp', .9], [K.probado, 'pop', .5],
-  [S.P[0], 'whoosh', .6], [K.mil8, 'ding', .8], [K.casi, 'sparkle', .5], [K.y8, 'swoosh_up', .5], [K.conozco, 'pop', .5],
-  [S.R1[0], 'msg_in', .7], [K.A9, 'type', .5], [K.C9 + 0.05, 'stamp', .9], [S.R2[0], 'msg_in', .7], [K.lunes - 0.05, 'boing', .6],
-  [S.R3[0], 'msg_in', .7], [K.primero9 - 0.05, 'swoosh_up', .5], [K.primero9 + 0.4, 'cash', .8],
+  [S.P[0], 'whoosh', .6], [K.mil8, 'ding', .8], [K.casi - 0.04, 'swoosh_up', .5], [K.infinito8, 'sparkle', .6], [K.y8 - 0.05, 'whoosh', .5], [K.conozco, 'pop', .5],
   [S.SJ[0], 'burst', .8], [K.no10, 'paper', .7], [K.jose, 'error', .7],
-  [S.T[0], 'whoosh', .6], [K.alejandro - 0.1, 'swoosh_up', .5], [K.cero - 0.1, 'swoosh_up', .5], [K.revancha - 0.1, 'swoosh_up', .5], [K.vota, 'ding', .7], [K.A11, 'click', .6], [K.B11, 'click', .6], [K.C11, 'click', .6],
-  [S.BAL[0] + 0.05, 'whoosh', .7], [K.mil12 + 0.1, 'tada', .5], [K.soy, 'swoosh_up', .6], [K.vecino, 'pop', .6], [S.BK[0], 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [LOOP, 'whoosh', .6],
+  [S.T[0], 'whoosh', .6], [K.alejandro - 0.1, 'swoosh_up', .5], [S.T[0] + 0.35, 'pop2', .5], [K.cero - 0.1, 'swoosh_up', .5], [K.revancha - 0.1, 'swoosh_up', .5], [K.vota, 'ding', .7], [K.A11, 'click', .6], [K.B11, 'click', .6], [K.C11, 'click', .6],
+  [S.BAL[0] + 0.05, 'whoosh', .7], [K.mil12 + 0.1, 'tada', .5], [K.soy, 'swoosh_up', .6], [K.vecino, 'pop', .6], [S.BK[0], 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [K.libro - 0.22 + 0.4, 'sparkle', .6], [LOOP, 'whoosh', .6],
 ].forEach(s => sfx(s[1], s[0], s[2]));
 
 /* ---------- bucle: los últimos 0,4 s enlazan con la portada (fotograma 0) ---------- */
