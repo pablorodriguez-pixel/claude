@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¡Ay, que estar en Babia existe! ¡Es un sitio de verdad, criatura! Y puedes ir.",
+  "s": 0.12,
+  "e": 5.885
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Y no es un sitio cualquiera: era donde se iban los reyes a desconectar.",
+  "s": 6.145,
+  "e": 11.104
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "¡Hola, cariño! Soy la abuela Remedios. Ven, siéntate aquí conmigo, corazón... que vamos a tirar del hilo.",
+  "s": 11.454,
+  "e": 18.195
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Mira. Babia es una comarca de montaña, en el norte de León.",
+  "s": 18.545,
+  "e": 23.244
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "En la Edad Media, los reyes de León se iban allí a descansar y a cazar. Lejos de la corte... y de los problemas.",
+  "s": 23.504,
+  "e": 30.404
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Y cuando en palacio alguien preguntaba por el rey, para algún asunto importante, le contestaban: el rey está en Babia.",
+  "s": 30.664,
+  "e": 38.127
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "O sea: que no está. Ni se le espera. Con la cabeza en otra parte.",
+  "s": 38.387,
+  "e": 43.073
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Y de ahí, estar en Babia: estar distraído, en las nubes. Como tú cuando te hablo, ¿eh?",
+  "s": 43.333,
+  "e": 50.537
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "Ojo, que es la explicación más aceptada. Pero, como todo lo que pasó hace tantos siglos, tiene su parte de leyenda.",
+  "s": 50.797,
+  "e": 59.523
+ },
+ {
+  "line": 9,
+  "who": "ABUELA",
+  "text": "Hoy Babia es reserva de la biosfera. Así que, si alguien te dice que estás en Babia... tú le contestas: ¡ojalá!",
+  "s": 59.783,
+  "e": 68.889
+ },
+ {
+  "line": 10,
+  "who": "ABUELA",
+  "text": "¿Cuándo fue la última vez que estuviste en Babia? Cuéntamelo, que te leo.",
+  "s": 69.149,
+  "e": 74.389
+ },
+ {
+  "line": 11,
+  "who": "ABUELA",
+  "text": "Anda, corazón, sígueme, que cada día te desenredo un refrán nuevo... y apúntatelo, que luego se te olvida.",
+  "s": 74.649,
+  "e": 82.365
+ }
+]

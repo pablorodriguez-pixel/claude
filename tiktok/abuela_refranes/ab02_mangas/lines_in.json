@@ -1,0 +1,59 @@
+{
+"voices": {
+"ABUELA": [
+"SKbCgDqGnOUqYJVHSd1s",
+0.5,
+1.15
+]
+},
+"gap": 0.26,
+"inner_cap": 0.32,
+"lines": [
+{
+"who": "ABUELA",
+"text": "[amused] ¡A buenas horas, mangas verdes! ¿Y tú sabes quiénes eran las mangas verdes, criatura?"
+},
+{
+"who": "ABUELA",
+"text": "[chuckles] Pues eran... la policía. Bueno, casi.",
+"gap_after": 0.35
+},
+{
+"who": "ABUELA",
+"text": "[warmly] ¡Hola, cariño! Soy la abuela Remedios. Ven, siéntate aquí conmigo, corazón... que vamos a tirar del hilo.",
+"gap_after": 0.35
+},
+{
+"who": "ABUELA",
+"text": "Mira. Mil cuatrocientos setenta y seis. Los Reyes Católicos crean la Santa Hermandad: unos cuadrilleros para perseguir a los bandoleros por los caminos."
+},
+{
+"who": "ABUELA",
+"text": "¿Y cómo los reconocías? Por el uniforme... con sus mangas verdes."
+},
+{
+"who": "ABUELA",
+"text": "¿Y el problema? Que tenían fama de llegar tarde. Te asaltaban, te dejaban sin nada... y cuando ya no había nada que hacer, [sighs] aparecían ellos. Con sus mangas verdes."
+},
+{
+"who": "ABUELA",
+"text": "[laughs] Y la gente, que tenía mucha guasa: ¡a buenas horas, mangas verdes!"
+},
+{
+"who": "ABUELA",
+"text": "[softly] Ojo, que no es que fueran unos vagos, ¿eh? Con tantos caminos y tanto monte, llegar a tiempo era casi imposible. Pero la fama... se quedó."
+},
+{
+"who": "ABUELA",
+"text": "O sea, cariño: el refrán tiene más de quinientos años. Y sigue funcionando igual de bien."
+},
+{
+"who": "ABUELA",
+"text": "¿A quién le dirías tú: a buenas horas, mangas verdes? Venga, etiquétalo."
+},
+{
+"who": "ABUELA",
+"text": "Anda, corazón, sígueme, que cada día te desenredo un refrán nuevo... [chuckles] y apúntatelo, que luego se te olvida."
+}
+]
+}

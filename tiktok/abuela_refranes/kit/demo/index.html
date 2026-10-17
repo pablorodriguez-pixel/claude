@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Demo — Ya lo decía la abuela</title>
+<link rel="stylesheet" href="../base.css"></head>
+<body><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<script src="words.js"></script>
+<script src="../../engine/engine.js"></script>
+<script src="../stitch.js"></script>
+<script src="../abuela.js"></script>
+<script src="../marco.js"></script>
+<script>
+/* DEMO del kit (12 s): tela → «QUIEN SE FUE A SEVILLA» bordándose → la abuela habla en su bastidor →
+   parche «¡OJO!» → la abuela TIRA DEL HILO y deshace el texto → tijeras cortan el hilo → tarjeta final. */
+const g = document.getElementById('cv').getContext('2d');
+const T = Stitch.THREADS, CELL = 22;
+const TITLE = Stitch.textSprite('QUIEN SE\nFUE A\nSEVILLA', { cell: CELL, color: T.rojo, shadowColor: T.granate, seed: 7 });
+const TX = Math.round((1080 - TITLE.pw) / 2 / CELL) * CELL, TY = CELL * 9;
+// orden FIJO para deshacer: no depende de dónde esté la mano (y no se recalcula cada fotograma)
+const PULL_ORDER = { type: 'cols', reverse: true }; // cremallera: de derecha a izquierda
+const lastCell = TITLE.cells[TITLE.order(PULL_ORDER).slice(-1)[0]];
+const LAST = [TX + (lastCell.x + 0.5) * CELL, TY + (lastCell.y + 0.5) * CELL];
+
+const HOOP = { x: 520, y: 1110, R: 320 };
+const t_in = 1.5, t_ojo = 3.3, t_pull = 5.3, t_pullEnd = 8.0, t_reel = 8.0, t_snip = 8.5, t_card = 9.8;
+
+// efectos de sonido (una vez)
+sfx('pop', t_in + 0.05, 0.9); sfx('stamp', t_ojo + 0.05, 0.8); sfx('swoosh_up', t_pull + 0.1, 0.7);
+sfx('whoosh', t_snip + 0.1, 0.5); sfx('click', t_snip + 0.6, 1); sfx('whoosh', t_card, 0.8); sfx('ding', t_card + 1.2, 0.7);
+
+function abuelaState(t) {
+  const st = { mouth: 'closed', blink: Abuela.blink(t) };
+  if (t < t_ojo) { st.mouth = t > t_in + 0.3 ? Abuela.talk(t) : 'smile'; }
+  else if (t < t_pull) { st.hand = 'finger'; st.brows = 'up'; st.mouth = Abuela.talk(t, 9); }
+  else if (t < t_snip + 0.7) { st.hand = 'thread'; st.glassesDown = true; st.brows = 'skeptic'; st.mouth = t < t_pull + 0.8 ? 'smile' : (t > t_pullEnd - 0.5 ? 'laugh' : Abuela.talk(t, 4, 0.7)); }
+  else { st.mouth = 'laugh'; st.blink = true; }
+  return st;
+}
+
+window.frame = t => {
+  // ---------- tarjeta final
+  if (t >= t_card + 0.3) { Marco.endCard(g, clamp((t - t_card - 0.3) / 1.5), { t, title: 'QUIEN SE FUE\nA SEVILLA', date: '16/10/2026', state: t > 11.2 ? { mouth: 'smile', wink: true } : { mouth: Abuela.talk(t, 2, 0.6), blink: Abuela.blink(t) } }); return; }
+
+  // ---------- tela
+  Stitch.drawFabric(g, 0, 0, 1080, 1920, { cell: CELL, ox: TX, oy: TY });
+  // mercería de atrezo en los bordes (entra con un pequeño rebote)
+  const pk = Math.max(0.01, Stitch.bounce(clamp(t / 0.5)));
+  Marco.yarn(g, 150, 1660, 110 * pk, { color: T.azul, rot: 0.4 });
+  Marco.thimble(g, 900, 1690, 105 * pk, { rot: -0.2 });
+
+  // ---------- título bordándose (con aguja) y luego deshaciéndose
+  const kIn = 0.1 + 0.9 * clamp(t / 2.4);
+  let pulled = null;
+  const st = abuelaState(t);
+  // bastidor de la abuela
+  const hk = E.outBack(clamp((t - t_in) / 0.55));
+  let hoopInfo = null;
+  const drawHoop = () => {
+    if (t < t_in) return;
+    const sway = Math.sin(t * 1.7) * 0.012;
+    hoopInfo = Marco.abuelaHoop(g, HOOP.x, HOOP.y, HOOP.R, st, { t, scale: 0.2 + 0.8 * hk, rot: (1 - hk) * 0.35 + sway, skirt: true });
+  };
+  if (t < t_pull) {
+    TITLE.stitchIn(g, TX, TY, kIn, { order: 'cols', needle: true, t });
+    drawHoop();
+  } else {
+    // la mano de la abuela tira: primero tensa (despacio), luego arrastra el texto entero
+    drawHoop();
+    const u = clamp((t - t_pull) / (t_pullEnd - t_pull));
+    const k = u < 0.12 ? u * 0.25 : 0.03 + 0.97 * E.inOutCubic((u - 0.12) / 0.88);
+    if (t < t_pullEnd) {
+      pulled = TITLE.unravel(g, TX, TY, k, { t, to: hoopInfo.grip, order: PULL_ORDER, keepThread: true, showAt0: true, tail: 0 });
+    } else {
+      TITLE.unravel(g, TX, TY, 1, { t, to: hoopInfo.grip, order: PULL_ORDER });
+      // el cabo suelto vuela hasta la mano y queda colgando
+      const gp = hoopInfo.grip, hang = [gp[0] + 30, gp[1] + 250];
+      const r = E.outCubic(clamp((t - t_reel) / 0.45));
+      const end = [lerp(LAST[0], hang[0], r), lerp(LAST[1], hang[1], r) - Math.sin(r * Math.PI) * 120];
+      if (t < t_snip) {
+        const mid = [lerp(gp[0], end[0], 0.5) + Math.sin(t * 7) * 18 * (1 - r * 0.5), lerp(gp[1], end[1], 0.5) + 40 * (1 - r)];
+        Stitch.drawThread(g, [gp, mid, end], { color: T.rojo, width: Math.max(6, CELL * 0.4) });
+      }
+    }
+  }
+  // ---------- parche ¡OJO! cosiéndose
+  if (t >= t_ojo) {
+    const ok = clamp((t - t_ojo) / 1.4), out = clamp((t - t_pull + 0.25) / 0.25);
+    if (out < 1) Marco.patch(g, 770, 820, '¡OJO!', { k: ok, t, cell: 10, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.12, scale: 1 - E.inCubic(out) });
+  }
+  // ---------- tijeras: cortan el hilo que cuelga de la mano
+  if (t >= t_snip && t < t_card + 0.35 && hoopInfo) {
+    const sk = clamp((t - t_snip) / 1.2);
+    const gp = hoopInfo.grip;
+    Marco.snip(g, sk, { a: gp, b: [gp[0] + 30, gp[1] + 250], at: 0.4, t, size: 300, width: Math.max(6, CELL * 0.4), sag: 0 });
+  }
+  // ---------- transición a la tarjeta: cortina de vichy que baja
+  if (t >= t_card) {
+    const c = E.inOutCubic(clamp((t - t_card) / 0.35));
+    g.save(); g.beginPath(); g.rect(0, 0, 1080, 1920 * c); g.clip(); Marco.drawBg(g, 'vichy'); g.restore();
+    g.fillStyle = 'rgba(122,31,43,.85)'; g.fillRect(0, 1920 * c - 10, 1080, 10);
+  }
+};
+Engine.start({ captions: false, duration: 12 });
+</script>
+</body></html>

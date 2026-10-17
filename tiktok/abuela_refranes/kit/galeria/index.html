@@ -1,0 +1,28 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css"></head><body><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<script>window.WORDS=[]</script>
+<script src="../../engine/engine.js"></script><script src="../stitch.js"></script><script src="../abuela.js"></script><script src="../marco.js"></script>
+<script>
+const g=document.getElementById('cv').getContext('2d');
+window.frame=t=>{
+  if(t<2){
+  Marco.drawBg(g,'vichy',0,0,1080,640);
+  Marco.drawBg(g,'floral',0,640,540,640);
+  Marco.drawBg(g,'pana',540,640,540,640);
+  Stitch.drawFabric(g,0,1280,1080,640,{cell:16});
+  const r=Marco.abuelaHoop(g,300,330,260,{mouth:'open',hand:'thread'},{t,skirt:true});
+  Stitch.drawThread(g,[r.grip,[r.grip[0]+80,r.grip[1]+200],[r.grip[0]+30,r.grip[1]+300]],{color:'#C8102E',width:7});
+  Marco.patch(g,780,250,'¡OJO!',{k:1,cell:14,rot:-0.1});
+  Marco.patch(g,780,500,'LEYENDA',{k:t<1?0.45:0.8,t,cell:10,color:'#3F8F5A',border:'#FFFFFF',shape:'rect'});
+  Marco.patch(g,270,960,'LO QUE MÁS\nSE CUENTA',{k:1,cell:9,color:'#22356B',border:'#E0A526'});
+  Marco.patch(g,800,960,'DE\nVERDAD',{k:1,cell:10,color:'#C8102E',border:'#FFFFFF',shape:'circle'});
+  Marco.scissors(g,200,1450,{ang:-0.4,open:0.8,size:300});
+  Marco.thimble(g,500,1420,110);
+  Marco.pincushion(g,750,1450,190);
+  Marco.yarn(g,250,1730,110,{color:'#3E6FB0',end:[[420,1800],[600,1760]]});
+  Marco.needle(g,640,1700,-0.5,160,'#C8102E',[[800,1650],[900,1760],[1000,1700]]);
+  } else {
+    Marco.endCard(g,Math.min(1,(t-2)/2.5),{t});
+  }
+};
+Engine.start({captions:false,duration:6});
+</script></body></html>

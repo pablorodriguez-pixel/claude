@@ -1,0 +1,61 @@
+{
+"voices": {
+"ABUELA": [
+"X1uEdaNgEu64cdmPhwUX",
+0.5,
+0.9
+]
+},
+"gap": 0.24,
+"inner_cap": 0.35,
+"lines": [
+{
+"who": "ABUELA",
+"text": "[excited] ¡Alto ahí! ¿Has pintado con rotulador permanente en la pizarra blanca? ¡No la tires, criatura!"
+},
+{
+"who": "ABUELA",
+"text": "[mischievously] Tengo tres trucos que no te esperas... y el último te va a dar un poquito de asco. [laughs] ¡Pero funciona!"
+},
+{
+"who": "ABUELA",
+"text": "¡Hola, cielo! Aquí la abuela Carmen. Mis trucos los guardo en esta lata de galletas... [chuckles] que, como en todas las casas, de galletas nada."
+},
+{
+"who": "ABUELA",
+"text": "Truco uno. Rotulador permanente en la pizarra: pinta ENCIMA con un rotulador de pizarra normal. Esperas un segundito... y lo borras. ¡Se va todo!"
+},
+{
+"who": "ABUELA",
+"text": "¿Por qué? Porque la tinta del de pizarra lleva un disolvente que ablanda la otra. ¡Y listo!"
+},
+{
+"who": "ABUELA",
+"text": "Truco dos. La cremallera que se atasca y no hay quien la mueva: un lápiz. Frotas la punta por los dientes... y sube sola, como la seda."
+},
+{
+"who": "ABUELA",
+"text": "El grafito resbala muchísimo, cariño. Por eso se echa en las cerraduras que van duras."
+},
+{
+"who": "ABUELA",
+"text": "Y truco tres, el de abuela de verdad. Una gotita de sangre en la camisa..."
+},
+{
+"who": "ABUELA",
+"text": "Agua fría, nunca caliente, que la caliente la fija. Y si la mancha es pequeñita... [mischievously] tu propia saliva. Sí, sí. ¡Saliva!"
+},
+{
+"who": "ABUELA",
+"text": "Tiene enzimas que van deshaciendo la mancha. Hasta los restauradores de cuadros limpian con saliva. ¡Fíjate tú!"
+},
+{
+"who": "ABUELA",
+"text": "¿Cuál no conocías? ¿El uno, el dos o el tres? Dímelo en comentarios."
+},
+{
+"who": "ABUELA",
+"text": "Anda, cielo, sígueme, que en esta lata caben muchos más... [chuckles] y yo me los sé todos."
+}
+]
+}

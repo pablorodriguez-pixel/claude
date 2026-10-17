@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Refrán nº 1 — Quien se fue a Sevilla</title>
+<link rel="stylesheet" href="base.css">
+<style>#stage svg *{transform-origin:0 0}</style></head>
+<body><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<div style="position:absolute;left:-9999px;top:0;font-family:Fredoka;font-weight:700">.<span style="font-family:DMSerif;font-style:italic">.</span><span style="font-family:Fredoka;font-weight:500">.</span></div>
+<script src="words.js"></script>
+<script src="../engine/engine.js"></script>
+<script src="../abuela_kit/stitch.js"></script>
+<script src="../abuela_kit/abuela.js"></script>
+<script src="../abuela_kit/marco.js"></script>
+<script>
+/* «Ya lo decía la abuela» — REFRÁN Nº 1: Quien se fue a Sevilla, perdió su silla */
+const g = document.getElementById('cv').getContext('2d');
+const T = Stitch.THREADS, CELL = 12, CREAM = '#FBF6EE';
+// glifo «º» (no está en la fuente del kit): lo añadimos aquí, sin tocar el kit
+Stitch.FONT['º'] = { rows: ['###', '#.#', '###', '...', '###', '...', '...'], top: null };
+const WD = window.WORDS;
+const snap = (v, c = CELL) => Math.round(v / c) * c;
+const env = (t, t0, rise = 0.14, hold = 0.5, fall = 0.9) => { const d = t - t0; if (d < 0) return 0; if (d < rise) return E.outCubic(d / rise); if (d < rise + hold) return 1; return Math.max(0, 1 - E.inOutCubic(Math.min(1, (d - rise - hold) / fall))); };
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const popK = (t, t0, d = 0.35) => (t < t0 ? 0 : E.outBack(clamp((t - t0) / d)));
+const outK = (t, t1, d = 0.2) => 1 - E.inCubic(clamp((t - t1) / d));
+
+// ---------------------------------------------------------------- helpers de sprites
+function G(w, h) {
+  const a = [...Array(h)].map(() => Array(w).fill('.'));
+  const o = {
+    a, w, h,
+    r(x0, y0, x1, y1, c) { for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) if (a[y] && x >= 0 && x < w) a[y][x] = c; return o; },
+    p(x, y, c) { if (a[y] && x >= 0 && x < w) a[y][x] = c; return o; },
+    rows() { return a.map(r => r.join('')); },
+  };
+  return o;
+}
+// texto multicolor por tramos: lines = [[[str,color],...], ...]
+function mtext(lines, o = {}) {
+  const chars = 'abcdefghijklmnopqr'; const pal = {}; let ci = 0;
+  const hasTop = str => [...str].some(c => { const gl = Stitch.FONT[c] || Stitch.FONT[c.toUpperCase()]; return gl && gl.top; }) ? 2 : 0;
+  const built = lines.map(parts => {
+    const P = parts.map(([str, col]) => { const ch = chars[ci++]; pal[ch] = col; const tr = Stitch.textRows(str, { ch, bold: o.bold }); const top = hasTop(str); return { rows: tr.rows, top, desc: tr.rows.length - 7 - top }; });
+    const topM = Math.max(...P.map(p => p.top)), descM = Math.max(...P.map(p => p.desc)), HH = topM + 7 + descM;
+    const out = [];
+    for (let y = 0; y < HH; y++) out.push(P.map(p => { const yy = y - (topM - p.top); return p.rows[yy] || '.'.repeat(p.rows[0].length); }).join('.'));
+    return out;
+  });
+  const W = Math.max(...built.map(b => b[0].length));
+  let rows = [];
+  built.forEach((b, i) => {
+    const off = Math.floor((W - b[0].length) / 2);
+    b.forEach(r => rows.push('.'.repeat(off) + r + '.'.repeat(W - r.length - off)));
+    if (i < built.length - 1) rows.push('.'.repeat(W));
+  });
+  if (o.shadowColor) {
+    pal.z = o.shadowColor;
+    const g2 = rows.map(r => (r + '.').split('')); g2.push(Array(W + 1).fill('.'));
+    for (let y = 0; y < rows.length; y++) for (let x = 0; x < W; x++) if (rows[y][x] !== '.' && g2[y + 1][x + 1] === '.') g2[y + 1][x + 1] = 'z';
+    rows = g2.map(r => r.join(''));
+  }
+  return new Stitch.Sprite(rows, pal, Object.assign({ tails: 1 }, o));
+}
+
+// --- obispo en punto de cruz (old = tío con barba blanca; sit = sentado)
+function bishopRows(old, sit) {
+  const H = sit ? 32 : 37, cx = 10, sx = 19, b = G(24, H);
+  // báculo
+  b.r(sx, 4, sx, H - 2, 'Y');
+  [[sx, 3], [sx, 2], [sx + 1, 1], [sx + 2, 0], [sx + 3, 1], [sx + 3, 2], [sx + 2, 3]].forEach(([x, y]) => b.p(x, y, 'y'));
+  // mitra
+  const hw = [0, 1, 2, 3, 4, 4, 4, 4];
+  for (let y = 0; y < 8; y++) { b.r(cx - hw[y], y, cx + hw[y], y, 'w'); b.p(cx - hw[y], y, 'y'); b.p(cx + hw[y], y, 'y'); }
+  b.r(cx - 4, 7, cx + 4, 7, 'y'); b.r(cx, 2, cx, 6, 'r'); b.r(cx - 1, 4, cx + 1, 4, 'r');
+  // cara
+  b.r(cx - 4, 8, cx + 4, 13, 'k'); b.r(cx - 3, 14, cx + 3, 14, 'k');
+  b.r(cx - 3, 9, cx - 2, 9, old ? 'g' : 'B'); b.r(cx + 2, 9, cx + 3, 9, old ? 'g' : 'B');
+  b.p(cx - 2, 10, 'e'); b.p(cx + 2, 10, 'e');
+  b.p(cx - 3, 12, 'K'); b.p(cx + 3, 12, 'K');
+  if (old) {
+    b.r(cx - 2, 12, cx + 2, 12, 'g'); b.p(cx - 4, 12, 'g'); b.p(cx + 4, 12, 'g');
+    b.r(cx - 4, 13, cx + 4, 13, 'g'); b.r(cx - 1, 13, cx + 1, 13, 'M');
+    b.r(cx - 4, 14, cx + 4, 15, 'g'); b.r(cx - 3, 16, cx + 3, 16, 'g'); b.r(cx - 2, 17, cx + 2, 17, 'g'); b.r(cx - 1, 18, cx + 1, 18, 'g');
+  } else { b.r(cx - 1, 13, cx + 1, 13, 'M'); b.p(cx - 2, 12, 'M'); b.p(cx + 2, 12, 'M'); }
+  // casulla
+  const end = sit ? 27 : 31;
+  for (let y = 15; y <= end; y++) {
+    const w = y === 15 ? 5 : y === 16 ? 6 : 7 + (y > 24 ? 1 : 0);
+    for (let x = cx - w; x <= cx + w; x++) if (b.a[y][x] === '.') b.a[y][x] = (x === cx - w || x === cx + w) ? 'R' : 'r';
+    for (let x = cx - 1; x <= cx + 1; x++) if (b.a[y][x] === 'r') b.a[y][x] = 'y';
+  }
+  if (!old) b.r(cx - 2, 15, cx + 2, 15, 'w');
+  else { b.p(cx - 2, 15, 'g'); }
+  // manos
+  b.r(cx + 8, 20, cx + 8, 22, 'k'); b.r(cx - 8, 21, cx - 7, 22, 'k');
+  // alba y zapatos
+  b.r(cx - 7, end + 1, cx + 7, end + 2, 'w'); b.r(cx - 4, end + 3, cx - 2, end + 3, 'n'); b.r(cx + 2, end + 3, cx + 4, end + 3, 'n');
+  return b.rows();
+}
+const BPAL = { w: '#FFFFFF', y: T.mostaza, Y: '#A8761A', r: T.rojo, R: T.granate, k: '#F4CBA9', K: T.rosa, e: T.negro, B: T.marron, g: '#D3D6DA', M: T.granate, n: T.negro };
+const BOPT = c => ({ cell: c, outline: 'outer', outlineColor: '#3B2A22', tails: 0, seed: 11 });
+const OLD = new Stitch.Sprite(bishopRows(true, false), BPAL, BOPT(12));
+const YNG = new Stitch.Sprite(bishopRows(false, false), BPAL, BOPT(12));
+const YSIT = new Stitch.Sprite(bishopRows(false, true), BPAL, BOPT(12));
+const OLD8 = new Stitch.Sprite(bishopRows(true, false), BPAL, BOPT(8));
+
+// --- silla de arzobispo (cátedra)
+function chairRows() {
+  const b = G(26, 36);
+  for (let c = 3; c <= 22; c++) { const top = Math.round(Math.abs(c - 12.5) * 0.42) + 1; b.r(c, top, c, 5, 'y'); }
+  b.r(12, 0, 13, 0, 'y');
+  b.r(3, 6, 22, 21, 'b'); b.r(5, 7, 20, 20, 'R');
+  for (let y = 8; y <= 19; y += 3) for (let x = 6 + ((y / 3) % 2 ? 1 : 0); x <= 19; x += 3) b.p(x, y, 'r');
+  b.r(12, 10, 13, 15, 'y'); b.r(10, 12, 15, 12, 'y');
+  b.r(0, 15, 4, 16, 'b'); b.r(21, 15, 25, 16, 'b'); b.r(0, 17, 1, 24, 'b'); b.r(24, 17, 25, 24, 'b');
+  b.r(2, 21, 23, 22, 'r'); b.r(1, 23, 24, 25, 'b'); b.r(1, 24, 24, 24, 'y');
+  b.r(2, 26, 4, 34, 'b'); b.r(21, 26, 23, 34, 'b'); b.r(4, 30, 21, 30, 'b'); b.r(2, 35, 4, 35, 'y'); b.r(21, 35, 23, 35, 'y');
+  return b.rows();
+}
+const CPAL = { y: T.mostaza, b: T.marron, R: T.granate, r: T.rojo };
+const CHAIR = new Stitch.Sprite(chairRows(), CPAL, { cell: 12, outline: 'outer', outlineColor: '#3B2A22', tails: 0, seed: 21 });
+const CHAIR8 = new Stitch.Sprite(chairRows(), CPAL, { cell: 8, outline: 'outer', outlineColor: '#3B2A22', tails: 0, seed: 21 });
+const CHAIR5 = new Stitch.Sprite(chairRows(), CPAL, { cell: 5, outline: 'outer', outlineColor: '#3B2A22', tails: 0, seed: 21 });
+const CHAIR3 = new Stitch.Sprite(chairRows(), CPAL, { cell: 3, tails: 0, seed: 21 });
+
+// --- pequeños objetos
+const HEART = new Stitch.Sprite(['.rr.rr.', 'rrrrrrr', 'rrrrrrr', '.rrrrr.', '..rrr..', '...r...'], { r: T.rojo }, { cell: 9, tails: 0, seed: 3 });
+const STAR = new Stitch.Sprite(['..y..', '.yyy.', 'yyyyy', '.yyy.', '.y.y.'], { y: T.mostaza }, { cell: 9, tails: 0, seed: 4 });
+const CLOUD = new Stitch.Sprite(['.....ggg.......', '..gggggggg.gg..', '.gggggggggggggg', 'ggggggggggggggg', 'GGGGGGGGGGGGGGG', '.GGGGGGGGGGGGG.'], { g: '#9AA0A6', G: '#6E747A' }, { cell: 10, tails: 0, seed: 5, outline: 'outer', outlineColor: '#4a4f55' });
+const BOLT = new Stitch.Sprite(['...yy', '..yy.', '.yyyy', '...y.', '..y..', '.y...', 'y....'], { y: T.mostaza }, { cell: 10, tails: 0, seed: 6 });
+const DROP = new Stitch.Sprite(['.a.', 'aaa', 'aaa', '.a.'], { a: T.azul }, { cell: 8, tails: 0 });
+const QMARK = Stitch.textSprite('?', { cell: 10, color: T.rojo, shadowColor: T.granate, bold: true });
+const QGRAY = Stitch.textSprite('?', { cell: 6, color: T.gris, bold: true, tails: 0 });
+const EQ = Stitch.textSprite('=', { cell: 12, color: T.rojo, shadowColor: T.granate, bold: true });
+function scrollRows() {
+  const b = G(20, 24);
+  b.r(2, 2, 17, 21, 'e');
+  b.r(0, 0, 19, 2, 'b'); b.r(1, 1, 18, 1, 'E');
+  b.r(0, 21, 19, 23, 'b'); b.r(1, 22, 18, 22, 'E');
+  const L = [11, 9, 12, 8, 10, 6];
+  L.forEach((n, i) => b.r(4, 5 + i * 2, 4 + n, 5 + i * 2, 'G'));
+  b.r(12, 16, 15, 19, 'r'); b.r(13, 15, 14, 20, 'r'); b.p(13, 17, 'R'); b.p(14, 18, 'R');
+  b.r(12, 20, 12, 21, 'R'); b.r(15, 20, 15, 21, 'R');
+  return b.rows();
+}
+const SCROLL = new Stitch.Sprite(scrollRows(), { e: '#F6F1E8', E: '#CBC1B1', b: T.marron, G: T.gris, r: T.rojo, R: T.granate }, { cell: 8, outline: 'outer', outlineColor: '#3B2A22', tails: 0, seed: 8 });
+function crownRows() {
+  const b = G(22, 16), pk = [[3, 3], [10.5, 0], [18, 3]];
+  for (let c = 1; c <= 20; c++) { let top = 9; pk.forEach(([pc, pr]) => { top = Math.min(top, Math.round(pr + Math.abs(c - pc) * 1.2)); }); b.r(c, top + 1, c, 14, 'y'); }
+  b.r(1, 11, 20, 14, 'Y'); b.r(1, 12, 20, 13, 'y');
+  [5, 10, 15].forEach(x => b.r(x, 12, x + 1, 13, 'r')); [7, 13].forEach(x => b.r(x, 12, x, 13, 'a'));
+  b.p(3, 3, 'w'); b.r(10, 0, 11, 0, 'w'); b.p(18, 3, 'w'); b.r(10, 5, 11, 7, 'r');
+  return b.rows();
+}
+const CROWN = new Stitch.Sprite(crownRows(), { y: T.mostaza, Y: '#A8761A', r: T.rojo, a: T.azul, w: '#FFFFFF' }, { cell: 9, outline: 'outer', outlineColor: '#3B2A22', tails: 0, seed: 9 });
+
+// --- mapa de España bordado
+const SPAIN = [[-9.3, 43.0], [-8.9, 43.35], [-8.3, 43.55], [-7.7, 43.78], [-6.5, 43.57], [-5.8, 43.62], [-4.5, 43.42], [-3.8, 43.48], [-2.9, 43.38], [-1.8, 43.37], [-1.4, 43.05], [-0.7, 42.85], [0.7, 42.83], [1.7, 42.45], [3.17, 42.43], [3.3, 42.3], [3.2, 41.9], [2.2, 41.4], [1.0, 41.05], [0.7, 40.75], [0.5, 40.55], [-0.1, 39.9], [-0.3, 39.45], [0.0, 38.95], [0.2, 38.75], [-0.5, 38.35], [-0.75, 37.85], [-0.8, 37.6], [-1.3, 37.55], [-1.65, 37.35], [-1.9, 36.95], [-2.15, 36.72], [-2.9, 36.75], [-3.5, 36.72], [-4.4, 36.72], [-4.95, 36.48], [-5.35, 36.15], [-5.6, 36.0], [-6.05, 36.3], [-6.3, 36.55], [-6.4, 36.8], [-6.95, 37.2], [-7.4, 37.2], [-7.5, 37.5], [-7.0, 38.0], [-7.3, 38.4], [-7.0, 38.9], [-7.5, 39.6], [-7.0, 39.65], [-6.9, 40.2], [-6.85, 41.0], [-6.45, 41.65], [-6.7, 41.95], [-8.1, 41.85], [-8.2, 42.1], [-8.9, 41.88], [-8.85, 42.2], [-9.0, 42.5]];
+const PORT = [[-8.9, 41.88], [-8.2, 42.1], [-8.1, 41.85], [-6.7, 41.95], [-6.45, 41.65], [-6.85, 41.0], [-6.9, 40.2], [-7.0, 39.65], [-7.5, 39.6], [-7.0, 38.9], [-7.3, 38.4], [-7.0, 38.0], [-7.5, 37.5], [-7.4, 37.2], [-7.9, 37.0], [-8.6, 37.1], [-8.95, 37.0], [-8.8, 37.9], [-8.8, 38.5], [-9.5, 38.75], [-9.3, 39.3], [-9.0, 39.9], [-8.75, 40.6], [-8.8, 41.3]];
+const MSC = 6.34, MX = 168, MY = 336;
+const proj = (lon, lat) => [(lon + 9.7) * 0.77 * MSC, (44.0 - lat) * MSC];
+function inPoly(x, y, poly) { let c = false; for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) { const [xi, yi] = poly[i], [xj, yj] = poly[j]; if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) c = !c; } return c; }
+function mapRows() {
+  const SP = SPAIN.map(p => proj(...p)), PT = PORT.map(p => proj(...p));
+  const Wc = 64, Hc = 52, b = G(Wc, Hc);
+  const at = (x, y) => (inPoly(x + 0.5, y + 0.5, SP) ? 's' : inPoly(x + 0.5, y + 0.5, PT) ? 'p' : '.');
+  for (let y = 0; y < Hc; y++) for (let x = 0; x < Wc; x++) b.p(x, y, at(x, y));
+  const out = b.rows().map(r => r.split(''));
+  for (let y = 0; y < Hc; y++) for (let x = 0; x < Wc; x++) {
+    const c = b.a[y][x]; if (c === '.') continue;
+    const nb = [[1, 0], [-1, 0], [0, 1], [0, -1]].some(([dx, dy]) => (b.a[y + dy] ? b.a[y + dy][x + dx] : '.') !== c);
+    if (nb) out[y][x] = c === 's' ? 'S' : 'P';
+  }
+  return out.map(r => r.join(''));
+}
+const MAP = new Stitch.Sprite(mapRows(), { s: '#5BA672', S: T.verde, p: '#C9CBC8', P: T.gris }, { cell: CELL, tails: 0, seed: 31 });
+const cityPx = (lon, lat) => { const [x, y] = proj(lon, lat); return [MX + x * CELL, MY + y * CELL]; };
+const SANT = cityPx(-8.54, 42.88), SEV = cityPx(-5.98, 37.39);
+const ROUTE = Stitch.catmull([SEV, [SEV[0] - 150, lerp(SEV[1], SANT[1], 0.45)], [SANT[0] + 40, SANT[1] + 120], SANT], 14);
+function pathAt(P, u) { // punto en la ruta (u 0..1 por longitud)
+  if (!P._len) { P._acc = [0]; for (let i = 1; i < P.length; i++) P._acc.push(P._acc[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1])); P._len = P._acc[P._acc.length - 1]; }
+  const d = clamp(u) * P._len; let i = 1; while (i < P.length - 1 && P._acc[i] < d) i++;
+  const k = (d - P._acc[i - 1]) / ((P._acc[i] - P._acc[i - 1]) || 1);
+  return [lerp(P[i - 1][0], P[i][0], k), lerp(P[i - 1][1], P[i][1], k)];
+}
+function runStitch(P, k, col = T.rojo, wid = 7) { // puntada corrida a lo largo de P
+  if (k <= 0) return; pathAt(P, 0); const L = P._len * clamp(k), step = 30, dash = 19;
+  for (let d = 0; d < L; d += step) { const a = pathAt(P, d / P._len), b = pathAt(P, Math.min(d + dash, L) / P._len); Stitch.drawThread(g, [a, b], { color: col, width: wid, smooth: false, shadowA: 0.22 }); }
+}
+// lío (hilo enredado) sobre Galicia
+const TANGLE = (() => { const r = Stitch.rng(77), pts = []; let a = 0; for (let i = 0; i < 46; i++) { a += 0.9 + r() * 1.1; const rr = 26 + r() * 62; pts.push([SANT[0] + 40 + Math.cos(a) * rr * 1.2, SANT[1] - 10 + Math.sin(a) * rr * 0.8]); } return pts; })();
+
+// --- dechado con cenefa
+function cenefaRows(W, H, B = 5) {
+  const b = G(W, H);
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const v = Math.min(x, y, W - 1 - x, H - 1 - y); if (v >= B) continue;
+    const s = (y < B || y >= H - B) ? x : y;
+    if (v === 0 || v === B - 1) { if ((s + v) % 2 === 0) b.p(x, y, 'R'); continue; }
+    const u = ((s % 8) + 8) % 8, d = Math.abs(u - 3) + Math.abs(v - 2);
+    if (d === 0) b.p(x, y, 'y'); else if (d === 1) b.p(x, y, 'r'); else if (u === 7 && v === 2) b.p(x, y, 'v');
+  }
+  return b.rows();
+}
+const DCH = { x: 100, y: 272, W: 88, H: 54, c: 10 };
+const CENEFA = new Stitch.Sprite(cenefaRows(DCH.W, DCH.H), { R: T.granate, r: T.rojo, y: T.mostaza, v: T.verde }, { cell: DCH.c, tails: 0, seed: 41 });
+const MORAL = mtext([[['QUIEN SE FUE', T.marino]], [['DE', T.rojo], [' SEVILLA,', T.marino]], [['PERDIÓ', T.marino]], [['SU SILLA', T.marino]]], { cell: DCH.c, shadowColor: '#9DA9C9', seed: 12 });
+
+// --- títulos del gancho
+const TC = 11, TOPT = { cell: TC, color: T.rojo, shadowColor: T.granate, seed: 3, bold: true };
+const L1 = Stitch.textSprite('QUIEN SE FUE', TOPT), L3 = Stitch.textSprite('PERDIÓ', TOPT), L4 = Stitch.textSprite('SU SILLA', TOPT);
+const LS = Stitch.textSprite('SEVILLA,', TOPT);
+const LA = Stitch.textSprite('A', TOPT), LAred = Stitch.textSprite('A', { cell: TC, color: T.marino, shadowColor: '#0f1a3a', seed: 5, bold: true });
+const LDE = Stitch.textSprite('DE', { cell: TC, color: T.marino, shadowColor: '#0f1a3a', seed: 6, bold: true });
+const TY0 = 276;
+const cx0 = s => snap((1080 - s.pw) / 2);
+const POS = { L1: [cx0(L1), TY0], L3: [cx0(L3), TY0 + 19 * TC], L4: [cx0(L4), TY0 + 30 * TC] };
+const wAl = Stitch.textWidth('A SEVILLA,', { bold: true }), wDl = Stitch.textWidth('DE SEVILLA,', { bold: true }), wS = Stitch.textWidth('SEVILLA,', { bold: true });
+const xA0 = snap((1080 - wAl * TC) / 2), xD0 = snap((1080 - wDl * TC) / 2);
+const L2Y = TY0 + 9 * TC;
+const S_A = xA0 + (wAl - wS) * TC, S_D = xD0 + (wDl - wS) * TC;
+const LAST_A = (() => { const c = LA.cells[LA.order({ type: 'cols', reverse: true }).slice(-1)[0]]; return c; })();
+// bloque «se dio la vuelta»
+const VQ = mtext([[['QUIEN SE FUE', T.marino]], [['DE', T.rojo], [' SEVILLA,', T.marino]]], { cell: CELL, shadowColor: '#9DA9C9', seed: 14 });
+const VA = mtext([[['QUIEN SE FUE', T.marino]], [['A', T.rojo], [' SEVILLA,', T.marino]]], { cell: CELL, shadowColor: '#9DA9C9', seed: 14 });
+const SEFUE = mtext([[['SE FUE ', T.marino], ['DE', T.rojo], [' SEVILLA', T.marino]]], { cell: 8, shadowColor: '#9DA9C9', seed: 15 });
+// marca
+const HOLA = Stitch.textSprite('¡HOLA,\nCARIÑO!', { cell: CELL, color: T.rojo, shadowColor: T.granate, seed: 9 });
+const HOLA_X = cx0(HOLA), HOLA_Y = 216;
+
+// ---------------------------------------------------------------- la abuela
+const HR = 340;
+function hoopPose(t) {
+  const BIG = { x: 540, y: 1090, s: 0.84 }, MAR = { x: 540, y: 955, s: 1 }, SM = { x: 196, y: 1150, s: 0.48 }, MED = { x: 300, y: 560, s: 0.62 };
+  const L = (A, B, k) => ({ x: lerp(A.x, B.x, k), y: lerp(A.y, B.y, k), s: lerp(A.s, B.s, k) });
+  if (t < 10.75) return BIG;
+  if (t < 18.25) return L(BIG, MAR, E.outBack(seg(t, 10.75, 11.25)));
+  if (t < 91.5) {
+    const p = L(MAR, SM, E.inOutCubic(seg(t, 18.25, 18.75)));
+    const pk = 0.08 * env(t, 31.85, 0.15, 1.2, 0.4) + 0.14 * env(t, 61.52, 0.15, 1.1, 0.4) + 0.06 * env(t, 79.4, 0.12, 0.4, 0.4);
+    p.s += pk; p.y += pk * 60; p.x += pk * 120;
+    return p;
+  }
+  return L(SM, MED, E.outBack(seg(t, 91.5, 92.1)));
+}
+const AB = [
+  [0, 3.55, { brows: 'up' }], [3.55, 6.3, { hand: 'finger' }], [6.3, 7.6, { glassesDown: true, brows: 'skeptic' }],
+  [7.6, 9.25, { hand: 'thread', brows: 'skeptic' }], [9.25, 12.0, { brows: 'up' }], [13.6, 15.6, { look: -1 }],
+  [15.6, 16.6, { blink: true }], [16.6, 18.5, { hand: 'thread' }], [18.6, 19.2, { hand: 'finger' }], [19.2, 31.8, { look: 1 }],
+  [31.8, 33.7, { wink: true }], [33.7, 36.3, { look: 1, brows: 'up' }], [36.3, 48.9, { look: 1 }],
+  [48.9, 51.4, { brows: 'up' }], [52.25, 53.0, { mouth: 'laugh', blink: true }], [53.0, 55.5, { look: 1 }],
+  [55.5, 61.5, { brows: 'skeptic', look: 1 }], [61.5, 63.0, { glassesDown: true, brows: 'skeptic' }], [63.0, 65.0, { hand: 'finger' }],
+  [65, 72, { look: 1 }], [72.0, 77.6, { glassesDown: true, hand: 'finger' }], [77.6, 79.3, { blink: true }], [79.3, 80.5, { wink: true }],
+  [80.5, 87, { look: 1 }], [87, 89.4, { brows: 'up' }], [89.4, 91.5, { glassesDown: true, look: 1 }],
+  [92.6, 94.0, { hand: 'finger', look: 1 }], [94.0, 98.3, { look: 1 }], [98.3, 99.5, { mouth: 'laugh', wink: true }],
+];
+function abState(t) {
+  const st = { mouth: Abuela.lipsync(t, WD, { rest: 'smile' }), blink: Abuela.blink(t) };
+  for (const [a, b, o] of AB) if (t >= a && t < b) Object.assign(st, o);
+  if (t > 49.85 && t < 50.1) st.mouth = 'o';
+  if (st.wink) st.blink = false;
+  return st;
+}
+let HOOP = null;
+function drawHoop(t) {
+  const p = hoopPose(t), st = abState(t);
+  const sway = (t > 10.9 && t < 12.0) ? Math.sin((t - 10.9) * 11) * 0.07 * (1 - seg(t, 11.5, 12.0)) : Math.sin(t * 1.7) * 0.012;
+  HOOP = Marco.abuelaHoop(g, p.x, p.y, HR, st, { t, scale: p.s, rot: sway, skirt: true });
+  HOOP.pose = p;
+}
+
+// ---------------------------------------------------------------- comentarios (canvas, se crean al primer uso)
+const COMMENTS = [
+  { u: '@mari_carmen62', i: 'M', c: T.marino, txt: ['Mi abuela: «El que tiene boca', 'se equivoca». ¡Siempre!'], h: '1.204' },
+  { u: '@javi_de_cuenca', i: 'J', c: T.verde, txt: ['«Quien a buen árbol se arrima,', 'buena sombra le cobija».'], h: '856' },
+  { u: '@lucia.teje', i: 'L', c: T.mostaza, txt: ['La mía: «Más vale maña que', 'fuerza». ¡Y tenía razón!'], h: '432' },
+];
+const CARD_W = 840, CARD_H = 160, CC = new Map();
+function cardCanvas(i) {
+  if (CC.has(i)) return CC.get(i);
+  const cm = COMMENTS[i], c = Stitch.mk(CARD_W + 40, CARD_H + 40), q = c.getContext('2d');
+  q.translate(20, 20);
+  const rr = (x, y, w, h, r) => { q.beginPath(); q.moveTo(x + r, y); q.arcTo(x + w, y, x + w, y + h, r); q.arcTo(x + w, y + h, x, y + h, r); q.arcTo(x, y + h, x, y, r); q.arcTo(x, y, x + w, y, r); q.closePath(); };
+  q.save(); q.shadowColor = 'rgba(40,20,5,.35)'; q.shadowBlur = 16; q.shadowOffsetY = 6; rr(0, 0, CARD_W, CARD_H, 26); q.fillStyle = CREAM; q.fill(); q.restore();
+  q.save(); rr(0, 0, CARD_W, CARD_H, 26); q.clip(); Stitch.drawFabric(q, 0, 0, CARD_W, CARD_H, { cell: 8, color: 'blanco' }); q.restore();
+  q.setLineDash([12, 8]); q.lineWidth = 4; q.strokeStyle = T.granate; rr(10, 10, CARD_W - 20, CARD_H - 20, 18); q.stroke(); q.setLineDash([]);
+  q.fillStyle = cm.c; q.beginPath(); q.arc(84, CARD_H / 2, 46, 0, Math.PI * 2); q.fill();
+  q.setLineDash([7, 5]); q.strokeStyle = '#fff'; q.lineWidth = 3; q.beginPath(); q.arc(84, CARD_H / 2, 38, 0, Math.PI * 2); q.stroke(); q.setLineDash([]);
+  q.fillStyle = '#fff'; q.font = '700 46px Fredoka'; q.textAlign = 'center'; q.textBaseline = 'middle'; q.fillText(cm.i, 84, CARD_H / 2 + 2);
+  q.textAlign = 'left'; q.textBaseline = 'alphabetic';
+  q.fillStyle = T.granate; q.font = '600 28px Fredoka'; q.fillText(cm.u, 152, 50);
+  q.fillStyle = T.negro; q.font = '500 33px Fredoka'; cm.txt.forEach((l, j) => q.fillText(l, 152, 92 + j * 40));
+  q.fillStyle = T.rojo; q.font = '600 26px Fredoka'; q.textAlign = 'right'; q.fillText('♥ ' + cm.h, CARD_W - 34, 50);
+  CC.set(i, c); return c;
+}
+
+// ---------------------------------------------------------------- utilidades de dibujo
+function P(t, x, y, txt, t0, d, o = {}, t1 = 1e9) {
+  if (t < t0 || t > t1 + 0.2) return;
+  const k = clamp((t - t0) / d), s = outK(t, t1);
+  if (s <= 0.001) return;
+  Marco.patch(g, x, y, txt, Object.assign({ k, t }, o, { scale: (o.scale || 1) * s }));
+}
+function S(t, spr, x, y, t0, o = {}, t1 = 1e9) { // sprite que entra con pop (anchor centrado)
+  if (t < t0 || t > t1 + 0.2) return;
+  const k = popK(t, t0, o.d || 0.35) * outK(t, t1);
+  if (k <= 0.001) return;
+  spr.draw(g, x, y, Object.assign({ anchor: [0.5, 0.5] }, o, { scale: (o.scale || 1) * k }));
+}
+function thread(pts, k = 1, col = T.rojo, w = 8) {
+  if (k <= 0) return; const P2 = Stitch.catmull(pts, 10); pathAt(P2, 0);
+  const n = Math.max(2, Math.ceil(P2.length * clamp(k))); const sub = P2.slice(0, n);
+  Stitch.drawThread(g, sub, { color: col, width: w, smooth: false });
+  return sub[sub.length - 1];
+}
+function arrowHead(p, ang, col = T.rojo, s = 26) {
+  Stitch.drawThread(g, [p, [p[0] - Math.cos(ang - 0.5) * s, p[1] - Math.sin(ang - 0.5) * s]], { color: col, width: 8, smooth: false });
+  Stitch.drawThread(g, [p, [p[0] - Math.cos(ang + 0.5) * s, p[1] - Math.sin(ang + 0.5) * s]], { color: col, width: 8, smooth: false });
+}
+function bg(kind = 'crema') {
+  if (kind === 'crema') Stitch.drawFabric(g, -120, -160, 1320, 2240, { cell: CELL, ox: 0, oy: 0 });
+  else Marco.drawBg(g, kind, 0, 0, 1080, 1920);
+}
+function dashRing(x, y, r, k, col = T.rojo) {
+  g.save(); g.setLineDash([16, 10]); g.lineWidth = 7; g.lineCap = 'round'; g.strokeStyle = col;
+  g.beginPath(); g.arc(x, y, r, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * clamp(k)); g.stroke(); g.restore();
+}
+
+// ---------------------------------------------------------------- CÁMARA (punch-ins y sacudidas)
+const PUNCH = [[3.58, 0.05], [9.3, 0.07], [14.52, 0.04], [19.25, 0.05], [26.14, 0.04], [31.05, 0.05], [35.22, 0.06], [38.38, 0.04], [44.6, 0.04], [48.91, 0.06], [50.14, 0.08], [52.25, 0.05], [58.29, 0.04], [60.2, 0.06], [64.62, 0.04], [67.21, 0.07], [70.66, 0.05], [72.14, 0.06], [76.67, 0.05], [84.57, 0.04], [92.82, 0.05]];
+const SHAKES = [[2.55, 12], [9.95, 14], [35.3, 12], [52.27, 14], [54.7, 10], [60.5, 14], [67.25, 10], [72.2, 10], [76.7, 12], [85.55, 8]];
+function camera(t) {
+  let s = 1; for (const [t0, a] of PUNCH) s += a * env(t, t0, 0.12, 0.7, 0.6);
+  if (t > 80.45 && t < 87.0) s += 0.04 * seg(t, 80.45, 87.0);
+  let dx = 0, dy = 0; for (const [t0, a] of SHAKES) { dx += shake(t, t0, 0.35, a); dy += shake(t + 0.05, t0, 0.35, a * 0.6); }
+  return { s, dx, dy, cx: 540, cy: 640 };
+}
+function applyCam(c) { g.translate(c.cx + c.dx, c.cy + c.dy); g.scale(c.s, c.s); g.translate(-c.cx, -c.cy); }
+
+// ---------------------------------------------------------------- ESCENAS
+const ORD_PULL = { type: 'cols', reverse: true };
+function sGancho(t, over) {
+  if (!over) {
+    bg();
+    const kl = [clamp(0.45 + t * 0.9), seg(t, 0.25, 1.05), seg(t, 0.8, 1.5), seg(t, 1.3, 2.1)];
+    const pulse = (t0) => 1 + 0.07 * env(t, t0, 0.08, 0.25, 0.3);
+    const dl = (spr, x, y, k, t0) => { if (k < 1) spr.stitchIn(g, x, y, k, { order: 'cols', needle: true, t }); else { const s = pulse(t0); spr.draw(g, x + spr.pw / 2, y + spr.ph / 2, { anchor: [0.5, 0.5], scale: s }); } };
+    dl(L1, ...POS.L1, kl[0], w(10));
+    // línea 2: «A» → «DE»
+    const shift = E.outBack(seg(t, 8.95, 9.3));
+    const sx = lerp(S_A, S_D, shift);
+    dl(LS, sx, L2Y, kl[1], w(14));
+    if (t < 7.07) {
+      const wig = t > 6.5 ? Math.sin(t * 40) * 0.06 * seg(t, 6.5, 6.8) : 0;
+      if (kl[1] < 1) LA.stitchIn(g, xA0, L2Y, kl[1], { order: 'cols', t });
+      else LA.draw(g, xA0 + LA.pw / 2, L2Y + LA.ph / 2, { anchor: [0.5, 0.5], rot: wig, scale: pulse(w(13)) });
+    }
+    dl(L3, ...POS.L3, kl[2], w(15)); dl(L4, ...POS.L4, kl[3], w(16));
+    // sello «¡MAL!»
+    P(t, 540, 450, '¡MAL!', w(7) - 0.02, 0.5, { cell: 12, bold: true, color: T.marino, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: '#0f1a3a', rot: -0.18 }, 3.45);
+    // «DE» bordándose
+    if (t >= 9.3) LDE.stitchIn(g, xD0, L2Y, seg(t, 9.3, 9.95), { order: 'cols', needle: t < 10.0, t });
+    if (t >= 9.9) { const s = 1 + 0.12 * env(t, 9.95, 0.08, 0.2, 0.4); /* realce */ }
+    P(t, 830, 575, '¡DE!', 9.9, 0.36, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, shape: 'circle', rot: 0.18 });
+  } else {
+    // la «A» marcada y deshecha (la abuela tira del hilo)
+    if (t >= 7.07 && t < 7.75) {
+      LAred.draw(g, xA0 + LA.pw / 2, L2Y + LA.ph / 2, { anchor: [0.5, 0.5], scale: 1 + 0.15 * env(t, 7.07, 0.08, 0.2, 0.3) });
+      dashRing(xA0 + LA.pw / 2, L2Y + LA.ph / 2, 72, seg(t, 7.07, 7.5), T.marino);
+    }
+    if (t >= 7.75 && t < 9.3) {
+      const u = seg(t, 7.75, 8.9), k = u < 0.15 ? u * 0.2 : 0.03 + 0.97 * E.inOutCubic((u - 0.15) / 0.85);
+      LAred.unravel(g, xA0, L2Y, k, { t, to: HOOP.grip, order: ORD_PULL, keepThread: t < 8.9, showAt0: true, tail: 0, width: 8, thread: T.marino });
+    }
+  }
+}
+function sMarca(t, over) {
+  if (!over) {
+    bg();
+    if (t < 17.0) {
+      if (t < 11.9) HOLA.stitchIn(g, HOLA_X, HOLA_Y, seg(t, 10.95, 11.85), { order: 'cols', needle: true, t });
+      else HOLA.draw(g, HOLA_X + HOLA.pw / 2, HOLA_Y + HOLA.ph / 2, { anchor: [0.5, 0.5], scale: 1 + 0.05 * env(t, 15.64, 0.1, 0.3, 0.4) });
+    }
+    S(t, CHAIR5, 118, 1170, w(34), { rot: -0.08 + Math.sin(t * 3) * 0.03, d: 0.45 }, 18.05);
+    [[200, 560, 0], [880, 640, 0.15], [860, 470, 0.3]].forEach(([x, y, dd]) => S(t, HEART, x, y - (t - 15.64) * 14, w(37) + dd, { rot: Math.sin(t * 4 + x) * 0.15 }, 18.05));
+  } else {
+    P(t, 540, 1295, 'ABUELA REMEDIOS', 12.2, 1.2, { cell: 6, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.02 }, 18.05);
+    if (t >= 17.0 && t < 18.45) {
+      const u = seg(t, 17.0, 18.25), k = u < 0.14 ? u * 0.22 : 0.03 + 0.97 * E.inOutCubic((u - 0.14) / 0.86);
+      HOLA.unravel(g, HOLA_X, HOLA_Y, k, { t, to: HOOP.grip, order: ORD_PULL, keepThread: false, showAt0: true, tail: 0, width: 9 });
+    }
+  }
+}
+// posiciones de los obispos
+const BO = { ox: 290, yx: 790, fy: 800 }, BS = 1.1;
+function bishops(t, o) {
+  const bob = a => Math.sin(t * 2.2 + a) * 3;
+  const sOld = 1 + 0.06 * (o.oldPulse ? env(t, o.oldPulse, 0.1, 0.2, 0.4) : 0), sY = 1 + 0.06 * (o.yPulse ? env(t, o.yPulse, 0.1, 0.2, 0.4) : 0);
+  if (o.kOld != null && o.kOld < 1) { if (o.kOld > 0) OLD.stitchIn(g, BO.ox, BO.fy, o.kOld, { order: 'rows', needle: true, t, anchor: [0.5, 1], sx: -1, scale: BS }); }
+  else OLD.draw(g, BO.ox, BO.fy + bob(0), { anchor: [0.5, 1], sx: -1, scale: sOld * BS, rot: o.oldRot || 0 });
+  if (o.kY != null && o.kY < 1) { if (o.kY > 0) YNG.stitchIn(g, BO.yx, BO.fy, o.kY, { order: 'rows', needle: true, t, anchor: [0.5, 1], scale: BS }); }
+  else YNG.draw(g, BO.yx, BO.fy + bob(1.3), { anchor: [0.5, 1], scale: sY * BS });
+}
+const tagO = { cell: 5, bold: true, color: T.verde, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null };
+const nameO = { cell: 4, color: CREAM, border: T.marino, textColor: T.marino, shadowColor: null };
+function sObispos(t) {
+  bg();
+  // SIGLO XV: grande y luego chip
+  if (t >= 19.25) {
+    const m = E.inOutCubic(seg(t, 20.55, 20.95));
+    P(t, 540, lerp(560, 262, m), 'SIGLO XV', 19.25, 0.7, { cell: 12, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: '#0f1a3a', rot: -0.03, scale: lerp(1, 0.48, m) });
+  }
+  if (t >= 20.6) {
+    bishops(t, { kOld: seg(t, 20.75, 21.95), kY: t < 26.0 ? 0 : seg(t, 26.0, 27.0), oldPulse: w(53), yPulse: w(67) });
+    P(t, BO.ox, 840, 'SEVILLA', w(50), 0.6, tagO);
+    P(t, BO.yx, 840, 'SANTIAGO', w(62), 0.6, tagO);
+    const pul = t > 31.05 ? 1 + 0.12 * env(t, 31.05, 0.1, 0.4, 0.5) : 1;
+    P(t, BO.ox, 912, 'ALONSO\nDE FONSECA', w(53), 0.9, Object.assign({}, nameO, { scale: pul, rot: -0.03 }));
+    P(t, BO.yx, 912, 'ALONSO\nDE FONSECA', w(67), 0.9, Object.assign({}, nameO, { scale: pul, rot: 0.03 }));
+    S(t, EQ, 540, 912, w(69), { rot: Math.sin(t * 5) * 0.08 });
+    // hilo familiar entre los dos
+    if (t > w(59)) {
+      const k = seg(t, w(59), w(59) + 0.5), y0 = BO.fy - (37 - 21.5) * 12 * BS;
+      thread([[BO.ox + 8.5 * 12 * BS, y0], [540, y0 + 60 + Math.sin(t * 2) * 8], [BO.yx - 8.5 * 12 * BS, y0]], k, T.rojo, 7);
+      P(t, 540, y0 + 66, 'SOBRINO', w(59) + 0.2, 0.6, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null });
+    }
+    // ¿? para no liarse
+    S(t, QMARK, BO.ox + 20, 268 + Math.sin(t * 6) * 8, w(70), { rot: -0.2 + Math.sin(t * 5) * 0.1 });
+    S(t, QMARK, BO.yx - 20, 268 + Math.sin(t * 6 + 1) * 8, w(70) + 0.15, { rot: 0.2 + Math.sin(t * 5 + 1) * 0.1 });
+  }
+}
+function drawMap(t, kMap) {
+  if (kMap < 1) MAP.stitchIn(g, MX, MY, kMap, { order: { type: 'radial', from: [32, 26] }, t });
+  else MAP.draw(g, MX, MY);
+}
+function pin(p, k) { if (k <= 0) return; const s = E.outBack(clamp(k)); g.save(); g.translate(p[0], p[1]); g.scale(s, s); g.fillStyle = 'rgba(40,20,5,.3)'; g.beginPath(); g.ellipse(4, 6, 18, 9, 0, 0, 7); g.fill(); g.fillStyle = T.rojo; g.beginPath(); g.arc(0, 0, 16, 0, 7); g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 4; g.setLineDash([6, 4]); g.beginPath(); g.arc(0, 0, 10, 0, 7); g.stroke(); g.restore(); }
+const MINI = 0.3;
+function mini(spr, p, s = 1, o = {}) { spr.draw(g, p[0], p[1] + 8, Object.assign({ anchor: [0.5, 1], scale: MINI * s }, o)); }
+function tangle(t, k, straight = 0, alpha = 1) {
+  if (k <= 0 || alpha <= 0) return;
+  const n = Math.max(2, Math.floor(TANGLE.length * clamp(k)));
+  const pts = TANGLE.slice(0, n).map((p, i) => { const tx = SANT[0] - 30 + i * 3.2, ty = SANT[1] + 70; return [lerp(p[0], tx, straight), lerp(p[1], ty, straight)]; });
+  g.save(); g.globalAlpha = alpha; Stitch.drawThread(g, pts, { color: T.rojo2, width: 6 }); g.restore();
+}
+function sMapa1(t) {
+  bg();
+  { const k = E.outBack(seg(t, 33.62, 34.05)); MAP.draw(g, MX + MAP.pw / 2, MY + MAP.ph / 2, { anchor: [0.5, 0.5], scale: 0.6 + 0.4 * k, rot: (1 - k) * -0.12 }); }
+  runStitch(ROUTE, seg(t, 34.5, 35.1));
+  pin(SEV, seg(t, 34.25, 34.6)); pin(SANT, seg(t, 34.3, 34.65));
+  P(t, 560, 300, 'GALICIA', w(77) - 0.1, 0.45, { cell: 6, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: -0.05 });
+  P(t, SEV[0] + 150, SEV[1] + 30, 'SEVILLA', 34.4, 0.6, tagO);
+  if (t > 34.6) { mini(OLD, SEV, popK(t, 34.6)); mini(YNG, SANT, popK(t, 34.7)); }
+  tangle(t, seg(t, 35.22, 36.1));
+  const cs = popK(t, 35.35);
+  if (cs > 0) { CLOUD.draw(g, SANT[0] + 70, SANT[1] - 135 + Math.sin(t * 3) * 6, { anchor: [0.5, 0.5], scale: cs }); if (Math.floor(t * 6) % 3 !== 0) BOLT.draw(g, SANT[0] + 60, SANT[1] - 60, { anchor: [0.5, 0.5], scale: cs * 0.9, rot: 0.1 }); }
+}
+function sDialogo(t) {
+  bg();
+  const bounce = env(t, 41.5, 0.1, 0.2, 0.4);
+  bishops(t, { oldPulse: w(87), yPulse: w(83) });
+  P(t, BO.ox, 840, 'TÍO', w(87), 0.5, tagO);
+  P(t, BO.yx, 840, 'SOBRINO', w(83), 0.6, tagO);
+  // bocadillos de tela
+  const bub = (txt, t0, t1) => {
+    if (t < t0 || t > t1 + 0.2) return;
+    const k = popK(t, t0, 0.3) * outK(t, t1);
+    g.save(); g.globalAlpha = Math.min(1, k * 1.5); g.fillStyle = CREAM; g.strokeStyle = T.marino; g.lineWidth = 6;
+    g.beginPath(); g.moveTo(700, 320); g.lineTo(770, 380); g.lineTo(760, 310); g.closePath(); g.fill(); g.stroke(); g.restore();
+    P(t, 640, 270, txt, t0, 0.6, { cell: 4, bold: true, color: CREAM, border: T.marino, textColor: T.marino, shadowColor: null }, t1);
+  };
+  bub('TÍO, CÁMBIAME\nEL SITIO\nUN TIEMPO', w(88), 40.75);
+  bub('¡QUE TÚ TIENES\nMÁS MANO!', w(94), 42.4);
+  // flechas de intercambio
+  if (t > w(89)) {
+    const k = seg(t, w(89), w(89) + 0.6), ya = 600;
+    const e1 = thread([[BO.yx - 110, ya], [540, ya - 70], [BO.ox + 110, ya]], k, T.marino, 7);
+    const e2 = thread([[BO.ox + 110, ya + 70], [540, ya + 140], [BO.yx - 110, ya + 70]], k, T.marino, 7);
+    if (k >= 1) { arrowHead([BO.ox + 110, ya], Math.PI + 0.5, T.marino); arrowHead([BO.yx - 110, ya + 70], -0.5, T.marino); }
+  }
+  // estrellitas para el tío
+  if (t > 41.4) [[BO.ox - 140, 420], [BO.ox + 150, 380], [BO.ox - 100, 640]].forEach(([x, y], i) => S(t, STAR, x, y, 41.4 + i * 0.1, { rot: t * 2 + i, scale: 0.9 }));
+}
+function sMapa2(t) {
+  bg();
+  drawMap(t, 1);
+  runStitch(ROUTE, 1);
+  pin(SEV, 1); pin(SANT, 1);
+  P(t, SEV[0] + 150, SEV[1] + 30, 'SEVILLA', 42.35, 0.01, tagO);
+  // el tío viaja
+  const go = E.inOutCubic(seg(t, 44.6, 45.9)), back = E.inOutCubic(seg(t, 47.45, 48.8));
+  const u = go - back;
+  const pO = pathAt(ROUTE, u);
+  const hop = (go > 0 && go < 1) || (back > 0 && back < 1) ? -Math.abs(Math.sin(t * 16)) * 14 : 0;
+  mini(OLD, [pO[0], pO[1] + hop], 1 + 0.15 * env(t, w(101), 0.1, 0.2, 0.3));
+  P(t, pO[0], pO[1] - 160, 'TÍO', w(101), 0.5, Object.assign({}, tagO, { cell: 4 }), 44.5);
+  S(t, HEART, pO[0] + 70, pO[1] - 120, w(105), { scale: 0.8 + 0.08 * Math.sin(t * 8) }, 44.5);
+  // el sobrino deja Santiago
+  if (t < 44.9) mini(YNG, SANT, outK(t, 44.75));
+  // lío y orden
+  const st = E.inOutCubic(seg(t, 46.05, 46.8));
+  tangle(t, 1, st, 1 - seg(t, 46.8, 47.2));
+  const cs = outK(t, 46.05);
+  if (cs > 0.01) { CLOUD.draw(g, SANT[0] + 70, SANT[1] - 135 + Math.sin(t * 3) * 6, { anchor: [0.5, 0.5], scale: cs }); if (Math.floor(t * 6) % 3 !== 0) BOLT.draw(g, SANT[0] + 60, SANT[1] - 60, { anchor: [0.5, 0.5], scale: cs * 0.9, rot: 0.1 }); }
+  [[-80, -150], [110, -170], [150, 10], [-60, 60], [40, -230]].forEach(([dx, dy], i) => S(t, STAR, SANT[0] + dx, SANT[1] + dy, w(111) + i * 0.08, { rot: t * 2 + i, scale: 0.8 + 0.2 * Math.sin(t * 9 + i) }, 47.6));
+  P(t, 600, 470, '¡ORDEN!', w(111), 0.6, { cell: 6, bold: true, color: T.verde, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: 0.06 }, 47.4);
+  // ¿qué se encontró?
+  P(t, SEV[0] + 40, SEV[1] - 150, '?', w(117), 0.45, { cell: 14, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, shape: 'circle', rot: Math.sin(t * 7) * 0.12 });
+}
+// silla + orden del Papa + rey
+const CH = { x: 408, y: 456 };
+function sSilla(t) {
+  bg();
+  const k = t < 50.14 ? 0 : E.outBackBig(seg(t, 50.14, 50.55));
+  const sit = Stitch.squash(t, w(122), 0.45, 0.12);
+  g.save(); g.translate(CH.x + 156, CH.y + 432); g.scale(k * (1 + 0.02 * Math.sin(t * 30) * env(t, 54.7, 0.05, 0.3, 0.2)), k); g.translate(-(CH.x + 156), -(CH.y + 432));
+  CHAIR.draw(g, CH.x, CH.y);
+  // el sobrino, sentadito (sale volando al echarlo)
+  const fly = E.inCubic(seg(t, 60.4, 61.2));
+  const tug = (t > 53.6 && t < 57.5) ? Math.sin(t * 38) * 4 : 0;
+  if (fly < 1) YSIT.draw(g, CH.x + 30 + 144 + fly * 900 + tug, CH.y - 24 + 384 - fly * 520, { anchor: [0.5, 1], rot: fly * 4, sx: sit.sx, sy: sit.sy });
+  g.restore();
+  // el tío llega e intenta levantarlo
+  if (t > w(126)) {
+    const ent = E.outBack(seg(t, w(126), w(126) + 0.5));
+    const later = seg(t, 57.3, 57.8), sc = lerp(1, 0.8, later);
+    const ox = lerp(-200, 200, ent) - 60 * later, fy = 900 + 40 * later;
+    const lean = (t > 53.6 && t < 57.5) ? -0.12 + Math.sin(t * 20) * 0.04 : 0;
+    const happy = t > 61.0 ? -Math.abs(Math.sin((t - 61) * 9)) * 22 * (1 - seg(t, 62.2, 62.9)) : 0;
+    OLD.draw(g, ox, fy + happy, { anchor: [0.5, 1], scale: sc, rot: lean });
+    if (t > 53.4 && t < 60.4) {
+      const hand = [ox + (18.5 - 12) * 12 * sc, fy - (37 - 21.5) * 12 * sc];
+      thread([hand, [lerp(hand[0], CH.x + 72, 0.5), hand[1] + 30 - 25 * Math.abs(Math.sin(t * 20))], [CH.x + 30 + 3.5 * 12 + tug, CH.y - 24 + 21.5 * 12]], seg(t, 53.4, 53.7), T.rojo, 7);
+    }
+    if (t > 54.2 && t < 57.6) S(t, DROP, ox - 70, fy - 430 + ((t - 54.2) % 1.1) * 60, 54.2, { scale: 1 }, 57.4);
+  }
+  P(t, 560, 380, '¡OCUPADO!', w(125), 0.5, { cell: 8, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.14 }, 57.6);
+  // orden del Papa y el rey
+  const jolt = 30 * env(t, 60.16, 0.1, 0.2, 0.4);
+  if (t > w(140) - 0.1) {
+    const kk = E.outBack(seg(t, w(140) - 0.1, w(140) + 0.4));
+    SCROLL.draw(g, lerp(-150, 255, kk) + jolt, 395 + Math.sin(t * 2) * 5, { anchor: [0.5, 0.5], rot: lerp(-1.2, -0.08, kk) });
+    P(t, 255, 522, 'ORDEN\nDEL PAPA', w(142), 0.6, { cell: 4, bold: true, color: CREAM, border: T.granate, textColor: T.granate, shadowColor: null, rot: -0.04 });
+  }
+  S(t, CROWN, 830 - jolt, 330 + Math.sin(t * 2.2) * 5, w(147) - 0.25, { rot: 0.06 + Math.sin(t * 3) * 0.04, d: 0.45 });
+  P(t, 830, 445, 'EL REY', w(147), 0.5, { cell: 4, bold: true, color: CREAM, border: T.mostaza, textColor: T.granate, shadowColor: null, rot: 0.04 });
+  if (t > 61.0) [[620, 480], [700, 640], [460, 560]].forEach(([x, y], i) => S(t, STAR, x, y, 61.0 + i * 0.1, { rot: t * 2 + i }));
+  P(t, 600, 1235, '¡FÍJATE TÚ!', w(150), 0.5, { cell: 5, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.06 });
+}
+function sVuelta(t) {
+  bg();
+  if (t < 68.4) {
+    const o = outK(t, 68.2);
+    P(t, 580, 348, 'EL QUE PERDIÓ\nLA SILLA…', w(156), 0.9, { cell: 7, bold: true, color: CREAM, border: T.marino, textColor: T.marino, shadowColor: null, rot: -0.02 }, 68.2);
+    S(t, CHAIR, 290, 640, 63.1, { rot: -0.04 }, 68.2);
+    const walk = E.inOutCubic(seg(t, 66.55, 67.6));
+    const bx = lerp(640, 1300, walk), hop = walk > 0 && walk < 1 ? -Math.abs(Math.sin(t * 14)) * 16 : 0;
+    if (t > 63.2 && walk < 1) OLD.draw(g, bx, 880 + hop, { anchor: [0.5, 1], scale: popK(t, 63.2) * o });
+    if (t > w(161)) { const tip = thread([[380, 760], [560, 820], [780, 790], [960, 770]], seg(t, w(161), 67.5), T.rojo, 7); if (t > 67.5 && o > 0.5) arrowHead([960, 770], -0.1); }
+    if (t > w(161)) {
+      if (t < 67.1) SEFUE.stitchIn(g, 540 - SEFUE.pw / 2, 900, seg(t, 66.27, 67.1), { order: 'cols', needle: true, t });
+      else SEFUE.draw(g, 540, 900 + SEFUE.ph / 2, { anchor: [0.5, 0.5], scale: o * (1 + 0.1 * env(t, 67.21, 0.08, 0.3, 0.4)) });
+    }
+  } else {
+    P(t, 540, 330, 'CON LOS SIGLOS…', w(171), 0.8, { cell: 6, bold: true, color: T.mostaza, border: T.marron, textColor: T.granate, shadowColor: null, rot: -0.03 });
+    const u = E.inOutCubic(seg(t, 70.66, 71.5));
+    const spr = u < 0.5 ? VQ : VA;
+    const k = popK(t, 68.4, 0.4);
+    spr.draw(g, 540, 640, { anchor: [0.5, 0.5], scale: k * (1 + 0.15 * Math.sin(u * Math.PI)), rot: u * Math.PI * 2 });
+    if (t > 71.5) dashRing(540 - 64, 640 + 50, 70, seg(t, 71.5, 71.85));
+  }
+}
+function sOjo(t) {
+  bg();
+  const wob = a => Math.sin(t * 2.4 + a) * 0.03;
+  P(t, 540, 330, '¡OJO!', w(178), 0.7, { cell: 13, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.1 + wob(0) });
+  P(t, 560, 590, 'LO QUE MÁS\nSE CUENTA', w(184), 0.9, { cell: 8, color: T.marino, border: T.mostaza, rot: 0.03 + wob(1) });
+  // LEYENDA: se cose y luego se la queda la abuela
+  if (t >= w(193)) {
+    const fl = E.inOutCubic(seg(t, 79.4, 80.0));
+    const x = lerp(560, 200, fl), y = lerp(840, 1130, fl);
+    if (fl < 1) P(t, x, y, 'LEYENDA', w(193), 0.8, { cell: 10, color: T.verde, border: '#FFFFFF', rot: -0.05 + wob(2) + fl * 0.5, scale: lerp(1, 0.15, fl) });
+  }
+  [[220, 820], [900, 760], [820, 960], [300, 620]].forEach(([x, y], i) => S(t, HEART, x, y - (t - 78.36) * 30, w(197) + i * 0.12, { rot: Math.sin(t * 4 + i) * 0.2 }, 80.2));
+}
+function sMoraleja(t) {
+  bg();
+  const k0 = popK(t, 80.5, 0.4);
+  g.save(); g.translate(540, DCH.y + DCH.H * DCH.c / 2); g.scale(lerp(0.85, 1, k0), lerp(0.85, 1, k0)); g.translate(-540, -(DCH.y + DCH.H * DCH.c / 2));
+  const W = DCH.W * DCH.c, H = DCH.H * DCH.c;
+  g.save(); g.shadowColor = 'rgba(40,20,5,.35)'; g.shadowBlur = 24; g.shadowOffsetY = 10; g.fillStyle = '#FBF8F1'; g.fillRect(DCH.x, DCH.y, W, H); g.restore();
+  Stitch.drawFabric(g, DCH.x, DCH.y, W, H, { cell: DCH.c, color: 'blanco', ox: DCH.x, oy: DCH.y });
+  const kc = seg(t, 80.5, 81.6);
+  if (kc < 1) CENEFA.stitchIn(g, DCH.x, DCH.y, kc, { order: 'random', t }); else CENEFA.draw(g, DCH.x, DCH.y);
+  const mx = DCH.x + Math.round((W - MORAL.pw) / 2 / DCH.c) * DCH.c, my = DCH.y + Math.round((H - MORAL.ph) / 2 / DCH.c) * DCH.c;
+  const kt = seg(t, 80.6, 84.0);
+  if (kt < 1) MORAL.stitchIn(g, mx, my, kt, { order: 'rows', needle: true, t }); else MORAL.draw(g, mx, my);
+  // alfileres en las esquinas
+  [[DCH.x + 14, DCH.y + 14], [DCH.x + W - 14, DCH.y + 14], [DCH.x + 14, DCH.y + H - 14], [DCH.x + W - 14, DCH.y + H - 14]].forEach(([x, y]) => { g.fillStyle = 'rgba(0,0,0,.25)'; g.beginPath(); g.arc(x + 3, y + 4, 9, 0, 7); g.fill(); g.fillStyle = T.mostaza; g.beginPath(); g.arc(x, y, 9, 0, 7); g.fill(); g.fillStyle = '#fff8'; g.beginPath(); g.arc(x - 3, y - 3, 3, 0, 7); g.fill(); });
+  g.restore();
+  P(t, 640, 1010, 'SI TE LEVANTAS\nDE TU SITIO…', w(207) - 0.1, 1.0, { cell: 5, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: -0.02 }, 84.45);
+  P(t, 640, 1010, 'NO ESPERES\nENCONTRARLO LIBRE', w(213), 0.9, { cell: 5, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: 0.02 });
+  P(t, 860, 1120, '¡OCUPADO!', w(215), 0.45, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: 0.16 });
+}
+function sComentarios(t) {
+  bg('floral');
+  P(t, 540, 290, '¿Y A TI QUÉ REFRÁN\nTE DECÍA TU ABUELA?', w(217), 1.0, { cell: 5, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.02 });
+  [88.0, 88.8, 89.6].forEach((t0, i) => {
+    if (t < t0) return; const k = E.outBack(seg(t, t0, t0 + 0.4));
+    const c = cardCanvas(i), x = lerp(1180, 510, k), y = 470 + i * 185;
+    g.save(); g.translate(x, y); g.rotate((i % 2 ? 0.015 : -0.015) * k); g.drawImage(c, -c.width / 2, -c.height / 2); g.restore();
+  });
+  if (t > 90.0) {
+    const k = E.outBack(seg(t, 90.0, 90.35));
+    const x0 = 380, y0 = 1015, Wb = 540, Hb = 96;
+    g.save(); g.translate(x0 + Wb / 2, y0 + Hb / 2); g.scale(k, k); g.translate(-(x0 + Wb / 2), -(y0 + Hb / 2));
+    g.fillStyle = CREAM; g.strokeStyle = T.granate; g.lineWidth = 4; g.beginPath(); g.roundRect(x0, y0, Wb, Hb, 48); g.fill(); g.setLineDash([12, 8]); g.stroke(); g.setLineDash([]);
+    const txt = typeText('Mi abuela decía…', t, 90.3, 16);
+    g.fillStyle = txt ? T.negro : '#8a8178'; g.font = '500 34px Fredoka'; g.textBaseline = 'middle'; g.fillText(txt || 'Escribe tu refrán…', x0 + 36, y0 + Hb / 2 + 2);
+    if (Math.floor(t * 3) % 2 === 0) { const wdt = g.measureText(txt).width; g.fillStyle = T.rojo; g.fillRect(x0 + 40 + wdt, y0 + 26, 4, 46); }
+    g.restore();
+  }
+}
+const SEG_BTN = { x: 740, y: 640 };
+function sCierre(t) {
+  bg();
+  // dechado colección (4x3)
+  const k0 = popK(t, w(234) - 0.1, 0.45);
+  if (k0 > 0) {
+    const cx = 540, cy = 1045, Wd = 800, Hd = 470;
+    g.save(); g.translate(cx, cy); g.scale(k0, k0); g.translate(-cx, -cy);
+    const x0 = cx - Wd / 2, y0 = cy - Hd / 2;
+    g.save(); g.shadowColor = 'rgba(40,20,5,.35)'; g.shadowBlur = 22; g.shadowOffsetY = 10; g.fillStyle = '#FBF8F1'; g.fillRect(x0, y0, Wd, Hd); g.restore();
+    Stitch.drawFabric(g, x0, y0, Wd, Hd, { cell: 8, color: 'blanco', ox: x0, oy: y0 });
+    g.strokeStyle = T.granate; g.lineWidth = 8; g.strokeRect(x0 + 10, y0 + 10, Wd - 20, Hd - 20);
+    const gx = x0 + 34, gy = y0 + 48, cw = (Wd - 68) / 4, chh = (Hd - 96) / 3;
+    for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) {
+      const i = r * 4 + c, bx = gx + c * cw, by = gy + r * chh;
+      g.save(); g.setLineDash([10, 7]); g.lineWidth = 4; g.strokeStyle = i === 0 ? T.rojo : '#B9AE9E';
+      g.beginPath(); g.roundRect(bx + 8, by + 8, cw - 16, chh - 16, 14); g.stroke(); g.restore();
+      g.fillStyle = i === 0 ? T.rojo : '#9a8f80'; g.font = '700 22px Fredoka'; g.fillText(String(i + 1), bx + 20, by + 34);
+      if (i === 0) {
+        const ks = seg(t, 94.5, 96.2);
+        if (ks < 1) CHAIR3.stitchIn(g, bx + cw / 2 - CHAIR3.pw / 2, by + chh / 2 - CHAIR3.ph / 2, ks, { order: 'rows', needle: ks > 0, t });
+        else CHAIR3.draw(g, bx + cw / 2, by + chh / 2, { anchor: [0.5, 0.5], scale: 1 + 0.12 * env(t, 96.2, 0.1, 0.3, 0.5) });
+      } else QGRAY.draw(g, bx + cw / 2, by + chh / 2, { anchor: [0.5, 0.5] });
+    }
+    g.restore();
+    P(t, 540, 812, 'COLECCIÓN DE LA ABUELA', w(234), 0.8, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.02 });
+    P(t, 540, 1278, 'SÍGUEME PARA COMPLETARLA', w(237), 0.8, { cell: 4, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: 0.02 });
+  }
+  // libretita: «apúntatelo»
+  if (t > w(242) - 0.1) {
+    const k = E.outBack(seg(t, w(242) - 0.1, w(242) + 0.3));
+    const x0 = 560, y0 = 210, Wn = 380, Hn = 262;
+    g.save(); g.translate(x0 + Wn / 2, y0 + Hn / 2); g.rotate(0.05); g.scale(k, k); g.translate(-(x0 + Wn / 2), -(y0 + Hn / 2));
+    g.save(); g.shadowColor = 'rgba(40,20,5,.35)'; g.shadowBlur = 16; g.shadowOffsetY = 6; g.fillStyle = '#FFFDF6'; g.fillRect(x0, y0, Wn, Hn); g.restore();
+    g.strokeStyle = '#BFD0E2'; g.lineWidth = 2; for (let y = y0 + 64; y < y0 + Hn; y += 46) { g.beginPath(); g.moveTo(x0 + 10, y); g.lineTo(x0 + Wn - 10, y); g.stroke(); }
+    g.strokeStyle = T.rojo2; g.beginPath(); g.moveTo(x0 + 44, y0 + 10); g.lineTo(x0 + 44, y0 + Hn - 6); g.stroke();
+    for (let i = 0; i < 8; i++) { g.fillStyle = '#9AA0A6'; g.beginPath(); g.arc(x0 + 30 + i * 46, y0 + 2, 8, 0, 7); g.fill(); }
+    const full = 'Quien se fue DE\nSevilla, perdió\nsu silla ♥';
+    const tx = typeText(full, t, w(242) + 0.2, 22).split('\n');
+    g.fillStyle = T.marino; g.font = 'italic 40px DMSerif'; g.textBaseline = 'alphabetic';
+    tx.forEach((l, i) => g.fillText(l, x0 + 58, y0 + 102 + i * 46));
+    const li = tx.length - 1, ex = x0 + 58 + g.measureText(tx[li]).width, ey = y0 + 92 + li * 46;
+    if (t < 98.8) Stitch.needle(g, ex + 4, ey - 6, -0.9 + Math.sin(t * 14) * 0.15, 70, T.rojo);
+    g.restore();
+  }
+}
+
+// ---------------------------------------------------------------- tela de transición (cortina)
+const WIPES = [[10.75, 'vichy'], [18.45, 'floral'], [33.8, 'pana'], [36.35, 'vichy'], [42.35, 'floral'], [50.05, 'vichy'], [62.95, 'pana'], [72.0, 'floral'], [80.45, 'vichy'], [87.0, 'pana'], [91.5, 'floral']];
+function wipe(t) {
+  for (const [T0, kind] of WIPES) {
+    const k = (t - (T0 - 0.22)) / 0.44; if (k <= 0 || k >= 1) continue;
+    const x0 = lerp(-1200, 1200, E.inOutCubic(k));
+    g.save(); g.beginPath(); g.rect(x0, 0, 1200, 1920); g.clip(); Marco.drawBg(g, kind); g.restore();
+    g.fillStyle = 'rgba(122,31,43,.85)'; g.fillRect(x0 - 8, 0, 8, 1920); g.fillRect(x0 + 1200, 0, 8, 1920);
+  }
+}
+
+// ---------------------------------------------------------------- SFX
+[
+  ['sewing_machine', 0.0, 0.55], ['stamp', 2.55, 0.8], ['stitch', 3.6, 0.5], ['pop', 7.07, 0.7], ['thread_pull', 7.75, 0.9], ['swoosh_up', 9.0, 0.5], ['stitch', 9.3, 0.8], ['stamp', 9.95, 0.9],
+  ['cloth_whoosh', 10.55, 0.8], ['pop', 11.0, 0.7], ['stitch', 12.3, 0.6], ['boing', 14.55, 0.6], ['heart', 15.65, 0.7], ['thread_pull', 17.0, 0.9], ['cloth_whoosh', 18.25, 0.8],
+  ['pop2', 18.95, 0.5], ['stamp', 19.3, 0.8], ['stitch', 20.8, 0.6], ['pop', 22.1, 0.6], ['stitch', 23.55, 0.6], ['stitch', 26.0, 0.6], ['pop', 27.8, 0.6], ['stitch', 30.2, 0.6], ['ding', 31.1, 0.6], ['boing', 31.9, 0.5],
+  ['cloth_whoosh', 33.6, 0.8], ['sewing_machine', 33.9, 0.5], ['pop', 34.3, 0.6], ['thud', 35.3, 0.8], ['knit', 35.5, 0.5], ['cloth_whoosh', 36.15, 0.8], ['pop', 36.6, 0.5], ['pop', 37.65, 0.5], ['pop2', 38.4, 0.7],
+  ['swoosh_up', 39.65, 0.6], ['pop2', 40.9, 0.7], ['sparkle', 41.45, 0.6], ['cloth_whoosh', 42.15, 0.8], ['pop', 42.7, 0.5], ['heart', 43.9, 0.6], ['whoosh', 44.6, 0.6], ['sparkle', 46.4, 0.7], ['whoosh', 47.45, 0.6], ['drumroll', 48.4, 0.5], ['pop2', 48.95, 0.7],
+  ['cloth_whoosh', 49.85, 0.8], ['burst', 50.15, 0.6], ['squish', 51.45, 0.7], ['stamp', 52.27, 0.9], ['pop', 53.0, 0.5], ['thread_pull', 53.5, 0.7], ['boing', 54.7, 0.6], ['squish', 56.4, 0.5], ['paper', 57.7, 0.8], ['bell', 58.75, 0.6], ['whoosh', 60.4, 0.7], ['boing', 60.5, 0.7], ['pop2', 61.55, 0.6],
+  ['cloth_whoosh', 62.75, 0.8], ['stitch', 64.5, 0.5], ['whoosh', 66.6, 0.5], ['stamp', 67.23, 0.8], ['pop', 68.4, 0.5], ['clockfast', 69.1, 0.4], ['swoosh_up', 70.66, 0.7],
+  ['cloth_whoosh', 71.8, 0.8], ['stamp', 72.18, 0.9], ['stitch', 74.3, 0.6], ['stamp', 76.7, 0.9], ['heart', 78.36, 0.7], ['gulp', 79.45, 0.6],
+  ['cloth_whoosh', 80.25, 0.8], ['sewing_machine', 80.6, 0.45], ['stitch', 82.2, 0.6], ['pop', 84.57, 0.6], ['stamp', 85.56, 0.7],
+  ['cloth_whoosh', 86.8, 0.8], ['stitch', 87.2, 0.5], ['msg_in', 88.0, 0.7], ['msg_in', 88.8, 0.7], ['msg_in', 89.6, 0.7], ['typing', 90.3, 0.5],
+  ['cloth_whoosh', 91.3, 0.8], ['stitch', 92.82, 0.8], ['ding', 93.55, 0.7], ['pop', 93.65, 0.5], ['stitch', 94.5, 0.6], ['sparkle', 96.2, 0.6], ['paper', 96.75, 0.7], ['pop', 98.45, 0.5],
+  ['cloth_whoosh', 99.15, 0.8], ['pop', 99.6, 0.6], ['ding', 100.6, 0.6],
+].forEach(([n, tt, gn]) => sfx(n, tt, gn));
+
+// ---------------------------------------------------------------- FRAME
+const T_END = 99.2;
+const SCENES = [[0, sGancho], [10.75, sMarca], [18.45, sObispos], [33.8, sMapa1], [36.35, sDialogo], [42.35, sMapa2], [50.05, sSilla], [62.95, sVuelta], [72.0, sOjo], [80.45, sMoraleja], [87.0, sComentarios], [91.5, sCierre]];
+function sceneAt(t) { let s = SCENES[0][1]; for (const [t0, f] of SCENES) if (t >= t0) s = f; return s; }
+function fixedTag(t) { Marco.patch(g, 192, 200, 'REFRÁN Nº 1', { k: 1, t, cell: 4, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: -0.03 }); }
+
+window.frame = t => {
+  g.setTransform(1, 0, 0, 1, 0, 0);
+  if (t >= T_END + 0.3) {
+    const k = clamp((t - T_END - 0.3) / 1.5);
+    Marco.endCard(g, k, { t, title: 'QUIEN SE FUE\nDE SEVILLA', date: '16/10/2026', state: t > 101.0 ? { mouth: 'smile', wink: true } : { mouth: Abuela.lipsync(t, WD, { rest: 'smile' }), blink: Abuela.blink(t) } });
+    P(t, 540, 1450, 'Fuente: tradición popular', T_END + 1.2, 0.8, { cell: 4, color: CREAM, border: T.granate, textColor: T.granate, shadowColor: null, rot: -0.02 });
+    fixedTag(t);
+    return;
+  }
+  const sc = sceneAt(t), cam = camera(t);
+  g.save(); applyCam(cam); sc(t, false); g.restore();
+  wipe(t);
+  // la abuela: en su bastidor (siempre visible)
+  drawHoop(t);
+  if (sc === sGancho || sc === sMarca) sc(t, true);
+  // micro-recordatorio (una vez)
+  P(t, 560, 1270, 'UN REFRÁN NUEVO CADA DÍA ♥', 18.9, 0.9, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.03 }, 20.6);
+  // botón SEGUIR (cierre)
+  if (sc === sCierre && t > w(232)) {
+    const pul = t > 93.6 ? 1 + 0.05 * Math.sin((t - 93.6) * 7) : 1;
+    P(t, SEG_BTN.x, SEG_BTN.y, '+ SEGUIR', w(232), 0.75, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.04, scale: pul });
+    const k = seg(t, 92.9, 93.4); if (k > 0) { thread([[505, 470], [560, 520], [585, 610]], k, T.rojo, 7); if (k >= 1) arrowHead([585, 610], 1.2); }
+  }
+  // cortina final
+  if (t >= T_END) {
+    const c = E.inOutCubic(clamp((t - T_END) / 0.35));
+    g.save(); g.beginPath(); g.rect(0, 0, 1080, 1920 * c); g.clip(); Marco.drawBg(g, 'vichy'); g.restore();
+    g.fillStyle = 'rgba(122,31,43,.85)'; g.fillRect(0, 1920 * c - 10, 1080, 10);
+  }
+  fixedTag(t);
+};
+document.fonts.load('700 40px Fredoka'); document.fonts.load('500 34px Fredoka'); document.fonts.load('italic 34px DMSerif');
+Engine.start({ captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', radius: 28, pad: '8px 26px', border: '4px dashed #7A1F2B', maxWords: 3, shadow: '0 6px 18px rgba(60,30,10,.25)' } });
+</script>
+</body></html>

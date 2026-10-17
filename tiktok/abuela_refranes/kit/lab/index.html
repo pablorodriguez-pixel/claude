@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css"></head><body><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<script src="../../engine/engine.js"></script><script src="../stitch.js"></script><script src="../abuela.js"></script>
+<script>
+const g=document.getElementById('cv').getContext('2d');
+window.frame=t=>{
+  Stitch.drawFabric(g,0,0,1080,1920,{cell:12});
+  Abuela.draw(g,0,0,{mouth:'closed'},{cell:11});
+  Abuela.draw(g,540,0,{glassesDown:true,brows:'skeptic',hand:'finger',mouth:'half'},{cell:11});
+  Abuela.draw(g,0,640,{brows:'up',mouth:'open'},{cell:11});
+  Abuela.draw(g,540,640,{hand:'thread',mouth:'laugh',blink:true},{cell:11});
+  Abuela.draw(g,0,1280,{mouth:'smile',wink:true},{cell:11});
+  Abuela.draw(g,540,1280,{mouth:'o',brows:'up'},{cell:11});
+};
+Engine.start({captions:false,duration:8});
+</script></body></html>

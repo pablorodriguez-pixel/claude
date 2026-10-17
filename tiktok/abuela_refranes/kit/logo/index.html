@@ -1,0 +1,19 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Logo — Ya lo decía la abuela</title><link rel="stylesheet" href="../base.css"></head>
+<body><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<script>window.WORDS=[]</script>
+<script src="../../engine/engine.js"></script><script src="../stitch.js"></script><script src="../abuela.js"></script><script src="../marco.js"></script>
+<script>
+// Página de exportación del avatar: arriba el logo 1080x1080 (lo que se exporta), abajo una prueba a tamaño avatar (recorte circular).
+const g = document.getElementById('cv').getContext('2d');
+window.frame = t => {
+  const L = Marco.logoCanvas(1080);
+  window.LOGO_PNG = () => L.toDataURL('image/png');
+  g.fillStyle = '#222'; g.fillRect(0, 0, 1080, 1920);
+  g.drawImage(L, 0, 0);
+  // previsualización circular (como en el perfil de TikTok)
+  for (const [x, d] of [[200, 300], [520, 160], [720, 80]]) {
+    g.save(); g.beginPath(); g.arc(x, 1450, d / 2, 0, Math.PI * 2); g.clip(); g.drawImage(L, x - d / 2, 1450 - d / 2, d, d); g.restore();
+  }
+};
+Engine.start({ captions: false, duration: 1 });
+</script></body></html>

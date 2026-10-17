@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¡Ay, criatura! ¡Llevas toda la vida diciendo mal este refrán! Quien se fue a Sevilla, perdió su silla...",
+  "s": 0.12,
+  "e": 6.154
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Pues no era «a» Sevilla, cariño. Era «de» Sevilla.",
+  "s": 6.414,
+  "e": 10.598
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "¡Hola, cariño! Soy la abuela Remedios. Ven, siéntate aquí conmigo, corazón... que vamos a tirar del hilo.",
+  "s": 10.948,
+  "e": 18.405
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Mira. Siglo quince. El arzobispo de Sevilla se llamaba Alonso de Fonseca. Y tenía un sobrino, arzobispo de Santiago... que también se llamaba Alonso de Fonseca. Para que no os liéis, ¿eh?",
+  "s": 18.755,
+  "e": 33.577
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "En Galicia había mucho lío, y el sobrino le pidió al tío: tío, cámbiame el sitio un tiempo, que tú tienes más mano.",
+  "s": 33.837,
+  "e": 42.166
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Y el tío, que era muy bueno, se fue a Santiago, puso orden... y cuando volvió a Sevilla, ¿qué se encontró?",
+  "s": 42.426,
+  "e": 49.84
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "¡Al sobrino! Sentadito en su silla. Y de ahí no había quien lo levantara.",
+  "s": 50.1,
+  "e": 55.366
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Dicen que hizo falta hasta una orden del Papa y la intervención del rey para echarlo. ¡Fíjate tú!",
+  "s": 55.626,
+  "e": 62.824
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "O sea, hijo mío: el que perdió la silla fue el que se fue DE Sevilla. Y con los siglos, el refrán se dio la vuelta.",
+  "s": 63.084,
+  "e": 71.845
+ },
+ {
+  "line": 9,
+  "who": "ABUELA",
+  "text": "Ojo, que esta es la historia que más se cuenta, y tiene su parte de leyenda. Pero es tan bonita que yo me la quedo.",
+  "s": 72.105,
+  "e": 80.308
+ },
+ {
+  "line": 10,
+  "who": "ABUELA",
+  "text": "Así que ya sabes: si te levantas de tu sitio... no esperes encontrarlo libre.",
+  "s": 80.568,
+  "e": 86.877
+ },
+ {
+  "line": 11,
+  "who": "ABUELA",
+  "text": "¿Y a ti qué refrán te decía tu abuela? Cuéntamelo, que te leo.",
+  "s": 87.137,
+  "e": 91.372
+ },
+ {
+  "line": 12,
+  "who": "ABUELA",
+  "text": "Anda, corazón, sígueme, que cada día te desenredo un refrán nuevo... y apúntatelo, que luego se te olvida.",
+  "s": 91.632,
+  "e": 99.353
+ }
+]

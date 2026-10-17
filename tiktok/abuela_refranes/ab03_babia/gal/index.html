@@ -1,0 +1,25 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css"></head>
+<body><div id="stage"><canvas id="cv" width="1080" height="1920"></canvas></div>
+<script>window.WORDS=[]</script>
+<script src="../../engine/engine.js"></script>
+<script src="../../abuela_kit/stitch.js"></script>
+<script src="../../abuela_kit/abuela.js"></script>
+<script src="../../abuela_kit/marco.js"></script>
+<script src="../sprites.js"></script>
+<script>
+const g=document.getElementById('cv').getContext('2d');
+const P=[];
+const add=(name,s,sc=1)=>P.push([name,s,sc]);
+add('pin',BS.pin(),1);add('sign',BS.roadSign(),0.8);add('crown',BS.crown(),0.8);add('hammock',BS.hammock(),0.6);add('shield',BS.shield(),1);
+add('deer',BS.deer(),0.8);add('dog',BS.dog(),0.8);add('castle',BS.castle(),0.8);add('storm',BS.storm(),0.7);add('paper',BS.paper(1),1);add('throne',BS.throne(),0.6);
+add('cobweb',BS.cobweb(),0.8);add('spider',BS.spider(),1);add('cloud',BS.cloud(),0.8);add('phone',BS.phone(),0.7);add('hourglass',BS.hourglass(),0.7);add('medal',BS.medal(),0.7);
+add('king',BS.person({crown:1,cape:'r',tunic:'n',tunic2:'m',beard:'b',hair:'b'}).sprite({cell:14}),0.6);
+add('courtier',BS.person({hat:'n',tunic:'a',collar:1,hair:'b',eyes:'wide',mouth:'o',brows:'up'}).sprite({cell:14}),0.6);
+add('chamb',BS.person({bald:1,hair:'h',tunic:'R',mustache:'G',collar:1,arm:'up',mouth:'grin'}).sprite({cell:14}),0.6);
+add('office',BS.person({hair:'k',tunic:'G',tie:1,arm:'point',brows:'up',mouth:'grin'}).sprite({cell:14}),0.6);
+add('mount',BS.mountains(),0.5);add('land',BS.landscape(),0.45);add('cow',BS.cow(),1);add('horse',BS.horse(),1);add('map',BS.spainMap().spr,0.5);
+add('silla',BS.iconSilla(),1.2);add('manga',BS.iconManga(),1.2);add('montana',BS.iconMontana(),1.2);add('heart',BS.heart(),1);add('cup',BS.teacup(),1);add('note',BS.notebook(),0.6);add('chair',BS.chair(),0.8);
+window.frame=t=>{Stitch.drawFabric(g,0,0,1080,1920,{cell:14});let x=10,y=10,rowH=0;g.font='20px sans-serif';g.fillStyle='#000';
+ for(const [n,s,sc] of P.slice(t>1?15:0)){const w=s.pw*sc,h=s.ph*sc;if(x+w>1070){x=10;y+=rowH+30;rowH=0;}s.draw(g,x,y+20,{scale:sc});g.fillText(n,x,y+16);x+=w+20;rowH=Math.max(rowH,h);}};
+Engine.start({captions:false,duration:3});
+</script></body></html>
