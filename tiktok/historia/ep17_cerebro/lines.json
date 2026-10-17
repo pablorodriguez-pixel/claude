@@ -1,0 +1,58 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡No usas solo el diez por ciento de tu cerebro! Lo usas casi todo.",
+  "s": 0.12,
+  "e": 4.357
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y aunque te lo hayan dicho películas y profesores... nadie ha demostrado nunca lo contrario.",
+  "s": 4.657,
+  "e": 11.289
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Si te escanean el cerebro durante un día entero, se van encendiendo prácticamente todas las zonas. Unas para ver, otras para moverte, otras para recordar.",
+  "s": 11.529,
+  "e": 20.199
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y una prueba más fácil: si tuvieras un noventa por ciento sin usar, una lesión pequeña no te haría nada. Y no es así: casi cualquier daño se nota.",
+  "s": 20.439,
+  "e": 30.979
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Además, el cerebro pesa más o menos un dos por ciento de tu cuerpo... y se lleva cerca del veinte por ciento de tu energía. Nadie gastaría tanto en algo que no usa.",
+  "s": 31.219,
+  "e": 41.847
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Ojo: nadie sabe bien de dónde salió el mito. Se le atribuye a Einstein... y no hay ninguna prueba de que lo dijera.",
+  "s": 42.087,
+  "e": 48.205
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "O sea: tu cerebro trabaja entero. Hasta cuando estás en el sofá. ¿Te lo creías? Sí o no.",
+  "s": 48.445,
+  "e": 55.308
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 55.548,
+  "e": 58.689
+ }
+]

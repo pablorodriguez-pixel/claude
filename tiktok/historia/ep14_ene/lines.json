@@ -1,0 +1,72 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La eñe nació porque unos monjes querían ahorrar!",
+  "s": 0.12,
+  "e": 3.21
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y en los noventa, Europa casi la saca de tu teclado.",
+  "s": 3.51,
+  "e": 6.685
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Edad Media. Los libros se copiaban a mano y el pergamino era carísimo. Así que los copistas abreviaban todo lo que podían.",
+  "s": 6.925,
+  "e": 14.674
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Si una letra iba doble, escribían solo una... con una rayita encima. Y la doble ene acabó siendo una ene con sombrero: la eñe.",
+  "s": 14.914,
+  "e": 25.137
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Por eso «año» viene del latín «annus». Con dos enes.",
+  "s": 25.377,
+  "e": 29.451
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y en mil novecientos noventa y uno, desde Europa se pidió que en España se pudieran vender teclados sin eñe. Se montó un escándalo nacional.",
+  "s": 29.691,
+  "e": 38.084
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Al final, una norma obligó a que los teclados que se venden en España la lleven. Hasta hoy.",
+  "s": 38.324,
+  "e": 42.718
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Ojo: esa rayita la usaban los copistas con muchas letras. Pero en castellano se quedó como letra propia.",
+  "s": 42.958,
+  "e": 49.719
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "O sea: la letra más española del abecedario... es un truco para ahorrar tinta. ¿Lo sabías? Sí o no.",
+  "s": 49.959,
+  "e": 58.193
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 58.433,
+  "e": 61.523
+ }
+]

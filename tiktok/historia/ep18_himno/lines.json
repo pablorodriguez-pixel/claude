@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El himno de España no tiene letra! Y no es un olvido.",
+  "s": 0.12,
+  "e": 4.016
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Es de los poquísimos himnos del mundo que no la tiene.",
+  "s": 4.316,
+  "e": 7.023
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Nació en el siglo dieciocho como marcha militar, la Marcha de Granaderos. Música para desfilar. Sin palabras.",
+  "s": 7.263,
+  "e": 13.891
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Con el tiempo se convirtió en la Marcha Real. Y le pusieron varias letras... pero ninguna oficial que durara.",
+  "s": 14.131,
+  "e": 21.272
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "En la dictadura se cantó una muy conocida. Con la democracia, dejó de usarse.",
+  "s": 21.512,
+  "e": 26.429
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y en dos mil siete se intentó otra vez: se presentó una letra nueva... y se retiró en pocos días por las críticas.",
+  "s": 26.669,
+  "e": 33.126
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Ojo: que no tenga letra oficial no significa que nadie la cante. Mucha gente tararea... o se inventa la suya.",
+  "s": 33.366,
+  "e": 40.083
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "O sea: cuando suena el himno y no sabes qué cantar, no es culpa tuya. ¿Lo sabías? Sí o no.",
+  "s": 40.323,
+  "e": 47.682
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 47.922,
+  "e": 51.751
+ }
+]

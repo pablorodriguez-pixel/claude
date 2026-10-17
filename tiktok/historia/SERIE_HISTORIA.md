@@ -64,3 +64,10 @@ el 2–4 % ve la tarjeta final.
 7. Duración objetivo 55–65 s.
 8. NADA DE CONTADORES que pasen por cifras intermedias (años, km, kg): el valor final aparece DIRECTO con golpe de sello en
    la palabra. Un fotograma con «1926» o «4.500 km» es un dato falso en pantalla (y puede ser la miniatura de alguien).
+
+## REGLAS v3 (datos del perfil: Napoleón 53 mil, OK 39 mil, Hora 12 mil, Semana 11 mil, Einstein 7,6 mil vs SOS/Vikingos/Muralla/Colón < 750)
+- TEMAS: cosas del día a día del espectador con historia oculta (palabras, letras, calendario, costumbres, su cuerpo, España). Nada de
+  «historia de otros» ni mitos ya muy desmontados en internet.
+- FOTOGRAMA 0 = PREGUNTA, NO RESPUESTA: el objeto grande + el planteamiento (p. ej. «SEPTIEMBRE = 7?» con un calendario en el 9) y algo
+  ya en MOVIMIENTO. El veredicto (sello) cae cuando la voz lo dice, nunca antes. No destripes el gancho en la portada.
+- La primera palabra de la voz es el tema (sin «Oye», «Que no», «Lo siento»).

@@ -1,0 +1,46 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.94
+]
+},
+"gap": 0.24,
+"inner_cap": 0.35,
+"lines": [
+{
+"who": "VECINO",
+"text": "¡Las uvas de Nochevieja empezaron como una burla!",
+"gap_after": 0.3
+},
+{
+"who": "VECINO",
+"text": "Y a lo mejor, la burla era de ti."
+},
+{
+"who": "VECINO",
+"text": "Madrid, años ochenta... del siglo diecinueve. Las familias ricas copiaban una moda francesa: cenar con champán y uvas en Nochevieja."
+},
+{
+"who": "VECINO",
+"text": "Y a la gente de la calle le pareció tan cursi que se fue a la Puerta del Sol a comerse las uvas con las campanadas. De cachondeo."
+},
+{
+"who": "VECINO",
+"text": "La broma gustó tanto... que se quedó."
+},
+{
+"who": "VECINO",
+"text": "Ojo: la historia que más se cuenta es otra. En mil novecientos nueve hubo una cosecha enorme en Alicante, y los agricultores la promocionaron para vender más uva. Eso ayudó a que se extendiera, pero la costumbre ya existía."
+},
+{
+"who": "VECINO",
+"text": "O sea: cada Nochevieja repites una broma de hace casi ciento cincuenta años. ¿Lo sabías? Sí o no."
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
+}
+]
+}

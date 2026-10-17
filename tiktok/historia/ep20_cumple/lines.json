@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Cantar Cumpleaños feliz podía costar dinero! Y así fue hasta dos mil dieciséis.",
+  "s": 0.12,
+  "e": 5.043
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y por eso en las películas casi nunca la cantaban.",
+  "s": 5.343,
+  "e": 8.39
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "La melodía es de finales del siglo diecinueve. La compusieron dos hermanas americanas para una canción de clase: Buenos días a todos.",
+  "s": 8.63,
+  "e": 16.449
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Con los años, la gente le cambió la letra a la del cumpleaños. Y una empresa acabó reclamando los derechos.",
+  "s": 16.689,
+  "e": 23.141
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Resultado: si salía en una película o en un anuncio, había que pagar. Algunas cadenas de restaurantes se inventaban su propia canción para no pagar.",
+  "s": 23.381,
+  "e": 31.875
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Hasta que en dos mil quince, un juez decidió que esos derechos no eran válidos. Y desde dos mil dieciséis, es de todos.",
+  "s": 32.115,
+  "e": 39.339
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Ojo: cantarla en tu casa nunca fue un problema. Lo que había que pagar era usarla en público o en negocios.",
+  "s": 39.579,
+  "e": 47.651
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "O sea: la canción más cantada del mundo... era de pago. ¿Lo sabías? Sí o no.",
+  "s": 47.891,
+  "e": 55.478
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 55.718,
+  "e": 59.273
+ }
+]

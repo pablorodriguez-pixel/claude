@@ -1,0 +1,58 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Tu pez no tiene memoria de tres segundos! Se acuerda de ti.",
+  "s": 0.12,
+  "e": 3.855
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y lo han demostrado con experimentos.",
+  "s": 4.155,
+  "e": 6.354
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Hay estudios en los que los peces aprenden a empujar una palanca para que les caiga comida. Y semanas después, se siguen acordando.",
+  "s": 6.594,
+  "e": 14.407
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Otros aprenden que un sonido significa comida. Y vuelven a acudir al oírlo, mucho tiempo después.",
+  "s": 14.647,
+  "e": 20.985
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Y si tienes uno en casa, lo has visto: se acerca al cristal cuando llegas a la hora de comer. Eso es memoria.",
+  "s": 21.225,
+  "e": 27.339
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Ojo: nadie sabe de dónde salió lo de los tres segundos. Simplemente se repitió tanto que parecía verdad.",
+  "s": 27.579,
+  "e": 34.289
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "O sea: tu pez sabe quién le da de comer. ¿Te lo creías? Sí o no.",
+  "s": 34.529,
+  "e": 40.788
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 41.028,
+  "e": 44.592
+ }
+]

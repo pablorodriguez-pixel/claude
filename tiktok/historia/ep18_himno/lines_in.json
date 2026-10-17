@@ -1,0 +1,50 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.94
+]
+},
+"gap": 0.24,
+"inner_cap": 0.35,
+"lines": [
+{
+"who": "VECINO",
+"text": "¡El himno de España no tiene letra! Y no es un olvido.",
+"gap_after": 0.3
+},
+{
+"who": "VECINO",
+"text": "Es de los poquísimos himnos del mundo que no la tiene."
+},
+{
+"who": "VECINO",
+"text": "Nació en el siglo dieciocho como marcha militar, la Marcha de Granaderos. Música para desfilar. Sin palabras."
+},
+{
+"who": "VECINO",
+"text": "Con el tiempo se convirtió en la Marcha Real. Y le pusieron varias letras... pero ninguna oficial que durara."
+},
+{
+"who": "VECINO",
+"text": "En la dictadura se cantó una muy conocida. Con la democracia, dejó de usarse."
+},
+{
+"who": "VECINO",
+"text": "Y en dos mil siete se intentó otra vez: se presentó una letra nueva... y se retiró en pocos días por las críticas."
+},
+{
+"who": "VECINO",
+"text": "Ojo: que no tenga letra oficial no significa que nadie la cante. Mucha gente tararea... o se inventa la suya."
+},
+{
+"who": "VECINO",
+"text": "O sea: cuando suena el himno y no sabes qué cantar, no es culpa tuya. ¿Lo sabías? Sí o no."
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
+}
+]
+}

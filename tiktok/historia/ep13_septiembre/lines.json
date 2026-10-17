@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Septiembre significa «séptimo»! Y es el mes nueve. Cuéntalos.",
+  "s": 0.12,
+  "e": 4.892
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Octubre, «octavo». Noviembre, «noveno». Diciembre, «décimo». Todos mal. Y no es un error: alguien movió el calendario.",
+  "s": 5.192,
+  "e": 12.979
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "El primer calendario romano empezaba en marzo. Marzo, uno. Abril, dos... y septiembre, el siete. Cuadraba perfecto.",
+  "s": 13.219,
+  "e": 21.758
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Luego añadieron enero y febrero. Y al final, el año pasó a empezar en enero. Todos los meses se corrieron dos puestos...",
+  "s": 21.998,
+  "e": 29.118
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "...pero nadie les cambió el nombre.",
+  "s": 29.358,
+  "e": 30.549
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y hay más: julio y agosto se llamaban «quinto» y «sexto». Los rebautizaron en honor a Julio César y a Augusto.",
+  "s": 30.789,
+  "e": 37.15
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Ojo: dicen que Augusto le quitó un día a febrero para que su mes no fuera más corto. Es un bulo. No hay ninguna prueba.",
+  "s": 37.39,
+  "e": 44.943
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "O sea: llevas toda la vida llamando «séptimo» al mes nueve. ¿Te habías dado cuenta? Sí o no.",
+  "s": 45.183,
+  "e": 51.441
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 51.681,
+  "e": 54.824
+ }
+]

@@ -1,0 +1,54 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.98
+]
+},
+"gap": 0.24,
+"inner_cap": 0.35,
+"lines": [
+{
+"who": "VECINO",
+"text": "¡Al toro le da igual el rojo! No lo distingue.",
+"gap_after": 0.3
+},
+{
+"who": "VECINO",
+"text": "Y la prueba la has visto mil veces sin darte cuenta."
+},
+{
+"who": "VECINO",
+"text": "Los toros ven pocos colores. No tienen receptores para el rojo, como algunas personas daltónicas. Para ellos, el rojo es un gris más."
+},
+{
+"who": "VECINO",
+"text": "¿Entonces por qué embisten? Por el movimiento. Van a por lo que se mueve."
+},
+{
+"who": "VECINO",
+"text": "Y aquí está la prueba: el capote, el de la primera parte de la corrida, es rosa y amarillo. Y el toro embiste igual."
+},
+{
+"who": "VECINO",
+"text": "Lo han probado con trapos de varios colores: el toro va a por el que se mueve. Sea del color que sea."
+},
+{
+"who": "VECINO",
+"text": "¿Y por qué la muleta es roja? Por tradición... y porque dicen que así se nota menos la sangre."
+},
+{
+"who": "VECINO",
+"text": "Ojo: el toro no es ciego. Ve, y el movimiento lo ve muy bien. Lo que no ve es el rojo."
+},
+{
+"who": "VECINO",
+"text": "O sea: el trapo rojo es para el público, no para el toro. ¿Te lo creías? Sí o no."
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
+}
+]
+}
