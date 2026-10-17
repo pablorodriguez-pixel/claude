@@ -3,11 +3,11 @@
   "VECINO": [
    "851ejYcv2BoNPjrkw93G",
    0.0,
-   0.96
+   1.0
   ]
  },
- "gap": 0.24,
- "inner_cap": 0.35,
+ "gap": 0.22,
+ "inner_cap": 0.3,
  "lines": [
   {
    "who": "VECINO",
