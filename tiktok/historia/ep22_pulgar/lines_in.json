@@ -1,0 +1,45 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "¡Pulgar abajo! Ningún romano te dijo que significara «mátalo»."
+  },
+  {
+   "who": "VECINO",
+   "text": "Eh, eh, no deslices. Que esto te lo han colado en todas las películas."
+  },
+  {
+   "who": "VECINO",
+   "text": "Los textos romanos hablan de pollice verso: pulgar girado. Pero no dicen hacia dónde."
+  },
+  {
+   "who": "VECINO",
+   "text": "El pulgar hacia abajo lo hizo famoso un cuadro de mil ochocientos setenta y dos. Y el cine lo copió."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A que ahora mismo estás mirando tu pulgar? Te he visto."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: nadie sabe qué gesto hacían de verdad. Unos dicen pulgar arriba; otros, pulgar escondido."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: ese pulgar tiene más de Hollywood que de Roma. ¿Qué película de romanos te has creído entera? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}

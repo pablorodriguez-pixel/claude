@@ -1,0 +1,37 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "¿Bien escrito sería AC? Daniela, has dado en el clavo."
+  },
+  {
+   "who": "VECINO",
+   "text": "O.K. venía de «oll korrect»: all correct, mal escrito a propósito. Bien escrito, sería A.C."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y no era la única broma de los periódicos. También escribían O.W.: «oll wright», o sea, all right."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y por qué ganó OK? Por una campaña: al candidato Van Buren le llamaban Old Kinderhook. O.K., otra vez."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: si lo hubieran escrito bien, hoy dirías «vale, AC». ¿Qué palabra quieres que investigue ahora? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}
