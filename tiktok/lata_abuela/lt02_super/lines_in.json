@@ -1,0 +1,54 @@
+{
+"voices": {
+"ABUELA": [
+"X1uEdaNgEu64cdmPhwUX",
+0.5,
+0.85
+]
+},
+"gap": 0.2,
+"inner_cap": 0.3,
+"lines": [
+{
+"who": "ABUELA",
+"text": "[excited] ¡Oye! ¡En el súper te están tomando el pelo! Y lo hacen a propósito."
+},
+{
+"who": "ABUELA",
+"text": "Te cuento tres trucos que usan contra ti... [mischievously] y el último te va a cabrear.",
+"gap_after": 0.25
+},
+{
+"who": "ABUELA",
+"text": "Aquí la abuela Carmen. ¡Abro la lata!"
+},
+{
+"who": "ABUELA",
+"text": "Uno. Lo que compras siempre, la leche, los huevos, el pan... suele estar al fondo. Para que cruces toda la tienda... y te caigan cosas en el carro."
+},
+{
+"who": "ABUELA",
+"text": "Dos. Lo más caro suele estar a la altura de tus ojos. Agáchate, cielo: lo barato vive en las baldas de abajo."
+},
+{
+"who": "ABUELA",
+"text": "Y espera, que el tres es el bueno."
+},
+{
+"who": "ABUELA",
+"text": "Y el tres. Los packs de ahorro... muchas veces no ahorran nada. Mira la etiqueta pequeñita: el precio por kilo o por litro. Es obligatorio que esté. Y ahí se ve la trampa."
+},
+{
+"who": "ABUELA",
+"text": "[mischievously] Y uno de regalo: la música. Con música lenta, la gente camina más despacio... y compra más. Lo midieron en un estudio."
+},
+{
+"who": "ABUELA",
+"text": "¿Cuál te ha pillado? ¿El uno, el dos o el tres?"
+},
+{
+"who": "ABUELA",
+"text": "Sígueme, que en esta lata hay muchos más... [chuckles] y yo me los sé todos."
+}
+]
+}

@@ -63,3 +63,16 @@ Los datos están en el guion; no añadas en pantalla cifras/nombres que no diga 
   Nº2 = una MANGA VERDE (Mangas verdes), Nº3 = una MONTAÑA con corona (Babia). El episodio N muestra bordadas las casillas 1..N-1 ya hechas,
   borda la N en ese momento (con aguja, sfx stitch) y deja el resto con «?».
 - Siempre `order` fijo en unravel (ver KIT.md).
+
+## CAMBIOS v2 (feedback del cliente) — PRIORITARIOS sobre lo anterior
+- NOMBRE NUEVO DEL CANAL: «POR ALGO SE DICE» (la abuela Remedios sigue siendo la protagonista). Todos los rótulos, logo y tarjeta final
+  con este nombre (el kit lo actualiza en marco.js: Marco.logo/endCard). Ya no se usa «ya lo decía la abuela».
+- MARCA (línea 2) ahora: "Soy la abuela Remedios, y esto... por algo se dice." — corta (~3 s): bastidor grande, guiño, y el nombre
+  «POR ALGO SE DICE» se borda de golpe (rápido) y se deshace con el hilo rojo. Nada de «siéntate conmigo».
+- CIERRE (última línea): "Y sígueme, cariño, que cada día te cuento otro... porque por algo se dice." → botón + SEGUIR + dechado-colección
+  + tarjeta final con el logo nuevo.
+- CTA penúltima línea: "Dime sí o no" → dos botones bordados GIGANTES SÍ / NO (en Mangas: etiquetar a alguien).
+- MÁS DINÁMICO: voz nueva más rápida y con chispa (≈165 ppm). Cortes cada ~1 s, punch-ins más agresivos (1→1,12), transiciones más
+  rápidas (0,25 s), puntadas más rápidas (stitchIn ≤0,5 s salvo el gancho), menos tiempo de bastidor grande, más planos con personajes.
+- FOTOGRAMA 1 = PORTADA: el refrán/afirmación ya legible en grande (3–6 palabras) + veredicto rojo (sello «¡MAL!», «¡EXISTE!», «?»).
+  No empieces con la tela vacía.

@@ -1,4 +1,4 @@
-# KIT VISUAL — «Ya lo decía la abuela»
+# KIT VISUAL — «Por algo se dice» (con la abuela Remedios)
 
 Todo es **punto de cruz bordado sobre tela Aida**, como los dechados de casa de la abuela.
 El kit es JS puro (sin dependencias ni red) y **determinista**: todo se calcula a partir de `t`, y el azar
@@ -13,7 +13,8 @@ prod/abuela_kit/
   demo/index.html   demo de 12 s (renderizable: node ../engine/render.js $PWD/demo video)
   demo.html         la misma demo, abrible desde la raíz del kit
   logo_avatar.png   avatar 1080x1080 (exportado de logo/index.html)
-  logo/             página del logo + previsualización circular (preview.jpg)
+  logo/             página del logo + previsualización circular a 300/160/110 px (preview.jpg)
+  perfil.html       maqueta del perfil de TikTok (@poralgosedice) → perfil.png; portadas en perfil/
   lab/              hoja de estados de la abuela
   galeria/          galería de mercería, parches y telas (t<2) y tarjeta final (t>2)
 ```
@@ -137,7 +138,7 @@ usa una curva lenta-rápida (`E.inOutCubic`) y un primer tramo muy lento (el tir
 ### Fuente bordada (bitmap 5x7)
 `Stitch.textSprite(str, opt)` → Sprite. Mayúsculas, minúsculas (con descendentes), números, `ÁÉÍÓÚÜÑ áéíóúüñ`,
 `¿? ¡! « » . , : ; - ' " ( ) / % € + = … ♥ *`. `'\n'` para varias líneas.
-`opt`: `{ cell, color, shadowColor (sombra desplazada 1 celda), colors:[por línea], bold, spacing:1, lineGap:1,
+`opt`: `{ cell, px (escala entera: 2 = cada píxel del glifo son 2x2 puntadas; letra grande y fina, la más legible), color, shadowColor (sombra desplazada 1 celda), colors:[por línea], bold, spacing:1, lineGap:1,
 align:'center'|'left'|'right', pad, seed, tails:1, outline }`.
 `Stitch.textWidth(str, opt)` da el ancho en celdas (para elegir `cell`: ancho px = celdas × cell).
 Referencia de legibilidad en móvil: cell ≥ 10 para rótulos, 18–24 para titulares (12 letras ≈ 66 celdas).
@@ -192,7 +193,7 @@ Cada combinación se construye y cachea una sola vez. Ayudas: `Abuela.grip(x, y,
 `Marco.patch(g, cx, cy, texto, o)` — parche con **borde satén festoneado**, pespunte interior y texto en punto de cruz.
 `o: { k (0..1: 0–0,18 aparece con rebote · 0,12–0,6 se cose el festón con aguja · 0,5–1 se borda el texto),
 color, border, textColor (auto: granate sobre claro, blanco sobre oscuro), shadowColor (null = sin sombra), cell (12), bold,
-pad (2), shape:'rect'|'circle', radius, w, h, rot, scale, t, needle }`. Terminado (k=1) se cachea.
+pad (2), shape:'rect'|'circle'|'bubble' (bocadillo: tail, tailX, tailW, tailLean), radius, w, h, rot, scale, t, needle }`. Terminado (k=1) se cachea.
 `Marco.patchSize(texto, o)` → `{w,h}`.
 
 Combinaciones de la serie:
@@ -219,9 +220,13 @@ Marco.patch(g, x, y, 'DE\nVERDAD', { k, t, cell: 10, color: T.rojo, border: '#FF
 (canalé; `o.color` mostaza), `'aida'`, `'lino'`. Para un golpe: cortina (`clip` de un rect que crece) o corte seco.
 
 ### Logo y tarjeta final
-- `Marco.logo(g, cx, cy, size, {k, t, state, fabric, ribbon})` — la abuela en su bastidor + cinta bordada
-  «ya lo decía / la abuela». `k` anima la entrada (bastidor con rebote, la cinta se cose).
-- `Marco.logoCanvas(px, o)` — logo cuadrado sobre vichy (lo que exporta `logo_avatar.png`).
+- `Marco.logo(g, cx, cy, size, {k, t, state, fabric, lines, bubble, border, ink, pull})` — LOGO «POR ALGO SE DICE»:
+  la abuela guiñando en su bastidor (sujeta el hilo rojo con el puño), bocadillo bordado con «POR ALGO / SE DICE» en letra
+  grande (`textSprite` con `px:2`), comillas « » gigantes de punto de cruz y el hilo rojo tirando de la última letra.
+  `size` = lado del cuadrado que ocupa, `(cx,cy)` su centro. `k` anima la entrada: bastidor con rebote (0–0,3), se cose el
+  bocadillo (0,15–0,6), se borda el nombre (0,4–0,8), entran las comillas y el hilo empieza a tirar (0,8–1).
+  `lines` (por defecto `['POR ALGO','SE DICE']`), `pull` (0..1, cuánto se deshace la última letra; 0,1).
+- `Marco.logoCanvas(px, o)` — logo cuadrado sobre vichy (lo que exporta `logo_avatar.png`; legible a 110 px).
 - `Marco.endCard(g, k, {t, title, date:'16/10/2026', bg:'vichy', state})` — tarjeta final 1080x1920:
   logo + parche con el título del episodio + fecha, con ovillo, acerico y dedal. Dale ~1,5 s de `k` y déjala ~3 s.
 
@@ -240,7 +245,7 @@ Regenerar el avatar: abre `logo/index.html` y ejecuta `LOGO_PNG()` (data URL), o
 5. Zonas seguras TikTok (x 60–940, y 170–1300); la mercería decorativa puede vivir abajo y en los bordes.
 6. Rendimiento medido: la demo completa (12 s, 360 fotogramas) se renderiza en ~1 min.
 
-## 6. Paleta y tono
+## 6. Paleta y tono (canal «Por algo se dice»)
 Tela crema `#F3EBDD`; hilos de la paleta de arriba; granate de la rebeca `#7A1F2B`; rojo del hilo `#C8102E`.
 Los titulares van en hilo rojo con sombra granate; los rótulos, en parches. La abuela: dulce, vivaracha y pícara
 (guiño, gafas bajadas, ceja escéptica, risa) — nunca frágil.

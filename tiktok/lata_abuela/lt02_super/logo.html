@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Logo lata de la abuela</title><link rel="stylesheet" href="base.css">
+<style>html,body{width:1080px;height:1080px}#stage{width:1080px;height:1080px;background:radial-gradient(ellipse at 50% 42%,#3260bd 0%,#1F3C88 55%,#11275c 100%)}#stage svg *{transform-origin:0 0}</style></head>
+<body><div id="stage"></div><script src="art.js"></script><script>
+const S=document.getElementById('stage');S.insertAdjacentHTML('beforeend',A.defs);
+const d=document.createElement('div');d.style.cssText='position:absolute;left:40px;top:40px;width:1000px;height:1000px';d.innerHTML=A.lidFace({id:'lg'}).replace('width="900" height="900"','width="1000" height="1000"');S.appendChild(d);
+const g=document.createElement('div');g.style.cssText='position:absolute;left:340px;top:280px;width:400px;height:480px;transform:scale(1.12);transform-origin:200px 240px';g.innerHTML=A.granny();S.appendChild(g);
+document.getElementById('gMouthO').style.opacity=0;document.getElementById('gMouthD').style.opacity=0;
+document.fonts.ready.then(()=>window.ready=true);
+</script></body></html>

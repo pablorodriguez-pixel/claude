@@ -1,4 +1,4 @@
-/* stitch.js — motor de PUNTO DE CRUZ sobre <canvas> para «Ya lo decía la abuela».
+/* stitch.js — motor de PUNTO DE CRUZ sobre <canvas> para «Por algo se dice».
    JS puro, sin dependencias, determinista (todo sembrado). Ver KIT.md.
    Globales: window.Stitch = { Sprite, textSprite, textRows, FONT, fabric, drawFabric, drawThread,
              rng, hash, mix, shade, wiggle, bounce, THREADS, needle } */
@@ -749,7 +749,7 @@
   }
   function glyph(ch) { return FONT[ch] || FONT[ch.toUpperCase()] || FONT['?']; }
   /* textRows(str, o) → {rows, w, h}
-     o: { ch='x' (carácter de color), spacing=1, lineGap=1, align='center', bold=false, shadow:null|'s' (carácter sombra),
+     o: { px=1 (escala entera del glifo: 2 = cada píxel son 2x2 puntadas), ch='x' (carácter de color), spacing=1, lineGap=1, align='center', bold=false, shadow:null|'s' (carácter sombra),
           shadowOff:[1,1], pad=0 }  — admite '\n' para varias líneas */
   function textRows(str, o = {}) {
     const ch = o.ch || 'x', sp = o.spacing == null ? 1 : o.spacing, gap = o.lineGap == null ? 1 : o.lineGap;
@@ -771,14 +771,19 @@
       });
       return { m, W, H, top };
     });
-    const W = Math.max(...built.map(b => b.W));
+    const W0 = Math.max(...built.map(b => b.W));
     const sh = o.shadow ? 1 : 0, pad = o.pad || 0;
-    const rows = [];
+    let rows = [];
+    const W1 = W0;
     built.forEach((b, li) => {
-      const off = o.align === 'left' ? 0 : o.align === 'right' ? W - b.W : Math.floor((W - b.W) / 2);
-      b.m.forEach(r => rows.push('.'.repeat(off) + r.join('') + '.'.repeat(W - b.W - off)));
-      if (li < built.length - 1) for (let k = 0; k < gap; k++) rows.push('.'.repeat(W));
+      const off = o.align === 'left' ? 0 : o.align === 'right' ? W1 - b.W : Math.floor((W1 - b.W) / 2);
+      b.m.forEach(r => rows.push('.'.repeat(off) + r.join('') + '.'.repeat(W1 - b.W - off)));
+      if (li < built.length - 1) for (let k = 0; k < gap; k++) rows.push('.'.repeat(W1));
     });
+    // o.px: cada píxel del glifo = px×px puntadas (letra grande con trama fina, como los dechados)
+    const PX = Math.max(1, Math.round(o.px || 1));
+    if (PX > 1) rows = rows.flatMap(r => { const e = [...r].map(c => c.repeat(PX)).join(''); return Array(PX).fill(e); });
+    const W = W1 * PX;
     let out = rows.map(r => r + '.'.repeat(sh));
     if (sh) {
       out.push('.'.repeat(W + 1));

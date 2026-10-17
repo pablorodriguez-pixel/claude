@@ -1,39 +1,39 @@
 {
 "voices": {
 "ABUELA": [
-"SKbCgDqGnOUqYJVHSd1s",
+"X1uEdaNgEu64cdmPhwUX",
 0.5,
-1.1
+0.85
 ]
 },
-"gap": 0.26,
-"inner_cap": 0.32,
+"gap": 0.22,
+"inner_cap": 0.3,
 "lines": [
 {
 "who": "ABUELA",
-"text": "[amused] ¡Ay, que estar en Babia existe! ¡Es un sitio de verdad, criatura! Y puedes ir."
+"text": "[excited] ¡Que estar en Babia existe! ¡Es un sitio de verdad! Y puedes ir."
 },
 {
 "who": "ABUELA",
 "text": "Y no es un sitio cualquiera: era donde se iban los reyes a desconectar.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "ABUELA",
-"text": "[warmly] ¡Hola, cariño! Soy la abuela Remedios. Ven, siéntate aquí conmigo, corazón... que vamos a tirar del hilo.",
-"gap_after": 0.35
+"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
+"gap_after": 0.3
 },
 {
 "who": "ABUELA",
-"text": "Mira. Babia es una comarca de montaña, en el norte de León."
+"text": "Babia es una comarca de montaña, en el norte de León."
 },
 {
 "who": "ABUELA",
-"text": "En la Edad Media, los reyes de León se iban allí a descansar y a cazar. [sighs] Lejos de la corte... y de los problemas."
+"text": "En la Edad Media, los reyes de León se iban allí a descansar y a cazar. Lejos de la corte... y de los problemas."
 },
 {
 "who": "ABUELA",
-"text": "Y cuando en palacio alguien preguntaba por el rey, para algún asunto importante, le contestaban: [chuckles] el rey está en Babia."
+"text": "Y cuando en palacio alguien preguntaba por el rey, le contestaban: el rey está en Babia."
 },
 {
 "who": "ABUELA",
@@ -41,23 +41,23 @@
 },
 {
 "who": "ABUELA",
-"text": "Y de ahí, estar en Babia: estar distraído, en las nubes. Como tú cuando te hablo, ¿eh?"
+"text": "Y de ahí, estar en Babia: estar en las nubes. [mischievously] Como tú cuando te hablo, ¿eh?"
 },
 {
 "who": "ABUELA",
-"text": "[softly] Ojo, que es la explicación más aceptada. Pero, como todo lo que pasó hace tantos siglos, tiene su parte de leyenda."
+"text": "Ojo, que es la explicación más aceptada, pero tiene su parte de leyenda."
 },
 {
 "who": "ABUELA",
-"text": "Hoy Babia es reserva de la biosfera. Así que, si alguien te dice que estás en Babia... [chuckles] tú le contestas: ¡ojalá!"
+"text": "Hoy Babia es reserva de la biosfera. Así que si alguien te dice que estás en Babia... tú contestas: [laughs] ¡ojalá!"
 },
 {
 "who": "ABUELA",
-"text": "¿Cuándo fue la última vez que estuviste en Babia? Cuéntamelo, que te leo."
+"text": "¿Tú sabías que existía? Dime sí o no."
 },
 {
 "who": "ABUELA",
-"text": "Anda, corazón, sígueme, que cada día te desenredo un refrán nuevo... [chuckles] y apúntatelo, que luego se te olvida."
+"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
 }
 ]
 }

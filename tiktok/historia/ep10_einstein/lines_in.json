@@ -1,0 +1,63 @@
+{
+"voices": {
+"VECINO": [
+"851ejYcv2BoNPjrkw93G",
+0.0,
+0.98
+]
+},
+"gap": 0.28,
+"inner_cap": 0.4,
+"lines": [
+{
+"who": "VECINO",
+"text": "[excited] ¡Que no, que no! ¡Einstein nunca suspendió matemáticas! Te lo han colado toda la vida."
+},
+{
+"who": "VECINO",
+"text": "Y él mismo lo desmintió.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "Soy tu vecino, y esto no venía en el libro.",
+"gap_after": 0.35
+},
+{
+"who": "VECINO",
+"text": "¿Entonces de dónde sale el bulo? De dos cosas."
+},
+{
+"who": "VECINO",
+"text": "Una: un periódico. En mil novecientos treinta y cinco, una sección de curiosidades, Aunque usted no lo crea, publicó que el mayor genio del mundo había suspendido matemáticas."
+},
+{
+"who": "VECINO",
+"text": "Einstein lo leyó y contestó: nunca suspendí en matemáticas. Antes de los quince años ya dominaba el cálculo."
+},
+{
+"who": "VECINO",
+"text": "Dos: un examen de verdad. Con dieciséis años, dos menos de lo normal, se presentó al acceso del Politécnico de Zúrich... y suspendió."
+},
+{
+"who": "VECINO",
+"text": "Pero en matemáticas y física, notazas. Lo que le falló fue lo demás. Por ejemplo... el francés."
+},
+{
+"who": "VECINO",
+"text": "Ojo: hay quien dice que en su colegio el seis era la nota más alta, y que alguien lo confundió con un suspenso. Pero eso no está demostrado."
+},
+{
+"who": "VECINO",
+"text": "O sea: el genio no suspendía matemáticas. Suspendía francés."
+},
+{
+"who": "VECINO",
+"text": "¿Tú también te lo habías creído? Dime sí o no."
+},
+{
+"who": "VECINO",
+"text": "[mischievously] Y esto... no venía en el libro."
+}
+]
+}

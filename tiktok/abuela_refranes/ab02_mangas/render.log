@@ -1,11 +1,10 @@
-ab02_mangas 0 / 2422
-ab02_mangas 300 / 2422
-ab02_mangas 600 / 2422
-ab02_mangas 900 / 2422
-ab02_mangas 1200 / 2422
-ab02_mangas 1500 / 2422
-ab02_mangas 1800 / 2422
-ab02_mangas 2100 / 2422
-ab02_mangas 2400 / 2422
-duracion 80.708
-done
+ab02_mangas 0 / 1887
+ab02_mangas 300 / 1887
+ab02_mangas 600 / 1887
+ab02_mangas 900 / 1887
+ab02_mangas 1200 / 1887
+ab02_mangas 1500 / 1887
+ab02_mangas 1800 / 1887
+duracion 62.876000000000005
+ok /tmp/claude-0/-home-user/e7509651-8a9e-5b92-be7f-f416fbb7d9dc/scratchpad/prod/ab02_mangas/final.mp4 {'final_LUFS': -14.0, 'voz_LUFS': -16.0, 'musica_bajo_voz_LU': -20.0, 'ducking_dB': -9.0, 'SNR_voz_musica_dB': 28.3, 'pico_dBFS': -2.7}
+EXIT 0

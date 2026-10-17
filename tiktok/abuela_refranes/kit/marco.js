@@ -1,4 +1,4 @@
-/* marco.js — BASTIDOR, PARCHES, MERCERÍA, TELAS y LOGO de «Ya lo decía la abuela».
+/* marco.js — BASTIDOR, PARCHES, MERCERÍA, TELAS y LOGO de «Por algo se dice».
    Requiere stitch.js (y abuela.js para abuelaHoop / logo / endCard). Global: window.Marco
    Todo determinista; lo estático se cachea en canvas offscreen. Ver KIT.md. */
 (function () {
@@ -180,13 +180,18 @@
   }
 
   // ================================================================== PARCHE BORDADO (borde satén festoneado)
-  function shapePoly(shape, w, h, rad) {
+  function shapePoly(shape, w, h, rad, o = {}) {
     const pts = [];
     if (shape === 'circle') { const R = Math.max(w, h) / 2; for (let i = 0; i <= 200; i++) { const a = -PI / 2 + i / 200 * PI * 2; pts.push([Math.cos(a) * R, Math.sin(a) * R]); } return pts; }
     const x0 = -w / 2, y0 = -h / 2, r = Math.min(rad, w / 2, h / 2);
     const arc = (cx, cy, a0) => { for (let i = 0; i <= 12; i++) { const a = a0 + i / 12 * PI / 2; pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); } };
+    // bocadillo: rabito en el borde superior (o.tail = alto px, o.tailX = desplazamiento desde el centro)
+    const bub = shape === 'bubble', th = o.tail == null ? h * 0.24 : o.tail, tw = o.tailW || Math.min(w, h) * 0.12, tx = o.tailX || 0;
+    const tailPts = () => [[tx - tw, y0], [tx + (o.tailLean == null ? tw * 0.4 : o.tailLean), y0 - th], [tx + tw, y0]];
     pts.push([0, y0]);
+    if (bub && tx >= 0) pts.push(...tailPts());
     arc(x0 + w - r, y0 + r, -PI / 2); arc(x0 + w - r, y0 + h - r, 0); arc(x0 + r, y0 + h - r, PI / 2); arc(x0 + r, y0 + r, PI);
+    if (bub && tx < 0) pts.push(...tailPts());
     pts.push([0, y0]);
     return pts;
   }
@@ -228,7 +233,7 @@
     if (o.shape === 'circle') { const d = Math.max(w, h) * 1.05; w = d; h = d; }
     w = o.w || w; h = o.h || h;
     const rad = o.radius == null ? Math.min(w, h) * 0.22 : o.radius;
-    const poly = shapePoly(o.shape, w, h, rad);
+    const poly = shapePoly(o.shape, w, h, rad, o);
     const edge = resample(poly, bw * 0.3);
     return { spr, cell, bw, w, h, rad, poly, edge };
   }
@@ -291,7 +296,7 @@
     const s = (o.scale == null ? 1 : o.scale) * (0.55 + 0.45 * pop);
     g.scale(s, s);
     if (k >= 1) {
-      const key = 'patch|' + text + '|' + JSON.stringify([o.color, o.border, o.textColor, o.shadowColor, o.cell, o.pad, o.shape, o.w, o.h, o.radius, o.bold]);
+      const key = 'patch|' + text + '|' + JSON.stringify([o.color, o.border, o.textColor, o.shadowColor, o.cell, o.pad, o.shape, o.w, o.h, o.radius, o.bold, o.tail, o.tailX, o.tailW, o.tailLean]);
       const P = Math.ceil(G.bw * 4);
       const c = cached(key, () => { const c = mk(G.w + P * 2, G.h + P * 2), gg = c.getContext('2d'); gg.translate(c.width / 2, c.height / 2); patchBody(gg, G, Object.assign({}, o, { needle: false }), 1, 0, 1); return c; });
       g.drawImage(c, -c.width / 2, -c.height / 2);
@@ -560,21 +565,88 @@
   function drawBg(g, kind, x = 0, y = 0, w = 1080, h = 1920, o = {}) { g.drawImage(bg(kind, w, h, o), x, y); }
 
   // ================================================================== LOGO y TARJETA FINAL
-  /* logo(g, cx, cy, size, o) — LOGO «ya lo decía la abuela»: la abuela en su bastidor + cinta bordada.
-     size = diámetro aprox. del conjunto. o: { state (estado de la abuela), k (0..1 entrada), t, fabric } */
-  function logo(g, cx, cy, size, o = {}) {
-    const k = o.k == null ? 1 : clamp(o.k), t = o.t || 0;
-    const R = Math.round(size * 0.4);
-    const pop = E.outBack(seg(k, 0, 0.35));
-    const st = Object.assign({ mouth: 'smile' }, o.state || {});
-    if (k > 0) abuelaHoop(g, cx, cy - size * 0.04, R, st, { t, scale: 0.3 + 0.7 * pop, rot: (1 - pop) * -0.3, fabric: o.fabric || 'crema', skirt: o.skirt !== false });
-    const cell = Math.max(4, Math.round(size / 92));
-    patch(g, cx, cy + size * 0.33, 'ya lo decía\nla abuela', { k: seg(k, 0.25, 1), t, cell, pad: 1, color: o.ribbon || THREADS.rojo, border: o.ribbonBorder || '#FFFFFF', textColor: '#FFFFFF', shadowColor: THREADS.granate, rot: -0.04, radius: cell * 2.5 });
+  /* logo(g, cx, cy, size, o) — LOGO «POR ALGO SE DICE»: la abuela guiñando en su bastidor, un bocadillo bordado
+     con el nombre en letra gruesa, comillas «» gigantes (los refranes son citas) y el hilo rojo que tira de la última letra.
+     size = lado del cuadrado que ocupa (≈ el diámetro útil). (cx,cy) = centro de ese cuadrado.
+     o: { k (0..1 entrada), t, state (estado de la abuela; por defecto guiño + puño con el hilo), fabric,
+          lines (['POR ALGO','SE DICE']), bubble ('#FBF6EE'), border (granate), ink (rojo), quotes (marino), pull (0..1, cuánto se deshace la última letra) } */
+  const LOGO_SPR = new Map();
+  function logoSprites(cell, lines, ink) {
+    const key = cell + '|' + lines.join('/') + '|' + ink;
+    if (!LOGO_SPR.has(key)) {
+      const opt = { cell, color: ink, shadowColor: THREADS.granate, px: 2, tails: 0 };
+      const l1 = S.textSprite(lines[0], Object.assign({ seed: 11 }, opt));
+      const head = lines[1].slice(0, -1), last = lines[1].slice(-1);
+      const l2 = S.textSprite(head, Object.assign({ seed: 12 }, opt));
+      const l3 = S.textSprite(last, Object.assign({ seed: 13 }, opt));
+      const qc = Math.max(3, Math.round(cell * 1.15));
+      const QL = ['...##...##', '..##...##.', '.##...##..', '##...##...', '.##...##..', '..##...##.', '...##...##'];
+      const qo = { cell: qc * 2, tails: 0, outline: 'outer', outlineColor: '#FFFFFF' };
+      const q1 = new S.Sprite(QL.map(r => r.replace(/#/g, 'q')), { q: THREADS.marino }, Object.assign({ seed: 21 }, qo));
+      const q2 = new S.Sprite(QL.map(r => [...r.replace(/#/g, 'q')].reverse().join('')), { q: THREADS.marino }, Object.assign({ seed: 22 }, qo));
+      LOGO_SPR.set(key, { l1, l2, l3, q1, q2, qc, gapCells: S.textWidth(' ', { bold: true }) + 1 });
+    }
+    return LOGO_SPR.get(key);
   }
+  function logo(g, cx, cy, size, o = {}) {
+    const k = o.k == null ? 1 : clamp(o.k), t = o.t || 0, u = size / 1080;
+    if (k <= 0) return;
+    const lines = o.lines || ['POR ALGO', 'SE DICE'];
+    const ink = o.ink || THREADS.rojo;
+    // --- la abuela en su bastidor (arriba)
+    const R = Math.round(172 * u), hx = cx + 12 * u, hy = cy - 318 * u;
+    const pop = E.outBack(seg(k, 0, 0.3));
+    const st = Object.assign({ mouth: 'smile', wink: true, hand: 'thread' }, o.state || {});
+    if (!st.hand) st.hand = 'thread';
+    const ab = abuelaHoop(g, hx, hy, R, st, { t, scale: 0.3 + 0.7 * pop, rot: (1 - pop) * -0.3, fabric: o.fabric || 'crema', skirt: o.skirt !== false });
+    // --- bocadillo bordado con el nombre
+    const cell = Math.max(2, Math.round(9 * u));
+    const L = logoSprites(cell, lines, ink);
+    const W2 = L.l2.w + L.gapCells * 0 + L.l3.w; // la última letra va pegada (con su separación de 1 celda)
+    const tw = Math.max(L.l1.w, L.l2.w + L.l3.w);
+    const bw = Math.round(tw * cell + 40 * u + 36 * u), bh = Math.round((L.l1.h + L.l2.h + 2) * cell + 36 * u + 36 * u);
+    const by = cy + 95 * u, bx = cx;
+    const bk = seg(k, 0.15, 0.6);
+    patch(g, bx, by, ' ', { k: bk, t, cell, w: bw, h: bh, shape: 'bubble', tail: 78 * u, tailX: -70 * u, tailW: 40 * u, tailLean: -6 * u,
+      radius: 64 * u, color: o.bubble || '#FBF6EE', border: o.border || THREADS.granate, needle: false });
+    // texto (alineado a la rejilla del bocadillo: el centro cae en un punto de la rejilla)
+    const pk = E.outBack(seg(k, 0.15, 0.33)), ps = 0.55 + 0.45 * pk;
+    const tk = seg(k, 0.4, 0.8);
+    g.save(); g.translate(bx, by); g.scale(ps, ps);
+    const totH = L.l1.h + 2 + L.l2.h;
+    const x1 = -Math.round(L.l1.w / 2) * cell, y1 = -Math.round(totH / 2) * cell;
+    const x2 = -Math.round((L.l2.w + L.l3.w) / 2) * cell, y2 = y1 + (L.l1.h + 2) * cell;
+    const x3 = x2 + L.l2.w * cell;
+    const n1 = L.l1.cells.length, n2 = L.l2.cells.length + L.l3.cells.length, kk = tk * (n1 + n2);
+    if (tk > 0) {
+      L.l1.stitchIn(g, x1, y1, clamp(kk / n1), { order: 'cols' });
+      if (kk > n1) {
+        const k2 = clamp((kk - n1) / n2);
+        L.l2.stitchIn(g, x2, y2, clamp(k2 * n2 / L.l2.cells.length), { order: 'cols' });
+        const k3 = clamp((k2 * n2 - L.l2.cells.length) / L.l3.cells.length);
+        if (k3 >= 1) { if (k < 0.8) L.l3.draw(g, x3, y3(y2)); }
+        else if (k3 > 0) L.l3.stitchIn(g, x3, y3(y2), k3, { order: 'cols' });
+      }
+    }
+    g.restore();
+    // --- comillas gigantes « »
+    const qk1 = E.outBack(seg(k, 0.55, 0.72)), qk2 = E.outBack(seg(k, 0.62, 0.8));
+    const qs = L.qc;
+    if (qk1 > 0) L.q1.draw(g, bx - bw / 2 + 30 * u, by - bh / 2 - 20 * u, { anchor: [0.5, 0.5], scale: qk1, rot: -0.12 });
+    if (qk2 > 0) L.q2.draw(g, bx + bw / 2 - 30 * u, by + bh / 2 + 10 * u, { anchor: [0.5, 0.5], scale: qk2, rot: -0.12 });
+    // --- el hilo rojo tira de la última letra (la abuela lo sujeta)
+    if (k >= 0.8) {
+      const pull = (o.pull == null ? 0.1 : o.pull) * E.outCubic(seg(k, 0.8, 1));
+      // la letra se dibuja encima con unravel (en coordenadas de mundo)
+      const lx = bx + x3 * ps, ly = by + y3(y2) * ps;
+      L.l3.unravel(g, lx, ly, Math.max(0.0001, pull), { t, to: ab.grip, scale: ps, order: { type: 'path', from: [99, 99] }, keepThread: true, showAt0: true, slack: 0.7, width: Math.max(3, 9 * u), fluff: u > 0.5 });
+    }
+  }
+  const y3 = y2 => y2;
   function logoCanvas(px = 1080, o = {}) {
     const c = mk(px, px), g = c.getContext('2d');
     drawBg(g, o.bg || 'vichy', 0, 0, px, px, { size: Math.round(px / 17) });
-    logo(g, px / 2, px * 0.475, px * 0.9, Object.assign({ state: { mouth: 'smile', wink: true } }, o));
+    logo(g, px / 2, px * 0.555, px, o);
     return c;
   }
   /* endCard(g, k, o) — TARJETA FINAL vertical 1080x1920.
@@ -586,7 +658,7 @@
     yarn(g, 150, 1560, 120, { color: THREADS.rojo, rot: 0.3, end: [[300, 1650], [520, 1600], [700, 1700]] });
     pincushion(g, 890, 1580, 200, {});
     thimble(g, 820, 210, 110, { rot: 0.25 });
-    logo(g, 540, 640, 860, { k: seg(k, 0, 0.55), t, state: o.state });
+    logo(g, 540, 615, 1000, { k: seg(k, 0, 0.55), t, state: o.state, lines: o.lines });
     const title = o.title || 'QUIEN SE FUE\nA SEVILLA';
     patch(g, 540, 1180, title, { k: seg(k, 0.35, 0.9), t, cell: 12, color: '#FBF6EE', border: THREADS.marino, textColor: THREADS.rojo, shadowColor: THREADS.granate, rot: 0.03 });
     const date = o.date || '16/10/2026';

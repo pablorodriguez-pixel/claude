@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El símbolo que escribes en cada email... servía para pesar trigo!",
+  "s": 0.12,
+  "e": 4.42
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Hablo de la arroba. Y es española.",
+  "s": 4.7,
+  "e": 6.817
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 7.167,
+  "e": 9.775
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "La arroba era una medida de peso: unos once kilos y medio. Viene del árabe, y significa la cuarta parte.",
+  "s": 10.125,
+  "e": 16.824
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Los mercaderes, para ir más rápido, la abreviaban así: una a con un rabito alrededor.",
+  "s": 17.104,
+  "e": 21.744
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "El registro más antiguo que se conoce en España es de mil cuatrocientos cuarenta y ocho, en Aragón: arrobas de trigo.",
+  "s": 22.024,
+  "e": 28.457
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y en mil quinientos treinta y seis, un comerciante escribía desde Sevilla usando la arroba para contar vino.",
+  "s": 28.737,
+  "e": 34.523
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "El símbolo sobrevivió en el comercio... y llegó al teclado de las máquinas de escribir.",
+  "s": 34.803,
+  "e": 39.527
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y en mil novecientos setenta y uno, Ray Tomlinson mandó el primer correo electrónico. Necesitaba un símbolo que nadie usara en los nombres... y eligió la arroba.",
+  "s": 39.807,
+  "e": 49.751
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: el origen exacto del símbolo se discute. Pero en España, en el siglo quince, la arroba ya pesaba trigo.",
+  "s": 50.031,
+  "e": 58.266
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: tu correo lleva dentro un saco de once kilos.",
+  "s": 58.546,
+  "e": 62.446
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Lo sabías? Dime sí o no.",
+  "s": 62.726,
+  "e": 64.837
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 65.117,
+  "e": 67.76
+ }
+]

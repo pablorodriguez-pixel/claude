@@ -1,39 +1,39 @@
 {
 "voices": {
 "ABUELA": [
-"SKbCgDqGnOUqYJVHSd1s",
+"X1uEdaNgEu64cdmPhwUX",
 0.5,
-1.08
+0.85
 ]
 },
-"gap": 0.26,
-"inner_cap": 0.32,
+"gap": 0.22,
+"inner_cap": 0.3,
 "lines": [
 {
 "who": "ABUELA",
-"text": "[amused] ¡Ay, criatura! ¡Llevas toda la vida diciendo mal este refrán! Quien se fue a Sevilla, perdió su silla..."
+"text": "[excited] ¡Oye! ¡Llevas toda la vida diciendo mal este refrán! Quien se fue a Sevilla, perdió su silla."
 },
 {
 "who": "ABUELA",
-"text": "[tenderly] Pues no era «a» Sevilla, cariño. Era «de» Sevilla.",
-"gap_after": 0.35
+"text": "Pues no era «a» Sevilla. ¡Era «de» Sevilla!",
+"gap_after": 0.3
 },
 {
 "who": "ABUELA",
-"text": "[warmly] ¡Hola, cariño! Soy la abuela Remedios. Ven, siéntate aquí conmigo, corazón... que vamos a tirar del hilo.",
-"gap_after": 0.35
+"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
+"gap_after": 0.3
 },
 {
 "who": "ABUELA",
-"text": "Mira. Siglo quince. El arzobispo de Sevilla se llamaba Alonso de Fonseca. Y tenía un sobrino, arzobispo de Santiago... [chuckles] que también se llamaba Alonso de Fonseca. Para que no os liéis, ¿eh?"
+"text": "Siglo quince. El arzobispo de Sevilla se llamaba Alonso de Fonseca. Y su sobrino, arzobispo de Santiago... también Alonso de Fonseca. [chuckles] Para liarla."
 },
 {
 "who": "ABUELA",
-"text": "En Galicia había mucho lío, y el sobrino le pidió al tío: tío, cámbiame el sitio un tiempo, que tú tienes más mano."
+"text": "En Galicia había mucho lío, y el sobrino le pidió al tío: cámbiame el sitio un tiempo, que tú tienes más mano."
 },
 {
 "who": "ABUELA",
-"text": "Y el tío, que era muy bueno, se fue a Santiago, puso orden... y cuando volvió a Sevilla, ¿qué se encontró?"
+"text": "El tío se fue a Santiago, puso orden... y cuando volvió a Sevilla, ¿qué se encontró?"
 },
 {
 "who": "ABUELA",
@@ -41,27 +41,23 @@
 },
 {
 "who": "ABUELA",
-"text": "Dicen que hizo falta hasta una orden del Papa y la intervención del rey para echarlo. ¡Fíjate tú!"
+"text": "Dicen que hizo falta una orden del Papa y hasta el rey para echarlo. ¡Fíjate tú!"
 },
 {
 "who": "ABUELA",
-"text": "O sea, hijo mío: el que perdió la silla fue el que se fue DE Sevilla. Y con los siglos, el refrán se dio la vuelta."
+"text": "O sea: el que perdió la silla fue el que se fue DE Sevilla. Y con los siglos, el refrán se dio la vuelta."
 },
 {
 "who": "ABUELA",
-"text": "[softly] Ojo, que esta es la historia que más se cuenta, y tiene su parte de leyenda. Pero es tan bonita que yo me la quedo."
+"text": "Ojo, que es la historia que más se cuenta, y tiene su parte de leyenda. Pero es tan buena que yo me la quedo."
 },
 {
 "who": "ABUELA",
-"text": "Así que ya sabes: si te levantas de tu sitio... no esperes encontrarlo libre."
+"text": "¿Tú también lo decías mal? Dime sí o no."
 },
 {
 "who": "ABUELA",
-"text": "¿Y a ti qué refrán te decía tu abuela? Cuéntamelo, que te leo."
-},
-{
-"who": "ABUELA",
-"text": "Anda, corazón, sígueme, que cada día te desenredo un refrán nuevo... [chuckles] y apúntatelo, que luego se te olvida."
+"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
 }
 ]
 }

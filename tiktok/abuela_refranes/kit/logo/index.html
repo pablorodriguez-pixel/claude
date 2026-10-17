@@ -11,7 +11,7 @@ window.frame = t => {
   g.fillStyle = '#222'; g.fillRect(0, 0, 1080, 1920);
   g.drawImage(L, 0, 0);
   // previsualización circular (como en el perfil de TikTok)
-  for (const [x, d] of [[200, 300], [520, 160], [720, 80]]) {
+  for (const [x, d] of [[200, 300], [520, 160], [720, 110]]) {
     g.save(); g.beginPath(); g.arc(x, 1450, d / 2, 0, Math.PI * 2); g.clip(); g.drawImage(L, x - d / 2, 1450 - d / 2, d, d); g.restore();
   }
 };
