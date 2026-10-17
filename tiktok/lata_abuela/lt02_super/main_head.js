@@ -11,7 +11,7 @@ const R = rng(7);
 const bump = (t, ti) => { if (t < ti) return 0; const d = t - ti; return d < 0.12 ? E.outCubic(d / 0.12) : Math.exp(-(d - 0.12) * 3.2); };
 const out = (t, t1, d = 0.15) => 1 - p(t, t1 - d, d, E.inCubic);
 const box = (html, parent, x, y, w, h, extra = {}) => el(html || 'div', parent, Object.assign({ left: px(x), top: px(y), width: px(w), height: px(h) }, extra));
-const DUR = W[W.length - 1].e + 3.2;
+const DUR = W[W.length - 1].e + 0.6;
 
 /* ================= FONDO ================= */
 const BG = el('div', null, { left: 0, top: 0, width: '1080px', height: '1920px', overflow: 'hidden', background: 'radial-gradient(ellipse 95% 62% at 50% 40%, #3260bd 0%, #1F3C88 52%, #11275c 100%)' });

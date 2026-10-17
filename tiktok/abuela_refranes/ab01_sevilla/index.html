@@ -11,7 +11,7 @@
 <script src="../abuela_kit/marco.js"></script>
 <script>
 /* «Por algo se dice» (abuela Remedios) — REFRÁN Nº 1: Quien se fue a Sevilla, perdió su silla */
-const g = document.getElementById('cv').getContext('2d');
+let g = document.getElementById('cv').getContext('2d');
 const T = Stitch.THREADS, CELL = 12, CREAM = '#FBF6EE';
 // glifo «º» (no está en la fuente del kit): lo añadimos aquí, sin tocar el kit
 Stitch.FONT['º'] = { rows: ['###', '#.#', '###', '...', '###', '...', '...'], top: null };
@@ -229,24 +229,24 @@ const NAME_X = cx0(NAME), NAME_Y = 264;
 // ---------------------------------------------------------------- tiempos clave (clavados al texto de la voz v2)
 const F = (ph, from = 0) => find(ph, from);
 const K = {
-  mal: w(F('diciendo mal')) + 0.43, refran: w(F('quien se fue a sevilla')), perdio: w(F('perdio su silla')), silla0: w(F('su silla') + 1),
+  mal: w(F('diciendo mal') + 1), refran: w(F('quien se fue a sevilla')), perdio: w(F('perdio su silla')), silla0: w(F('su silla') + 1),
   a: w(F('no era a') + 2), deW: w(F('era de') + 1), sev1: w(F('era de sevilla') + 2), endL1: we(F('era de sevilla') + 2),
-  soy: w(F('soy la abuela')), remedios: w(F('remedios')), esto: w(F('y esto')), porAlgo: w(F('por algo se dice')), dice: w(F('por algo se dice') + 3),
+  aqui: w(F('aqui la abuela')), remedios: w(F('remedios')), porAlgo: w(F('por algo se dice')), dice: w(F('por algo se dice') + 3),
   siglo: w(F('siglo quince')), arz: w(F('el arzobispo')), sevA: w(F('de sevilla se llamaba') + 1), alonso1: w(F('alonso de fonseca')),
-  sobr: w(F('su sobrino')), sant: w(F('de santiago') + 1), tambien: w(F('tambien alonso')), alonso2: w(F('alonso de fonseca', 50)), fon2: w(F('fonseca', 54)), liarla: w(F('para liarla')),
+  sobr: w(F('su sobrino')), sant: w(F('de santiago') + 1), tambien: w(F('tambien alonso')), alonso2: w(F('alonso de fonseca', F('tambien alonso'))), fon2: w(F('fonseca', F('tambien alonso'))), liarla: w(F('para liarla')),
   galicia: w(F('en galicia')), lio: w(F('mucho lio') + 1), sobr2: w(F('el sobrino le')), tio1: w(F('al tio') + 1), camb: w(F('cambiame')), sitio: w(F('el sitio')), quetu: w(F('que tu tienes')), mas: w(F('mas mano')),
   tio2: w(F('el tio se fue')), fueSant: w(F('se fue a santiago')), puso: w(F('puso orden')), volvio: w(F('cuando volvio')), que: w(F('que se encontro')), encontro: we(F('se encontro') + 1),
   alSob: w(F('al sobrino')), sentadito: w(F('sentadito')), silla2: w(F('en su silla') + 2), yde: w(F('y de ahi')), levant: w(F('levantara')),
   dicen: w(F('dicen que')), orden: w(F('una orden') + 1), papa: w(F('del papa') + 1), rey: w(F('el rey') + 1), echar: w(F('para echarlo')), fijate: w(F('fijate tu')), fijEnd: we(F('fijate tu') + 1),
-  osea: w(F('o sea')), perdio2: w(F('el que perdio')), seFue2: w(F('el que se fue de') + 2), DE2: w(F('se fue de sevilla', 120) + 2), siglos: w(F('con los siglos')), siglosW: w(F('los siglos') + 1), vuelta: w(F('se dio la vuelta')),
+  osea: w(F('o sea')), perdio2: w(F('el que perdio')), seFue2: w(F('el que se fue de') + 2), DE2: w(F('se fue de sevilla', F('o sea')) + 2), siglos: w(F('con los siglos')), siglosW: w(F('los siglos') + 1), vuelta: w(F('se dio la vuelta')),
   ojo: w(F('ojo que')), mas2: w(F('que mas se cuenta')), leyenda: w(F('de leyenda') + 1), buena: w(F('tan buena') + 1), quedo: w(F('me la quedo')),
   tu: w(F('tu tambien')), malq: w(F('decias mal') + 1), dime: w(F('dime si')), si: w(F('dime si') + 1), no: w(F('si o no') + 2),
-  sigueme: w(F('y sigueme')), cada: w(F('cada dia')), porque: w(F('porque por algo')), last: WD[WD.length - 1].e,
+  sigueme: w(F('sigueme')), cada: w(F('cada dia')), porque: w(F('porque por algo')), last: WD[WD.length - 1].e,
 };
 // cortes de escena
 const C = {
-  marca: K.endL1 + 0.22, sigl: K.siglo - 0.05, map1: K.galicia - 0.12, dial: K.sobr2 - 0.08, map2: K.tio2 - 0.12, silla: K.alSob - 0.06,
-  vuelta: K.osea - 0.08, ojo: K.ojo - 0.1, sino: K.tu - 0.1, cierre: K.sigueme - 0.12, end: K.last - 0.2,
+  sigl: K.siglo - 0.05, map1: K.galicia - 0.12, dial: K.sobr2 - 0.08, map2: K.tio2 - 0.12, silla: K.alSob - 0.06,
+  vuelta: K.osea - 0.08, ojo: K.ojo - 0.1, sino: K.tu - 0.1, cierre: K.aqui - 0.12,
 };
 
 // ---------------------------------------------------------------- la abuela
@@ -254,26 +254,28 @@ const HR = 340;
 function hoopPose(t) {
   const BIG = { x: 540, y: 1090, s: 0.84 }, MAR = { x: 540, y: 960, s: 1 }, SM = { x: 196, y: 1150, s: 0.48 }, MED = { x: 300, y: 560, s: 0.62 };
   const L = (A, B, k) => ({ x: lerp(A.x, B.x, k), y: lerp(A.y, B.y, k), s: lerp(A.s, B.s, k) });
-  if (t < C.marca) return BIG;
-  if (t < C.sigl - 0.3) return L(BIG, MAR, E.outBack(seg(t, C.marca, C.marca + 0.35)));
+  if (t < C.sigl - 0.3) return BIG;
   if (t < C.cierre) {
-    const p = L(MAR, SM, E.inOutCubic(seg(t, C.sigl - 0.3, C.sigl + 0.05)));
+    const p = L(BIG, SM, E.inOutCubic(seg(t, C.sigl - 0.3, C.sigl + 0.05)));
     const pk = 0.08 * env(t, K.liarla, 0.12, 0.6, 0.3) + 0.14 * env(t, K.fijate, 0.12, 0.7, 0.3) + 0.06 * env(t, K.quedo, 0.1, 0.4, 0.3);
     p.s += pk; p.y += pk * 60; p.x += pk * 120;
     return p;
   }
-  return L(SM, MED, E.outBack(seg(t, C.cierre, C.cierre + 0.4)));
+  let p = L(SM, MAR, E.outBack(seg(t, C.cierre, C.cierre + 0.35)));
+  if (t > K.sigueme - 0.1) p = L(p, MED, E.outBack(seg(t, K.sigueme - 0.1, K.sigueme + 0.25)));
+  if (t > K.porque - 0.15) p = L(p, MAR, E.outBack(seg(t, K.porque - 0.15, K.porque + 0.2)));
+  return p;
 }
 const AB = [
   [0, K.refran, { brows: 'up' }], [K.refran, K.a - 0.3, { hand: 'finger' }], [K.a - 0.3, K.a + 0.25, { glassesDown: true, brows: 'skeptic' }],
-  [K.a + 0.25, K.deW, { hand: 'thread', brows: 'skeptic' }], [K.deW, C.marca, { brows: 'up' }],
-  [C.marca, K.esto, { brows: 'up' }], [K.esto, K.porAlgo, { wink: true }], [K.dice - 0.2, C.sigl, { hand: 'thread' }],
+  [K.a + 0.25, K.deW, { hand: 'thread', brows: 'skeptic' }], [K.deW, C.sigl, { brows: 'up' }],
   [C.sigl, K.liarla, { look: 1 }], [K.liarla, C.map1, { wink: true }], [C.map1, C.dial, { look: 1, brows: 'up' }], [C.dial, K.que, { look: 1 }],
   [K.que, K.sentadito, { brows: 'up' }], [K.silla2, K.silla2 + 0.7, { mouth: 'laugh', blink: true }], [K.yde, K.dicen, { look: 1 }],
   [K.dicen, K.fijate, { brows: 'skeptic', look: 1 }], [K.fijate, C.vuelta, { glassesDown: true, brows: 'skeptic' }], [C.vuelta, K.perdio2 + 0.6, { hand: 'finger' }],
   [K.perdio2 + 0.6, C.ojo, { look: 1 }], [C.ojo, K.buena - 0.3, { glassesDown: true, hand: 'finger' }], [K.buena - 0.3, K.quedo, { blink: true }], [K.quedo, C.sino, { wink: true }],
   [C.sino, K.dime, { brows: 'up', look: 1 }], [K.dime, C.cierre, { hand: 'finger', look: 1 }],
-  [K.sigueme, K.cada, { hand: 'finger', look: 1 }], [K.cada, K.porque, { look: 1 }], [K.porque, 80, { wink: true }],
+  [C.cierre, K.remedios, { brows: 'up' }], [K.remedios, K.sigueme, { wink: true }],
+  [K.sigueme, K.cada, { hand: 'finger', look: 1 }], [K.cada, K.porque, { look: 1 }], [K.porque, K.dice, { wink: true }], [K.dice, 999, { hand: 'thread' }],
 ];
 function abState(t) {
   const st = { mouth: Abuela.lipsync(t, WD, { rest: 'smile' }), blink: Abuela.blink(t) };
@@ -285,7 +287,7 @@ function abState(t) {
 let HOOP = null;
 function drawHoop(t) {
   const p = hoopPose(t), st = abState(t);
-  const sway = (t > K.soy && t < K.esto) ? Math.sin((t - K.soy) * 11) * 0.06 * (1 - seg(t, K.esto - 0.4, K.esto)) : Math.sin(t * 1.7) * 0.012;
+  const sway = (t > K.aqui && t < K.sigueme) ? Math.sin((t - K.aqui) * 11) * 0.06 * (1 - seg(t, K.sigueme - 0.4, K.sigueme)) : Math.sin(t * 1.7) * 0.012;
   HOOP = Marco.abuelaHoop(g, p.x, p.y, HR, st, { t, scale: p.s, rot: sway, skirt: true });
 }
 
@@ -344,14 +346,19 @@ function sGancho(t, over) {
     const sx = lerp(S_A, S_D, E.outBack(seg(t, K.deW - 0.35, K.deW)));
     dl(LS, sx, L2Y, w(13));
     if (t < K.a) {
-      const wig = t > K.a - 0.4 ? Math.sin(t * 40) * 0.07 : 0;
-      LA.draw(g, xA0 + LA.pw / 2, L2Y + LA.ph / 2, { anchor: [0.5, 0.5], rot: wig, scale: pulse(w(12)) });
+      // PORTADA = PREGUNTA: la «A» marcada con un «?»
+      const wig = t > K.a - 0.4 ? Math.sin(t * 40) * 0.07 : Math.sin(t * 3) * 0.03;
+      LAred.draw(g, xA0 + LA.pw / 2, L2Y + LA.ph / 2, { anchor: [0.5, 0.5], rot: wig, scale: pulse(w(12)) });
+      dashRing(xA0 + LA.pw / 2, L2Y + LA.ph / 2, 72, 1, T.marino);
     }
-    dl(L3, ...POS.L3, K.perdio); dl(L4, ...POS.L4, K.silla0);
-    // PORTADA: sello «¡MAL!» ya puesto en el fotograma 1, re-estampado en "mal"
-    if (t < K.refran + 0.15) {
-      const re = 1 + 0.25 * env(t, K.mal, 0.06, 0.1, 0.25) - 0.2 * env(t, K.mal - 0.12, 0.06, 0.0, 0.06);
-      Marco.patch(g, 770, 745, '¡MAL!', Object.assign({ k: 1, t }, MALO, { scale: re * outK(t, K.refran, 0.15) }));
+    if (t < K.a + 0.3) Marco.patch(g, 104, 440, '?', { k: 1, t, cell: 8, bold: true, color: T.marino, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: '#0f1a3a', shape: 'circle', rot: -0.15 + Math.sin(t * 4) * 0.08, scale: 1 + 0.06 * Math.sin(t * 6) });
+    dl(L3, ...POS.L3, K.perdio);
+    const k4 = clamp(0.78 + t * 0.55);
+    if (k4 < 1) L4.stitchIn(g, ...POS.L4, k4, { order: 'cols', needle: true, t }); else dl(L4, ...POS.L4, K.silla0);
+    // el sello «¡MAL!» cae cuando la voz dice "mal"
+    if (t >= K.mal && t < K.a) {
+      const kk = seg(t, K.mal, K.mal + 0.18), re = lerp(2.4, 1, E.outCubic(kk)) * (1 + 0.1 * env(t, K.mal + 0.18, 0.05, 0.05, 0.15));
+      Marco.patch(g, 770, 745, '¡MAL!', Object.assign({ k: 1, t }, MALO, { scale: re * outK(t, K.a - 0.2, 0.15), rot: -0.16 + (1 - kk) * 0.3 }));
     }
     if (t >= K.deW) LDE.stitchIn(g, xD0, L2Y, seg(t, K.deW, K.deW + 0.45), { order: 'cols', needle: t < K.deW + 0.5, t });
     P(t, 830, 575, '¡DE!', K.deW + 0.45, 0.3, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, shape: 'circle', rot: 0.18 });
@@ -363,22 +370,6 @@ function sGancho(t, over) {
     if (t >= K.a + 0.3 && t < K.deW) {
       const u = seg(t, K.a + 0.3, K.deW - 0.15), k = u < 0.15 ? u * 0.2 : 0.03 + 0.97 * E.inOutCubic((u - 0.15) / 0.85);
       LAred.unravel(g, xA0, L2Y, k, { t, to: HOOP.grip, order: ORD_PULL, keepThread: u < 1, showAt0: true, tail: 0, width: 8, thread: T.marino });
-    }
-  }
-}
-function sMarca(t, over) {
-  if (!over) {
-    bg();
-    if (t >= K.esto - 0.3 && t < K.dice + 0.25) {
-      const k = seg(t, K.esto - 0.3, K.porAlgo);
-      if (k < 1) NAME.stitchIn(g, NAME_X, NAME_Y, k, { order: 'cols', needle: true, t });
-      else NAME.draw(g, NAME_X + NAME.pw / 2, NAME_Y + NAME.ph / 2, { anchor: [0.5, 0.5], scale: 1 + 0.08 * env(t, K.dice, 0.07, 0.15, 0.2) });
-    }
-  } else {
-    P(t, 540, 1305, 'ABUELA REMEDIOS', K.soy, 0.5, { cell: 6, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.02 }, C.sigl - 0.45);
-    if (t >= K.dice + 0.25) {
-      const u = seg(t, K.dice + 0.25, C.sigl - 0.25), k = u < 0.12 ? u * 0.25 : 0.03 + 0.97 * E.inOutCubic((u - 0.12) / 0.88);
-      NAME.unravel(g, NAME_X, NAME_Y, k, { t, to: HOOP.grip, order: ORD_PULL, keepThread: false, showAt0: true, tail: 0, width: 9 });
     }
   }
 }
@@ -518,7 +509,7 @@ function sSilla(t) {
 }
 function sVuelta(t) {
   bg();
-  const tB = Math.min(K.siglos - 0.2, we(F('se fue de sevilla', 120) + 3) + 0.15);
+  const tB = Math.min(K.siglos - 0.2, we(F('se fue de sevilla', F('o sea')) + 3) + 0.15);
   if (t < tB) {
     const o = outK(t, tB - 0.15, 0.15);
     P(t, 580, 348, 'EL QUE PERDIÓ\nLA SILLA…', K.perdio2 - 0.1, 0.45, { cell: 7, bold: true, color: CREAM, border: T.marino, textColor: T.marino, shadowColor: null, rot: -0.02 }, tB - 0.15);
@@ -554,7 +545,7 @@ function sOjo(t) {
 // ¿Sí o no? — botones gigantes
 function bigBtn(t, x, y, txt, col, t0, hit) {
   if (t < t0) return;
-  const s = 1 + 0.16 * env(t, hit, 0.07, 0.25, 0.3) + 0.03 * Math.sin(t * 6 + x);
+  const s = 1 + 0.09 * env(t, hit, 0.07, 0.25, 0.3) + 0.03 * Math.sin(t * 6 + x);
   Marco.patch(g, x, y, txt, { k: clamp((t - t0) / 0.4), t, cell: 20, bold: true, color: col, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: Stitch.shade(col, -0.45), shape: 'circle', rot: x < 540 ? -0.08 : 0.08, scale: s });
 }
 function sSiNo(t) {
@@ -566,38 +557,54 @@ function sSiNo(t) {
   P(t, 680, 1110, '«NO, YA LO SABÍA»', K.dime + 0.45, 0.35, { cell: 4, bold: true, color: CREAM, border: T.rojo, textColor: T.granate, shadowColor: null, rot: 0.03 });
 }
 const SEG_BTN = { x: 740, y: 600 };
-function sCierre(t) {
-  bg();
-  const k0 = popK(t, K.cada - 0.15, 0.35);
-  if (k0 > 0) {
-    const cx = 540, cy = 1045, Wd = 800, Hd = 470;
-    g.save(); g.translate(cx, cy); g.scale(k0, k0); g.translate(-cx, -cy);
-    const x0 = cx - Wd / 2, y0 = cy - Hd / 2;
-    g.save(); g.shadowColor = 'rgba(40,20,5,.35)'; g.shadowBlur = 22; g.shadowOffsetY = 10; g.fillStyle = '#FBF8F1'; g.fillRect(x0, y0, Wd, Hd); g.restore();
-    Stitch.drawFabric(g, x0, y0, Wd, Hd, { cell: 8, color: 'blanco', ox: x0, oy: y0 });
-    g.strokeStyle = T.granate; g.lineWidth = 8; g.strokeRect(x0 + 10, y0 + 10, Wd - 20, Hd - 20);
-    const gx = x0 + 34, gy = y0 + 48, cw = (Wd - 68) / 4, chh = (Hd - 96) / 3;
-    for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) {
-      const i = r * 4 + c, bx = gx + c * cw, by = gy + r * chh;
-      g.save(); g.setLineDash([10, 7]); g.lineWidth = 4; g.strokeStyle = i === 0 ? T.rojo : '#B9AE9E';
-      g.beginPath(); g.roundRect(bx + 8, by + 8, cw - 16, chh - 16, 14); g.stroke(); g.restore();
-      g.fillStyle = i === 0 ? T.rojo : '#9a8f80'; g.font = '700 22px Fredoka'; g.fillText(String(i + 1), bx + 20, by + 34);
-      if (i === 0) {
-        const ks = seg(t, K.cada + 0.1, K.cada + 1.0);
-        if (ks < 1) CHAIR3.stitchIn(g, bx + cw / 2 - CHAIR3.pw / 2, by + chh / 2 - CHAIR3.ph / 2, ks, { order: 'rows', needle: ks > 0, t });
-        else CHAIR3.draw(g, bx + cw / 2, by + chh / 2, { anchor: [0.5, 0.5], scale: 1 + 0.15 * env(t, K.cada + 1.0, 0.08, 0.3, 0.4) });
-      } else QGRAY.draw(g, bx + cw / 2, by + chh / 2, { anchor: [0.5, 0.5] });
+function sCierre(t, over) {
+  if (!over) {
+    bg();
+  const k0 = popK(t, K.cada - 0.15, 0.35) * outK(t, K.porque - 0.1, 0.15);
+    if (k0 > 0) {
+      const cx = 540, cy = 1045, Wd = 800, Hd = 470;
+      g.save(); g.translate(cx, cy); g.scale(k0, k0); g.translate(-cx, -cy);
+      const x0 = cx - Wd / 2, y0 = cy - Hd / 2;
+      g.save(); g.shadowColor = 'rgba(40,20,5,.35)'; g.shadowBlur = 22; g.shadowOffsetY = 10; g.fillStyle = '#FBF8F1'; g.fillRect(x0, y0, Wd, Hd); g.restore();
+      Stitch.drawFabric(g, x0, y0, Wd, Hd, { cell: 8, color: 'blanco', ox: x0, oy: y0 });
+      g.strokeStyle = T.granate; g.lineWidth = 8; g.strokeRect(x0 + 10, y0 + 10, Wd - 20, Hd - 20);
+      const gx = x0 + 34, gy = y0 + 48, cw = (Wd - 68) / 4, chh = (Hd - 96) / 3;
+      for (let r = 0; r < 3; r++) for (let c = 0; c < 4; c++) {
+        const i = r * 4 + c, bx = gx + c * cw, by = gy + r * chh;
+        g.save(); g.setLineDash([10, 7]); g.lineWidth = 4; g.strokeStyle = i === 0 ? T.rojo : '#B9AE9E';
+        g.beginPath(); g.roundRect(bx + 8, by + 8, cw - 16, chh - 16, 14); g.stroke(); g.restore();
+        g.fillStyle = i === 0 ? T.rojo : '#9a8f80'; g.font = '700 22px Fredoka'; g.fillText(String(i + 1), bx + 20, by + 34);
+        if (i === 0) {
+          const ks = seg(t, K.cada + 0.1, K.cada + 1.0);
+          if (ks < 1) CHAIR3.stitchIn(g, bx + cw / 2 - CHAIR3.pw / 2, by + chh / 2 - CHAIR3.ph / 2, ks, { order: 'rows', needle: ks > 0, t });
+          else CHAIR3.draw(g, bx + cw / 2, by + chh / 2, { anchor: [0.5, 0.5], scale: 1 + 0.15 * env(t, K.cada + 1.0, 0.08, 0.3, 0.4) });
+        } else QGRAY.draw(g, bx + cw / 2, by + chh / 2, { anchor: [0.5, 0.5] });
+      }
+      g.restore();
+      P(t, 540, 812, 'COLECCIÓN DE LA ABUELA', K.cada, 0.45, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.02 }, K.porque - 0.1);
+      P(t, 540, 1278, 'SÍGUEME PARA COMPLETARLA', K.cada + 0.4, 0.45, { cell: 4, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: 0.02 }, K.porque - 0.1);
     }
-    g.restore();
-    P(t, 540, 812, 'COLECCIÓN DE LA ABUELA', K.cada, 0.45, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.02 });
-    P(t, 540, 1278, 'SÍGUEME PARA COMPLETARLA', K.cada + 0.4, 0.45, { cell: 4, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: 0.02 });
+    // marca: se borda rápido «POR ALGO SE DICE»
+    if (t >= K.porque - 0.05 && t < K.dice + 0.25) {
+      const k = seg(t, K.porque - 0.05, K.porAlgo + 0.3);
+      if (k < 1) NAME.stitchIn(g, NAME_X, NAME_Y, k, { order: 'cols', needle: true, t });
+      else NAME.draw(g, NAME_X + NAME.pw / 2, NAME_Y + NAME.ph / 2, { anchor: [0.5, 0.5], scale: 1 + 0.08 * env(t, K.dice, 0.07, 0.15, 0.2) });
+    }
+  } else {
+    P(t, 540, 1305, 'ABUELA REMEDIOS', K.aqui + 0.05, 0.45, { cell: 6, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.02 }, K.sigueme - 0.2);
+    if (t > K.sigueme && t < K.porque + 0.1) {
+      const pul = t > K.sigueme + 0.5 ? 1 + 0.05 * Math.sin((t - K.sigueme) * 7) : 1;
+      P(t, SEG_BTN.x, SEG_BTN.y, '+ SEGUIR', K.sigueme, 0.45, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.04, scale: pul }, K.porque - 0.1);
+      const k = seg(t, K.sigueme + 0.1, K.sigueme + 0.45) * outK(t, K.porque - 0.1, 0.1); if (k > 0) { thread([[505, 470], [560, 500], [575, 575]], k, T.rojo, 7); if (k >= 1) arrowHead([575, 575], 1.2); }
+    }
+    if (t >= K.dice + 0.25) {
+      const u = seg(t, K.dice + 0.25, K.last + 0.15), k = u < 0.12 ? u * 0.25 : 0.03 + 0.97 * E.inOutCubic((u - 0.12) / 0.88);
+      NAME.unravel(g, NAME_X, NAME_Y, k, { t, to: HOOP.grip, order: ORD_PULL, keepThread: false, showAt0: true, tail: 0, width: 9 });
+    }
   }
-  P(t, 740, 330, 'POR ALGO\nSE DICE', K.porque, 0.4, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: 0.04 });
 }
-function sEnd(t) {} // placeholder (la tarjeta se pinta aparte)
-
 // ---------------------------------------------------------------- transiciones de tela (0,25 s)
-const WIPES = [[C.marca, 'vichy'], [C.sigl, 'floral'], [C.map1, 'pana'], [C.dial, 'vichy'], [C.map2, 'floral'], [C.silla, 'vichy'], [C.vuelta, 'pana'], [C.ojo, 'floral'], [C.sino, 'vichy'], [C.cierre, 'pana']];
+const WIPES = [[C.sigl, 'floral'], [C.map1, 'pana'], [C.dial, 'vichy'], [C.map2, 'floral'], [C.silla, 'vichy'], [C.vuelta, 'pana'], [C.ojo, 'floral'], [C.sino, 'vichy'], [C.cierre, 'pana']];
 function wipe(t) {
   for (const [T0, kind] of WIPES) {
     const k = (t - (T0 - 0.125)) / 0.25; if (k <= 0 || k >= 1) continue;
@@ -609,8 +616,7 @@ function wipe(t) {
 
 // ---------------------------------------------------------------- SFX
 [
-  ['stamp', 0.02, 0.6], ['stamp', K.mal, 0.9], ['pop', K.refran, 0.5], ['pop', K.a, 0.7], ['thread_pull', K.a + 0.3, 0.9], ['stitch', K.deW, 0.9], ['stamp', K.deW + 0.5, 0.9],
-  ['cloth_whoosh', C.marca - 0.12, 0.8], ['pop', K.soy, 0.6], ['sewing_machine', K.esto - 0.3, 0.6], ['ding', K.dice, 0.6], ['thread_pull', K.dice + 0.25, 0.8],
+  ['sewing_machine', 0.0, 0.4], ['stamp', K.mal, 1.0], ['pop', K.refran, 0.5], ['pop', K.a, 0.7], ['thread_pull', K.a + 0.3, 0.9], ['stitch', K.deW, 0.9], ['stamp', K.deW + 0.5, 0.9],
   ['cloth_whoosh', C.sigl - 0.12, 0.8], ['stamp', K.siglo + 0.05, 0.8], ['stitch', K.arz, 0.6], ['pop', K.sevA, 0.5], ['stitch', K.alonso1, 0.5], ['stitch', K.sobr, 0.6], ['pop', K.sant, 0.5], ['stitch', K.alonso2, 0.5], ['ding', K.fon2, 0.6], ['boing', K.liarla, 0.6],
   ['cloth_whoosh', C.map1 - 0.12, 0.8], ['pop', C.map1 + 0.2, 0.6], ['thud', K.lio, 0.8], ['knit', K.lio + 0.15, 0.5],
   ['cloth_whoosh', C.dial - 0.12, 0.8], ['pop', K.tio1, 0.5], ['pop2', K.camb, 0.7], ['swoosh_up', K.sitio, 0.6], ['pop2', K.quetu, 0.6], ['sparkle', K.mas, 0.6],
@@ -620,42 +626,42 @@ function wipe(t) {
   ['cloth_whoosh', C.vuelta - 0.12, 0.8], ['stitch', K.perdio2, 0.5], ['whoosh', K.seFue2, 0.5], ['stamp', K.DE2, 0.8], ['pop', K.siglos - 0.2, 0.5], ['clockfast', K.siglosW, 0.4], ['swoosh_up', K.vuelta, 0.7],
   ['cloth_whoosh', C.ojo - 0.12, 0.8], ['stamp', K.ojo + 0.05, 0.9], ['stitch', K.mas2, 0.6], ['stamp', K.leyenda, 0.9], ['heart', K.buena, 0.7], ['gulp', K.quedo + 0.1, 0.6],
   ['cloth_whoosh', C.sino - 0.12, 0.8], ['stitch', K.tu, 0.5], ['pop', K.malq, 0.6], ['pop', K.malq + 0.15, 0.6], ['ding', K.si, 0.7], ['click', K.no, 0.9],
-  ['cloth_whoosh', C.cierre - 0.12, 0.8], ['stitch', K.sigueme, 0.8], ['ding', K.sigueme + 0.5, 0.7], ['pop', K.cada - 0.15, 0.5], ['stitch', K.cada + 0.1, 0.6], ['sparkle', K.cada + 1.0, 0.6], ['stamp', K.porque, 0.6],
-  ['cloth_whoosh', C.end, 0.8], ['ding', C.end + 1.4, 0.6],
+  ['cloth_whoosh', C.cierre - 0.12, 0.8], ['pop', K.aqui + 0.05, 0.6], ['stitch', K.sigueme, 0.8], ['ding', K.sigueme + 0.5, 0.7], ['pop', K.cada - 0.15, 0.5], ['stitch', K.cada + 0.1, 0.6], ['sparkle', K.cada + 0.95, 0.6],
+  ['sewing_machine', K.porque - 0.05, 0.5], ['ding', K.dice, 0.6], ['thread_pull', K.dice + 0.25, 0.8],
 ].forEach(([n, tt, gn]) => sfx(n, tt, gn));
 
 // ---------------------------------------------------------------- FRAME
-const SCENES = [[0, sGancho], [C.marca, sMarca], [C.sigl, sObispos], [C.map1, sMapa1], [C.dial, sDialogo], [C.map2, sMapa2], [C.silla, sSilla], [C.vuelta, sVuelta], [C.ojo, sOjo], [C.sino, sSiNo], [C.cierre, sCierre]];
+const SCENES = [[0, sGancho], [C.sigl, sObispos], [C.map1, sMapa1], [C.dial, sDialogo], [C.map2, sMapa2], [C.silla, sSilla], [C.vuelta, sVuelta], [C.ojo, sOjo], [C.sino, sSiNo], [C.cierre, sCierre]];
 function sceneAt(t) { let s = SCENES[0][1]; for (const [t0, f] of SCENES) if (t >= t0) s = f; return s; }
 function fixedTag(t) { Marco.patch(g, 192, 200, 'REFRÁN Nº 1', { k: 1, t, cell: 4, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: -0.03 }); }
 
-window.frame = t => {
+const DUR = K.last + 0.6, LOOP0 = DUR - 0.45;
+function renderMain(t) {
   g.setTransform(1, 0, 0, 1, 0, 0);
-  if (t >= C.end + 0.3) {
-    const k = clamp((t - C.end - 0.3) / 1.3);
-    Marco.endCard(g, k, { t, title: 'QUIEN SE FUE\nDE SEVILLA', date: '16/10/2026', state: t > K.last + 0.6 ? { mouth: 'smile', wink: true } : { mouth: Abuela.lipsync(t, WD, { rest: 'smile' }), blink: Abuela.blink(t) } });
-    P(t, 540, 1450, 'Fuente: tradición popular', C.end + 1.2, 0.6, { cell: 4, color: CREAM, border: T.granate, textColor: T.granate, shadowColor: null, rot: -0.02 });
-    return;
-  }
   const sc = sceneAt(t), cam = camera(t);
   g.save(); applyCam(cam); sc(t, false); g.restore();
   wipe(t);
   drawHoop(t);
-  if (sc === sGancho || sc === sMarca) sc(t, true);
+  if (sc === sGancho || sc === sCierre) sc(t, true);
   P(t, 560, 1270, 'UN REFRÁN NUEVO CADA DÍA ♥', C.sigl + 0.4, 0.5, { cell: 4, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.03 }, C.sigl + 1.9);
-  if (sc === sCierre && t > K.sigueme) {
-    const pul = t > K.sigueme + 0.5 ? 1 + 0.05 * Math.sin((t - K.sigueme) * 7) : 1;
-    P(t, SEG_BTN.x, SEG_BTN.y, '+ SEGUIR', K.sigueme, 0.5, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.04, scale: pul });
-    const k = seg(t, K.sigueme + 0.1, K.sigueme + 0.45); if (k > 0) { thread([[505, 470], [560, 500], [575, 575]], k, T.rojo, 7); if (k >= 1) arrowHead([575, 575], 1.2); }
-  }
-  if (t >= C.end) {
-    const c = E.inOutCubic(clamp((t - C.end) / 0.3));
-    g.save(); g.beginPath(); g.rect(0, 0, 1080, 1920 * c); g.clip(); Marco.drawBg(g, 'vichy'); g.restore();
-    g.fillStyle = 'rgba(122,31,43,.85)'; g.fillRect(0, 1920 * c - 10, 1080, 10);
-  }
   fixedTag(t);
+}
+let FRAME0 = null;
+function frame0() { // fotograma 0 cacheado, para cerrar el bucle
+  if (FRAME0) return FRAME0;
+  const c = Stitch.mk(1080, 1920), saved = g, savedHoop = HOOP;
+  g = c.getContext('2d'); renderMain(0); g = saved; HOOP = savedHoop;
+  return (FRAME0 = c);
+}
+window.frame = t => {
+  if (t > LOOP0) frame0();
+  renderMain(t);
+  if (t > LOOP0) {
+    g.setTransform(1, 0, 0, 1, 0, 0);
+    g.globalAlpha = E.inOutCubic(seg(t, LOOP0, DUR - 1 / 30)); g.drawImage(FRAME0, 0, 0); g.globalAlpha = 1;
+  }
 };
 document.fonts.load('700 40px Fredoka'); document.fonts.load('500 34px Fredoka');
-Engine.start({ tail: 3.4, captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', radius: 28, pad: '8px 26px', border: '4px dashed #7A1F2B', maxWords: 3, shadow: '0 6px 18px rgba(60,30,10,.25)' } });
+Engine.start({ tail: 0.6, captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', radius: 28, pad: '8px 26px', border: '4px dashed #7A1F2B', maxWords: 3, shadow: '0 6px 18px rgba(60,30,10,.25)' } });
 </script>
 </body></html>

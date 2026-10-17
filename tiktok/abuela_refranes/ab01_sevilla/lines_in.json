@@ -11,17 +11,12 @@
 "lines": [
 {
 "who": "ABUELA",
-"text": "[excited] ¡Oye! ¡Llevas toda la vida diciendo mal este refrán! Quien se fue a Sevilla, perdió su silla."
+"text": "¡Este refrán lo llevas diciendo mal toda la vida! Quien se fue a Sevilla, perdió su silla.",
+"gap_after": 0.25
 },
 {
 "who": "ABUELA",
-"text": "Pues no era «a» Sevilla. ¡Era «de» Sevilla!",
-"gap_after": 0.3
-},
-{
-"who": "ABUELA",
-"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
-"gap_after": 0.3
+"text": "Pues no era «a» Sevilla. ¡Era «de» Sevilla!"
 },
 {
 "who": "ABUELA",
@@ -57,7 +52,7 @@
 },
 {
 "who": "ABUELA",
-"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
+"text": "Aquí la abuela Remedios. Sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
 }
 ]
 }

@@ -25,12 +25,12 @@ const pk = (t, t0, d) => clamp((t - t0) / d);
 const popS = (t, t0, d = 0.35) => (t < t0 ? 0 : Stitch.bounce(clamp((t - t0) / d)));
 const outS = (t, t1, d = 0.2) => 1 - E.inCubic(clamp((t - t1) / d));
 const bump = (t, t0, amp = 0.06, d = 0.45) => { if (t < t0 || t > t0 + d) return 0; const k = (t - t0) / d; return amp * (k < 0.2 ? E.outCubic(k / 0.2) : 1 - E.inOutCubic((k - 0.2) / 0.8)); };
-const DUR = WORDS[WORDS.length - 1].e + 3.2;
+const DUR = WORDS[WORDS.length - 1].e + 0.6;
 // tiempos de estructura, SIEMPRE derivados de la locución (líneas y palabras)
 const LN = n => WORDS.filter(x => x.line === n), LS = n => LN(n)[0].s, LE = n => LN(n).slice(-1)[0].e;
 const GAP = n => (LE(n - 1) + LS(n)) / 2;
-const TC = { b: GAP(1), c: GAP(2), d: GAP(3), e: GAP(4), f: GAP(5), gg: GAP(6), h: GAP(7), map: w(108) - 0.03, i: GAP(8), j: GAP(9), k: GAP(10), end: w(157) - 0.08 };
-const K2 = w(151) - 0.15;
+const TC = { b: GAP(1), d: GAP(2), e: GAP(3), f: GAP(4), gg: GAP(5), h: GAP(6), map: w(97) - 0.03, i: GAP(7), j: GAP(8), k: GAP(9), out: w(149) - 0.15 };
+const K2 = w(143) - 0.15;
 
 // ---------- glifos extra (solo en esta página)
 Stitch.FONT['º'] = { rows: ['.##.', '#..#', '.##.', '....', '####', '....', '....'], top: null };
@@ -309,8 +309,8 @@ const COLE = spr(samplerRows(111, 98), 8, { seed: 52, outline: false });
 // textos bordados
 const HOOK = Stitch.textSprite('¡A BUENAS\nHORAS,\nMANGAS\nVERDES!', { cell: 16, colors: [T.rojo, T.rojo, T.verde, T.verde], shadowColor: T.granate, tails: 1, seed: 7 });
 const HOOKX = r8((1080 - HOOK.pw) / 2), HOOKY = 236;
-const TIRAR = txt('POR ALGO\nSE DICE', 14, { seed: 9 });
-const TIRX = r8((1080 - TIRAR.pw) / 2), TIRY = 240;
+const TIRAR = txt('POR ALGO\nSE DICE', 16, { seed: 9 });
+const TIRX = r8((1080 - TIRAR.pw) / 2), TIRY = 560;
 const PULL_ORDER = { type: 'cols', reverse: true };
 const SANTA = txt('SANTA\nHERMANDAD', 16, { seed: 12 });
 const REFR2 = Stitch.textSprite('¡A BUENAS\nHORAS,\nMANGAS\nVERDES!', { cell: 8, colors: [T.rojo, T.rojo, T.verde, T.verde], shadowColor: T.granate, tails: 0, seed: 13 });
@@ -322,17 +322,17 @@ const N1 = txt('Nº1', 4, { color: T.granate, shadowColor: null }), N2 = txt('N�
 
 // ================================================================== ABUELA: estados y bastidor
 const AST = [
-  [0, w(6), { brows: 'up' }], [w(6), w(13), { brows: 'up', look: 1 }], [w(13), TC.b, { brows: 'skeptic', rest: 'smile' }],
-  [TC.b, w(16), { look: -1, brows: 'skeptic' }], [w(16), w(18), { brows: 'up', rest: 'o' }], [w(18), w(19), { brows: 'skeptic' }],
-  [w(19), TC.c, { wink: true, rest: 'laugh' }], [TC.c, w(22) + 0.3, { hand: 'finger', brows: 'up' }], [w(22) + 0.3, w(24), { wink: true, rest: 'smile' }],
-  [w(24), w(26), { rest: 'smile', brows: 'up' }], [w(26), TC.d + 0.1, { hand: 'thread', glassesDown: true, brows: 'skeptic', rest: 'laugh' }],
-  [TC.d + 0.1, w(35), { brows: 'up' }], [w(35), w(42), {}], [w(42), TC.e, { look: 1 }], [TC.e, w(56), { brows: 'skeptic', look: -1 }],
-  [w(56), TC.f, { hand: 'finger' }], [TC.f, w(65), { brows: 'skeptic', glassesDown: true }], [w(65), w(71), { brows: 'up' }],
-  [w(71), w(77), { brows: 'up', rest: 'o' }], [w(77), w(85), { look: -1 }], [w(85), TC.gg, { brows: 'skeptic', glassesDown: true, rest: 'laugh' }],
-  [TC.gg, TC.h, { rest: 'laugh' }], [TC.h, TC.map, { glassesDown: true, hand: 'finger', brows: 'skeptic' }], [TC.map, w(120), {}],
-  [w(120), w(123), { brows: 'up', glassesDown: true }], [w(123), TC.i, { wink: true, rest: 'smile' }], [TC.i, TC.j, { rest: 'smile' }],
-  [TC.j, w(146), { look: 1, rest: 'smile' }], [w(146), TC.k, { hand: 'finger', brows: 'up' }], [TC.k, w(151), { hand: 'finger' }],
-  [w(151), 999, { rest: 'smile' }],
+  [0, w(5), { brows: 'up' }], [w(5), w(12), { brows: 'up', look: 1 }], [w(12), TC.b, { brows: 'skeptic', rest: 'smile' }],
+  [TC.b, w(15), { look: -1, brows: 'skeptic' }], [w(15), w(17), { brows: 'up', rest: 'o' }], [w(17), w(18), { brows: 'skeptic' }],
+  [w(18), TC.d, { wink: true, rest: 'laugh' }], [TC.d, w(24), { brows: 'up' }], [w(24), w(31), {}], [w(31), TC.e, { look: 1 }],
+  [TC.e, w(45), { brows: 'skeptic', look: -1 }], [w(45), TC.f, { hand: 'finger' }], [TC.f, w(54), { brows: 'skeptic', glassesDown: true }],
+  [w(54), w(60), { brows: 'up' }], [w(60), w(66), { brows: 'up', rest: 'o' }], [w(66), w(74), { look: -1 }],
+  [w(74), TC.gg, { brows: 'skeptic', glassesDown: true, rest: 'laugh' }], [TC.gg, TC.h, { rest: 'laugh' }],
+  [TC.h, TC.map, { glassesDown: true, hand: 'finger', brows: 'skeptic' }], [TC.map, w(109), {}], [w(109), w(112), { brows: 'up', glassesDown: true }],
+  [w(112), TC.i, { wink: true, rest: 'smile' }], [TC.i, TC.j, { rest: 'smile' }], [TC.j, w(135), { look: 1, rest: 'smile' }],
+  [w(135), TC.k, { hand: 'finger', brows: 'up' }], [TC.k, w(140) + 0.3, { brows: 'up', rest: 'smile' }], [w(140) + 0.3, w(141), { wink: true, rest: 'smile' }],
+  [w(141), w(143), { hand: 'finger' }], [w(143), w(149), { rest: 'smile' }],
+  [w(149), w(151) + 0.2, { brows: 'up' }], [w(151) + 0.2, 999, { hand: 'thread', glassesDown: true, brows: 'skeptic', rest: 'laugh' }],
 ];
 function abState(t) {
   const row = AST.find(r => t >= r[0] && t < r[1]) || [0, 0, {}];
@@ -346,9 +346,9 @@ function abState(t) {
 }
 const HR = 340, CORNER = { x: 190, y: 1150, s: 0.44 };
 const POSES = [
-  { t: 0, x: 540, y: 1160, s: 0.6 }, { t: TC.b, x: 540, y: 500, s: 0.6, cut: true }, { t: TC.c, x: 540, y: 800, s: 0.95, cut: true, pop: true },
-  Object.assign({ t: TC.d - 0.2, d: 0.3 }, CORNER), { t: TC.h, x: 540, y: 760, s: 0.7, cut: true }, Object.assign({ t: TC.map, cut: true }, CORNER),
-  { t: TC.k, x: 540, y: 650, s: 0.75, cut: true }, Object.assign({ t: K2, d: 0.3 }, CORNER), { t: TC.end, hide: true, cut: true },
+  { t: 0, x: 540, y: 1160, s: 0.6 }, { t: TC.b, x: 540, y: 500, s: 0.6, cut: true }, Object.assign({ t: TC.d, cut: true }, CORNER),
+  { t: TC.h, x: 540, y: 760, s: 0.7, cut: true }, Object.assign({ t: TC.map, cut: true }, CORNER),
+  { t: TC.k, x: 540, y: 620, s: 0.75, cut: true, pop: true }, Object.assign({ t: K2, d: 0.3 }, CORNER),
 ];
 function poseAt(t) {
   let i = 0; for (let k = 0; k < POSES.length; k++) if (t >= POSES[k].t) i = k;
@@ -364,7 +364,7 @@ function drawHoop(t) {
   HO = Marco.abuelaHoop(g, P.x, P.y, HR, abState(t), { t, scale: P.s * (1 + hoopPunch(t)), rot: Math.sin(t * 1.7) * 0.012, skirt: P.s > 0.6 });
   HO.P = P;
 }
-const hoopPunch = t => bump(t, w(13), 0.07) + bump(t, w(5), 0.04) + bump(t, w(106), 0.05) + bump(t, w(149), 0.05);
+const hoopPunch = t => bump(t, w(12), 0.07) + bump(t, w(4), 0.04) + bump(t, w(95), 0.05) + bump(t, w(141), 0.05);
 function gripAt(t) {
   const P = poseAt(t); if (!P) return null;
   const f = Marco.abuelaFit(P.x, P.y, HR, {}), bob = Math.sin(t * 2.3) * HR * 0.006;
@@ -372,7 +372,7 @@ function gripAt(t) {
   const s = P.s * (1 + hoopPunch(t)), rot = Math.sin(t * 1.7) * 0.012, c = Math.cos(rot), sn = Math.sin(rot);
   const dx = (gp[0] - P.x) * s, dy = (gp[1] - P.y) * s; return [P.x + dx * c - dy * sn, P.y + dx * sn + dy * c];
 }
-const CURT = [[TC.b, 'vichy'], [TC.c, 'floral'], [TC.e, 'pana'], [TC.f, 'vichy'], [TC.gg, 'floral'], [TC.h, 'vichy'], [TC.map, 'pana'], [TC.i, 'floral'], [TC.j, 'vichy'], [TC.k, 'pana'], [TC.end, 'vichy']];
+const CURT = [[TC.b, 'vichy'], [TC.d, 'floral'], [TC.e, 'pana'], [TC.f, 'vichy'], [TC.gg, 'floral'], [TC.h, 'vichy'], [TC.map, 'pana'], [TC.i, 'floral'], [TC.j, 'vichy'], [TC.k, 'pana']];
 function curtain(t) {
   for (const [tc, kind] of CURT) {
     const u = (t - (tc - 0.13)) / 0.26; if (u <= 0 || u >= 1) continue;
@@ -443,196 +443,177 @@ const SC = [];
 SC.push({ t0: 0, t1: TC.b, draw(t) {
   fabricBg(16);
   // PORTADA: el refrán ya legible desde el fotograma 1, con golpes en cada palabra
-  const sc = 1 + bump(t, w(1), 0.06) + bump(t, w(3), 0.05) + bump(t, w(4), 0.07) + bump(t, w(12), 0.04);
-  const sh = shake(t, w(5), 0.35, 8);
+  const sc = 1 + bump(t, w(0), 0.06) + bump(t, w(2), 0.05) + bump(t, w(3), 0.07) + bump(t, w(11), 0.04);
+  const sh = shake(t, w(4), 0.35, 8);
   HOOK.draw(g, 540 + sh, HOOKY, { scale: sc, anchor: [0.5, 0] });
 }, post(t) {
   // manga verde gigante que entra señalando
   {
-    const jab = bump(t, w(4), 40, 0.35) + bump(t, w(12), 30, 0.35);
+    const jab = bump(t, w(3), 40, 0.35) + bump(t, w(11), 30, 0.35);
     const x = 790 - jab + Math.sin(t * 5) * 6, y = 905 + Math.sin(t * 3.3) * 5;
-    MANGA.draw(g, x, y, { anchor: [0, 10.5 / 24], rot: -0.42 + Math.sin(t * 4) * 0.03, scale: 1.1 + bump(t, w(4), 0.1) });
+    MANGA.draw(g, x, y, { anchor: [0, 10.5 / 24], rot: -0.42 + Math.sin(t * 4) * 0.03, scale: 1.1 + bump(t, w(3), 0.1) });
     sparkles(t, [[880, 820], [1000, 760], [940, 980]], 0, 0.3, 1.2);
   }
   // veredicto rojo: sello «?» desde el fotograma 1
-  Marco.patch(g, 190, 880, '?', Object.assign({ k: 1, t, cell: 16, bold: true, shape: 'circle', rot: -0.15 + Math.sin(t * 3) * 0.04, scale: 1 + bump(t, w(0), 0.12) + bump(t, w(9), 0.12) }, P_RED));
+  Marco.patch(g, 190, 880, '?', Object.assign({ k: 1, t, cell: 16, bold: true, shape: 'circle', rot: -0.15 + Math.sin(t * 3) * 0.04, scale: 1 + bump(t, w(0), 0.12) + bump(t, w(8), 0.12) }, P_RED));
   // «?» bordados alrededor
-  [[930, 690, w(9), 0.2], [880, 1240, w(10), -0.15], [200, 1240, w(12), 0.12]].forEach(([x, y, t0, r], i) => {
+  [[930, 690, w(8), 0.2], [880, 1240, w(9), -0.15], [200, 1240, w(11), 0.12]].forEach(([x, y, t0, r], i) => {
     if (t < t0) return; const k = clamp((t - t0) / 0.25);
     const s = Stitch.bounce(clamp((t - t0) / 0.25)) * (1 + Math.sin(t * 6 + i) * 0.05);
     stitchC(Q, x, y, k, { order: 'rows', scale: s, rot: r + Math.sin(t * 3 + i) * 0.08, t });
   });
 } });
 // ---------- B · GIRO
-SC.push({ t0: TC.b, t1: TC.c, draw(t) { fabricBg(8); }, post(t) {
+SC.push({ t0: TC.b, t1: TC.d, draw(t) { fabricBg(8); }, post(t) {
   // puntos suspensivos
-  [w(15), w(15) + 0.3, w(15) + 0.6].forEach((t0, i) => { if (t < t0 || t > w(17)) return; drawC(DOT, 440 + i * 100, 800, { scale: 2.2 * popS(t, t0, 0.3) }); });
+  [w(14), w(14) + 0.3, w(14) + 0.6].forEach((t0, i) => { if (t < t0 || t > w(16)) return; drawC(DOT, 440 + i * 100, 800, { scale: 2.2 * popS(t, t0, 0.3) }); });
   // silueta misteriosa
-  if (t > w(14) && t < w(17) + 0.25) {
-    const s = popS(t, w(14), 0.4) * outS(t, w(17));
+  if (t > w(13) && t < w(16) + 0.25) {
+    const s = popS(t, w(13), 0.4) * outS(t, w(16));
     drawChar(SILU, 540, 1250, { scale: s * 1.05, alpha: 0.85 });
     drawC(Q, 540, 1080 + Math.sin(t * 5) * 6, { scale: s * 1.3 * (1 + 0.06 * Math.sin(t * 7)), rot: Math.sin(t * 3) * 0.1 });
   }
   // parche ¿LA POLICÍA?
-  if (t > w(17) - 0.05) {
-    const sh = shake(t, w(17) + 0.1, 0.3, 10);
-    Marco.patch(g, 540 + sh, 830, '¿LA POLICÍA?', Object.assign({ k: clamp((t - w(17) + 0.05) / 0.5), t, cell: 12, rot: t > w(19) ? -0.06 : -0.02, scale: 1 + bump(t, w(17), 0.08) }, P_NAVY));
+  if (t > w(16) - 0.05) {
+    const sh = shake(t, w(16) + 0.1, 0.3, 10);
+    Marco.patch(g, 540 + sh, 830, '¿LA POLICÍA?', Object.assign({ k: clamp((t - w(16) + 0.05) / 0.5), t, cell: 12, rot: t > w(18) ? -0.06 : -0.02, scale: 1 + bump(t, w(16), 0.08) }, P_NAVY));
   }
   // placa + «casi» cosido torcido
-  if (t > w(18)) {
-    const s = popS(t, w(18), 0.4);
+  if (t > w(17)) {
+    const s = popS(t, w(17), 0.4);
     drawC(PLACA, 540, 1110, { scale: 1.45 * s * (1 + Math.sin(t * 2.5) * 0.015), rot: Math.sin(t * 2) * 0.03 });
-    sparkles(t, [[350, 960], [730, 980], [740, 1250], [340, 1220]], w(18) + 0.2, 0.1, 1.3);
+    sparkles(t, [[350, 960], [730, 980], [740, 1250], [340, 1220]], w(17) + 0.2, 0.1, 1.3);
   }
-  if (t > w(19) - 0.05) Marco.patch(g, 690, 1215, 'CASI', Object.assign({ k: clamp((t - w(19) + 0.05) / 0.55), t, cell: 10, rot: 0.32, bold: true }, P_RED));
-} });
-// ---------- C · MARCA (corta): «POR ALGO SE DICE» se borda de golpe y se deshace con el hilo rojo
-const LASTC = TIRAR.cells[TIRAR.order(PULL_ORDER).slice(-1)[0]];
-const PULL_END = LE(2) + 0.04;
-SC.push({ t0: TC.c, t1: TC.d, draw(t) { fabricBg(8); }, post(t) {
-  if (t > w(20) - 0.05) patchP('ABUELA REMEDIOS', 540, 1225, t, w(20) - 0.05, Object.assign({ cell: 8, dur: 0.45, rot: -0.02, out: LE(2) - 0.2 }, P_RED));
-  const tS = w(24), tP = w(27);
-  if (t >= tS && t < tP) { const k = clamp((t - tS) / 0.5); if (k < 1) TIRAR.stitchIn(g, TIRX, TIRY, k, { order: 'cols', needle: true, t }); else TIRAR.draw(g, TIRX, TIRY); }
-  else if (t >= tP) {
-    const u = clamp((t - tP) / (PULL_END - tP));
-    const k = u < 0.15 ? u * 0.25 : 0.0375 + 0.9625 * E.inOutCubic((u - 0.15) / 0.85);
-    if (k < 1) TIRAR.unravel(g, TIRX, TIRY, k, { t, to: gripAt(t), order: PULL_ORDER, keepThread: true, showAt0: true, tail: 0 });
-    else if (t < TC.d) {
-      const gp = gripAt(t), rr = E.outCubic(clamp((t - PULL_END) / 0.2));
-      const L = [TIRX + (LASTC.x + 0.5) * 14, TIRY + (LASTC.y + 0.5) * 14];
-      const end = [lerp(L[0], gp[0] + 20, rr), lerp(L[1], gp[1] + 120, rr)];
-      Stitch.drawThread(g, [gp, [lerp(gp[0], end[0], 0.5) + 20, lerp(gp[1], end[1], 0.5) + 30], end], { color: T.rojo, width: 7 });
-    }
-  }
+  if (t > w(18) - 0.05) Marco.patch(g, 690, 1215, 'CASI', Object.assign({ k: clamp((t - w(18) + 0.05) / 0.55), t, cell: 10, rot: 0.32, bold: true }, P_RED));
 } });
 // ---------- D · 1476 + Santa Hermandad + persecución
 SC.push({ t0: TC.d, t1: TC.e, draw(t) {
   fabricBg(8);
-  const wp = E.inOutCubic(clamp((t - (w(42) - 0.22)) / 0.25));   // látigo horizontal
+  const wp = E.inOutCubic(clamp((t - (w(31) - 0.22)) / 0.25));   // látigo horizontal
   g.save(); g.translate(-1080 * wp, 0);
   if (wp < 1) this.hist(t);
   g.restore();
   if (wp > 0) { g.save(); g.translate(1080 * (1 - wp), 0); this.chase(t); g.restore(); }
 }, hist(t) {
   // año
-  if (t > w(30)) patchP('AÑO', 540, 300, t, w(30), Object.assign({ cell: 8, dur: 0.4, out: w(35) - 0.1 }, P_NAVY));
-  if (t > w(30) - 0.05) {
-    const v = Math.round(counter(t, w(30), we(34) - w(30) - 0.05, 1000, 1476));
+  if (t > w(19)) patchP('AÑO', 540, 300, t, w(19), Object.assign({ cell: 8, dur: 0.4, out: w(24) - 0.1 }, P_NAVY));
+  if (t > w(19) - 0.05) {
+    const v = Math.round(counter(t, w(19), we(23) - w(19) - 0.05, 1000, 1476));
     const sp = numSpr(String(v));
-    const mv = E.inOutCubic(clamp((t - w(35)) / 0.4));
-    const s = lerp(1, 0.42, mv) * (1 + bump(t, w(34), 0.12));
+    const mv = E.inOutCubic(clamp((t - w(24)) / 0.4));
+    const s = lerp(1, 0.42, mv) * (1 + bump(t, w(23), 0.12));
     const y = lerp(470, 300, mv);
-    drawC(sp, 540, y, { scale: s * popS(t, w(30) - 0.05, 0.3) });
+    drawC(sp, 540, y, { scale: s * popS(t, w(19) - 0.05, 0.3) });
   }
   // reloj que va hacia atrás (viaje al pasado)
-  if (t > w(30) - 0.1 && t < w(35) + 0.3) {
-    const s = 1.5 * popS(t, w(30) - 0.1, 0.4) * outS(t, w(35)), cx = 540, cy = 830;
+  if (t > w(19) - 0.1 && t < w(24) + 0.3) {
+    const s = 1.5 * popS(t, w(19) - 0.1, 0.4) * outS(t, w(24)), cx = 540, cy = 830;
     drawC(RELOJ, cx, cy, { scale: s, rot: Math.sin(t * 20) * 0.02 });
-    const a = -(t - w(30)) * 9;
+    const a = -(t - w(19)) * 9;
     AGUJA_M.draw(g, cx, cy + 8 * s, { anchor: [0.5, 0.95], scale: s, rot: a }); AGUJA_H.draw(g, cx, cy + 8 * s, { anchor: [0.5, 0.95], scale: s, rot: a / 12 + 2 });
     drawC(DOT, cx, cy + 8 * s, { scale: s * 1.3 });
   }
   // Reyes Católicos
-  if (t > w(36)) { drawC(ISABEL, 300, 470, { scale: popS(t, w(36)) * (1 + Math.sin(t * 2.6) * 0.02), rot: -0.05 }); }
-  if (t > w(36) + 0.12) { drawC(FERNANDO, 780, 470, { scale: popS(t, w(36) + 0.12) * (1 + Math.sin(t * 2.6 + 1) * 0.02), rot: 0.05 }); }
-  if (t > w(37)) drawC(EMBLEMA, 540, 488, { scale: popS(t, w(37)) * 0.9 });
-  if (t > w(37)) patchP('REYES CATÓLICOS', 540, 660, t, w(37), Object.assign({ cell: 8, dur: 0.6, rot: -0.02 }, P_MUST));
-  if (t > w(40) - 0.1) SANTA.stitchIn(g, r8(540 - SANTA.pw / 2), 744, clamp((t - w(40) + 0.1) / 0.7), { order: 'cols', needle: true, t });
-  if (t > w(41) + 0.7) sparkles(t, [[120, 760], [960, 790], [500, 1010]], w(41) + 0.7, 0.5, 1.3);
+  if (t > w(25)) { drawC(ISABEL, 300, 470, { scale: popS(t, w(25)) * (1 + Math.sin(t * 2.6) * 0.02), rot: -0.05 }); }
+  if (t > w(25) + 0.12) { drawC(FERNANDO, 780, 470, { scale: popS(t, w(25) + 0.12) * (1 + Math.sin(t * 2.6 + 1) * 0.02), rot: 0.05 }); }
+  if (t > w(26)) drawC(EMBLEMA, 540, 488, { scale: popS(t, w(26)) * 0.9 });
+  if (t > w(26)) patchP('REYES CATÓLICOS', 540, 660, t, w(26), Object.assign({ cell: 8, dur: 0.6, rot: -0.02 }, P_MUST));
+  if (t > w(29) - 0.1) SANTA.stitchIn(g, r8(540 - SANTA.pw / 2), 744, clamp((t - w(29) + 0.1) / 0.7), { order: 'cols', needle: true, t });
+  if (t > w(30) + 0.7) sparkles(t, [[120, 760], [960, 790], [500, 1010]], w(30) + 0.7, 0.5, 1.3);
 }, chase(t) {
-  patchP('LA SANTA HERMANDAD', 540, 330, t, w(42) - 0.05, Object.assign({ cell: 7, dur: 0.5 }, P_RED));
-  const scroll = t > w(45) + 0.3 ? (t - w(45) - 0.3) * 640 : 0;
+  patchP('LA SANTA HERMANDAD', 540, 330, t, w(31) - 0.05, Object.assign({ cell: 7, dur: 0.5 }, P_RED));
+  const scroll = t > w(34) + 0.3 ? (t - w(34) - 0.3) * 640 : 0;
   const rx = -(scroll % ROAD.pw);
   const RY = 870, CS_ = 1.3;
-  if (t < w(42) + 0.2) ROAD.stitchIn(g, rx, RY, clamp((t - w(42) + 0.2) / 0.4), { order: 'cols' }); else { ROAD.draw(g, rx, RY); ROAD.draw(g, rx + ROAD.pw, RY); }
+  if (t < w(31) + 0.2) ROAD.stitchIn(g, rx, RY, clamp((t - w(31) + 0.2) / 0.4), { order: 'cols' }); else { ROAD.draw(g, rx, RY); ROAD.draw(g, rx + ROAD.pw, RY); }
   const FEET = 986;
   // poste del camino que pasa
-  if (t > w(49)) { const px = 1180 - (t - w(49)) * 620; drawChar(POSTE, px, FEET - 10, { scale: 1.4 }); }
+  if (t > w(38)) { const px = 1180 - (t - w(38)) * 620; drawChar(POSTE, px, FEET - 10, { scale: 1.4 }); }
   // cuadrillero
-  const cRun = t > w(45) + 0.1;
-  const cx = cRun ? lerp(560, 420, E.inOutCubic(clamp((t - w(45) - 0.1) / 0.6))) : 560;
-  if (t > w(43)) {
+  const cRun = t > w(34) + 0.1;
+  const cx = cRun ? lerp(560, 420, E.inOutCubic(clamp((t - w(34) - 0.1) / 0.6))) : 560;
+  if (t > w(32)) {
     const sp = cRun ? (runFrame(t) ? CUAD.runA : CUAD.runB) : CUAD.stand;
     const by = cRun ? -Math.abs(Math.sin(t * 14)) * 10 : 0;
-    drawChar(sp, cx, FEET + by, { scale: CS_ * popS(t, w(43), 0.35) });
-    if (!cRun) sparkles(t, [[cx - 110, FEET - 290], [cx + 115, FEET - 260], [cx - 100, FEET - 180]], w(43) + 0.15, 0.2, 1.2);
+    drawChar(sp, cx, FEET + by, { scale: CS_ * popS(t, w(32), 0.35) });
+    if (!cRun) sparkles(t, [[cx - 110, FEET - 290], [cx + 115, FEET - 260], [cx - 100, FEET - 180]], w(32) + 0.15, 0.2, 1.2);
     if (cRun) { const pz = (t * 3) % 1; drawC(POLVO, cx - 140 - pz * 60, FEET - 20, { scale: 0.5 + pz * 0.4, alpha: 1 - pz }); }
   }
-  patchP('CUADRILLERO', 560, 440, t, w(43), Object.assign({ cell: 8, dur: 0.4, out: w(45) }, P_NAVY));
+  patchP('CUADRILLERO', 560, 440, t, w(32), Object.assign({ cell: 8, dur: 0.4, out: w(34) }, P_NAVY));
   // bandolero que cruza y huye
-  if (t > w(45)) {
-    const bx = lerp(-200, 800, E.outCubic(clamp((t - w(45)) / 0.7)));
+  if (t > w(34)) {
+    const bx = lerp(-200, 800, E.outCubic(clamp((t - w(34)) / 0.7)));
     const sp = runFrame(t + 0.05) ? BAND.runA : BAND.runB;
     drawChar(sp, bx, FEET - Math.abs(Math.sin(t * 14 + 1)) * 12, { scale: CS_ });
     const pz = (t * 3 + 0.5) % 1; drawC(POLVO, bx - 150 - pz * 60, FEET - 20, { scale: 0.45 + pz * 0.4, alpha: 1 - pz });
-    patchP('BANDOLERO', Math.min(bx, 760), 440, t, w(48), Object.assign({ cell: 8, dur: 0.5, rot: 0.04 }, P_RED));
+    patchP('BANDOLERO', Math.min(bx, 760), 440, t, w(37), Object.assign({ cell: 8, dur: 0.5, rot: 0.04 }, P_RED));
   }
 } });
 // ---------- E · ¿cómo los reconocías? → las mangas verdes
 const SLEEVE = [284 + 7 * 16, 1000 - 47 * 16 + 26 * 16];
 SC.push({ t0: TC.e, t1: TC.f, draw(t) {
-  const z = E.inOutCubic(clamp((t - w(59)) / 0.45));
-  const s = lerp(1, 1.65, z) + bump(t, w(55), 0.05), F = [lerp(540, SLEEVE[0], z), lerp(960, SLEEVE[1], z)], P = [540, lerp(960, 700, z)];
+  const z = E.inOutCubic(clamp((t - w(48)) / 0.45));
+  const s = lerp(1, 1.65, z) + bump(t, w(44), 0.05), F = [lerp(540, SLEEVE[0], z), lerp(960, SLEEVE[1], z)], P = [540, lerp(960, 700, z)];
   g.save(); g.translate(P[0], P[1]); g.scale(s, s); g.translate(-F[0], -F[1]);
   fabricBg(8);
   drawChar(CUAD.standBig, 540, 1000, { scale: popS(t, TC.e + 0.03, 0.3) * (1 + Math.sin(t * 2.4) * 0.01) });
   // hilo que rodea la manga
-  if (t > w(61)) {
+  if (t > w(50)) {
     const pts = ellPts(SLEEVE[0], SLEEVE[1], 72, 132, 60);
-    const k = clamp((t - w(61)) / 0.6);
+    const k = clamp((t - w(50)) / 0.6);
     threadPath(pts, k, { width: 6 });
     if (k < 1) { const p = pts[Math.min(pts.length - 1, Math.ceil(pts.length * k))]; Stitch.needle(g, p[0], p[1], -0.8, 60, T.rojo); }
-    sparkles(t, [[SLEEVE[0] - 60, SLEEVE[1] - 110], [SLEEVE[0] + 70, SLEEVE[1] - 40], [SLEEVE[0] - 40, SLEEVE[1] + 120]], w(62), 0.4, 0.9);
+    sparkles(t, [[SLEEVE[0] - 60, SLEEVE[1] - 110], [SLEEVE[0] + 70, SLEEVE[1] - 40], [SLEEVE[0] - 40, SLEEVE[1] + 120]], w(51), 0.4, 0.9);
   }
   g.restore();
 }, post(t) {
-  [[300, 360, w(53)], [790, 330, w(54)], [840, 520, w(55)]].forEach(([x, y, t0], i) => {
-    if (t < t0 || t > w(56) + 0.2) return; const s = popS(t, t0, 0.3) * outS(t, w(56));
+  [[300, 360, w(42)], [790, 330, w(43)], [840, 520, w(44)]].forEach(([x, y, t0], i) => {
+    if (t < t0 || t > w(45) + 0.2) return; const s = popS(t, t0, 0.3) * outS(t, w(45));
     drawC(Q, x, y, { scale: s * (1 + 0.06 * Math.sin(t * 7 + i)), rot: (i - 1) * 0.25 + Math.sin(t * 3 + i) * 0.1 });
   });
-  if (t > w(56)) {
-    patchP('UNIFORME', 640, 1080, t, w(56), Object.assign({ cell: 10, dur: 0.6, out: w(59) - 0.1, rot: -0.03 }, P_NAVY));
+  if (t > w(45)) {
+    patchP('UNIFORME', 640, 1080, t, w(45), Object.assign({ cell: 10, dur: 0.6, out: w(48) - 0.1, rot: -0.03 }, P_NAVY));
   }
 } , top(t) {
-  if (t > w(61)) patchP('MANGAS VERDES', 600, 1090, t, w(61), Object.assign({ cell: 8, dur: 0.6, rot: -0.03, bold: false, scale: 1 + bump(t, w(62), 0.08) }, P_GREEN));
+  if (t > w(50)) patchP('MANGAS VERDES', 600, 1090, t, w(50), Object.assign({ cell: 8, dur: 0.6, rot: -0.03, bold: false, scale: 1 + bump(t, w(51), 0.08) }, P_GREEN));
 } });
 // ---------- F · fama de llegar tarde: reloj, asalto, llegan tarde
 SC.push({ t0: TC.f, t1: TC.gg, draw(t) {
   fabricBg(8);
-  const wp = E.inOutCubic(clamp((t - (w(71) - 0.25)) / 0.25));
+  const wp = E.inOutCubic(clamp((t - (w(60) - 0.25)) / 0.25));
   if (wp < 1) { g.save(); g.translate(-1080 * wp, 0); this.clock(t); g.restore(); }
   if (wp > 0) { g.save(); g.translate(1080 * (1 - wp), 0); this.road(t); g.restore(); }
 }, clock(t) {
-  const up = E.inOutCubic(clamp((t - w(65)) / 0.35));
-  patchP('¿EL PROBLEMA?', 540, lerp(470, 300, up), t, w(63), Object.assign({ cell: 12, dur: 0.5, scale: lerp(1, 0.75, up) }, P_RED));
-  if (t > w(65)) {
-    const s = 1.75 * popS(t, w(65), 0.35), sh = t > w(70) ? Math.sin(t * 60) * 5 * clamp(1 - (t - w(70)) / 0.6) : 0;
+  const up = E.inOutCubic(clamp((t - w(54)) / 0.35));
+  patchP('¿EL PROBLEMA?', 540, lerp(470, 300, up), t, w(52), Object.assign({ cell: 12, dur: 0.5, scale: lerp(1, 0.75, up) }, P_RED));
+  if (t > w(54)) {
+    const s = 1.75 * popS(t, w(54), 0.35), sh = t > w(59) ? Math.sin(t * 60) * 5 * clamp(1 - (t - w(59)) / 0.6) : 0;
     const cx = 540 + sh, cy = 700;
     drawC(RELOJ, cx, cy, { scale: s, rot: sh * 0.004 });
-    const spin = t > w(66) ? (t - w(66)) : 0, vel = spin * spin * 6 + spin * 10;
+    const spin = t > w(55) ? (t - w(55)) : 0, vel = spin * spin * 6 + spin * 10;
     const cc = [cx, cy + 8 * s];   // centro de la esfera
     AGUJA_M.draw(g, cc[0], cc[1], { anchor: [0.5, 0.95], scale: s, rot: vel });
     AGUJA_H.draw(g, cc[0], cc[1], { anchor: [0.5, 0.95], scale: s, rot: vel / 12 + 1 });
     drawC(DOT, cc[0], cc[1], { scale: s * 1.3 });
   }
-  if (t > w(70) - 0.05) Marco.patch(g, 760, 980, 'TARDE', Object.assign({ k: clamp((t - w(70) + 0.05) / 0.4), t, cell: 14, bold: true, rot: -0.16, scale: 1 + bump(t, w(70), 0.12) }, P_RED));
+  if (t > w(59) - 0.05) Marco.patch(g, 760, 980, 'TARDE', Object.assign({ k: clamp((t - w(59) + 0.05) / 0.4), t, cell: 14, bold: true, rot: -0.16, scale: 1 + bump(t, w(59), 0.12) }, P_RED));
 }, road(t) {
   ROAD.draw(g, -60, 870);
   const FEET = 986, VX = 680, CS_ = 1.3;
   // viajero
   let vs = VIAJ.stand;
-  if (t > w(72) + 0.1) vs = VIAJ.scared;
-  if (t > w(74)) vs = VIAJ.undies;
-  if (t > w(77)) vs = VIAJ.sad;
-  if (t > w(85) + 0.4) vs = VIAJ.flat;
+  if (t > w(61) + 0.1) vs = VIAJ.scared;
+  if (t > w(63)) vs = VIAJ.undies;
+  if (t > w(66)) vs = VIAJ.sad;
+  if (t > w(74) + 0.4) vs = VIAJ.flat;
   const vb = vs === VIAJ.scared ? Math.sin(t * 40) * 3 : 0;
-  drawChar(vs, VX + vb, FEET, { scale: CS_ * popS(t, w(71) - 0.2, 0.3) });
-  if (t > w(72) + 0.1 && t < w(74)) drawC(EXC, VX + 10, 420, { scale: popS(t, w(72) + 0.1), rot: 0.1 });
+  drawChar(vs, VX + vb, FEET, { scale: CS_ * popS(t, w(60) - 0.2, 0.3) });
+  if (t > w(61) + 0.1 && t < w(63)) drawC(EXC, VX + 10, 420, { scale: popS(t, w(61) + 0.1), rot: 0.1 });
   // bandoleros
   const jump = (t0, x0, x1) => { const k = clamp((t - t0) / 0.4); return [lerp(x0, x1, E.outCubic(k)), -Math.sin(k * Math.PI) * 120]; };
-  const flee = w(74) + 0.1;
-  if (t > w(72) && t < flee) {
-    const [x1, y1] = jump(w(72), -150, 380), [x2, y2] = jump(w(72) + 0.08, 1230, 890);
+  const flee = w(63) + 0.1;
+  if (t > w(61) && t < flee) {
+    const [x1, y1] = jump(w(61), -150, 380), [x2, y2] = jump(w(61) + 0.08, 1230, 890);
     drawChar(BAND.stand, x1, FEET + y1, { scale: CS_ }); drawChar(BAND.stand, x2, FEET + y2, { flip: true, scale: CS_ });
   } else if (t >= flee && t < flee + 1.4) {
     const k = E.inCubic(clamp((t - flee) / 1.1));
@@ -640,64 +621,64 @@ SC.push({ t0: TC.f, t1: TC.gg, draw(t) {
     drawChar(f, lerp(380, 1450, k), FEET - Math.abs(Math.sin(t * 14)) * 10, { scale: CS_ }); drawChar(runFrame(t + 0.05) ? BAND.lootB : BAND.lootA, lerp(890, 1650, k), FEET - Math.abs(Math.sin(t * 14 + 1)) * 10, { scale: CS_ });
   }
   // nube del desvalijo
-  if (t > w(74) - 0.15 && t < w(74) + 0.45) { const k = clamp((t - w(74) + 0.15) / 0.6); drawC(POLVO, VX, FEET - 240, { scale: 1.9 * Math.sin(k * Math.PI) + 0.2, alpha: Math.sin(k * Math.PI) }); }
-  patchP('SIN NADA', 560, 380, t, w(76), Object.assign({ cell: 12, dur: 0.45, out: w(85) - 0.2, rot: 0.05 }, P_MUST));
+  if (t > w(63) - 0.15 && t < w(63) + 0.45) { const k = clamp((t - w(63) + 0.15) / 0.6); drawC(POLVO, VX, FEET - 240, { scale: 1.9 * Math.sin(k * Math.PI) + 0.2, alpha: Math.sin(k * Math.PI) }); }
+  patchP('SIN NADA', 560, 380, t, w(65), Object.assign({ cell: 12, dur: 0.45, out: w(74) - 0.2, rot: 0.05 }, P_MUST));
   // rodador
-  if (t > w(78) && t < w(85)) { const k = clamp((t - w(78)) / 1.6); drawC(RODADOR, lerp(1150, -100, k), FEET - 50 - Math.abs(Math.sin(k * 14)) * 40, { rot: -k * 18, scale: 1.3 }); }
+  if (t > w(67) && t < w(74)) { const k = clamp((t - w(67)) / 1.6); drawC(RODADOR, lerp(1150, -100, k), FEET - 50 - Math.abs(Math.sin(k * 14)) * 40, { rot: -k * 18, scale: 1.3 }); }
   // reloj pequeño esperando
-  if (t > w(80) && t < w(85) + 0.2) {
-    const s = 1.4 * popS(t, w(80)) * outS(t, w(85)); const cx = 880, cy = 560;
-    drawC(RELOJ_S, cx, cy, { scale: s }); const a = Math.floor((t - w(80)) * 2) * 0.5;
+  if (t > w(69) && t < w(74) + 0.2) {
+    const s = 1.4 * popS(t, w(69)) * outS(t, w(74)); const cx = 880, cy = 560;
+    drawC(RELOJ_S, cx, cy, { scale: s }); const a = Math.floor((t - w(69)) * 2) * 0.5;
     AGUJA_MS.draw(g, cx, cy + 4 * s, { anchor: [0.5, 0.95], scale: s, rot: a }); AGUJA_HS.draw(g, cx, cy + 4 * s, { anchor: [0.5, 0.95], scale: s, rot: 2 });
   }
   // llegan los cuadrilleros (tarde)
-  if (t > w(85) - 0.1) {
-    const k = E.outCubic(clamp((t - w(85) + 0.1) / 0.7));
+  if (t > w(74) - 0.1) {
+    const k = E.outCubic(clamp((t - w(74) + 0.1) / 0.7));
     const x1 = lerp(-250, 300, k), x2 = lerp(-420, 470, k), arrived = k >= 1;
-    const pz = clamp((t - w(85)) / 1.2);
+    const pz = clamp((t - w(74)) / 1.2);
     if (pz < 1) drawC(POLVO, lerp(-50, 330, pz), FEET - 90, { scale: 1.5 + pz * 1.8, alpha: 1 - pz });
-    if (arrived) { drawChar(t > w(86) ? CUAD.proud : CUAD.stand, x1, FEET, { scale: CS_ }); drawChar(t > w(86) ? CUAD.proud : CUAD.stand, x2, FEET, { flip: true, scale: CS_ }); }
+    if (arrived) { drawChar(t > w(75) ? CUAD.proud : CUAD.stand, x1, FEET, { scale: CS_ }); drawChar(t > w(75) ? CUAD.proud : CUAD.stand, x2, FEET, { flip: true, scale: CS_ }); }
     else { drawChar(runFrame(t) ? CUAD.runA : CUAD.runB, x1, FEET - Math.abs(Math.sin(t * 14)) * 10, { scale: CS_ }); drawChar(runFrame(t + 0.05) ? CUAD.runB : CUAD.runA, x2, FEET - Math.abs(Math.sin(t * 14 + 1)) * 10, { scale: CS_ }); }
-    if (t > w(86)) sparkles(t, [[180, 640], [330, 720], [560, 650], [420, 600], [250, 820]], w(86), 0.7, 1.3);
+    if (t > w(75)) sparkles(t, [[180, 640], [330, 720], [560, 650], [420, 600], [250, 820]], w(75), 0.7, 1.3);
   }
-  if (t > w(86) - 0.05) Marco.patch(g, 560, 390, 'TARDE', Object.assign({ k: clamp((t - w(86) + 0.05) / 0.45), t, cell: 16, bold: true, rot: 0.13, scale: 1 + bump(t, w(86), 0.1) }, P_RED));
+  if (t > w(75) - 0.05) Marco.patch(g, 560, 390, 'TARDE', Object.assign({ k: clamp((t - w(75) + 0.05) / 0.45), t, cell: 16, bold: true, rot: 0.13, scale: 1 + bump(t, w(75), 0.1) }, P_RED));
 } });
 // ---------- G · la gente con guasa
 SC.push({ t0: TC.gg, t1: TC.h, draw(t) {
   fabricBg(8);
   const xs = [215, 540, 860], FEET = 990;
   xs.forEach((x, i) => {
-    const t0 = w(87) + i * 0.12; if (t < t0) return;
-    const laugh = t > w(91) + i * 0.1;
+    const t0 = w(76) + i * 0.12; if (t < t0) return;
+    const laugh = t > w(80) + i * 0.1;
     const by = laugh ? -Math.abs(Math.sin(t * 13 + i * 1.3)) * 14 : 0;
     drawChar(laugh ? ALD[i].laugh : ALD[i].smile, x, FEET + by, { scale: 1.2 * popS(t, t0, 0.35), rot: laugh ? Math.sin(t * 13 + i) * 0.03 : 0 });
   });
-  [[200, 540, w(92)], [520, 470, w(92) + 0.25], [820, 540, w(93)], [370, 380, w(93) + 0.25], [700, 370, w(93) + 0.4]].forEach(([x, y, t0], i) => {
-    if (t < t0 || t > w(94) + 0.2) return;
-    drawC(JA, x, y + Math.sin(t * 9 + i) * 8, { scale: popS(t, t0, 0.3) * outS(t, w(94)), rot: (i % 2 ? 0.2 : -0.2) });
+  [[200, 540, w(81)], [520, 470, w(81) + 0.25], [820, 540, w(82)], [370, 380, w(82) + 0.25], [700, 370, w(82) + 0.4]].forEach(([x, y, t0], i) => {
+    if (t < t0 || t > w(83) + 0.2) return;
+    drawC(JA, x, y + Math.sin(t * 9 + i) * 8, { scale: popS(t, t0, 0.3) * outS(t, w(83)), rot: (i % 2 ? 0.2 : -0.2) });
   });
-  if (t > w(94) - 0.05) {
-    const k = clamp((t - w(94) + 0.05) / 2.05);
-    const o = { order: 'rows', needle: k < 1, t, scale: 1.5 + bump(t, w(98), 0.06), anchor: [0.5, 0] };
+  if (t > w(83) - 0.05) {
+    const k = clamp((t - w(83) + 0.05) / 2.05);
+    const o = { order: 'rows', needle: k < 1, t, scale: 1.5 + bump(t, w(87), 0.06), anchor: [0.5, 0] };
     if (k < 1) GUASA_T.stitchIn(g, 540, 250, k, o); else GUASA_T.draw(g, 540, 250, o);
   }
 }, post(t) {
-  patchP('¡QUÉ GUASA!', 540, 290, t, w(93) - 0.1, Object.assign({ cell: 11, dur: 0.35, out: w(94) - 0.1, rot: -0.05 }, P_MUST));
+  patchP('¡QUÉ GUASA!', 540, 290, t, w(82) - 0.1, Object.assign({ cell: 11, dur: 0.35, out: w(83) - 0.1, rot: -0.05 }, P_MUST));
 } });
 // ---------- H · OJO: no eran vagos; mapa; la fama se quedó
 SC.push({ t0: TC.h, t1: TC.i, draw(t) {
   fabricBg(8);
   if (t >= TC.map) this.map(t);
 }, map(t) {
-  const sl = E.inCubic(clamp((t - w(123) + 0.05) / 0.35));
+  const sl = E.inCubic(clamp((t - w(112) + 0.05) / 0.35));
   g.save(); g.translate(-1200 * sl, 0);
   if (sl < 1) {
     panel(88, 256, 904, 648, { color: 'lino', cell: 8, ox: MAPX, oy: MAPY });
     const kr = clamp((t - TC.map - 0.05) / 0.8);
     if (kr < 1) MAP_ROADS.stitchIn(g, MAPX, MAPY, kr, { order: { type: 'path', from: [10, 66] } }); else MAP_ROADS.draw(g, MAPX, MAPY);
-    if (t > w(112)) { const km = clamp((t - w(112)) / 0.6); if (km < 1) MAP_MONTES.stitchIn(g, MAPX, MAPY, km, { order: 'random' }); else MAP_MONTES.draw(g, MAPX, MAPY); }
-    if (t > w(114)) {
-      const k = clamp((t - w(114)) / 2.0) * 0.42;
+    if (t > w(101)) { const km = clamp((t - w(101)) / 0.6); if (km < 1) MAP_MONTES.stitchIn(g, MAPX, MAPY, km, { order: 'random' }); else MAP_MONTES.draw(g, MAPX, MAPY); }
+    if (t > w(103)) {
+      const k = clamp((t - w(103)) / 2.0) * 0.42;
       const n = Math.max(2, Math.ceil(WALK.length * k)); const sub = WALK.slice(0, n);
       g.save(); g.setLineDash([6, 8]); g.lineWidth = 5; g.strokeStyle = T.rojo; g.lineCap = 'round'; g.beginPath(); sub.forEach((p, i) => (i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]))); g.stroke(); g.restore();
       const p = sub[sub.length - 1]; const sp = runFrame(t, 6) ? CUAD.tinyA : CUAD.tinyB;
@@ -707,24 +688,24 @@ SC.push({ t0: TC.h, t1: TC.i, draw(t) {
       g.save(); g.setLineDash([10, 8]); g.lineWidth = 4; g.strokeStyle = T.granate; g.beginPath(); g.arc(tx + 4, ty - 4, 26 + Math.sin(t * 6) * 3, 0, Math.PI * 2); g.stroke(); g.restore();
     }
   }
-  patchP('CASI IMPOSIBLE', 600, 950, t, w(118), Object.assign({ cell: 8, dur: 0.5, rot: -0.04, bold: true }, P_RED));
+  patchP('CASI IMPOSIBLE', 600, 950, t, w(107), Object.assign({ cell: 8, dur: 0.5, rot: -0.04, bold: true }, P_RED));
   g.restore();
 }, post(t) {
   if (t < TC.map) {
-    Marco.patch(g, 815, 420, '¡OJO!', Object.assign({ k: clamp((t - w(99) + 0.05) / 0.7), t, cell: 12, bold: true, rot: -0.12, scale: 1 + bump(t, w(99), 0.1) }, P_RED));
-    if (t > w(106) - 0.05) {
-      const sh = shake(t, w(107), 0.3, 8);
-      Marco.patch(g, 540 + sh, 1170, '¿VAGOS?', { k: clamp((t - w(106) + 0.05) / 0.4), t, cell: 11, bold: true, color: T.gris, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: SH(T.gris, -0.35), rot: 0.03 });
-      if (t > w(107)) { const k1 = clamp((t - w(107)) / 0.18), k2 = clamp((t - w(107) - 0.15) / 0.18);
+    Marco.patch(g, 815, 420, '¡OJO!', Object.assign({ k: clamp((t - w(88) + 0.05) / 0.7), t, cell: 12, bold: true, rot: -0.12, scale: 1 + bump(t, w(88), 0.1) }, P_RED));
+    if (t > w(95) - 0.05) {
+      const sh = shake(t, w(96), 0.3, 8);
+      Marco.patch(g, 540 + sh, 1170, '¿VAGOS?', { k: clamp((t - w(95) + 0.05) / 0.4), t, cell: 11, bold: true, color: T.gris, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: SH(T.gris, -0.35), rot: 0.03 });
+      if (t > w(96)) { const k1 = clamp((t - w(96)) / 0.18), k2 = clamp((t - w(96) - 0.15) / 0.18);
         threadPath([[330, 1100], [440, 1150], [540, 1170], [750, 1240]], k1, { width: 9 }); threadPath([[330, 1240], [540, 1170], [750, 1100]], k2, { width: 9 }); }
     }
   } else {
     // FAMA: el sello que se queda
-    if (t > w(122) - 0.05) {
-      const k = clamp((t - w(122) + 0.05) / 0.35), sh = shake(t, w(122) + 0.2, 0.35, 12);
-      const wob = t > w(123) ? Math.sin((t - w(123)) * 14) * 0.08 * Math.max(0, 1 - (t - w(123)) / 0.8) : 0;
-      Marco.patch(g, 540 + sh, 600, 'FAMA', Object.assign({ k: Math.max(k, 0.55), t, cell: 16, bold: true, shape: 'circle', rot: -0.1 + wob, scale: (k < 1 ? 1.4 - 0.4 * E.outCubic(k) : 1) + bump(t, w(124), 0.06) }, P_RED));
-      if (t > w(123) + 0.05) { const kk = clamp((t - w(123) - 0.05) / 0.5); const pts = ellPts(540, 600, 250, 250, 64, -1.6);
+    if (t > w(111) - 0.05) {
+      const k = clamp((t - w(111) + 0.05) / 0.35), sh = shake(t, w(111) + 0.2, 0.35, 12);
+      const wob = t > w(112) ? Math.sin((t - w(112)) * 14) * 0.08 * Math.max(0, 1 - (t - w(112)) / 0.8) : 0;
+      Marco.patch(g, 540 + sh, 600, 'FAMA', Object.assign({ k: Math.max(k, 0.55), t, cell: 16, bold: true, shape: 'circle', rot: -0.1 + wob, scale: (k < 1 ? 1.4 - 0.4 * E.outCubic(k) : 1) + bump(t, w(113), 0.06) }, P_RED));
+      if (t > w(112) + 0.05) { const kk = clamp((t - w(112) - 0.05) / 0.5); const pts = ellPts(540, 600, 250, 250, 64, -1.6);
         g.save(); g.setLineDash([16, 12]); g.lineWidth = 6; g.lineCap = 'round'; g.strokeStyle = T.granate; g.beginPath(); pts.slice(0, Math.max(2, Math.ceil(pts.length * kk))).forEach((p, i) => (i ? g.lineTo(p[0], p[1]) : g.moveTo(p[0], p[1]))); g.stroke(); g.restore();
         if (kk < 1) { const p = pts[Math.ceil(pts.length * kk)]; Stitch.needle(g, p[0], p[1], -0.7, 70, T.granate); } }
     }
@@ -732,22 +713,22 @@ SC.push({ t0: TC.h, t1: TC.i, draw(t) {
 } });
 // ---------- I · MORALEJA (dechado)
 SC.push({ t0: TC.i, t1: TC.j, draw(t) {
-  const s = 1 + bump(t, w(136), 0.04) + bump(t, w(132), 0.03);
+  const s = 1 + bump(t, w(125), 0.04) + bump(t, w(121), 0.03);
   g.save(); g.translate(540, 600); g.scale(s, s); g.translate(-540, -600);
   fabricBg(8);
   panel(80, 224, 920, 752, { color: 'blanco', cell: 8, ox: 80, oy: 224, stroke: 'rgba(0,0,0,0)' });
   const kb = clamp((t - TC.i - 0.06) / 0.5);
   if (kb < 1) SAMP.stitchIn(g, 80, 224, kb, { order: { type: 'path', from: [0, 0] } }); else SAMP.draw(g, 80, 224);
-  const kt = clamp((t - w(126)) / 0.9);
+  const kt = clamp((t - w(115)) / 0.9);
   const MX = r8(540 - MORAL.pw / 2), MY = 344;
   if (kt > 0) { if (kt < 1) MORAL.stitchIn(g, MX, MY, kt, { order: 'rows', needle: true, t }); else MORAL.draw(g, MX, MY); }
-  if (t > w(135)) drawC(CHECK, 885, 895, { scale: 0.75 * popS(t, w(135)) * (1 + 0.04 * Math.sin(t * 5)), rot: -0.08 });
-  if (t > w(135)) sparkles(t, [[130, 280], [950, 300], [120, 900], [700, 250], [400, 930]], w(135), 0.9, 1.3);
+  if (t > w(124)) drawC(CHECK, 885, 895, { scale: 0.75 * popS(t, w(124)) * (1 + 0.04 * Math.sin(t * 5)), rot: -0.08 });
+  if (t > w(124)) sparkles(t, [[130, 280], [950, 300], [120, 900], [700, 250], [400, 930]], w(124), 0.9, 1.3);
   g.restore();
 }, post(t) {
-  if (t > w(130)) {
-    const v = Math.min(500, Math.round(counter(t, w(130), we(132) - w(130), 0, 500) / 50) * 50);
-    const s = popS(t, w(130), 0.35) * (1 + bump(t, w(133), 0.1));
+  if (t > w(119)) {
+    const v = Math.min(500, Math.round(counter(t, w(119), we(121) - w(119), 0, 500) / 50) * 50);
+    const s = popS(t, w(119), 0.35) * (1 + bump(t, w(122), 0.1));
     Marco.patch(g, 690, 1050, '+' + v + ' AÑOS', Object.assign({ k: 1, t, cell: 9, bold: true, rot: -0.06, scale: s }, P_MUST));
   }
 } });
@@ -757,7 +738,7 @@ SC.push({ t0: TC.j, t1: TC.k, draw(t) {
   fabricBg(8);
   panel(80, 240, 920, 750, { color: 'lino', cell: 8 });
   Marco.patch(g, 540, 300, '¿A QUIÉN SE LO DIRÍAS?', Object.assign({ k: 1, t, cell: 6, rot: -0.015 }, P_RED));
-  [[w(141), 385], [w(144), 560], [w(145) + 0.1, 735]].forEach(([t0, y], i) => {
+  [[w(130), 385], [w(133), 560], [w(134) + 0.1, 735]].forEach(([t0, y], i) => {
     if (t < t0) return; const s = 0.85 + 0.15 * popS(t, t0, 0.3);
     g.save(); g.translate(540, y + 70); g.scale(s, s); g.translate(-540, -(y + 70));
     g.globalAlpha = clamp((t - t0) / 0.15);
@@ -770,21 +751,22 @@ SC.push({ t0: TC.j, t1: TC.k, draw(t) {
   g.save(); g.beginPath(); g.roundRect(110, 880, 860, 84, 42); g.fillStyle = '#FFFFFF'; g.fill(); g.setLineDash([12, 9]); g.lineWidth = 4; g.strokeStyle = 'rgba(34,53,107,.6)'; g.stroke(); g.restore();
   g.save(); g.beginPath(); g.arc(924, 922, 30, 0, Math.PI * 2); g.fillStyle = T.rojo; g.fill(); g.fillStyle = '#fff'; g.beginPath(); g.moveTo(914, 906); g.lineTo(940, 922); g.lineTo(914, 938); g.closePath(); g.fill(); g.restore();
 }, post(t) {
-  if (t > w(147)) { const s = popS(t, w(147), 0.4); Marco.patch(g, 780, 1120, '@', Object.assign({ k: 1, t, cell: 20, bold: true, shape: 'circle', rot: 0.1, scale: s * (1 + 0.05 * Math.sin(t * 6)) }, P_RED)); }
+  if (t > w(136)) { const s = popS(t, w(136), 0.4); Marco.patch(g, 780, 1120, '@', Object.assign({ k: 1, t, cell: 20, bold: true, shape: 'circle', rot: 0.1, scale: s * (1 + 0.05 * Math.sin(t * 6)) }, P_RED)); }
 }, dom(t) {
   if (t < TC.j + 0.13 || t > TC.k - 0.13) return;
-  [[w(141), 0], [w(144), 1], [w(145) + 0.1, 2]].forEach(([t0, i]) => { const c = DOM.c[i]; if (t < t0) { set(c.av, { o: 0 }); set(c.tx, { o: 0 }); return; } const s = 0.85 + 0.15 * popS(t, t0, 0.3), o = clamp((t - t0) / 0.15); set(c.av, { s, o }); set(c.tx, { s, o }); });
-  const typed = t > w(146) ? typeText(TAG, t, w(146), 16) : '';
+  [[w(130), 0], [w(133), 1], [w(134) + 0.1, 2]].forEach(([t0, i]) => { const c = DOM.c[i]; if (t < t0) { set(c.av, { o: 0 }); set(c.tx, { o: 0 }); return; } const s = 0.85 + 0.15 * popS(t, t0, 0.3), o = clamp((t - t0) / 0.15); set(c.av, { s, o }); set(c.tx, { s, o }); });
+  const typed = t > w(135) ? typeText(TAG, t, w(135), 16) : '';
   DOM.inp.innerHTML = typed ? `<span style="color:#22356B;font-weight:700">${typed}</span>${Math.floor(t * 3) % 2 ? '|' : ''}` : '<span style="color:#9AA0A6">Añade un comentario…</span>';
   set(DOM.inp, { o: 1 });
 } });
 // ---------- K · CIERRE: seguir + colección + apúntatelo
 const CGX = 141, CGY = 372, CS = 186, CGAP = 18;
 const cellPos = i => [CGX + (i % 4) * (CS + CGAP), CGY + Math.floor(i / 4) * (CS + CGAP)];
-SC.push({ t0: TC.k, t1: TC.end, draw(t) {
+SC.push({ t0: TC.k, t1: 999, draw(t) {
   fabricBg(8);
   const sl = E.inOutCubic(clamp((t - K2) / 0.25)), sl2 = 0;
-  if (sl > 0 && sl2 < 1) { g.save(); g.translate(-1080 * sl2, 1200 * (1 - sl)); this.coll(t); g.restore(); }
+  const so = E.inCubic(clamp((t - TC.out) / 0.22));
+  if (sl > 0 && so < 1) { g.save(); g.translate(-1080 * so, 1200 * (1 - sl)); this.coll(t); g.restore(); }
   if (sl2 > 0) { g.save(); g.translate(1080 * (1 - sl2), 0); this.lib(t); g.restore(); }
 }, coll(t) {
   panel(96, 232, 888, 784, { color: 'blanco', cell: 8, ox: 96, oy: 232, stroke: 'rgba(0,0,0,0)' });
@@ -796,11 +778,11 @@ SC.push({ t0: TC.k, t1: TC.end, draw(t) {
     const cx = x + CS / 2, cy = y + CS / 2;
     if (i === 0) { drawC(SILLA, cx, cy - 8, { scale: 0.95 }); N1.draw(g, x + 12, y + CS - 34); }
     else if (i === 1) {
-      const k = clamp((t - w(155)) / 0.7);
-      if (k > 0) { if (k < 1) stitchC(MANGA_ICON, cx, cy - 6, k, { order: 'cols', needle: true, t }); else drawC(MANGA_ICON, cx, cy - 6, { scale: 1 + bump(t, w(156) + 0.4, 0.15) }); }
+      const k = clamp((t - w(147)) / 0.7);
+      if (k > 0) { if (k < 1) stitchC(MANGA_ICON, cx, cy - 6, k, { order: 'cols', needle: true, t }); else drawC(MANGA_ICON, cx, cy - 6, { scale: 1 + bump(t, w(148) + 0.4, 0.15) }); }
       else drawC(QS, cx, cy, { alpha: 0.6 });
       N2.draw(g, x + 12, y + CS - 34);
-      if (k >= 1) sparkles(t, [[x + 20, y + 20], [x + CS - 20, y + 30], [x + CS - 30, y + CS - 20]], w(156) + 0.4, 0.2, 1.1);
+      if (k >= 1) sparkles(t, [[x + 20, y + 20], [x + CS - 20, y + 30], [x + CS - 30, y + CS - 20]], w(148) + 0.4, 0.2, 1.1);
     } else drawC(QS, cx, cy, { alpha: 0.75 });
   }
 }, lib(t) {
@@ -811,56 +793,57 @@ SC.push({ t0: TC.k, t1: TC.end, draw(t) {
   g.strokeStyle = 'rgba(200,16,46,.45)'; g.beginPath(); g.moveTo(290, 346); g.lineTo(290, 934); g.stroke(); g.restore();
   for (let i = 0; i < 9; i++) { const x = 250 + i * 70; g.save(); g.lineWidth = 9; g.strokeStyle = '#8E949A'; g.beginPath(); g.ellipse(x, 330, 14, 26, 0, Math.PI * 0.95, Math.PI * 2.05); g.stroke(); g.restore(); }
   g.restore();
-  patchP('APÚNTATELO', 540, 410, t, w(156), Object.assign({ cell: 9, dur: 0.45, rot: -0.04, bold: true }, P_NAVY));
+  patchP('APÚNTATELO', 540, 410, t, w(148), Object.assign({ cell: 9, dur: 0.45, rot: -0.04, bold: true }, P_NAVY));
   const LX = r8(540 - REFR2.pw / 2), LY = 504;
-  const k = clamp((t - w(156) - 0.2) / 1.5);
+  const k = clamp((t - w(148) - 0.2) / 1.5);
   if (k > 0) { if (k < 1) { const f = REFR2.stitchIn(g, LX, LY, k, { order: 'cols', t }); this.front = f ? [f.x, f.y] : null; } else REFR2.draw(g, LX, LY); }
-  if (t > w(156)) drawC(CHECK, 760, 780, { scale: popS(t, w(156)) * 0.8, rot: -0.1 });
+  if (t > w(148)) drawC(CHECK, 760, 780, { scale: popS(t, w(148)) * 0.8, rot: -0.1 });
 }, post(t) {
+  // «Aquí la abuela Remedios»
+  if (t < w(141) + 0.25) patchP('ABUELA REMEDIOS', 540, 960, t, w(137) - 0.05, Object.assign({ cell: 9, dur: 0.45, rot: -0.02, out: w(141) }, P_RED));
+  // «por algo se dice»: el logo se borda de golpe y el hilo rojo lo deshace hacia la mano de la abuela
+  const tS = w(149) - 0.05, tP = w(151) + 0.2, tE = DUR - 0.5;
+  if (t >= tS && t < tP) { const k = clamp((t - tS) / 0.38); if (k < 1) TIRAR.stitchIn(g, TIRX, TIRY, k, { order: 'cols', needle: true, t }); else TIRAR.draw(g, TIRX, TIRY); }
+  else if (t >= tP && t < tE) {
+    const u = clamp((t - tP) / (tE - tP)), k = u < 0.12 ? u * 0.3 : 0.036 + 0.964 * E.inOutCubic((u - 0.12) / 0.88);
+    TIRAR.unravel(g, TIRX, TIRY, k, { t, to: gripAt(t), order: PULL_ORDER, keepThread: true, showAt0: true, tail: 0 });
+  }
   // botón SEGUIR cosido con la mano de la abuela señalándolo
   const off = E.inOutCubic(clamp((t - K2) / 0.25)) * -1300;
   if (t < K2 + 0.3) {
     g.save(); g.translate(0, off);
-    if (t > w(148) - 0.1) {
+    if (t > w(141) - 0.1) {
       const ps = Marco.patchSize('+ SEGUIR', { cell: 10, bold: true });
-      Marco.patch(g, 470, 1090, '+ SEGUIR', Object.assign({ k: clamp((t - w(148) + 0.1) / 0.5), t, cell: 10, bold: true, radius: ps.h / 2 - 2, scale: 1 + bump(t, w(149), 0.12) + (t > w(149) + 0.5 ? 0.03 * Math.sin(t * 7) : 0) }, P_RED));
+      Marco.patch(g, 470, 1090, '+ SEGUIR', Object.assign({ k: clamp((t - w(141) + 0.1) / 0.5), t, cell: 10, bold: true, radius: ps.h / 2 - 2, scale: 1 + bump(t, w(141), 0.12) + (t > w(141) + 0.5 ? 0.03 * Math.sin(t * 7) : 0) }, P_RED));
     }
-    if (t > w(148) + 0.2) { const k = E.outBack(clamp((t - w(148) - 0.2) / 0.45)); MANO_ABUELA.draw(g, lerp(1250, 845, k) + Math.sin(t * 9) * 10, 1090, { anchor: [0, 10.5 / 24], rot: 0.05 }); }
+    if (t > w(141) + 0.2) { const k = E.outBack(clamp((t - w(141) - 0.2) / 0.45)); MANO_ABUELA.draw(g, lerp(1250, 845, k) + Math.sin(t * 9) * 10, 1090, { anchor: [0, 10.5 / 24], rot: 0.05 }); }
     g.restore();
   }
-  if (t > K2 + 0.3 && t < TC.end + 0.25) {
-    const s = popS(t, K2 + 0.35, 0.3) * outS(t, TC.end - 0.15);
+  if (t > K2 + 0.3 && t < TC.out + 0.25) {
+    const s = popS(t, K2 + 0.35, 0.3) * outS(t, TC.out);
     Marco.patch(g, 610, 1085, 'SÍGUEME PARA\nCOMPLETARLA', Object.assign({ k: 1, t, cell: 6, rot: -0.04, scale: s }, P_RED));
   }
 } });
 
-// ---------- TARJETA FINAL
-function endCardDraw(t) {
-  const k = clamp((t - TC.end - 0.1) / 1.3);
-  Marco.endCard(g, k, { t, title: 'REFRÁN Nº 2', date: '16/10/2026', state: t > TC.end + 2.05 ? { mouth: 'smile', wink: true } : { mouth: 'laugh', blink: Abuela.blink(t) } });
-  const k2 = clamp((t - TC.end - 1.05) / 0.7);
-  if (k2 > 0) Marco.patch(g, 540, 1495, 'A BUENAS HORAS,\nMANGAS VERDES', Object.assign({ k: k2, t, cell: 6, rot: 0.02 }, P_CREAM));
-}
-
 // ================================================================== SFX
-[[0.02, 'sewing_machine', 0.55], [w(4) - 0.05, 'cloth_whoosh', 0.6], [w(5), 'sparkle', 0.5], [w(9), 'pop', 0.6], [w(12), 'pop2', 0.6],
- [w(15), 'tick', 0.45], [w(15) + 0.3, 'tick', 0.45], [w(15) + 0.6, 'tick', 0.45], [w(17), 'stamp', 0.9], [w(18), 'pop', 0.7], [w(19), 'stitch', 0.7],
- [TC.c + 0.05, 'pop', 0.7], [w(20), 'stitch', 0.55], [w(24), 'sewing_machine', 0.5],  [w(27) + 0.05, 'thread_pull', 0.9], [TC.d - 0.2, 'swoosh_up', 0.5], [w(30), 'drumroll', 0.35], [w(34) + 0.05, 'ding', 0.8], [w(36), 'pop', 0.7],
- [w(37), 'pop2', 0.6], [w(40), 'sewing_machine', 0.55], [w(42) - 0.25, 'whoosh', 0.6], [w(43), 'pop', 0.7], [w(45), 'whoosh', 0.6], [w(48), 'stitch', 0.5],
- [w(49) + 0.2, 'pop2', 0.4], [w(53), 'pop2', 0.5], [w(56), 'stitch', 0.55], [w(59), 'whoosh', 0.45], [w(62), 'sparkle', 0.8], [w(64), 'stamp', 0.8],
- [w(65), 'pop', 0.55], [w(66), 'clockfast', 0.8], [w(70), 'stamp', 0.9], [w(71) - 0.3, 'whoosh', 0.6], [w(72) + 0.25, 'thud', 0.8], [w(74) - 0.1, 'squish', 0.8],
- [w(74) + 0.3, 'whoosh', 0.5], [w(76), 'pop', 0.55], [w(78), 'tick', 0.35], [w(80), 'tick', 0.35], [w(82), 'tick', 0.35], [w(85) - 0.1, 'whoosh', 0.7],
- [w(86), 'stamp', 0.9], [w(86) + 0.5, 'sparkle', 0.8], [w(87), 'pop', 0.7], [w(92), 'pop2', 0.55], [w(93) - 0.1, 'stamp', 0.6], [w(94), 'sewing_machine', 0.55],
- [w(98), 'ding', 0.6], [w(99), 'stamp', 0.9], [w(106), 'stitch', 0.55], [w(107), 'error', 0.45], [TC.map + 0.05, 'sewing_machine', 0.5], [w(112), 'stitch', 0.55],
- [w(118), 'stamp', 0.7], [w(122), 'stamp', 0.9], [w(123), 'whoosh', 0.6], [w(123) + 0.15, 'stitch', 0.6], [TC.i + 0.06, 'sewing_machine', 0.5], [w(130), 'pop', 0.7],
- [w(133), 'ding', 0.8], [w(135), 'sparkle', 0.7], [w(141), 'msg_in', 0.7], [w(144), 'msg_in', 0.7], [w(145) + 0.1, 'msg_in', 0.7], [w(146), 'typing', 0.6],
- [w(147), 'ding', 0.7], [w(148), 'stitch', 0.7], [w(149), 'ding', 0.8], [K2, 'whoosh', 0.55], [K2 + 0.35, 'pop', 0.5], [w(155), 'stitch', 0.7], [w(156) + 0.4, 'ding', 0.7],
-  [TC.end + 0.45, 'pop', 0.6], [TC.end + 1.45, 'ding', 0.7], [DUR - 0.45, 'cloth_whoosh', 0.45],
+[[0.02, 'sewing_machine', 0.55], [w(3) - 0.05, 'cloth_whoosh', 0.6], [w(4), 'sparkle', 0.5], [w(8), 'pop', 0.6], [w(11), 'pop2', 0.6],
+ [w(14), 'tick', 0.45], [w(14) + 0.3, 'tick', 0.45], [w(14) + 0.6, 'tick', 0.45], [w(16), 'stamp', 0.9], [w(17), 'pop', 0.7], [w(18), 'stitch', 0.7],
+ [w(19), 'drumroll', 0.35], [w(23) + 0.05, 'ding', 0.8], [w(25), 'pop', 0.7],
+ [w(26), 'pop2', 0.6], [w(29), 'sewing_machine', 0.55], [w(31) - 0.25, 'whoosh', 0.6], [w(32), 'pop', 0.7], [w(34), 'whoosh', 0.6], [w(37), 'stitch', 0.5],
+ [w(38) + 0.2, 'pop2', 0.4], [w(42), 'pop2', 0.5], [w(45), 'stitch', 0.55], [w(48), 'whoosh', 0.45], [w(51), 'sparkle', 0.8], [w(53), 'stamp', 0.8],
+ [w(54), 'pop', 0.55], [w(55), 'clockfast', 0.8], [w(59), 'stamp', 0.9], [w(60) - 0.3, 'whoosh', 0.6], [w(61) + 0.25, 'thud', 0.8], [w(63) - 0.1, 'squish', 0.8],
+ [w(63) + 0.3, 'whoosh', 0.5], [w(65), 'pop', 0.55], [w(67), 'tick', 0.35], [w(69), 'tick', 0.35], [w(71), 'tick', 0.35], [w(74) - 0.1, 'whoosh', 0.7],
+ [w(75), 'stamp', 0.9], [w(75) + 0.5, 'sparkle', 0.8], [w(76), 'pop', 0.7], [w(81), 'pop2', 0.55], [w(82) - 0.1, 'stamp', 0.6], [w(83), 'sewing_machine', 0.55],
+ [w(87), 'ding', 0.6], [w(88), 'stamp', 0.9], [w(95), 'stitch', 0.55], [w(96), 'error', 0.45], [TC.map + 0.05, 'sewing_machine', 0.5], [w(101), 'stitch', 0.55],
+ [w(107), 'stamp', 0.7], [w(111), 'stamp', 0.9], [w(112), 'whoosh', 0.6], [w(112) + 0.15, 'stitch', 0.6], [TC.i + 0.06, 'sewing_machine', 0.5], [w(119), 'pop', 0.7],
+ [w(122), 'ding', 0.8], [w(124), 'sparkle', 0.7], [w(130), 'msg_in', 0.7], [w(133), 'msg_in', 0.7], [w(134) + 0.1, 'msg_in', 0.7], [w(135), 'typing', 0.6],
+ [w(136), 'ding', 0.7], [w(141), 'stitch', 0.7], [w(141), 'ding', 0.8], [K2, 'whoosh', 0.55], [K2 + 0.35, 'pop', 0.5], [w(147), 'stitch', 0.7], [w(148) + 0.4, 'ding', 0.7],
+  [w(137), 'stitch', 0.6], [w(149) - 0.05, 'sewing_machine', 0.55], [w(151) + 0.2, 'thread_pull', 0.9], [DUR - 0.44, 'cloth_whoosh', 0.5],
 ].forEach(([tt, n, gn]) => sfx(n, tt, gn));
 CURT.forEach(([tc]) => sfx('cloth_whoosh', tc - 0.14, 0.55));
 
 // ================================================================== FRAME
-const PUNCH = [0, 5, 17, 19, 23, 34, 41, 48, 62, 70, 72, 76, 86, 93, 99, 119, 122, 132, 149];
+const PUNCH = [0, 5, 17, 19, 34, 41, 48, 62, 70, 72, 76, 86, 93, 99, 119, 122, 132, 149];
 const punchAt = t => PUNCH.reduce((a, i) => a + bump(t, w(i), 0.12, 0.38), 0);
 function content(t) {
   const S = SC.find(s => t >= s.t0 && t < s.t1) || SC[SC.length - 1];
@@ -873,14 +856,6 @@ function content(t) {
 }
 window.frame = t => {
   domHideAll();
-  if (t >= TC.end) {
-    endCardDraw(t);
-    curtain(t);
-    set(DOM.src, { o: clamp((t - TC.end - 1.45) / 0.4) * (t > DUR - 0.45 ? 0 : 1) });
-    // bucle: vuelve la tela crema con el refrán del principio
-    if (t > DUR - 0.45) { const c = E.inOutCubic(clamp((t - (DUR - 0.45)) / 0.4)); g.save(); g.beginPath(); g.rect(0, 1920 * (1 - c), 1080, 1920 * c); g.clip(); content(0.0); g.restore(); g.fillStyle = 'rgba(122,31,43,.9)'; g.fillRect(0, 1920 * (1 - c) - 6, 1080, 12); }
-    return;
-  }
   const pz = 1 + punchAt(t);
   g.save(); g.translate(540, 800); g.scale(pz, pz); g.translate(-540, -800);
   const S = content(t);
@@ -889,11 +864,16 @@ window.frame = t => {
   { const P = poseAt(t); if (P && P.s <= 0.5 && hoopAbove(t)) drawHoop(t); }
   if (S.top && hoopAbove(t)) S.top(t);
   if (S.dom) S.dom(t);
-  // micro-recordatorio (una vez)
-  if (t > TC.d + 0.2 && t < TC.d + 2.0) Marco.patch(g, 620, 1235, 'UN REFRÁN NUEVO\nCADA DÍA', Object.assign({ k: clamp((t - TC.d - 0.2) / 0.5), t, cell: 5, rot: -0.03, scale: outS(t, TC.d + 1.75) }, P_CREAM));
   // etiqueta fija de colección
   Marco.patch(g, 222, 176, 'REFRÁN Nº 2', Object.assign({ k: 1, t, cell: 5, rot: -0.03 }, P_NAVY));
+  // bucle: los últimos 0,4 s enlazan con el fotograma 0 (cortina de vichy que destapa la portada)
+  if (t > DUR - 0.42) {
+    const u = clamp((t - (DUR - 0.42)) / 0.4), a = 1080 * E.inOutCubic(clamp((u - 0.45) / 0.55)), b = 1080 * E.inOutCubic(clamp(u / 0.5));
+    g.save(); g.beginPath(); g.rect(0, 0, a, 1920); g.clip(); domHideAll(); content(0); Marco.patch(g, 222, 176, 'REFRÁN Nº 2', Object.assign({ k: 1, t: 0, cell: 5, rot: -0.03 }, P_NAVY)); g.restore();
+    g.save(); g.beginPath(); g.rect(a, 0, b - a, 1920); g.clip(); Marco.drawBg(g, 'vichy'); g.restore();
+    g.fillStyle = 'rgba(122,31,43,.9)'; if (b < 1080) g.fillRect(b - 6, 0, 12, 1920); if (a > 0) g.fillRect(a - 6, 0, 12, 1920);
+  }
 };
-Engine.start({ captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', border: '4px dashed #7A1F2B', radius: 22, pad: '10px 26px', maxWords: 3, shadow: '0 6px 14px rgba(60,30,10,.25)' } });
+Engine.start({ tail: 0.6, captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', border: '4px dashed #7A1F2B', radius: 22, pad: '10px 26px', maxWords: 3, shadow: '0 6px 14px rgba(60,30,10,.25)' } });
 </script>
 </body></html>

@@ -2,71 +2,64 @@
  {
   "line": 0,
   "who": "ABUELA",
-  "text": "¡Oye! ¡En el súper te están tomando el pelo! Y lo hacen a propósito.",
+  "text": "¡El súper te está tomando el pelo! Y lo hace a propósito.",
   "s": 0.12,
-  "e": 4.418
+  "e": 3.968
  },
  {
   "line": 1,
   "who": "ABUELA",
   "text": "Te cuento tres trucos que usan contra ti... y el último te va a cabrear.",
-  "s": 4.618,
-  "e": 9.024
+  "s": 4.218,
+  "e": 8.624
  },
  {
   "line": 2,
   "who": "ABUELA",
-  "text": "Aquí la abuela Carmen. ¡Abro la lata!",
-  "s": 9.274,
-  "e": 11.711
+  "text": "Uno. Lo que compras siempre, la leche, los huevos, el pan... suele estar al fondo. Para que cruces toda la tienda... y te caigan cosas en el carro.",
+  "s": 8.824,
+  "e": 18.601
  },
  {
   "line": 3,
   "who": "ABUELA",
-  "text": "Uno. Lo que compras siempre, la leche, los huevos, el pan... suele estar al fondo. Para que cruces toda la tienda... y te caigan cosas en el carro.",
-  "s": 11.911,
-  "e": 21.689
+  "text": "Dos. Lo más caro suele estar a la altura de tus ojos. Agáchate, cielo: lo barato vive en las baldas de abajo.",
+  "s": 18.801,
+  "e": 26.038
  },
  {
   "line": 4,
   "who": "ABUELA",
-  "text": "Dos. Lo más caro suele estar a la altura de tus ojos. Agáchate, cielo: lo barato vive en las baldas de abajo.",
-  "s": 21.889,
-  "e": 29.125
+  "text": "Y espera, que el tres es el bueno.",
+  "s": 26.238,
+  "e": 28.297
  },
  {
   "line": 5,
   "who": "ABUELA",
-  "text": "Y espera, que el tres es el bueno.",
-  "s": 29.325,
-  "e": 31.385
+  "text": "Y el tres. Los packs de ahorro... muchas veces no ahorran nada. Mira la etiqueta pequeñita: el precio por kilo o por litro. Es obligatorio que esté. Y ahí se ve la trampa.",
+  "s": 28.497,
+  "e": 39.207
  },
  {
   "line": 6,
   "who": "ABUELA",
-  "text": "Y el tres. Los packs de ahorro... muchas veces no ahorran nada. Mira la etiqueta pequeñita: el precio por kilo o por litro. Es obligatorio que esté. Y ahí se ve la trampa.",
-  "s": 31.585,
-  "e": 42.294
+  "text": "Y uno de regalo: la música. Con música lenta, la gente camina más despacio... y compra más. Lo midieron en un estudio.",
+  "s": 39.407,
+  "e": 47.45
  },
  {
   "line": 7,
   "who": "ABUELA",
-  "text": "Y uno de regalo: la música. Con música lenta, la gente camina más despacio... y compra más. Lo midieron en un estudio.",
-  "s": 42.494,
-  "e": 50.537
+  "text": "¿Cuál te ha pillado? ¿El uno, el dos o el tres?",
+  "s": 47.65,
+  "e": 50.833
  },
  {
   "line": 8,
   "who": "ABUELA",
-  "text": "¿Cuál te ha pillado? ¿El uno, el dos o el tres?",
-  "s": 50.737,
-  "e": 53.92
- },
- {
-  "line": 9,
-  "who": "ABUELA",
-  "text": "Sígueme, que en esta lata hay muchos más... y yo me los sé todos.",
-  "s": 54.12,
-  "e": 58.248
+  "text": "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... y yo me los sé todos.",
+  "s": 51.033,
+  "e": 56.855
  }
 ]

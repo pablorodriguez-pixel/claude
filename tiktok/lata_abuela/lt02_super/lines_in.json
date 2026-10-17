@@ -11,16 +11,12 @@
 "lines": [
 {
 "who": "ABUELA",
-"text": "[excited] ¡Oye! ¡En el súper te están tomando el pelo! Y lo hacen a propósito."
-},
-{
-"who": "ABUELA",
-"text": "Te cuento tres trucos que usan contra ti... [mischievously] y el último te va a cabrear.",
+"text": "¡El súper te está tomando el pelo! Y lo hace a propósito.",
 "gap_after": 0.25
 },
 {
 "who": "ABUELA",
-"text": "Aquí la abuela Carmen. ¡Abro la lata!"
+"text": "Te cuento tres trucos que usan contra ti... [mischievously] y el último te va a cabrear."
 },
 {
 "who": "ABUELA",
@@ -48,7 +44,7 @@
 },
 {
 "who": "ABUELA",
-"text": "Sígueme, que en esta lata hay muchos más... [chuckles] y yo me los sé todos."
+"text": "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... [chuckles] y yo me los sé todos."
 }
 ]
 }

@@ -1,0 +1,54 @@
+{
+"voices": {
+"ABUELA": [
+"X1uEdaNgEu64cdmPhwUX",
+0.5,
+0.85
+]
+},
+"gap": 0.2,
+"inner_cap": 0.3,
+"lines": [
+{
+"who": "ABUELA",
+"text": "¡La fecha que te hace tirar comida no es la de caducidad!",
+"gap_after": 0.25
+},
+{
+"who": "ABUELA",
+"text": "Te cuento tres cosas de las etiquetas que nadie te explica... [mischievously] y la última te va a ahorrar dinero."
+},
+{
+"who": "ABUELA",
+"text": "Uno. «Consumir preferentemente antes de» no es caducidad. Habla de calidad: puede perder sabor o textura, pero si está bien guardado, no es peligroso."
+},
+{
+"who": "ABUELA",
+"text": "La de verdad es la «fecha de caducidad». Esa sí: ni un día más. Suele ir en la carne, el pescado y los frescos."
+},
+{
+"who": "ABUELA",
+"text": "Dos. La miel bien cerrada aguanta años. Si se pone dura, es que se ha cristalizado: un baño maría y como nueva."
+},
+{
+"who": "ABUELA",
+"text": "Y espera, que el tres es el que más se tira."
+},
+{
+"who": "ABUELA",
+"text": "Y el tres. El pan duro, no lo tires. Congélalo en rebanadas y tuéstalo directamente, sin descongelar. Queda como recién hecho."
+},
+{
+"who": "ABUELA",
+"text": "[mischievously] Y uno de regalo: el arroz, las legumbres secas y la sal casi no se estropean si los guardas secos y bien cerrados."
+},
+{
+"who": "ABUELA",
+"text": "¿Cuál no sabías? ¿El uno, el dos o el tres?"
+},
+{
+"who": "ABUELA",
+"text": "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... [chuckles] y yo me los sé todos."
+}
+]
+}

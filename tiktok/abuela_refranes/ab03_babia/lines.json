@@ -2,85 +2,78 @@
  {
   "line": 0,
   "who": "ABUELA",
-  "text": "¡Que estar en Babia existe! ¡Es un sitio de verdad! Y puedes ir.",
+  "text": "¡Estar en Babia existe! Es un sitio de verdad. Y puedes ir.",
   "s": 0.12,
-  "e": 4.133
+  "e": 4.251
  },
  {
   "line": 1,
   "who": "ABUELA",
   "text": "Y no es un sitio cualquiera: era donde se iban los reyes a desconectar.",
-  "s": 4.353,
-  "e": 8.85
+  "s": 4.501,
+  "e": 8.998
  },
  {
   "line": 2,
   "who": "ABUELA",
-  "text": "Soy la abuela Remedios, y esto... por algo se dice.",
-  "s": 9.15,
-  "e": 12.998
+  "text": "Babia es una comarca de montaña, en el norte de León.",
+  "s": 9.218,
+  "e": 12.316
  },
  {
   "line": 3,
   "who": "ABUELA",
-  "text": "Babia es una comarca de montaña, en el norte de León.",
-  "s": 13.298,
-  "e": 16.395
+  "text": "En la Edad Media, los reyes de León se iban allí a descansar y a cazar. Lejos de la corte... y de los problemas.",
+  "s": 12.536,
+  "e": 19.495
  },
  {
   "line": 4,
   "who": "ABUELA",
-  "text": "En la Edad Media, los reyes de León se iban allí a descansar y a cazar. Lejos de la corte... y de los problemas.",
-  "s": 16.615,
-  "e": 23.575
+  "text": "Y cuando en palacio alguien preguntaba por el rey, le contestaban: el rey está en Babia.",
+  "s": 19.715,
+  "e": 25.726
  },
  {
   "line": 5,
   "who": "ABUELA",
-  "text": "Y cuando en palacio alguien preguntaba por el rey, le contestaban: el rey está en Babia.",
-  "s": 23.795,
-  "e": 29.805
+  "text": "O sea: que no está. Ni se le espera. Con la cabeza en otra parte.",
+  "s": 25.946,
+  "e": 30.173
  },
  {
   "line": 6,
   "who": "ABUELA",
-  "text": "O sea: que no está. Ni se le espera. Con la cabeza en otra parte.",
-  "s": 30.025,
-  "e": 34.253
+  "text": "Y de ahí, estar en Babia: estar en las nubes. Como tú cuando te hablo, ¿eh?",
+  "s": 30.393,
+  "e": 35.357
  },
  {
   "line": 7,
   "who": "ABUELA",
-  "text": "Y de ahí, estar en Babia: estar en las nubes. Como tú cuando te hablo, ¿eh?",
-  "s": 34.473,
-  "e": 39.436
+  "text": "Ojo, que es la explicación más aceptada, pero tiene su parte de leyenda.",
+  "s": 35.577,
+  "e": 39.798
  },
  {
   "line": 8,
   "who": "ABUELA",
-  "text": "Ojo, que es la explicación más aceptada, pero tiene su parte de leyenda.",
-  "s": 39.656,
-  "e": 43.877
+  "text": "Hoy Babia es reserva de la biosfera. Así que si alguien te dice que estás en Babia... tú contestas: ¡ojalá!",
+  "s": 40.018,
+  "e": 47.276
  },
  {
   "line": 9,
   "who": "ABUELA",
-  "text": "Hoy Babia es reserva de la biosfera. Así que si alguien te dice que estás en Babia... tú contestas: ¡ojalá!",
-  "s": 44.097,
-  "e": 51.355
+  "text": "¿Tú sabías que existía? Dime sí o no.",
+  "s": 47.496,
+  "e": 50.309
  },
  {
   "line": 10,
   "who": "ABUELA",
-  "text": "¿Tú sabías que existía? Dime sí o no.",
-  "s": 51.575,
-  "e": 54.388
- },
- {
-  "line": 11,
-  "who": "ABUELA",
-  "text": "Y sígueme, cariño, que cada día te cuento otro... porque por algo se dice.",
-  "s": 54.608,
-  "e": 59.486
+  "text": "Aquí la abuela Remedios. Sígueme, cariño, que cada día te cuento otro... porque por algo se dice.",
+  "s": 50.529,
+  "e": 56.804
  }
 ]

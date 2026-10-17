@@ -1,0 +1,50 @@
+{
+"voices": {
+"ABUELA": [
+"X1uEdaNgEu64cdmPhwUX",
+0.5,
+0.85
+]
+},
+"gap": 0.2,
+"inner_cap": 0.3,
+"lines": [
+{
+"who": "ABUELA",
+"text": "¡Lavar el pollo crudo es mala idea! Y casi todo el mundo lo hace.",
+"gap_after": 0.25
+},
+{
+"who": "ABUELA",
+"text": "Te cuento tres cosas que haces en la cocina y no deberías... [mischievously] y la última te va a sorprender."
+},
+{
+"who": "ABUELA",
+"text": "Uno. No laves el pollo crudo. El agua salpica las bacterias por el fregadero, la encimera y los trapos. Con cocinarlo bien, ya se mueren."
+},
+{
+"who": "ABUELA",
+"text": "Dos. Los huevos, tampoco los laves antes de guardarlos. La cáscara tiene una capa que los protege, y al lavarlos se la quitas."
+},
+{
+"who": "ABUELA",
+"text": "Y espera, que el tres es el que hace todo el mundo."
+},
+{
+"who": "ABUELA",
+"text": "Y el tres. El tomate, fuera de la nevera. El frío le quita el sabor. Guárdalo en el frutero, y a la nevera solo si ya está muy maduro."
+},
+{
+"who": "ABUELA",
+"text": "[mischievously] Y uno de regalo: una tabla para lo crudo y otra para lo demás. Así no pasas bacterias de la carne a la ensalada."
+},
+{
+"who": "ABUELA",
+"text": "¿Cuál hacías mal? ¿El uno, el dos o el tres?"
+},
+{
+"who": "ABUELA",
+"text": "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... [chuckles] y yo me los sé todos."
+}
+]
+}

@@ -1,16 +1,18 @@
 
-/* ================= TIEMPOS CLAVE ================= */
-const T1 = w(36), T2 = w(64), T3 = w(96), TG = w(127), TP = w(149), LT = DUR - 0.37;
-const MKF = [[-0.12, 205, 2150, 0.72], [0.42, 205, 1150, 0.72, 'back'], [9.15, 205, 1150, 0.72], [9.45, 540, 780, 0.95], [11.15, 540, 780, 0.95], [11.5, 205, 1150, 0.72],
-  [25.43, 205, 1150, 0.72], [25.75, 205, 1205, 0.72, 'back'], [28.4, 205, 1205, 0.72], [28.8, 205, 1150, 0.72],
-  [56.9, 205, 1150, 0.72], [57.3, 540, 770, 0.86, 'back'], [LT, 540, 770, 0.86], [DUR, 205, 1330, 0.72]];
-function crouch(t) { return p(t, 25.43, 0.3, E.outBack) * (1 - p(t, 28.4, 0.4)); }
-const EXPR = [[0.1, 1.5, 'shout'], [1.73, 2.75, 'stern'], [2.78, 4.45, 'sly'], [4.6, 7.2, 'happy'], [7.3, 8.3, 'sly'], [8.3, 9.1, 'stern'], [9.27, 10.7, 'happy'], [10.76, 11.7, 'wow'],
-  [12.5, 14.0, 'sly'], [16.08, 17.4, 'stern'], [19.6, 21.7, 'wow'], [22.5, 24.0, 'sly'], [24.4, 25.4, 'wow'], [25.43, 26.7, 'happy'], [26.75, 29.1, 'wink'], [29.3, 31.0, 'sly'],
-  [31.0, 31.9, 'shout'], [33.62, 35.4, 'stern'], [37.2, 38.7, 'wow'], [39.3, 40.8, 'proud'], [40.9, 42.3, 'stern'], [42.54, 43.8, 'wow'], [45.0, 47.9, 'happy'], [48.0, 48.95, 'wow'],
-  [49.0, 50.6, 'proud'], [50.74, 52.0, 'sly'], [52.0, 54.0, 'happy'], [54.12, 55.0, 'happy'], [56.2, 56.9, 'wow'], [57.5, 58.4, 'wink'], [58.4, 62, 'happy'], [59.8, 60.3, 'wink']];
-const HANDS = [[0.12, 1.6, 'stop'], [1.73, 2.8, 'wag'], [9.27, 10.4, 'wave'], [12.51, 13.5, 'up'], [17.5, 18.7, 'point'], [22.52, 23.6, 'up'], [26.75, 28.0, 'point'], [29.4, 31.0, 'wag'],
-  [35.54, 36.6, 'point'], [39.3, 40.6, 'up'], [44.85, 46.0, 'up'], [50.74, 51.9, 'up'], [54.12, 56.9, 'point'], [58.5, 59.6, 'wave']];
+/* ================= TIEMPOS CLAVE (todo clavado a palabras de words_table.txt) ================= */
+const T1 = w(27), T2 = w(55), T3 = w(87), TG = w(118), TP = w(140), TB = w(151), LT = DUR - 0.4;
+const TC = w(163) - 0.02;            // «y yo me los sé todos» -> la tapa se cierra
+const MKF = [[-0.12, 205, 2150, 0.72], [0.42, 205, 1150, 0.72, 'back'],
+  [w(67) - 0.02, 205, 1150, 0.72], [w(67) + 0.3, 205, 1205, 0.72, 'back'], [w(76) + 0.1, 205, 1205, 0.72], [w(76) + 0.5, 205, 1150, 0.72],
+  [TB - 0.15, 205, 1150, 0.72], [TB + 0.25, 540, 770, 0.86, 'back'], [w(155), 540, 770, 0.86], [w(155) + 0.35, 205, 1150, 0.72],
+  [TC, 205, 1150, 0.72], [TC + 0.4, 540, 770, 0.86, 'back'], [LT, 540, 770, 0.86], [DUR, 205, 1330, 0.72]];
+function crouch(t) { return p(t, w(67), 0.3, E.outBack) * (1 - p(t, w(76) + 0.1, 0.4)); }
+const EXPR = [[0.05, 0.95, 'shout'], [1.22, 2.26, 'stern'], [2.31, 4.0, 'sly'], [4.2, 6.8, 'happy'], [w(21), w(26), 'sly'], [w(26), 8.7, 'stern'],
+  [w(28), 10.9, 'sly'], [w(38), 14.3, 'stern'], [w(48), 18.6, 'wow'], [w(56), 20.9, 'sly'], [w(63), 22.3, 'wow'], [w(67), 23.6, 'happy'], [w(69), 26.0, 'wink'], [w(77), w(83), 'sly'],
+  [w(83), T3 - 0.05, 'shout'], [w(92), w(96), 'stern'], [w(104), w(107), 'wow'], [w(108), w(112), 'proud'], [w(112), TG - 0.2, 'stern'], [TG, w(123), 'wow'], [w(124), w(132), 'happy'], [w(132), w(135), 'wow'],
+  [w(135), TP - 0.1, 'proud'], [TP, w(144), 'sly'], [w(144), TB - 0.05, 'happy'], [TB, w(155), 'proud'], [w(155), w(156), 'shout'], [w(161), w(163), 'wow'], [w(163), w(168), 'happy'], [w(168), DUR + 1, 'wink']];
+const HANDS = [[0.05, 1.1, 'stop'], [1.22, 2.3, 'wag'], [w(28), w(31), 'up'], [w(42), w(45), 'point'], [w(56), w(60), 'up'], [w(69), w(73), 'point'], [w(78), T3 - 0.4, 'wag'],
+  [w(97), w(100), 'point'], [w(108), w(111), 'up'], [w(124), w(128), 'up'], [TP, w(144), 'up'], [TB, w(154) + 0.3, 'wave'], [w(155) + 0.35, TC, 'point']];
 
 /* ================= BARRA DE PROGRESO (FOMO) ================= */
 const PB = el('div', OV, { left: '230px', top: '140px', width: '620px', height: '110px', zIndex: 700 });
@@ -49,12 +51,12 @@ function updPB(t) {
   set(PBlock, { s: 0.27 * (t < T3 ? 1 : 1 - kO), y: -60 * kO, r: 40 * kO, o: t < T3 + 0.45 && t < LT ? 1 : t >= LT ? 1 : 0 });
   if (t >= LT) set(PBlock, { s: 0.27, o: 1 });
   at(PBshk, 'transform', t >= T3 && t < LT ? `translate(0 ${-30 * kO}) rotate(${-35 * kO} 180 128)` : '');
-  set(PBang, { s: 0.42 * (t < T3 || t >= LT ? 1 + 0.15 * bump(t, w(28)) : 1 - kO), r: wobble(t, 1.6, 6), o: t < T3 + 0.45 || t >= LT ? 1 : 0 });
+  set(PBang, { s: 0.42 * (t < T3 || t >= LT ? 1 + 0.15 * bump(t, w(26)) : 1 - kO), r: wobble(t, 1.6, 6), o: t < T3 + 0.45 || t >= LT ? 1 : 0 });
   set(PBgift, { s: 0.46 * pop(t, TG + 0.4, 0.4), o: t >= TG + 0.4 && t < LT ? 1 : 0, r: wobble(t, 1, 5) });
   set(PB, { s: pop(t, -0.4, 0.4) });
   PBbG.upd(t); PBb3.upd(t);
 }
-function lockShake(t) { const k = clamp((t - 29.4) / (T3 - 29.4)); const idle = ((t % 3) < 0.35 && t > 0.5) ? Math.sin(t * 50) * 6 : 0; return t < T3 ? (t > 29.4 ? Math.sin(t * 55) * (4 + 14 * k) : idle) : 0; }
+function lockShake(t) { const k = clamp((t - 26.31) / (T3 - 26.31)); const idle = ((t % 3) < 0.35 && t > 0.5) ? Math.sin(t * 50) * 6 : 0; return t < T3 ? (t > 26.31 ? Math.sin(t * 55) * (4 + 14 * k) : idle) : 0; }
 
 /* ================= GOLPE ENTRE TRUCOS: la lata escupe el número ================= */
 const NP = el('div', OV, { left: 0, top: 0, width: '1080px', height: '1920px', zIndex: 640 });
@@ -86,64 +88,53 @@ function updNP(t) {
 }
 
 /* ================= 0 · GANCHO / PORTADA ================= */
-const s0 = scene(0, 4.55, { exit: 'whip' });
+const s0 = scene(0, 4.12, { exit: 'whip' });
 const H = {};
 const emo = ['🍫', '🍪', '🧀', '🍷', '🥤', '🍿'];
 H.cart = box(A.cart(emo.map((e, i) => `<text class="ci" x="${180 + i * 66}" y="${132 - (i % 2) * 34}" font-size="92" opacity="0">${e}</text>`).join('')), s0.el, 210, 760, 640, 520, { transformOrigin: '370px 300px' });
 H.ci = qa(H.cart, '.ci');
-H.t1 = el('div', s0.el, { left: '0', top: '262px', width: '1080px', textAlign: 'center', fontFamily: 'DMSerif', fontSize: '176px', lineHeight: 1, color: CREAM, textShadow: '0 8px 0 #0b1946, 0 16px 30px rgba(0,0,0,.4)', whiteSpace: 'nowrap' }, 'EL SÚPER');
-H.t2w = el('div', s0.el, { left: '0', top: '450px', width: '1080px', display: 'flex', justifyContent: 'center' });
-H.t2 = el('div', H.t2w, { position: 'relative', background: RED, color: CREAM, fontFamily: 'DMSerif', fontSize: '150px', lineHeight: 1, padding: '10px 44px 24px', borderRadius: '30px', border: '7px solid #F2D28B', boxShadow: '0 12px 0 #5a0a14, 0 24px 40px rgba(0,0,0,.4)', whiteSpace: 'nowrap' }, 'TE ENGAÑA');
-H.trampa = stampEl(s0.el, '¡TRAMPA!', 360, 870, { size: 92 });
-H.prop = stampEl(s0.el, '¡A PROPÓSITO!', 175, 660, { size: 96, c: RED });
-H.b = burst(s0.el, 540, 960, w(13) + 0.1, 14, 420, 1.2);
+H.t1 = el('div', s0.el, { left: '0', top: '262px', width: '1080px', textAlign: 'center', fontFamily: 'DMSerif', fontSize: '134px', lineHeight: 1, color: CREAM, textShadow: '0 8px 0 #0b1946, 0 16px 30px rgba(0,0,0,.4)', whiteSpace: 'nowrap' }, 'EL SÚPER TE…');
+H.t2w = el('div', s0.el, { left: '0', top: '440px', width: '1080px', display: 'flex', justifyContent: 'center' });
+H.t2 = el('div', H.t2w, { position: 'relative', background: RED, color: CREAM, fontFamily: 'DMSerif', fontSize: '150px', lineHeight: 1, padding: '10px 44px 24px', borderRadius: '30px', border: '7px solid #F2D28B', boxShadow: '0 12px 0 #5a0a14, 0 24px 40px rgba(0,0,0,.4)', whiteSpace: 'nowrap' }, '?');
+H.trampa = stampEl(s0.el, '¡TRAMPA!', 360, 880, { size: 92 });
+H.prop = stampEl(s0.el, '¡A PROPÓSITO!', 175, 650, { size: 96, c: RED });
+H.b = burst(s0.el, 540, 960, w(11) + 0.1, 14, 420, 1.2);
+H.b2 = burst(s0.el, 540, 520, w(4), 12, 380, 1.1);
 function hookUpd(t) {
-  set(H.t1, { s: pop(t, -0.3, 0.4) * (1 + 0.05 * bump(t, w(3))), y: wobble(t, 0.5, 4) });
-  set(H.t2, { s: pop(t, -0.2, 0.4) * (1 + 0.06 * bump(t, w(8))), r: -3 + shake(t, w(8), 0.3, 4) });
-  H.ci.forEach((e, i) => { const t0 = [0.62, 0.99, 1.46, 1.75, 2.2, 2.45][i]; const k = p(t, t0, 0.35, E.outBack); e.setAttribute('opacity', t >= t0 ? 1 : 0); e.setAttribute('transform', `translate(0 ${(-260 * (1 - k)).toFixed(1)})`); });
-  set(H.cart, { s: 1.3 * (1 + 0.04 * Math.sin(t * 3)), r: -4 + wobble(t, 0.7, 2) + shake(t, w(8), 0.3, 3), x: shake(t, 0.17, 0.35, 12) });
-  const ktr = t < 2.78 ? 1 : 1 - p(t, 2.78, 0.2);
-  set(H.trampa, { s: (t < 0 ? 0 : 1) * ktr, o: ktr > 0.01 ? 1 : 0, r: -12 });
-  stampAnim(H.prop, t, w(13), 4.8, -8);
-  H.b.upd(t);
+  set(H.t1, { s: pop(t, -0.3, 0.4) * (1 + 0.05 * bump(t, w(1))), y: wobble(t, 0.5, 4) });
+  // «?» que bota en el fotograma 0 -> se revela «TOMA EL PELO»
+  const fl = p(t, w(4) - 0.1, 0.3, E.linear), rev = fl >= 0.5;
+  H.t2.textContent = rev ? 'TOMA EL PELO' : '?'; H.t2.style.fontSize = rev ? '118px' : '170px';
+  const qb = rev ? 0 : Math.abs(Math.sin(t * 7)) * 22;
+  set(H.t2, { s: (1 + 0.06 * bump(t, w(6))) * (rev ? 1 : 1 + 0.06 * Math.sin(t * 9)), sx: Math.max(0.03, Math.abs(Math.cos(Math.PI * fl))), y: -qb, r: (rev ? -3 : 6 * Math.sin(t * 5)) + shake(t, w(6), 0.3, 4) });
+  H.ci.forEach((e, i) => { const t0 = [-0.18, 0.31, 0.75, 1.22, 2.31, 2.64][i]; const k = p(t, t0, 0.35, E.outBack); e.setAttribute('opacity', t >= t0 ? 1 : 0); e.setAttribute('transform', `translate(0 ${(-300 * (1 - k)).toFixed(1)}) rotate(${(40 * (1 - k)).toFixed(1)} ${180 + i * 66} 100)`); });
+  set(H.cart, { s: 1.3 * (1 + 0.04 * Math.sin(t * 3)), r: -4 + wobble(t, 0.7, 2) + shake(t, w(6), 0.3, 3), x: -20 + 40 * Math.sin(t * 1.3) + shake(t, 0.1, 0.35, 12) });
+  stampAnim(H.trampa, t, w(6), 4.4, -12);
+  stampAnim(H.prop, t, w(11), 4.4, -8);
+  H.b.upd(t); H.b2.upd(t);
 }
 s0.upd = hookUpd;
 
 /* ================= 1 · PROMESA (el 3 te va a cabrear) ================= */
-const s1 = scene(4.5, 9.2, { enter: 'whip' });
+const s1 = scene(4.1, T1 + 0.45, { enter: 'whip' });
 const P = {};
 P.rays = box(A.rays(16, 600), s1.el, -60, 160, 1200, 1200);
 P.seals = [0, 1, 2].map(i => box(A.seal(i + 1), s1.el, [220, 540, 860][i] - 150, 680 - 150, 300, 370, { transformOrigin: '150px 150px' }));
 P.lock = box(A.lockAngry(), s1.el, 540 - 120, 760 - 140, 240, 280);
 P.steam = box(`<svg viewBox="0 0 200 120" width="200" height="120" style="overflow:visible"><g fill="#fff" opacity=".85"><circle cx="30" cy="60" r="22"/><circle cx="56" cy="40" r="26"/><circle cx="150" cy="40" r="26"/><circle cx="176" cy="62" r="22"/></g></svg>`, s1.el, 440, 520, 200, 120);
 s1.upd = t => {
-  const k2 = p(t, w(23), 0.5, E.inOutCubic);
+  const k2 = p(t, w(21), 0.5, E.inOutCubic);
   set(P.rays, { r: t * 12, o: 0.25 + 0.6 * k2, s: 0.8 + 0.25 * k2 });
   P.seals.forEach((e, i) => {
-    const t0 = w(16) + i * 0.15, k = pop(t, t0, 0.45);
+    const t0 = w(14) + i * 0.15, k = pop(t, t0, 0.45);
     let x = 0, y = 0, s = 0.72 * k;
     if (i < 2) { x = lerp(0, i ? -240 : -40, k2); y = lerp(0, -130, k2); s *= lerp(1, 0.62, k2); }
     else { x = lerp(0, -320, k2); y = lerp(0, 40, k2); s *= lerp(1, 1.5, k2); }
     set(e, { x, y: y + wobble(t, 0.6, 6, i * 0.3), s, r: wobble(t, 0.4, 3, i) + (i === 2 ? lockShake(t + 20) : 0), o: i < 2 ? lerp(1, 0.6, k2) : 1 });
   });
-  const kl = pop(t, w(24), 0.4);
-  set(P.lock, { s: kl * (1 + 0.08 * bump(t, w(28))), y: 120, r: shake(t, w(28), 0.5, 10) + Math.sin(t * 30) * 2, o: t >= w(24) ? 1 : 0 });
-  set(P.steam, { y: -((t * 80) % 40) + 60, s: pop(t, w(28), 0.3), o: t >= w(28) ? 1 : 0 });
-};
-
-/* ================= 2 · MARCA (breve): ¡Abro la lata! ================= */
-const s2 = scene(9.15, 11.95);
-const B = {};
-B.rays = box(A.rays(20, 700), s2.el, 540 - 700, 780 - 700, 1400, 1400);
-B.lid = box(A.lidFace({ id: 'lfB' }), s2.el, 90, 330, 900, 900);
-B.lidSpec = q(B.lid, '.lidspec');
-B.b = burst(s2.el, 540, 780, w(35), 16, 460, 1.4);
-s2.upd = t => {
-  const kf2 = p(t, w(35), 0.45, E.inCubic);
-  set(B.rays, { r: t * 10, o: 0.5 + 0.4 * kf2 });
-  set(B.lid, { s: 0.955 * (0.85 + 0.15 * p(t, 9.2, 0.35, E.outBack)) * (1 + 0.05 * bump(t, w(32))), y: -1700 * kf2 + shake(t, w(33), 0.45, 8), x: shake(t, w(33) + 0.05, 0.45, 10), sy: 1 - 0.8 * kf2, r: 25 * kf2 + wobble(t, 0.3, 1.2) });
-  at(B.lidSpec, 'transform', `rotate(${(t * 25) % 360} 450 450)`);
-  B.b.upd(t);
+  const kl = pop(t, w(22), 0.4);
+  set(P.lock, { s: kl * (1 + 0.08 * bump(t, w(26))), y: 120, r: shake(t, w(26), 0.5, 10) + Math.sin(t * 30) * 2, o: t >= w(22) ? 1 : 0 });
+  set(P.steam, { y: -((t * 80) % 40) + 60, s: pop(t, w(26), 0.3), o: t >= w(26) ? 1 : 0 });
 };
 
 /* ================= 3 · TRUCO 1: lo básico, al fondo ================= */
@@ -151,7 +142,7 @@ const s3 = scene(T1 + 0.45, T2 + 0.45);
 const S = {};
 S.list = box('', s3.el, 240, 470, 600, 560, { background: '#FFFDF6', borderRadius: '18px', border: '5px solid ' + INK, boxShadow: '0 14px 0 rgba(8,16,48,.4)', backgroundImage: 'repeating-linear-gradient(180deg, transparent 0 78px, #d6e2f5 78px 81px)' });
 el('div', S.list, { left: '0', top: '18px', width: '590px', textAlign: 'center', fontFamily: 'DMSerif', fontSize: '58px', color: RED }, 'Lista de la compra');
-S.rows = [[A.milk(), 120, 170, 'leche', w(42)], [A.eggs(), 180, 110, 'huevos', w(44)], [A.bread(), 220, 100, 'pan', w(46)]].map(([sv, ww, hh, txt, t0], i) => {
+S.rows = [[A.milk(), 120, 170, 'leche', w(33)], [A.eggs(), 180, 110, 'huevos', w(35)], [A.bread(), 220, 100, 'pan', w(37)]].map(([sv, ww, hh, txt, t0], i) => {
   const r = el('div', S.list, { left: '40px', top: px(120 + i * 140), width: '520px', height: '120px' });
   const ic = box(sv, r, 0, 0, ww, hh, { transformOrigin: '0 0' }); set(ic, { s: 100 / Math.max(ww, hh) * (i === 0 ? 1.1 : 1.2) });
   el('div', r, { left: '200px', top: '18px', fontFamily: 'SpecialElite', fontSize: '64px', color: INK }, txt);
@@ -165,35 +156,35 @@ S.cart = box(A.cart(''), S.map, 0, 0, 640, 520, { transformOrigin: '370px 430px'
 S.fly = ['🍫', '🍪', '🍷', '🧀', '🍿', '🍬'].map(e => box(`<div style="font-size:84px;line-height:1">${e}</div>`, S.map, 0, 0, 70, 70));
 S.carroTag = el('div', s3.el, { left: '120px', top: '1010px', width: '840px', display: 'flex', justifyContent: 'center' });
 S.carroIn = el('div', S.carroTag, { position: 'relative', background: CREAM, color: RED, fontFamily: 'DMSerif', fontSize: '60px', padding: '4px 30px 10px', borderRadius: '20px', border: '5px solid ' + RED, whiteSpace: 'nowrap' }, '¡Y al carro!');
-S.b = burst(s3.el, 540, 760, w(50), 12, 380, 1);
+S.b = burst(s3.el, 540, 760, w(41), 12, 380, 1);
 s3.upd = t => {
   // lista
-  const kOut = p(t, w(47) - 0.05, 0.35, E.inCubic);
+  const kOut = p(t, w(38) - 0.05, 0.35, E.inCubic);
   set(S.list, { s: pop(t, T1 + 0.45, 0.4) * (1 - kOut), r: -2 + wobble(t, 0.5, 1.5), o: kOut < 1 ? 1 : 0 });
   S.rows.forEach(o => set(o.r, { x: -40 * (1 - p(t, o.t0, 0.3, E.outBack)), o: t >= o.t0 - 0.1 ? 1 : 0, s: 1 + 0.12 * bump(t, o.t0) }));
   // mapa
-  const km = pop(t, w(47), 0.45);
-  set(S.map, { s: 0.94 * km, o: t >= w(47) ? 1 : 0, r: wobble(t, 0.3, 0.6) });
-  S.back.forEach((e, i) => { const t0 = w(48) + i * 0.12; set(e, { s: 0.62 * pop(t, t0, 0.4) * (1 + 0.15 * Math.sin(t * 6 + i)), y: (1 - p(t, t0, 0.4)) * 400, o: t >= t0 ? 1 : 0 }); });
-  set(S.fondo, { s: pop(t, w(50), 0.35) * out(t, w(53), 0.2), y: -Math.abs(Math.sin(t * 6)) * 12, o: t >= w(50) && t < w(53) ? 1 : 0 });
-  if (!S.L && t >= w(47)) S.L = S.route.getTotalLength();
-  const kr = p(t, w(51), 2.0, E.linear);
+  const km = pop(t, w(38), 0.45);
+  set(S.map, { s: 0.94 * km, o: t >= w(38) ? 1 : 0, r: wobble(t, 0.3, 0.6) });
+  S.back.forEach((e, i) => { const t0 = w(39) + i * 0.12; set(e, { s: 0.62 * pop(t, t0, 0.4) * (1 + 0.15 * Math.sin(t * 6 + i)), y: (1 - p(t, t0, 0.4)) * 400, o: t >= t0 ? 1 : 0 }); });
+  set(S.fondo, { s: pop(t, w(41), 0.35) * out(t, w(44), 0.2), y: -Math.abs(Math.sin(t * 6)) * 12, o: t >= w(41) && t < w(44) ? 1 : 0 });
+  if (!S.L && t >= w(38)) S.L = S.route.getTotalLength();
+  const kr = p(t, w(42), 2.0, E.linear);
   at(S.rmask, 'stroke-dashoffset', 1 - kr);
-  const kc = p(t, w(51) + 0.1, w(63) - w(51) - 0.2, E.inOutCubic);
+  const kc = p(t, w(42) + 0.1, w(54) - w(42) - 0.2, E.inOutCubic);
   if (S.L) {
     const pt = S.route.getPointAtLength(S.L * kc), pt2 = S.route.getPointAtLength(Math.min(S.L, S.L * kc + 4));
     const flip = pt2.x < pt.x - 0.5 ? -1 : 1;
-    set(S.cart, { x: pt.x - 370, y: pt.y - 430, s: 0.32 * (1 + 0.6 * bump(t, w(63))), sx: flip, o: t >= w(51) ? 1 : 0 });
-    S.fly.forEach((e, i) => { const t0 = w(57) + i * 0.24, k = p(t, t0, 0.4, E.inCubic); const src = S.tp[[13, 9, 6, 2, 10, 5][i]]; const sx = +src.getAttribute('x'), sy = +src.getAttribute('y') - 30;
+    set(S.cart, { x: pt.x - 370, y: pt.y - 430, s: 0.32 * (1 + 0.6 * bump(t, w(54))), sx: flip, o: t >= w(42) ? 1 : 0 });
+    S.fly.forEach((e, i) => { const t0 = w(48) + i * 0.24, k = p(t, t0, 0.4, E.inCubic); const src = S.tp[[13, 9, 6, 2, 10, 5][i]]; const sx = +src.getAttribute('x'), sy = +src.getAttribute('y') - 30;
       set(e, { x: lerp(sx, pt.x, k) - 35, y: lerp(sy, pt.y - 40, k) - 120 * Math.sin(Math.PI * k) - 35, s: 1 - 0.5 * k, o: t >= t0 && k < 1 ? 1 : 0, r: k * 200 }); });
   }
   S.tp.forEach((e, i) => e.setAttribute('transform', `translate(0 ${(Math.sin(t * 5 + i) * 3).toFixed(1)})`));
-  set(S.carroIn, { s: pop(t, w(63), 0.35), r: -4, o: t >= w(63) ? 1 : 0 });
+  set(S.carroIn, { s: pop(t, w(54), 0.35), r: -4, o: t >= w(54) ? 1 : 0 });
   S.b.upd(t);
 };
 
 /* ================= 4 · TRUCO 2: lo caro, a tus ojos ================= */
-const s4 = scene(T2 + 0.45, 29.3);
+const s4 = scene(T2 + 0.45, 26.21);
 const SH = {};
 SH.wrap = box('', s4.el, 0, 0, 1080, 1920);
 SH.shelf = box(A.shelf(), SH.wrap, 370, 450, 600, 860, { transformOrigin: '0 0' });
@@ -206,35 +197,35 @@ SH.line = box('', SH.wrap, 290, 450 + 300 * 0.9 - 3, 640, 6, { background: 'repe
 SH.eur = el('div', SH.wrap, { left: '120px', top: px(450 + 300 * 0.9 + 60), fontFamily: 'DMSerif', fontSize: '76px', color: '#F2D28B', textShadow: '0 5px 0 #0b1946' }, '€€€');
 SH.down = el('div', s4.el, { left: '300px', top: '1000px', fontFamily: 'Fredoka', fontWeight: 700, fontSize: '110px', color: RED, WebkitTextStroke: '4px ' + CREAM }, '⬇');
 SH.ej = chip(s4.el, 'ejemplo', 790, 455, { size: 28 });
-SH.b = burst(SH.wrap, 640, 450 + 0.9 * 760, w(79), 14, 320, 1.1);
+SH.b = burst(SH.wrap, 640, 450 + 0.9 * 760, w(70), 14, 320, 1.1);
 s4.upd = t => {
-  const tilt = p(t, w(76), 0.6, E.inOutCubic);
+  const tilt = p(t, w(67), 0.6, E.inOutCubic);
   set(SH.wrap, { y: -70 * tilt });
   set(SH.shelf, { s: 0.9 * pop(t, T2 + 0.45, 0.4) });
-  const ge = p(t, w(72), 0.4);
+  const ge = p(t, w(63), 0.4);
   SH.glow.setAttribute('opacity', ge * (0.75 + 0.25 * Math.sin(t * 6)));
   SH.tags.forEach((row, r) => row.forEach((e, c) => {
     const t0 = T2 + 0.6 + r * 0.08 + c * 0.04;
     const hot = r === 1, cheap = r === 3;
     let s = pop(t, t0, 0.35);
-    if (hot) s *= 1 + 0.25 * bump(t, w(67) + c * 0.1) + 0.12 * ge * Math.abs(Math.sin(t * 4 + c));
-    if (cheap) s *= 1 + 0.4 * bump(t, w(79) + c * 0.12);
-    e.style.background = hot && ge > 0.5 ? '#FFE9A6' : cheap && t >= w(79) ? '#c9f0d6' : '#fff';
-    e.style.color = hot && t >= w(67) ? RED : cheap && t >= w(79) ? GREEN : BLUE;
-    e.style.borderColor = cheap && t >= w(79) ? GREEN : INK;
+    if (hot) s *= 1 + 0.25 * bump(t, w(58) + c * 0.1) + 0.12 * ge * Math.abs(Math.sin(t * 4 + c));
+    if (cheap) s *= 1 + 0.4 * bump(t, w(70) + c * 0.12);
+    e.style.background = hot && ge > 0.5 ? '#FFE9A6' : cheap && t >= w(70) ? '#c9f0d6' : '#fff';
+    e.style.color = hot && t >= w(58) ? RED : cheap && t >= w(70) ? GREEN : BLUE;
+    e.style.borderColor = cheap && t >= w(70) ? GREEN : INK;
     set(e, { s, r: (c ? 3 : -3), o: t >= t0 ? 1 : 0 });
   }));
-  set(SH.eye, { s: pop(t, w(72), 0.4), o: t >= w(72) ? 1 : 0 });
+  set(SH.eye, { s: pop(t, w(63), 0.4), o: t >= w(63) ? 1 : 0 });
   SH.iris.forEach(c => at(c, 'transform', `translate(${(Math.sin(t * 2.5) * 14).toFixed(1)} 0)`));
-  set(SH.line, { sx: Math.max(0.001, p(t, w(72) + 0.1, 0.5)), o: t >= w(72) ? 1 : 0 });
-  set(SH.eur, { s: pop(t, w(75), 0.35), r: -8 + wobble(t, 1, 5), o: t >= w(75) ? 1 : 0 });
-  set(SH.down, { y: Math.abs(Math.sin(t * 7)) * 30, s: pop(t, w(76), 0.3) * out(t, w(79) + 0.3), o: t >= w(76) && t < w(79) + 0.3 ? 1 : 0 });
-  chipAnim(SH.ej, t, T2 + 0.9, 29.3, 3);
+  set(SH.line, { sx: Math.max(0.001, p(t, w(63) + 0.1, 0.5)), o: t >= w(63) ? 1 : 0 });
+  set(SH.eur, { s: pop(t, w(66), 0.35), r: -8 + wobble(t, 1, 5), o: t >= w(66) ? 1 : 0 });
+  set(SH.down, { y: Math.abs(Math.sin(t * 7)) * 30, s: pop(t, w(67), 0.3) * out(t, w(70) + 0.3), o: t >= w(67) && t < w(70) + 0.3 ? 1 : 0 });
+  chipAnim(SH.ej, t, T2 + 0.9, 26.21, 3);
   SH.b.upd(t);
 };
 
 /* ================= 5 · ESPERA… el 3 es el bueno (candado) ================= */
-const s5 = scene(29.3, T3 + 0.45);
+const s5 = scene(w(77) - 0.02, T3 + 0.45);
 const F = {};
 F.rays = box(A.rays(16, 600), s5.el, -60, 180, 1200, 1200);
 F.seal = box(A.seal(3), s5.el, 540 - 150, 780 - 150, 300, 370, { transformOrigin: '150px 150px' });
@@ -246,10 +237,10 @@ F.b = burst(s5.el, 540, 800, T3, 18, 520, 1.6);
 s5.upd = t => {
   const kx = p(t, T3, 0.35, E.outCubic);
   set(F.rays, { r: t * 20, o: 0.35 + 0.6 * kx });
-  set(F.seal, { s: pop(t, 29.35, 0.4) * (1 + 0.25 * kx), r: lockShake(t) * 0.3 });
-  set(F.chains, { s: pop(t, 29.45, 0.35) * (1 + 0.5 * kx), r: lockShake(t) * 0.2, o: 1 - kx });
-  set(F.lock, { s: 1.15 * pop(t, 29.5, 0.4) * (1 + 0.1 * bump(t, w(90))) * (1 + 1.2 * kx), r: lockShake(t), o: 1 - kx, y: -200 * kx });
-  at(F.shk, 'transform', t >= w(94) ? `translate(0 ${-20 * p(t, w(94), 0.3)})` : '');
+  set(F.seal, { s: pop(t, 26.26, 0.4) * (1 + 0.25 * kx), r: lockShake(t) * 0.3 });
+  set(F.chains, { s: pop(t, 26.36, 0.35) * (1 + 0.5 * kx), r: lockShake(t) * 0.2, o: 1 - kx });
+  set(F.lock, { s: 1.15 * pop(t, 26.41, 0.4) * (1 + 0.1 * bump(t, w(81))) * (1 + 1.2 * kx), r: lockShake(t), o: 1 - kx, y: -200 * kx });
+  at(F.shk, 'transform', t >= w(85) ? `translate(0 ${-20 * p(t, w(85), 0.3)})` : '');
   F.parts.forEach((e, i) => { const a = i / 10 * Math.PI * 2; set(e, { x: Math.cos(a) * 520 * kx, y: Math.sin(a) * 520 * kx, r: 400 * kx, s: 1.4, o: t >= T3 && kx < 1 ? 1 : 0 }); });
   F.b.upd(t);
 };
@@ -272,26 +263,26 @@ K.obl = stampEl(K.z, 'OBLIGATORIO ✔', 360, 1010, { size: 62, c: BLUE });
 K.trap = stampEl(K.z, '¡MÁS CARO!', 140, 560, { size: 80 });
 K.ok = box(A.check(GREEN), K.z, 840, 500, 100, 100);
 K.ej = chip(s6.el, 'ejemplo', 80, 470, { size: 28 });
-K.b = burst(K.z, 790, 650, w(126), 12, 260, 1);
+K.b = burst(K.z, 790, 650, w(117), 12, 260, 1);
 s6.upd = t => {
-  const zin = p(t, w(106), 0.5, E.inOutCubic) * (1 - p(t, w(121), 0.4, E.inOutCubic));
+  const zin = p(t, w(97), 0.5, E.inOutCubic) * (1 - p(t, w(112), 0.4, E.inOutCubic));
   set(K.z, { s: 1 + 0.12 * zin });
-  set(K.pack, { s: pop(t, w(97), 0.45) * (1 + 0.05 * Math.sin(t * 3)), r: shake(t, w(126), 0.5, 6) });
-  set(K.one, { s: 1.05 * pop(t, w(99), 0.45), r: wobble(t, 0.6, 2) });
-  const kd = p(t, w(101), 0.6);
-  set(K.star, { s: pop(t, w(100), 0.4) * (1 + 0.08 * Math.sin(t * 8) * (1 - kd)) * lerp(1, 0.7, kd), r: t * 20 * (1 - kd) + 10, o: t >= w(100) ? lerp(1, 0.55, kd) : 0 });
-  set(K.slash, { s: pop(t, w(105), 0.3), o: t >= w(105) ? 1 : 0 });
-  set(K.t1, { s: pop(t, w(99) + 0.2, 0.35), r: -2, o: t >= w(99) + 0.2 ? 1 : 0 });
-  set(K.t2, { s: pop(t, w(99) + 0.35, 0.35), r: 2, o: t >= w(99) + 0.35 ? 1 : 0 });
+  set(K.pack, { s: pop(t, w(88), 0.45) * (1 + 0.05 * Math.sin(t * 3)), r: shake(t, w(117), 0.5, 6) });
+  set(K.one, { s: 1.05 * pop(t, w(90), 0.45), r: wobble(t, 0.6, 2) });
+  const kd = p(t, w(92), 0.6);
+  set(K.star, { s: pop(t, w(91), 0.4) * (1 + 0.08 * Math.sin(t * 8) * (1 - kd)) * lerp(1, 0.7, kd), r: t * 20 * (1 - kd) + 10, o: t >= w(91) ? lerp(1, 0.55, kd) : 0 });
+  set(K.slash, { s: pop(t, w(96), 0.3), o: t >= w(96) ? 1 : 0 });
+  set(K.t1, { s: pop(t, w(90) + 0.2, 0.35), r: -2, o: t >= w(90) + 0.2 ? 1 : 0 });
+  set(K.t2, { s: pop(t, w(90) + 0.35, 0.35), r: 2, o: t >= w(90) + 0.35 ? 1 : 0 });
   // lupa recorre la letra pequeña
-  const l1 = p(t, w(108), 0.6, E.inOutCubic), l2 = p(t, w(115) - 0.2, 0.5, E.inOutCubic);
+  const l1 = p(t, w(99), 0.6, E.inOutCubic), l2 = p(t, w(106) - 0.2, 0.5, E.inOutCubic);
   const lx = lerp(lerp(150, 290, l1), 750, l2), ly = 860 + Math.sin(t * 4) * 6;
-  set(K.lupa, { x: lx, y: ly, s: pop(t, w(108), 0.35) * out(t, w(118), 0.25), o: t >= w(108) && t < w(118) ? 1 : 0 });
-  set(K.big1, { s: pop(t, w(113) - 0.1, 0.4) * (1 + 0.1 * bump(t, w(126))), r: -3 + shake(t, w(126), 0.4, 5), o: t >= w(113) - 0.1 ? 1 : 0 });
-  set(K.big2, { s: pop(t, w(116), 0.4), r: 3, o: t >= w(116) ? 1 : 0 });
-  stampAnim(K.obl, t, w(118), w(121), -6);
-  stampAnim(K.trap, t, w(126) - 0.1, TG + 0.6, -10);
-  set(K.ok, { s: pop(t, w(126) + 0.2, 0.4) * 1.1, o: t >= w(126) + 0.2 ? 1 : 0 });
+  set(K.lupa, { x: lx, y: ly, s: pop(t, w(99), 0.35) * out(t, w(109), 0.25), o: t >= w(99) && t < w(109) ? 1 : 0 });
+  set(K.big1, { s: pop(t, w(104) - 0.1, 0.4) * (1 + 0.1 * bump(t, w(117))), r: -3 + shake(t, w(117), 0.4, 5), o: t >= w(104) - 0.1 ? 1 : 0 });
+  set(K.big2, { s: pop(t, w(107), 0.4), r: 3, o: t >= w(107) ? 1 : 0 });
+  stampAnim(K.obl, t, w(109), w(112), -6);
+  stampAnim(K.trap, t, w(117) - 0.1, TG + 0.6, -10);
+  set(K.ok, { s: pop(t, w(117) + 0.2, 0.4) * 1.1, o: t >= w(117) + 0.2 ? 1 : 0 });
   chipAnim(K.ej, t, T3 + 0.8, TG + 0.45, -3);
   K.b.upd(t);
 };
@@ -307,37 +298,37 @@ M.people = [[ '#2E64D8', '#6b4a2a'], [RED, '#C5CAD6'], ['#2f9e5b', '#1d1d22']].m
 M.chart = box(A.chart(), s7.el, 80, 480, 200, 160, { transformOrigin: '100px 160px' });
 M.est = chip(s7.el, '📊 estudio', 70, 650, { size: 34 });
 M.slow = el('div', s7.el, { left: '420px', top: '470px', fontFamily: 'DMSerif', fontSize: '64px', color: CREAM, fontStyle: 'italic', textShadow: '0 5px 0 #0b1946' }, 'más despacio…');
-M.b = burst(s7.el, 600, 900, w(143), 12, 380, 1.1);
+M.b = burst(s7.el, 600, 900, w(134), 12, 380, 1.1);
 M.gift = box(A.gift(), s7.el, 440, 640, 200, 210, { transformOrigin: '100px 150px' });
 M.glid = q(M.gift, '.glid');
 M.bn = Array.from({ length: 7 }, (_, i) => el('div', s7.el, { left: '0', top: '0', fontFamily: 'Fredoka', fontWeight: 700, fontSize: '120px', color: i % 2 ? '#F2D28B' : CREAM, textShadow: '0 6px 0 #0b1946' }, ['♪', '♫', '♩', '♬'][i % 4]));
 s7.upd = t => {
   set(M.spk, { s: 0.8 * pop(t, TG + 0.5, 0.4) * (1 + 0.04 * Math.sin(t * 3.2)), r: wobble(t, 0.5, 2) });
   at(M.cone, 'transform', `translate(110 176) scale(${(1 + 0.06 * Math.sin(t * 3.2)).toFixed(3)}) translate(-110 -176)`);
-  const slow = t >= w(134) ? 0.35 : 1;
-  M.notes.forEach((e, i) => { const ph = ((t - TG) * 0.22 * (t >= w(134) ? 0.6 : 1) + i / 6) % 1; set(e, { x: 760 - ph * 520, y: 480 + Math.sin(ph * 8 + i) * 50 + (i % 3) * 30, r: Math.sin(t * 1.5 + i) * 20, s: 0.7 + 0.3 * Math.sin(Math.PI * ph), o: t >= w(131) ? Math.sin(Math.PI * ph) : 0 }); });
-  chipAnim(M.lenta, t, w(135), w(142), 4);
+  const slow = t >= w(125) ? 0.35 : 1;
+  M.notes.forEach((e, i) => { const ph = ((t - TG) * 0.22 * (t >= w(125) ? 0.6 : 1) + i / 6) % 1; set(e, { x: 760 - ph * 520, y: 480 + Math.sin(ph * 8 + i) * 50 + (i % 3) * 30, r: Math.sin(t * 1.5 + i) * 20, s: 0.7 + 0.3 * Math.sin(Math.PI * ph), o: t >= w(122) ? Math.sin(Math.PI * ph) : 0 }); });
+  chipAnim(M.lenta, t, w(126), w(133), 4);
   M.people.forEach((o, i) => {
-    const t0 = w(136) + i * 0.15, k = clamp((t - t0) / 6);
+    const t0 = w(127) + i * 0.15, k = clamp((t - t0) / 6);
     const x = 330 + i * 50 + k * 280, y = 570 + i * 200;
     set(o.e, { x, y, s: 0.85 * pop(t, t0, 0.4), o: t >= t0 ? 1 : 0 });
     const lg = Math.sin((t - t0) * 3.2) * 16;
     at(o.legB, 'transform', `rotate(${lg.toFixed(1)} 78 214)`); at(o.legF, 'transform', `rotate(${(-lg).toFixed(1)} 104 214)`);
-    o.it.forEach((it, j) => { const tj = w(142) + i * 0.1 + j * 0.13; it.setAttribute('opacity', t >= tj ? 1 : 0); it.setAttribute('transform', `translate(0 ${(-80 * (1 - p(t, tj, 0.3, E.outBack))).toFixed(1)})`); });
+    o.it.forEach((it, j) => { const tj = w(133) + i * 0.1 + j * 0.13; it.setAttribute('opacity', t >= tj ? 1 : 0); it.setAttribute('transform', `translate(0 ${(-80 * (1 - p(t, tj, 0.3, E.outBack))).toFixed(1)})`); });
   });
-  set(M.slow, { s: pop(t, w(140), 0.4), x: Math.sin(t * 1.2) * 10, o: t >= w(140) && t < w(144) ? 1 : 0 });
-  const gOut = p(t, w(136) - 0.1, 0.35, E.inCubic);
+  set(M.slow, { s: pop(t, w(131), 0.4), x: Math.sin(t * 1.2) * 10, o: t >= w(131) && t < w(135) ? 1 : 0 });
+  const gOut = p(t, w(127) - 0.1, 0.35, E.inCubic);
   set(M.gift, { s: 1.7 * pop(t, TG + 0.45, 0.45) * (1 - gOut), r: wobble(t, 1.2, 4), o: gOut < 1 ? 1 : 0 });
-  at(M.glid, 'transform', `translate(${-40 * p(t, w(131) - 0.2, 0.3)} ${-110 * p(t, w(131) - 0.2, 0.3)}) rotate(${-25 * p(t, w(131) - 0.2, 0.3)} 100 60)`);
-  M.bn.forEach((e, i) => { const sp = t >= w(134) ? 0.35 : 0.8, ph = ((t - w(131)) * sp * 0.6 + i / 7) % 1, a = -Math.PI / 2 + (i - 3) * 0.35;
-    set(e, { x: 500 + Math.cos(a) * 420 * ph, y: 640 + Math.sin(a) * 300 * ph + Math.sin(ph * 6 + i) * 30, r: Math.sin(t * 1.3 + i) * 25, s: 0.5 + 0.6 * ph, o: t >= w(131) - 0.1 && gOut < 1 ? Math.sin(Math.PI * ph) : 0 }); });
-  set(M.chart, { s: pop(t, w(145), 0.4), r: -4, o: t >= w(145) ? 1 : 0 });
-  chipAnim(M.est, t, w(148), TP, -4);
+  at(M.glid, 'transform', `translate(${-40 * p(t, w(122) - 0.2, 0.3)} ${-110 * p(t, w(122) - 0.2, 0.3)}) rotate(${-25 * p(t, w(122) - 0.2, 0.3)} 100 60)`);
+  M.bn.forEach((e, i) => { const sp = t >= w(125) ? 0.35 : 0.8, ph = ((t - w(122)) * sp * 0.6 + i / 7) % 1, a = -Math.PI / 2 + (i - 3) * 0.35;
+    set(e, { x: 500 + Math.cos(a) * 420 * ph, y: 640 + Math.sin(a) * 300 * ph + Math.sin(ph * 6 + i) * 30, r: Math.sin(t * 1.3 + i) * 25, s: 0.5 + 0.6 * ph, o: t >= w(122) - 0.1 && gOut < 1 ? Math.sin(Math.PI * ph) : 0 }); });
+  set(M.chart, { s: pop(t, w(136), 0.4), r: -4, o: t >= w(136) ? 1 : 0 });
+  chipAnim(M.est, t, w(139), TP, -4);
   M.b.upd(t);
 };
 
 /* ================= 8 · ENCUESTA ================= */
-const s8 = scene(TP - 0.05, 54.08, { enter: 'whip', exit: 'whip' });
+const s8 = scene(TP - 0.05, TB - 0.05, { enter: 'whip' });
 const PO = {};
 PO.card = box('', s8.el, 80, 470, 860, 470, { background: CREAM, border: '6px solid #D4A74A', borderRadius: '40px', boxShadow: '0 14px 0 rgba(8,16,48,.4)' });
 const icons = [[A.milk(), 120, 170, 0.5], [A.eye(), 140, 90, 0.6], [A.pack(), 330, 320, 0.26]];
@@ -350,7 +341,7 @@ PO.rows = ['Lo de siempre, al fondo', 'Lo caro, a tus ojos', 'Packs que no ahorr
   const [sv, ww, hh, sc] = icons[i]; const ic = box(sv, r, 700, 6, ww, hh, { transformOrigin: '0 0' }); set(ic, { s: sc });
   return { r, fill, n };
 });
-const tSay = [w(154), w(156), w(159)], fills = [0.55, 0.68, 0.88];
+const tSay = [w(145), w(147), w(150)], fills = [0.55, 0.68, 0.88];
 PO.coms = [['M', RED, '@marisa_64', 'El 3. Me han pillado con los packs 😤'], ['J', BLUE2, '@jorge.ruiz', 'Lo del fondo lo sabía… ¡lo de la música no! 🤯']].map(([ini, c, u, txt], i) => {
   const b = el('div', s8.el, { left: '370px', top: px(975 + i * 150), width: '570px', background: '#FFFFFF', borderRadius: '26px', padding: '12px 20px 14px 96px', boxShadow: '0 8px 0 rgba(8,16,48,.35)', border: '3px solid #e6dcc6' });
   b.innerHTML = `<div style="position:absolute;left:16px;top:14px;width:64px;height:64px;border-radius:50%;background:${c};color:#fff;font-family:Fredoka;font-weight:700;font-size:34px;display:flex;align-items:center;justify-content:center">${ini}</div><div style="font-family:Fredoka;font-weight:600;font-size:24px;color:#8a8f9c">${u}</div><div style="font-family:Fredoka;font-weight:500;font-size:32px;line-height:1.15;color:${INK}">${txt}</div><div style="position:absolute;right:16px;top:12px;font-size:26px;color:#c9ccd4">♡</div>`;
@@ -365,11 +356,11 @@ s8.upd = t => {
     set(o.fill, { sx: Math.max(0.001, fills[i] * p(t, TP + 0.6 + i * 0.15, 1.4, E.outCubic)) });
     set(o.n, { r: shake(t, t0, 0.35, 8), s: 1 + 0.2 * bump(t, t0) });
   });
-  PO.coms.forEach((b, i) => { const t0 = w(152) + 0.3 + i * 0.6; set(b, { x: 600 * (1 - p(t, t0, 0.4, E.outBack)), o: t >= t0 ? 1 : 0, r: (i % 2 ? 1 : -1) * 1.2 }); });
+  PO.coms.forEach((b, i) => { const t0 = w(143) + 0.3 + i * 0.6; set(b, { x: 600 * (1 - p(t, t0, 0.4, E.outBack)), o: t >= t0 ? 1 : 0, r: (i % 2 ? 1 : -1) * 1.2 }); });
 };
 
 /* ================= 9 · CIERRE: SEGUIR + lata (breve) + tarjeta ================= */
-const s9 = scene(54.05, DUR + 0.1, { enter: 'whip' });
+const s9 = scene(TB - 0.1, DUR + 0.1);
 const CT = {};
 (function buildTray() {
   let beads = ''; for (let i = 0; i < 56; i++) { const a = i / 56 * Math.PI * 2; beads += `<circle cx="${f1(400 + 381 * Math.cos(a))}" cy="${f1(400 + 381 * Math.sin(a))}" r="5" fill="#F7DFA0" stroke="#7a5418" stroke-width="1.6"/>`; }
@@ -383,89 +374,89 @@ const CT = {};
 })();
 CT.cells = qa(CT.tray, '.cell').map(c => ({ ci: q(c, '.ci'), k: +c.dataset.k }));
 CT.btn = el('div', s9.el, { left: '430px', top: '1170px', width: '440px', height: '108px', borderRadius: '60px', background: '#FE2C55', color: '#fff', fontFamily: 'Fredoka', fontWeight: 700, fontSize: '56px', display: 'flex', alignItems: 'center', justifyContent: 'center', letterSpacing: '0.04em', boxShadow: '0 10px 0 #9e1033, 0 20px 40px rgba(0,0,0,.35)', border: '5px solid #fff' }, '+ SEGUIR');
-CT.big = el('div', s9.el, { left: '0', top: '560px', width: '1080px', display: 'flex', justifyContent: 'center' });
-CT.bigIn = el('div', CT.big, { position: 'relative', borderRadius: '80px', background: '#FE2C55', color: '#fff', fontFamily: 'Fredoka', fontWeight: 700, fontSize: '120px', padding: '20px 70px 28px', boxShadow: '0 14px 0 #9e1033, 0 30px 50px rgba(0,0,0,.4)', border: '8px solid #fff', whiteSpace: 'nowrap' }, '+ SEGUIR');
 CT.ripple = box('', s9.el, 650 - 60, 1224 - 60, 120, 120, { borderRadius: '50%', border: '8px solid #fff' });
 CT.lid = box(A.lidFace({ id: 'lfE' }), s9.el, 90, 320, 900, 900);
 CT.lidSpec = q(CT.lid, '.lidspec');
 CT.tag = el('div', s9.el, { left: '0', top: '1160px', width: '1080px', display: 'flex', justifyContent: 'center' });
 CT.tagIn = el('div', CT.tag, { position: 'relative', background: 'linear-gradient(100deg,#8A6420 0%,#D4A74A 22%,#FFF1C4 40%,#F2D28B 50%,#C08F35 72%,#8A6420 100%)', border: '4px solid #5a3d0c', borderRadius: '100px', padding: '10px 40px 14px', fontFamily: 'Fredoka', fontWeight: 700, fontSize: '46px', color: BLUE, boxShadow: '0 8px 0 rgba(8,16,48,.45)', whiteSpace: 'nowrap' }, 'Trucos del súper 1·2·3 + 🎁');
-const TC = w(168) - 0.05;
 CT.b1 = burst(s9.el, 540, 770, TC + 0.25, 18, 480, 1.4);
+CT.b0 = burst(s9.el, 540, 770, w(155) + 0.1, 16, 460, 1.3);
 s9.upd = t => {
-  const lidK = p(t, TC, 0.25, E.inCubic), endOn = t >= TC;
-  // botón gigante al decir «sígueme»
-  const kb = pop(t, w(160), 0.4), kbo = p(t, w(162), 0.25, E.inCubic);
-  set(CT.bigIn, { s: kb * (1 - kbo) * (t >= w(160) + 0.45 && t < w(160) + 0.6 ? 0.92 : 1), r: -3 + wobble(t, 1, 2), o: t >= w(160) && kbo < 1 ? 1 : 0 });
-  set(CT.tray, { s: 0.8 * pop(t, w(162), 0.45) * (1 + 0.04 * bump(t, w(166))), r: wobble(t, 0.25, 1.2) + shake(t, TC + 0.25, 0.35, 5), o: t >= w(162) && t < TC + 0.3 ? 1 : 0 });
+  // 1) marca: la tapa con el medallón (Aquí la abuela Carmen)
+  const kIn = p(t, TB - 0.12, 0.35, E.outBack), kOpen = p(t, w(155), 0.4, E.inCubic), kClose = p(t, TC, 0.28, E.inCubic);
+  const lidOn = t < w(155) + 0.4 || t >= TC;
+  let ls = 0.8 * kIn, ly = -10, lsy = 1, lr = wobble(t, 0.3, 0.8);
+  if (t >= w(155) && t < TC) { ly = -10 - 1500 * kOpen; lsy = 1 - 0.85 * kOpen; lr += 30 * kOpen; }
+  if (t >= TC) { ls = lerp(1.3, 0.8, kClose); lr = lerp(-25, 0, kClose) + wobble(t, 0.3, 0.8); ly = -10 + shake(t, TC + 0.25, 0.35, 10); }
+  set(CT.lid, { s: ls * (1 + 0.04 * bump(t, w(154))) * (1 + 0.03 * bump(t, TC + 0.27)), y: ly, sy: lsy, r: lr, o: lidOn ? (t >= TC ? clamp(kClose * 1.5) : 1) : 0 });
+  at(CT.lidSpec, 'transform', `rotate(${(t * 25) % 360} 450 450)`);
+  // 2) se abre: bandeja con compartimentos y + SEGUIR
+  const trayOn = t >= w(155) && t < TC + 0.3;
+  set(CT.tray, { s: 0.8 * pop(t, w(155) + 0.05, 0.45) * (1 + 0.04 * bump(t, w(161))), r: wobble(t, 0.25, 1.2) + shake(t, TC + 0.25, 0.35, 5), o: trayOn ? 1 : 0 });
   CT.cells.forEach(o => {
-    let s = 1, tw = 0;
-    if (o.k <= 4) s = 1 + 0.06 * Math.sin(t * 5 + o.k);
-    else { s = 1 + 0.3 * bump(t, w(166) + (o.k - 5) * 0.05); tw = bump(t, w(166) + (o.k - 5) * 0.05); }
-    at(o.ci, 'transform', `scale(${s.toFixed(3)})`);
+    let sc = 1, tw = 0;
+    if (o.k <= 4) sc = 1 + 0.06 * Math.sin(t * 5 + o.k) + 0.25 * bump(t, w(155) + 0.2 + o.k * 0.1);
+    else { sc = 1 + 0.3 * bump(t, w(161) + (o.k - 5) * 0.05); tw = bump(t, w(161) + (o.k - 5) * 0.05); }
+    at(o.ci, 'transform', `scale(${sc.toFixed(3)})`);
     const qm = q(o.ci, '.qm'); if (qm) qm.setAttribute('fill', tw > 0.3 ? '#D4A74A' : '#c9bfa6');
   });
-  set(CT.btn, { s: pop(t, w(162), 0.4) * (1 + 0.035 * Math.sin(t * 7)) * out(t, TC, 0.15), r: wobble(t, 0.6, 1.5), o: t >= w(162) && t < TC ? 1 : 0 });
-  const rk = p(t, w(160) + 0.45, 0.5);
-  set(CT.ripple, { x: -110, y: -600, s: 0.5 + 3 * rk, o: t >= w(160) + 0.45 && rk < 1 ? 1 - rk : 0 });
-  set(CT.lid, { s: lerp(1.3, 0.8, lidK) * (1 + 0.03 * bump(t, TC + 0.27)), r: lerp(-25, 0, lidK) + wobble(t, 0.3, 0.8), o: endOn ? clamp(lidK * 1.5) : 0, y: -10 + shake(t, TC + 0.25, 0.35, 10) });
-  at(CT.lidSpec, 'transform', `rotate(${(t * 25) % 360} 450 450)`);
-  set(CT.tag, { s: pop(t, TC + 0.6, 0.45) * (1 + 0.03 * Math.sin(t * 4)), o: t >= TC + 0.6 ? 1 : 0 });
-  CT.b1.upd(t);
+  const tb = w(155) + 0.25, press = t >= w(157) && t < w(157) + 0.15 ? 0.9 : 1;
+  set(CT.btn, { s: pop(t, tb, 0.4) * press * (1 + 0.035 * Math.sin(t * 7)) * out(t, TC, 0.15), r: wobble(t, 0.6, 1.5), o: t >= tb && t < TC ? 1 : 0 });
+  const rk = p(t, w(157), 0.5);
+  set(CT.ripple, { s: 0.3 + 1.6 * rk, o: t >= w(157) && rk < 1 ? 1 - rk : 0 });
+  set(CT.tag, { s: pop(t, TC + 0.5, 0.45) * (1 + 0.03 * Math.sin(t * 4)), o: t >= TC + 0.5 ? 1 : 0 });
+  CT.b0.upd(t); CT.b1.upd(t);
 };
-head('Nuevos trucos *cada_día*', [TC + 0.5, TC + 0.7, TC + 0.9], LT, { size: 92 });
 
 /* ================= TRANSICIONES ================= */
 const WIPE = box(A.lidFace({ id: 'lfW' }), OV, 540 - 450, 900 - 450, 900, 900);
-const WIPES = [9.18];
+const WIPES = [];
 const STREAK = el('div', OV, { left: 0, top: 0, width: '1080px', height: '1920px' });
 const streaks = Array.from({ length: 7 }, (_, i) => box('', STREAK, 0, 300 + i * 210 + (i % 2) * 60, 1080, 10 + (i % 3) * 8, { background: 'linear-gradient(90deg,rgba(255,241,196,0),rgba(255,241,196,.85),rgba(255,241,196,0))', borderRadius: '10px' }));
-const WHIPS = [4.52, TP, 54.06, 29.3];
+const WHIPS = [4.10, TP, w(77)];
 
 /* ================= TITULARES ================= */
-H_('Tres trucos *contra_ti*', [16, 17, 20], 7.28);
-H_('El último te va a *cabrear*', [23, 24, 25, 26, 28], 9.12);
-H_('Aquí la abuela *Carmen*', [29, 30, 31, 32], 10.74);
-H_('¡Abro la *lata*!', [33, 34, 35], T1 - 0.05);
-H_('Lo que compras *siempre*', [37, 38, 39, 40], w(47));
-H_('…suele estar *al_fondo*', [47, 48, 49], w(51));
-H_('Para que cruces *toda_la_tienda*', [51, 52, 53, 54], w(57));
-H_('…y te caigan cosas en el *carro*', [57, 58, 59, 60, 61, 62, 63], T2 - 0.05);
-H_('Lo más *caro*…', [65, 66, 67], w(70));
-H_('…a la altura de tus *ojos*', [70, 71, 72, 73, 74, 75], w(76));
-H_('*Agáchate*, cielo', [76, 77], w(78));
-H_('Lo barato, *abajo*', [78, 79, 85], 29.25);
-H_('Espera… el 3 es *el_bueno*', [87, 89, 90, 91, 92], T3 - 0.05);
-H_('Packs de *ahorro*…', [98, 99, 100], w(101));
-H_('…que no ahorran *nada*', [101, 103, 104, 105], w(106));
-H_('Mira la etiqueta *pequeñita*', [106, 107, 108, 109], w(110), { maxH: 100 });
-H_('Precio por *kilo* o *litro*', [111, 112, 113, 114, 116], w(117), { maxH: 100 });
-H_('Es *obligatorio*', [117, 118], w(121));
-H_('Y ahí se ve la *trampa*', [121, 122, 123, 124, 125, 126], TG - 0.05);
-H_('Y uno de *regalo*', [127, 128, 129, 130], w(131));
-H_('La *música*', [131, 132], w(133));
-H_('Con música *lenta*…', [133, 134, 135], w(136));
-H_('…la gente va más *despacio*', [136, 137, 138, 139, 140], w(141));
-H_('…y compra *más*', [141, 142, 143], w(144));
-H_('Lo midió un *estudio*', [144, 145, 147, 148], TP - 0.05);
-H_('¿Cuál te ha *pillado*?', [149, 150, 151, 152], 54.06);
-H_('*Sígueme*', [160], w(161));
-H_('Hay *muchos_más*…', [165, 166], w(168));
-H_('…y me los sé *todos*', [168, 170, 171, 172, 173], TC + 0.45, { maxH: 100 });
+H_('Tres trucos *contra_ti*', [14, 15, 18], 6.88);
+H_('El último te va a *cabrear*', [21, 22, 23, 24, 26], 8.65);
+H_('Lo que compras *siempre*', [28, 29, 30, 31], w(38));
+H_('…suele estar *al_fondo*', [38, 39, 40], w(42));
+H_('Para que cruces *toda_la_tienda*', [42, 43, 44, 45], w(48));
+H_('…y te caigan cosas en el *carro*', [48, 49, 50, 51, 52, 53, 54], T2 - 0.05);
+H_('Lo más *caro*…', [56, 57, 58], w(61));
+H_('…a la altura de tus *ojos*', [61, 62, 63, 64, 65, 66], w(67));
+H_('*Agáchate*, cielo', [67, 68], w(69));
+H_('Lo barato, *abajo*', [69, 70, 76], 26.16);
+H_('Espera… el 3 es *el_bueno*', [78, 80, 81, 82, 83], T3 - 0.05);
+H_('Packs de *ahorro*…', [89, 90, 91], w(92));
+H_('…que no ahorran *nada*', [92, 94, 95, 96], w(97));
+H_('Mira la etiqueta *pequeñita*', [97, 98, 99, 100], w(101), { maxH: 100 });
+H_('Precio por *kilo* o *litro*', [102, 103, 104, 105, 107], w(108), { maxH: 100 });
+H_('Es *obligatorio*', [108, 109], w(112));
+H_('Y ahí se ve la *trampa*', [112, 113, 114, 115, 116, 117], TG - 0.05);
+H_('Y uno de *regalo*', [118, 119, 120, 121], w(122));
+H_('La *música*', [122, 123], w(124));
+H_('Con música *lenta*…', [124, 125, 126], w(127));
+H_('…la gente va más *despacio*', [127, 128, 129, 130, 131], w(132));
+H_('…y compra *más*', [132, 133, 134], w(135));
+H_('Lo midió un *estudio*', [135, 136, 138, 139], TP - 0.05);
+H_('¿Cuál te ha *pillado*?', [140, 141, 142, 143], TB - 0.05);
+H_('Aquí la abuela *Carmen*', [151, 152, 153, 154], w(155));
+H_('*Sígueme*', [155], w(156));
+H_('Hay *muchos_más*…', [160, 161], w(163));
+H_('…y me los sé *todos*', [163, 165, 166, 167, 168], LT, { maxH: 100 });
 { const hs = HEADS.slice().sort((x, y) => x.t0 - y.t0); for (let i = 0; i < hs.length - 1; i++) hs[i].t1 = Math.min(hs[i].t1, hs[i + 1].t0 - 0.06); }
 
 /* ================= SFX ================= */
-[['whoosh', 0.05, 0.8], ['stamp', 0.17, 0.9], ['pop', 0.62, 0.6], ['pop2', 1.0, 0.6], ['pop', 1.46, 0.6], ['boing', w(8), 0.6], ['pop2', 2.2, 0.6], ['stamp', w(13) + 0.05],
- ['whoosh', 4.52], ['pop', w(16)], ['pop2', w(16) + 0.15], ['pop', w(16) + 0.3], ['click', w(24)], ['error', w(28), 0.8],
- ['whoosh', 9.0], ['bell', 9.35, 0.8], ['sparkle', w(32), 0.6], ['swoosh_up', w(35)], ['burst', w(35) + 0.1, 0.6],
- ['pop', T1], ['stamp', T1 + 0.22], ['paper', T1 + 0.5, 0.6], ['tick', w(42), 0.8], ['tick', w(44), 0.8], ['tick', w(46), 0.8], ['whoosh', w(47), 0.6], ['ding', w(50), 0.8], ['swoosh_up', w(51), 0.6],
- ['pop', w(57)], ['pop2', w(57) + 0.24], ['pop', w(57) + 0.48], ['pop2', w(57) + 0.72], ['pop', w(57) + 0.96], ['thud', w(63), 0.8],
- ['pop', T2], ['stamp', T2 + 0.22], ['whoosh', T2 + 0.45, 0.5], ['ding', w(67), 0.7], ['sparkle', w(72)], ['boing', w(76), 0.7], ['cash', w(79), 0.8],
- ['tick', 29.5, 0.7], ['tick', 30.0, 0.7], ['tick', 30.5, 0.7], ['tick', 31.0, 0.8], ['tick', 31.5, 0.9], ['burst', T3], ['stamp', T3 + 0.22],
- ['pop', w(97)], ['sparkle', w(100), 0.7], ['error', w(105), 0.8], ['whoosh', w(106), 0.6], ['pop2', w(113)], ['pop', w(116)], ['stamp', w(118)], ['stamp', w(126) - 0.1], ['ding', w(126) + 0.25, 0.7],
- ['pop', TG], ['tada', TG + 0.25, 0.8], ['bell', w(132), 0.5], ['swoosh_up', w(135), 0.5], ['pop', w(136), 0.5], ['pop2', w(142)], ['pop', w(142) + 0.25], ['cash', w(143), 0.8], ['ding', w(148), 0.7],
- ['whoosh', TP], ['pop', w(154)], ['pop2', w(156)], ['pop', w(159)], ['click', w(152) + 0.3], ['click', w(152) + 0.9],
- ['whoosh', 54.06], ['pop', w(160)], ['click', w(160) + 0.45], ['pop2', w(162)], ['sparkle', w(166), 0.7], ['thud', TC + 0.27], ['tada', TC + 0.6, 0.8], ['bell', w(173), 0.6], ['swoosh_up', LT, 0.6]
+[['pop', 0.31, 0.6], ['pop2', 0.75, 0.6], ['paper', w(4) - 0.05, 0.7], ['stamp', w(6)], ['boing', w(6) + 0.2, 0.5], ['pop', 2.31, 0.6], ['pop2', 2.64, 0.6], ['stamp', w(11) + 0.05],
+ ['whoosh', 4.10], ['pop', w(14)], ['pop2', w(14) + 0.15], ['pop', w(14) + 0.3], ['click', w(22)], ['error', w(26), 0.8],
+ ['pop', T1], ['stamp', T1 + 0.22], ['paper', T1 + 0.5, 0.6], ['tick', w(33), 0.8], ['tick', w(35), 0.8], ['tick', w(37), 0.8], ['whoosh', w(38), 0.6], ['ding', w(41), 0.8], ['swoosh_up', w(42), 0.6],
+ ['pop', w(48)], ['pop2', w(48) + 0.24], ['pop', w(48) + 0.48], ['pop2', w(48) + 0.72], ['pop', w(48) + 0.96], ['thud', w(54), 0.8],
+ ['pop', T2], ['stamp', T2 + 0.22], ['whoosh', T2 + 0.45, 0.5], ['ding', w(58), 0.7], ['sparkle', w(63)], ['boing', w(67), 0.7], ['cash', w(70), 0.8],
+ ['tick', 26.41, 0.7], ['tick', 26.91, 0.7], ['tick', 27.41, 0.7], ['tick', 27.91, 0.8], ['tick', 28.41, 0.9], ['burst', T3], ['stamp', T3 + 0.22],
+ ['pop', w(88)], ['sparkle', w(91), 0.7], ['error', w(96), 0.8], ['whoosh', w(97), 0.6], ['pop2', w(104)], ['pop', w(107)], ['stamp', w(109)], ['stamp', w(117) - 0.1], ['ding', w(117) + 0.25, 0.7],
+ ['pop', TG], ['tada', TG + 0.25, 0.8], ['bell', w(123), 0.5], ['swoosh_up', w(126), 0.5], ['pop', w(127), 0.5], ['pop2', w(133)], ['pop', w(133) + 0.25], ['cash', w(134), 0.8], ['ding', w(139), 0.7],
+ ['whoosh', TP], ['pop', w(145)], ['pop2', w(147)], ['pop', w(150)], ['click', w(143) + 0.3], ['click', w(143) + 0.9],
+ ['whoosh', TB - 0.12, 0.7], ['bell', TB + 0.1, 0.7], ['swoosh_up', w(155)], ['pop', w(155) + 0.25], ['click', w(157)], ['sparkle', w(161), 0.7], ['whoosh', TC - 0.05, 0.5], ['thud', TC + 0.27], ['tada', TC + 0.6, 0.6], ['bell', w(168), 0.6], ['swoosh_up', LT, 0.6]
 ].forEach(([n, tt, g]) => sfx(n, tt, g == null ? 1 : g));
 
 /* ================= FRAME ================= */
@@ -489,8 +480,8 @@ window.frame = t => {
     set(s.el, { x, y });
   });
   granny(t);
-  const PUN = [w(3), w(8), w(16), w(28), w(32), w(42), w(44), w(46), w(50), w(63), w(67), w(75), w(79), w(90), w(100), w(109), w(118), w(130), w(135), w(143), w(148), w(159), w(160), w(173)];
-  const SHK = [0.17, w(13) + 0.05, w(28), T3, w(105), w(126), TC + 0.27];
+  const PUN = [w(1), w(6), w(14), w(26), w(33), w(35), w(37), w(41), w(54), w(58), w(66), w(70), w(81), w(91), w(100), w(109), w(121), w(126), w(134), w(139), w(150), w(155), w(168)];
+  const SHK = [0.17, w(11) + 0.05, w(26), T3, w(96), w(117), TC + 0.27];
   let b = 0; PUN.forEach(ti => b = Math.max(b, bump(t, ti)));
   let sx = 0, sy = 0; SHK.forEach(ti => { sx += shake(t, ti, 0.35, 13); sy += shake(t + 0.03, ti, 0.35, 8); });
   set(CAM, { s: 1 + 0.075 * b, x: sx, y: sy });
@@ -501,4 +492,4 @@ window.frame = t => {
   updHeads(t); updPB(t); updNP(t);
   set(HL, { o: t >= LT ? 0 : 1 });
 };
-Engine.start({ captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: CREAM, color: BLUE, hi: RED, border: '4px solid #D4A74A', radius: 40, pad: '8px 30px 12px', maxWords: 3, shadow: '0 8px 0 rgba(8,16,48,.4)' } });
+Engine.start({ tail: 0.6, captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: CREAM, color: BLUE, hi: RED, border: '4px solid #D4A74A', radius: 40, pad: '8px 30px 12px', maxWords: 3, shadow: '0 8px 0 rgba(8,16,48,.4)' } });

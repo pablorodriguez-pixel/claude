@@ -1,0 +1,59 @@
+{
+"voices": {
+"ABUELA": [
+"X1uEdaNgEu64cdmPhwUX",
+0.5,
+0.9
+]
+},
+"gap": 0.22,
+"inner_cap": 0.3,
+"lines": [
+{
+"who": "ABUELA",
+"text": "[excited] ¡Oye! ¡A buenas horas, mangas verdes! ¿Y tú sabes quiénes eran las mangas verdes?"
+},
+{
+"who": "ABUELA",
+"text": "Pues eran... la policía. [laughs] Bueno, casi.",
+"gap_after": 0.3
+},
+{
+"who": "ABUELA",
+"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
+"gap_after": 0.3
+},
+{
+"who": "ABUELA",
+"text": "Mil cuatrocientos setenta y seis. Los Reyes Católicos crean la Santa Hermandad: unos cuadrilleros para perseguir a los bandoleros por los caminos."
+},
+{
+"who": "ABUELA",
+"text": "¿Y cómo los reconocías? Por el uniforme... con sus mangas verdes."
+},
+{
+"who": "ABUELA",
+"text": "¿El problema? Que tenían fama de llegar tarde. Te asaltaban, te dejaban sin nada... y cuando ya no había nada que hacer, aparecían ellos."
+},
+{
+"who": "ABUELA",
+"text": "Y la gente, que tenía mucha guasa: ¡a buenas horas, mangas verdes!"
+},
+{
+"who": "ABUELA",
+"text": "Ojo, que no es que fueran unos vagos, ¿eh? Con tantos caminos y tanto monte, llegar a tiempo era casi imposible. Pero la fama... se quedó."
+},
+{
+"who": "ABUELA",
+"text": "O sea: un refrán de más de quinientos años... que sigue funcionando igual de bien."
+},
+{
+"who": "ABUELA",
+"text": "¿A quién se lo dirías tú? Venga, etiquétalo."
+},
+{
+"who": "ABUELA",
+"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
+}
+]
+}

@@ -78,8 +78,7 @@ const F = (s, from = 0) => w(find(s, from)), FE = (s, from = 0) => we(find(s, fr
 const iL = n => WD.findIndex(x => x.line === n);
 const tA = { babia: F('babia'), existe: F('existe'), es: F('es un sitio'), verdad: F('verdad'), y: F('y puedes'), ir: w(find('puedes ir') + 1) + 0.15 };
 const tB = { y: F('y no es') - 0.08, cualq: F('cualquiera'), era: F('era donde'), reyes: F('los reyes a') + 0.21, desc: F('desconectar') };
-const tC = { soy: F('soy la abuela'), remedios: F('remedios'), esto: F('y esto'), por: F('por algo se dice'), dice: F('se dice') + 0.2 };
-const iD = iL(3), iE = iL(4), iF = iL(5), iG = iL(6), iH = iL(7), iI = iL(8), iJ = iL(9), iK = iL(10), iLl = iL(11);
+const iD = iL(2), iE = iL(3), iF = iL(4), iG = iL(5), iH = iL(6), iI = iL(7), iJ = iL(8), iK = iL(9), iLl = iL(10);
 const tD = { babia: w(iD), comarca: F('comarca', iD), montana: F('montana', iD), norte: F('norte', iD), leon: F('leon', iD) };
 const tE = { en: w(iE) - 0.1, edad: F('edad media', iE), reyes: F('reyes', iE), leon: F('leon', iE), desc: F('descansar', iE), cazar: F('cazar', iE), lejos: F('lejos', iE), corte: F('corte', iE), probl: F('problemas', iE) };
 const tF = { y: w(iF) - 0.1, palacio: F('palacio', iF), alguien: F('alguien', iF), rey: F('rey', iF), contest: F('contestaban', iF), elrey: F('el rey esta', iF), babia: F('babia', iF) };
@@ -89,20 +88,21 @@ const tI = { ojo: w(iI), mas: F('mas aceptada', iI), pero: F('pero', iI), tiene:
 const tJ = { hoy: w(iJ) - 0.1, reserva: F('reserva', iJ), asi: F('asi que', iJ), alguien: F('alguien', iJ), estas: F('estas en', iJ), tu: F('tu contestas', iJ), ojala: F('ojala', iJ) };
 const iSi = find('si o no', iK);
 const tK = { tu: w(iK) - 0.1, existia: F('existia', iK), dime: F('dime', iK), si: w(iSi), no: w(iSi + 2) };
-const tL = { y: w(iLl), sigueme: F('sigueme', iLl), cada: F('cada dia', iLl), cuento: F('cuento', iLl), otro: F('otro', iLl), porque: F('porque', iLl), dice: F('se dice', iLl) };
-const tEnd = END + 0.05, DUR = END + 3.2;
+const tL = { y: w(iLl), aqui: F('aqui la abuela', iLl), remedios: F('remedios', iLl), sigueme: F('sigueme', iLl), cada: F('cada dia', iLl), cuento: F('cuento', iLl), otro: F('otro', iLl), porque: F('porque', iLl), por: F('por algo se dice', iLl), dice: F('se dice', iLl) + 0.07 };
+const tC = tL;
+const TAIL = 0.6, DUR = END + TAIL, tEnd = 999;
 const WIPES = [[tB.y, 'floral'], [tE.en, 'pana'], [tF.y, 'vichy'], [tH.y, 'floral'], [tJ.hoy, 'pana'], [tK.tu, 'vichy']];
 // punch-ins (1 → 1,12) en palabras clave
-const PUNCH = [tA.existe, tA.verdad, tA.ir - 0.15, tB.cualq, tB.desc, tC.remedios, tC.por, tD.babia + 0.3, tD.montana, tD.leon, tE.reyes, tE.cazar, tE.probl,
-  tF.rey, tF.babia, tG.noesta, tG.espera, tG.cabeza, tH.babia, tH.nubes, tH.eh, tI.ojo, tI.mas, tI.leyenda, tJ.reserva, tJ.estas, tJ.ojala, tK.existia, tK.si, tK.no, tL.sigueme, tL.otro, tL.dice];
+const PUNCH = [tA.existe, tA.verdad, tA.ir - 0.15, tB.cualq, tB.desc, tD.babia + 0.3, tD.montana, tD.leon, tE.reyes, tE.cazar, tE.probl,
+  tF.rey, tF.babia, tG.noesta, tG.espera, tG.cabeza, tH.babia, tH.nubes, tH.eh, tI.ojo, tI.mas, tI.leyenda, tJ.reserva, tJ.estas, tJ.ojala, tK.existia, tK.si, tK.no, tL.remedios, tL.sigueme, tL.otro, tL.por, tL.dice];
 function punchZ(t) { let z = 1; for (const p of PUNCH) { const u = (t - p) / 0.38; if (u >= 0 && u < 1) z += 0.12 * (1 - E.outCubic(u)); } return z; }
 
 // ------------------------------------------------------------------ SFX
-sfx('stitch', 0.0, 0.7); sfx('stamp', tA.existe + 0.02, 1.0); sfx('sewing_machine', 0.15, 0.4);
+sfx('stitch', 0.0, 0.7); sfx('whoosh', tA.existe - 0.25, 0.5); sfx('stamp', tA.existe + 0.02, 1.0); sfx('sewing_machine', 0.15, 0.4);
 sfx('stamp', tA.verdad + 0.05, 0.75); sfx('swoosh_up', tA.y, 0.6); sfx('boing', tA.ir, 0.5);
 WIPES.forEach(([t0]) => sfx('cloth_whoosh', t0 - 0.12, 0.8));
 sfx('sparkle', tB.y + 0.15, 0.6); sfx('scratch', tB.cualq + 0.1, 0.5); sfx('knit', tB.era, 0.6); sfx('stamp', tB.desc + 0.15, 0.7);
-sfx('swoosh_up', tC.soy - 0.2, 0.6); sfx('pop', tC.remedios, 0.6); sfx('sewing_machine', tC.esto, 0.6); sfx('thread_pull', tC.dice - 0.3, 1.0); sfx('whoosh', tC.dice + 0.45, 0.5);
+sfx('swoosh_up', tL.aqui - 0.2, 0.6); sfx('pop', tL.remedios, 0.6);
 sfx('stitch', tD.babia - 0.1, 0.7); sfx('thud', tD.babia + 0.3, 0.7); sfx('whoosh', tD.comarca - 0.15, 0.6); sfx('stamp', tD.comarca + 0.25, 0.6); sfx('pop', tD.norte, 0.6);
 sfx('stamp', tE.edad, 0.6); sfx('stitch', tE.reyes, 0.6); sfx('pop', tE.leon, 0.6); sfx('swoosh_up', tE.cazar - 0.2, 0.6); sfx('boing', tE.cazar + 0.4, 0.4);
 sfx('whoosh', tE.lejos, 0.5); sfx('thud', tE.probl, 0.7); sfx('paper', tE.probl + 0.2, 0.7);
@@ -114,17 +114,18 @@ sfx('stamp', tI.ojo, 0.9); sfx('ding', tI.mas + 0.1, 0.6); sfx('stamp', tI.leyen
 sfx('stitch', tJ.hoy + 0.1, 0.6); sfx('sparkle', tJ.reserva + 0.2, 0.6); sfx('pop', tJ.alguien, 0.6); sfx('pop2', tJ.estas, 0.7); sfx('stamp', tJ.ojala, 1.0); sfx('tada', tJ.ojala + 0.1, 0.5);
 sfx('stitch', tK.tu + 0.1, 0.6); sfx('pop', tK.dime, 0.7); sfx('ding', tK.si, 0.7); sfx('click', tK.no, 0.8); sfx('msg_in', tK.no + 0.4, 0.6);
 sfx('stitch', tL.sigueme - 0.1, 0.8); sfx('ding', tL.sigueme + 0.4, 0.7); sfx('cloth_whoosh', tL.cada - 0.15, 0.6);
-sfx('stitch', tL.otro - 0.2, 0.9); sfx('sparkle', tL.porque, 0.5); sfx('snip', tL.dice + 0.15, 1.0);
-sfx('cloth_whoosh', tEnd - 0.15, 0.7); sfx('ding', tEnd + 1.3, 0.7);
+sfx('stitch', tL.otro - 0.2, 0.9); sfx('sparkle', tL.otro + 0.6, 0.5); sfx('cloth_whoosh', tL.porque - 0.15, 0.6);
+sfx('sewing_machine', tL.porque, 0.6); sfx('thread_pull', tL.dice - 0.15, 1.0);
 
 // ------------------------------------------------------------------ BASTIDOR DE LA ABUELA (keyframes)
 const HR = 380;
 const P_MED = [540, 1062, 0.66], P_SMALL = [188, 1172, 0.395], P_BIG = [540, 880, 0.92], P_BIG2 = [540, 790, 0.86], P_OJO = [540, 1040, 0.62],
   P_OJALA = [540, 850, 0.74], P_FOLLOW = [300, 720, 0.6];
-const HK = [[0, P_MED], [tB.y - 0.1, P_MED], [tB.y + 0.15, P_SMALL], [tC.soy - 0.25, P_SMALL], [tC.soy, P_BIG], [tC.dice + 0.45, P_BIG], [tC.dice + 0.7, P_SMALL],
+const HK = [[0, P_MED], [tB.y - 0.1, P_MED], [tB.y + 0.15, P_SMALL],
   [tH.como - 0.15, P_SMALL], [tH.como + 0.08, P_BIG2], [tI.ojo - 0.12, P_BIG2], [tI.ojo + 0.1, P_OJO], [tJ.hoy - 0.12, P_OJO], [tJ.hoy + 0.12, P_SMALL],
   [tJ.ojala - 0.2, P_SMALL], [tJ.ojala - 0.02, P_OJALA], [tK.tu - 0.1, P_OJALA], [tK.tu + 0.12, P_SMALL],
-  [tL.y - 0.15, P_SMALL], [tL.y + 0.1, P_FOLLOW], [tL.cada - 0.15, P_FOLLOW], [tL.cada + 0.12, P_SMALL], [99, P_SMALL]];
+  [tL.aqui - 0.2, P_SMALL], [tL.aqui + 0.08, P_BIG], [tL.sigueme - 0.15, P_BIG], [tL.sigueme + 0.1, P_FOLLOW], [tL.cada - 0.15, P_FOLLOW], [tL.cada + 0.12, P_SMALL],
+  [tL.porque - 0.2, P_SMALL], [tL.porque + 0.08, P_BIG], [99, P_BIG]];
 function hoopPose(t) {
   for (let i = 0; i < HK.length - 1; i++) {
     const [a, A] = HK[i], [b, B] = HK[i + 1];
@@ -139,8 +140,8 @@ function abState(t) {
   if (L(tA.verdad + 0.4, tA.y)) st.wink = true;
   if (L(tB.y, tB.era)) { st.hand = 'finger'; st.brows = 'skeptic'; }
   if (L(tB.reyes, tB.desc + 1)) st.brows = 'up';
-  if (L(tC.remedios, tC.remedios + 0.5)) st.wink = true;
-  if (L(tC.esto, tC.dice + 0.7)) { st.hand = 'thread'; if (t > tC.dice - 0.35) { st.brows = 'skeptic'; st.glassesDown = true; } }
+  if (L(tL.remedios, tL.remedios + 0.5)) st.wink = true;
+  if (L(tL.porque, DUR)) { st.hand = 'thread'; if (t > tL.dice - 0.2) { st.brows = 'skeptic'; st.glassesDown = true; } }
   if (L(tD.babia + 0.15, tD.babia + 0.8)) st.brows = 'up';
   if (L(tE.cazar, tE.lejos)) st.brows = 'up';
   if (L(tE.probl, tE.probl + 0.9)) st.brows = 'skeptic';
@@ -154,16 +155,14 @@ function abState(t) {
   if (L(tJ.ojala, tJ.ojala + 1.0)) { st.mouth = 'laugh'; st.blink = true; }
   if (L(tK.tu, tK.dime)) st.brows = 'up';
   if (L(tK.dime, tL.y)) { st.hand = 'finger'; st.look = 1; }
-  if (L(tL.y, tL.cada)) { st.hand = 'finger'; st.look = 1; }
-  if (L(tL.dice, DUR)) st.wink = true;
+  if (L(tL.sigueme, tL.cada)) { st.hand = 'finger'; st.look = 1; }
   return st;
 }
 let HOOP = null; // info del bastidor del fotograma actual
 function drawAbuela(t) {
-  if (t >= tEnd + 0.4) return;
   const [x, y, s] = hoopPose(t), st = abState(t);
   let sway = Math.sin(t * 1.6) * 0.012;
-  if (live(t, tC.soy, tC.remedios + 0.6)) sway += Math.sin((t - tC.soy) * 14) * 0.05 * (1 - kk(t, tC.soy, 1.2));   // saludo
+  if (live(t, tL.aqui, tL.remedios + 0.6)) sway += Math.sin((t - tL.aqui) * 14) * 0.05 * (1 - kk(t, tL.aqui, 1.2));   // saludo
   const pk = 1 + bump(t, tJ.ojala, 0.5, 0.08) + bump(t, tH.eh, 0.4, 0.05) + bump(t, tI.ojo, 0.4, 0.05);
   HOOP = Marco.abuelaHoop(g, x, y, HR, st, { t, scale: s * pk, rot: sway, skirt: true });
   HOOP.cx = x; HOOP.cy = y; HOOP.s = s;
@@ -232,7 +231,7 @@ function sceneA(t) {   // GANCHO
   const z = 1;
   if (out > 0) cam(t, 540, 450, z, () => {
     g.save(); g.translate(0, -(1 - out) * 500); g.globalAlpha *= out;
-    const k1 = 1, k2 = clamp(0.82 + t / 0.45);
+    const k1 = 1, k2 = clamp(0.9 + t / 0.5);
     const X1 = Math.round((1080 - TT1.pw) / 2), X2 = Math.round((1080 - TT2.pw) / 2);
     if (k1 >= 1) TT1.draw(g, X1, 232); else TT1.stitchIn(g, X1, 232, k1, { order: 'cols', needle: true, t, lag: 30 });
     if (k2 > 0) { if (k2 >= 1) TT2.draw(g, X2, 392); else TT2.stitchIn(g, X2, 392, k2, { order: 'cols', needle: true, t, lag: 40 }); }
@@ -240,9 +239,10 @@ function sceneA(t) {   // GANCHO
     {
       const dropY = 0;
       const sq = Stitch.squash(t, tA.existe + 0.05, 0.35, 0.18);
-      PIN.draw(g, 880, 520 + dropY, { anchor: [0.5, 1], scale: 0.75, rot: 0.42, sx: sq.sx, sy: sq.sy });
+      PIN.draw(g, 880, 520 + dropY, { anchor: [0.5, 1], scale: 0.75, rot: 0.42 + Math.sin(t * 7) * 0.04 * (t < tA.existe ? 1 : 0), sx: sq.sx, sy: sq.sy });
     }
-    patch(330, 708, '¡EXISTE!', 1, { scale: 1 + 0.25 * (1 - E.outCubic(kk(t, tA.existe, 0.35))) * (t >= tA.existe ? 1 : 0), cell: 11, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.1 });
+    if (t < tA.existe - 0.05) patch(330, 708, '¿?', 1, { cell: 13, bold: true, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, shape: 'circle', rot: Math.sin(t * 5) * 0.12, scale: 1 + Math.sin(t * 9) * 0.05 });
+    if (t >= tA.existe - 0.25) patch(330, 708 - 520 * (1 - E.outBack(kk(t, tA.existe - 0.25, 0.25))), '¡EXISTE!', 1, { scale: 1 + 0.25 * (1 - E.outCubic(kk(t, tA.existe, 0.35))) * (t >= tA.existe ? 1 : 0), cell: 11, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.1 });
     patch(865, 745, 'DE\nVERDAD', kk(t, tA.verdad - 0.1, 0.8), { cell: 8, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, shape: 'circle', rot: 0.12 });
     g.restore();
   });
@@ -288,18 +288,18 @@ function sceneB(t) {   // NO ES UN SITIO CUALQUIERA → REYES A DESCONECTAR
     if (t > tB.desc) { g.save(); g.strokeStyle = T.marron; g.lineWidth = 5; g.beginPath(); g.moveTo(820, 855); g.lineTo(760 + Math.sin(t * 2.2) * 6, 905); g.lineTo(700, 855); g.stroke(); g.restore(); }
   });
 }
-function sceneC(t) {   // MARCA corta: «POR ALGO SE DICE» se borda de golpe y la abuela tira del hilo
+function sceneC(t) {   // MARCA FINAL: «POR ALGO SE DICE» se borda de golpe…
   const HX = Math.round((1080 - HOLA.pw) / 2), HY = 232;
-  const kh = kk(t, tC.esto - 0.05, 0.45);
-  if (t < tC.dice - 0.35 && kh > 0) { if (kh >= 1) HOLA.draw(g, HX, HY); else HOLA.stitchIn(g, HX, HY, kh, { order: 'cols', needle: true, t, lag: 60 }); }
-  patch(540, 1320, 'ABUELA REMEDIOS', kk(t, tC.remedios - 0.15, 0.6) * (t < tC.dice - 0.35 ? 1 : 0), { cell: 8, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.03 });
+  const kh = kk(t, tL.porque - 0.05, 0.35);
+  if (t < tL.dice - 0.12 && kh > 0) { if (kh >= 1) HOLA.draw(g, HX, HY); else HOLA.stitchIn(g, HX, HY, kh, { order: 'cols', needle: true, t, lag: 60 }); }
+  patch(800, 1290, '+ SEGUIR', 1, { cell: 7, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, radius: 40, scale: 1 + Math.sin(t * 6) * 0.03, rot: -0.04 });
 }
-function sceneCPull(t) {  // tirar del hilo (por encima del bastidor)
-  if (t < tC.dice - 0.35 || t > tC.dice + 0.6 || !HOOP) return;
+function sceneCPull(t) {  // …y el hilo rojo lo deshace
+  if (t < tL.dice - 0.12 || !HOOP) return;
   const HX = Math.round((1080 - HOLA.pw) / 2), HY = 232;
-  const u = kk(t, tC.dice - 0.35, 0.8);
+  const u = kk(t, tL.dice - 0.12, 0.72);
   const k = u < 0.1 ? u * 0.3 : 0.03 + 0.97 * E.inOutCubic((u - 0.1) / 0.9);
-  HOLA.unravel(g, HX, HY, k, { t, to: HOOP.grip, order: { type: 'cols', reverse: true }, keepThread: false, showAt0: true, tail: 0, width: 9 });
+  HOLA.unravel(g, HX, HY, k, { t, to: HOOP.grip, order: { type: 'cols', reverse: true }, keepThread: true, showAt0: true, tail: 0, width: 9 });
 }
 function sceneD(t) {   // MAPA → MONTAÑA
   const M = MAP.spr, MX = 540, MY = 640;
@@ -535,12 +535,14 @@ function sceneK(t) {   // ¿TÚ SABÍAS QUE EXISTÍA? DIME SÍ O NO
   card(380, 1010, 560, 112, T.azul, '@maripili_62', 'SÍ, ¡y he ido!', '1.204', kk(t, tK.si + 0.15, 0.3));
   card(380, 1140, 560, 112, T.verde, '@juanito.86', 'No, ni idea...', '856', kk(t, tK.no + 0.3, 0.3));
 }
-function sceneL(t) {   // CIERRE: SÍGUEME + DECHADO
+function sceneL(t) {   // CIERRE: AQUÍ LA ABUELA REMEDIOS + SÍGUEME + DECHADO
+  if (t < tL.sigueme - 0.15) { patch(540, 1320, 'ABUELA REMEDIOS', kk(t, tL.remedios - 0.15, 0.5), { cell: 8, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, rot: -0.03 }); return; }
+  if (t >= tL.porque - 0.1) { sceneC(t); return; }
   if (t < tL.cada - 0.2) {     // botón SEGUIR
-    const kb = kk(t, tL.sigueme - 0.15, 0.7);
+    const kb = kk(t, tL.sigueme - 0.15, 0.45);
     const s = 1 + bump(t, tL.sigueme + 0.55, 0.35, 0.12) + Math.sin(t * 6) * 0.015 * (kb >= 1 ? 1 : 0);
     patch(740, 960, '+ SEGUIR', kb, { cell: 9, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, radius: 60, scale: s, rot: -0.04 });
-    patch(740, 400, 'UN REFRÁN\nCADA DÍA', kk(t, tL.y + 0.1, 0.7), LBL('', { cell: 7, rot: 0.05 }));
+    patch(740, 400, 'UN REFRÁN\nCADA DÍA', kk(t, tL.sigueme + 0.2, 0.5), LBL('', { cell: 7, rot: 0.05 }));
     // dedo/aguja que señala el botón
     if (kb > 0.3) { const bob = Math.sin(t * 8) * 10; Stitch.needle(g, 600 + bob * 0.6, 1000 + bob, -0.35, 130, T.rojo, [[520, 1080], [470, 1060], [430, 1100]]); }
     return;
@@ -555,9 +557,9 @@ function sceneL(t) {   // CIERRE: SÍGUEME + DECHADO
   for (let i = 0; i < 2; i++) { const [x, y] = boxC(i); ICONS[i].draw(g, x, y, { anchor: [0.5, 0.5], scale: 0.95 }); }
   // la Nº 3 se borda ahora
   const [x3, y3] = boxC(2);
-  const k3 = kk(t, tL.otro - 0.2, 1.1);
+  const k3 = kk(t, tL.otro - 0.15, 0.7);
   if (k3 > 0) {
-    if (k3 >= 1) ICONS[2].draw(g, x3, y3, { anchor: [0.5, 0.5], scale: 0.95 * (1 + bump(t, tL.otro + 0.9, 0.4, 0.15)) });
+    if (k3 >= 1) ICONS[2].draw(g, x3, y3, { anchor: [0.5, 0.5], scale: 0.95 * (1 + bump(t, tL.otro + 0.55, 0.4, 0.15)) });
     else ICONS[2].stitchIn(g, x3, y3, k3, { anchor: [0.5, 0.5], scale: 0.95, order: 'rows', needle: true, t, lag: 6 });
   } else { // guía: aguja esperando
     Stitch.needle(g, x3 + 20, y3 - 20 + Math.sin(t * 6) * 8, -0.9, 110, T.rojo, [[x3 + 90, y3 - 100], [x3 + 140, y3 - 60]]);
@@ -565,27 +567,24 @@ function sceneL(t) {   // CIERRE: SÍGUEME + DECHADO
   // marco que parpadea alrededor de la casilla 3
   const glow = k3 > 0 && k3 < 1.2 ? 0.5 + 0.5 * Math.sin(t * 10) : 0;
   if (glow) { g.save(); g.strokeStyle = Stitch.rgba(T.rojo, 0.5 + 0.5 * glow); g.lineWidth = 6; g.setLineDash([12, 8]); g.strokeRect(x3 - 82, y3 - 82, 164, 164); g.restore(); }
-  patch(x3, y3 + 84, 'Nº 3', kk(t, tL.otro + 0.7, 0.6), { cell: 5, pad: 1, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null });
+  patch(x3, y3 + 84, 'Nº 3', kk(t, tL.otro + 0.45, 0.4), { cell: 5, pad: 1, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null });
   patch(boxC(0)[0], boxC(0)[1] + 84, 'Nº 1', 1, { cell: 5, pad: 1, color: T.marino, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null });
   patch(boxC(1)[0], boxC(1)[1] + 84, 'Nº 2', 1, { cell: 5, pad: 1, color: T.marino, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null });
   g.restore();
-  patch(650, 1070, 'sígueme para completarla', kk(t, tL.cada + 0.4, 0.9), { cell: 6, pad: 1, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.02 });
+  patch(650, 1070, 'sígueme para completarla', kk(t, tL.cada + 0.3, 0.5), { cell: 6, pad: 1, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: null, rot: -0.02 });
   // botón SEGUIR pequeñito junto a la abuela
   patch(560, 1200, '+ SEGUIR', 1, { cell: 6, bold: true, color: T.rojo, border: '#FFFFFF', textColor: '#FFFFFF', shadowColor: T.granate, radius: 40, scale: 1 + Math.sin(t * 6) * 0.03 });
   // el hilo de la abuela a la casilla 3, y las tijeras lo cortan
   if (HOOP && t > tL.otro - 0.2) {
     const a = [HOOP.cx + 70, HOOP.cy - 40], b = [x3, y3 + 40];
-    const ks = kk(t, tL.dice - 0.45, 1.0);
-    if (ks <= 0) Stitch.drawThread(g, [a, [lerp(a[0], b[0], 0.5) + 40, lerp(a[1], b[1], 0.5) + 60 + Math.sin(t * 3) * 15], b], { color: T.rojo, width: 8 });
-    else Marco.snip(g, ks, { a, b, at: 0.5, t, size: 280, width: 8, sag: 60 });
+    Stitch.drawThread(g, [a, [lerp(a[0], b[0], 0.5) + 40, lerp(a[1], b[1], 0.5) + 60 + Math.sin(t * 3) * 15], b], { color: T.rojo, width: 8 });
   }
 }
 
 // ------------------------------------------------------------------ FOTOGRAMA
 function drawScene(t) {
   if (t < tB.y) sceneA(t);
-  else if (t < tC.soy - 0.02) sceneB(t);
-  else if (t < tD.babia - 0.3) sceneC(t);
+  else if (t < tD.babia - 0.3) sceneB(t);
   else if (t < tE.en) sceneD(t);
   else if (t < tF.y) sceneE(t);
   else if (t < tG.o - 0.1) sceneF(t);
@@ -607,8 +606,6 @@ function frameMain(t) {
   drawAbuela(t);
   sceneCPull(t);
   flushFront();
-  // micro-recordatorio (una vez)
-  if (live(t, tC.dice + 0.7, tC.dice + 2.3)) patch(620, 1250, 'un refrán nuevo cada día', kk(t, tC.dice + 0.7, 0.5) * gone(t, tC.dice + 2.1), { cell: 5, pad: 1, color: '#FBF6EE', border: T.rojo, textColor: T.granate, shadowColor: null, rot: -0.03 });
   flushFront();
   // etiqueta de la colección
   Marco.patch(g, 250, 192, 'REFRÁN Nº 3', { k: 1, t, cell: 6, pad: 1, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: -0.04 });
@@ -616,25 +613,13 @@ function frameMain(t) {
 }
 window.frame = t => {
   cv.style.filter = ''; cv.style.transform = '';
-  if (t >= tEnd + 0.3) {
-    const k = clamp((t - tEnd - 0.3) / 1.5);
-    Marco.endCard(g, k, { t, title: 'ESTAR EN\nBABIA', date: '16/10/2026', state: t > tEnd + 2.2 ? { mouth: 'smile', wink: true } : { mouth: 'smile', blink: Abuela.blink(t) } });
-    Marco.patch(g, 250, 192, 'REFRÁN Nº 3', { k: clamp((t - tEnd - 0.6) / 0.8), t, cell: 6, pad: 1, color: T.marino, border: T.mostaza, textColor: '#FFFFFF', shadowColor: null, rot: -0.04 });
-    Marco.patch(g, 540, 1460, 'Fuente: tradición popular', { k: clamp((t - tEnd - 1.3) / 0.8), t, cell: 4, pad: 1, color: '#FBF6EE', border: T.granate, textColor: T.granate, shadowColor: null });
-    // bucle: vuelve a la tela crema con el refrán
-    const lp = clamp((t - (DUR - 0.4)) / 0.4);
-    if (lp > 0) { g.save(); g.globalAlpha = E.inOutCubic(lp); frameMain(0.02); g.restore(); }
-    return;
-  }
   frameMain(t);
-  if (t >= tEnd) {   // cortina de vichy
-    const c = E.inOutCubic(clamp((t - tEnd) / 0.35));
-    g.save(); g.beginPath(); g.rect(0, 0, 1080, 1920 * c); g.clip(); Marco.drawBg(g, 'vichy'); g.restore();
-    g.fillStyle = 'rgba(122,31,43,.85)'; g.fillRect(0, 1920 * c - 10, 1080, 10);
-  }
+  // bucle: los últimos 0,4 s enlazan con el fotograma 0
+  const lp = clamp((t - (DUR - 0.42)) / 0.4);
+  if (lp > 0) { g.save(); g.globalAlpha = E.inOutCubic(lp); frameMain(0.0); g.restore(); }
   if (!rgbGlitch(t, tF.babia - 0.45) && !rgbGlitch(t, tJ.ojala)) {}
   const sk = shake(t, tF.babia - 0.45, 0.35, 10) + shake(t, tJ.ojala + 0.05, 0.35, 12) + shake(t, tA.existe + 0.05, 0.25, 6);
   if (sk) cv.style.transform = `translate(${sk}px,${sk * 0.4}px)`;
 };
-Engine.start({ captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', radius: 28, pad: '10px 28px', border: '4px dashed #7A1F2B', maxWords: 3, shadow: '0 6px 16px rgba(60,30,10,.25)' } });
+Engine.start({ tail: TAIL, captions: { y: 1380, font: 'Fredoka', size: 52, weight: 700, bg: '#FFF8EC', color: '#1E1A18', hi: '#C8102E', radius: 28, pad: '10px 28px', border: '4px dashed #7A1F2B', maxWords: 3, shadow: '0 6px 16px rgba(60,30,10,.25)' } });
 </script></body></html>

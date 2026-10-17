@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¡Oye! ¡Llevas toda la vida diciendo mal este refrán! Quien se fue a Sevilla, perdió su silla.",
+  "s": 0.12,
+  "e": 6.017
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Pues no era «a» Sevilla. ¡Era «de» Sevilla!",
+  "s": 6.237,
+  "e": 9.715
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Soy la abuela Remedios, y esto... por algo se dice.",
+  "s": 10.015,
+  "e": 13.396
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Siglo quince. El arzobispo de Sevilla se llamaba Alonso de Fonseca. Y su sobrino, arzobispo de Santiago... también Alonso de Fonseca. Para liarla.",
+  "s": 13.696,
+  "e": 24.206
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "En Galicia había mucho lío, y el sobrino le pidió al tío: cámbiame el sitio un tiempo, que tú tienes más mano.",
+  "s": 24.426,
+  "e": 31.941
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "El tío se fue a Santiago, puso orden... y cuando volvió a Sevilla, ¿qué se encontró?",
+  "s": 32.161,
+  "e": 37.517
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "¡Al sobrino! Sentadito en su silla. Y de ahí no había quien lo levantara.",
+  "s": 37.737,
+  "e": 42.807
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Dicen que hizo falta una orden del Papa y hasta el rey para echarlo. ¡Fíjate tú!",
+  "s": 43.027,
+  "e": 47.816
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "O sea: el que perdió la silla fue el que se fue DE Sevilla. Y con los siglos, el refrán se dio la vuelta.",
+  "s": 48.036,
+  "e": 55.638
+ },
+ {
+  "line": 9,
+  "who": "ABUELA",
+  "text": "Ojo, que es la historia que más se cuenta, y tiene su parte de leyenda. Pero es tan buena que yo me la quedo.",
+  "s": 55.858,
+  "e": 62.718
+ },
+ {
+  "line": 10,
+  "who": "ABUELA",
+  "text": "¿Tú también lo decías mal? Dime sí o no.",
+  "s": 62.938,
+  "e": 65.567
+ },
+ {
+  "line": 11,
+  "who": "ABUELA",
+  "text": "Y sígueme, cariño, que cada día te cuento otro... porque por algo se dice.",
+  "s": 65.787,
+  "e": 70.299
+ }
+]

@@ -1,0 +1,63 @@
+{
+"voices": {
+"ABUELA": [
+"X1uEdaNgEu64cdmPhwUX",
+0.5,
+0.85
+]
+},
+"gap": 0.22,
+"inner_cap": 0.3,
+"lines": [
+{
+"who": "ABUELA",
+"text": "[excited] ¡Que estar en Babia existe! ¡Es un sitio de verdad! Y puedes ir."
+},
+{
+"who": "ABUELA",
+"text": "Y no es un sitio cualquiera: era donde se iban los reyes a desconectar.",
+"gap_after": 0.3
+},
+{
+"who": "ABUELA",
+"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
+"gap_after": 0.3
+},
+{
+"who": "ABUELA",
+"text": "Babia es una comarca de montaña, en el norte de León."
+},
+{
+"who": "ABUELA",
+"text": "En la Edad Media, los reyes de León se iban allí a descansar y a cazar. Lejos de la corte... y de los problemas."
+},
+{
+"who": "ABUELA",
+"text": "Y cuando en palacio alguien preguntaba por el rey, le contestaban: el rey está en Babia."
+},
+{
+"who": "ABUELA",
+"text": "O sea: que no está. Ni se le espera. Con la cabeza en otra parte."
+},
+{
+"who": "ABUELA",
+"text": "Y de ahí, estar en Babia: estar en las nubes. [mischievously] Como tú cuando te hablo, ¿eh?"
+},
+{
+"who": "ABUELA",
+"text": "Ojo, que es la explicación más aceptada, pero tiene su parte de leyenda."
+},
+{
+"who": "ABUELA",
+"text": "Hoy Babia es reserva de la biosfera. Así que si alguien te dice que estás en Babia... tú contestas: [laughs] ¡ojalá!"
+},
+{
+"who": "ABUELA",
+"text": "¿Tú sabías que existía? Dime sí o no."
+},
+{
+"who": "ABUELA",
+"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
+}
+]
+}

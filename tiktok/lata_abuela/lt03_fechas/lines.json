@@ -1,0 +1,72 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¡La fecha que te hace tirar comida no es la de caducidad!",
+  "s": 0.12,
+  "e": 3.403
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Te cuento tres cosas de las etiquetas que nadie te explica... y la última te va a ahorrar dinero.",
+  "s": 3.653,
+  "e": 9.101
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Uno. «Consumir preferentemente antes de» no es caducidad. Habla de calidad: puede perder sabor o textura, pero si está bien guardado, no es peligroso.",
+  "s": 9.301,
+  "e": 20.874
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "La de verdad es la «fecha de caducidad». Esa sí: ni un día más. Suele ir en la carne, el pescado y los frescos.",
+  "s": 21.074,
+  "e": 29.246
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Dos. La miel bien cerrada aguanta años. Si se pone dura, es que se ha cristalizado: un baño maría y como nueva.",
+  "s": 29.446,
+  "e": 37.341
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Y espera, que el tres es el que más se tira.",
+  "s": 37.541,
+  "e": 39.885
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "Y el tres. El pan duro, no lo tires. Congélalo en rebanadas y tuéstalo directamente, sin descongelar. Queda como recién hecho.",
+  "s": 40.085,
+  "e": 48.553
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Y uno de regalo: el arroz, las legumbres secas y la sal casi no se estropean si los guardas secos y bien cerrados.",
+  "s": 48.753,
+  "e": 56.613
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "¿Cuál no sabías? ¿El uno, el dos o el tres?",
+  "s": 56.813,
+  "e": 59.803
+ },
+ {
+  "line": 9,
+  "who": "ABUELA",
+  "text": "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... y yo me los sé todos.",
+  "s": 60.003,
+  "e": 65.61
+ }
+]

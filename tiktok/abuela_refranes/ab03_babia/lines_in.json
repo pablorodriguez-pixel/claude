@@ -11,17 +11,12 @@
 "lines": [
 {
 "who": "ABUELA",
-"text": "[excited] ¡Que estar en Babia existe! ¡Es un sitio de verdad! Y puedes ir."
+"text": "¡Estar en Babia existe! Es un sitio de verdad. Y puedes ir.",
+"gap_after": 0.25
 },
 {
 "who": "ABUELA",
-"text": "Y no es un sitio cualquiera: era donde se iban los reyes a desconectar.",
-"gap_after": 0.3
-},
-{
-"who": "ABUELA",
-"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
-"gap_after": 0.3
+"text": "Y no es un sitio cualquiera: era donde se iban los reyes a desconectar."
 },
 {
 "who": "ABUELA",
@@ -57,7 +52,7 @@
 },
 {
 "who": "ABUELA",
-"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
+"text": "Aquí la abuela Remedios. Sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
 }
 ]
 }

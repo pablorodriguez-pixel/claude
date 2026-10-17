@@ -2,78 +2,71 @@
  {
   "line": 0,
   "who": "ABUELA",
-  "text": "¡Oye! ¡A buenas horas, mangas verdes! ¿Y tú sabes quiénes eran las mangas verdes?",
+  "text": "¡A buenas horas, mangas verdes! ¿Y tú sabes quiénes eran las mangas verdes?",
   "s": 0.12,
-  "e": 4.55
+  "e": 4.276
  },
  {
   "line": 1,
   "who": "ABUELA",
   "text": "Pues eran... la policía. Bueno, casi.",
-  "s": 4.77,
-  "e": 7.67
+  "s": 4.526,
+  "e": 7.426
  },
  {
   "line": 2,
   "who": "ABUELA",
-  "text": "Soy la abuela Remedios, y esto... por algo se dice.",
-  "s": 7.97,
-  "e": 11.337
+  "text": "Mil cuatrocientos setenta y seis. Los Reyes Católicos crean la Santa Hermandad: unos cuadrilleros para perseguir a los bandoleros por los caminos.",
+  "s": 7.646,
+  "e": 15.898
  },
  {
   "line": 3,
   "who": "ABUELA",
-  "text": "Mil cuatrocientos setenta y seis. Los Reyes Católicos crean la Santa Hermandad: unos cuadrilleros para perseguir a los bandoleros por los caminos.",
-  "s": 11.637,
-  "e": 19.888
+  "text": "¿Y cómo los reconocías? Por el uniforme... con sus mangas verdes.",
+  "s": 16.118,
+  "e": 20.554
  },
  {
   "line": 4,
   "who": "ABUELA",
-  "text": "¿Y cómo los reconocías? Por el uniforme... con sus mangas verdes.",
-  "s": 20.108,
-  "e": 24.544
+  "text": "¿El problema? Que tenían fama de llegar tarde. Te asaltaban, te dejaban sin nada... y cuando ya no había nada que hacer, aparecían ellos.",
+  "s": 20.774,
+  "e": 28.931
  },
  {
   "line": 5,
   "who": "ABUELA",
-  "text": "¿El problema? Que tenían fama de llegar tarde. Te asaltaban, te dejaban sin nada... y cuando ya no había nada que hacer, aparecían ellos.",
-  "s": 24.764,
-  "e": 32.921
+  "text": "Y la gente, que tenía mucha guasa: ¡a buenas horas, mangas verdes!",
+  "s": 29.151,
+  "e": 33.585
  },
  {
   "line": 6,
   "who": "ABUELA",
-  "text": "Y la gente, que tenía mucha guasa: ¡a buenas horas, mangas verdes!",
-  "s": 33.141,
-  "e": 37.575
+  "text": "Ojo, que no es que fueran unos vagos, ¿eh? Con tantos caminos y tanto monte, llegar a tiempo era casi imposible. Pero la fama... se quedó.",
+  "s": 33.805,
+  "e": 42.333
  },
  {
   "line": 7,
   "who": "ABUELA",
-  "text": "Ojo, que no es que fueran unos vagos, ¿eh? Con tantos caminos y tanto monte, llegar a tiempo era casi imposible. Pero la fama... se quedó.",
-  "s": 37.795,
-  "e": 46.323
+  "text": "O sea: un refrán de más de quinientos años... que sigue funcionando igual de bien.",
+  "s": 42.553,
+  "e": 47.877
  },
  {
   "line": 8,
   "who": "ABUELA",
-  "text": "O sea: un refrán de más de quinientos años... que sigue funcionando igual de bien.",
-  "s": 46.543,
-  "e": 51.867
+  "text": "¿A quién se lo dirías tú? Venga, etiquétalo.",
+  "s": 48.097,
+  "e": 50.843
  },
  {
   "line": 9,
   "who": "ABUELA",
-  "text": "¿A quién se lo dirías tú? Venga, etiquétalo.",
-  "s": 52.087,
-  "e": 54.834
- },
- {
-  "line": 10,
-  "who": "ABUELA",
-  "text": "Y sígueme, cariño, que cada día te cuento otro... porque por algo se dice.",
-  "s": 55.054,
-  "e": 59.661
+  "text": "Aquí la abuela Remedios. Sígueme, cariño, que cada día te cuento otro... porque por algo se dice.",
+  "s": 51.063,
+  "e": 56.552
  }
 ]

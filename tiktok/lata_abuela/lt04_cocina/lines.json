@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¡Lavar el pollo crudo es mala idea! Y casi todo el mundo lo hace.",
+  "s": 0.12,
+  "e": 4.622
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Te cuento tres cosas que haces en la cocina y no deberías... y la última te va a sorprender.",
+  "s": 4.872,
+  "e": 10.972
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Uno. No laves el pollo crudo. El agua salpica las bacterias por el fregadero, la encimera y los trapos. Con cocinarlo bien, ya se mueren.",
+  "s": 11.172,
+  "e": 21.134
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Dos. Los huevos, tampoco los laves antes de guardarlos. La cáscara tiene una capa que los protege, y al lavarlos se la quitas.",
+  "s": 21.334,
+  "e": 29.406
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Y espera, que el tres es el que hace todo el mundo.",
+  "s": 29.606,
+  "e": 32.7
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Y el tres. El tomate, fuera de la nevera. El frío le quita el sabor. Guárdalo en el frutero, y a la nevera solo si ya está muy maduro.",
+  "s": 32.9,
+  "e": 41.449
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "Y uno de regalo: una tabla para lo crudo y otra para lo demás. Así no pasas bacterias de la carne a la ensalada.",
+  "s": 41.649,
+  "e": 48.541
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "¿Cuál hacías mal? ¿El uno, el dos o el tres?",
+  "s": 48.741,
+  "e": 51.83
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... y yo me los sé todos.",
+  "s": 52.03,
+  "e": 57.751
+ }
+]

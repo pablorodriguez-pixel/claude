@@ -11,17 +11,12 @@
 "lines": [
 {
 "who": "ABUELA",
-"text": "[excited] ¡Oye! ¡A buenas horas, mangas verdes! ¿Y tú sabes quiénes eran las mangas verdes?"
+"text": "¡A buenas horas, mangas verdes! ¿Y tú sabes quiénes eran las mangas verdes?",
+"gap_after": 0.25
 },
 {
 "who": "ABUELA",
-"text": "Pues eran... la policía. [laughs] Bueno, casi.",
-"gap_after": 0.3
-},
-{
-"who": "ABUELA",
-"text": "Soy la abuela Remedios, y esto... [mischievously] por algo se dice.",
-"gap_after": 0.3
+"text": "Pues eran... la policía. [laughs] Bueno, casi."
 },
 {
 "who": "ABUELA",
@@ -53,7 +48,7 @@
 },
 {
 "who": "ABUELA",
-"text": "Y sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
+"text": "Aquí la abuela Remedios. Sígueme, cariño, que cada día te cuento otro... [chuckles] porque por algo se dice."
 }
 ]
 }
