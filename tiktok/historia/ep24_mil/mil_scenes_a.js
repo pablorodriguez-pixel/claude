@@ -25,7 +25,7 @@ const coverCurve = t => u => { const w = 0.18 * Math.sin(t * 1.3); return [540 +
   const ttl = el('div', cam, { left: '0', top: '316px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', lineHeight: '180px', color: INK, zIndex: 20, whiteSpace: 'nowrap', textShadow: `6px 6px 0 #fff, -3px -3px 0 #fff, 3px -3px 0 #fff, -3px 3px 0 #fff` }, `¿${hlSpan('MIL', 'thl')} PATAS?`);
   const tHL = ttl.querySelector('.thl');
   const qm = el('div', cam, { left: '110px', top: '500px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: PINK, textShadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 21 }, '?');
-  const sp = chip(cam, 360, 1452, 'ESPECIAL 1.000', { size: 44, bg: PINK, z: 30 });
+  const sp = chip(cam, 360, 1436, 'ESPECIAL 1.000', { size: 44, bg: PINK, z: 30 });
 }
 
 /* ======================================================================
@@ -82,7 +82,7 @@ headline(K.conocio - 0.06, S.C[1], 'no se conoció hasta…', Object.assign({ si
   const mil = mkMilli(cam, { n: 92, rx: 11, ry: 19, legL: 30, lw: 3.4, sw: 2.6, col: '#F1E4C2', z: 6, head: 1.6 });
   const lupa = box(cam, 520, 700, 300, 300, { zIndex: 12 });
   lupa.innerHTML = `<svg viewBox="0 0 300 300" width="300" height="300" style="overflow:visible">${cut('<circle cx="120" cy="120" r="100"/><path d="M190,190 L280,280"/>')}<path d="M190,190 L280,280" stroke="${INK}" stroke-width="44" stroke-linecap="round"/><path d="M190,190 L280,280" stroke="${WOOD}" stroke-width="30" stroke-linecap="round"/><circle cx="120" cy="120" r="100" fill="rgba(255,255,255,.18)" stroke="${INK}" stroke-width="16"/><circle cx="120" cy="120" r="100" fill="none" stroke="${BRASS}" stroke-width="9"/><path d="M60,80 Q80,50 116,44" stroke="#fff" stroke-width="10" fill="none" stroke-linecap="round" opacity=".8"/></svg>`;
-  const rec = chip(cam, 70, 420, 'el récord', { size: 46, bg: YEL, color: INK, z: 20 });
+  const rec = chip(cam, 70, 440, 'el récord', { size: 46, bg: YEL, color: INK, z: 20 });
   const yr = stamp(c, 300, 760, '2021', { size: 210, bw: 18, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const ct = chip(c, 300, 1050, '1.306 PATAS', { size: 84, bg: PINK, z: 41 });
 }
@@ -217,7 +217,7 @@ headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 
   const quill = box(cam, 380, 930, 140, 280, { zIndex: 9 });
   quill.innerHTML = `<svg viewBox="0 0 120 240" width="140" height="280" style="overflow:visible">${cut('<path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z"/>', 4, 6)}<path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/><path d="M60,232 C64,150 80,70 98,8" stroke="${INK}" stroke-width="3" fill="none"/><path d="M40,120 l16,6 M36,96 l20,6 M40,70 l18,6" stroke="${INK}" stroke-width="2"/></svg>`;
   const gn = chip(cam, 60, 1250, 'Antoine Galland, traductor', { size: 40, bg: INK, color: YEL, z: 20 });
-  const add = stamp(cam, 590, 1000, 'AÑADIDO', { size: 72, bw: 14, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  const add = stamp(cam, 600, 650, 'AÑADIDO', { size: 72, bw: 14, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
   const sg = chip(cam, 560, 1150, 'siglos después', { size: 60, bg: PINK, z: 20 });
   const hg = el('div', cam, { left: '440px', top: '1110px', fontSize: '100px', zIndex: 21 }, '⏳');
 }
@@ -240,7 +240,7 @@ colorHit(S.H[0], S.H[1], PINK, c => {
    J · «TRES: MILLÓN. VIENE DEL ITALIANO: "MIL GRANDE"» — el MIL se infla como un globo
    ====================================================================== */
 headline(S.J[0], K.viene - 0.06, 'Tres: *millón*', { size: 120, hlT: K.millon, y: 262 });
-headline(K.viene - 0.06, S.J[1], 'Del italiano: *«mil grande»*', { size: 86, hlT: K.milG, y: 262 });
+headline(K.viene - 0.06, S.J[1], 'Del italiano: *«mil grande»*', { size: 76, hlT: K.milG, y: 262 });
 {
   const c = scene(S.J[0], S.J[1], t => {
     set(cam, { s: lerp(1, 1.06, p(t, S.J[0], 4.3, E.linear)) });

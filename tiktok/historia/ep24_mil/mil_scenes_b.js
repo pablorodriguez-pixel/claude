@@ -4,7 +4,7 @@
    ROM · «Y CUATRO: EL MIL ROMANO NO ERA UNA M. ERA ESTE GARABATO. PÁRTELO… SALE LA D DE 500»
    una losa romana; planos: M fantasma tachada → cincel graba la ↀ → sierra → la mitad derecha es la D
    ====================================================================== */
-headline(S.ROM[0], K.era - 0.06, 'Cuatro: el *mil romano*', { size: 96, hlT: K.mil5, y: 262 });
+headline(S.ROM[0], K.era - 0.06, 'Cuatro: el *mil romano*', { size: 84, hlT: K.mil5, y: 262 });
 headline(K.era - 0.06, K.partelo - 0.06, 'Era *este garabato*', { size: 110, hlT: K.garabato, y: 262 });
 headline(K.partelo - 0.06, K.sale - 0.06, 'Pártelo *por la mitad*…', { size: 84, hlT: K.mitad6, y: 262 });
 headline(K.sale - 0.06, S.ROM[1], '…y sale *la D*', { size: 120, hlT: K.D, y: 262 });
@@ -31,13 +31,11 @@ headline(K.sale - 0.06, S.ROM[1], '…y sale *la D*', { size: 120, hlT: K.D, y: 
     const Lc = Math.PI * GLY_R; // cada media circunferencia
     [gl.Cc, gl.Dc].forEach(g => g.forEach(e => { e.style.strokeDasharray = `${f1(Lc + 2)} ${f1(Lc + 2)}`; e.style.strokeDashoffset = f1(Lc * (1 - kc)); }));
     gl.Bc.forEach(e => { e.style.strokeDasharray = `${f1(GLY_R * 2 + 2)} ${f1(GLY_R * 2 + 2)}`; e.style.strokeDashoffset = f1(GLY_R * 2 * (1 - kb)); });
-    gw.style.opacity = t > TCH0 - 0.02 ? 1 : 0;
-    const chOn = t > TCH0 - 0.1 && t < TCH1 + 0.15;
+        const chOn = t > TCH0 - 0.1 && t < TCH1 + 0.15;
     const tipX = kc < 1 ? 250 - GLY_R * Math.sin(Math.PI * kc) : 250, tipY = kc < 1 ? 250 - GLY_R * Math.cos(Math.PI * kc) : 250 - GLY_R + GLY_R * 2 * kb;
     set(chis, { x: tipX * GS - 60 + Math.sin(t * 40) * 4, y: tipY * GS - 330 + Math.cos(t * 40) * 4, o: chOn ? 1 : 0, r: 0 });
     DU.forEach((d, i) => { const ph = ((t * 3 + i * 0.37) % 1); set(d, { x: tipX * GS + (i - 2) * 22 * ph, y: tipY * GS + 40 * ph, o: chOn ? 1 - ph : 0, s: 1 - ph * 0.5 }); });
-    popA(eq, t, K.garabatoE - 0.1, { r: 3 });
-    set(eq, { s: pop(t, K.garabatoE - 0.1, 0.4), r: 3, o: t > K.garabatoE - 0.1 && t < TSAW0 ? 1 : 0 });
+    set(eq, { s: pop(t, K.garabato, 0.4), r: 3, o: t > K.garabato && t < TSAW0 ? 1 : 0 });
     // sierra (corta por la izquierda de la barra)
     const ks = p(t, TSAW0, TSAW1 - TSAW0, E.inOutCubic);
     const sawOn = t > TSAW0 - 0.1 && t < TSAW1 + 0.2;
@@ -45,8 +43,9 @@ headline(K.sale - 0.06, S.ROM[1], '…y sale *la D*', { size: 120, hlT: K.D, y: 
     cutL.style.transform = `scaleY(${f1(ks * 1000) / 1000})`; cutL.style.opacity = t > TSAW0 && t < TSL + 0.3 ? 1 : 0;
     // separar: la mitad derecha (IƆ) se desliza → D
     const kd = p(t, TSL, 0.45, E.outBack);
-    set(gR, { x: kd * 170, y: -kd * 10, r: kd * 3 });
-    set(gL, { x: -kd * 150, o: 1 - 0.55 * kd, r: -kd * 4 });
+    set(gR, { x: kd * 70, y: -kd * 10, r: kd * 3 });
+    set(gL, { x: -kd * 70, o: 1 - 0.55 * kd, r: -kd * 4 });
+    set(gw, { s: lerp(1, 0.8, kd), o: t > TCH0 - 0.02 ? 1 : 0 });
     hiD.style.opacity = t > K.D ? 1 : 0;
     popA(dl, t, K.D, { r: -4 });
     set(dl, { s: pop(t, K.D, 0.35), r: -4, o: t > K.D ? 1 : 0 });
@@ -75,12 +74,12 @@ headline(K.sale - 0.06, S.ROM[1], '…y sale *la D*', { size: 120, hlT: K.D, y: 
   const DU = [0, 1, 2, 3, 4].map(() => box(cam, GX, GY, 16, 16, { borderRadius: '50%', background: '#E2DACA', border: `3px solid ${INK}`, zIndex: 8 }));
   DU.forEach(d => { d.style.left = '0px'; d.style.top = '0px'; d.style.marginLeft = GX + 'px'; d.style.marginTop = GY + 'px'; });
   chis.style.left = GX + 'px'; chis.style.top = GY + 'px';
-  const eq = chip(cam, 610, 1170, '= 1.000', { size: 64, bg: PINK, z: 20 });
+  const eq = chip(cam, 560, 1190, '= 1.000', { size: 80, bg: PINK, z: 20 });
   // sierra
   const saw = box(cam, GX + 232 * GS - 300, GY, 600, 160, { zIndex: 10 });
   saw.innerHTML = `<svg viewBox="0 0 600 160" width="600" height="160" style="overflow:visible">${cut('<path d="M60,40 L560,40 L560,110 L60,110 Z"/><rect x="0" y="20" width="90" height="110" rx="30"/>')}<path d="M60,40 L560,40 L560,100 ${Array.from({ length: 20 }, (_, i) => `L${560 - i * 25 - 12},116 L${560 - (i + 1) * 25},100`).join(' ')} Z" fill="${METAL}" stroke="${INK}" stroke-width="4"/><path d="M80,56 H540" stroke="#fff" stroke-width="4" opacity=".6"/><rect x="0" y="20" width="90" height="110" rx="30" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="22" y="48" width="44" height="54" rx="18" fill="#B9AE98" stroke="${INK}" stroke-width="4"/></svg>`;
   const dl = el('div', cam, { left: '760px', top: '520px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '170px', color: INK, background: YEL, border: `6px solid ${INK}`, borderRadius: '20px', padding: '0 30px', lineHeight: '190px', boxShadow: `8px 8px 0 ${INK}`, zIndex: 20 }, 'D');
-  const q5 = stamp(cam, 660, 1040, '500', { size: 150, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const q5 = stamp(cam, 600, 1040, '500', { size: 150, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const ciL = el('div', cam, { left: '400px', top: '1230px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '70px', color: '#fff', background: INK, padding: '2px 26px 8px', borderRadius: '14px', zIndex: 21, whiteSpace: 'nowrap' }, `C I <span style="display:inline-block;transform:scaleX(-1);color:${YEL}">C</span>`);
 }
 
@@ -114,7 +113,7 @@ headline(S.N[0], S.N[1], 'La *M* ganó luego', { size: 120, hlT: K.M6, y: 262 })
    ====================================================================== */
 headline(K.hay - 0.05, K.salio - 0.06, 'Hay quien cree…', Object.assign({ size: 92, y: 262 }, HW));
 headline(K.salio - 0.06, K.nadie - 0.06, '¿…salió *el infinito*?', Object.assign({ size: 88, hlT: K.infinito, y: 262, keyColor: INK }, HW));
-headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 88, hlT: K.nadie, y: 262, hlc: PINK, keyColor: INK }, HW));
+headline(K.nadie - 0.06, S.O[1], '*Nadie* lo ha probado', Object.assign({ size: 80, hlT: K.nadie, y: 262, hlc: PINK, keyColor: INK }, HW));
 {
   const TM = K.salio - 0.05;
   const c = scene(S.O[0], S.O[1], t => {
@@ -226,12 +225,12 @@ headline(S.R2[0], S.R2[1], 'Otro, *bronca* al lunes', { size: 96, hlT: K.bronca,
   const browL = cal.querySelector('.bL'), browR = cal.querySelector('.bR');
   const stm = steamPuffs(c, 470, 720); stm.style.zIndex = 9;
 }
-headline(S.R3[0], S.R3[1], 'Siempre hay un *«yo primero»*', { size: 84, hlT: K.yo, y: 262 });
+headline(S.R3[0], S.R3[1], 'Siempre hay un *«yo primero»*', { size: 62, hlT: K.yo, y: 262 });
 {
   const c = scene(S.R3[0], S.R3[1], t => {
     set(cd.wrap, { s: pop(t, S.R3[0] + 0.02, 0.4), r: -1.5 + wobble(t, 0.5, 0.6), y: wobble(t, 0.6, 4) });
     const km = p(t, K.primero9 - 0.05, 0.5, E.outBounce);
-    set(med, { y: lerp(-900, 0, km), r: lerp(-30, -8, km) + (t > K.primero9 + 0.45 ? Math.sin(t * 4) * 4 : 0), o: t > K.primero9 - 0.05 ? 1 : 0 });
+    set(med, { y: lerp(-900, 0, km) + (t < K.primero9 - 0.05 ? 0 : 0), r: lerp(-30, -8, km) + (t > K.primero9 + 0.45 ? Math.sin(t * 4) * 4 : 0), o: t > K.primero9 - 0.05 ? 1 : 0 });
     SP.forEach((s2, i) => { const a = t * 3 + i * 2.1; set(s2, { x: Math.cos(a) * 110, y: Math.sin(a) * 40, r: t * 160, o: t > K.primero9 + 0.4 ? 1 : 0 }); });
     updConf(C, t, K.primero9 + 0.35);
   }, { clip: true });
@@ -277,7 +276,7 @@ headline(K.alejandro - 0.06, S.T[1], 'Elige: *A, B o C*', { size: 110, hlT: K.vo
   const CDS = [];
   const c = scene(S.T[0], S.T[1], t => {
     CDS.forEach((q, i) => {
-      const t0 = S.T[0] + 0.05 + i * 0.1, kin = p(t, t0, 0.4, E.outBack);
+      const t0 = S.T[0] + 0.05 + i * 0.1, kin = p(t, t0, 0.4, E.outCubic);
       const kf = p(t, CT[i] - 0.1, 0.35, E.inOutCubic), sx = Math.cos(kf * Math.PI);
       q.flip.style.transform = `scaleX(${f1(Math.max(0.02, Math.abs(sx)) * 1000) / 1000})`;
       q.front.style.display = sx < 0 ? '' : 'none'; q.back.style.display = sx < 0 ? 'none' : '';
