@@ -114,7 +114,7 @@ headline(K.L2 - 0.06, S.KAR[1], '*¿Encaja,* eh?', { size: 120, hlT: K.L2 + 0.05
   const NX = [150, 290, 420, 560, 700, 850];          // x de cada nota/sílaba
   const STEP = { G: 0, A: 1, B: 2, C: 3 };              // escalones en el pentagrama (Sol, La, Si, Do)
   const PITCH = ['G', 'G', 'A', 'G', 'C', 'B'];
-  const SYL = ['Bue-', 'nos', 'dí-', 'as', 'a', 'ti'];
+  const SYL = ['Bue', 'nos', 'dí-', 'as', 'a', 'ti'];
   const Y0 = 360, LS = 30;                               // Sol en la 2.ª línea; cada escalón = media línea
   const ny = k => Y0 - STEP[PITCH[k]] * LS / 2 - 4 * LS / 2 + 30;
   const c = scene(S.KAR[0], S.KAR[1], t => {
@@ -165,14 +165,14 @@ headline(K.L2 - 0.06, S.KAR[1], '*¿Encaja,* eh?', { size: 120, hlT: K.L2 + 0.05
   const ear = handBox(c, 250, 1000, 170, 200, 14);
   const MN = [0, 1, 2, 3, 4, 5].map(i => noteBox(c, 330, 1060, 70, i % 2, [RED, INK, '#5b8bd6'][i % 3], 13));
   const chipA = chip(c, 470, 1080, '♪ canta por dentro ♪', { size: 50, bg: INK, color: YEL, z: 30 });
-  const ok = stamp(c, 440, 1050, '¡ENCAJA!', { size: 110, bw: 14, z: 60, col: '#2f7a46', bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const ok = stamp(c, 380, 1050, '¡ENCAJA!', { size: 100, bw: 14, z: 60, col: '#2f7a46', bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const chk = box(c, 820, 900, 170, 170, { zIndex: 61 }); chk.innerHTML = `<svg viewBox="0 0 100 100" width="170" height="170" style="overflow:visible"><circle cx="52" cy="54" r="46" fill="${SH}"/><circle cx="50" cy="50" r="46" fill="#7ac08a" stroke="${INK}" stroke-width="5"/><path d="M26,52 L44,70 L76,32" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
 }
 
 /* ======================================================================
    R2 · «TE HE OÍDO... Y DESAFINAS UN POQUITO» — el Vecino con trompetilla
    ====================================================================== */
-headline(S.R2[0], K.desaf - 0.08, 'Te he *oído*…', { size: 120, hlT: K.oido });
+headline(S.R2[0], K.desaf - 0.08, 'Te he *oído…*', { size: 120, hlT: K.oido });
 headline(K.desaf - 0.08, S.R2[1], '…y *desafinas* un poquito', { size: 92, hlT: K.desaf, hlc: '#ff9aa8' });
 {
   const c = scene(S.R2[0], S.R2[1], t => {
@@ -231,7 +231,7 @@ headline(K.dosH - 0.1, S.C2[1], 'Dos *hermanas* de Estados Unidos', { size: 78, 
   quill.innerHTML = `<svg viewBox="0 0 120 240" width="80" height="160" style="overflow:visible"><path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="5"/><path d="M60,232 C64,150 80,70 98,8" stroke="${INK}" stroke-width="3" fill="none"/></svg>`;
   const ch1 = chip(c, 380, 1000 + 170, 'dos hermanas', { size: 58, bg: PINK, z: 30 });
   const ch2 = chip(c, 560, 1080 + 170, 'de EE. UU. ★', { size: 54, bg: INK, color: '#fff', z: 30 });
-  const ST = [[470, 420], [500, 1180], [960, 900]].map(([x, y]) => el('div', c, { left: px(x), top: px(y), fontSize: '64px', color: YEL, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 31 }, '★'));
+  const ST = [[470, 420], [300, 1110], [960, 900]].map(([x, y]) => el('div', c, { left: px(x), top: px(y), fontSize: '64px', color: YEL, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 31 }, '★'));
   const bb = box(c, 460, 640, 160, 200, { zIndex: 9 }); bb.innerHTML = noteSvg(0, RED);
 }
 

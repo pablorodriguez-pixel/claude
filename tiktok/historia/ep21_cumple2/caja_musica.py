@@ -56,12 +56,12 @@ rng = np.random.default_rng(21)
 def tine(f, dur, damp=None):
     n = int(dur * SR); t = np.arange(n) / SR
     parts = [(1.0, 1.0, 0.75), (2.0, 0.22, 0.30), (3.01, 0.07, 0.15), (5.93, 0.16, 0.05), (1.0035, 0.30, 0.55)]  # (ratio, amp, tau s)
-    x = sum(a * np.sin(2 * np.pi * f * r * t + rng.uniform(0, 6.28)) * np.exp(-t / tau) for r, a, tau in parts)
+    x = sum(a * np.sin(2 * np.pi * f * r * t + (0.0 if r < 1.01 else rng.uniform(0, 6.28))) * np.exp(-t / tau) for r, a, tau in parts)  # fundamental y parcial 1.0035 en fase: el batido no cancela el ataque
     x *= np.minimum(1, t / 0.002)                                      # ataque de 2 ms
     k = int(0.004 * SR); cl = rng.standard_normal(k) * np.exp(-np.arange(k) / (0.0008 * SR)); cl -= np.convolve(cl, np.ones(8) / 8, 'same')
     x[:k] += 0.25 * cl                                                 # clic de la púa (ruido agudo de 4 ms)
     if damp is not None:                                               # al sonar la nota siguiente, esta se apaga deprisa (melodía nítida)
-        x *= np.where(t < damp, 1, 0.35 + 0.65 * np.exp(-np.maximum(0, t - damp) / 0.10))
+        x *= np.where(t < damp, 1, 0.06 + 0.94 * np.exp(-np.maximum(0, t - damp) / 0.06))
     return x
 
 n = len(v); mel = np.zeros(n); notes_out = []

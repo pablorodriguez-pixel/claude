@@ -36,7 +36,7 @@ headline(K.salia - 0.1, S.E1[1], '¿Peli o anuncio? *A pagar*', { size: 92, hlT:
   const reg = mkReg(c, [420, 990, 290, 304]); reg.d.style.zIndex = 10;
   const r = rng(77); const COINS = [];
   for (let i = 0; i < 12; i++) { const e = box(c, 300 + r() * 420, 840, 90, 90, { zIndex: 12 }); e.innerHTML = dollarSvg(); COINS.push({ e, t0: K.pagar - 0.1 + i * 0.07, dx: (r() - 0.5) * 120, rr: (r() - 0.5) * 600 }); }
-  const dp = stamp(c, 200, 1080, 'DE PAGO', { size: 120, bw: 14, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+  const dp = stamp(c, 330, 1080, 'DE PAGO', { size: 120, bw: 14, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -145,7 +145,7 @@ colorHit(S.F2[0], S.F2[1], PINK, c => {
 /* ======================================================================
    G1 · ¡OJO! «EN TU CASA SIEMPRE FUE GRATIS» (+ cameo del emú soplando las velas)
    ====================================================================== */
-headline(K.casa - 0.25, S.G1[1], 'En *tu casa*: siempre gratis', { size: 84, hlT: K.casa });
+headline(K.casa - 0.25, S.G1[1], 'En *tu casa:* siempre gratis', { size: 84, hlT: K.casa });
 const T_EMU = K.casa + 0.05;
 {
   const c = scene(S.G1[0], S.G1[1], t => {
@@ -231,7 +231,7 @@ colorHit(S.H[0], S.H[1], YEL, c => {
   return t => {
     popA(osea, t, K.osea, { rise: 30 });
     WD.forEach(w => set(w.e, { s: pop(t, w.t - 0.03, 0.3), o: t < w.t - 0.03 ? 0 : 1 }));
-    set(ck.d, { s: pop(t, K.cancion9, 0.45), y: wobble(t, 0.6, 4), o: t < K.cancion9 ? 0 : 1 }); flick(ck, t);
+    set(ck.d, { s: pop(t, K.osea, 0.45), y: wobble(t, 0.6, 4), o: t < K.osea ? 0 : 1 }); flick(ck, t);
     OB.forEach((n, i) => { const a = t * 2.2 + i * 1.256; set(n, { x: Math.cos(a) * 330, y: Math.sin(a) * 110 - 80, s: pop(t, K.cantado + i * 0.06, 0.3), r: Math.sin(t * 4 + i) * 15, o: t < K.cantado ? 0 : 1 }); });
     SIL2.forEach((f, i) => { set(f.d, { y: Math.abs(Math.sin(t * 6 + i)) * -12, o: t < K.cantado - 0.2 ? 0 : 1 }); face(f, t, { jaw: t < K.queno ? 0.3 + 0.3 * Math.sin(t * 12 + i) : 0.6 }); });
     popA(tn, t, K.tenia9, { rise: 30 });
@@ -246,7 +246,7 @@ colorHit(S.H[0], S.H[1], YEL, c => {
 /* ======================================================================
    Q · «¿Y EN TU CASA, CÓMO SE CANTA? OS LEO.» — comentarios (pregunta abierta y personal)
    ====================================================================== */
-headline(S.Q[0], K.os - 0.06, '¿Y en *tu casa*, cómo se canta?', { size: 84, hlT: K.casa9 });
+headline(S.Q[0], K.os - 0.06, '¿Y en *tu casa,* cómo se canta?', { size: 84, hlT: K.casa9 });
 headline(K.os - 0.06, S.Q[1], '*Os leo* 👇', { size: 130, hlT: K.os });
 {
   const CM = [];
@@ -260,7 +260,7 @@ headline(K.os - 0.06, S.Q[1], '*Os leo* 👇', { size: 130, hlT: K.os });
   box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
   const vec = mkVec(c, [560, 470, 470, 582]);
   const hand = box(c, 600, 1060, 170, 170, { zIndex: 40 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="170" height="170" style="overflow:visible">${gloveHand(0, 0, 0, 1.2)}</svg>`;
-  const cms = [['FAR', '@marta_cumple', 'Cumpleaños feliz 🎂', K.casa9 + 0.1], ['SOL', '@dani.mx', '¡Las mañanitas! 🇲🇽', K.como + 0.1], ['MEREDITH', '@lu_92', 'La versión de mi tío 😂', K.canta + 0.05]];
+  const cms = [['FAR', 'la vecina del 3.º B', 'Cumpleaños feliz 🎂', K.casa9 + 0.1], ['SOL', 'tu primo de México', '¡Las mañanitas! 🇲🇽', K.como + 0.1], ['MEREDITH', 'tu tío, cada año', 'La versión de mi tío 😂', K.canta + 0.05]];
   cms.forEach((m, i) => {
     const e = box(c, 40, [500, 680, 860][i], 560, 140, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
     avatar(e, 12, 14, 104, m[0], { bw: 3 });
@@ -277,7 +277,7 @@ headline(K.os - 0.06, S.Q[1], '*Os leo* 👇', { size: 130, hlT: K.os });
   const T0 = S.C[0], T1 = S.C[1];
   const c = scene(T0, T1, t => {
     const ex = p(t, T1 - 0.2, 0.2, E.inCubic);
-    set(cam, { s: lerp(1.04 + 0.04 * p(t, T0, T1 - T0, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
+    set(cam, { s: lerp(1.04 + 0.04 * p(t, T0, T1 - T0, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: t >= T1 ? 0 : 1 - ex });
     const lean = p(t, K.esto - 0.3, 0.4, E.inOutCubic);
     set(vec.d, { s: 1 + lean * 0.07, y: wobble(t, 0.5, 3) - lean * 20 });
     const fanFast = t > T0 + 0.3 && t < T0 + 0.9;
@@ -334,7 +334,7 @@ headline(S.L2[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro });
     pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
     const closed = t > TC + 0.3;
     mc.d.style.display = sx > 0.25 ? '' : 'none'; flick(mc, t); set(mc.d, { y: wobble(t, 1, 3) });
-    set(bookW, { s: 1.25 * pop(t, S.L2[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
+    set(bookW, { x: 210 * 1.25 * p(t, TC + 0.2, 0.25, E.outCubic), s: 1.25 * pop(t, S.L2[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
     stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
     puffs.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1.5) * 150 * kf, y: -kf * 120, s: 0.5 + kf, o: closed ? 1 - kf : 0 }); });
   });

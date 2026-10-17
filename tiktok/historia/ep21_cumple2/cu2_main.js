@@ -47,7 +47,7 @@ function updOval(t) {
 
 /* ---------- precarga de fuentes ---------- */
 {
-  const pre = el('div', null, { left: '-3000px', top: '0', zIndex: 0, whiteSpace: 'nowrap' });
+  const pre = el('div', null, { left: '-9000px', top: '-600px', zIndex: 0, whiteSpace: 'nowrap', visibility: 'hidden', opacity: 0, pointerEvents: 'none' });
   pre.innerHTML = ['Playfair;font-weight:900', 'Playfair;font-weight:800;font-style:italic', 'Playfair;font-weight:900;font-style:italic', 'Playfair;font-weight:800', 'Rye', 'SpecialElite', 'Bricolage;font-weight:800', 'Bricolage;font-weight:600'].map(f => `<span style="font-family:${f}">ÁÉÍÓÚÑ¿¡ «Cumpleaños» 2015 $ © ✔ ★ ♪ … 🤫🤏🎂😂🇲🇽👇</span>`).join('');
   ['900 40px Playfair', 'italic 800 40px Playfair', 'italic 900 40px Playfair', '800 40px Playfair', '40px Rye', '40px SpecialElite', '800 40px Bricolage', '600 40px Bricolage'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
 }
@@ -73,7 +73,9 @@ window.frame = t => {
   });
   updOval(t);
   let sh = 0; SHAKES.forEach(s => sh += shake(t, s[0], s[1], s[2]));
-  set(world, { x: sh, y: sh * 0.6 });
+  // sobreescala proporcional a la amplitud del temblor: nunca asoma el borde del escenario
+  let env = 0; SHAKES.forEach(s => { if (t >= s[0] && t <= s[0] + s[1]) env += s[2] * (1 - (t - s[0]) / s[1]); });
+  set(world, { x: sh, y: sh * 0.6, s: env > 0 ? 1 + (2 * env + 4) / 1080 : 1 });
 };
 
 /* ---------- temblores ---------- */
