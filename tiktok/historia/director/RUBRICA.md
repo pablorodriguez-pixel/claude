@@ -29,6 +29,9 @@ Material en `director/referencias/pye_aventicum/`. Lo que lo hizo volar:
 7. Viraliza por **compartidos y guardados**, no por comentarios: el «wow» compartible es otra vía, distinta de la del debate.
 8. Dura 90 s y retiene porque cambia el plano cada 1–2 s y renueva la pregunta. La duración no es el problema; los huecos sí.
 
+## Decisión del usuario (17/10)
+No se hacen votaciones ni vídeos-respuesta a comentarios. No los propongas. El cierre es una pregunta abierta y personal + «Os leo».
+
 ## 2. Puertas eliminatorias (si falla una → no se publica tal cual)
 - **P1 · Mito quemado.** Si la «verdad» que contamos ya es de dominio popular (vikingos sin cuernos, Muralla desde el espacio, Colón y la Tierra plana,
   …), se descarta, por bien hecho que esté. Prueba: si casi todos tus amigos dirían «ya lo sabía», está quemado.

@@ -29,6 +29,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 ~1,2 pts/s; el dato raro y comprobable 0,3–0,5; la pregunta final ~2 pts/s; solo el 2–4 % veía la tarjeta final.
 
 ## Reglas vigentes (v3)
+0. DECISIÓN DEL USUARIO (17/10): NADA de votaciones ni de vídeos-respuesta a comentarios. El cierre es siempre una pregunta abierta y personal + «Os leo». ep23 (respuesta a Daniela) queda archivado.
 1. TEMA: cosas del día a día del espectador con historia oculta (palabras, letras, calendario, costumbres, su cuerpo, España). Filtro: toca su vida,
    le dice que está equivocado, lo puede comprobar en el momento, ángulo español, genera debate (≥4 de 5).
 2. Primera palabra = el tema (sin «Oye», «Que no», «Lo siento»). Gancho = afirmación que contradice + «tú», sin dar la respuesta.
@@ -45,7 +46,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
   Toro 63 (ya entregado). COLA DE PUBLICACIÓN VACÍA hasta nuevas versiones aprobadas.
 - 17/10 ENTREGADOS (experimentos): ep23 Respuesta AC (indep. 79→~81 tras arreglos; subir con «Responder con vídeo»), ep22 Pulgar RECHAZADO por el usuario (no se entiende lo de deslizar tantas veces y al final no cuenta nada interesante). Tema pulgar/gladiadores RETIRADO. Nuevas puertas P8 (recompensa final) y P9 (una sola complicidad) en la rúbrica.
 - 17/10 ENTREGADOS también: ep21 Cumpleaños v2 (indep. 79→~83), ep25 Chao (indep. 81→~85, fórmula OK/Napoleón), ep24 Especial 1.000 de los «miles» SUSTITUIDO por ep26 Aladino (una sola historia: Aladino y Alí Babá, Galland y Hanna Diyab; indep. 79→~82; publicar al llegar a 1.000; votación A Alejandro / B «cero muertos» / C Napoleón revancha → el ganador es el siguiente episodio).
-- PUBLICADO 17/10: ep25 Chao (medir a 48 h). Siguiente en subir: ep23 Respuesta a Daniela, luego ep21 Cumpleaños; ep26 Aladino al llegar a 1.000.
+- PUBLICADO 17/10: ep25 Chao (medir a 48 h). Siguiente en subir: ep21 Cumpleaños; ep26 Aladino al llegar a 1.000.
 - Lección del especial: el usuario prefiere UNA historia muy top bien explicada a varios datos medianos; el gancho con lo más universal (Aladino/Disney).
 - Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
   Medir a 48 h: retención en s 3, 5 y 8 (éxito Pulgar: ≥ 66 % en s 5; pérdida en 20,6–24,8 s ≤ 0,5 pts/s) y comentarios por cada mil visualizaciones.

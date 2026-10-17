@@ -30,7 +30,7 @@
 | Uvas | ¿Cuántas uvas consigues tragarte a tiempo? Sé sincero 👇 |
 | Gladiadores | ¿Qué otro gesto crees que significaba algo distinto? 👇 |
 
-## Vídeos-respuesta candidatos
+## Vídeos-respuesta candidatos (DESCARTADO por el usuario el 17/10: no se hacen)
 1. «¿Bien escrito sería AC?» (75 me gusta, OK) — sí: all correct → A.C.; por qué ganó O.K.
 2. «OK viene de 0 killed» (35, OK) — no hay documento de la época que lo respalde; lo más antiguo es Boston 1839.
 3. «1,68 la verdad que es bajito» (23 + 7 respuestas, Napoleón) — hoy sí; en su época era una estatura normal (cifra de la media a verificar antes de guionizar).
