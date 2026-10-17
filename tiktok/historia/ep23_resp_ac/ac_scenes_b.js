@@ -157,7 +157,7 @@ headline(K.hoy - 0.05, S.M[1], 'hoy contestarías *«A.C.»*', { size: 80, hlT: 
   const WD = []; const iq = find('que palabra te huele rara a ti');
   [['¿Qué', l1], ['palabra', l1], ['te', l2], ['huele', l2], ['rara', l2], ['a', l2], ['ti?', l2]].forEach((q, k) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.1em'; if (k === 4) { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('rara', 'rhl', PINK); } else s.textContent = q[0]; q[1].appendChild(s); WD.push({ e: s, t: W[iq + k].s }); });
   const rHL = c.querySelector('.rhl');
-  [['FAR', '@lucia.mz', '¿Y «guay»? 🤔', K.huele], ['SOL', '@nico_rr', '«Chévere» me huele raro', K.rara + 0.1], ['MEREDITH', '@marta.vla', '¿«Vale»? 👀', K.ti + 0.05]].forEach((m, i) => {
+  [['FAR', 'tú', 'Tu palabra aquí ✍️', K.huele], ['SOL', 'otro vecino', '¿Y la mía…? 🤔', K.rara + 0.1], ['MEREDITH', 'otra vecina', '¡Esta, esta! 👀', K.ti + 0.05]].forEach((m, i) => {
     const e = box(c, [400, 360, 420][i], [600, 740, 880][i], 540, 116, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 30 });
     avatar(e, 12, 12, 86, m[0], { bw: 3 });
     el('div', e, { left: '112px', top: '10px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '26px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
@@ -235,7 +235,7 @@ headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 })
     pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
     const closed = t > TC + 0.3;
     [so, sk].forEach((f, i) => { f.d.style.display = sx > 0.25 ? '' : 'none'; set(f.d, { y: wobble(t, 1, 3, i), r: [-4, 4][i] }); sortFace(f, t, { look: [0, 2], open: t > TC - 0.3 ? 0.6 : 0, bL: 12, bR: 12, aL: 30, aR: 30, seed: i }); });
-    set(bookW, { s: 1.25 * pop(t, S.BK[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
+    set(bookW, { x: 210 * 1.25 * p(t, TC + 0.2, 0.25, E.outCubic), s: 1.25 * pop(t, S.BK[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
     stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
     puffs.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1.5) * 150 * kf, y: -kf * 120, s: 0.5 + kf, o: closed ? 1 - kf : 0 }); });
   });
@@ -257,3 +257,4 @@ headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 })
   const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, TC + 0.3, { r: -1 }); };
   const puffs = [0, 1, 2, 3].map(() => box(bookW, 480, 600, 120, 80, { borderRadius: '50%', background: '#F4ECDB', border: `4px solid ${INK}`, zIndex: 3 }));
 }
+SC.filter(s => s.t0 === S.BAL[0]).forEach(s => s.cut = true); // sin cola: que el balcón no asome bajo el libro

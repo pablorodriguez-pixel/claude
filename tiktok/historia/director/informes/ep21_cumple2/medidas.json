@@ -1,0 +1,129 @@
+{
+ "episodio": "ep21_cumple2",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.531,
+   "dur": 3.41,
+   "palabras": 8,
+   "texto": "¡Cumpleaños feliz, la de tus tartas, tenía dueño!"
+  },
+  {
+   "n": 1,
+   "s": 3.771,
+   "e": 9.717,
+   "dur": 5.95,
+   "palabras": 13,
+   "texto": "Haz la prueba: cántala por dentro con esta letra: «Buenos días a ti»."
+  },
+  {
+   "n": 2,
+   "s": 12.317,
+   "e": 16.31,
+   "dur": 3.99,
+   "palabras": 9,
+   "texto": "¿Encaja, eh? Te he oído... y desafinas un poquito."
+  },
+  {
+   "n": 3,
+   "s": 16.55,
+   "e": 21.785,
+   "dur": 5.23,
+   "palabras": 17,
+   "texto": "Porque así nació: dos hermanas de Estados Unidos la compusieron para dar los buenos días en clase."
+  },
+  {
+   "n": 4,
+   "s": 22.025,
+   "e": 26.763,
+   "dur": 4.74,
+   "palabras": 15,
+   "texto": "Luego alguien le puso la letra del cumpleaños... y una empresa dijo que era suya."
+  },
+  {
+   "n": 5,
+   "s": 27.003,
+   "e": 30.404,
+   "dur": 3.4,
+   "palabras": 11,
+   "texto": "Resultado: ¿salía en una peli o en un anuncio? A pagar."
+  },
+  {
+   "n": 6,
+   "s": 30.644,
+   "e": 35.136,
+   "dur": 4.49,
+   "palabras": 14,
+   "texto": "Y hubo restaurantes que se inventaron otra canción para no soltar ni un dólar."
+  },
+  {
+   "n": 7,
+   "s": 35.376,
+   "e": 42.275,
+   "dur": 6.9,
+   "palabras": 20,
+   "texto": "Hasta que en dos mil quince un juez de Estados Unidos dijo: esos derechos no valen. Hoy es de todos."
+  },
+  {
+   "n": 8,
+   "s": 42.515,
+   "e": 48.453,
+   "dur": 5.94,
+   "palabras": 16,
+   "texto": "Ojo: en tu casa siempre fue gratis. Nadie te manda la factura de tus seis años."
+  },
+  {
+   "n": 9,
+   "s": 48.693,
+   "e": 57.655,
+   "dur": 8.96,
+   "palabras": 24,
+   "texto": "O sea: la canción que más has cantado tenía un dueño... que no lo era. ¿Y en tu casa, cómo se canta? Os leo."
+  },
+  {
+   "n": 10,
+   "s": 57.895,
+   "e": 61.47,
+   "dur": 3.57,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "cumpleanos",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.41,
+ "gancho_palabras": 8,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 10,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 57.895,
+ "ojo_dur": 5.94,
+ "cta_tipo": "abierta",
+ "cta_texto": "O sea: la canción que más has cantado tenía un dueño... que no lo era. ¿Y en tu casa, cómo se canta? Os leo.",
+ "n_lineas": 11,
+ "n_palabras": 157,
+ "duracion_voz": 61.47,
+ "ppm": 153.2,
+ "lineas_mas_largas": [
+  [
+   9,
+   8.96,
+   "O sea: la canción que más has cantado tenía un dueño... que no lo era."
+  ],
+  [
+   7,
+   6.9,
+   "Hasta que en dos mil quince un juez de Estados Unidos dijo: esos derec"
+  ],
+  [
+   1,
+   5.95,
+   "Haz la prueba: cántala por dentro con esta letra: «Buenos días a ti»."
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep21_cumple2/final.mp4",
+ "duracion_video": 62.1
+}

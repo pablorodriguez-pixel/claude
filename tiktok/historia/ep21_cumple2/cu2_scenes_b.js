@@ -258,14 +258,14 @@ headline(K.os - 0.06, S.Q[1], '*Os leo* 👇', { size: 130, hlT: K.os });
   }, { clip: true, cut: true });
   sceneBg(c, { background: `repeating-linear-gradient(90deg, #F4CFDA 0 30px, #F9E3EA 30px 60px)` });
   box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
-  const vec = mkVec(c, [540, 500, 420, 520]);
+  const vec = mkVec(c, [560, 470, 470, 582]);
   const hand = box(c, 600, 1060, 170, 170, { zIndex: 40 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="170" height="170" style="overflow:visible">${gloveHand(0, 0, 0, 1.2)}</svg>`;
   const cms = [['FAR', '@marta_cumple', 'Cumpleaños feliz 🎂', K.casa9 + 0.1], ['SOL', '@dani.mx', '¡Las mañanitas! 🇲🇽', K.como + 0.1], ['MEREDITH', '@lu_92', 'La versión de mi tío 😂', K.canta + 0.05]];
   cms.forEach((m, i) => {
-    const e = box(c, 50, [520, 680, 840][i], 500, 120, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
-    avatar(e, 10, 12, 88, m[0], { bw: 3 });
-    el('div', e, { left: '112px', top: '10px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '26px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
-    el('div', e, { left: '112px', top: '42px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '38px', color: INK, whiteSpace: 'nowrap' }, m[2]);
+    const e = box(c, 40, [500, 680, 860][i], 560, 140, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
+    avatar(e, 12, 14, 104, m[0], { bw: 3 });
+    el('div', e, { left: '130px', top: '12px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '30px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
+    el('div', e, { left: '130px', top: '50px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, whiteSpace: 'nowrap' }, m[2]);
     CM.push({ e, t: m[3] });
   });
 }

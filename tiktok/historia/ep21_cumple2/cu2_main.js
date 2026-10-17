@@ -52,6 +52,11 @@ function updOval(t) {
   ['900 40px Playfair', 'italic 800 40px Playfair', 'italic 900 40px Playfair', '800 40px Playfair', '40px Rye', '40px SpecialElite', '800 40px Bricolage', '600 40px Bricolage'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
 }
 
+/* ---------- un titular nunca se monta sobre el siguiente: el anterior se va justo cuando entra el nuevo ---------- */
+{
+  const srt = HLS.slice().sort((a, b) => a.t0 - b.t0);
+  srt.forEach((h, i) => { const nx = srt[i + 1]; if (nx && nx.t0 < h.t1 + 0.01) h.t1 = Math.max(h.t0 + 0.2, nx.t0 - 0.02); });
+}
 /* ---------- frame ---------- */
 window.frame = t => {
   SC.forEach(s => {

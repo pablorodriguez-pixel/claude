@@ -35,14 +35,14 @@ function updNotes(L, t, h = 600, on = 1) { L.forEach((q, i) => { const ph = (t *
   sceneBg(cam, { background: '#EFE1C6' });
   box(cam, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 66%, rgba(255,230,0,.38), rgba(255,230,0,0) 55%)' });
   rays(cam, -200, 520, 1480, 26, 'rgba(255,62,165,.12)', 'rgba(0,0,0,0)', 0);
-  const cake = mkCake(cam, [150, 640, 700, 747]); cake.d.style.zIndex = 4;
+  const cake = mkCake(cam, [110, 590, 780, 832]); cake.d.style.zIndex = 4;
   const NT = riseNotes(cam, 7, 500, 780, 640, 11, { sz: 96, col: [INK, RED, INK, '#5b8bd6'] });
   // cordel + etiqueta
-  const tg = box(cam, 730, 700, 260, 330, { zIndex: 9, transformOrigin: '30px 0px' });
+  const tg = box(cam, 740, 660, 260, 330, { zIndex: 9, transformOrigin: '30px 0px' });
   tg.innerHTML = `<svg width="260" height="330" style="overflow:visible"><path d="M30,0 C34,60 40,110 46,176" stroke="${INK}" stroke-width="5" fill="none"/></svg>`;
   const tgI = box(tg, 0, 140, 250, 142); tgI.innerHTML = tagSvg('¿?');
-  const lk = box(cam, 440, 1010, 190, 228, { zIndex: 12 }); lk.innerHTML = lockSvg(); const shk = lk.querySelector('.shk');
-  const hd = handBox(cam, 90, 1060, 230, 200, 30);
+  const lk = box(cam, 400, 1060, 220, 264, { zIndex: 12 }); lk.innerHTML = lockSvg(); const shk = lk.querySelector('.shk');
+  const hd = handBox(cam, 60, 1110, 250, 200, 30);
   // portada: la pregunta (sin respuesta), por debajo de y≈300
   const ttl = el('div', cam, { left: '30px', top: '300px', width: '1020px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, color: INK, zIndex: 50, lineHeight: 1 });
   ttl.innerHTML = `<div style="font-size:112px;line-height:124px">${hlSpan('<i>¿Cumpleaños feliz</i>', 'th')}</div>`;
@@ -89,7 +89,7 @@ headline(S.B2[0], K.buenos - 0.1, 'Con esta *letra:*', { size: 110, hlT: K.letra
     const kq = clamp((t - K.buenos + 0.3) / (K.L1e - K.buenos + 0.3));
     set(quill, { x: lerp(60, 640, kq) + Math.sin(t * 18) * 6, y: -150 + Math.cos(t * 18) * 5, r: 18 + Math.sin(t * 9) * 4, o: t > K.letra - 0.1 && t < K.L1e + 0.15 ? 1 : 0 });
     set(sm.d, { s: pop(t, S.B2[0] + 0.2, 0.4), y: wobble(t, 0.6, 3) });
-    face(sm, t, { look: [8, -6], jaw: 0, seed: 3, bL: t > K.buenos ? 8 : 2, bR: t > K.buenos ? 8 : 2 });
+    face(sm, t, { look: [8, -6], jaw: t > K.buenos && t < K.L1e ? 0.3 + 0.25 * Math.sin(t * 13) : 0, seed: 3, bL: t > K.buenos ? 8 : 2, bR: t > K.buenos ? 8 : 2 });
     popA(ch, t, K.ti + 0.1, { r: 4 });
   });
   sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.06) 0 3px, transparent 3px 90px)' });
