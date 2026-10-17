@@ -3,3 +3,4 @@
 !tiktok/engine/el_sfx/*.wav
 !tiktok/engine/el_music/*.wav
 **/shots/
+**/video_noaudio.mp4
