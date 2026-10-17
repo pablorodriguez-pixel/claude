@@ -44,4 +44,6 @@ Documento de traspaso para continuar el canal en una sesión nueva. Léelo enter
    delante de la primera palabra (se la come).
 3. Animación reutilizando `ab02_mangas/index.html` como plantilla. Todo por texto con `find()`/`w()`.
 4. `bash ../engine/sheet.sh $PWD 1` (revisar todas), `node ../engine/render.js $PWD video` (si se cae: `engine/render_resumible.js`), `python3 -I ../engine/audio.py $PWD abuela`.
+- Entorno: `pip install faster-whisper` (para `tr.py`). Los episodios llevan symlink `fonts -> ../engine/fonts`. `ab02_mangas/words.js` se reconstruyó
+  desde `final.mp4` con `rebuild_words.py` (whisper + `lines.json`; error medio ~55 ms validado con ab01). Úsalo si falta el `words.js` de un episodio.
 - Créditos ElevenLabs compartidos con los otros canales (~25.000 caracteres al traspaso). No más de 3–4 renders a la vez.
