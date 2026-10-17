@@ -76,7 +76,7 @@ headline(S.Q1[0], S.Q1[1], '¿Cuántas veces lo has *dicho hoy?*', { size: 86, h
   const BB = [], TL = [];
   const c = scene(S.Q1[0], S.Q1[1], t => {
     const kd = p(t, S.Q1[0], S.Q1[1] - S.Q1[0], E.linear);
-    set(sun, { x: lerp(-60, 760, kd), y: -Math.sin(kd * Math.PI) * 200 });
+    set(sun, { x: lerp(-60, 760, kd), y: -Math.sin(kd * Math.PI) * 40 });
     BB.forEach((b, i) => { set(b.e, { s: pop(t, b.t, 0.28), r: b.r, o: t < b.t ? 0 : 1 }); });
     TL.forEach((l, i) => l.style.opacity = t > BB[i].t + 0.06 ? 1 : 0);
     set(card, { r: -2 + wobble(t, 0.5, 0.8), s: 1 + 0.06 * Math.abs(Math.sin(t * 6)) * (t > BB[0].t ? 1 : 0) });
@@ -137,7 +137,7 @@ headline(S.Q2[0], S.Q2[1], 'Pues eso…', { size: 110, y: 200 });
 /* ======================================================================
    Q3 · «Y NO ERES EL ÚNICO» — zoom out al globo lleno de «chao»
    ====================================================================== */
-headline(S.Q3[0], S.Q3[1], 'Y no eres *el único*', { size: 108, hlT: K.unico, color: '#FBF6EA', keyColor: INK });
+headline(S.Q3[0], S.Q3[1], 'Y no eres *el único*', { size: 108, hlT: K.unico, color: '#FBF6EA', keyColor: YEL, hlc: 'rgba(0,0,0,0)' });
 {
   const BB = [];
   const c = scene(S.Q3[0], S.Q3[1], t => {

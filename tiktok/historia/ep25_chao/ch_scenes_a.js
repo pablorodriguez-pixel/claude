@@ -256,7 +256,7 @@ headline(S.I[0], S.I[1], 'Y saltó *al español*', { size: 104, hlT: K.espanol }
    J · «O "CHAU", SI ERES DE ARGENTINA O URUGUAY» — mapa con chinchetas CHAO / CHAU
    ====================================================================== */
 const MAPPINS = {
-  es: { p: [800, 496], l: [480, 430], txt: 'CHAO' }, co: { lo: -74, la: 4.6, l: [330, 600], txt: 'CHAO' }, ve: { lo: -66.9, la: 8, l: [650, 680], txt: 'CHAO' },
+  es: { p: [800, 496], l: [480, 430], txt: 'CHAO' }, co: { lo: -74, la: 4.6, l: [330, 600], txt: 'CHAO' }, ve: { lo: -66.9, la: 8, l: [720, 520], txt: 'CHAO' },
   pe: { lo: -76, la: -10, l: [190, 780], txt: 'CHAO' }, cl: { lo: -71, la: -33, l: [230, 930], txt: 'CHAO' },
   ar: { lo: -64, la: -34, l: [610, 1080], txt: 'CHAU' }, uy: { lo: -56, la: -33, l: [720, 930], txt: 'CHAU' },
   mx: { lo: -101, la: 22, l: [130, 470], txt: '' },

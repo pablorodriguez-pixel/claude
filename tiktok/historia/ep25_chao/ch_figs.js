@@ -142,7 +142,7 @@ function gondolaInner() {
 function veniceSvg() {
   let s = '';
   // campanile lejano
-  s += `<path d="M820,560 V250 H880 V560 Z" fill="#E2C3A8" stroke="${INK}" stroke-width="4"/><path d="M816,250 L850,180 L884,250 Z" fill="#7a9a82" stroke="${INK}" stroke-width="4"/><path d="M826,270 h48 v40 h-48 Z" fill="#3a2a1e" stroke="${INK}" stroke-width="3"/><rect x="820" y="250" width="60" height="310" fill="url(#hA)" opacity=".35"/>`;
+  s += `<g transform="translate(190,0)"><path d="M820,560 V250 H880 V560 Z" fill="#E2C3A8" stroke="${INK}" stroke-width="4"/><path d="M816,250 L850,180 L884,250 Z" fill="#7a9a82" stroke="${INK}" stroke-width="4"/><path d="M826,270 h48 v40 h-48 Z" fill="#3a2a1e" stroke="${INK}" stroke-width="3"/><rect x="820" y="250" width="60" height="310" fill="url(#hA)" opacity=".35"/></g>`;
   [[-20, 600, 300, '#E9B9A0'], [280, 520, 280, '#E8D2A8'], [560, 640, 260, '#D9B391'], [820, 580, 300, '#E2C3A8']].forEach(([x, y, w, col], i) => {
     const h = 1100 - y, fac = `M${x},${y} H${x + w} V1100 H${x} Z`;
     s += cut(P(fac), 6, 8) + D(fac, col, 4) + clipG(uid('vn'), fac, `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#hP)"/><rect x="${x + w - 40}" y="${y}" width="40" height="${h}" fill="url(#hA)" opacity=".7"/>`);

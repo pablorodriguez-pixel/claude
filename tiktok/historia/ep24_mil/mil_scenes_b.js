@@ -183,7 +183,7 @@ headline(K.alejandro - 0.06, S.T[1], 'Elige: *A, B o C*', { size: 110, hlT: K.vo
       q.front.style.display = sx < 0 ? '' : 'none'; q.back.style.display = sx < 0 ? 'none' : '';
       const act = t > CT[i] && (i === 2 ? t < K.vota : t < CT[i + 1]);
       const vb = t > LT[i] && t < LT[i] + 0.5 ? Math.sin((t - LT[i]) / 0.5 * Math.PI) : 0;
-      set(q.e, { y: (1 - kin) * 1200 - (act ? 20 : 0) - vb * 40, s: (act ? 1.06 : 1) + vb * 0.08, r: q.r + wobble(t, 0.4, 0.8, i) });
+      set(q.e, { y: (1 - kin) * 1200 - (act ? 20 : 0) - vb * 40, s: ((act ? 1.06 : 1) + vb * 0.08) * 0.93, r: q.r + wobble(t, 0.4, 0.8, i) });
       q.glow.style.opacity = act || vb > 0 ? 1 : 0;
     });
     // B: las letras O y K; C: Napoleón y el tallímetro
@@ -199,7 +199,7 @@ headline(K.alejandro - 0.06, S.T[1], 'Elige: *A, B o C*', { size: 110, hlT: K.vo
   halftone(c, 'rgba(43,33,24,.05)', 0);
   const NAMES = ['Alejandro<br>Magno', 'el mito de los<br>«cero muertos»', 'Napoleón,<br>la revancha'];
   [[60, -3], [370, 2], [680, -2]].forEach(([x, r], i) => {
-    const e = box(c, x, 390, 290, 640, { zIndex: 10 + i });
+    const e = box(c, x, 440, 290, 640, { zIndex: 10 + i });
     const glow = box(e, -16, -16, 322, 672, { borderRadius: '40px', background: YEL, opacity: 0, border: `5px solid ${INK}` });
     const flip = box(e, 0, 0, 290, 640, { transformOrigin: '145px 320px' });
     const back = box(flip, 0, 0, 290, 640, { background: '#3a2a1e', border: `6px solid ${INK}`, borderRadius: '28px', boxShadow: `9px 11px 0 ${SH}`, backgroundImage: 'repeating-linear-gradient(45deg, rgba(255,255,255,.07) 0 10px, transparent 10px 24px)' });
@@ -215,8 +215,8 @@ headline(K.alejandro - 0.06, S.T[1], 'Elige: *A, B o C*', { size: 110, hlT: K.vo
   const NW = box(CDS[2].front, 10, 40, 400, 470, { transformOrigin: '0 0', transform: 'scale(0.8)' });
   const R = mkRuler(NW, 0, 440, 210, { arm: 90, top: 1.9, slZ: 2, z: 3, tagSize: 40 }); R.tag.innerHTML = '1,68';
   const nap = mkMan(NW, 260, 440, 1.68, 210, { seed: 1 }); nap.d.style.zIndex = 4;
-  const vt = el('div', c, { left: '90px', top: '1080px', width: '880px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', color: '#fff', background: INK, borderRadius: '30px', padding: '8px 0 16px', boxShadow: `8px 8px 0 ${PINK}`, zIndex: 30, whiteSpace: 'nowrap' }, `VOTA <span style="color:${YEL}">A, B o C</span> 👇`);
-  const hand = box(c, 800, 1180, 130, 130, { zIndex: 31 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 90, 1.15)}</svg>`;
+  const vt = el('div', c, { left: '120px', top: '1088px', width: '820px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '80px', lineHeight: 1.15, color: '#fff', background: INK, borderRadius: '28px', padding: '4px 0 10px', boxShadow: `8px 8px 0 ${PINK}`, zIndex: 30, whiteSpace: 'nowrap' }, `VOTA <span style="color:${YEL}">A, B o C</span> 👇`);
+  const hand = box(c, 790, 1130, 130, 130, { zIndex: 31 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 90, 1.15)}</svg>`;
 }
 
 /* ======================================================================

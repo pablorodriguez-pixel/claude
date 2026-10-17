@@ -161,7 +161,7 @@ headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 
     // cámara por planos
     let cs = 1, cx = 0, cy = 0;
     if (t < K.aladino - 0.06) { cs = lerp(1.0, 1.06, p(t, K.las, 1.8, E.linear)); }
-    else if (t < S.H[1]) { cs = 1.12; cx = -40; cy = -30; }
+    else if (t < S.H[1]) { cs = 1.12; cx = 0; cy = -30; }
     else { const k = p(t, S.H[1], 0.3, E.outCubic); cs = lerp(1.0, 1.04, p(t, S.H[1], 2.3, E.linear)); cx = 0; cy = 0; void k; }
     set(cam, { s: cs, x: cx, y: cy });
     // libro: se abre en «Las»
@@ -220,9 +220,9 @@ headline(K.siglos - 0.06, S.BOOK[1], '*siglos* después', Object.assign({ size: 
   const quill = box(cam, 380, 930, 140, 280, { zIndex: 9 });
   quill.innerHTML = `<svg viewBox="0 0 120 240" width="140" height="280" style="overflow:visible">${cut('<path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z"/>', 4, 6)}<path d="M60,236 L52,150 C10,110 20,30 100,4 C96,60 90,120 68,150 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/><path d="M60,232 C64,150 80,70 98,8" stroke="${INK}" stroke-width="3" fill="none"/><path d="M40,120 l16,6 M36,96 l20,6 M40,70 l18,6" stroke="${INK}" stroke-width="2"/></svg>`;
   const gn = chip(cam, 60, 1250, 'Antoine Galland, traductor', { size: 40, bg: INK, color: YEL, z: 20 });
-  const add = stamp(cam, 600, 650, 'AÑADIDO', { size: 72, bw: 14, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
-  const sg = chip(cam, 560, 1150, 'siglos después', { size: 60, bg: PINK, z: 20 });
-  const hg = el('div', cam, { left: '440px', top: '1110px', fontSize: '100px', zIndex: 21 }, '⏳');
+  const add = stamp(cam, 565, 650, 'AÑADIDO', { size: 61, bw: 14, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  const sg = chip(cam, 470, 1150, 'siglos después', { size: 52, bg: PINK, z: 20 });
+  const hg = el('div', cam, { left: '360px', top: '1110px', fontSize: '100px', zIndex: 21 }, '⏳');
 }
 /* H · GOLPE ROSA «NO VENÍA EN EL LIBRO» (sobre el decorado del libro) */
 colorHit(S.H[0], S.H[1], PINK, c => {
