@@ -40,6 +40,12 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 8. Precisión: solo datos del guion; lo dudoso va en el «Ojo».
 
 ## Estado
+- 17/10 DIRECTOR (informes en `director/informes/`): ningún pendiente llega a 80. Septiembre 71 (ARREGLAR, ~81 con L6+L7 nuevas), Cumpleaños 61 (reconvertir, ~78–82),
+  Uvas 59 (rehacer para diciembre), Ñ 58 (remontaje v2, ~74–78), Pez 57, Cerebro 54 (prueba ciega: coincide con el usuario), Gladiadores 53 (corte de 33 s), Himno 49 (fuera).
+  Toro 63 (ya entregado). COLA DE PUBLICACIÓN VACÍA hasta nuevas versiones aprobadas.
+- Fallos sistemáticos de la plantilla v3 (corregir en TODOS los guiones nuevos): el gancho da la respuesta y no dice «tú»; sello/veredicto antes de que se forme la pregunta;
+  2 líneas seguidas de contexto (~14 s); «Ojo» > 6 s; cierre «Sí o no» (volver a pregunta abierta y personal + «Os leo», como Napoleón y OK);
+  título de portada por encima de y≈260 → se corta en la miniatura 3:4 del perfil (recorte y 240–1680).
 - Publicados: Emú, Cleopatra, Hora, Napoleón, Semana, OK, Einstein, SOS, Vikingos, Muralla, Colón, @ (ep11).
 - Entregados al usuario el 17/10 para subir: ep13 Septiembre, ep15 Toro, ep14 Ñ (sustituye a Cerebro).
 - DESCARTADO: ep17 Cerebro — al usuario le parece flojo y poco interesante (mito del 10 % muy desmontado, nada que comprobar en el momento). Evitar temas así.
