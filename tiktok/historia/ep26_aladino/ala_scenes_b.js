@@ -29,7 +29,7 @@ headline(S.I1[0], S.I1[1], 'De *Alepo* a París', { size: 108, y: 262 });
     <path class="pth" d="${path}" fill="none" stroke="none"/></svg>`;
   const mkp = sv.querySelector('.mk'), pth = sv.querySelector('.pth'), L = pth.getTotalLength();
   const pin = (x, y, lab, sub, dx) => { const d = box(mp.inner, x - 26, y - 64, 52, 66, { zIndex: 4, transformOrigin: '50% 100%' }); d.innerHTML = `<svg width="52" height="66" style="overflow:visible"><path d="M26,66 L2,24 A26,26 0 1,1 50,24 Z" fill="${PINK}" stroke="${INK}" stroke-width="4"/><circle cx="26" cy="24" r="9" fill="#fff"/></svg>`; el('div', d, { left: px(dx), top: '70px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '50px', color: INK, whiteSpace: 'nowrap', textShadow: '3px 3px 0 #fff' }, lab + (sub ? `<div style="font-family:SpecialElite;font-size:30px;font-weight:400">${sub}</div>` : '')); return d; };
-  const pa = pin(220, 140, 'PARÍS', '', -40), pb = pin(720, 430, 'ALEPO', '(Siria)', -150);
+  const pa = pin(220, 140, 'PARÍS', '', 50), pb = pin(720, 430, 'ALEPO', '(Siria)', -150);
   const mrk = box(mp.inner, 0, 0, 72, 72, { zIndex: 5, borderRadius: '50%', background: '#FBF6EA', border: `5px solid ${INK}`, overflow: 'hidden' });
   mrk.innerHTML = `<svg viewBox="100 60 160 160" width="62" height="62">${hannaInner()}</svg>`;
   const yr = stamp(cam, 380, 1068, '1709', { size: 150, bw: 16, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
@@ -74,12 +74,12 @@ headline(S.I3[0], S.I3[1], '*Aladino*', { size: 140, hlT: K.aladino5, y: 262 });
     popA(lab, t, S.I3[0] + 0.25, { r: -2 });
   }, { clip: true });
   sceneBg(c, { background: '#5b4532', backgroundImage: 'radial-gradient(circle at 50% 46%, #8a6a4a 0%, #5b4532 60%, #3a2a1e 100%)' });
-  const dp = paperPiece(c, 140, 420, 800, 600, { seed: 19, bg: '#F7EED8' }); dp.wrap.style.zIndex = 4; dp.wrap.style.transformOrigin = '50% 50%';
+  const dp = paperPiece(c, 140, 470, 800, 600, { seed: 19, bg: '#F7EED8' }); dp.wrap.style.zIndex = 4; dp.wrap.style.transformOrigin = '50% 50%';
   el('div', dp.inner, { left: '50px', top: '40px', fontFamily: 'SpecialElite', fontSize: '66px', color: INK }, '5 mai 1709');
   { const d = box(dp.inner, 0, 0, 782, 582); let s = ''; const r = rng(5); for (let i = 0; i < 7; i++) { if (i === 2) continue; let dd = `M50,${170 + i * 56}`; for (let x = 50; x < 720; x += 24) dd += ` q6,${f1(-8 - r() * 8)} 12,0 q6,${f1(6 + r() * 6)} 12,0`; s += `<path d="${dd}" stroke="${INK}" stroke-width="3" fill="none" opacity=".5"/>`; } d.innerHTML = `<svg width="782" height="582">${s}</svg>`; }
   const line = el('div', dp.inner, { left: '50px', top: '258px', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '84px', color: INK, whiteSpace: 'nowrap' }, `… ${hlSpan('Aladin', 'dhl')}`);
   const hl = line.querySelector('.dhl');
-  const lab = chip(c, 300, 1060, 'diario de Galland (recreación)', { size: 32, bg: INK, color: '#fff', z: 20 });
+  const lab = chip(c, 300, 1110, 'diario de Galland (recreación)', { size: 32, bg: INK, color: '#fff', z: 20 });
 }
 
 /* ======================================================================
@@ -299,7 +299,7 @@ headline(K.y10 - 0.06, S.R[1], 'y el libro *ni lo nombra*', { size: 94, hlT: K.n
     face(hc, t, { look: [5, -3], seed: 0.3 });
     set(qq, { o: t > K.conto10 && t < K.nombra + 0.15 ? 1 : 0, s: pop(t, K.conto10 + 0.1, 0.3), r: Math.sin(t * 6) * 8 });
     const kw = p(t, TW0, TW1 - TW0, E.inOutCubic);
-    nm.style.clipPath = `inset(-30px ${f1(90 + (1 - kw) * (510 - 90))}px -30px 60px)`;
+    nm.style.clipPath = `inset(-30px ${f1(90 + (1 - kw) * (620 - 90))}px -30px 60px)`;
     const wx = lerp(NX0, NX1, kw);
     const kq = p(t, TW1 + 0.02, 0.3, E.inCubic);
     set(ql, { x: wx - 20 + kq * 260 + Math.sin(t * 30) * 6 * (kw > 0 && kw < 1 ? 1 : 0), y: -Math.abs(Math.sin(t * 22)) * 14 * (kw > 0 && kw < 1 ? 1 : 0) - kq * 420, r: -28 + kq * 20, o: t > TW0 - 0.25 && kq < 1 ? 1 : 0 });
