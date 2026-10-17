@@ -44,6 +44,8 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
   Uvas 59 (rehacer para diciembre), Ñ 58 (remontaje v2, ~74–78), Pez 57, Cerebro 54 (prueba ciega: coincide con el usuario), Gladiadores 53 (corte de 33 s), Himno 49 (fuera).
   Toro 63 (ya entregado). COLA DE PUBLICACIÓN VACÍA hasta nuevas versiones aprobadas.
 - 17/10 ENTREGADOS (experimentos): ep23 Respuesta AC (indep. 79→~81 tras arreglos; subir con «Responder con vídeo»), ep22 Pulgar RECHAZADO por el usuario (no se entiende lo de deslizar tantas veces y al final no cuenta nada interesante). Tema pulgar/gladiadores RETIRADO. Nuevas puertas P8 (recompensa final) y P9 (una sola complicidad) en la rúbrica.
+- 17/10 ENTREGADOS también: ep21 Cumpleaños v2 (indep. 79→~83), ep25 Chao (indep. 81→~85, fórmula OK/Napoleón), ep24 Especial 1.000 (remontado, termina en Aladino; publicar al llegar a 1.000; votación A Alejandro / B «cero muertos» / C Napoleón revancha → el ganador es el siguiente episodio).
+- Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
   Medir a 48 h: retención en s 3, 5 y 8 (éxito Pulgar: ≥ 66 % en s 5; pérdida en 20,6–24,8 s ≤ 0,5 pts/s) y comentarios por cada mil visualizaciones.
 - Fallos sistemáticos de la plantilla v3 (corregir en TODOS los guiones nuevos): el gancho da la respuesta y no dice «tú»; sello/veredicto antes de que se forme la pregunta;
   2 líneas seguidas de contexto (~14 s); «Ojo» > 6 s; cierre «Sí o no» (volver a pregunta abierta y personal + «Os leo», como Napoleón y OK);
