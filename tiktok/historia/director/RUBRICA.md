@@ -38,6 +38,9 @@ Material en `director/referencias/pye_aventicum/`. Lo que lo hizo volar:
 - **P4 · Portada (fotograma 0):** se entiende en la miniatura del perfil (≈150 px de ancho): ≤ 6 palabras grandes, un objeto icónico gigante, planteada como pregunta, y ya en movimiento.
 - **P5 · Promesa pagada antes del segundo 30.**
 - **P6 · Precisión:** ningún dato dudoso fuera del «Ojo». Si hay una cifra discutible en pantalla, no se publica.
+- **P8 · Recompensa final:** los últimos 10–15 s entregan el dato MÁS fuerte y comprobado del vídeo. Si el vídeo acaba en una teoría, un «nadie lo sabe» o algo flojo, se suspende.
+  (Pulgar, 17/10: el director le dio 74–77, pero el usuario lo rechazó porque «al final no cuentas nada interesante».)
+- **P9 · Una sola complicidad con el espectador:** como mucho UN guiño de cuarta pared por vídeo, y tiene que salir del tema («¿a que acabas de mirar tu teclado?»), nunca un «no deslices». Repetirlo confunde (Pulgar, 17/10).
 - **P7 · Audio:** el QA de `engine/audio.py` tiene que dar OK (voz ≥ 20 dB sobre la música y el gancho dicho con energía).
 
 ## 3. Puntuación (100 puntos)
@@ -55,7 +58,7 @@ Material en `director/referencias/pye_aventicum/`. Lo que lo hizo volar:
 - **70–79 → ARREGLAR**: solo se publica si los arreglos son baratos (visuales o de texto) y suben la nota a ≥ 80. Si hace falta rehacer la voz, se justifica por qué compensa.
 - **< 70 o cualquier puerta suspendida sin arreglo → DESCARTAR** (o reconvertir el tema en otro formato, por ejemplo un vídeo-respuesta).
 
-Referencias de nota (para no inflar): Napoleón ≈ 88 · OK ≈ 87 · Semana ≈ 76 · Einstein ≈ 74 · Cleopatra ≈ 58 · Vikingos ≈ 52.
+Referencias de nota (para no inflar): Pulgar ≈ 60 (rechazado por el usuario) · Napoleón ≈ 88 · OK ≈ 87 · Semana ≈ 76 · Einstein ≈ 74 · Cleopatra ≈ 58 · Vikingos ≈ 52.
 
 ## 4. Lo que NO es negociable en la chispa
 - El Vecino es un vecino cotilla y culto que te cuenta el chisme histórico en el rellano, no un profesor.
