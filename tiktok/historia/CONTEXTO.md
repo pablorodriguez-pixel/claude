@@ -55,4 +55,5 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 4. Revisión: `bash ../engine/sheet.sh $PWD 1` y mirar todas las hojas. Render: `node ../engine/render.js $PWD video` (si se cae por carga, `engine/render_resumible.js`).
 5. Audio: `python3 -I ../engine/audio.py $PWD ragtime` (debe pasar el QA). Entregar `final.mp4`; si pesa >95 MB, re-encodificar crf 20 antes de subir al repo.
 - Créditos ElevenLabs: quedaban ~25.000 caracteres (≈ 30 episodios de 850 caracteres). Comprobar con la API /v1/user/subscription.
+- Cada episodio necesita `kit/` (copia de `ep07_ok/kit`) y `fonts -> ../engine/fonts`; ep10–ep20 ya los tienen (se restauraron al dividir la sesión).
 - No lances más de 3–4 renders a la vez (la máquina tiene 4 núcleos).
