@@ -41,8 +41,9 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 
 ## Estado
 - Publicados: Emú, Cleopatra, Hora, Napoleón, Semana, OK, Einstein, SOS, Vikingos, Muralla, Colón, @ (ep11).
-- Entregados al usuario el 17/10 para subir: ep13 Septiembre, ep17 Cerebro, ep15 Toro.
-- Pendientes de publicar (en este orden, uno al día; textos en `PUBLICAR_pendientes.txt`): ep14 Ñ, ep20 Cumpleaños, ep19 Pez, ep18 Himno, ep16 Uvas (Navidad), ep09 Gladiadores.
+- Entregados al usuario el 17/10 para subir: ep13 Septiembre, ep15 Toro, ep14 Ñ (sustituye a Cerebro).
+- DESCARTADO: ep17 Cerebro — al usuario le parece flojo y poco interesante (mito del 10 % muy desmontado, nada que comprobar en el momento). Evitar temas así.
+- Pendientes de publicar (en este orden, uno al día; textos en `PUBLICAR_pendientes.txt`): ep20 Cumpleaños, ep19 Pez, ep18 Himno, ep16 Uvas (Navidad), ep09 Gladiadores.
 - Próximo paso: cuando el usuario pase visualizaciones a 48 h y curvas de retención de los nuevos, medir (pts/s por frase) y ajustar.
   Si los temas cotidianos funcionan, probar UNA variante de estructura cada vez.
 - Comunidad: ver `COMUNIDAD.md` (respuestas, comentarios fijados, vídeos-respuesta).
