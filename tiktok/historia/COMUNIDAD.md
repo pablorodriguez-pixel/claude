@@ -35,3 +35,8 @@
 2. «OK viene de 0 killed» (35, OK) — no hay documento de la época que lo respalde; lo más antiguo es Boston 1839.
 3. «1,68 la verdad que es bajito» (23 + 7 respuestas, Napoleón) — hoy sí; en su época era una estatura normal (cifra de la media a verificar antes de guionizar).
 4. «Alejandro Magno» (55, Napoleón) — no hay ninguna medición fiable, solo relatos antiguos: lo dudoso va al «Ojo».
+
+## Personalidad (feedback del usuario, 17/10)
+- Al público le gusta la cuenta por la chispa del Vecino: mantenerla en guiones, respuestas y fijados (ironía cariñosa, cercano, nunca borde).
+- Rituales que ya surgen solos y hay que alimentar: «yo primero» (medalla 🥇 al primero de cada vídeo) y las respuestas con su mes/día.
+- Responder a cada respuesta con un dato mini y personal (p. ej. «Noviembre: el noveno… que hace de once 😅»), sin afirmar nada no comprobado.
