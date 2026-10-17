@@ -44,6 +44,7 @@ No se hacen votaciones ni vídeos-respuesta a comentarios. No los propongas. El 
 - **P8 · Recompensa final:** los últimos 10–15 s entregan el dato MÁS fuerte y comprobado del vídeo. Si el vídeo acaba en una teoría, un «nadie lo sabe» o algo flojo, se suspende.
   (Pulgar, 17/10: el director le dio 74–77, pero el usuario lo rechazó porque «al final no cuentas nada interesante».)
 - **P9 · Una sola complicidad con el espectador:** como mucho UN guiño de cuarta pared por vídeo, y tiene que salir del tema («¿a que acabas de mirar tu teclado?»), nunca un «no deslices». Repetirlo confunde (Pulgar, 17/10).
+- **P10 · Prueba del bar:** escribe la curiosidad como la pregunta que haría cualquiera en un bar SIN saber nombres, fechas ni libros («¿Aladino era chino?», «¿1,68 es bajito?»). Si para que te importe hace falta saber algo antes (qué es un manuscrito, quién era Galland), se suspende. (Aladino v4, 17/10: el director le dio 79–81 y el usuario lo rechazó porque «no se entiende ni crea curiosidad».)
 - **P7 · Audio:** el QA de `engine/audio.py` tiene que dar OK (voz ≥ 20 dB sobre la música y el gancho dicho con energía).
 
 ## 3. Puntuación (100 puntos)
@@ -61,7 +62,7 @@ No se hacen votaciones ni vídeos-respuesta a comentarios. No los propongas. El 
 - **70–79 → ARREGLAR**: solo se publica si los arreglos son baratos (visuales o de texto) y suben la nota a ≥ 80. Si hace falta rehacer la voz, se justifica por qué compensa.
 - **< 70 o cualquier puerta suspendida sin arreglo → DESCARTAR** (o reconvertir el tema en otro formato, por ejemplo un vídeo-respuesta).
 
-Referencias de nota (para no inflar): Pulgar ≈ 60 (rechazado por el usuario) · Napoleón ≈ 88 · OK ≈ 87 · Semana ≈ 76 · Einstein ≈ 74 · Cleopatra ≈ 58 · Vikingos ≈ 52.
+Referencias de nota (para no inflar): RECHAZADOS por el usuario aunque el director los aprobó: Pulgar ≈ 60, Especial «miles» ≈ 60, Aladino v4 ≈ 60 · Napoleón ≈ 88 · OK ≈ 87 · Semana ≈ 76 · Einstein ≈ 74 · Cleopatra ≈ 58 · Vikingos ≈ 52.
 
 ## 4. Lo que NO es negociable en la chispa
 - El Vecino es un vecino cotilla y culto que te cuenta el chisme histórico en el rellano, no un profesor.

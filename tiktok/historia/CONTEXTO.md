@@ -45,7 +45,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
   Uvas 59 (rehacer para diciembre), Ñ 58 (remontaje v2, ~74–78), Pez 57, Cerebro 54 (prueba ciega: coincide con el usuario), Gladiadores 53 (corte de 33 s), Himno 49 (fuera).
   Toro 63 (ya entregado). COLA DE PUBLICACIÓN VACÍA hasta nuevas versiones aprobadas.
 - 17/10 ENTREGADOS (experimentos): ep23 Respuesta AC (indep. 79→~81 tras arreglos; subir con «Responder con vídeo»), ep22 Pulgar RECHAZADO por el usuario (no se entiende lo de deslizar tantas veces y al final no cuenta nada interesante). Tema pulgar/gladiadores RETIRADO. Nuevas puertas P8 (recompensa final) y P9 (una sola complicidad) en la rúbrica.
-- 17/10 ENTREGADOS también: ep21 Cumpleaños v2 (indep. 79→~83), ep25 Chao (indep. 81→~85, fórmula OK/Napoleón), ep24 Especial 1.000 de los «miles» SUSTITUIDO por ep26 Aladino (una sola historia: Aladino y Alí Babá, Galland y Hanna Diyab; indep. 79→~82; publicar al llegar a 1.000; votación A Alejandro / B «cero muertos» / C Napoleón revancha → el ganador es el siguiente episodio).
+- 17/10 ENTREGADOS también: ep21 Cumpleaños v2 (indep. 79→~83), ep25 Chao (indep. 81→~85, fórmula OK/Napoleón), ep24 Especial 1.000 de los «miles» y ep26 Aladino RECHAZADOS por el usuario (Aladino: «no se entiende ni crea curiosidad»); especial pendiente de ficha (A Aladino era chino / B pirámides blancas / C Napoleón 1,68). Antes: ep24 sustituido por ep26 Aladino (una sola historia: Aladino y Alí Babá, Galland y Hanna Diyab; indep. 79→~82; publicar al llegar a 1.000; votación A Alejandro / B «cero muertos» / C Napoleón revancha → el ganador es el siguiente episodio).
 - PUBLICADO 17/10: ep25 Chao (medir a 48 h). Siguiente en subir: ep21 Cumpleaños; ep26 Aladino al llegar a 1.000.
 - Lección del especial: el usuario prefiere UNA historia muy top bien explicada a varios datos medianos; el gancho con lo más universal (Aladino/Disney).
 - Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
@@ -63,6 +63,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 - Ideas de temas pendientes: buscar en Wikipedia «List of common misconceptions», r/todayilearned (top), autocompletar de TikTok, comentarios.
 
 ## Cómo se produce un episodio (desde `tiktok/historia/`)
+00. FICHA PARA EL USUARIO (obligatoria desde el 17/10, ANTES de gastar voz): 4 líneas — gancho, portada, la pregunta que se haría un espectador normal, remate. Sin su «sí», no se produce. (El director aprobó con 79–81 tres vídeos que el usuario rechazó: Pulgar, especial de los «miles», Aladino.)
 0. DIRECTOR CREATIVO (obligatorio, `.claude/agents/director-creativo.md` + `director/RUBRICA.md`): aprueba la IDEA y el GUION antes de gastar
    créditos de voz, y el VÍDEO antes de entregarlo (con un director INDEPENDIENTE del animador, que no vea la autoevaluación). Sin PUBLICAR (≥ 80/100 y todas las puertas) no se entrega nada al usuario.
    Si el tipo de agente no está cargado en la sesión, lanza un agente general con «actúa según .claude/agents/director-creativo.md».
