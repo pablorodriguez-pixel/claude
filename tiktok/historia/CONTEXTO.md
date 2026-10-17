@@ -50,6 +50,10 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 - Ideas de temas pendientes: buscar en Wikipedia «List of common misconceptions», r/todayilearned (top), autocompletar de TikTok, comentarios.
 
 ## Cómo se produce un episodio (desde `tiktok/historia/`)
+0. DIRECTOR CREATIVO (obligatorio, `.claude/agents/director-creativo.md` + `director/RUBRICA.md`): aprueba la IDEA y el GUION antes de gastar
+   créditos de voz, y el VÍDEO antes de entregarlo. Sin PUBLICAR (≥ 80/100 y todas las puertas) no se entrega nada al usuario.
+   Si el tipo de agente no está cargado en la sesión, lanza un agente general con «actúa según .claude/agents/director-creativo.md».
+   Informes en `director/informes/<ep>/informe.md`. Cada 48 h, con los datos reales, recalibrar la tabla de bandas de la rúbrica.
 1. Carpeta `epNN_tema/` con `lines_in.json` ({"voices":{"VECINO":["851ejYcv2BoNPjrkw93G",0.0,0.98]},"gap":0.24,"inner_cap":0.35,"lines":[{"who":"VECINO","text":...}]}),
    copiar `base.css`, symlink `fonts -> ../engine/fonts`, copiar `ep07_ok/kit` a `kit/`.
 2. Voz: `cd epNN && python3 -I ../engine/gen_lines.py .` → voice_final.wav, words.js, words_table.txt. Comprobar con `python3 -I ../engine/tr.py voice_final.wav` (Whisper).
