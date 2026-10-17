@@ -16,71 +16,57 @@
  {
   "line": 2,
   "who": "VECINO",
-  "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 10.098,
-  "e": 12.804
+  "text": "Antes, cada barco pedía socorro a su manera. La compañía Marconi, por ejemplo, usaba CQD.",
+  "s": 10.048,
+  "e": 15.134
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "A principios del siglo veinte, los barcos hablaban por telégrafo: puntos y rayas. Y cada uno pedía socorro a su manera. La compañía Marconi, por ejemplo, usaba CQD.",
-  "s": 13.154,
-  "e": 22.942
+  "text": "En mil novecientos seis, en Berlín, se acordó una señal para todos: SOS.",
+  "s": 15.414,
+  "e": 20.068
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "En mil novecientos seis, en Berlín, se acordó una señal para todos: SOS.",
-  "s": 23.222,
-  "e": 27.876
+  "text": "¿Por qué esas letras? Por cómo suenan. Tres puntos, tres rayas, tres puntos. Imposible de confundir... aunque estés muerto de miedo.",
+  "s": 20.348,
+  "e": 28.509
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "¿Por qué esas letras? Por cómo suenan. Tres puntos, tres rayas, tres puntos. Imposible de confundir... aunque estés muerto de miedo.",
-  "s": 28.156,
-  "e": 36.317
+  "text": "Y en mil novecientos doce, en el Titanic, el radiotelegrafista empezó mandando CQD... y luego, por consejo de su compañero, también SOS.",
+  "s": 28.789,
+  "e": 37.763
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Lo de Save Our Souls, salvad nuestras almas, se lo inventó la gente después. Para que tuviera sentido.",
-  "s": 36.597,
-  "e": 41.472
+  "s": 38.043,
+  "e": 42.918
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Y en mil novecientos doce, en el Titanic, el radiotelegrafista empezó mandando CQD... y luego, por consejo de su compañero, también SOS.",
-  "s": 41.752,
-  "e": 50.726
+  "text": "Ojo: no fue el primer SOS de la historia. Pero el Titanic lo hizo famoso en todo el mundo.",
+  "s": 43.198,
+  "e": 48.441
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Ojo: no fue el primer SOS de la historia. Pero el Titanic lo hizo famoso en todo el mundo.",
-  "s": 51.006,
-  "e": 56.249
+  "text": "O sea: la llamada de auxilio más famosa del planeta... la eligieron porque sonaba bien. ¿Te lo habías creído? Sí o no.",
+  "s": 48.721,
+  "e": 56.348
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: la llamada de auxilio más famosa del planeta... la eligieron porque sonaba bien.",
-  "s": 56.529,
-  "e": 62.214
- },
- {
-  "line": 10,
-  "who": "VECINO",
-  "text": "¿Te lo habías creído? Dime sí o no.",
-  "s": 62.494,
-  "e": 64.974
- },
- {
-  "line": 11,
-  "who": "VECINO",
-  "text": "Y esto... no venía en el libro.",
-  "s": 65.254,
-  "e": 67.404
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 56.628,
+  "e": 60.372
  }
 ]

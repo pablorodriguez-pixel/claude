@@ -16,78 +16,57 @@
  {
   "line": 2,
   "who": "VECINO",
-  "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 7.167,
-  "e": 9.775
+  "text": "La arroba era una medida de peso: unos once kilos y medio. Viene del árabe, y significa la cuarta parte.",
+  "s": 7.117,
+  "e": 13.816
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "La arroba era una medida de peso: unos once kilos y medio. Viene del árabe, y significa la cuarta parte.",
-  "s": 10.125,
-  "e": 16.824
+  "text": "Los mercaderes, para ir más rápido, la abreviaban así: una a con un rabito alrededor.",
+  "s": 14.096,
+  "e": 18.735
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Los mercaderes, para ir más rápido, la abreviaban así: una a con un rabito alrededor.",
-  "s": 17.104,
-  "e": 21.744
+  "text": "El registro más antiguo que se conoce en España es de mil cuatrocientos cuarenta y ocho, en Aragón: arrobas de trigo.",
+  "s": 19.015,
+  "e": 25.449
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "El registro más antiguo que se conoce en España es de mil cuatrocientos cuarenta y ocho, en Aragón: arrobas de trigo.",
-  "s": 22.024,
-  "e": 28.457
+  "text": "El símbolo sobrevivió en el comercio... y llegó al teclado de las máquinas de escribir.",
+  "s": 25.729,
+  "e": 30.453
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Y en mil quinientos treinta y seis, un comerciante escribía desde Sevilla usando la arroba para contar vino.",
-  "s": 28.737,
-  "e": 34.523
+  "text": "Y en mil novecientos setenta y uno, Ray Tomlinson mandó el primer correo electrónico. Necesitaba un símbolo que nadie usara en los nombres... y eligió la arroba.",
+  "s": 30.733,
+  "e": 40.677
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "El símbolo sobrevivió en el comercio... y llegó al teclado de las máquinas de escribir.",
-  "s": 34.803,
-  "e": 39.527
+  "text": "Ojo: el origen exacto del símbolo se discute. Pero en España, en el siglo quince, la arroba ya pesaba trigo.",
+  "s": 40.957,
+  "e": 49.192
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Y en mil novecientos setenta y uno, Ray Tomlinson mandó el primer correo electrónico. Necesitaba un símbolo que nadie usara en los nombres... y eligió la arroba.",
-  "s": 39.807,
-  "e": 49.751
+  "text": "O sea: tu correo lleva dentro un saco de once kilos. ¿Lo sabías? Sí o no.",
+  "s": 49.472,
+  "e": 55.859
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "Ojo: el origen exacto del símbolo se discute. Pero en España, en el siglo quince, la arroba ya pesaba trigo.",
-  "s": 50.031,
-  "e": 58.266
- },
- {
-  "line": 10,
-  "who": "VECINO",
-  "text": "O sea: tu correo lleva dentro un saco de once kilos.",
-  "s": 58.546,
-  "e": 62.446
- },
- {
-  "line": 11,
-  "who": "VECINO",
-  "text": "¿Lo sabías? Dime sí o no.",
-  "s": 62.726,
-  "e": 64.837
- },
- {
-  "line": 12,
-  "who": "VECINO",
-  "text": "Y esto... no venía en el libro.",
-  "s": 65.117,
-  "e": 67.76
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 56.139,
+  "e": 59.394
  }
 ]

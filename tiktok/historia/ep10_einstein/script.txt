@@ -1,12 +1,10 @@
 VECINO: ¡Que no, que no! ¡Einstein nunca suspendió matemáticas! Te lo han colado toda la vida.
 VECINO: Y él mismo lo desmintió.
-VECINO: Soy tu vecino, y esto no venía en el libro.
 VECINO: ¿Entonces de dónde sale el bulo? De dos cosas.
 VECINO: Una: un periódico. En mil novecientos treinta y cinco, una sección de curiosidades, Aunque usted no lo crea, publicó que el mayor genio del mundo había suspendido matemáticas.
 VECINO: Einstein lo leyó y contestó: nunca suspendí en matemáticas. Antes de los quince años ya dominaba el cálculo.
 VECINO: Dos: un examen de verdad. Con dieciséis años, dos menos de lo normal, se presentó al acceso del Politécnico de Zúrich... y suspendió.
 VECINO: Pero en matemáticas y física, notazas. Lo que le falló fue lo demás. Por ejemplo... el francés.
 VECINO: Ojo: hay quien dice que en su colegio el seis era la nota más alta, y que alguien lo confundió con un suspenso. Pero eso no está demostrado.
-VECINO: O sea: el genio no suspendía matemáticas. Suspendía francés.
-VECINO: ¿Tú también te lo habías creído? Dime sí o no.
-VECINO: Y esto... no venía en el libro.
+VECINO: O sea: el genio no suspendía matemáticas. Suspendía francés. ¿Tú también te lo habías creído? Sí o no.
+VECINO: Soy tu vecino... y esto no venía en el libro.

@@ -20,7 +20,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
 }
 const CX = -41, CY = 45, CS = 0.75;
 const OV_VIS = [[B.B1, B.F1], [B.G1, B.R1], [B.S1, B.T1]];
-const T_END = B.W2;
+const T_END = 1e9;
 function ovalState(t) {
   if (t >= T_END) { const k = pop(t, T_END + 0.05, 0.5); return { x: 335, y: -600, s: 1.12 * k, r: -3 + wobble(t, 0.4, 1.5), o: t < T_END + 0.05 ? 0 : 1 }; }
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
@@ -68,21 +68,23 @@ window.frame = t => {
     h.spans.forEach(s => { const k = p(t, s.t - 0.14, 0.26, E.outBack); set(s.e, { y: (1 - k) * 42, o: clamp(k * 1.5) }); });
     h.hls.forEach(s => { s.e.style.transform = `scaleX(${f1(p(t, s.t, 0.36, E.outCubic) * 1000) / 1000}) rotate(-1.2deg)`; });
   });
+  // bucle: los últimos ~0,4 s funden con la portada (fotograma 1)
+  if (t >= LOOP0) { const A0 = SC[0]; A0.c.style.display = ''; A0.c.style.zIndex = 800; set(A0.c, { o: p(t, LOOP0, 0.3, E.inOutCubic) }); A0.fn(0); }
+  else SC[0].c.style.zIndex = 10;
   updOval(t);
   let sh = 0; SHAKES.forEach(s => sh += shake(t, s[0], s[1], s[2]));
   set(world, { x: sh, y: sh * 0.6 });
 };
 
 /* ---------- temblores ---------- */
-[[0.0, .25, 10], [K.once, .25, 8], [K.mil3, .25, 8], [K.mil2, .25, 8], [K.mil1, .25, 8], [K.trigo, .3, 12], [K.arroba1, .35, 14], [K.espanola + 0.15, .35, 14], [K.arroba3 + 0.38, .3, 10], [K.cuarta, .25, 6], [K.alrE - 0.08, .35, 12],
- [K.aragon, .3, 8], [K.seisE, .25, 6], [K.arroba6, .25, 6], [K.sobrevivio, .3, 8], [K.escribir, .3, 10], [K.unoE, .25, 6], [K.nombres + 0.6, .3, 10], [K.arroba8, .3, 10],
+[[0.0, .25, 10], [K.once, .25, 8], [K.mil1, .25, 8], [K.mil3, .25, 8], [K.trigo, .3, 12], [K.arroba1, .35, 14], [K.espanola + 0.15, .35, 14], [K.arroba3 + 0.38, .3, 10], [K.cuarta, .25, 6], [K.alrE - 0.08, .35, 12],
+ [K.aragon, .3, 8], [K.sobrevivio, .3, 8], [K.escribir, .3, 10], [K.nombres + 0.6, .3, 10], [K.arroba8, .3, 10],
  [K.ojo, .35, 14], [K.siglo, .3, 10], [K.arroba9, .3, 12], [K.trigo9, .45, 18], [K.saco + 0.25, .3, 10], [K.kilos2, .45, 18], [K.si, .2, 6], [K.no, .2, 6], [K.libro - 0.02, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 
 /* ---------- efectos de sonido ---------- */
 [
   [0.03, 'stamp', 1.0], [K.email, 'pop', .6], [K.pesar, 'squish', .6], [K.trigo, 'stamp', .9],
   [K.hablo - 0.1, 'swoosh_up', .6], [K.arroba1, 'burst', .9], [K.arroba1 + 0.05, 'tada', .5], [K.yEs, 'pop', .7], [K.espanola + 0.15, 'stamp', 1.0],
-  [B.A1, 'whoosh', .6], [K.vecino, 'pop2', .6], [K.yEsto0 - 0.1, 'swoosh_up', .6], [K.libro0, 'ding', .6],
   [B.B1, 'whoosh', .6], [K.arroba3, 'whoosh', .4], [K.arroba3 + 0.38, 'thud', .9], [K.peso, 'pop', .5], [K.once, 'stamp', .7], [K.medio + 0.2, 'ding', .8],
   [B.D1, 'paper', .7], [K.arabe, 'pop', .6], [K.significa, 'swoosh_up', .5], [K.cuarta, 'pop2', .8], [K.cuarta + 0.15, 'ding', .5],
   [B.E1, 'whoosh', .6], [K.mercaderes, 'scratch', .5], [K.mercaderes + 0.5, 'scratch', .5], [K.rapido, 'clockfast', .5],
@@ -90,17 +92,15 @@ window.frame = t => {
   [B.G1, 'whoosh', .6], [K.registro + 0.1, 'paper', .7], [K.antiguo + 0.1, 'stamp', .7], [K.espana5, 'pop', .6],
   [B.H1, 'whoosh', .6], [K.mil1, 'stamp', .8], [K.ochoE, 'ding', .7], [K.aragon + 0.05, 'pop', .8],
   [B.I1, 'paper', .7], [K.arrobasT, 'pop2', .5], [K.trigo5, 'pop', .6],
-  [B.J1, 'whoosh', .6], [K.mil2, 'stamp', .8], [K.seisE, 'ding', .7], [K.comerciante, 'pop', .6], [K.escribia, 'scratch', .5], [K.escribia + 0.1, 'emu', .8], [K.sevilla, 'pop2', .6],
-  [B.K1, 'whoosh', .6], [K.arroba6, 'stamp', .6], [K.arroba6 + 0.24, 'stamp', .5], [K.contar, 'tick', .6], [K.contar + 0.28, 'tick', .6], [K.contar + 0.42, 'ding', .5],
-  [B.L1, 'whoosh', .8], [K.sobrevivio, 'tada', .6], [K.comercio, 'cash', .7],
+  [B.J1, 'whoosh', .8], [K.sobrevivio, 'tada', .6], [K.comercio, 'cash', .7],
   [B.M1, 'whoosh', .6], [K.llego, 'boing', .7], [K.teclado, 'click', .6], [K.escribir, 'type', 1.0], [K.escribir + 0.1, 'bell', .5],
-  [B.N1, 'whoosh', .6], [K.mil3, 'stamp', .8], [K.unoE, 'ding', .7], [K.ray, 'pop', .6], [K.mando, 'swoosh_up', .7], [K.primer + 0.05, 'msg_out', .7],
+  [B.N1, 'whoosh', .6], [K.mil3, 'stamp', .8], [K.unoE, 'ding', .7], [K.ray, 'pop', .6], [K.ray + 0.75, 'emu', .8], [K.mando, 'swoosh_up', .7], [K.primer + 0.05, 'msg_out', .7],
   [B.O1, 'whoosh', .6], [K.unSimb, 'pop2', .5], [K.nadie, 'paper', .6], [K.nombres, 'tick', .5], [K.nombres + 0.6, 'stamp', .9],
   [B.P1, 'click', .5], [K.eligio, 'drumroll', .4], [K.arroba8, 'ding', .9], [K.arroba8 + 0.35, 'type', .6],
   [B.Q1, 'whoosh', .5], [K.ojo, 'stamp', 1.0], [K.origen + 0.1, 'pop2', .5], [K.discute - 0.3, 'pop', .5], [K.discute + 0.2, 'boing', .5],
   [K.pero, 'whoosh', .7], [K.siglo, 'stamp', .8], [K.arroba9, 'burst', .8], [K.ya, 'swoosh_up', .5], [K.trigo9, 'stamp', 1.0],
   [B.S1, 'whoosh', .6], [K.osea, 'typing', .6], [K.tu, 'ding', .5],
   [K.lleva, 'whoosh', .7], [K.saco, 'thud', 1.0], [K.once2, 'stamp', .8], [K.kilos2, 'glitch', .6],
-  [B.U1, 'whoosh', .6], [K.sabias, 'msg_in', .6], [K.dime, 'pop', .6], [K.dime + 0.3, 'msg_in', .5], [K.si, 'click', .9], [K.si + 0.1, 'msg_in', .5], [K.no, 'click', .9],
-  [B.V1, 'whoosh', .5], [B.W1, 'whoosh', .5], [K.libro - 0.02, 'thud', 1.4], [B.W2 + 0.2, 'tada', .7], [B.W2 + 0.7, 'pop', .6],
+  [K.lo, 'swoosh_up', .6], [K.sabias, 'pop', .7], [K.si, 'click', .9], [K.si + 0.1, 'msg_in', .5], [K.no, 'click', .9],
+  [B.U1, 'whoosh', .6], [K.vecino, 'pop2', .6], [B.W1, 'whoosh', .5], [K.libro - 0.02, 'thud', 1.4], [K.libro + 0.15, 'sparkle', .5], [LOOP0, 'swoosh_up', .5],
 ].forEach(s => sfx(s[1], s[0], s[2]));

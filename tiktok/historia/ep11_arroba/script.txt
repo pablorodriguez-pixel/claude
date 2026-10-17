@@ -1,13 +1,10 @@
 VECINO: ¡El símbolo que escribes en cada email... servía para pesar trigo!
 VECINO: Hablo de la arroba. Y es española.
-VECINO: Soy tu vecino, y esto no venía en el libro.
 VECINO: La arroba era una medida de peso: unos once kilos y medio. Viene del árabe, y significa la cuarta parte.
 VECINO: Los mercaderes, para ir más rápido, la abreviaban así: una a con un rabito alrededor.
 VECINO: El registro más antiguo que se conoce en España es de mil cuatrocientos cuarenta y ocho, en Aragón: arrobas de trigo.
-VECINO: Y en mil quinientos treinta y seis, un comerciante escribía desde Sevilla usando la arroba para contar vino.
 VECINO: El símbolo sobrevivió en el comercio... y llegó al teclado de las máquinas de escribir.
 VECINO: Y en mil novecientos setenta y uno, Ray Tomlinson mandó el primer correo electrónico. Necesitaba un símbolo que nadie usara en los nombres... y eligió la arroba.
 VECINO: Ojo: el origen exacto del símbolo se discute. Pero en España, en el siglo quince, la arroba ya pesaba trigo.
-VECINO: O sea: tu correo lleva dentro un saco de once kilos.
-VECINO: ¿Lo sabías? Dime sí o no.
-VECINO: Y esto... no venía en el libro.
+VECINO: O sea: tu correo lleva dentro un saco de once kilos. ¿Lo sabías? Sí o no.
+VECINO: Soy tu vecino... y esto no venía en el libro.

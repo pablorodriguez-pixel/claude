@@ -16,12 +16,7 @@
 {
 "who": "VECINO",
 "text": "Hablo de la arroba. Y es española.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
@@ -37,10 +32,6 @@
 },
 {
 "who": "VECINO",
-"text": "Y en mil quinientos treinta y seis, un comerciante escribía desde Sevilla usando la arroba para contar vino."
-},
-{
-"who": "VECINO",
 "text": "El símbolo sobrevivió en el comercio... y llegó al teclado de las máquinas de escribir."
 },
 {
@@ -53,15 +44,11 @@
 },
 {
 "who": "VECINO",
-"text": "O sea: tu correo lleva dentro un saco de once kilos."
+"text": "O sea: tu correo lleva dentro un saco de once kilos. ¿Lo sabías? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Lo sabías? Dime sí o no."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

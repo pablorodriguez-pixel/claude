@@ -79,14 +79,14 @@ headline(S.B[0], S.B[1], 'Y él mismo lo *desmintió*', { size: 92, hlT: K.desm,
   const c = scene(T0, T1, t => {
     const ex = p(t, T1 - 0.2, 0.2, E.inCubic);
     set(cam, { s: lerp(1.04 + 0.04 * p(t, T0, T1 - T0, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
-    const lean = p(t, K.libro0 - 0.4, 0.4, E.inOutCubic);
+    const lean = p(t, K.esto - 0.3, 0.4, E.inOutCubic);
     set(vec.d, { s: 1 + lean * 0.07, y: wobble(t, 0.5, 3) - lean * 20 });
     const fanFast = t > T0 + 0.3 && t < T0 + 0.9;
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > K.L2 + 1.5 && t < K.L2 + 2.3 ? [0, -5] : t > K.libro0 ? [-4, 3] : [0, 0], bL: fanFast ? 8 : t > K.libro0 ? 6 : 0, bR: fanFast ? 8 : t > K.libro0 ? 12 : 0, fan: fanFast ? Math.sin(t * 22) * 14 : wobble(t, 0.9, 6), seed: 0.3 });
-    popA(tag, t, W[K.signW - 2].s, { r: -5 });
-    const ks = p(t, W[K.signW].s - 0.05, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: Math.sin(t * 2.4) * 1.5 * (1 - p(t, W[K.signW].s, 2)) + (1 - ks) * 8, o: t < W[K.signW].s - 0.07 ? 0 : 1 });
+    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > K.vecino + 0.5 && t < K.esto ? [0, -5] : t > K.esto ? [-4, 3] : [0, 0], bL: fanFast ? 8 : t > K.esto ? 6 : 0, bR: fanFast ? 8 : t > K.esto ? 12 : 0, fan: fanFast ? Math.sin(t * 22) * 14 : wobble(t, 0.9, 6), seed: 0.3 });
+    popA(tag, t, K.vecino, { r: -5 });
+    const ks = p(t, K.soy - 0.05, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: Math.sin(t * 2.4) * 1.5 * (1 - p(t, K.soy, 2)) + (1 - ks) * 8, o: t < K.soy - 0.07 ? 0 : 1 });
     sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
-    paint(sHL, t, K.libro0, 0.3);
+    paint(sHL, t, K.vecino, 0.3);
     pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
@@ -119,7 +119,7 @@ headline(S.B[0], S.B[1], 'Y él mismo lo *desmintió*', { size: 92, hlT: K.desm,
   const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
   const sl2 = el('div', sign, { left: '0', top: '146px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
   const sw = [];
-  ['esto', 'no', 'venía', 'en', 'el', 'libro'].forEach((wd, k) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.innerHTML = wd === 'libro' ? hlSpan('libro', 'shl') : wd; (k < 3 ? sl1 : sl2).appendChild(s); s.style.position = 'relative'; sw.push({ e: s, t: W[K.signW + k].s }); });
+  [['Soy', K.isoy], ['tu', K.isoy + 1], ['vecino…', K.isoy + 2], ['y', K.iye], ['esto', K.iye + 1], ['no', K.iye + 2], ['venía…', K.iye + 3]].forEach(([wd, wi], k) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.innerHTML = wd === 'vecino…' ? hlSpan('vecino…', 'shl') : wd; (k < 3 ? sl1 : sl2).appendChild(s); s.style.position = 'relative'; sw.push({ e: s, t: W[wi].s }); });
   const sHL = sign.querySelector('.shl');
 }
 

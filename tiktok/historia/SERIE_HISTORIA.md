@@ -48,3 +48,17 @@ Si un rótulo resume, que no cambie el sentido.
 3. Bucle abierto numerado («De dos cosas: una… dos…») → contadores/etiquetas «1» y «2» grandes y visibles en pantalla.
 4. CTA de cero esfuerzo: «Dime sí o no» → pantalla con dos botones gigantes SÍ / NO (y comentarios de ejemplo «SÍ 😳», «No, ya lo sabía»).
 5. Remate citable en golpe de color, corto, para capturas.
+
+## REGLAS DE RETENCIÓN v2 (medidas en las curvas reales de OK y Semana) — PRIORITARIAS
+Datos: el 40 % se va en los 5 primeros s; la marca en el s 7–10 pierde 2,4–3,2 pts/s (el doble que la historia); el contexto
+(fechas, lugares, nombres) pierde ~1,2 pts/s y el dato raro/comprobable solo 0,3–0,5; la pregunta final pierde ~2 pts/s; solo
+el 2–4 % ve la tarjeta final.
+1. SIN MARCA AL PRINCIPIO: del gancho se pasa directo a la historia. La marca es la ÚLTIMA frase:
+   "Soy tu vecino... y esto no venía en el libro." (El Vecino en su balcón, rápido) y el libro HISTORIA se cierra.
+2. SIN TARJETA FINAL de 3 s: el vídeo termina con el libro cerrándose y los últimos ~0,4 s enlazan con el fotograma 1 (bucle).
+   El rótulo «Ep. N · título» puede ir pequeño sobre el libro.
+3. Gancho = afirmación que contradice + "tú", nunca pregunta, y SIN dar la respuesta.
+4. Lo que se promete en el gancho se paga antes del segundo 30.
+5. Contexto en UNA línea; el dato raro y comprobable cuanto antes. «Ojo» ≤ 6 s.
+6. Remate + pregunta (sí/no) en UNA sola frase.
+7. Duración objetivo 55–65 s.

@@ -20,7 +20,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
 }
 const CX = -41, CY = 45, CS = 0.75;
 const OV_VIS = [[S.D[0], S.HIT1[0]], [S.I1[0], S.HIT2[0]]];
-const T_END = S.CARD[0];
+const T_END = 9999;
 function ovalState(t) {
   if (t >= T_END) { const k = pop(t, T_END + 0.05, 0.5); return { x: 335, y: -600, s: 1.12 * k, r: -3 + wobble(t, 0.4, 1.5), o: t < T_END + 0.05 ? 0 : 1 }; }
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
@@ -83,12 +83,11 @@ window.frame = t => {
 
 /* ---------- temblores (clavados a K) ---------- */
 [[0.0, .25, 10], [K.no2, .3, 12], [K.vida, .35, 16], [K.desm, .3, 8], [K.L4e - 0.6, .3, 8], [K.leyo + 0.35, .35, 10],
- [K.susp2, .4, 18], [K.frances1, .35, 14], [K.ojo, .35, 14], [K.noesta, .35, 12], [K.no9, .3, 10], [K.frances2, .4, 16], [K.libro, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
+ [K.susp2, .4, 18], [K.frances1, .35, 14], [K.ojo, .35, 14], [K.noesta, .35, 12], [K.no9, .3, 10], [K.frances2, .4, 16], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
   [0.03, 'stamp', 1.0], [K.no1, 'boing', .5], [K.no2, 'stamp', .8], [K.nunca, 'pop', .7], [K.susp0, 'scratch', .7], [K.colado + 0.1, 'whoosh', .5], [K.vida, 'stamp', 1.0],
   [S.B[0] + 0.05, 'whoosh', .6], [K.mismo, 'pop2', .6], [K.desm, 'ding', .7],
-  [S.C[0] + 0.05, 'whoosh', .7], [W[K.signW - 2].s, 'pop', .6], [W[K.signW].s, 'swoosh_up', .6], [K.libro0, 'ding', .6],
   [S.D[0] + 0.05, 'whoosh', .6], [S.D[0] + 0.3, 'pop2', .5], [K.bulo, 'pop', .6], [K.dosC, 'whoosh', .5], [K.dosC + 0.05, 'pop', .7], [K.cosas, 'pop', .7],
   [K.L4 + 0.05, 'ding', .6], [K.periodico - 0.15, 'swoosh_up', .6], [K.periodico + 0.3, 'paper', .8],
   [S.E2[0] + 0.05, 'paper', .6], [K.mil, 'stamp', .8], [K.cinco - 0.1, 'ding', .8], [K.seccion, 'scratch', .5], [K.curios, 'pop', .6],
@@ -107,6 +106,17 @@ window.frame = t => {
   [S.I2[0], 'whoosh', .5], [K.seis, 'ding', .8], [K.masalta, 'sparkle', .6], [K.alguien, 'pop2', .5], [K.confundio, 'swoosh_up', .6], [K.suspenso, 'boing', .8], [K.noesta, 'stamp', 1.0],
   [S.J1[0], 'whoosh', .6], [K.no9, 'error', .7], [K.mat4 + 0.05, 'ding', .8],
   [K.suspendia2, 'whoosh', .6], [K.frances2 - 0.02, 'burst', 1.0], [K.frances2 + 0.1, 'glitch', .6],
-  [S.CTA[0], 'whoosh', .6], [K.creido, 'msg_in', .6], [K.creido + 0.3, 'msg_in', .6], [K.dime - 0.1, 'msg_in', .6], [K.dime, 'pop', .7], [K.si + 0.35, 'click', .9], [K.noB + 0.3, 'pop2', .5],
-  [S.L1[0], 'whoosh', .5], [K.libro, 'thud', 1.4], [S.CARD[0] + 0.25, 'tada', .7], [S.CARD[0] + 0.7, 'pop', .6],
+  [S.CTA[0], 'whoosh', .6], [S.CTA[0] + 0.25, 'pop', .7], [S.CTA[0] + 0.37, 'pop', .6], [K.L10 + 0.45, 'msg_in', .6], [K.L10 + 0.75, 'msg_in', .6], [K.creido, 'msg_in', .6], [K.si + 0.35, 'click', .9], [K.noB + 0.2, 'pop2', .5],
+  [S.C[0] + 0.05, 'whoosh', .7], [K.soy, 'swoosh_up', .6], [K.vecino, 'pop', .6], [S.L2[0], 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [LOOP, 'whoosh', .6],
 ].forEach(s => sfx(s[1], s[0], s[2]));
+
+/* ---------- bucle: los últimos 0,4 s enlazan con la portada (fotograma 0) ---------- */
+{
+  const f0 = window.frame;
+  window.frame = t => {
+    if (t < LOOP) return f0(t);
+    f0(0);
+    const k = p(t, LOOP, 0.22, E.outCubic);
+    set(world, { x: (1 - k) * 1080 });
+  };
+}

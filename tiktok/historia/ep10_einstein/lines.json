@@ -16,71 +16,57 @@
  {
   "line": 2,
   "who": "VECINO",
-  "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 6.743,
-  "e": 9.514
+  "text": "¿Entonces de dónde sale el bulo? De dos cosas.",
+  "s": 6.693,
+  "e": 9.453
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "¿Entonces de dónde sale el bulo? De dos cosas.",
-  "s": 9.864,
-  "e": 12.624
+  "text": "Una: un periódico. En mil novecientos treinta y cinco, una sección de curiosidades, Aunque usted no lo crea, publicó que el mayor genio del mundo había suspendido matemáticas.",
+  "s": 9.733,
+  "e": 21.073
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Una: un periódico. En mil novecientos treinta y cinco, una sección de curiosidades, Aunque usted no lo crea, publicó que el mayor genio del mundo había suspendido matemáticas.",
-  "s": 12.904,
-  "e": 24.245
+  "text": "Einstein lo leyó y contestó: nunca suspendí en matemáticas. Antes de los quince años ya dominaba el cálculo.",
+  "s": 21.353,
+  "e": 29.094
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "Einstein lo leyó y contestó: nunca suspendí en matemáticas. Antes de los quince años ya dominaba el cálculo.",
-  "s": 24.525,
-  "e": 32.266
+  "text": "Dos: un examen de verdad. Con dieciséis años, dos menos de lo normal, se presentó al acceso del Politécnico de Zúrich... y suspendió.",
+  "s": 29.374,
+  "e": 37.848
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Dos: un examen de verdad. Con dieciséis años, dos menos de lo normal, se presentó al acceso del Politécnico de Zúrich... y suspendió.",
-  "s": 32.546,
-  "e": 41.02
+  "text": "Pero en matemáticas y física, notazas. Lo que le falló fue lo demás. Por ejemplo... el francés.",
+  "s": 38.128,
+  "e": 45.219
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Pero en matemáticas y física, notazas. Lo que le falló fue lo demás. Por ejemplo... el francés.",
-  "s": 41.3,
-  "e": 48.391
+  "text": "Ojo: hay quien dice que en su colegio el seis era la nota más alta, y que alguien lo confundió con un suspenso. Pero eso no está demostrado.",
+  "s": 45.499,
+  "e": 53.978
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Ojo: hay quien dice que en su colegio el seis era la nota más alta, y que alguien lo confundió con un suspenso. Pero eso no está demostrado.",
-  "s": 48.671,
-  "e": 57.149
+  "text": "O sea: el genio no suspendía matemáticas. Suspendía francés. ¿Tú también te lo habías creído? Sí o no.",
+  "s": 54.258,
+  "e": 60.615
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: el genio no suspendía matemáticas. Suspendía francés.",
-  "s": 57.429,
-  "e": 62.591
- },
- {
-  "line": 10,
-  "who": "VECINO",
-  "text": "¿Tú también te lo habías creído? Dime sí o no.",
-  "s": 62.871,
-  "e": 65.386
- },
- {
-  "line": 11,
-  "who": "VECINO",
-  "text": "Y esto... no venía en el libro.",
-  "s": 65.666,
-  "e": 67.986
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 60.895,
+  "e": 64.144
  }
 ]

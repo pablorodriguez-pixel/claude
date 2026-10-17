@@ -29,72 +29,6 @@ headline(B.I1, B.J1, '*Arrobas de trigo*', { size: 116, hlT: K.arrobasT, y: 210 
 }
 
 /* ======================================================================
-   K · 1536 · UN COMERCIANTE ESCRIBE DESDE SEVILLA (B.J1 → B.K1)  L6a  + cameo del emú
-   ====================================================================== */
-headline(K.comerciante - 0.35, B.K1, 'Un comerciante, desde *Sevilla*', { size: 84, hlT: K.sevilla });
-{
-  const EMU = K.escribia + 0.05;
-  const c = scene(B.J1, B.K1, t => {
-    setYear(yr, t, K.mil2, K.seisE - K.mil2, 1448, 1536);
-    const up = p(t, K.comerciante - 0.5, 0.3, E.inOutCubic);
-    set(yr, { s: yearPop(t, K.mil2) * lerp(1, 0.4, up) * (1 + (t > K.seisE && t < K.seisE + 0.4 ? 0.14 * (1 - p(t, K.seisE, 0.3)) : 0)), x: lerp(-170, -330, up), y: up * 230, o: t < K.mil2 ? 0 : 1 });
-    yr.style.color = t > K.seisE ? YEL : '#fff';
-    set(gir.d, { y: (1 - p(t, B.J1, 0.6, E.outBack)) * 1000 });
-    const km = pop(t, K.comerciante - 0.05, 0.45);
-    set(mer.d, { s: km, y: wobble(t, 0.6, 3), o: t < K.comerciante - 0.05 ? 0 : 1 });
-    const writing = t > K.escribia && t < K.sevilla + 0.3;
-    face(mer, t, { look: writing ? [-5, 7] : t > K.sevilla ? [7, -2] : [3, 0], brow: t > K.sevilla ? -6 : 0, seed: 1.1 });
-    set(desk, { y: (1 - p(t, K.comerciante, 0.35, E.outBack)) * 400, o: t < K.comerciante ? 0 : 1 });
-    lt.textContent = typeText('Sevilla, 1536 —', t, K.escribia, 18);
-    set(qw, { x: writing ? Math.sin(t * 26) * 14 + clamp((t - K.escribia) / 0.9) * 200 : 0, y: writing ? Math.cos(t * 26) * 8 : 0, r: writing ? Math.sin(t * 20) * 8 : 0, o: t < K.comerciante + 0.2 ? 0 : 1 });
-    popA(chS, t, K.sevilla, { r: -4 });
-    set(arS, { o: t > K.sevilla + 0.1 ? 1 : 0 });
-    // cameo del emú: asoma tras la Giralda y mira a cámara
-    const ke = t < EMU ? 0 : t < EMU + 0.75 ? p(t, EMU, 0.14, E.outBack) : 1 - p(t, EMU + 0.75, 0.14, E.inCubic);
-    set(emu.d, { x: -ke * 170, r: -ke * 10, o: ke > 0.01 ? 1 : 0 });
-    face(emu, t, { look: [0, 0], bL: 18, bR: 26, blink: false, half: false });
-  }, { clip: true });
-  sceneBg(c, { background: '#EBD6B4', backgroundImage: 'radial-gradient(circle at 70% 30%, rgba(255,200,90,.35), rgba(255,200,90,0) 50%)' });
-  const sky = box(c, 0, 0, 1080, 1920, { zIndex: 1 }); sky.innerHTML = `<svg width="1080" height="1920"><circle cx="820" cy="430" r="120" fill="#F7C36A" stroke="${INK}" stroke-width="5"/><circle cx="820" cy="430" r="120" fill="url(#hA)" opacity=".3"/><path d="M0,1180 Q300,1120 540,1160 T1080,1140 L1080,1400 L0,1400 Z" fill="#D9B88A" stroke="${INK}" stroke-width="5"/></svg>`;
-  const emu = mkEmuF(c, [730, 400, 300, 450]); emu.d.style.zIndex = 2;
-  const gir = mk(c, [700, 330, 290, 967], giraldaInner(), '0 0 300 1000', 'gir'); gir.d.style.zIndex = 3;
-  const mer = mk(c, [250, 580, 400, 511], merchantInner(22, 'beret'), '0 0 360 460', 'bust'); mer.d.style.zIndex = 5;
-  const desk = box(c, 300, 1000, 520, 200, { zIndex: 7 });
-  desk.innerHTML = `<svg width="520" height="200" style="overflow:visible">${cut('<rect x="0" y="60" width="520" height="140"/>')}<rect x="0" y="60" width="520" height="140" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="0" y="60" width="520" height="140" fill="url(#hW)" opacity=".3"/><rect x="0" y="60" width="520" height="22" fill="#8b5a3a" stroke="${INK}" stroke-width="4"/><rect x="60" y="-30" width="400" height="100" fill="#FBF6EA" stroke="${INK}" stroke-width="4" transform="rotate(-3 260 20)"/></svg>`;
-  const lt = el('div', desk, { left: '80px', top: '-12px', fontFamily: 'Instrument', fontStyle: 'italic', fontSize: '46px', color: INK, whiteSpace: 'nowrap', transform: 'rotate(-3deg)' }, '');
-  const qw = box(desk, 90, -340, 100, 350, { zIndex: 3 }); qw.innerHTML = svgW(quillInner(), '0 0 120 420');
-  const yr = bigYear(c, 380, 1448);
-  const chS = chip(c, 600, 1230, 'Sevilla', { size: 54, bg: INK, color: YEL, z: 30 });
-  const arS = box(c, 0, 0, 1080, 1920, { zIndex: 29 }); arS.innerHTML = arrowSvg('M800,1230 Q860,1170 840,1100', PINK, 9);
-}
-
-/* ======================================================================
-   L · PARA CONTAR VINO (B.K1 → B.L1)  L6b
-   ====================================================================== */
-headline(B.K1, K.contar - 0.4, 'Usando *la arroba*…', { size: 100, hlT: K.arroba6 });
-headline(K.contar - 0.4, B.L1, '…para *contar vino*', { size: 104, hlT: K.contar });
-{
-  const MK = [], NB = [];
-  const c = scene(B.K1, B.L1, t => {
-    BR.forEach((b, i) => set(b.d, { y: (1 - p(t, B.K1 + i * 0.08, 0.4, E.outBack)) * 700, r: wobble(t, 0.4, 0.6, i) }));
-    MK.forEach((m, i) => { const t0 = K.arroba6 + i * 0.12; set(m, { s: t < t0 ? 0 : lerp(2.2, 1, p(t, t0, 0.16, E.outCubic)), r: -10 + i * 5, o: t < t0 ? 0 : 1 }); });
-    NB.forEach((n, i) => popA(n, t, K.contar + i * 0.14, { r: -6 + i * 4 }));
-    set(merS.d, { y: wobble(t, 0.6, 3) });
-    face(merS, t, { look: [6, 2], brow: t > K.contar ? -6 : 0, seed: 2 });
-  });
-  sceneBg(c, { background: '#D8BC94', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.12) 0 4px, transparent 4px 70px), repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 4px, transparent 4px 140px)' });
-  box(c, 0, 0, 1080, 1920, { background: 'linear-gradient(rgba(0,0,0,0) 45%, rgba(60,30,20,.45) 100%)', zIndex: 0 });
-  const merS = mk(c, [70, 520, 300, 383], merchantInner(22, 'beret'), '0 0 360 460', 'bust'); merS.d.style.zIndex = 2;
-  const BR = [mk(c, [320, 840, 250, 288], barrelInner(), '0 0 260 300', 'br'), mk(c, [580, 840, 250, 288], barrelInner(), '0 0 260 300', 'br'), mk(c, [450, 560, 250, 288], barrelInner(), '0 0 260 300', 'br'), mk(c, [800, 800, 150, 255], amphoraInner(), '0 0 200 340', 'am')];
-  BR.forEach(b => b.d.style.zIndex = 4); BR[2].d.style.zIndex = 3;
-  [[445, 950], [705, 950], [575, 670], [875, 960]].forEach(([x, y], i) => {
-    MK.push(el('div', c, { left: px(x - 60), top: px(y - 70), width: '120px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: px(i === 3 ? 90 : 130), lineHeight: 1, color: '#F4ECDA', textShadow: `4px 4px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, zIndex: 8 }, '@'));
-    NB.push(el('div', c, { left: px(x - 44), top: px(y - (i === 2 ? 240 : 250) + (i === 3 ? 60 : 0)), width: '88px', height: '88px', borderRadius: '50%', background: YEL, border: `5px solid ${INK}`, boxShadow: `5px 5px 0 ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '58px', lineHeight: '78px', textAlign: 'center', color: INK, zIndex: 9 }, '' + (i + 1)));
-  });
-  chip(c, 80, 940, 'vino', { size: 48, bg: WINE, color: '#fff', z: 10 });
-}
-
-/* ======================================================================
    M · SOBREVIVIÓ EN EL COMERCIO (B.L1 → B.M1)  L7a — la @ con cara
    ====================================================================== */
 headline(B.L1, K.comercio - 0.2, 'El símbolo *sobrevivió*', { size: 96, hlT: K.sobrevivio });
@@ -178,9 +112,14 @@ headline(K.mando - 0.1, B.O1, 'Mandó el *primer correo electrónico*', { size: 
     set(env, { x: lerp(0, 420, E.inOutCubic(ke)), y: lerp(0, -260, ke) - Math.sin(ke * Math.PI) * 120, r: lerp(-10, 14, ke) + Math.sin(t * 12) * 4, s: t < K.mando ? 0 : lerp(0.6, 1.1, ke), o: t < K.mando ? 0 : 1 });
     TR.forEach((d, i) => { const kk = clamp(ke - 0.06 * (i + 1)); set(d, { x: lerp(0, 420, E.inOutCubic(kk)) + 80, y: lerp(0, -260, kk) - Math.sin(kk * Math.PI) * 120 + 60, o: t > K.mando + 0.1 && ke < 1 ? 0.6 - i * 0.15 : 0 }); });
     popA(ch1, t, K.primer + 0.05, { r: -4 });
+    // cameo del emú: asoma tras el último armario y mira a cámara ~0,6 s
+    const EMU = K.ray + 0.75; const kE = t < EMU ? 0 : t < EMU + 0.6 ? p(t, EMU, 0.12, E.outBack) : 1 - p(t, EMU + 0.6, 0.12, E.inCubic);
+    set(emu.d, { y: -kE * 250, r: -kE * 6, o: kE > 0.01 ? 1 : 0 });
+    face(emu, t, { look: [0, 0], bL: 18, bR: 26, blink: false, half: false });
   });
   sceneBg(c, { background: '#C9C2B0', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.07) 0 3px, transparent 3px 60px)' });
-  const room = box(c, 0, 0, 1080, 1920, { zIndex: 1 }); room.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${computerSvg(90, 560)}<rect x="0" y="1200" width="1080" height="300" fill="#9a907c" stroke="${INK}" stroke-width="5"/></svg>`;
+  const emu = mkEmuF(c, [420, 600, 260, 390]); emu.d.style.zIndex = 1;
+  const room = box(c, 0, 0, 1080, 1920, { zIndex: 2 }); room.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${computerSvg(90, 560)}<rect x="0" y="1200" width="1080" height="300" fill="#9a907c" stroke="${INK}" stroke-width="5"/></svg>`;
   const REELS = [...room.querySelectorAll('.reel')], LAMPS = [...room.querySelectorAll('.lamp')];
   const eng = mk(c, [520, 720, 430, 549], engineerInner(), '0 0 360 460', 'bust'); eng.d.style.zIndex = 4;
   const env = box(c, 240, 760, 210, 140, { zIndex: 8 }); env.innerHTML = svgW(envInner(), '0 0 300 200');
@@ -314,79 +253,96 @@ headline(B.S1, B.T1, 'O sea: *tu correo*…', { size: 108, hlT: K.tu });
 }
 
 /* ======================================================================
-   U · GOLPE DE COLOR ROSA: TU CORREO LLEVA DENTRO UN SACO DE 11 KG (B.T1 → B.U1)  L10b
+   U · GOLPE DE COLOR ROSA + CTA: SACO DE 11 KG · ¿LO SABÍAS? SÍ O NO (B.T1 → B.U1)  L8b
    ====================================================================== */
 colorHit(B.T1, B.U1, PINK, c => {
   const l1 = el('div', c, { left: 0, top: '200px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '88px', lineHeight: 1.05, color: INK, zIndex: 5 }, 'Tu correo<br>lleva dentro…');
-  const at = el('div', c, { left: '310px', top: '370px', width: '460px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '400px', lineHeight: '420px', color: '#fff', textShadow: `13px 13px 0 ${INK}, -5px -5px 0 ${INK}, 5px -5px 0 ${INK}, -5px 5px 0 ${INK}`, zIndex: 6 }, '@');
-  const sw = box(c, 540, 700, 0, 0, { zIndex: 5 }); // pivote del péndulo
-  const rope = box(sw, -5, 0, 10, 170, { background: INK, borderRadius: '5px' });
+  const q1 = el('div', c, { left: 0, top: '210px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '130px', lineHeight: 1, color: '#fff', textShadow: `7px 7px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 9 }, '¿Lo sabías?');
+  const grp = box(c, 0, 0, 1080, 1920, { zIndex: 6, transformOrigin: '540px 380px' });
+  const at = el('div', grp, { left: '310px', top: '370px', width: '460px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '400px', lineHeight: '420px', color: '#fff', textShadow: `13px 13px 0 ${INK}, -5px -5px 0 ${INK}, 5px -5px 0 ${INK}, -5px 5px 0 ${INK}`, zIndex: 6 }, '@');
+  const sw = box(grp, 540, 700, 0, 0, { zIndex: 5 });
+  box(sw, -5, 0, 10, 170, { background: INK, borderRadius: '5px' });
   const sk = mkSack(sw, [-150, 150, 300, 350], '11 kg', { fs: 50 });
-  const big = el('div', c, { left: 0, top: '1200px', width: '1080px', textAlign: 'center', fontFamily: 'Rye', fontSize: '96px', lineHeight: 1, color: '#fff', textShadow: `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 8, whiteSpace: 'nowrap' }, 'UN SACO DE 11 KG');
-  void rope;
+  const big = el('div', grp, { left: 0, top: '1200px', width: '1080px', textAlign: 'center', fontFamily: 'Rye', fontSize: '96px', lineHeight: 1, color: '#fff', textShadow: `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`, zIndex: 8, whiteSpace: 'nowrap' }, 'UN SACO DE 11 KG');
+  const mkB = (x, txt, col) => el('div', c, { left: px(x), top: '980px', width: '400px', height: '250px', borderRadius: '60px', background: col, border: `9px solid ${INK}`, boxShadow: `0 16px 0 ${INK}, 12px 22px 0 ${SH}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '170px', lineHeight: '230px', textAlign: 'center', color: INK, zIndex: 30 }, txt);
+  const bS = mkB(90, 'SÍ', YEL), bN = mkB(570, 'NO', '#fff');
+  const hand = box(c, 0, 1130, 200, 230, { zIndex: 40 }); hand.innerHTML = `<svg viewBox="-110 -60 220 260" width="200" height="230" style="overflow:visible">${gloveHand(0, 0, 0, 1.2)}</svg>`;
   return t => {
-    popA(l1, t, K.lleva - 0.05, { rise: 30 });
-    set(at, { s: t < K.lleva ? 1 : 1 + 0.05 * Math.sin((t - K.lleva) * 6), r: -4, o: 1 });
+    const kq = p(t, K.lo - 0.1, 0.35, E.inOutCubic);
+    popA(l1, t, K.lleva - 0.05, { rise: 30 }); if (t > K.lo - 0.1) l1.style.opacity = 1 - kq;
+    const kq2 = p(t, K.lo, 0.25, E.outBack); set(q1, { s: t < K.lo ? 0 : lerp(1.6, 1, kq2), r: -3, o: t < K.lo ? 0 : 1 });
+    set(grp, { s: lerp(1, 0.55, kq), y: kq * 40 });
+    set(at, { s: 1 + 0.05 * Math.sin((t - K.lleva) * 6), r: -4, o: 1 });
     const kd = p(t, K.saco - 0.1, 0.5, E.outBounce);
     const swing = t < K.saco ? 0 : 16 * Math.exp(-(t - K.saco) * 1.2) * Math.sin((t - K.saco) * 5);
     set(sw, { y: lerp(-700, 0, kd), r: swing, o: t < K.saco - 0.12 ? 0 : 1 });
-    const kb = p(t, K.once2, 0.2, E.outBack); set(big, { s: t < K.once2 ? 0 : lerp(1.6, 1, kb), r: -3, o: t < K.once2 ? 0 : 1 });
+    const kb = p(t, K.once2, 0.2, E.outBack); set(big, { s: t < K.once2 ? 0 : lerp(1.6, 1, kb), r: -3, o: t < K.once2 ? 0 : 1 - kq });
     big.style.textShadow = (glitch(t, K.kilos2, 0.3) ? glitch(t, K.kilos2, 0.3) + ', ' : '') + `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`;
     set(sk.d, { r: wobble(t, 0.8, 2) });
+    const pS = t > K.si && t < K.si + 0.2, pN = t > K.no && t < K.no + 0.2;
+    set(bS, { s: pop(t, K.sabias, 0.4) * (pS ? 0.88 : 1 + 0.03 * Math.sin(t * 6)), r: -3, o: t < K.sabias ? 0 : 1 });
+    set(bN, { s: pop(t, K.sabias + 0.1, 0.4) * (pN ? 0.88 : 1 + 0.03 * Math.sin(t * 6 + 1)), r: 3, o: t < K.sabias + 0.1 ? 0 : 1 });
+    const hx = t < K.no - 0.2 ? 300 : lerp(300, 740, p(t, K.no - 0.2, 0.2, E.inOutCubic));
+    set(hand, { x: hx, y: (pS || pN ? 20 : 0) + wobble(t, 1, 6), o: t > K.si - 0.25 ? 1 : 0 });
   };
 });
 
 /* ======================================================================
-   V · CTA: ¿LO SABÍAS? DIME SÍ O NO (B.U1 → B.V1)  L11 — botones gigantes
+   MARCA AL FINAL: EL VECINO EN SU BALCÓN (B.U1 → B.W1)  L9a
    ====================================================================== */
-headline(B.U1, K.dime - 0.1, '¿Lo *sabías*?', { size: 120, hlT: K.sabias, y: 200 });
-headline(K.dime - 0.1, B.V1, 'Dime *sí o no*', { size: 120, hlT: K.si, y: 200 });
 {
-  const CM = [];
-  const c = scene(B.U1, B.V1, t => {
-    set(vec.d, { y: wobble(t, 0.5, 3), s: 1 + 0.03 * p(t, B.U1, 2.4, E.linear) });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t < K.dime ? [0, 0] : [0, 8], bL: t > K.lo && t < K.dime ? 12 : 2, bR: t > K.lo && t < K.dime ? 16 : 6, noCup: true, fan: wobble(t, 0.8, 6), seed: 2 });
-    const pS = t > K.si && t < K.si + 0.2, pN = t > K.no && t < K.no + 0.2;
-    set(bS, { s: pop(t, K.dime - 0.05, 0.4) * (pS ? 0.9 : 1 + 0.03 * Math.sin(t * 6)), r: -3, o: t < K.dime - 0.05 ? 0 : 1 });
-    set(bN, { s: pop(t, K.dime + 0.05, 0.4) * (pN ? 0.9 : 1 + 0.03 * Math.sin(t * 6 + 1)), r: 3, o: t < K.dime + 0.05 ? 0 : 1 });
-    const hx = t < K.si ? 300 : t < K.no ? 300 : lerp(300, 740, p(t, K.si + 0.15, 0.25, E.inOutCubic));
-    set(hand, { x: hx, y: (pS || pN ? 20 : 0) + wobble(t, 1, 6), o: t > K.si - 0.25 ? 1 : 0 });
-    CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
+  const T0 = B.U1, T1 = B.W1;
+  const c = scene(T0, T1, t => {
+    const ex = p(t, T1 - 0.2, 0.2, E.inCubic);
+    set(cam, { s: lerp(1.04 + 0.04 * p(t, T0, T1 - T0, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
+    const lean = p(t, T1 - 0.45, 0.4, E.inOutCubic);
+    set(vec.d, { s: 1 + lean * 0.07, y: wobble(t, 0.5, 3) - lean * 20 });
+    const fanFast = t > K.soy && t < K.soy + 0.6;
+    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > K.vecino + 0.5 ? [-4, 3] : [0, 0], bL: fanFast ? 8 : t > K.vecino + 0.5 ? 6 : 0, bR: fanFast ? 8 : t > K.vecino + 0.5 ? 12 : 0, fan: fanFast ? Math.sin(t * 22) * 14 : wobble(t, 0.9, 6), seed: 0.3 });
+    popA(tag, t, K.vecino, { r: -5 });
+    const ks = p(t, T0 + 0.05, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: Math.sin(t * 2.4) * 1.5 * (1 - p(t, T0, 2)) + (1 - ks) * 8, o: 1 });
+    sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
+    pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
   }, { clip: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, #F4CFDA 0 30px, #F9E3EA 30px 60px)` });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
-  const vec = mkVec(c, [470, 350, 380, 470]);
-  const mkB = (x, txt, col) => el('div', c, { left: px(x), top: '940px', width: '400px', height: '250px', borderRadius: '60px', background: col, border: `9px solid ${INK}`, boxShadow: `0 16px 0 ${INK}, 12px 22px 0 ${SH}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '170px', lineHeight: '230px', textAlign: 'center', color: INK, zIndex: 30 }, txt);
-  const bS = mkB(90, 'SÍ', YEL), bN = mkB(570, 'NO', '#fff');
-  const hand = box(c, 0, 1090, 200, 230, { zIndex: 40 }); hand.innerHTML = `<svg viewBox="-110 -60 220 260" width="200" height="230" style="overflow:visible">${gloveHand(0, 0, 0, 1.2)}</svg>`;
-  [['FAR', '@lola_lee', '¡SÍ! Flipando', K.sabias, 30, 430], ['SOL', '@pepe_tipos', 'No, ya lo sabía', K.dime + 0.3, 50, 570], ['MEREDITH', '@marta.vale', 'Sí, ni idea', K.si + 0.1, 30, 710]].forEach(m => {
-    const e = box(c, m[4], m[5], 400, 96, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '48px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 35 });
-    avatar(e, 8, 6, 78, m[0], { bw: 3 });
-    el('div', e, { left: '100px', top: '8px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '24px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
-    el('div', e, { left: '100px', top: '36px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '36px', color: INK, whiteSpace: 'nowrap' }, m[2]);
-    CM.push({ e, t: m[3] });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
+  sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 116px)' });
+  const win = box(cam, 0, 0, 1080, 1920); {
+    const arch = 'M160,1300 L160,640 Q160,450 540,440 Q920,450 920,640 L920,1300 Z';
+    let lace = ''; for (let y = 560; y < 1250; y += 26) lace += `<path d="M${f1(176 + Math.sin(y * 0.05) * 6)},${y} q22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/><path d="M${f1(904 - Math.sin(y * 0.05) * 6)},${y} q-22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/>`;
+    win.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">
+    <rect x="12" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="928" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/>
+    ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(k => `<path d="M24,${560 + k * 50} h116 M940,${560 + k * 50} h116" stroke="${INK}" stroke-width="3"/>`).join('')}
+    <path d="${arch}" fill="#fff" stroke="#fff" stroke-width="40"/><path d="${arch}" fill="#3a2a1e" stroke="${INK}" stroke-width="8"/><path d="${arch}" fill="url(#hW)" opacity=".25"/>
+    <path d="M168,600 C230,700 230,1100 200,1290 L168,1290 Z M912,600 C850,700 850,1100 880,1290 L912,1290 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="3"/>${lace}</svg>`;
+  }
+  const vec = mkVec(cam, [190, 430, 700, 867]);
+  const rail = box(cam, 0, 0, 1080, 1920); {
+    let bars = ''; for (let x = 140; x <= 940; x += 40) bars += `<path d="M${x},1206 V1330" stroke="${INK}" stroke-width="9"/><circle cx="${x}" cy="1268" r="9" fill="none" stroke="${INK}" stroke-width="4"/>`;
+    rail.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="110" y="1180" width="860" height="30" rx="8" fill="${INK}"/>${bars}<rect x="110" y="1322" width="860" height="40" fill="${INK}"/><rect x="80" y="1352" width="920" height="40" fill="#cdb48a" stroke="${INK}" stroke-width="5"/></svg>`;
+  }
+  const pots = [];
+  [[130, 1040], [760, 1040]].forEach(q => {
+    const d = box(cam, q[0], q[1], 200, 160); let fl = '';
+    [[40, 40], [80, 20], [120, 34], [160, 48], [70, 60], [130, 64]].forEach((f, j) => { fl += `<g><path d="M${f[0]},${f[1] + 30} L100,120" stroke="#3c5a2a" stroke-width="5"/><circle cx="${f[0]}" cy="${f[1]}" r="24" fill="${j % 2 ? RED : PINK}" stroke="${INK}" stroke-width="3.5"/><circle cx="${f[0] - 8}" cy="${f[1] - 6}" r="9" fill="#fff" opacity=".45"/><circle cx="${f[0]}" cy="${f[1]}" r="5" fill="${YEL}" stroke="${INK}" stroke-width="2"/></g>`; });
+    [[30, 96], [170, 96], [60, 110], [140, 110]].forEach(l => fl += `<ellipse cx="${l[0]}" cy="${l[1]}" rx="30" ry="14" fill="#7a9a52" stroke="${INK}" stroke-width="3" transform="rotate(${l[0] < 100 ? -20 : 20} ${l[0]} ${l[1]})"/>`);
+    d.innerHTML = `<svg viewBox="0 0 200 160" width="200" height="160" style="overflow:visible">${fl}${cut('<path d="M30,110 L170,110 L156,160 L44,160 Z"/>', 5, 6)}<path d="M30,110 L170,110 L156,160 L44,160 Z" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M30,110 L170,110 L156,160 L44,160 Z" fill="url(#hA)" opacity=".5"/><rect x="24" y="104" width="152" height="16" rx="4" fill="#C1663A" stroke="${INK}" stroke-width="4"/></svg>`;
+    pots.push(d);
   });
+  const tag = chip(cam, 640, 610, 'tu vecino', { size: 44, bg: PINK });
+  const sign = box(cam, 120, 150, 840, 270, { zIndex: 40 });
+  sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
+  const sl1 = el('div', sign, { left: '0', top: '90px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
+  const sw = []; const iS = F('soy tu vecino');
+  [['Soy', 0], ['tu', 1], ['vecino', 2]].forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.style.position = 'relative'; s.innerHTML = q[0] === 'vecino' ? `<i>${q[0]}…</i>` : q[0]; sl1.appendChild(s); sw.push({ e: s, t: W[iS + q[1]].s }); });
 }
 
 /* ======================================================================
-   W · Y ESTO… NO VENÍA EN EL LIBRO (B.V1 → B.W2)  L12
+   W · …Y ESTO NO VENÍA EN EL LIBRO (B.W1 → fin) — libro que se cierra y bucle al fotograma 1
    ====================================================================== */
-headline(B.V1, B.W1, 'Y esto…', { size: 130, color: YEL, y: 200, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` });
-headline(B.W1, B.W2, '…no venía en el *libro.*', { size: 86, hlT: K.libro });
+headline(B.W1, LOOP0, 'Y esto no venía en el *libro.*', { size: 86, hlT: K.libro });
 {
-  const c = scene(B.V1, B.W1, t => {
-    const k = p(t, B.V1, B.W1 - B.V1, E.inOutCubic);
-    set(vec.d, { s: 1 + 0.22 * k, y: k * 30, r: -k * 4 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO') * 0.6, look: [0, 1], bL: 10, bR: 14, fan: -30, half: true, blink: false });
-    vec.hMouth.setAttribute('transform', 'translate(64,-34) rotate(-20 206 318)'); vec.hMouth.style.opacity = 1; vec.cup.style.opacity = 0;
-  }, { cut: true, clip: true });
-  sceneBg(c, { background: INK });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 46%, rgba(255,230,180,.35), rgba(0,0,0,0) 55%)', zIndex: 1 });
-  const vec = mkVec(c, [-30, 300, 1140, 1411]); vec.d.style.zIndex = 2; vec.d.style.transformOrigin = '540px 650px';
-}
-{
-  const TC = K.libro - 0.32;
-  const c = scene(B.W1, B.W2, t => {
+  const TC = K.libro - 0.28;
+  const c = scene(B.W1, 999, t => {
     const k = p(t, TC, 0.3, E.inCubic); const sx = 1 - 2 * k;
     flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
     pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
@@ -395,6 +351,7 @@ headline(B.W1, B.W2, '…no venía en el *libro.*', { size: 86, hlT: K.libro });
     sortFace(stand, t, { look: t > TC - 0.1 ? [6, -6] : [-3, 2], open: t > TC - 0.1 ? 0.6 : 0, bL: 12, bR: 12, aL: t > TC - 0.1 ? 90 : 10, aR: t > TC - 0.1 ? 90 : 10, seed: 1 }); set(stand.d, { y: wobble(t, 1, 3) });
     set(bookW, { s: 1.25 * pop(t, B.W1 + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
     stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
+    epl.style.opacity = closed ? 1 : 0;
     lets.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1) * 150 * kf, y: -kf * 220 + kf * kf * 170, r: Math.sin(t * 4 + i) * 40, o: closed ? 1 : 0 }); });
   });
   const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
@@ -407,27 +364,9 @@ headline(B.W1, B.W2, '…no venía en el *libro.*', { size: 86, hlT: K.libro });
    <g class="flap">${cut('<rect x="530" y="630" width="440" height="570" rx="14"/>')}<rect x="530" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><g class="pageF"><rect x="540" y="646" width="410" height="536" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/>${lines2}</g>
     <g class="coverF"><rect x="540" y="630" width="430" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="566" y="656" width="378" height="518" rx="8" fill="none" stroke="#c9a24a" stroke-width="4"/>
     <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
+  const epl = el('div', bookW, { left: '130px', top: '1090px', width: '400px', textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '30px', color: '#fff', background: INK, borderRadius: '30px', padding: '6px 0 8px', zIndex: 4 }, 'Ep. 11 · La @ es española');
   const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
   const stand = mkSort(bookW, [640, 520, 220, 345], '@', { fs: 190 }); stand.d.style.zIndex = 2;
   const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '500px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
   const lets = ['@', '@', '@'].map(ch => el('div', bookW, { left: '510px', top: '560px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '80px', color: INK, textShadow: `3px 3px 0 #fff`, zIndex: 3 }, ch));
-}
-
-/* ======================================================================
-   X · TARJETA FINAL (B.W2 → fin) — logo con El Vecino en su óvalo
-   ====================================================================== */
-{
-  const T = B.W2;
-  const c = scene(T, 999, t => {
-    set(lt, { s: pop(t, T + 0.25, 0.45), o: t < T + 0.25 ? 0 : 1 }); paint(lhl, t, T + 0.55, 0.4);
-    popA(ttl, t, T + 0.7, { r: -1 }); popA(src, t, T + 0.95, { rise: 30 });
-    [so, sk].forEach((f, i) => { const t0 = T + 1.15 + i * 0.15; set(f.d, { x: (1 - p(t, t0, 0.45, E.outBack)) * (i ? 400 : -400), y: wobble(t, 0.6, 4, i), r: (i ? -8 : 8) + wobble(t, 0.5, 2, i) }); sortFace(f, t, { look: [i ? -5 : 5, -3], aL: i ? 10 : 60 + Math.sin(t * 6) * 20, aR: i ? 60 + Math.sin(t * 6) * 20 : 10, seed: i }); });
-  });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, rgba(244,207,218,.55) 0 30px, rgba(249,227,234,.55) 30px 60px)` });
-  const lt = box(c, 40, 840, 1000, 240, { textAlign: 'center', zIndex: 3 });
-  lt.innerHTML = `<div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:92px;line-height:1;color:${INK}">esto no venía</div><div style="font-family:Playfair;font-weight:900;font-size:104px;line-height:1.1;color:${INK}">en el ${hlSpan('libro', 'lhl')}</div>`;
-  const lhl = lt.querySelector('.lhl');
-  const ttl = el('div', c, { left: '90px', top: '1090px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '56px', color: '#fff', background: INK, padding: '14px 10px 18px', borderRadius: '14px', boxShadow: `7px 7px 0 ${PINK}`, zIndex: 3 }, 'Ep. 11 · La @ es española');
-  const src = el('div', c, { left: '90px', top: '1215px', width: '900px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '28px', lineHeight: 1.3, color: INK, zIndex: 3 }, 'Fuentes: registro de arrobas de trigo (Aragón, 1448) · comerciante en Sevilla (1536) · Ray Tomlinson, primer correo electrónico (1971)');
-  const so = mkSort(c, [50, 440, 180, 282], '@', { fs: 190 }), sk = mkSort(c, [830, 420, 180, 282], '@', { fs: 190 });
 }

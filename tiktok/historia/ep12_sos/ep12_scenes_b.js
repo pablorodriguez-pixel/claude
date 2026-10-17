@@ -16,7 +16,6 @@ function porthole(pa, x, y, sz, tilt = 0) {
 /* ======================================================================
    G1 · ¿POR QUÉ ESAS LETRAS? POR CÓMO SUENAN (T_G1 – tres)  L5a
    ====================================================================== */
-const T_G2 = S('tresA') - 0.12;
 headline(T_G1, S('como') - 0.25, '¿Por qué *esas letras*?', { size: 88 });
 headline(S('como') - 0.25, T_G2, 'Por cómo *suenan*', { size: 110, hlT: S('suenan') });
 {
@@ -41,7 +40,6 @@ headline(S('como') - 0.25, T_G2, 'Por cómo *suenan*', { size: 110, hlT: S('suen
 /* ======================================================================
    G2 · ··· −−− ··· GIGANTE AL RITMO DE LA VOZ (T_G2 – imposible)  L5b
    ====================================================================== */
-const T_G3 = S('imposible') - 0.1;
 headline(T_G2, T_G3, 'Tres *puntos*, tres *rayas*, tres *puntos*', { size: 74, color: '#FBF6EA', hlc: RED });
 const MORSE_T = [0, 1, 2].map(k => tri('pA', k)).concat([0, 1, 2].map(k => tri('rB', k)), [0, 1, 2].map(k => tri('pC', k)));
 {
@@ -63,7 +61,6 @@ const MORSE_T = [0, 1, 2].map(k => tri('pA', k)).concat([0, 1, 2].map(k => tri('
 /* ======================================================================
    G3 · IMPOSIBLE DE CONFUNDIR (T_G3 – aunque)  L5c
    ====================================================================== */
-const T_G4 = S('aunque') - 0.08;
 headline(T_G3, T_G4, 'Imposible de *confundir*', { size: 100, hlT: S('confundir') });
 {
   const ROWS = [];
@@ -86,10 +83,9 @@ headline(T_G3, T_G4, 'Imposible de *confundir*', { size: 100, hlT: S('confundir'
 /* ======================================================================
    G4 · AUNQUE ESTÉS MUERTO DE MIEDO (T_G4 – lo de)  L5d
    ====================================================================== */
-const T_H1 = S('lode') - 0.12;
-headline(T_G4, T_H1, 'aunque estés *muerto de miedo*', { size: 86, hlT: S('muerto') });
+headline(T_G4, T_I, 'aunque estés *muerto de miedo*', { size: 86, hlT: S('muerto') });
 {
-  const c = scene(T_G4, T_H1, t => {
+  const c = scene(T_G4, T_I, t => {
     const fear = p(t, T_G4, 0.4);
     const tr = Math.sin(t * 47) * 6 * fear;
     set(cam, { r: Math.sin(t * 1.6) * 3, s: 1.03 });
@@ -120,7 +116,6 @@ headline(T_G4, T_H1, 'aunque estés *muerto de miedo*', { size: 86, hlT: S('muer
 /* ======================================================================
    H1 · «SAVE OUR SOULS» + PARCHE «SALVAD NUESTRAS ALMAS» (T_H1 – se lo)  L6a
    ====================================================================== */
-const T_H2 = S('selo') - 0.1;
 headline(T_H1, S('salvad') - 0.1, 'Lo de *Save Our Souls*', { size: 92, hlT: S('save6') });
 headline(S('salvad') - 0.1, T_H2, 'salvad nuestras *almas*', { size: 96, hlT: S('almas') });
 function sosCard(c) {
@@ -152,7 +147,6 @@ function sosCard(c) {
 /* ======================================================================
    H2 · GOLPE DE COLOR ROSA: SE LO INVENTÓ LA GENTE DESPUÉS (T_H2 – para que)  L6b
    ====================================================================== */
-const T_H3 = S('para6') - 0.1;
 colorHit(T_H2, T_H3, PINK, c => {
   const l1 = el('div', c, { left: 0, top: '260px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '110px', color: INK, zIndex: 5 }, 'Se lo inventó');
   const l2 = el('div', c, { left: 0, top: '400px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: '#fff', textShadow: `8px 8px 0 ${INK}, -4px -4px 0 ${INK}, 4px -4px 0 ${INK}, -4px 4px 0 ${INK}`, zIndex: 5 }, 'la gente');
@@ -171,10 +165,9 @@ colorHit(T_H2, T_H3, PINK, c => {
 /* ======================================================================
    H3 · PARA QUE TUVIERA SENTIDO (T_H3 – mil novecientos doce)  L6c
    ====================================================================== */
-const T_I = S('mil7') - 0.22;
-headline(T_H3, T_I, 'Para que *tuviera sentido*', { size: 96 });
+headline(T_H3, T_J, 'Para que *tuviera sentido*', { size: 96 });
 {
-  const c = scene(T_H3, T_I, t => {
+  const c = scene(T_H3, T_J, t => {
     set(cd.pp.wrap, { r: -1.5 });
     set(cd.patch, { y: 120, r: -4 + wobble(t, 0.5, 0.6), s: 1 });
     stampA(inv, t, T_H3 + 0.25, -8);
@@ -192,14 +185,13 @@ headline(T_H3, T_I, 'Para que *tuviera sentido*', { size: 96 });
 /* ======================================================================
    I · 1912, CABINA DE RADIO DEL TITANIC: CQD… y SOS (T_I – ojo)  L7
    ====================================================================== */
-const T_J = S('ojo') - 0.1;
 headline(S('radio') - 0.12, S('luego') - 0.25, 'El radiotelegrafista manda *CQD*…', { size: 78, hlT: S('cqd7') });
 headline(S('luego') - 0.25, S('tambien') - 0.1, '…por consejo de su *compañero*', { size: 82, hlT: S('companero') });
-headline(S('tambien') - 0.1, T_J, '…y también *SOS*', { size: 110, hlT: S('sos7') });
+headline(S('tambien') - 0.1, T_H1, '…y también *SOS*', { size: 110, hlT: S('sos7') });
 {
   const tC = S('cqd7'), tS = S('sos7');
-  const c = scene(T_I, T_J, t => {
-    set(cam, { s: 1 + 0.05 * p(t, T_I, T_J - T_I, E.linear) });
+  const c = scene(T_I, T_H1, t => {
+    set(cam, { s: 1 + 0.05 * p(t, T_I, T_H1 - T_I, E.linear) });
         { const t0 = S('doce') - 0.05, k = p(t, t0, 0.18, E.outCubic); set(yr, { s: t < t0 ? 0 : lerp(2.2, 1, k), r: -4, o: t < t0 ? 0 : 1 - p(t, S('radio') - 0.2, 0.2) }); }
     popA(yc, t, S('radio') - 0.1, { r: -4 });
     stampA(bu.d, t, S('titanic7'), 6);
@@ -248,7 +240,6 @@ headline(S('tambien') - 0.1, T_J, '…y también *SOS*', { size: 110, hlT: S('so
 /* ======================================================================
    J1 · ¡OJO! NO FUE EL PRIMER SOS (T_J – pero)  L8a
    ====================================================================== */
-const T_J2 = S('pero8') - 0.1;
 headline(S('ojo') + 0.35, T_J2, 'No fue el *primer SOS*', { size: 100, hlT: S('primer') });
 {
   const c = scene(T_J, T_J2, t => {
@@ -272,7 +263,6 @@ headline(S('ojo') + 0.35, T_J2, 'No fue el *primer SOS*', { size: 100, hlT: S('p
 /* ======================================================================
    J2 · EL TITANIC LO HIZO FAMOSO EN TODO EL MUNDO (T_J2 – o sea)  L8b
    ====================================================================== */
-const T_K = S('osea') - 0.1;
 headline(T_J2, T_K, 'El Titanic lo hizo *famoso*', { size: 96, hlT: S('famoso8') });
 {
   const NP = [];
@@ -300,8 +290,7 @@ headline(T_J2, T_K, 'El Titanic lo hizo *famoso*', { size: 96, hlT: S('famoso8')
 /* ======================================================================
    K · GOLPE DE COLOR AMARILLO — REMATE CITABLE (T_K – ¿te lo…?)  L9
    ====================================================================== */
-const T_L = S('te') - 0.12;
-colorHit(T_K, T_L, YEL, c => {
+colorHit(T_K, T_BAL, YEL, c => {
   const tE = S('eligieron') - 0.1;
   const os = el('div', c, { left: 0, top: '620px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '230px', color: INK, zIndex: 5 }, 'O sea…');
   const a1 = el('div', c, { left: 0, top: '250px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '84px', lineHeight: 1.05, color: INK, zIndex: 5 }, 'La llamada de auxilio');
@@ -312,115 +301,40 @@ colorHit(T_K, T_L, YEL, c => {
   const b2 = el('div', c, { left: 0, top: '420px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '180px', lineHeight: 0.95, color: '#fff', zIndex: 7 }, 'SONABA<br>BIEN');
   const tp = tape(c, 50, 880, '··· −−− ···', { u: 40, h: 120, w: 980, z: 6, bg: '#fff' });
   const notes = [[110, 1060, '♪'], [860, 1040, '♫'], [480, 1070, '♪']].map(q => el('div', c, { left: px(q[0]), top: px(q[1]), fontSize: '110px', color: INK, zIndex: 8 }, q[2]));
+  // CTA en la misma escena: ¿Te lo habías creído? SÍ / NO
+  const tQ = S('te') - 0.12;
+  const qq = el('div', c, { left: 0, top: '640px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '96px', color: INK, zIndex: 9 }, '¿Te lo habías creído?');
+  const btn = (x, txt, bg, col) => el('div', c, { left: px(x), top: '800px', width: '400px', height: '220px', background: bg, color: col, border: `8px solid ${INK}`, borderRadius: '50px', boxShadow: `12px 14px 0 ${INK}`, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '150px', lineHeight: '196px', textAlign: 'center', zIndex: 30 }, txt);
+  const bS = btn(80, 'SÍ', '#7BC67E', INK), bN = btn(530, 'NO', RED, '#fff');
+  const cur = el('div', c, { left: '330px', top: '950px', zIndex: 35 }, `<svg width="80" height="110" viewBox="0 0 80 110"><path d="M8,6 L8,86 L28,68 L42,100 L56,94 L42,62 L68,62 Z" fill="#fff" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/></svg>`);
+  const CM = [['FAR', '@lucia_navega', 'SÍ 😳', S('si')], ['SOL', '@toni.morse', 'No, ya lo sabía', S('no10')]].map((m, i) => {
+    const e = box(c, 120 + i * 40, 1080 + i * 112, 640, 100, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
+    avatar(e, 10, 8, 78, m[0], { bw: 3 });
+    el('div', e, { left: '104px', top: '8px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '24px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
+    el('div', e, { left: '104px', top: '38px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '38px', color: INK, whiteSpace: 'nowrap' }, m[2]);
+    return { e, t: m[3] };
+  });
   return t => {
+    const kq = p(t, tQ, 0.3, E.inOutCubic);
     const out = p(t, tE - 0.15, 0.15);
     set(os, { s: pop(t, S('osea') - 0.05, 0.35) * (1 - p(t, S('llamada') - 0.3, 0.2)), r: -4, o: t < S('osea') - 0.05 ? 0 : 1 });
     popA(a1, t, S('llamada') - 0.35, { rise: 30, o: 1 - out });
     set(a2, { s: pop(t, S('famosa9') - 0.1, 0.35) * (1 - out), r: -2, o: t < S('famosa9') - 0.1 ? 0 : 1 });
     popA(a3, t, S('planeta'), { rise: 30, o: 1 - out });
     set(gl, { s: pop(t, S('famosa9'), 0.4) * (1 - out), r: wobble(t, 0.3, 6), o: t < S('famosa9') ? 0 : 1 }); if (Math.floor(t * 30) % 2 === 0) gl.innerHTML = svgW(globeInner(t * 1.4), '0 0 400 400');
-    popA(b1, t, tE, { rise: 30 });
-    const kb = p(t, S('sonaba') - 0.05, 0.22, E.outBack); set(b2, { s: t < S('sonaba') - 0.05 ? 0 : lerp(1.6, 1, kb), r: -3, o: t < S('sonaba') - 0.05 ? 0 : 1 });
+    popA(b1, t, tE, { rise: 30, o: 1 - kq });
+    const kb = p(t, S('sonaba') - 0.05, 0.22, E.outBack); set(b2, { s: (t < S('sonaba') - 0.05 ? 0 : lerp(1.6, 1, kb)) * lerp(1, 0.62, kq), y: -kq * 210, r: -3, o: t < S('sonaba') - 0.05 ? 0 : 1 });
     b2.style.textShadow = (glitch(t, S('sonaba'), 0.3) ? glitch(t, S('sonaba'), 0.3) + ', ' : '') + `12px 12px 0 ${INK}, -5px -5px 0 ${INK}, 5px -5px 0 ${INK}, -5px 5px 0 ${INK}`;
     const tt = S('porque9');
-    set(tp.wrap, { o: t > tt - 0.1 ? 1 : 0, y: (1 - p(t, tt - 0.1, 0.3, E.outBack)) * 80 });
+    set(tp.wrap, { o: t > tt - 0.1 ? 1 - kq : 0, y: (1 - p(t, tt - 0.1, 0.3, E.outBack)) * 80 });
     tp.syms.forEach((s, i) => set(s, { s: pop(t, tt + i * 0.07, 0.25), o: t < tt + i * 0.07 ? 0 : 1 }));
-    notes.forEach((n, i) => set(n, { y: -Math.abs(Math.sin(t * 5 + i)) * 30, r: Math.sin(t * 4 + i) * 12, o: t > S('bien') ? 1 : 0 }));
+    notes.forEach((n, i) => set(n, { y: -Math.abs(Math.sin(t * 5 + i)) * 30, r: Math.sin(t * 4 + i) * 12, o: t > S('bien') ? 1 - kq : 0 }));
+    popA(qq, t, tQ + 0.05, { rise: 30 });
+    const pS = t > S('si') && t < S('si') + 0.35 ? 1 + 0.12 * Math.sin(p(t, S('si'), 0.35) * Math.PI) : 1;
+    const pN = t > S('no10') && t < S('no10') + 0.35 ? 1 + 0.12 * Math.sin(p(t, S('no10'), 0.35) * Math.PI) : 1;
+    set(bS, { s: pop(t, tQ + 0.2, 0.4) * pS, r: -3, o: t < tQ + 0.2 ? 0 : 1 }); set(bN, { s: pop(t, tQ + 0.32, 0.4) * pN, r: 3, o: t < tQ + 0.32 ? 0 : 1 });
+    set(cur, { x: t > S('no10') ? 450 : 0, y: Math.abs(Math.sin(t * 9)) * -10, o: t > S('si') - 0.15 ? 1 : 0 });
+    CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
   };
 });
 
-/* ======================================================================
-   L · CTA: ¿TE LO HABÍAS CREÍDO? SÍ / NO (T_L – y esto)  L10
-   ====================================================================== */
-const T_M = S('y11') - 0.1;
-headline(T_L, T_M, '¿Te lo habías *creído*?', { size: 88, hlT: S('creido') });
-{
-  const CM = [];
-  const c = scene(T_L, T_M, t => {
-    set(vec.d, { y: wobble(t, 0.5, 3), s: 1 + 0.03 * p(t, T_L, T_M - T_L, E.linear) });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t < S('dime') ? [0, 0] : t < S('oNo') ? [-6, 6] : [6, 6], bL: t > S('creido') && t < S('dime') ? 12 : 2, bR: t > S('creido') && t < S('dime') ? 16 : 6, noCup: true, fan: wobble(t, 0.8, 5), seed: 2 });
-    const kS = pop(t, S('dime') + 0.05, 0.4), kN = pop(t, S('dime') + 0.17, 0.4);
-    const pS = t > S('si') && t < S('si') + 0.35 ? 1 + 0.12 * Math.sin(p(t, S('si'), 0.35) * Math.PI) : 1;
-    const pN = t > S('no10') && t < S('no10') + 0.35 ? 1 + 0.12 * Math.sin(p(t, S('no10'), 0.35) * Math.PI) : 1;
-    set(bS, { s: kS * pS, r: -3, o: t < S('dime') + 0.05 ? 0 : 1 }); set(bN, { s: kN * pN, r: 3, o: t < S('dime') + 0.17 ? 0 : 1 });
-    const onS = t > S('si') && t < S('no10');
-    set(cur, { x: onS ? 0 : (t > S('no10') ? 470 : 0), y: Math.abs(Math.sin(t * 9)) * -10, o: t > S('si') - 0.1 ? 1 : 0 });
-    CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
-  }, { clip: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, #F4CFDA 0 30px, #F9E3EA 30px 60px)` });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 40%, rgba(255,255,255,.4), rgba(120,40,60,.3) 85%)' });
-  const vec = mkVec(c, [250, 400, 580, 718]);
-  const btn = (x, txt, bg, col) => el('div', c, { left: px(x), top: '880px', width: '400px', height: '220px', background: bg, color: col, border: `8px solid ${INK}`, borderRadius: '50px', boxShadow: `12px 14px 0 ${INK}`, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '150px', lineHeight: '196px', textAlign: 'center', zIndex: 30 }, txt);
-  const bS = btn(80, 'SÍ', '#7BC67E', INK), bN = btn(530, 'NO', RED, '#fff');
-  const cur = el('div', c, { left: '330px', top: '1030px', fontSize: '110px', zIndex: 35 }, `<svg width="80" height="110" viewBox="0 0 80 110"><path d="M8,6 L8,86 L28,68 L42,100 L56,94 L42,62 L68,62 Z" fill="#fff" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/></svg>`);
-  [['FAR', '@lucia_navega', 'SÍ 😳', S('si')], ['SOL', '@toni.morse', 'No, ya lo sabía', S('si') + 0.45]].forEach((m, i) => {
-    const e = box(c, 120 + i * 40, 1150 + i * 112, 640, 100, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
-    avatar(e, 10, 8, 78, m[0], { bw: 3 });
-    el('div', e, { left: '104px', top: '8px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '24px', color: '#7a6a58', whiteSpace: 'nowrap' }, m[1]);
-    el('div', e, { left: '104px', top: '38px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '38px', color: INK, whiteSpace: 'nowrap' }, m[2]);
-    CM.push({ e, t: m[3] });
-  });
-}
-
-/* ======================================================================
-   M · Y ESTO… NO VENÍA EN EL LIBRO (T_M – T_END)  L11
-   ====================================================================== */
-const T_M2 = S('no11') - 0.1;
-headline(T_M, T_M2, 'Y esto…', { size: 130, color: YEL, y: 200, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` });
-headline(T_M2, T_END, '…no venía en el *libro.*', { size: 86, hlT: S('libro11') });
-{
-  const c = scene(T_M, T_M2, t => {
-    const k = p(t, T_M, T_M2 - T_M, E.inOutCubic);
-    set(vec.d, { s: 1 + 0.22 * k, y: k * 30, r: -k * 4 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO') * 0.6, look: [0, 1], bL: 10, bR: 14, fan: -30, half: true, blink: false });
-    vec.hMouth.setAttribute('transform', 'translate(64,-34) rotate(-20 206 318)'); vec.hMouth.style.opacity = 1; vec.cup.style.opacity = 0;
-  }, { cut: true, clip: true });
-  sceneBg(c, { background: INK });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 46%, rgba(255,230,180,.35), rgba(0,0,0,0) 55%)', zIndex: 1 });
-  const vec = mkVec(c, [-30, 300, 1140, 1411]); vec.d.style.zIndex = 2; vec.d.style.transformOrigin = '540px 650px';
-}
-const TC = S('libro11') - 0.15;
-{
-  const c = scene(T_M2, T_END, t => {
-    const k = p(t, TC, 0.3, E.inCubic); const sx = 1 - 2 * k;
-    flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
-    pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
-    const closed = t > TC + 0.3;
-    set(bookW, { x: 210 * p(t, TC + 0.32, 0.3, E.inOutCubic), s: 1.25 * pop(t, T_M2 + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
-    set(bu.d, { o: sx > 0.25 ? 1 : 0, y: -Math.abs(Math.sin(t * 8)) * 20, r: t * 60 });
-    stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
-    lets.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1) * 160 * kf, y: -kf * 220 + kf * kf * 170, r: Math.sin(t * 4 + i) * 40, o: closed ? 1 : 0 }); });
-  });
-  const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  const bs = svgLayer(bookW, 1);
-  let lines = ''; for (let i = 0; i < 12; i++) lines += `<path d="M180,${790 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
-  bs.innerHTML = `<g>${cut('<rect x="110" y="630" width="440" height="570" rx="14"/>')}<rect x="110" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/></g>
-   <rect x="130" y="646" width="410" height="536" fill="#F7F0E0" stroke="${INK}" stroke-width="4"/><rect x="130" y="646" width="410" height="536" fill="url(#hP)" opacity=".5"/>
-   <text x="335" y="730" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="44" fill="${INK}">SEÑALES</text><text x="335" y="770" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="700" font-size="36" fill="${INK}">de socorro</text>${lines}
-   <g class="flap">${cut('<rect x="530" y="630" width="440" height="570" rx="14"/>')}<rect x="530" y="630" width="440" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><g class="pageF"><rect x="540" y="646" width="410" height="536" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/>${lines2}</g>
-    <g class="coverF"><rect x="540" y="630" width="430" height="570" rx="14" fill="${LEATHER}" stroke="${INK}" stroke-width="5"/><rect x="566" y="656" width="378" height="518" rx="8" fill="none" stroke="#c9a24a" stroke-width="4"/>
-    <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
-  const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
-  const bu = mk(bookW, [640, 760, 240, 240], buoyInner('S.O.S.', { off: '75%' }), '0 0 300 300', 'buoy'); bu.d.style.zIndex = 2;
-  const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '500px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-  const lets = ['S', 'O', 'S'].map(ch => el('div', bookW, { left: '510px', top: '560px', fontFamily: 'Rye', fontSize: '80px', color: INK, textShadow: `3px 3px 0 #fff`, zIndex: 3 }, ch));
-}
-
-/* ======================================================================
-   TARJETA FINAL (T_END – fin) — logo con El Vecino en su óvalo
-   ====================================================================== */
-{
-  const c = scene(T_END, 999, t => {
-    set(lt, { s: pop(t, T_END + 0.25, 0.45), o: t < T_END + 0.25 ? 0 : 1 }); paint(lhl, t, T_END + 0.55, 0.4);
-    popA(ttl, t, T_END + 0.7, { r: -1 }); popA(src, t, T_END + 0.95, { rise: 30 });
-    [b1, b2].forEach((b, i) => { const t0 = T_END + 1.1 + i * 0.15; set(b.d, { x: (1 - p(t, t0, 0.45, E.outBack)) * (i ? 400 : -400), y: wobble(t, 0.6, 4, i), r: t * (i ? -30 : 30) }); });
-  }, { cut: true });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, rgba(244,207,218,.55) 0 30px, rgba(249,227,234,.55) 30px 60px)` });
-  const lt = box(c, 40, 840, 1000, 240, { textAlign: 'center', zIndex: 3 });
-  lt.innerHTML = `<div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:92px;line-height:1;color:${INK}">esto no venía</div><div style="font-family:Playfair;font-weight:900;font-size:104px;line-height:1.1;color:${INK}">en el ${hlSpan('libro', 'lhl')}</div>`;
-  const lhl = lt.querySelector('.lhl');
-  const ttl = el('div', c, { left: '90px', top: '1090px', width: '900px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '56px', color: '#fff', background: INK, padding: '14px 10px 18px', borderRadius: '14px', boxShadow: `7px 7px 0 ${PINK}`, zIndex: 3 }, 'Ep. 12 · SOS no significa nada');
-  const src = el('div', c, { left: '90px', top: '1215px', width: '900px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '29px', lineHeight: 1.3, color: INK, zIndex: 3 }, 'Fuentes: Convenio Radiotelegráfico Internacional (Berlín, 1906) · registros radiotelegráficos del Titanic (1912)');
-  const b1 = mk(c, [40, 470, 200, 200], buoyInner(''), '0 0 300 300', 'buoy'), b2 = mk(c, [840, 450, 200, 200], buoyInner(''), '0 0 300 300', 'buoy');
-}

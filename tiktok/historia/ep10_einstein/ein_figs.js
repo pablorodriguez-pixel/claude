@@ -9,7 +9,7 @@ const K = {};
   K.no1 = ws(1); K.no2 = ws(3); K.ein = ws(i0); K.nunca = ws(i0 + 1); K.susp0 = ws(i0 + 2); K.mat0 = ws(i0 + 3);
   const ic = fw('colado'); K.colado = ws(ic); K.vida = ws(fw('toda la vida') + 2); K.L0e = wE(fw('toda la vida') + 2);
   const iy = fw('y el mismo lo desmintio'); K.L1 = ws(iy); K.mismo = ws(iy + 2); K.desm = ws(iy + 4); K.L1e = wE(iy + 4);
-  const is = fw('soy tu vecino'); K.L2 = ws(is); K.signW = is + 4; K.libro0 = ws(is + 9); K.L2e = wE(is + 9);
+  const is = fw('soy tu vecino'); K.soy = ws(is); K.vecino = ws(is + 2); K.isoy = is;
   const ie = fw('entonces de donde sale el bulo'); K.L3 = ws(ie); K.bulo = ws(ie + 5); K.dosC = ws(ie + 7); K.cosas = ws(ie + 8); K.L3e = wE(ie + 8);
   const iu = fw('una un periodico'); K.L4 = ws(iu); K.periodico = ws(iu + 2);
   const im = fw('en mil novecientos'); K.en35 = ws(im); K.mil = ws(im + 1); K.cinco = wE(im + 5);
@@ -38,20 +38,21 @@ const K = {};
   const ios = fw('o sea el genio no suspendia'); K.L9 = ws(ios); K.osea = ws(ios + 1); K.elgenio = ws(ios + 2); K.genio2 = ws(ios + 3); K.no9 = ws(ios + 4); K.suspendia = ws(ios + 5); K.mat4 = ws(ios + 6);
   const isf = fw('suspendia frances'); K.suspendia2 = ws(isf); K.frances2 = ws(isf + 1); K.L9e = wE(isf + 1);
   const it = fw('tu tambien te lo habias creido'); K.L10 = ws(it); K.creido = ws(it + 5);
-  const idi = fw('dime si o no'); K.dime = ws(idi); K.si = ws(idi + 1); K.o = ws(idi + 2); K.noB = ws(idi + 3); K.L10e = wE(idi + 3);
-  const iye = fw('y esto no venia en el libro', it); K.L11 = ws(iye); K.esto = ws(iye + 1); K.noV = ws(iye + 2); K.libro = ws(iye + 6); K.END = wE(iye + 6);
+  const idi = fw('si o no', it); K.dime = ws(idi); K.si = ws(idi); K.o = ws(idi + 1); K.noB = ws(idi + 2); K.L10e = wE(idi + 2);
+  const iye = fw('y esto no venia en el libro', is); K.iye = iye; K.L11 = ws(iye); K.esto = ws(iye + 1); K.noV = ws(iye + 2); K.enL = ws(iye + 4); K.libro = ws(iye + 6); K.END = wE(iye + 6);
 }
 /* cortes de escena */
 const S = {
-  A: [-1, (K.L0e + K.L1) / 2], B: [(K.L0e + K.L1) / 2, K.L2 - 0.18], C: [K.L2 - 0.18, K.L3 - 0.12],
+  A: [-1, (K.L0e + K.L1) / 2], B: [(K.L0e + K.L1) / 2, K.L3 - 0.12],
   D: [K.L3 - 0.12, K.L4 - 0.06], E1: [K.L4 - 0.06, K.en35 - 0.08], E2: [K.en35 - 0.08, K.aunque - 0.04], E3: [K.aunque - 0.04, K.publico - 0.06],
   E4: [K.publico - 0.06, K.L5 - 0.1], F1: [K.L5 - 0.1, K.nunca2 - 0.12], F2: [K.nunca2 - 0.12, K.antes - 0.12], F3: [K.antes - 0.12, K.L6 - 0.1],
   G1: [K.L6 - 0.1, K.con16 - 0.1], G2: [K.con16 - 0.1, K.presento - 0.1], G3: [K.presento - 0.1, K.L7 - 0.1],
   H1: [K.L7 - 0.1, K.loque - 0.04], H2: [K.loque - 0.04, K.frances1 - 0.1], HIT1: [K.frances1 - 0.1, K.ojo - 0.06],
   I1: [K.ojo - 0.06, K.elseis - 0.08], I2: [K.elseis - 0.08, K.yque - 0.08], I3: [K.yque - 0.08, K.pero2 - 0.08], I4: [K.pero2 - 0.08, K.L9 - 0.08],
-  J1: [K.L9 - 0.08, K.suspendia2 - 0.15], HIT2: [K.suspendia2 - 0.15, K.L10 - 0.08], CTA: [K.L10 - 0.08, K.L11 - 0.06],
-  L1: [K.L11 - 0.06, K.noV - 0.06], L2: [K.noV - 0.06, K.END + 0.02], CARD: [K.END + 0.02, 999],
+  J1: [K.L9 - 0.08, K.suspendia2 - 0.15], HIT2: [K.suspendia2 - 0.15, K.L10 - 0.08], CTA: [K.L10 - 0.08, K.soy - 0.1],
+  C: [K.soy - 0.1, K.enL - 0.04], L2: [K.enL - 0.04, 999],
 };
+const DUR = K.END + 0.6, LOOP = DUR - 0.4;
 
 /* ---------- EINSTEIN (busto de grabado, viewBox 0 0 360 460) ---------- */
 function einsteinInner(o = {}) {

@@ -8,23 +8,26 @@ const S = n => W[A[n]].s, SE = n => W[A[n]].e;
 [
   ['lo', 'lo siento'], ['sos0', 'sos'], ['save0', 'save'], ['our0', 'our'], ['souls0', 'souls'], ['no1', 'no significa'], ['nada0', 'nada'],
   ['titanic1', 'titanic'], ['hundia', 'hundia'], ['empezo1', 'empezo'], ['ayuda', 'ayuda'], ['otra', 'otra senal'],
-  ['soy', 'soy tu vecino'], ['esto2', 'esto'], ['no2', 'no'], ['venia2', 'venia'], ['en2', 'en'], ['el2', 'el'], ['libro2', 'libro'],
-  ['siglo', 'siglo'], ['barcos', 'barcos'], ['hablaban', 'hablaban'], ['telegrafo', 'telegrafo'], ['puntos3', 'puntos'], ['rayas3', 'rayas'],
-  ['cada', 'cada uno'], ['socorro3', 'socorro'], ['manera', 'manera'], ['compania', 'compania'], ['marconi', 'marconi'], ['ejemplo', 'ejemplo'], ['usaba', 'usaba'], ['cqd3', 'cqd'],
+  ['antes', 'antes'], ['cada', 'cada barco'], ['socorro3', 'socorro'], ['manera', 'manera'], ['compania', 'compania'], ['marconi', 'marconi'], ['ejemplo', 'ejemplo'], ['usaba', 'usaba'], ['cqd3', 'cqd'],
   ['mil4', 'mil'], ['seis', 'seis'], ['berlin', 'berlin'], ['acordo', 'acordo'], ['senal4', 'senal'], ['todos', 'todos'], ['sos4', 'sos'],
   ['porque5', 'por que'], ['letras', 'letras'], ['como', 'como suenan'], ['suenan', 'suenan'],
   ['tresA', 'tres'], ['pA', 'puntos'], ['tresB', 'tres'], ['rB', 'rayas'], ['tresC', 'tres'], ['pC', 'puntos'],
   ['imposible', 'imposible'], ['confundir', 'confundir'], ['aunque', 'aunque'], ['muerto', 'muerto'], ['miedo', 'miedo'],
+  ['mil7', 'mil'], ['doce', 'doce'], ['titanic7', 'titanic'], ['radio', 'radiotelegrafista'], ['empezo7', 'empezo'], ['cqd7', 'cqd'], ['luego', 'luego'], ['consejo', 'consejo'], ['companero', 'companero'], ['tambien', 'tambien'], ['sos7', 'sos'],
   ['lode', 'lo de'], ['save6', 'save'], ['souls6', 'souls'], ['salvad', 'salvad'], ['almas', 'almas'], ['selo', 'se lo'], ['invento', 'invento'], ['gente', 'gente'], ['despues', 'despues'],
   ['para6', 'para que'], ['sentido', 'sentido'],
-  ['mil7', 'mil'], ['doce', 'doce'], ['titanic7', 'titanic'], ['radio', 'radiotelegrafista'], ['empezo7', 'empezo'], ['cqd7', 'cqd'], ['luego', 'luego'], ['consejo', 'consejo'], ['companero', 'companero'], ['tambien', 'tambien'], ['sos7', 'sos'],
   ['ojo', 'ojo'], ['primer', 'primer'], ['sos8', 'sos'], ['historia', 'historia'], ['pero8', 'pero'], ['titanic8', 'titanic'], ['famoso8', 'famoso'], ['todo', 'todo el mundo'], ['mundo', 'mundo'],
   ['osea', 'o sea'], ['llamada', 'llamada'], ['auxilio', 'auxilio'], ['famosa9', 'famosa'], ['planeta', 'planeta'], ['eligieron', 'eligieron'], ['porque9', 'porque'], ['sonaba', 'sonaba'], ['bien', 'bien'],
-  ['te', 'te lo'], ['creido', 'creido'], ['dime', 'dime'], ['si', 'si'], ['oNo', 'o no'],
-  ['y11', 'y esto'], ['esto11', 'esto'], ['no11', 'no venia'], ['libro11', 'libro'],
+  ['te', 'te lo'], ['creido', 'creido'], ['si', 'si o no'],
+  ['soy', 'soy tu vecino'], ['y11', 'y esto'], ['esto11', 'esto'], ['no11', 'no venia'], ['libro11', 'libro'],
 ].forEach(q => K(q[0], q[1]));
-A.no10 = A.oNo + 1;
-const T_END = SE('libro11') + 0.22; // tarjeta final
+A.no10 = A.si + 2;
+/* ---------- línea de tiempo de escenas (orden nuevo, v3) ---------- */
+const T_A1 = S('nada0') - 0.3, T_B = S('titanic1') - 0.12, T_C = S('antes') - 0.2, T_E1 = T_C, T_E2 = S('compania') - 0.5,
+  T_F = S('mil4') - 0.25, T_G1 = S('porque5') - 0.12, T_G2 = S('tresA') - 0.12, T_G3 = S('imposible') - 0.1, T_G4 = S('aunque') - 0.08,
+  T_I = S('mil7') - 0.22, T_H1 = S('lode') - 0.12, T_H2 = S('selo') - 0.1, T_H3 = S('para6') - 0.1, T_J = S('ojo') - 0.1, T_J2 = S('pero8') - 0.1,
+  T_K = S('osea') - 0.1, T_BAL = S('soy') - 0.1, T_BOOK = S('y11') - 0.08, TC = S('libro11') - 0.15;
+const T_LOOP = SE('libro11') + 0.22; // últimos ~0,4 s: vuelve el fotograma 1 (bucle)
 
 /* ---------- TITANIC de perfil (viewBox 0 0 900 380) ---------- */
 function titanicInner(o = {}) {

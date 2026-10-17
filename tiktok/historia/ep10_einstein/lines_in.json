@@ -16,12 +16,7 @@
 {
 "who": "VECINO",
 "text": "Y él mismo lo desmintió.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
@@ -49,15 +44,11 @@
 },
 {
 "who": "VECINO",
-"text": "O sea: el genio no suspendía matemáticas. Suspendía francés."
+"text": "O sea: el genio no suspendía matemáticas. Suspendía francés. ¿Tú también te lo habías creído? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Tú también te lo habías creído? Dime sí o no."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

@@ -16,16 +16,11 @@
 {
 "who": "VECINO",
 "text": "Y el Titanic, mientras se hundía... empezó pidiendo ayuda con otra señal.",
-"gap_after": 0.35
+"gap_after": 0.3
 },
 {
 "who": "VECINO",
-"text": "Soy tu vecino, y esto no venía en el libro.",
-"gap_after": 0.35
-},
-{
-"who": "VECINO",
-"text": "A principios del siglo veinte, los barcos hablaban por telégrafo: puntos y rayas. Y cada uno pedía socorro a su manera. La compañía Marconi, por ejemplo, usaba CQD."
+"text": "Antes, cada barco pedía socorro a su manera. La compañía Marconi, por ejemplo, usaba CQD."
 },
 {
 "who": "VECINO",
@@ -37,11 +32,11 @@
 },
 {
 "who": "VECINO",
-"text": "Lo de Save Our Souls, salvad nuestras almas, se lo inventó la gente después. Para que tuviera sentido."
+"text": "Y en mil novecientos doce, en el Titanic, el radiotelegrafista empezó mandando CQD... y luego, por consejo de su compañero, también SOS."
 },
 {
 "who": "VECINO",
-"text": "Y en mil novecientos doce, en el Titanic, el radiotelegrafista empezó mandando CQD... y luego, por consejo de su compañero, también SOS."
+"text": "Lo de Save Our Souls, salvad nuestras almas, se lo inventó la gente después. Para que tuviera sentido."
 },
 {
 "who": "VECINO",
@@ -49,15 +44,11 @@
 },
 {
 "who": "VECINO",
-"text": "O sea: la llamada de auxilio más famosa del planeta... la eligieron porque sonaba bien."
+"text": "O sea: la llamada de auxilio más famosa del planeta... la eligieron porque sonaba bien. ¿Te lo habías creído? Sí o no."
 },
 {
 "who": "VECINO",
-"text": "¿Te lo habías creído? Dime sí o no."
-},
-{
-"who": "VECINO",
-"text": "[mischievously] Y esto... no venía en el libro."
+"text": "Soy tu vecino... [mischievously] y esto no venía en el libro."
 }
 ]
 }

@@ -6,28 +6,28 @@ const LS = n => LINES[n].s, LE = n => LINES[n].e;
 const K = {
   email: S('email'), servia: S('servia'), pesar: S('pesar trigo'), trigo: S('trigo'), trigoE: Se('trigo'),
   hablo: S('hablo'), arroba1: S('arroba', F('hablo')), yEs: S('y es espanola'), espanola: S('espanola'), espE: Se('espanola'),
-  soy: S('soy tu vecino'), vecino: S('vecino'), yEsto0: S('y esto no venia'), libro0: S('libro'), libro0E: Se('libro'),
   arroba3: S('arroba era'), medida: S('medida de peso'), peso: S('peso'), unos: S('unos once'), once: S('once kilos'), medio: S('medio'), medioE: Se('medio'),
   viene: S('viene del arabe'), arabe: S('arabe'), significa: S('significa'), cuarta: S('cuarta parte'), parteE: Se('parte'),
   mercaderes: S('mercaderes'), rapido: S('mas rapido'), abrev: S('abreviaban'), asi: S('asi'), una: S('una a con'), a: S('a con un rabito'), rabito: S('rabito'), alrededor: S('alrededor'), alrE: Se('alrededor'),
   registro: S('el registro'), antiguo: S('mas antiguo'), conoce: S('conoce'), espana5: S('espana es de'), mil1: S('mil cuatrocientos'), ochoE: Se('ocho'), en5: S('en aragon'), aragon: S('aragon'),
   arrobasT: S('arrobas de trigo'), trigo5: S('trigo', F('arrobas de trigo')), trigo5E: Se('trigo', F('arrobas de trigo')),
-  mil2: S('mil quinientos'), seisE: Se('seis'), comerciante: S('comerciante'), escribia: S('escribia'), sevilla: S('sevilla'), usando: S('usando'), arroba6: S('arroba para contar'), contar: S('contar vino'), vino: S('vino'), vinoE: Se('vino'),
   sobrevivio: S('sobrevivio'), comercio: S('comercio'), llego: S('llego'), teclado: S('teclado'), maquinas: S('maquinas'), escribir: S('escribir'), escribirE: Se('escribir'),
   mil3: S('mil novecientos'), unoE: Se('uno ray'), ray: S('ray'), mando: S('mando'), primer: S('primer correo'), electE: Se('electronico'),
   necesitaba: S('necesitaba'), unSimb: S('un simbolo que nadie'), nadie: S('nadie'), usara: S('usara'), nombres: S('nombres'), yEligio: S('y eligio'), eligio: S('eligio'), arroba8: S('arroba', F('eligio')), arroba8E: Se('arroba', F('eligio')),
   ojo: S('ojo'), origen: S('origen'), discute: S('discute'), pero: S('pero en espana'), espana9: S('espana', F('pero en espana')), siglo: S('siglo quince'), quince: S('quince'), arroba9: S('arroba ya'), ya: S('ya pesaba'), pesaba: S('pesaba'), trigo9: S('trigo', F('pesaba')), trigo9E: Se('trigo', F('pesaba')),
   osea: S('o sea'), tu: S('tu correo'), correo10: S('correo lleva'), lleva: S('lleva dentro'), saco: S('saco'), once2: S('once', F('saco')), kilos2: S('kilos', F('saco')), kilos2E: Se('kilos', F('saco')),
-  lo: S('lo sabias'), sabias: S('sabias'), dime: S('dime'), si: S('si o no'), no: S('no', F('si o no') + 1), noE: Se('no', F('si o no') + 1),
-  yEsto: S('y esto', F('dime')), noVenia: S('no venia', F('dime')), libro: S('libro', F('dime')), libroE: Se('libro', F('dime')),
+  lo: S('lo sabias'), sabias: S('sabias'), si: S('si o no'), no: S('no', F('si o no') + 1), noE: Se('no', F('si o no') + 1),
+  soy: S('soy tu vecino'), vecino: S('vecino'), yEsto: S('y esto no venia'), libro: S('libro'), libroE: Se('libro'),
 };
 // cortes de escena
 const B = {
-  A1: LS(2) - 0.15, B1: LS(3) - 0.12, D1: K.viene - 0.05, E1: LS(4) - 0.15, F1: K.abrev - 0.06, G1: LS(5) - 0.1,
-  H1: K.mil1 - 0.12, I1: K.arrobasT - 0.06, J1: LS(6) - 0.06, K1: K.usando - 0.08, L1: LS(7) - 0.08, M1: K.llego - 0.1,
-  N1: LS(8) - 0.08, O1: K.necesitaba - 0.15, P1: K.yEligio - 0.05, Q1: LS(9) - 0.05, R1: K.pero - 0.08, S1: LS(10) - 0.1,
-  T1: K.lleva - 0.08, U1: LS(11) - 0.1, V1: LS(12) - 0.08, W1: K.noVenia - 0.04, W2: K.libroE + 0.1,
+  A1: LS(2) - 0.12, D1: K.viene - 0.05, E1: LS(3) - 0.15, F1: K.abrev - 0.06, G1: LS(4) - 0.1,
+  H1: K.mil1 - 0.12, I1: K.arrobasT - 0.06, J1: LS(5) - 0.06, M1: K.llego - 0.1,
+  N1: LS(6) - 0.08, O1: K.necesitaba - 0.15, P1: K.yEligio - 0.05, Q1: LS(7) - 0.05, R1: K.pero - 0.08, S1: LS(8) - 0.1,
+  T1: K.lleva - 0.08, U1: LS(9) - 0.08, W1: K.yEsto - 0.05,
 };
+B.B1 = B.A1; B.L1 = B.J1;
+const DUR = W[W.length - 1].e + 0.6, LOOP0 = DUR - 0.4;
 
 const jaT = (pa, x, y, txt = '¡JA!', sz = 84) => el('div', pa, { left: px(x), top: px(y), fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: px(sz), color: PINK, textShadow: `4px 4px 0 ${INK}, -2px -2px 0 ${INK}`, whiteSpace: 'nowrap', zIndex: 40 }, txt);
 function bubble(pa, x, y, txt, o = {}) {
@@ -93,59 +93,6 @@ headline(K.yEs - 0.08, B.A1, 'Y es *española*', { size: 112, hlT: K.espanola, y
   const rib = SPAIN_RIB(c, 120, 990, 840, '¡ESPAÑOLA!');
   const dr = stamp(c, 200, 1160, 'DATO REAL', { size: 120, bw: 15, z: 80, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const flash = box(c, 0, 0, 1080, 1920, { background: '#fff', zIndex: 90 });
-}
-
-/* ======================================================================
-   C · MARCA: EL VECINO EN SU BALCÓN (B.A1 → B.B1)  L2
-   ====================================================================== */
-{
-  const T0 = B.A1, T1 = B.B1;
-  const iE = F('esto no venia', F('soy'));
-  const c = scene(T0, T1, t => {
-    const ex = p(t, T1 - 0.2, 0.2, E.inCubic);
-    set(cam, { s: lerp(1.04 + 0.04 * p(t, T0, T1 - T0, E.linear), 0.3, ex), x: ex * -330, y: ex * 380, o: 1 - ex * 0.6 });
-    const lean = p(t, K.libro0 - 0.3, 0.4, E.inOutCubic);
-    set(vec.d, { s: 1 + lean * 0.07, y: wobble(t, 0.5, 3) - lean * 20 });
-    const fanFast = t > K.soy && t < K.soy + 0.6;
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t > K.vecino + 0.5 && t < K.yEsto0 + 0.6 ? [0, -5] : t > K.libro0 ? [-4, 3] : [0, 0], bL: fanFast ? 8 : t > K.libro0 ? 6 : 0, bR: fanFast ? 8 : t > K.libro0 ? 12 : 0, fan: fanFast ? Math.sin(t * 22) * 14 : wobble(t, 0.9, 6), seed: 0.3 });
-    popA(tag, t, K.vecino, { r: -5 });
-    const ks = p(t, K.yEsto0 - 0.1, 0.55, E.outElastic); set(sign, { y: (1 - clamp(ks)) * -320, r: Math.sin(t * 2.4) * 1.5 * (1 - p(t, K.yEsto0, 2)) + (1 - ks) * 8, o: t < K.yEsto0 - 0.12 ? 0 : 1 });
-    sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
-    paint(sHL, t, K.libro0, 0.3);
-    pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
-  }, { clip: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 116px)' });
-  const win = box(cam, 0, 0, 1080, 1920); {
-    const arch = 'M160,1300 L160,640 Q160,450 540,440 Q920,450 920,640 L920,1300 Z';
-    let lace = ''; for (let y = 560; y < 1250; y += 26) lace += `<path d="M${f1(176 + Math.sin(y * 0.05) * 6)},${y} q22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/><path d="M${f1(904 - Math.sin(y * 0.05) * 6)},${y} q-22,13 0,26" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".6"/>`;
-    win.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">
-    <rect x="12" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="928" y="520" width="140" height="760" rx="8" fill="${WOOD}" stroke="${INK}" stroke-width="5"/>
-    ${[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map(k => `<path d="M24,${560 + k * 50} h116 M940,${560 + k * 50} h116" stroke="${INK}" stroke-width="3"/>`).join('')}
-    <path d="${arch}" fill="#fff" stroke="#fff" stroke-width="40"/><path d="${arch}" fill="#3a2a1e" stroke="${INK}" stroke-width="8"/><path d="${arch}" fill="url(#hW)" opacity=".25"/>
-    <path d="M168,600 C230,700 230,1100 200,1290 L168,1290 Z M912,600 C850,700 850,1100 880,1290 L912,1290 Z" fill="#FBF6EA" stroke="${INK}" stroke-width="3"/>${lace}</svg>`;
-  }
-  const vec = mkVec(cam, [190, 430, 700, 867]);
-  const rail = box(cam, 0, 0, 1080, 1920); {
-    let bars = ''; for (let x = 140; x <= 940; x += 40) bars += `<path d="M${x},1206 V1330" stroke="${INK}" stroke-width="9"/><circle cx="${x}" cy="1268" r="9" fill="none" stroke="${INK}" stroke-width="4"/>`;
-    rail.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="110" y="1180" width="860" height="30" rx="8" fill="${INK}"/>${bars}<rect x="110" y="1322" width="860" height="40" fill="${INK}"/><rect x="80" y="1352" width="920" height="40" fill="#cdb48a" stroke="${INK}" stroke-width="5"/></svg>`;
-  }
-  const pots = [];
-  [[130, 1040], [760, 1040]].forEach(q => {
-    const d = box(cam, q[0], q[1], 200, 160); let fl = '';
-    [[40, 40], [80, 20], [120, 34], [160, 48], [70, 60], [130, 64]].forEach((f, j) => { fl += `<g><path d="M${f[0]},${f[1] + 30} L100,120" stroke="#3c5a2a" stroke-width="5"/><circle cx="${f[0]}" cy="${f[1]}" r="24" fill="${j % 2 ? RED : PINK}" stroke="${INK}" stroke-width="3.5"/><circle cx="${f[0] - 8}" cy="${f[1] - 6}" r="9" fill="#fff" opacity=".45"/><circle cx="${f[0]}" cy="${f[1]}" r="5" fill="${YEL}" stroke="${INK}" stroke-width="2"/></g>`; });
-    [[30, 96], [170, 96], [60, 110], [140, 110]].forEach(l => fl += `<ellipse cx="${l[0]}" cy="${l[1]}" rx="30" ry="14" fill="#7a9a52" stroke="${INK}" stroke-width="3" transform="rotate(${l[0] < 100 ? -20 : 20} ${l[0]} ${l[1]})"/>`);
-    d.innerHTML = `<svg viewBox="0 0 200 160" width="200" height="160" style="overflow:visible">${fl}${cut('<path d="M30,110 L170,110 L156,160 L44,160 Z"/>', 5, 6)}<path d="M30,110 L170,110 L156,160 L44,160 Z" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M30,110 L170,110 L156,160 L44,160 Z" fill="url(#hA)" opacity=".5"/><rect x="24" y="104" width="152" height="16" rx="4" fill="#C1663A" stroke="${INK}" stroke-width="4"/></svg>`;
-    pots.push(d);
-  });
-  const tag = chip(cam, 640, 610, 'tu vecino', { size: 44, bg: PINK });
-  const sign = box(cam, 120, 150, 840, 270, { zIndex: 40 });
-  sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
-  const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sl2 = el('div', sign, { left: '0', top: '146px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
-  const sw = [];
-  [['esto', 0, sl1], ['no', 1, sl1], ['venía', 2, sl1], ['en', 3, sl2], ['el', 4, sl2], ['libro', 5, sl2]].forEach(q => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.12em'; s.innerHTML = q[0] === 'libro' ? hlSpan('libro', 'shl') : q[0]; q[2].appendChild(s); s.style.position = 'relative'; sw.push({ e: s, t: W[iE + q[1]].s }); });
-  const sHL = sign.querySelector('.shl');
 }
 
 /* ======================================================================

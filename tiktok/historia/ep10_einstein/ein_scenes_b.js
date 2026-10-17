@@ -248,13 +248,13 @@ colorHit(S.HIT2[0], S.HIT2[1], PINK, c => {
    CTA · ¿TÚ TAMBIÉN TE LO HABÍAS CREÍDO? DIME SÍ O NO — botones gigantes
    ====================================================================== */
 headline(S.CTA[0], K.dime - 0.06, '¿Tú también te lo habías *creído*?', { size: 80, hlT: K.creido });
-headline(K.dime - 0.06, S.CTA[1], 'Dime *sí o no*', { size: 110, hlT: K.si });
+headline(K.dime - 0.06, S.CTA[1], '*¿Sí o no?*', { size: 120, hlT: K.si });
 {
   const CM = [];
   const c = scene(S.CTA[0], S.CTA[1], t => {
     set(vec.d, { y: wobble(t, 0.5, 3), s: 1 + 0.03 * p(t, S.CTA[0], 2.8, E.linear) });
     vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: t < K.dime ? [0, 0] : [-4, 6], bL: t > K.creido - 0.2 && t < K.dime ? 12 : 2, bR: t > K.creido - 0.2 && t < K.dime ? 16 : 6, noCup: true, fan: wobble(t, 0.8, 5), seed: 2 });
-    [[bS, K.si], [bN, K.noB]].forEach(([b, t0], i) => { const press = t > t0 + 0.35 && t < t0 + 0.5; set(b, { s: pop(t, i ? K.dime + 0.15 : K.dime, 0.4) * (press ? 0.9 : 1 + 0.06 * Math.max(0, Math.sin((t - t0) * 9)) * (t > t0 ? 1 : 0)), r: [-3, 3][i], o: t < K.dime ? 0 : 1 }); });
+    [[bS, K.si], [bN, K.noB]].forEach(([b, t0], i) => { const press = t > t0 + 0.35 && t < t0 + 0.5; set(b, { s: pop(t, S.CTA[0] + 0.25 + i * 0.12, 0.4) * (press ? 0.9 : 1 + 0.06 * Math.max(0, Math.sin((t - t0) * 9)) * (t > t0 ? 1 : 0)), r: [-3, 3][i], o: t < S.CTA[0] + 0.25 + i * 0.12 ? 0 : 1 }); });
     set(hand, { o: t > K.si ? 1 : 0, x: lerp(0, 0, 0), y: (t > K.si + 0.3 && t < K.si + 0.5 ? 14 : 0) + Math.sin(t * 5) * 6, s: pop(t, K.si, 0.3) });
     CM.forEach(m => popA(m.e, t, m.t, { rise: 40 }));
   }, { clip: true });
@@ -264,7 +264,7 @@ headline(K.dime - 0.06, S.CTA[1], 'Dime *sí o no*', { size: 110, hlT: K.si });
   const btn = (x, txt, bg, col) => el('div', c, { left: px(x), top: '1020px', width: '380px', height: '210px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', lineHeight: '196px', color: col, background: bg, border: `8px solid ${INK}`, borderRadius: '40px', boxShadow: `10px 12px 0 ${INK}`, zIndex: 30 }, txt);
   const bS = btn(120, 'SÍ', YEL, INK), bN = btn(560, 'NO', '#fff', RED);
   const hand = box(c, 320, 1150, 160, 200, { zIndex: 40 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="160" height="160" style="overflow:visible">${gloveHand(0, 0, 160, 1.2)}</svg>`;
-  const cms = [['FAR', '@lucia_mates', 'SÍ 😳', K.creido], ['SOL', '@pablo.fis', 'No, ya lo sabía', K.creido + 0.3], ['MEREDITH', '@ana_bcn', 'Sí, toda la vida…', K.dime - 0.1]];
+  const cms = [['FAR', '@lucia_mates', 'SÍ 😳', K.L10 + 0.45], ['SOL', '@pablo.fis', 'No, ya lo sabía', K.L10 + 0.75], ['MEREDITH', '@ana_bcn', 'Sí, toda la vida…', K.creido]];
   cms.forEach((m, i) => {
     const e = box(c, 40, [500, 650, 800][i], 400, 112, { background: '#fff', border: `4px solid ${INK}`, borderRadius: '50px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 40 });
     avatar(e, 10, 10, 84, m[0], { bw: 3 });
@@ -277,22 +277,10 @@ headline(K.dime - 0.06, S.CTA[1], 'Dime *sí o no*', { size: 110, hlT: K.si });
 /* ======================================================================
    L · Y ESTO… NO VENÍA EN EL LIBRO
    ====================================================================== */
-headline(S.L1[0], S.L1[1], 'Y esto…', { size: 130, color: YEL, y: 200, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}` });
-headline(S.L2[0], S.L2[1], '…no venía en el *libro.*', { size: 86, hlT: K.libro });
+headline(S.L2[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro });
 {
-  const c = scene(S.L1[0], S.L1[1], t => {
-    const k = p(t, S.L1[0], 1.4, E.inOutCubic);
-    set(vec.d, { s: 1 + 0.22 * k, y: k * 30, r: -k * 4 });
-    vecFace(vec, t, { jaw: talkW(t, 'VECINO') * 0.6, look: [0, 1], bL: 10, bR: 14, fan: -30, half: true, blink: false });
-    vec.hMouth.setAttribute('transform', 'translate(64,-34) rotate(-20 206 318)'); vec.hMouth.style.opacity = 1; vec.cup.style.opacity = 0;
-  }, { cut: true, clip: true });
-  sceneBg(c, { background: INK });
-  box(c, 0, 0, 1080, 1920, { background: 'radial-gradient(ellipse at 50% 46%, rgba(255,230,180,.35), rgba(0,0,0,0) 55%)', zIndex: 1 });
-  const vec = mkVec(c, [-30, 300, 1140, 1411]); vec.d.style.zIndex = 2; vec.d.style.transformOrigin = '540px 650px';
-}
-{
-  const TC = K.libro - 0.3;
-  const c = scene(S.L2[0], S.L2[1], t => {
+  const TC = K.libro - 0.05;
+  const c = scene(S.L2[0], LOOP, t => {
     const k = p(t, TC, 0.3, E.inCubic); const sx = 1 - 2 * k;
     flap.setAttribute('transform', `matrix(${f1(sx * 1000) / 1000},0,0,1,${f1(540 * (1 - sx))},0)`);
     pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
@@ -316,24 +304,8 @@ headline(S.L2[0], S.L2[1], '…no venía en el *libro.*', { size: 86, hlT: K.lib
   const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
   const stand = mkEin(bookW, [610, 420, 260, 332]); stand.d.style.zIndex = 2;
   const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '500px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
+  const epl = el('div', c, { left: '0', top: '1150px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:38px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 10 · Einstein no suspendía matemáticas</span>`);
+  const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, TC + 0.3, { r: -1 }); };
   const puffs = [0, 1, 2, 3].map(() => box(bookW, 480, 600, 120, 80, { borderRadius: '50%', background: '#F4ECDB', border: `4px solid ${INK}`, zIndex: 3 }));
 }
 
-/* ======================================================================
-   TARJETA FINAL — logo con El Vecino en su óvalo
-   ====================================================================== */
-{
-  const T = S.CARD[0];
-  const c = scene(T, 999, t => {
-    set(lt, { s: pop(t, T + 0.25, 0.45), o: t < T + 0.25 ? 0 : 1 }); paint(lhl, t, T + 0.55, 0.4);
-    popA(ttl, t, T + 0.7, { r: -1 }); popA(src, t, T + 0.95, { rise: 30 });
-    [eo, ey].forEach((f, i) => { const t0 = T + 1.1 + i * 0.15; set(f.d, { x: (1 - p(t, t0, 0.45, E.outBack)) * (i ? 500 : -500), y: wobble(t, 0.6, 4, i), r: (i ? -6 : 6) + wobble(t, 0.5, 2, i) }); einFace(f, t, { look: [i ? -5 : 5, -3], finger: !i && t > T + 1.8, seed: i }); });
-  });
-  sceneBg(c, { background: `repeating-linear-gradient(90deg, rgba(244,207,218,.55) 0 30px, rgba(249,227,234,.55) 30px 60px)` });
-  const lt = box(c, 40, 830, 1000, 240, { textAlign: 'center', zIndex: 3 });
-  lt.innerHTML = `<div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:92px;line-height:1;color:${INK}">esto no venía</div><div style="font-family:Playfair;font-weight:900;font-size:104px;line-height:1.1;color:${INK}">en el ${hlSpan('libro', 'lhl')}</div>`;
-  const lhl = lt.querySelector('.lhl');
-  const ttl = el('div', c, { left: '70px', top: '1075px', width: '940px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '48px', lineHeight: 1.1, color: '#fff', background: INK, padding: '14px 10px 18px', borderRadius: '14px', boxShadow: `7px 7px 0 ${PINK}`, zIndex: 3 }, 'Ep. 10 · Einstein no suspendía matemáticas');
-  const src = el('div', c, { left: '90px', top: '1238px', width: '900px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '30px', lineHeight: 1.3, color: INK, zIndex: 3 }, 'Fuentes: sección «Aunque usted no lo crea» (1935) · respuesta del propio Einstein · examen de acceso al Politécnico de Zúrich');
-  const eo = mkEin(c, [40, 470, 240, 307]), ey = mkEin(c, [790, 470, 240, 307], { young: true, seed: 77 });
-}
