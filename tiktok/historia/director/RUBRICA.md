@@ -32,6 +32,11 @@ Material en `director/referencias/pye_aventicum/`. Lo que lo hizo volar:
 ## Decisión del usuario (17/10)
 No se hacen votaciones ni vídeos-respuesta a comentarios. No los propongas. El cierre es una pregunta abierta y personal + «Os leo».
 
+## Checklist de CLAVES DE VIRALIDAD (17/10, para elegir tema; 0–2 cada una, mínimo 11/14 para producir)
+K1 Sujeto que todo el mundo conoce (algo cotidiano o un famoso) · K2 Contradice algo que el espectador cree · K3 Casi nadie lo sabe (no quemado)
+· K4 Se entiende en una frase de bar · K5 Se comprueba o se manda a alguien al momento · K6 Pide comentario fácil (debate o «yo…») · K7 Remate final más fuerte que el gancho.
+Napoleón ≈ 13 · OK ≈ 13 · Aventicum ≈ 12 · Vikingos ≈ 6 · Aladino v4 ≈ 9 · Pulgar ≈ 7.
+
 ## 2. Puertas eliminatorias (si falla una → no se publica tal cual)
 - **P1 · Mito quemado.** Si la «verdad» que contamos ya es de dominio popular (vikingos sin cuernos, Muralla desde el espacio, Colón y la Tierra plana,
   …), se descarta, por bien hecho que esté. Prueba: si casi todos tus amigos dirían «ya lo sabía», está quemado.
