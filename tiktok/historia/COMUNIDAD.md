@@ -27,7 +27,7 @@
 | Cumpleaños | ¿Cómo se canta el cumpleaños en tu casa? 👇 |
 | Pez | ¿Cómo se llama tu mascota? 👇 |
 | Himno | Si tuvieras que ponerle letra, ¿cómo empezaría? 👇 |
-| Uvas | ¿Uvas o gominolas? ¿Y cuántas consigues tragarte a tiempo? 👇 |
+| Uvas | ¿Cuántas uvas consigues tragarte a tiempo? Sé sincero 👇 |
 | Gladiadores | ¿Qué otro gesto crees que significaba algo distinto? 👇 |
 
 ## Vídeos-respuesta candidatos
