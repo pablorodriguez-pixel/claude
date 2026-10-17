@@ -53,6 +53,10 @@ for n,L in enumerate(cfg["lines"]):
         tempo=min(1.45,max(0.85,(a1-a0)/L["slot"]))
     subprocess.run(["ffmpeg","-v","error","-y","-ss",str(a0),"-to",str(a1),"-i",f"{d}/clips/{n:02d}.mp3","-af",f"atempo={tempo}","-ac","1","-ar",str(SR),f"{d}/clips/{n:02d}.wav"],check=True)
     w=wave.open(f"{d}/clips/{n:02d}.wav"); x=np.frombuffer(w.readframes(w.getnframes()),np.int16).astype(np.float32)/32768
+    # fundidos cortos en los bordes del clip: evitan clics cuando la toma termina o se recorta en seco
+    x=x.copy(); _fi=min(len(x)//4,int(0.005*SR)); _fo=min(len(x)//4,int(0.010*SR))
+    if _fi: x[:_fi]*=np.linspace(0,1,_fi)
+    if _fo: x[-_fo:]*=np.linspace(1,0,_fo)
     # compactar silencios internos largos (>0.45s) no es necesario en frases cortas
     ls=t
     # compactar pausas internas largas (cap configurable)
