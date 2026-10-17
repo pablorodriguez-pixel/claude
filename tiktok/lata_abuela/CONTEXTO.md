@@ -8,7 +8,7 @@ Documento de traspaso para continuar el canal en una sesión nueva. Léelo enter
 - La voz siempre muy por encima de la música (`engine/audio.py` lo garantiza y falla si no). Gancho con energía.
 - Feedback del usuario: no enseñar tanto la lata por dentro (se hacía pesado), vídeos más breves, crear FOMO para quedarse hasta el final,
   trucos que de verdad sorprendan (no solo limpieza: súper, cocina, ahorro, etiquetas…).
-- Entregar vídeos con SendUserFile en cuanto estén revisados; la portada es el fotograma 0.
+- Entregar SIEMPRE los vídeos en .mp4 aquí en el chat (SendUserFile) en cuanto estén revisados, para que el usuario los descargue y suba; la portada es el fotograma 0.
 
 ## Identidad
 - La lata azul de galletas (que nunca tiene galletas) con dorados repujados; la abuela Carmen en un medallón dorado (lip-sync, guiño, señala).
