@@ -58,22 +58,22 @@
  {
   "line": 8,
   "who": "VECINO",
-  "text": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas cuatro horas tarde a tu propia siesta.",
+  "text": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas tarde... hasta a tu propia siesta.",
   "s": 46.742,
-  "e": 55.775
+  "e": 56.252
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "¿A qué hora te la echas tú? Os leo.",
-  "s": 56.275,
-  "e": 58.504
+  "s": 56.752,
+  "e": 58.981
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 58.854,
-  "e": 61.297
+  "s": 59.331,
+  "e": 61.774
  }
 ]
