@@ -1,0 +1,137 @@
+{
+ "episodio": "ep37_jessop3",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 4.056,
+   "dur": 3.94,
+   "palabras": 14,
+   "texto": "¡Esta mujer sobrevivió al Titanic... y no fue lo más raro de su vida!"
+  },
+  {
+   "n": 1,
+   "s": 4.406,
+   "e": 11.836,
+   "dur": 7.43,
+   "palabras": 22,
+   "texto": "Se llamaba Violet Jessop, era camarera de barcos, y viajó en los tres hermanos gemelos del Titanic. Los tres tuvieron un accidente."
+  },
+  {
+   "n": 2,
+   "s": 12.336,
+   "e": 15.13,
+   "dur": 2.79,
+   "palabras": 10,
+   "texto": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "n": 3,
+   "s": 15.48,
+   "e": 17.237,
+   "dur": 1.76,
+   "palabras": 6,
+   "texto": "Te los cuento uno a uno."
+  },
+  {
+   "n": 4,
+   "s": 17.587,
+   "e": 23.979,
+   "dur": 6.39,
+   "palabras": 22,
+   "texto": "Uno: el Olympic. En mil novecientos once chocó contra un buque de guerra. Ella iba a bordo y salió sin un rasguño."
+  },
+  {
+   "n": 5,
+   "s": 24.479,
+   "e": 32.076,
+   "dur": 7.6,
+   "palabras": 24,
+   "texto": "Dos: el Titanic. Al año siguiente. Ella se salvó en un bote salvavidas, con un bebé que le pusieron en los brazos al subir."
+  },
+  {
+   "n": 6,
+   "s": 32.576,
+   "e": 39.527,
+   "dur": 6.95,
+   "palabras": 22,
+   "texto": "Y tres: el Britannic, en plena guerra, convertido en barco hospital. Chocó con una mina y se hundió. Ella iba de enfermera."
+  },
+  {
+   "n": 7,
+   "s": 39.877,
+   "e": 48.11,
+   "dur": 8.23,
+   "palabras": 24,
+   "texto": "Su bote salvavidas acabó arrastrado hacia las hélices, que seguían girando. Así que saltó al agua, se golpeó la cabeza... y sobrevivió otra vez."
+  },
+  {
+   "n": 8,
+   "s": 48.61,
+   "e": 58.122,
+   "dur": 9.51,
+   "palabras": 29,
+   "texto": "Ojo: antes de abandonar el barco, volvió a su camarote a por una cosa: su cepillo de dientes. Era lo que más había echado de menos después del Titanic."
+  },
+  {
+   "n": 9,
+   "s": 58.622,
+   "e": 67.34,
+   "dur": 8.72,
+   "palabras": 17,
+   "texto": "O sea: tres naufragios... y siguió trabajando en barcos casi cuarenta años más. La llamaban «Miss Insumergible»."
+  },
+  {
+   "n": 10,
+   "s": 67.84,
+   "e": 70.956,
+   "dur": 3.12,
+   "palabras": 11,
+   "texto": "¿Tú te habrías vuelto a subir a un barco? Os leo."
+  },
+  {
+   "n": 11,
+   "s": 71.306,
+   "e": 73.67,
+   "dur": 2.36,
+   "palabras": 7,
+   "texto": "Y esto... no venía en el libro."
+  }
+ ],
+ "primera_palabra": "esta",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.94,
+ "gancho_palabras": 14,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": false,
+ "marca_linea": 2,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 12.336,
+ "ojo_dur": 9.51,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Tú te habrías vuelto a subir a un barco? Os leo.",
+ "n_lineas": 12,
+ "n_palabras": 208,
+ "duracion_voz": 73.67,
+ "ppm": 169.4,
+ "lineas_mas_largas": [
+  [
+   8,
+   9.51,
+   "Ojo: antes de abandonar el barco, volvió a su camarote a por una cosa:"
+  ],
+  [
+   9,
+   8.72,
+   "O sea: tres naufragios... y siguió trabajando en barcos casi cuarenta "
+  ],
+  [
+   7,
+   8.23,
+   "Su bote salvavidas acabó arrastrado hacia las hélices, que seguían gir"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep37_jessop3/final.mp4",
+ "duracion_video": 74.3
+}

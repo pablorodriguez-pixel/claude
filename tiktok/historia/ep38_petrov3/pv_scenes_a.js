@@ -163,7 +163,7 @@ function globeAwake() { return globeSvg().replace('M150,220 q26,20 52,0 M258,220
 /* ======================================================================
    N3 · «…SIN LEVANTARSE DE LA SILLA.» — Petrov, sentado ante la pantalla
    ====================================================================== */
-headline(S.N3[0], S.N3[1], 'sin levantarse *de la silla*', { size: 90, hlT: K.silla1, y: 236 });
+headline(S.N3[0], S.N3[1], 'sin levantarse *de la silla*', { size: 90, hlT: K.silla1, y: 236, color: '#fff', hlc: RED });
 {
   const c = scene(S.N3[0], S.N3[1], t => {
     set(cam, { s: 1 + 0.08 * p(t, S.N3[0], S.N3[1] - S.N3[0], E.linear) });

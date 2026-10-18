@@ -146,7 +146,7 @@ function phoneRig(c, crtY = 300) {
   const bb = bubble(c, 300, 940, '', { size: 70, tail: 'l', z: 40, bg: '#fff', it: true });
   const BW = [];
   [['«Es', K.es6], ['una', K.una6], ['falsa', K.falsa], ['alarma»', K.alarma6]].forEach(([s, tt], i) => { const e = document.createElement('span'); e.style.display = 'inline-block'; e.style.margin = '0 0.1em'; e.textContent = s; bb.insertBefore(e, bb.lastChild); if (i === 1) bb.insertBefore(document.createElement('br'), bb.lastChild); BW.push({ e, t: tt }); });
-  const lbJ = el('div', c, { left: '320px', top: '870px', fontFamily: 'Rye', fontSize: '44px', color: INK, background: YEL, border: `5px solid ${INK}`, borderRadius: '12px', padding: '2px 18px', zIndex: 42, whiteSpace: 'nowrap', boxShadow: `5px 5px 0 ${INK}` }, 'A SUS JEFES:');
+  const lbJ = el('div', c, { left: '320px', top: '870px', fontFamily: 'Rye', fontSize: '54px', color: INK, background: YEL, border: `5px solid ${INK}`, borderRadius: '12px', padding: '2px 18px', zIndex: 42, whiteSpace: 'nowrap', boxShadow: `5px 5px 0 ${INK}` }, 'A SUS JEFES:');
   const stF = stamp(c, 260, 560, 'FALSA ALARMA', { size: 96, bw: 14, z: 41, bg: YEL, col: INK, blend: 'normal', font: 'Playfair' }); stF.style.fontWeight = 900;
 }
 
