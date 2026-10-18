@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¿Ves esta rayita de la pasta de dientes? ¡Dicen que te chiva lo que lleva dentro!",
+  "s": 0.12,
+  "e": 4.372
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Verde, natural. Negra... química pura.",
+  "s": 4.472,
+  "e": 7.77
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Pues es mentira.",
+  "s": 7.92,
+  "e": 8.953
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Esa rayita no es para ti. Es para la máquina.",
+  "s": 9.103,
+  "e": 11.79
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "En la fábrica, los tubos pasan a toda velocidad, y un sensor de luz busca esa marca.",
+  "s": 11.94,
+  "e": 17.412
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Cuando la ve... ¡zas! Corta y cierra el tubo justo ahí.",
+  "s": 17.562,
+  "e": 21.206
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "Y el color es el que mejor se ve sobre el dibujo. Nada más.",
+  "s": 21.356,
+  "e": 24.829
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Lo que lleva de verdad, en los ingredientes, por detrás.",
+  "s": 24.979,
+  "e": 28.357
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "¿Tú también te lo creías? Dímelo, que no se lo cuento a nadie.",
+  "s": 28.507,
+  "e": 31.799
+ }
+]

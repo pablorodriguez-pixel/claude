@@ -16,25 +16,30 @@ Documento de traspaso para continuar el canal en una sesión nueva. Léelo enter
 - Voz: ElevenLabs `X1uEdaNgEu64cdmPhwUX` («Abuela Carmen»), stability 0.5, tempo 0.85 (≈170–180 ppm, ritmo de vídeo de trucos). Música: `abuela`.
 - Código de referencia: `lt02_super/` (art.js, art2.js, main.js). Brief técnico: `engine/BRIEF.md`.
 
-## Estructura vigente
-1. Gancho: primera palabra = tema, afirmación que contradice («¡El súper te está tomando el pelo!»). Fotograma 0 = pregunta en movimiento.
-2. Promesa: «Te cuento tres… y el último te va a cabrear/sorprender».
-3. BARRA DE PROGRESO fija arriba: 1 · 2 · 3 + casilla «?»; el 3 con candado y carita desde el gancho; «Y espera, que el tres es el bueno» → candado tiembla y revienta;
-   la «?» se convierte en un REGALO (truco extra al final).
-4. Entre trucos solo un golpe de tapa de 0,5 s con el número; nada de inventario de la lata.
-5. Encuesta final «¿Cuál…? ¿El uno, el dos o el tres?».
-6. Sin presentación al principio; última frase: "Aquí la abuela Carmen. Sígueme, que en esta lata hay muchos más... y yo me los sé todos."
-   (medallón en la tapa, + SEGUIR, compartimentos con «?», tapa que se cierra con «Ep. N · título»).
-7. Sin tarjeta final: tail 0,6 s y bucle al fotograma 0. 55–65 s. Precios/fechas inventados SIEMPRE con chip «ejemplo»; sin marcas reales; nada de counter().
+## Estructura vigente (desde 18/10/2026: formato «1 secreto», 28–35 s)
+Datos que lo motivan (formato antiguo de 3 trucos, 58–66 s): 152 / 661 / 632 visualizaciones, 99,6 % «Para ti» (TikTok SÍ los repartía);
+la curva cae del 100 % al ~25 % en los primeros 5–6 s y luego queda plana (~15 %) hasta el final → el problema es el GANCHO y el coste
+de compromiso (barra 1·2·3 = «esto va para largo»), no el contenido del medio.
+1. Un solo secreto por vídeo, de un objeto cotidiano que todo el mundo tiene en casa (línea editorial: «lo que nadie te explica»).
+2. Fotograma 0 = el OBJETO en primer plano con el detalle misterioso marcado (aro dorado/flecha) + pregunta corta arriba («¿Sabes leer esto?»).
+   El título del fotograma 0 va dentro de la escena (no en HEADS) para que el bucle final vuelva exactamente a él.
+3. La voz arranca en 0,12 s y dice el beneficio/curiosidad en < 3 s. Segunda frase = bucle abierto («y uno no te va a gustar», «pues es mentira»).
+4. Nada de barra de progreso, ni promesa de «tres», ni golpes de lata, ni presentación ni despedida de la abuela (le quitaba ~5 s al final).
+5. Desarrollo en tarjetas que cambian cada 1–2 s; la revelación fuerte hacia el 65–70 %; luego un dato extra corto.
+6. Cierre = pregunta que obliga a comentar/comprobar («Ve a la nevera: ¿qué número tienen los tuyos?») con 3 comentarios de ejemplo, y bucle
+   inmediato al fotograma 0 (tail 0,75 s). Abuela: medallón pequeño abajo-izquierda reaccionando todo el vídeo.
+7. Voz tempo 0,92 (≈170–185 ppm). Subtítulos en y=1420. Chips «ejemplo» en datos inventados; sin marcas reales; nada de counter().
 8. Datos verificados antes de escribir (seguridad alimentaria: criterio AESAN; nada de consejos de salud dudosos).
+Plantilla de código: `lt05_huevo/main.js` (utilidades card/badge/comment/hen + escenas) y `lt06_pasta/main.js`.
 
 ## Estado
-- 17/10/2026: los 3 vídeos subidos (a la vez) a @consejos.de.abuela.tv → 0 visualizaciones en los tres. Diagnóstico pendiente (¿en revisión?, ¿cuenta sin calentar?, ¿mismos archivos subidos antes en otra cuenta?). Listos (versión de lanzamiento): `lt02_super/final.mp4` nº1 «El súper te engaña» (58 s), `lt03_fechas/final.mp4` nº2 «La fecha que te hace tirar comida» (66 s),
-  `lt04_cocina/final.mp4` nº3 «Lo que haces mal en la cocina» (59 s). Descripciones en `PUBLICAR.txt`. Uno al día, en orden.
-  (`final.mp4` en la raíz de esta carpeta = piloto antiguo de limpieza, descartado.)
-- Próximo paso: analizar visualizaciones (48 h) y curvas de retención cuando el usuario las pase; preparar nº4, 5, 6…
-  Ideas (verificar): trucos para ahorrar en la factura de la luz, cosas que no sabías del lavavajillas/lavadora, trucos de nevera (qué va en cada balda),
-  errores al congelar, trucos de la compra online, cómo leer la etiqueta nutricional en 5 segundos.
+- Formato antiguo (3 trucos) publicado en @consejos.de.abuela.tv: nº1 súper 152 vis., nº2 fechas 661, nº3 pollo 632 (datos 18/10/2026).
+- Formato nuevo listos: `lt05_huevo/final.mp4` «El número del huevo» (32 s, gancho curiosidad) y `lt06_pasta/final.mp4` «La rayita de la
+  pasta de dientes» (33 s, gancho mito/bulo). Textos en PUBLICAR.txt. Son un test A/B de tipo de gancho: comparar retención a 3 s y % que ve entero.
+- Ideas siguientes (verificar cada dato): flecha del icono de gasolina (lado del depósito), agujero de la tapa del boli, símbolo del tarro
+  abierto «12M» en cremas, estrellas del congelador (★ a ★★★★), cajetín de la lavadora (I, II, flor), lado brillante del papel de aluminio (mito),
+  pegatina de la fruta, botón «eco» del lavavajillas.
+- Recursos de audio regenerados con ElevenLabs y guardados en git: `engine/el_sfx/*.wav` (19 efectos) y `engine/el_music/abuela.wav`.
 
 ## Cómo se produce un episodio (desde `tiktok/lata_abuela/`)
 1. Carpeta `ltNN_tema/` con `lines_in.json` ({"voices":{"ABUELA":["X1uEdaNgEu64cdmPhwUX",0.5,0.85]},"gap":0.2,"inner_cap":0.3,"lines":[...]}),

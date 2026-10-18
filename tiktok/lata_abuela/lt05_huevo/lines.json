@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¿Ves este número del huevo? ¡Te dice cómo ha vivido la gallina!",
+  "s": 0.12,
+  "e": 3.765
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Y uno de ellos no te va a gustar nada.",
+  "s": 3.865,
+  "e": 6.112
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Mira solo el primero.",
+  "s": 6.262,
+  "e": 7.736
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Cero: ecológica. Sale al aire libre y come pienso ecológico.",
+  "s": 7.886,
+  "e": 11.964
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Uno: campera. Puede salir al campo todos los días.",
+  "s": 12.114,
+  "e": 15.322
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Dos: suelo. Va suelta... pero siempre dentro de una nave.",
+  "s": 15.472,
+  "e": 19.373
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "Y el tres... jaula. Ni campo, ni suelo.",
+  "s": 19.523,
+  "e": 24.107
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Y lo de detrás es el país, la provincia y la granja de donde sale.",
+  "s": 24.257,
+  "e": 28.245
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "Ve a la nevera ahora mismo... ¿qué número tienen los tuyos?",
+  "s": 28.395,
+  "e": 31.507
+ }
+]
