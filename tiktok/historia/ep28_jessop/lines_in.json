@@ -1,0 +1,65 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Titanic! Tú no salías vivo. Esta camarera, sí."
+  },
+  {
+   "who": "VECINO",
+   "text": "Violet Yésop, nacida en Argentina. En el bote le lanzan un bulto..."
+  },
+  {
+   "who": "VECINO",
+   "text": "Un bebé. Que no era suyo. Al rescatarlos, cuenta, una mujer se lo arrancó. Ni las gracias."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Fin? Qué va: el Titanic no fue el único. Tenía dos gemelos... y ella, en los tres."
+  },
+  {
+   "who": "VECINO",
+   "text": "Antes, al Olympic lo embistió un buque de guerra. ¿Tú lo dejas? Ella se pasó... al Titanic."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el Britannic, de enfermera. Una mina... y vuelve al camarote."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A por qué? A por el cepillo de dientes. Del Titanic salió sin él."
+  },
+  {
+   "who": "VECINO",
+   "text": "Sube a un bote... y el agua lo arrastra a las hélices, que siguen girando."
+  },
+  {
+   "who": "VECINO",
+   "text": "Salta. Golpe en la cabeza... y sale viva. Con el cráneo roto, según contó."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y después? Volvió al mar. Décadas. Dio la vuelta al mundo... en barco."
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres barcos lo intentaron. Ninguno pudo. Murió a los ochenta y tres, en tierra firme."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú volverías a subirte a uno? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}
