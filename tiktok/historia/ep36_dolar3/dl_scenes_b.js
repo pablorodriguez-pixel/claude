@@ -197,7 +197,7 @@ headline(S.H2[0], S.H2[1], 'Bonito, pero las *pruebas* dicen «pesos»', { size:
 headline(S.K0[0], S.K0[1], 'Cada vez que *tú escribes*…', { size: 88, hlT: K.escribes, y: 196 });
 {
   const G = { x: 540, y: 820, s: 0.95 };          // el «$» del papel (coordenadas de escena)
-  const TSa = K.escribes - 0.05, TSb = K.simbolo9 + 0.35, TRa = TSb + 0.05, TRb = K.dolar9 + 0.35, TP = K.dolar9 + 0.75;
+  const TSa = K.cada - 0.05, TSb = K.simbolo9 + 0.35, TRa = TSb + 0.05, TRb = K.dolar9 + 0.35, TP = K.dolar9 + 0.75;
   const c = scene(S.K0[0], S.K0[1], t => {
     const kp = p(t, S.K0[0], 0.35, E.outBack);
     set(pg, { y: (1 - kp) * 300, r: lerp(5, -1.5, kp) });
