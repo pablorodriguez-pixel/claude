@@ -222,7 +222,7 @@ headline(K.cerv10 - 0.28, S.K1[1], 'Cervantes tenía *excusa*', { size: 80, hlT:
   const ty = el('div', ph, { left: '50px', top: '420px', background: '#fff', border: `4px solid ${INK}`, borderRadius: '24px', padding: '0 22px 6px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '50px', color: INK, zIndex: 4 }, '•••');
   const cv = mkCerv(cam, [20, 760, 420, 537]); cv.d.style.zIndex = 8;
   const hand = box(cam, 290, 760, 150, 150, { zIndex: 9 }); hand.innerHTML = `<svg viewBox="-70 -70 140 140" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, 50, 1.3)}</svg>`;
-  const ex = stamp(cam, 420, 1060, 'ÉL TENÍA EXCUSA', { size: 56, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const ex = stamp(c, 300, 1130, 'ÉL TENÍA EXCUSA', { size: 56, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================

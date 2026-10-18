@@ -138,7 +138,7 @@
    C · «UN MISIL NUCLEAR DESDE ESTADOS UNIDOS. LUEGO OTRO. HASTA CINCO.» — mapa con trayectorias + contador por saltos
    ====================================================================== */
 headline(S.C[0], K.luego - 0.06, 'Un *misil nuclear*', { size: 96, hlT: K.nuclear, y: 196 });
-headline(K.luego - 0.06, K.hasta - 0.06, 'Luego *otro*…', { size: 110, hlT: K.otro, y: 190 });
+headline(K.luego - 0.06, K.hasta - 0.06, 'Luego *otro…*', { size: 110, hlT: K.otro, y: 190 });
 headline(K.hasta - 0.06, S.C[1], 'Hasta *cinco*', { size: 116, hlT: K.cinco2, y: 186 });
 {
   const usX = lo => 40 + (lo + 125) * 7.0, usY = la => 650 + (50 - la) * 8.4;
@@ -207,7 +207,7 @@ headline(K.hasta - 0.06, S.C[1], 'Hasta *cinco*', { size: 116, hlT: K.cinco2, y:
 /* ======================================================================
    D1 · «Y ESE MISMO MES…» — hoja de calendario SEPTIEMBRE 1983
    ====================================================================== */
-headline(S.D1[0], S.D1[1], 'Ese *mismo mes*…', { size: 112, hlT: K.mismo });
+headline(S.D1[0], S.D1[1], 'Ese *mismo mes…*', { size: 112, hlT: K.mismo });
 {
   const c = scene(S.D1[0], S.D1[1], t => {
     const k = p(t, S.D1[0], 0.35, E.outBack);
@@ -270,7 +270,7 @@ headline(S.E1[0], S.E1[1], 'No tenía *el botón*', { size: 108, hlT: K.boton, c
 /* ======================================================================
    E2 · «PERO SU AVISO PODÍA HACER QUE ALGUIEN LO PULSARA.» — dos salas: Petrov al teléfono | una mano sobre el botón
    ====================================================================== */
-headline(S.E2[0], K.podia - 0.06, 'Pero su *aviso*…', { size: 104, hlT: K.aviso });
+headline(S.E2[0], K.podia - 0.06, 'Pero su *aviso…*', { size: 104, hlT: K.aviso });
 headline(K.podia - 0.06, S.E2[1], 'podía hacer que *alguien* lo pulsara', { size: 76, hlT: K.alguien });
 {
   const c = scene(S.E2[0], S.E2[1], t => {
@@ -282,7 +282,7 @@ headline(K.podia - 0.06, S.E2[1], 'podía hacer que *alguien* lo pulsara', { siz
     WV.forEach((w, i) => set(w, { o: t > K.aviso - 0.1 && t < K.aviso + 0.9 ? (Math.floor(t * 8 + i) % 3 ? 1 : 0.3) : 0 }));
     // la mano baja… y se congela a 2 mm
     const kh = p(t, K.alguien - 0.1, 0.4, E.outCubic), kp = p(t, K.pulsara - 0.05, 0.3, E.inCubic);
-    set(hand, { y: lerp(-600, -40, kh) + kp * 34 + (t > K.pulsara + 0.25 ? Math.sin(t * 40) * 1.5 : 0) });
+    set(hand, { y: lerp(-420, -40, kh) + kp * 34 + (t > K.pulsara + 0.25 ? Math.sin(t * 40) * 1.5 : 0) });
     set(pulse, { o: t > K.pulsara ? (blink2(t) ? 0.7 : 0.2) : 0 });
     popA(chP, t, S.E2[0] + 0.05, { r: -3 }); popA(chQ, t, K.alguien + 0.05, { r: 3 });
   }, { clip: true, cut: true });
@@ -303,7 +303,7 @@ headline(K.podia - 0.06, S.E2[1], 'podía hacer que *alguien* lo pulsara', { siz
 /* ======================================================================
    F1 · «¿QUÉ HACE?» — Petrov, sudando
    ====================================================================== */
-headline(S.F1[0], S.F1[1], '¿Qué *hace*?', { size: 140, hlT: K.hace, y: 230, color: '#fff', hlc: RED });
+headline(S.F1[0], S.F1[1], '¿Qué *hace?*', { size: 140, hlT: K.hace, y: 230, color: '#fff', hlc: RED });
 {
   const c = scene(S.F1[0], S.F1[1], t => {
     set(pv.d, { s: 1 + 0.08 * p(t, S.F1[0], 0.6, E.outCubic), y: wobble(t, 0.6, 2) });

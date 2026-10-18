@@ -9,7 +9,7 @@ defsSvg.querySelector('defs').insertAdjacentHTML('beforeend', `
 /* ---------- el «$» de grabado (viewBox 0 0 600 900). back=true → cara de atrás (más oscura) ---------- */
 function dollarSvg(o = {}) {
   // mismo trazo que la transformación: la S + UNA raya (el «$» de tu teclado)
-  const g = (st, w, extra = '') => `<g transform="translate(300 450) scale(1.12)" ${extra}><path d="M0,-345 V350" stroke="${st}" stroke-width="${w}" fill="none" stroke-linecap="round"/><path d="${S_PATH}" stroke="${st}" stroke-width="${w}" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
+  const g = (st, w, extra = '') => `<g transform="translate(300 450) scale(1.12)" ${extra}><path d="M0,-345 V350" stroke="${st === 'url(#silv)' ? SILV : st === 'url(#silvD)' ? '#9a9e97' : st}" stroke-width="${w}" fill="none" stroke-linecap="round"/><path d="${S_PATH}" stroke="${st}" stroke-width="${w}" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>`;
   return `<svg viewBox="0 0 600 900" width="100%" height="100%" style="overflow:visible">
   <g transform="translate(16 20)">${g(SH, 132)}</g>
   ${g('#fff', 140)}${g(INK, 112)}

@@ -152,7 +152,7 @@ headline(S.H2[0], S.H2[1], 'o la *U* sobre la S…', { size: 104, hlT: K.U7, y: 
 const T_EMU = K.S7 + 0.1;
 {
   const c = scene(S.H2[0], S.H2[1], t => {
-    set(sB, { s: pop(t, S.H2[0], 0.3), r: -2, o: 1 });
+    set(sB, { s: 0.5 + 0.5 * pop(t, S.H2[0], 0.3), r: -2, o: 1 });
     // la U cae en «U», rebota sobre la S y se ladea
     const ku = p(t, K.U7 - 0.1, 0.45, E.outBounce);
     const grab = p(t, T_EMU + 0.25, 0.5, E.inCubic);

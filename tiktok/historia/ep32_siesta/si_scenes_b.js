@@ -68,14 +68,14 @@ headline(S.O3[0], S.O3[1], 'y la fueron *adelantando*', { size: 92, hlT: K.adela
    P · «LO QUE HACE EL HAMBRE» — el monje se zampa el pan… y el emú se lo roba (cameo)
    ====================================================================== */
 headline(S.P[0], S.P[1], 'Lo que hace *el hambre*', { size: 96, hlT: K.hambre });
-const T_EMU = K.hambre + 0.12;
+const T_EMU = K.hambre - 0.08;
 {
   const c = scene(S.P[0], S.P[1], t => {
     const chomp = t > K.hace - 0.1 && t < T_EMU;
     set(m.d, { s: pop(t, S.P[0], 0.35), y: wobble(t, 0.6, 3) + (chomp ? Math.abs(Math.sin(t * 22)) * -10 : 0) });
     face(m, t, { look: [-4, 6], jaw: chomp ? Math.abs(Math.sin(t * 22)) * 0.8 : 0, closed: chomp, bL: 8, bR: 8, seed: 0.5 });
     // el pan: entra, se acerca a la boca; en el cameo, el emú se lo lleva
-    const kb = p(t, S.P[0] + 0.05, 0.35, E.outBack), ke = p(t, T_EMU, 0.3, E.inCubic);
+    const kb = p(t, S.P[0] + 0.05, 0.35, E.outBack), ke = p(t, T_EMU, 0.25, E.inOutCubic);
     set(br, { x: lerp(300, 0, kb) + ke * 900, y: -ke * 120, r: -10 + ke * 40, s: 1 - 0.15 * (chomp ? Math.abs(Math.sin(t * 22)) : 0), o: 1 });
     const kE = p(t, T_EMU - 0.2, 0.22, E.outBack) * (1 - p(t, T_EMU + 0.5, 0.25, E.inCubic));
     set(emu.d, { x: (1 - kE) * 520, r: -18 });
@@ -159,8 +159,8 @@ colorHit(S.R1[0], S.R1[1], PINK, c => {
     set(ttl, { s: t < K.se12 - 0.05 ? 0 : lerp(1.5, 1, kt), r: -2, o: t < K.se12 - 0.05 ? 0 : 1 });
     ttl.style.textShadow = (glitch(t, K.cambiaron, 0.25) ? glitch(t, K.cambiaron, 0.25) + ', ' : '') + OUTL(INK, 8);
     const ks = p(t, K.cambiaron + 0.05, 0.55, E.inOutCubic), hop = Math.sin(ks * Math.PI);
-    set(A, { x: ks * 500, y: -hop * 220, r: ks * 360 * 0 + hop * -12, s: pop(t, S.R1[0], 0.3) });
-    set(B, { x: -ks * 500, y: hop * 120, r: hop * 12, s: pop(t, S.R1[0] + 0.05, 0.3) });
+    set(A, { x: ks * 500, y: hop * 120, r: hop * -12, s: pop(t, S.R1[0], 0.3) });
+    set(B, { x: -ks * 500, y: -hop * 80, r: hop * 12, s: pop(t, S.R1[0] + 0.05, 0.3) });
   };
 });
 

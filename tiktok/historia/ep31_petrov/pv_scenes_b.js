@@ -42,7 +42,7 @@ headline(S.G2[0], S.G2[1], 'Y el sistema era *nuevo*', { size: 100, hlT: K.nuevo
   const crt = mkCRT(c, 370, 560, 560, 460, { z: 4, size: 110 });
   const eyes = el('div', crt.scr, { left: '0', top: '230px', width: '470px', textAlign: 'center', fontSize: '0', zIndex: 6 }, `<svg width="200" height="70" style="overflow:visible"><ellipse cx="50" cy="35" rx="26" ry="30" fill="#fff" stroke="${INK}" stroke-width="5"/><ellipse cx="150" cy="35" rx="26" ry="30" fill="#fff" stroke="${INK}" stroke-width="5"/><circle cx="58" cy="44" r="11" fill="${INK}"/><circle cx="142" cy="44" r="11" fill="${INK}"/></svg>`);
   void eyes;
-  const tag = box(c, 760, 980, 220, 300, { zIndex: 8, transformOrigin: '30px 0px' });
+  const tag = box(c, 680, 1000, 220, 300, { zIndex: 8, transformOrigin: '30px 0px' });
   tag.innerHTML = `<svg width="220" height="300" style="overflow:visible"><path d="M30,0 Q20,60 60,90" stroke="${INK}" stroke-width="4" fill="none"/>${cut('<path d="M40,80 L170,80 L170,250 L40,250 L20,165 Z"/>', 4, 6)}<path d="M40,80 L170,80 L170,250 L40,250 L20,165 Z" fill="${YEL}" stroke="${INK}" stroke-width="5"/><circle cx="44" cy="165" r="9" fill="#fff" stroke="${INK}" stroke-width="3"/></svg>`;
   el('div', tag, { left: '30px', top: '118px', width: '150px', textAlign: 'center', fontFamily: 'Rye', fontSize: '38px', color: INK, transform: 'rotate(-90deg) translate(-40px,0)' }, '');
   el('div', tag, { left: '50px', top: '128px', width: '120px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '36px', lineHeight: 1.05, color: INK }, '¡NUEVO!<br><span style="font-family:SpecialElite;font-size:24px;font-weight:400">a estrenar</span>');
@@ -69,7 +69,7 @@ colorHit(S.H1[0], S.H1[1], YEL, c => {
 /* ======================================================================
    H2 · «ERA EL SOL, REFLEJADO EN NUBES ALTAS.» — el sol guiña; el rayo rebota en la nube y sube al satélite
    ====================================================================== */
-headline(S.H2[0], K.reflejado - 0.06, 'Era *el sol*…', { size: 120, hlT: K.sol, y: 196, color: '#fff', hlc: '#C9A24A' });
+headline(S.H2[0], K.reflejado - 0.06, 'Era *el sol…*', { size: 120, hlT: K.sol, y: 196, color: '#fff', hlc: '#C9A24A' });
 headline(K.reflejado - 0.06, S.H2[1], 'reflejado en *nubes altas*', { size: 88, hlT: K.altas, y: 200, color: '#fff', hlc: '#C9A24A' });
 {
   const c = scene(S.H2[0], S.H2[1], t => {
@@ -133,7 +133,7 @@ headline(S.H3[0], S.H3[1], 'El satélite lo tomó por *un cohete*', { size: 80, 
 /* ======================================================================
    I1 · «¿Y SU PREMIO?» — la medalla baja del cielo
    ====================================================================== */
-headline(S.I1[0], S.I1[1], '¿Y su *premio*?', { size: 130, hlT: K.premio });
+headline(S.I1[0], S.I1[1], '¿Y su *premio?*', { size: 130, hlT: K.premio });
 {
   const c = scene(S.I1[0], S.I1[1], t => {
     const k = p(t, S.I1[0], 0.5, E.outBack);
@@ -251,7 +251,7 @@ headline(S.J1[0], S.J1[1], 'El mundo *no lo supo*', { size: 104, hlT: K.supo9, c
   const c2 = calPage(560, 560, 'AÑO', '1998', { bigSize: 190, band: INK }); c.appendChild(c2); c2.style.left = '260px'; c2.style.top = '300px'; c2.style.zIndex = 4;
   const old = calPage(560, 560, 'AÑO', '1983', { bigSize: 190 }); c.appendChild(old); old.style.left = '-10px'; old.style.top = '250px'; old.style.zIndex = 3;
   const arr = box(c, 150, 760, 180, 120, { zIndex: 5 }); arr.innerHTML = arrowSvg('M10,60 H160 M120,24 L164,60 L120,96', PINK, 12);
-  const st15 = stamp(c, 140, 930, '15 AÑOS<br>SIN SABERSE', { size: 118, bw: 15, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' }); st15.style.textAlign = 'center';
+  const st15 = stamp(c, 170, 930, '15 AÑOS<br>SIN SABERSE', { size: 92, bw: 15, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' }); st15.style.textAlign = 'center';
 }
 
 /* ======================================================================
@@ -282,7 +282,7 @@ headline(S.J1[0], S.J1[1], 'El mundo *no lo supo*', { size: 104, hlT: K.supo9, c
 /* ======================================================================
    K2 · «…Y TAMPOCO SE SUPO HASTA CUATRO MESES DESPUÉS.» — el periódico llega tarde
    ====================================================================== */
-headline(S.K2[0], S.K2[1], 'Tampoco *se supo*…', { size: 108, hlT: K.supo10, y: 196 });
+headline(S.K2[0], S.K2[1], 'Tampoco *se supo…*', { size: 108, hlT: K.supo10, y: 196 });
 {
   const c = scene(S.K2[0], S.K2[1], t => {
     const kn = p(t, K.tampoco - 0.1, 0.7, E.outCubic);
@@ -376,6 +376,6 @@ headline(S.M[0], S.M[1], '¿Tú qué *habrías hecho*', { size: 92, hlT: K.habri
   vignette(c, 7, 0.6);
   const l2 = el('div', c, { left: 0, top: '300px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '92px', color: '#fff', zIndex: 501 }, `en su ${hlSpan('<span style="font-style:italic">silla?</span>', 'shl2', RED)}`);
   const sHL = l2.querySelector('.shl2');
-  const ol = chip(c, 600, 1180, 'Os leo 👇', { size: 64, bg: PINK, z: 40 });
-  const hand = box(c, 460, 1180, 130, 130, { zIndex: 41 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
+  const ol = chip(c, 530, 1180, 'Os leo 👇', { size: 64, bg: PINK, z: 40 });
+  const hand = box(c, 400, 1180, 130, 130, { zIndex: 41 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
 }
