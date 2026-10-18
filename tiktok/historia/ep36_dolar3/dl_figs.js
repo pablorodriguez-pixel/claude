@@ -3,7 +3,7 @@ const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
   // L0 gancho
-  K.simbolo0 = ws(1); K.dolar0 = ws(3); K.no0 = ws(4); K.una0 = ws(6); K.S0 = ws(7); K.es0 = ws(8); K.palabra0 = ws(10); K.espanol0 = ws(12);
+  K.simbolo0 = ws(1); K.dolar0 = ws(3); K.no0 = ws(4); K.una0 = ws(6); K.S0 = ws(7); K.crees = ws(10); K.es0 = ws(11); K.palabra0 = ws(13); K.espanol0 = ws(15);
   // L1 respuesta
   const i1 = find('ese garabato en realidad'); K.ese1 = ws(i1); K.garabato = ws(i1 + 1); K.realidad = ws(i1 + 3); K.pone1 = ws(i1 + 4); K.pesos1 = ws(i1 + 5);
   // L2 marca
@@ -17,7 +17,7 @@ const K = {};
   K.una4 = ws(i4 + 22); K.P4 = ws(i4 + 23); K.y4b = ws(i4 + 24); K.lado = ws(i4 + 26); K.S4 = ws(i4 + 28); K.pequenita = ws(i4 + 29); K.de4 = ws(i4 + 30); K.pesos4 = ws(i4 + 31);
   // L5 DOS
   const i5 = find('dos de tanto escribirlo', i4); K.dos = ws(i5); K.tanto5 = ws(i5 + 2); K.deprisa = ws(i5 + 4); K.la5 = ws(i5 + 5); K.S5 = ws(i5 + 6); K.montando = ws(i5 + 9); K.encima = ws(i5 + 10);
-  K.P5 = ws(i5 + 13); K.P5e = wE(i5 + 13); K.y5 = ws(i5 + 14); K.P5b = ws(i5 + 17); K.solo = ws(i5 + 18); K.quedo = ws(i5 + 19); K.raya = ws(i5 + 21); K.rayaE = wE(i5 + 21);
+  K.P5 = ws(i5 + 13); K.P5e = wE(i5 + 13); K.y5 = ws(i5 + 14); K.P5b = ws(i5 + 17); K.solo = ws(i5 + 18); K.quedo = ws(i5 + 19); K.raya = ws(i5 + 21); K.rayaE = wE(i5 + 21); K.ves5 = ws(i5 + 23); K.dolar5 = ws(i5 + 26);
   // L6 TRES
   const i6 = find('y tres cuando estados', i5); K.y6 = ws(i6); K.tres6 = ws(i6 + 1); K.cuando = ws(i6 + 2); K.estados6 = ws(i6 + 3); K.creo = ws(i6 + 5); K.dolar6 = ws(i6 + 7);
   K.lo6 = ws(i6 + 8); K.copio = ws(i6 + 9); K.peso6 = ws(i6 + 11); K.el6 = ws(i6 + 13); K.mismo6 = ws(i6 + 14); K.valor = ws(i6 + 15); K.y6b = ws(i6 + 16); K.mismo6b = ws(i6 + 18); K.simbolo6 = ws(i6 + 19);
@@ -27,8 +27,8 @@ const K = {};
   const i8 = find('ojo hay otras teorias', i7); K.ojo = ws(i8); K.otras = ws(i8 + 2); K.teorias = ws(i8 + 3); K.columnas = ws(i8 + 8); K.hercules = ws(i8 + 10); K.son = ws(i8 + 11);
   K.bonitas = ws(i8 + 12); K.pero8 = ws(i8 + 13); K.peso8 = ws(i8 + 16); K.tiene = ws(i8 + 20); K.pruebas = ws(i8 + 21);
   // L9 O sea
-  const i9 = find('o sea cada vez que ves', i8); K.osea = ws(i9); K.cada = ws(i9 + 2); K.ves = ws(i9 + 5); K.simbolo9 = ws(i9 + 7); K.dolar9 = ws(i9 + 9); K.estas = ws(i9 + 10); K.leyendo = ws(i9 + 11);
-  K.pesos9 = ws(i9 + 12); K.en9 = ws(i9 + 13); K.espanol9 = ws(i9 + 14);
+  const i9 = find('o sea el dinero mas poderoso', i8); K.osea = ws(i9); K.cada = ws(i9 + 2); K.dinero9 = ws(i9 + 3); K.ves = ws(i9 + 5); K.simbolo9 = ws(i9 + 3); K.dolar9 = ws(i9 + 7); K.estas = ws(i9 + 8); K.leyendo = ws(i9 + 9);
+  K.pesos9 = ws(i9 + 10); K.en9 = ws(i9 + 12); K.espanol9 = ws(i9 + 13);
   // L10 pregunta
   const i10 = find('y en tu pais como le llamais', i9); K.i10 = i10; K.y10 = ws(i10); K.tu10 = ws(i10 + 2); K.pais = ws(i10 + 3); K.como10 = ws(i10 + 4); K.llamais = ws(i10 + 6); K.dinero10 = ws(i10 + 8); K.os = ws(i10 + 9); K.leo = ws(i10 + 10);
   // L11 cierre
@@ -48,9 +48,9 @@ const S = {
   F1: [K.cuando - 0.1, K.lo6 - 0.1], F2: [K.lo6 - 0.1, K.el6 - 0.1], F3: [K.el6 - 0.1, K.alli - 0.1],
   G1: [K.alli - 0.1, K.hasta7 - 0.1], G2: [K.hasta7 - 0.1, K.ojo - 0.12],
   // OJO
-  H0: [K.ojo - 0.12, K.columnas - 0.15], H1: [K.columnas - 0.15, K.bonitas - 0.1], H2: [K.bonitas - 0.1, K.cada - 0.1],
+  H0: [K.ojo - 0.12, K.columnas - 0.15], H1: [K.columnas - 0.15, K.bonitas - 0.1], H2: [K.bonitas - 0.1, K.osea - 0.1],
   // O SEA
-  K0: [K.cada - 0.1, K.estas - 0.1], K1: [K.estas - 0.1, K.y10 - 0.1],
+  K0: [K.osea - 0.1, K.estas - 0.1], K1: [K.estas - 0.1, K.y10 - 0.1],
   K2: [K.y10 - 0.1, K.y11 - 0.12],
   BK: [K.y11 - 0.12, 999],
 };

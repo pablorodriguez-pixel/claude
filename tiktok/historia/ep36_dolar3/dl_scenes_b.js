@@ -105,25 +105,26 @@
 }
 
 /* ======================================================================
-   G2 · «…HASTA MIL OCHOCIENTOS CINCUENTA Y SIETE» — la tira de monedas y el sello HASTA 1857
+   G2 · «…HASTA MIL OCHOCIENTOS CINCUENTA Y SIETE» — la moneda cae en el mostrador de la tienda + sello HASTA 1857
    ====================================================================== */
 {
   const c = scene(S.G2[0], S.G2[1], t => {
-    const kl = p(t, S.G2[0] + 0.05, 0.9, E.inOutCubic);
-    lnE.style.width = px(f1(720 * kl));
-    CN.forEach((q, i) => { const k = ((t - S.G2[0]) * 0.7 + i / CN.length) % 1; set(q, { x: 720 * k, y: -Math.sin(k * Math.PI * 6) * 14, r: k * 720, o: t > S.G2[0] + 0.3 && kl > k ? 1 : 0 }); });
-    stampA(st, t, K.mil - 0.02, -8, 1);
-    set(brk, { o: t > K.siete ? 1 : 0, sx: p(t, K.siete, 0.3, E.outCubic) });
-    const kb = p(t, S.G2[0] + 0.1, 0.35, E.outBack);
-    set(bell, { y: (1 - kb) * -800, r: Math.sin((t - K.mil) * 10) * 10 * (t > K.mil ? 1 - p(t, K.mil + 0.3, 0.8) : 0), o: t < S.G2[0] + 0.1 ? 0 : 1 });
+    set(cam, { s: 1.08 + 0.04 * p(t, S.G2[0], 2.6, E.linear) });
+    const t0 = S.G2[0] + 0.05, k = p(t, t0, 0.6, E.outBounce);
+    const sp = t < t0 + 0.55 ? Math.cos((t - t0) * 16) : 1;
+    set(cn, { y: lerp(-900, 0, k), sx: Math.max(0.1, Math.abs(sp)), r: (1 - k) * 30, o: t < t0 ? 0 : 1 });
+    set(cl, { s: pop(t, t0 + 0.32, 0.25), r: -8, o: t > t0 + 0.32 && t < t0 + 1.2 ? 1 : 0 });
+    stampA(st, t, K.mil - 0.02, -7, 1);
+    SP.forEach((q, i) => set(q, { o: t > t0 + 0.4 ? 0.5 + 0.5 * Math.sin(t * 8 + i * 2) : 0, r: t * 90 }));
   }, { clip: true, cut: true });
-  sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.06) 0 3px, transparent 3px 90px)' });
-  const ln = box(c, 180, 1000, 720, 26, { zIndex: 4, background: 'rgba(43,33,24,.15)', borderRadius: '13px' });
-  const lnE = box(ln, 0, 0, 0, 26, { background: INK, borderRadius: '13px' });
-  const CN = [0, 1, 2].map(() => { const e = box(c, 160, 960, 60, 60, { zIndex: 5 }); e.innerHTML = pesoCoinSvg(''); return e; });
-  const brk = box(c, 200, 940, 680, 60, { zIndex: 5, transformOrigin: '0 30px' }); brk.innerHTML = `<svg width="680" height="60" style="overflow:visible"><path d="M4,56 V20 H676 V56" stroke="${PINK}" stroke-width="10" fill="none" stroke-linejoin="round"/></svg>`;
-  const st = stamp(c, 360, 1070, 'HASTA<br>1857', { size: 116, bw: 15, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' }); st.style.textAlign = 'center';
-  const bell = box(c, 390, 440, 300, 340, { zIndex: 8 }); bell.innerHTML = `<svg viewBox="0 0 300 340" width="100%" height="100%" style="overflow:visible">${bellSvg()}</svg>`;
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
+  sceneBg(cam, { background: '#EADFC8' });
+  const shop = box(cam, 0, -40, 1080, 1300, { zIndex: 1 }); shop.innerHTML = shopSvg();
+  box(cam, 120, 1060, 840, 130, { zIndex: 6, background: WOOD, border: `6px solid ${INK}`, borderRadius: '10px', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.12) 0 4px, transparent 4px 70px)' });
+  const cn = box(cam, 400, 780, 280, 280, { zIndex: 8 }); cn.innerHTML = pesoCoinSvg('Mº');
+  const cl = el('div', cam, { left: '660px', top: '820px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '64px', color: INK, background: '#FFF3A8', border: `5px solid ${INK}`, borderRadius: '30px', padding: '0 22px 6px', zIndex: 9 }, '¡clinc!');
+  const st = stamp(c, 330, 440, 'HASTA<br>1857', { size: 120, bw: 15, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' }); st.style.textAlign = 'center';
+  const SP = [[330, 760], [720, 760], [300, 1000], [760, 1000]].map(q => el('div', cam, { left: px(q[0]), top: px(q[1]), fontSize: '60px', color: YEL, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 20 }, '✦'));
 }
 
 /* ======================================================================
@@ -194,13 +195,13 @@ headline(S.H2[0], S.H2[1], 'Son bonitas… pero la del peso *tiene pruebas*', { 
 /* ======================================================================
    K0 · «O SEA: CADA VEZ QUE VES EL SÍMBOLO DEL DÓLAR…» — el «$» en tu día a día: la tecla, el precio, el billete
    ====================================================================== */
-headline(S.K0[0], S.K0[1], 'Cada vez que *ves* el $…', { size: 84, hlT: K.ves, y: 196 });
+headline(S.K0[0], S.K0[1], 'el dinero más *poderoso* del mundo…', { size: 80, hlT: K.ves, y: 196 });
 {
   const c = scene(S.K0[0], S.K0[1], t => {
-    set(ky, { s: pop(t, K.cada, 0.35) * (t > K.cada + 0.5 && t < K.cada + 0.7 ? 0.92 : 1), r: -6, o: t < K.cada ? 0 : 1 });
+    set(ky, { s: pop(t, K.dolar9, 0.35), r: -6, o: t < K.dolar9 ? 0 : 1 });
     set(pt, { s: pop(t, K.ves, 0.35), r: 5 + Math.sin(t * 4) * 2, o: t < K.ves ? 0 : 1 });
-    set(bl, { s: pop(t, K.simbolo9, 0.4), r: -3 + wobble(t, 0.4, 1.5), o: t < K.simbolo9 ? 0 : 1 });
-    popA(chT, t, K.cada + 0.15, { r: 4 });
+    set(bl, { s: pop(t, S.K0[0] + 0.05, 0.4) * (1 + 0.04 * p(t, K.ves, 0.3, E.outBack)), r: -3 + wobble(t, 0.4, 1.5), o: 1 });
+    popA(chT, t, K.dolar9 + 0.15, { r: 4 });
     RG.forEach((r, i) => set(r, { s: 1 + 0.6 * ((t * 1.2 + i / 3) % 1), o: t > K.dolar9 ? 1 - ((t * 1.2 + i / 3) % 1) : 0 }));
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#F1D7DC' });
@@ -208,7 +209,7 @@ headline(S.K0[0], S.K0[1], 'Cada vez que *ves* el $…', { size: 84, hlT: K.ves,
   const RG = [0, 1, 2].map(() => box(c, 340, 820, 400, 400, { zIndex: 2, borderRadius: '50%', border: `8px solid ${PINK}` }));
   const ky = box(c, 110, 400, 260, 260, { zIndex: 8 }); ky.innerHTML = keySvg();
   const chT = chip(c, 100, 690, 'tu teclado', { size: 46, bg: INK, color: YEL, z: 20 });
-  const pt = priceTag(c, 560, 470, '$9,99', { size: 110, bg: YEL, z: 9 });
+  const pt = chip(c, 470, 470, '★ el más poderoso', { size: 54, bg: YEL, color: INK, z: 9 });
   const bl = box(c, 170, 860, 740, 350, { zIndex: 7 }); bl.innerHTML = billSvg();
 }
 
@@ -237,7 +238,7 @@ headline(S.K0[0], S.K0[1], 'Cada vez que *ves* el $…', { size: 84, hlT: K.ves,
   sceneBg(c, { background: '#F3EAD3', backgroundImage: 'repeating-linear-gradient(0deg, rgba(122,154,176,.35) 0 2px, transparent 2px 96px)' });
   const ry = rays(c, -160, 160, 1400, 26, 'rgba(201,162,74,.18)', 'rgba(0,0,0,0)', 0);
   const pinkBg = box(c, 0, 0, 1080, 1920, { zIndex: 1, background: PINK }); halftone(pinkBg, 'rgba(0,0,0,.1)', 1);
-  const hd = BIGT(c, 0, 210, 1080, `…estás <i>leyendo</i>`, { fontSize: '100px', zIndex: 40 });
+  const hd = BIGT(c, 0, 210, 1080, `…lleva <i>escrito</i>`, { fontSize: '100px', zIndex: 40 });
   const wrap = box(c, 0, 0, 1080, 1920, { zIndex: 10, transformOrigin: '540px 760px' });
   const gl = svgLayer(wrap, 5);
   gl.innerHTML = `<g transform="translate(70 0)">

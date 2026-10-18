@@ -98,7 +98,7 @@ window.frame = t => {
   [STEPS[2][1], 'swoosh_up', .6], [STEPS[2][1] + 0.05, 'stamp', .6], [S.F1[0], 'whoosh', .5], [K.creo, 'pop2', .5], [K.dolar6, 'boing', .4],
   [S.F2[0], 'whoosh', .5], [S.F2[0] + 0.3, 'thud', .5], [K.copio, 'swoosh_up', .5], [K.copio + 0.05, 'stamp', .9],
   [S.F3[0], 'whoosh', .5], [K.mismo6, 'ding', .5], [K.mismo6b, 'pop', .5], [K.simbolo6, 'stamp', .9],
-  [S.G1[0], 'whoosh', .5], [K.pesos7 + 0.05, 'squish', .5], [S.G2[0], 'whoosh', .5], [K.mil, 'stamp', 1.0], [K.mil + 0.1, 'bell', .5],
+  [S.G1[0], 'whoosh', .5], [K.pesos7 + 0.05, 'squish', .5], [S.G2[0], 'whoosh', .5], [K.mil, 'stamp', 1.0], [S.G2[0] + 0.35, 'cash', .7],
   [K.ojo, 'stamp', 1.0], [K.otras, 'pop', .5], [S.H1[0], 'whoosh', .5], [T_EMU, 'emu', .9],
   [S.H2[0], 'whoosh', .5], [K.bonitas, 'heart', .5], [K.tiene, 'stamp', .9],
   [S.K0[0], 'whoosh', .6], [K.cada, 'click', .6], [K.ves, 'pop', .5], [K.simbolo9, 'cash', .6],

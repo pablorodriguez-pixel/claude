@@ -1,0 +1,145 @@
+{
+ "episodio": "ep34_garbo3",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 2.446,
+   "dur": 2.33,
+   "palabras": 10,
+   "texto": "¡Hitler le dio una medalla al español que le engañó!"
+  },
+  {
+   "n": 1,
+   "s": 2.796,
+   "e": 7.034,
+   "dur": 4.24,
+   "palabras": 12,
+   "texto": "Se llamaba Juan Pujol, era de Barcelona, y nunca había sido espía."
+  },
+  {
+   "n": 2,
+   "s": 7.534,
+   "e": 10.651,
+   "dur": 3.12,
+   "palabras": 10,
+   "texto": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "n": 3,
+   "s": 11.001,
+   "e": 15.312,
+   "dur": 4.31,
+   "palabras": 13,
+   "texto": "¿Cómo engaña a Hitler un señor que no era espía? En tres pasos."
+  },
+  {
+   "n": 4,
+   "s": 15.662,
+   "e": 23.498,
+   "dur": 7.84,
+   "palabras": 21,
+   "texto": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se ofreció a los alemanes... para engañarlos desde dentro."
+  },
+  {
+   "n": 5,
+   "s": 23.998,
+   "e": 31.352,
+   "dur": 7.35,
+   "palabras": 24,
+   "texto": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa."
+  },
+  {
+   "n": 6,
+   "s": 31.852,
+   "e": 40.884,
+   "dur": 9.03,
+   "palabras": 25,
+   "texto": "Y tres: como un espía solo no daba para tanto, se inventó otros veintisiete. Ninguno existía... y los alemanes les pagaban el sueldo a todos."
+  },
+  {
+   "n": 7,
+   "s": 41.384,
+   "e": 47.859,
+   "dur": 6.48,
+   "palabras": 21,
+   "texto": "Al final, los ingleses vieron lo bueno que era y le ficharon. Y llegó el gran día: el desembarco de Normandía."
+  },
+  {
+   "n": 8,
+   "s": 48.209,
+   "e": 57.242,
+   "dur": 9.03,
+   "palabras": 35,
+   "texto": "Pujol avisó a Hitler de que era una trampa, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó."
+  },
+  {
+   "n": 9,
+   "s": 57.742,
+   "e": 61.74,
+   "dur": 4.0,
+   "palabras": 13,
+   "texto": "Ojo: después fingió su propia muerte y se fue a vivir a Venezuela."
+  },
+  {
+   "n": 10,
+   "s": 62.09,
+   "e": 69.049,
+   "dur": 6.96,
+   "palabras": 19,
+   "texto": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño."
+  },
+  {
+   "n": 11,
+   "s": 69.549,
+   "e": 73.622,
+   "dur": 4.07,
+   "palabras": 16,
+   "texto": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo."
+  },
+  {
+   "n": 12,
+   "s": 73.972,
+   "e": 76.337,
+   "dur": 2.37,
+   "palabras": 7,
+   "texto": "Y esto... no venía en el libro."
+  }
+ ],
+ "primera_palabra": "hitler",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 2.33,
+ "gancho_palabras": 10,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": false,
+ "marca_linea": 2,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 7.534,
+ "ojo_dur": 4.0,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo.",
+ "n_lineas": 13,
+ "n_palabras": 226,
+ "duracion_voz": 76.34,
+ "ppm": 177.6,
+ "lineas_mas_largas": [
+  [
+   6,
+   9.03,
+   "Y tres: como un espía solo no daba para tanto, se inventó otros veinti"
+  ],
+  [
+   8,
+   9.03,
+   "Pujol avisó a Hitler de que era una trampa, y de que el ataque de verd"
+  ],
+  [
+   4,
+   7.84,
+   "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se "
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep34_garbo3/final.mp4",
+ "duracion_video": 76.97
+}

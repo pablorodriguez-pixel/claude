@@ -157,10 +157,10 @@ headline(K.en3 - 0.06, S.C2[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y:
    ====================================================================== */
 {
   const c = scene(S.D1[0], S.D1[1], t => {
-    [[cA, S.D1[0] + 0.02], [cB, S.D1[0] + 0.2]].forEach(([cn, t0], i) => {
-      const k = p(t, t0, 0.7, E.outBounce);
+    [[cA, S.D1[0]], [cB, S.D1[0] + 0.08]].forEach(([cn, t0], i) => {
+      const k = p(t, t0, 0.55, E.outBounce);
       const spin = t < t0 + 0.6 ? Math.cos((t - t0) * 14) : 1;
-      set(cn, { y: lerp(-1100, 0, k), sx: Math.max(0.08, Math.abs(spin)), r: (i ? 6 : -6) * (1 - k), o: t < t0 ? 0 : 1 });
+      set(cn, { y: lerp(-380, 0, k), sx: Math.max(0.08, Math.abs(spin)), r: (i ? 6 : -6) * (1 - k), o: t < t0 ? 0 : 1 });
     });
     popA(ch3, t, K.trescientos, { r: -4 });
     set(shine, { o: t > S.D1[0] + 0.8 ? 1 : 0, r: t * 120, s: 1 + 0.2 * Math.sin(t * 10) });
@@ -327,7 +327,7 @@ headline(K.en3 - 0.06, S.C2[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y:
   const chQ = chip(cam, 600, 700, 'pequeñita', { size: 50, bg: PINK, z: 20 });
   const eqP = stamp(cam, 200, 1150, `p${SUP} = PESOS`, { size: 90, bw: 14, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
   const chM = chip(cam, 420, 1170, 'se monta encima', { size: 50, bg: PINK, z: 20 });
-  const chR = chip(c, 80, 1190, 'solo queda una raya', { size: 50, bg: INK, color: YEL, z: 20 });
+  const chR = chip(c, 80, 1190, 'la raya del $', { size: 50, bg: INK, color: YEL, z: 20 });
   const arR = el('div', c, { left: '300px', top: '1050px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 21, transform: 'rotate(-30deg)' }, '↗');
   const stD = stamp(c, 640, 1150, '= $', { size: 100, bw: 14, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
 }
