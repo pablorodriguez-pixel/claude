@@ -73,25 +73,27 @@ window.frame = t => {
 };
 
 /* ---------- temblores ---------- */
-[[K.nunca, .3, 12], [K.ni2, .35, 16], [K.una, .25, 8], [K.no4 + 0.3, .3, 12], [K.mil, .4, 18], [K.mas4, .3, 12], [K.dos, .25, 8], [K.son, .3, 10], [K.sin5 + 0.4, .25, 10],
- [K.preg5b, .3, 12], [K.y6 + 0.1, .25, 8], [K.siglo, .3, 12], [K.libros, .35, 14], [K.ojo, .35, 16], [K.tenia, .3, 12], [K.whats, .35, 14], [K.no8, .45, 22], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
+[[K.nunca, .3, 12], [K.no1 + 0.1, .35, 16], [K.no1b + 0.3, .3, 12], [K.quien, .25, 10], [K.uno4, .25, 8], [K.mil, .4, 18], [K.llevaba, .3, 12], [K.decidio + 0.3, .35, 14], [K.dos, .25, 8], [K.son, .3, 10], [K.nose + 0.1, .25, 10],
+ [K.preg5b, .3, 12], [K.y6 + 0.1, .25, 8], [K.siglo, .3, 12], [K.libros, .35, 14], [K.ahora, .35, 16], [K.jamas, .3, 12], [K.tenia, .3, 12], [K.whats, .35, 14], [K.no8, .45, 22], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
   [0.03, 'whoosh', .6], [0.12, 'pop2', .5], [K.nunca, 'stamp', 1.0], [K.nunca + 0.05, 'boing', .4], [K.escribio, 'pop', .4],
-  [S.A1[0], 'whoosh', .5], [K.usas - 0.05, 'msg_out', .7], [K.todos - 0.05, 'msg_out', .6], [K.dias - 0.05, 'msg_out', .6],
-  [S.B1[0], 'paper', .7], [K.en1 + 0.3, 'ping', .4], [K.quijote, 'ping', .4], [K.ni - 0.06, 'whoosh', .5], [K.abrir1, 'pop2', .5], [K.ni2, 'stamp', 1.1],
+  [S.A1[0], 'whoosh', .5], [K.tu0 - 0.05, 'msg_out', .7], [K.usas - 0.05, 'msg_out', .6], [K.cada - 0.05, 'msg_out', .6],
+  [S.B1[0], 'paper', .7], [K.en1 + 0.3, 'ping', .4], [K.original, 'ping', .4], [K.no1 - 0.06, 'whoosh', .5], [K.no1 + 0.1, 'stamp', 1.1], [K.ni, 'pop2', .5],
+  [S.D1[0], 'whoosh', .5], [K.no1b, 'scratch', .6],
   [S.BAL[0] + 0.05, 'whoosh', .7], [K.soy, 'swoosh_up', .6], [K.vecino, 'pop', .6],
-  [S.C1[0], 'whoosh', .5], [K.nosotros - 0.05, 'pop', .6], [K.casi - 0.05, 'pop2', .4], [K.nadie - 0.05, 'pop2', .4], [K.mas3 - 0.15, 'pop2', .4], [K.mas3, 'ding', .5],
-  [S.C2[0], 'whoosh', .5], [K.por3, 'thud', .5], [K.tres3, 'thud', .5], [K.cosas, 'thud', .5],
-  [K.una - 0.06, 'stamp', .8], [K.tiempos, 'pop', .4], [K.no4, 'scratch', .5],
-  [S.D2[0], 'whoosh', .6], [K.real, 'bell', .5], [K.mil, 'stamp', 1.2],
-  [S.D3[0], 'whoosh', .5], [K.cuando + 0.3, 'sparkle', .4], [K.mas4, 'stamp', 1.0], [K.cien, 'boing', .4],
-  [K.dos - 0.08, 'stamp', .8], [K.espanol, 'pop', .4], [K.tono, 'swoosh_up', .6],
-  [S.E2[0], 'whoosh', .5], [K.tienes1 - 0.04, 'pop', .6], [K.y5 - 0.05, 'pop2', .5], [K.tienes2 - 0.06, 'pop', .6], [K.hambre2E - 0.15, 'ding', .6], [K.son, 'stamp', .9], [K.sin5, 'swoosh_up', .5], [K.sin5 + 0.4, 'error', .4],
-  [S.E4[0], 'typing', .5], [K.larga, 'pop', .4], [K.preg5b, 'stamp', .9], [K.preg5b + 0.05, 'tada', .4],
+  [S.C0[0], 'burst', .6], [K.invento3 - 0.25, 'pop', .5],
+  [S.C1[0], 'whoosh', .5], [S.C1[0] + 0.08, 'pop2', .4], [S.C1[0] + 0.22, 'pop2', .4], [S.C1[0] + 0.36, 'pop2', .4], [K.solo3 - 0.05, 'pop', .6], [K.usamos, 'ding', .5],
+  [S.C2[0], 'whoosh', .5], [K.cuento, 'thud', .5], [K.tres3, 'thud', .5], [K.pasos, 'thud', .5],
+  [K.uno4 - 0.06, 'stamp', .8], [K.mil, 'stamp', 1.2],
+  [S.D3[0], 'whoosh', .5], [K.cuando + 0.3, 'sparkle', .4], [K.llevaba, 'stamp', 1.0], [K.cien, 'boing', .4],
+  [S.D4[0], 'whoosh', .5], [K.real, 'bell', .5], [K.decidio, 'swoosh_up', .6], [K.decidio + 0.3, 'stamp', 1.0],
+  [K.dos - 0.08, 'stamp', .8], [K.porque5, 'pop', .4], [K.hizo, 'swoosh_up', .5],
+  [S.E2[0], 'whoosh', .5], [K.tienes1 - 0.04, 'pop', .6], [K.y5 - 0.05, 'pop2', .5], [K.tienes2 - 0.06, 'pop', .6], [K.hambre2E - 0.15, 'ding', .6], [K.son, 'stamp', .9], [K.escribir - 0.1, 'pop', .5], [K.nose + 0.1, 'error', .4],
+  [S.E4[0], 'typing', .5], [K.preg5b, 'stamp', .9], [K.preg5b + 0.05, 'tada', .4],
   [K.y6 - 0.08, 'stamp', .8], [K.muchisimo, 'boing', .4], [K.gente, 'pop2', .5],
   [S.G2[0], 'whoosh', .6], [K.siglo, 'stamp', .9], [K.imprimian - 0.1, 'swoosh_up', .5], [K.imprimian + 0.8, 'thud', .5], [K.libros, 'stamp', 1.0],
-  [K.ojo, 'stamp', 1.1], [K.quijote7 - 0.1, 'whoosh', .5], [S.H2[0], 'paper', .6], [K.si7 + 0.05, 'pop', .4], [K.si7 + 0.25, 'pop', .4], [K.se7, 'pop2', .6], [T_EMU - 0.1, 'emu', .9],
+  [K.ahora, 'stamp', 1.1], [K.quijote7 - 0.1, 'whoosh', .5], [S.H2[0], 'paper', .6], [K.lleno, 'pop', .4], [K.lleno + 0.28, 'pop', .4], [K.jamas, 'stamp', .9], [K.se7, 'pop2', .6], [T_EMU - 0.1, 'emu', .9],
   [S.K1[0], 'whoosh', .5], [K.cerv8, 'pop', .4], [K.tenia, 'stamp', .9],
   [S.K3[0], 'burst', .6], [K.tu8, 'pop', .5], [K.whats, 'stamp', 1.2], [K.no8, 'glitch', .4], [K.no8, 'thud', .6],
   [S.K4[0], 'whoosh', .5], [K.eres, 'pop', .4], [K.no9, 'pop', .4], [K.os, 'ding', .7],
