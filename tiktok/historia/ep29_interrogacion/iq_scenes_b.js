@@ -248,7 +248,7 @@ colorHit(S.K3[0], S.K3[1], PINK, c => {
   const c = scene(S.K4[0], S.K4[1], t => {
     WD.forEach(w => set(w.e, { s: pop(t, w.t - 0.04, 0.3), o: t < w.t - 0.04 ? 0 : 1 }));
     paint(dHL, t, K.perdonas, 0.3);
-    QB.forEach(q => { set(q.e, { s: pop(t, q.t, 0.3), r: q.r + Math.sin(t * 5 + q.t * 7) * 3, o: t < q.t ? 0 : 1 }); q.tx.textContent = '.'.repeat(1 + Math.floor((t - q.t) * 4 + 3) % 3); });
+    QB.forEach(q => { set(q.e, { s: pop(t, q.t, 0.3), r: q.r + Math.sin(t * 5 + q.t * 7) * 3, o: t < q.t ? 0 : 1 }); q.tx.textContent = '.'.repeat(1 + ((Math.floor((t - q.t) * 4 + 3) % 3) + 3) % 3); });
     popA(ol, t, K.os, { r: -4 });
     set(hand, { o: t > K.os ? 1 : 0, y: Math.sin(t * 6) * 12, s: pop(t, K.os, 0.3) });
   }, { clip: true });
