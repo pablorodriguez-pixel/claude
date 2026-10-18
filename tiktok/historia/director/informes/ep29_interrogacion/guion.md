@@ -69,7 +69,7 @@ Comparación: está por debajo de OK (87), porque el sujeto es un signo y no una
 6. [voz] Si se come «¡Interrogación!», escribe «¡Eh! ¡Interrogación!...» o regenera el clip 00. En L7, escribe «guarái» en el texto para ElevenLabs y pon «WARAY» en pantalla. En L3, que «¿tienes hambre?» suba de verdad al final (si sale plana, regenera solo ese clip: es el momento clave). Comprueba con Whisper.
 7. [voz] L2 está partida en dos líneas (L2 + L3) para que ninguna pase de 7 s y el año caiga solo.
 
-## 7. Guion final (lines_in.json, tempo 0,96) · 804 caracteres · ~61–64 s
+## 7. Guion final (lines_in.json, tempo 0,96) · 803 caracteres · ~61–64 s
 ```json
 {
  "voices": {

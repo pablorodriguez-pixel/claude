@@ -60,7 +60,7 @@ Comparación: está por debajo de OK (87) y de Napoleón (88), porque no te dice
 5. [texto] **Pregunta personal sin política**: «¿Y en tu país, cómo le dices al dinero? Os leo.» En vez de «¿de quién es el dólar?», que invitaría a pelear por banderas.
 6. [voz] «Wall Street»: si ElevenLabs lo dice raro, escribe «Wol Strit» en el texto para la voz (la pantalla dice WALL STREET). Que «real de a ocho» no suene «reál deá ocho» (pausa natural). «¡Dólar!» con energía, no susurrado; si se lo come, «¡Eh! ¡Dólar va con D...!». Comprueba con Whisper que «Pe, ese» no aparece (se quitó), que «chiquita» se entiende y que «pone "pesos"» lleva la pausa de los «...».
 
-## 7. Guion final (lines_in.json, tempo 0,96) · 812 caracteres · ~62–65 s
+## 7. Guion final (lines_in.json, tempo 0,96) · 820 caracteres · ~62–65 s
 ```json
 {
  "voices": {
