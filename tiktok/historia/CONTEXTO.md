@@ -48,6 +48,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 - 17/10 ENTREGADOS también: ep21 Cumpleaños v2 (indep. 79→~83), ep25 Chao (indep. 81→~85, fórmula OK/Napoleón), ep24 Especial 1.000 de los «miles» y ep26 Aladino RECHAZADOS por el usuario (Aladino: «no se entiende ni crea curiosidad»); especial pendiente de ficha (A Aladino era chino / B pirámides blancas / C Napoleón 1,68). Antes: ep24 sustituido por ep26 Aladino (una sola historia: Aladino y Alí Babá, Galland y Hanna Diyab; indep. 79→~82; publicar al llegar a 1.000; votación A Alejandro / B «cero muertos» / C Napoleón revancha → el ganador es el siguiente episodio).
 - PUBLICADO 17/10: ep25 Chao (medir a 48 h). Siguiente en subir: ep21 Cumpleaños; ep26 Aladino al llegar a 1.000.
 - 18/10 COLA APROBADA POR EL USUARIO (historias con drama), por probabilidad de viralizar: 1 Garbo (ep27), 2 Violet Jessop (ep28), 3 Petrov, 4 Onoda. Napoleón NO se repite.
+  Curiosidades fáciles tipo Ñ/OK, alternando con las historias: ep29 «¿» solo en español, ep30 el «$» es español, CH/LL ya no son letras, siesta = «sexta» (reserva).
 - Lección del especial: el usuario prefiere UNA historia muy top bien explicada a varios datos medianos; el gancho con lo más universal (Aladino/Disney).
 - Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
   Medir a 48 h: retención en s 3, 5 y 8 (éxito Pulgar: ≥ 66 % en s 5; pérdida en 20,6–24,8 s ≤ 0,5 pts/s) y comentarios por cada mil visualizaciones.

@@ -12,6 +12,8 @@ Hechas el 18/10/2026, antes de ver resultados. Base del canal: 2 de ~16 vídeos 
 | ep21 Cumpleaños v2 | ~83 | 5–20 mil | 15 % | | |
 | ep27 Garbo (en guion) | — | 10–40 mil | 35 % | | |
 | ep28 Violet Jessop (en guion) | — | 8–30 mil | 25 % | | |
+| ep29 «¿» solo en español (en guion) | — | 8–30 mil | 25 % | | |
+| ep30 «$» es español (en guion) | — | 8–30 mil | 25 % | | |
 | Petrov (cola) | — | 5–25 mil | 20 % | | |
 | Onoda (cola) | — | 5–20 mil | 15 % | | |
 
