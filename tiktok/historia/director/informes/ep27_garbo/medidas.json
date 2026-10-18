@@ -1,0 +1,153 @@
+{
+ "episodio": "ep27_garbo",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 4.045,
+   "dur": 3.92,
+   "palabras": 9,
+   "texto": "Hitler: lo troleó un español con veintisiete cuentas falsas."
+  },
+  {
+   "n": 1,
+   "s": 4.245,
+   "e": 7.907,
+   "dur": 3.66,
+   "palabras": 11,
+   "texto": "Juan Pujol quiso espiar para los ingleses. Lo dejaron en visto."
+  },
+  {
+   "n": 2,
+   "s": 8.107,
+   "e": 11.088,
+   "dur": 2.98,
+   "palabras": 8,
+   "texto": "Así que se hizo espía... de los nazis."
+  },
+  {
+   "n": 3,
+   "s": 11.288,
+   "e": 15.867,
+   "dur": 4.58,
+   "palabras": 14,
+   "texto": "Se queda en Lisboa... y se lo inventa todo con una guía de turismo."
+  },
+  {
+   "n": 4,
+   "s": 16.067,
+   "e": 22.558,
+   "dur": 6.49,
+   "palabras": 14,
+   "texto": "Se abre cuentas: espías inventados. Y cuela tanto, que los del «visto»... lo fichan."
+  },
+  {
+   "n": 5,
+   "s": 22.758,
+   "e": 27.497,
+   "dur": 4.74,
+   "palabras": 11,
+   "texto": "Juntos llegan a veintisiete: una red de bots... con sueldo nazi."
+  },
+  {
+   "n": 6,
+   "s": 27.697,
+   "e": 33.661,
+   "dur": 5.96,
+   "palabras": 16,
+   "texto": "Uno se «muere». Y los nazis, pensión a la viuda... de un señor que no existía."
+  },
+  {
+   "n": 7,
+   "s": 33.861,
+   "e": 39.661,
+   "dur": 5.8,
+   "palabras": 12,
+   "texto": "Día D. Pujol avisa: «Normandía es una distracción. Lo gordo, en Calais»."
+  },
+  {
+   "n": 8,
+   "s": 39.861,
+   "e": 44.345,
+   "dur": 4.48,
+   "palabras": 11,
+   "texto": "Hitler se lo traga: deja tropas en Calais... esperando a nadie."
+  },
+  {
+   "n": 9,
+   "s": 44.545,
+   "e": 50.117,
+   "dur": 5.57,
+   "palabras": 12,
+   "texto": "¿Premio? La Cruz de Hierro nazi. Y del rey inglés... otra medalla."
+  },
+  {
+   "n": 10,
+   "s": 50.317,
+   "e": 54.302,
+   "dur": 3.98,
+   "palabras": 10,
+   "texto": "Dos medallas, de los dos bandos... por el mismo troleo."
+  },
+  {
+   "n": 11,
+   "s": 54.502,
+   "e": 59.075,
+   "dur": 4.57,
+   "palabras": 11,
+   "texto": "Y luego fingió su muerte. Su última cuenta falsa... él mismo."
+  },
+  {
+   "n": 12,
+   "s": 59.275,
+   "e": 62.091,
+   "dur": 2.82,
+   "palabras": 7,
+   "texto": "¿Y tú, cuántas cuentas tienes? Os leo."
+  },
+  {
+   "n": 13,
+   "s": 62.291,
+   "e": 65.759,
+   "dur": 3.47,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "hitler",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.92,
+ "gancho_palabras": 9,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": false,
+ "marca_linea": 13,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 62.291,
+ "ojo_dur": null,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Y tú, cuántas cuentas tienes? Os leo.",
+ "n_lineas": 14,
+ "n_palabras": 156,
+ "duracion_voz": 65.76,
+ "ppm": 142.3,
+ "lineas_mas_largas": [
+  [
+   4,
+   6.49,
+   "Se abre cuentas: espías inventados. Y cuela tanto, que los del «visto»"
+  ],
+  [
+   6,
+   5.96,
+   "Uno se «muere». Y los nazis, pensión a la viuda... de un señor que no "
+  ],
+  [
+   7,
+   5.8,
+   "Día D. Pujol avisa: «Normandía es una distracción. Lo gordo, en Calais"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep27_garbo/final.mp4",
+ "duracion_video": 66.4
+}
