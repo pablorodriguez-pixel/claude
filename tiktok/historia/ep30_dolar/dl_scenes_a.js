@@ -32,7 +32,7 @@ const SPIN = t => Math.cos(t * 2 * Math.PI * 2 / K.S0); // 2 vueltas exactas has
   const l2 = BIGT(cam, 0, 470, 1080, `CON <span class="sS" style="display:inline-block;color:${YEL};text-shadow:${OUTL(INK, 9)}">S</span>?`, { fontSize: '176px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
   const sS = l2.querySelector('.sS');
   const edge = box(cam, 520, 700, 40, 600, { zIndex: 9 }); edge.innerHTML = coinEdgeSvg();
-  const dol = box(cam, 250, 640, 580, 870, { zIndex: 10 }); dol.innerHTML = dollarSvg();
+  const dol = box(cam, 265, 668, 550, 825, { zIndex: 10 }); dol.innerHTML = dollarSvg();
   const dolFace = dol.querySelector('.face'), dolBack = dol.querySelector('.back');
   const dW = box(cam, 30, 820, 300, 340, { zIndex: 12 }); dW.innerHTML = woodLetterSvg('D');
   const QM = [qMark(cam, 860, 760, 130, PINK), qMark(cam, 110, 1180, 100, PINK)];

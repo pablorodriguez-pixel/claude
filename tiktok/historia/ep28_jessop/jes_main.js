@@ -56,7 +56,8 @@ function updOval(t) {
   // cartel DIMITO: sube en «¿Tú lo dejas?» y baja en «Ella»
   const kd = p(t, K.tu62 - 0.05, 0.35, E.outBack), kx = p(t, K.ella65 - 0.2, 0.2, E.inCubic);
   dim.style.visibility = t > K.tu62 - 0.05 && t < K.ella65 ? 'visible' : 'hidden';
-  set(dim, { y: (1 - kd) * 260 + kx * 300, r: -8 + Math.sin(t * 7) * 6, o: 1 });
+  const dOn = t > K.tu62 - 0.05 && t < K.ella65;
+  set(dim, { y: (1 - kd) * 260 + kx * 300, r: -8 + Math.sin(t * 7) * 6, o: dOn ? 1 : 0 });
 }
 
 /* ---------- precarga de fuentes (invisible: hidden + opacidad 0 + fuera de cuadro) ---------- */

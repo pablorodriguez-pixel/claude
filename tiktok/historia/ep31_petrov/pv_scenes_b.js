@@ -215,7 +215,7 @@ const T_EMU = K.papeleo - 0.3;
   const pile = box(c, 120, 760, 520, 560, { zIndex: 5 }); pile.innerHTML = papersSvg(16, 9);
   const PP = [...pile.querySelectorAll('.pp')];
   const tool = box(c, 380, 440, 160, 240, { zIndex: 7 }); tool.innerHTML = stampToolSvg();
-  const stP = stamp(c, 170, 700, 'PAPELEO', { size: 96, bw: 12, z: 8, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  const stP = stamp(c, 150, 840, 'PAPELEO', { size: 96, bw: 12, z: 8, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
 }
 
 /* ======================================================================

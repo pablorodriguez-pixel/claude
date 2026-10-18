@@ -12,7 +12,7 @@ function zzz(pa, x, y, n = 5) { // «Z» que suben y se convierten en «?» rosa
     e.textContent = q ? '?' : 'Z';
     e.style.color = q ? PINK : INK;
     e.style.textShadow = q ? `4px 4px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}` : `4px 4px 0 rgba(255,255,255,.8)`;
-    set(e, { x: ph * 300 + Math.sin(ph * 9 + i) * 30, y: -ph * 520, s: 0.5 + ph * 0.9, r: -14 + Math.sin(ph * 6) * 12, o: clamp(ph * 6) * clamp((1 - ph) * 5) });
+    set(e, { x: ph * 260 + Math.sin(ph * 9 + i) * 30, y: -ph * (pa.zR || 420), s: 0.5 + ph * 0.9, r: -14 + Math.sin(ph * 6) * 12, o: clamp(ph * 6) * clamp((1 - ph) * 5) });
   });
 }
 
@@ -40,12 +40,12 @@ function zzz(pa, x, y, n = 5) { // «Z» que suben y se convierten en «?» rosa
   sceneBg(cam, { background: '#EFE1C6' });
   box(cam, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 50% 70%, rgba(255,230,0,.38), rgba(255,230,0,0) 55%)' });
   const ry = rays(cam, -160, 230, 1400, 26, 'rgba(255,62,165,.09)', 'rgba(0,0,0,0)', 0);
-  const l1 = BIGT(cam, 0, 300, 1080, '¿SIESTA ES', { fontSize: '150px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
-  const l2 = BIGT(cam, 0, 460, 1080, `UN ${hlSpan('NÚMERO', 'hn0')}?`, { fontSize: '150px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
+  const l1 = BIGT(cam, 0, 310, 1080, '¿SIESTA ES', { fontSize: '134px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
+  const l2 = BIGT(cam, 0, 455, 1080, `UN ${hlSpan('NÚMERO', 'hn0')}?`, { fontSize: '134px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
   l2.querySelector('.hn0').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const dial = mkDial(cam, 90, 680, 900, { z: 6 });
   const man = mk(cam, [10, 900, 420, 537], sleeperInner(), '0 0 360 460', 'bust'); man.d.style.zIndex = 12;
-  zf = zzz(cam, 300, 960, 5);
+  zf = zzz(cam, 250, 1130, 5);
   const bigQ = qMark(cam, 610, 690, 300, PINK); bigQ.style.zIndex = 35;
 }
 
@@ -105,12 +105,12 @@ headline(K.lo2 - 0.06, S.C[1], 'Lo dice *la RAE*', { size: 104, hlT: K.rae });
   box(card, 18, 18, 810, 510, { border: `3px dashed rgba(43,33,24,.45)`, borderRadius: '10px' });
   el('div', card, { left: '40px', top: '34px', fontFamily: 'SpecialElite', fontSize: '34px', color: '#7a6a58' }, 'diccionario · s. v.');
   const w1 = el('div', card, { left: '0', top: '90px', width: '846px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', color: INK, lineHeight: 1 }, 'SIESTA');
-  const arr = el('div', card, { left: '0', top: '226px', width: '846px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '70px', color: PINK, lineHeight: 1, textShadow: `3px 3px 0 ${INK}` }, '↑');
+  const arr = box(card, 388, 226, 70, 70, {}); arr.innerHTML = `<svg width="70" height="70" style="overflow:visible"><path d="M35,64 V10 M12,32 L35,8 L58,32" stroke="${INK}" stroke-width="18" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M35,64 V10 M12,32 L35,8 L58,32" stroke="${PINK}" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
   const w2 = el('div', card, { left: '0', top: '300px', width: '846px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '104px', color: RED, lineHeight: 1 }, `lat. ${hlSpan('sexta', 'hl2')}`);
   const hl2 = card.querySelector('.hl2');
   const w3 = el('div', card, { left: '0', top: '420px', width: '846px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 800, fontSize: '62px', color: INK, lineHeight: 1 }, '[la hora sexta]');
   const lat = chip(c, 650, 400, 'latín', { size: 44, bg: INK, color: YEL, z: 30 });
-  const stR = stamp(c, 590, 880, 'RAE', { size: 130, bw: 14, z: 60, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  const stR = stamp(c, 600, 960, 'RAE', { size: 130, bw: 14, z: 60, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -136,7 +136,7 @@ headline(K.desde - 0.06, S.D1[1], 'desde *el amanecer*', { size: 104, hlT: K.ama
   const hand = box(c, 800, 600, 160, 160, { zIndex: 6 }); hand.innerHTML = `<svg viewBox="-70 -80 140 140" width="160" height="160" style="overflow:visible">${gloveHand(0, 0, -20, 1.0)}</svg>`;
 }
 /* D2 · «PRIMERA, SEGUNDA...» — en el reloj de sol se encienden I, II… */
-headline(S.D2[0], S.D2[1], '*primera*, segunda…', { size: 104, hlT: K.primera });
+headline(S.D2[0], S.D2[1], '*primera,* segunda…', { size: 104, hlT: K.primera });
 {
   const c = scene(S.D2[0], S.D2[1], t => {
     const kz = p(t, S.D2[0], 0.45, E.outCubic);
@@ -151,8 +151,8 @@ headline(S.D2[0], S.D2[1], '*primera*, segunda…', { size: 104, hlT: K.primera 
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 760px' });
   rays(cam, -160, 160, 1400, 24, 'rgba(255,230,0,.25)', 'rgba(0,0,0,0)', 0);
   const dial = mkDial(cam, 60, 470, 960, { z: 4, label: 'HORAS ROMANAS' });
-  const c1 = chip(cam, 90, 410, '1.ª hora', { size: 50, bg: YEL, color: INK, z: 20 });
-  const c2 = chip(cam, 300, 330, '2.ª hora', { size: 50, bg: YEL, color: INK, z: 20 });
+  const c1 = chip(cam, 50, 1000, '1.ª hora', { size: 50, bg: YEL, color: INK, z: 20 });
+  const c2 = chip(cam, 290, 760, '2.ª hora', { size: 50, bg: YEL, color: INK, z: 20 });
 }
 
 /* ======================================================================
@@ -177,7 +177,7 @@ headline(S.E1[0], S.E1[1], 'Si amanece *a las seis*…', { size: 98, hlT: K.seis
   const ck = mkClock(c, 640, 1110, 230, { z: 8 });
 }
 /* E2 · «...LA SEXTA CAE A MEDIODÍA» — reloj de sol en VI y reloj de pared en 12:00 + sello «VI = 12:00» */
-headline(S.E2[0], S.E2[1], 'la sexta cae *a mediodía*', { size: 92, hlT: K.mediodia4 });
+headline(S.E2[0], S.E2[1], 'la sexta cae *a mediodía*', { size: 76, hlT: K.mediodia4 });
 {
   const c = scene(S.E2[0], S.E2[1], t => {
     const kd = p(t, K.sexta4 - 0.2, K.mediodia4 - K.sexta4 + 0.3, E.inOutCubic);
@@ -186,12 +186,10 @@ headline(S.E2[0], S.E2[1], 'la sexta cae *a mediodía*', { size: 92, hlT: K.medi
     ck.setH(lerp(8.2, 12, kd));
     set(ck.d, { s: pop(t, S.E2[0] + 0.05, 0.4), r: wobble(t, 0.5, 2), o: t < S.E2[0] + 0.05 ? 0 : 1 });
     stampA(st, t, K.mediodia4 + 0.05, -6, 1);
-    set(sun, { r: t * 30, s: 1 + 0.08 * Math.sin(t * 5) });
     popA(lab, t, K.sexta4 - 0.05, { r: -3 });
   }, { clip: true });
   sceneBg(c, { background: '#EFE1C6' });
   rays(c, -160, 200, 1400, 24, 'rgba(255,230,0,.25)', 'rgba(0,0,0,0)', 0);
-  const sun = box(c, 450, 340, 180, 180, { zIndex: 3 }); sun.innerHTML = sunSvg();
   const dial = mkDial(c, 40, 470, 620, { z: 4 });
   const ck = mkClock(c, 640, 560, 380, { z: 6 });
   const lab = chip(c, 140, 870, 'hora sexta', { size: 48, bg: INK, color: YEL, z: 20 });
@@ -201,11 +199,11 @@ headline(S.E2[0], S.E2[1], 'la sexta cae *a mediodía*', { size: 92, hlT: K.medi
 /* ======================================================================
    F1 · «Y DESCANSAR A LA SEXTA...» — el romano bosteza y se tumba a la sombra
    ====================================================================== */
-headline(S.F1[0], S.F1[1], 'Y descansar *a la sexta*…', { size: 94, hlT: K.sexta5 });
+headline(S.F1[0], S.F1[1], 'Y descansar *a la sexta*…', { size: 84, hlT: K.sexta5 });
 {
   const c = scene(S.F1[0], S.F1[1], t => {
     const ky = p(t, K.descansar, 0.5, E.inOutCubic), kl = p(t, K.sexta5 + 0.2, 0.6, E.inOutCubic);
-    set(rom.d, { r: -kl * 80, x: -kl * 60, y: kl * 300 + wobble(t, 0.5, 3) });
+    set(rom.d, { r: -kl * 78, x: kl * 160, y: kl * 330 + wobble(t, 0.5, 3) });
     face(rom, t, { jaw: ky * (1 - kl * 0.6) * 0.9, closed: ky > 0.5, bL: 12 * ky, bR: 12 * ky, seed: 1.1 });
     zf(t);
     set(zW, { o: kl });
@@ -217,7 +215,7 @@ headline(S.F1[0], S.F1[1], 'Y descansar *a la sexta*…', { size: 94, hlT: K.sex
   box(c, 0, 1060, 1080, 860, { zIndex: 4, background: '#B9A27E', borderTop: `6px solid ${INK}` });
   box(c, 300, 1040, 640, 70, { zIndex: 4, background: 'rgba(43,33,24,.35)', borderRadius: '50%' });
   const rom = mk(c, [400, 620, 420, 537], romanInner(), '0 0 360 460', 'bust'); rom.d.style.zIndex = 6; rom.d.style.transformOrigin = '210px 500px';
-  const zW = box(c, 0, 0, 1080, 1920, { zIndex: 8 }); const zf = zzz(zW, 640, 820, 4);
+  const zW = box(c, 0, 0, 1080, 1920, { zIndex: 8 }); zW.zR = 300; const zf = zzz(zW, 420, 980, 4);
 }
 /* F2 · «...ACABÓ SIENDO "ECHAR LA SIESTA"» — el señor de la portada en la hamaca + SEXTA → SIESTA */
 headline(S.F2[0], S.F2[1], 'acabó siendo *«echar la siesta»*', { size: 82, hlT: K.siesta5 });
@@ -249,8 +247,8 @@ headline(S.F2[0], S.F2[1], 'acabó siendo *«echar la siesta»*', { size: 82, hl
   const bub = box(c, 70, 410, 940, 210, { zIndex: 20, background: '#fff', border: `6px solid ${INK}`, borderRadius: '40px', boxShadow: `8px 9px 0 ${SH}` });
   // fichas: S E X T A  →  S I E S T A
   const TW = 130, G = 12;
-  const pos6 = i => 470 - 3 * (TW + G) + i * (TW + G) + G / 2 - 70; // x final (6 letras)
-  const pos5 = i => 470 - 2.5 * (TW + G) + i * (TW + G) + G / 2 - 70;
+  const pos6 = i => 50 + i * (TW + G); // x final (6 letras, centradas en el bocadillo)
+  const pos5 = i => 121 + i * (TW + G);
   const mkL = (ch, x) => el('div', bub, { left: '0', top: '22px', width: TW + 'px', height: '154px', lineHeight: '154px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', color: INK, background: '#fff', border: `6px solid ${INK}`, borderRadius: '22px', boxShadow: `6px 7px 0 ${SH}` }, ch);
   // S(0→0) I(ins→1) E(1→2) X→S(2→3) T(3→4) A(4→5)
   [['S', 0, 0], ['E', 1, 2], ['X', 2, 3, 'S'], ['T', 3, 4], ['A', 4, 5]].forEach(([a, i5, i6, b], k) => { const e = mkL(a); LT.push({ e, a, b, x0: pos5(i5), x1: pos6(i6), r: [-4, 3, -2, 4, -3][k], morph: !!b }); });
@@ -323,7 +321,7 @@ headline(S.G2[0], S.G2[1], 'y viene de *«nona»*', { size: 104, hlT: K.nona6 })
 headline(S.G3[0], S.G3[1], 'la hora *novena*', { size: 110, hlT: K.novena });
 {
   const c = scene(S.G3[0], S.G3[1], t => {
-    set(slab, { s: lerp(1, 0.62, p(t, S.G3[0], 0.4, E.inOutCubic)), y: lerp(0, -170, p(t, S.G3[0], 0.4, E.inOutCubic)) });
+    set(slab, { s: lerp(1, 0.6, p(t, S.G3[0], 0.4, E.inOutCubic)), y: 0 });
     set(dial.d, { y: (1 - p(t, S.G3[0] + 0.05, 0.4, E.outBack)) * 900 });
     dial.setH(lerp(6, 9, p(t, K.novena - 0.45, 0.6, E.inOutCubic)));
     for (let k = 1; k <= 12; k++) { dial.lit(k, k === 9 && t > K.novena - 0.05, PINK); dial.dim(k, k !== 9 && k !== 6); }
@@ -356,7 +354,7 @@ headline(S.H1[0], S.H1[1], 'Más o *menos*…', { size: 116, hlT: K.menos });
   const arc = box(cam, 60, 500, 960, 624, { zIndex: 5 });
   arc.innerHTML = `<svg viewBox="0 0 800 520" width="100%" height="100%" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M400,170 A270,270 0 0 1 591,249" stroke="${PINK}" stroke-width="14" fill="none" stroke-linecap="round"/></svg>`;
   const arcP = arc.querySelector('path');
-  const tS = chip(cam, 300, 410, 'sexta', { size: 46, bg: YEL, color: INK, z: 20 });
+  const tS = chip(cam, 300, 540, 'sexta', { size: 46, bg: YEL, color: INK, z: 20 });
   const tN = chip(cam, 760, 640, 'nona', { size: 46, bg: PINK, z: 20 });
 }
 /* H2 · «...LAS TRES DE LA TARDE» — esfera del Big Ben a las 3 + sello «≈ 15:00» */

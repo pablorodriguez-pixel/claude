@@ -182,10 +182,9 @@ headline(K.hasta - 0.06, S.C[1], 'Hasta *cinco*', { size: 116, hlT: K.cinco2, y:
     const eu = jagPath([[600, 430], [570, 380], [590, 320], [640, 300], [660, 340], [640, 400]], 5, 10);
     void eu;
     const ms = box(mp, 0, 0, 1080, 1920, { zIndex: 1 });
-    ms.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${cut(P(can) + P(us) + P(ru) + P(eu), 6, 8)}
+    ms.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${cut(P(can) + P(us) + P(ru) , 6, 8)}
      <path d="${can}" fill="#E7DFC8" stroke="${INK}" stroke-width="5"/><path d="${can}" fill="url(#hP)" opacity=".6"/>
      <path d="${us}" fill="#F2E3A8" stroke="${INK}" stroke-width="5"/><path d="${us}" fill="url(#hA)" opacity=".3"/>
-     <path d="${eu}" fill="#E7DFC8" stroke="${INK}" stroke-width="5"/>
      <path d="${ru}" fill="#E9C6BE" stroke="${INK}" stroke-width="5"/><path d="${ru}" fill="url(#hB)" opacity=".3"/>
      <path d="M500,300 Q560,250 640,290" stroke="${INK}" stroke-width="2" fill="none" stroke-dasharray="4 10" opacity=".5"/></svg>`;
   }
@@ -202,7 +201,7 @@ headline(K.hasta - 0.06, S.C[1], 'Hasta *cinco*', { size: 116, hlT: K.cinco2, y:
   const lbUS = el('div', mp, { left: '90px', top: '880px', fontFamily: 'Rye', fontSize: '46px', color: INK, background: '#FBF6EA', border: `4px solid ${INK}`, borderRadius: '12px', padding: '2px 16px', zIndex: 9, whiteSpace: 'nowrap' }, 'ESTADOS UNIDOS');
   const lbRU = el('div', mp, { left: '680px', top: '440px', fontFamily: 'Rye', fontSize: '52px', color: INK, background: '#FBF6EA', border: `4px solid ${INK}`, borderRadius: '12px', padding: '2px 16px', zIndex: 9 }, 'RUSIA');
   const crt = mkCRT(c, 470, 960, 440, 340, { z: 20, size: 66, num: true });
-  const st5 = stamp(c, 600, 760, '¡CINCO!', { size: 84, bw: 11, z: 30, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  const st5 = stamp(c, 420, 770, '¡CINCO!', { size: 84, bw: 11, z: 30, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
 }
 
 /* ======================================================================

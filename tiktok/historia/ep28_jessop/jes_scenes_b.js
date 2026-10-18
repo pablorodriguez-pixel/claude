@@ -3,8 +3,8 @@
 /* ======================================================================
    I1 · «AL OLYMPIC LO EMBISTIÓ UN BUQUE DE GUERRA» — zoom a la carta 1; ¡CRAC! y sello «1»
    ====================================================================== */
-headline(S.I1[0], K.embistio - 0.06, 'Al *Olympic*…', { size: 120, hlT: K.olympic });
-headline(K.embistio - 0.06, S.I1[1], 'lo embistió *un buque de guerra*', { size: 84, hlT: K.buque });
+headline(S.I1[0], K.embistio - 0.06, 'Al *Olympic*…', { size: 120, hlT: K.olympic, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(K.embistio - 0.06, S.I1[1], 'lo embistió *un buque de guerra*', { size: 84, hlT: K.buque, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 const T_CRAC = K.embistio + 0.14;
 {
   const c = scene(S.I1[0], S.I1[1], t => {
@@ -27,9 +27,9 @@ const T_CRAC = K.embistio + 0.14;
   const oly = box(inner, 210, 250, 600, 200, { zIndex: 3, transformOrigin: '300px 160px' }); oly.innerHTML = shipSvg({});
   const war = box(inner, 0, 330, 480, 164, { zIndex: 4 }); war.innerHTML = svgW(warshipInner(), '0 0 760 260');
   const boom = box(inner, 130, 270, 240, 240, { zIndex: 6 }); boom.innerHTML = svgW(boomInner(), '0 0 600 600');
-  const crac = BIGT(inner, 0, 80, 830, '¡CRAC!', { fontSize: '120px', color: YEL, textShadow: OUTL(INK, 8), zIndex: 8 });
+  const crac = BIGT(inner, 0, 110, 520, '¡CRAC!', { fontSize: '120px', color: YEL, textShadow: OUTL(INK, 8), zIndex: 8 });
   el('div', fr, { left: 0, top: '736px', width: '866px', textAlign: 'center', fontFamily: 'Rye', fontSize: '46px', color: INK }, 'GEMELO 1 · OLYMPIC · 1911');
-  const TL = mkTally(inner, 520, 18, 80, 9);
+  const TL = mkTally(inner, 528, 18, 80, 9);
 }
 
 /* ======================================================================
@@ -55,8 +55,8 @@ headline(S.I2[0], S.I2[1], '¿Tú *lo dejas?*', { size: 136, hlT: K.dejas });
 /* ======================================================================
    I3 · «ELLA SE PASÓ… AL TITANIC.» — la cofia salta de la carta 1 a la 2, que brilla
    ====================================================================== */
-headline(S.I3[0], K.al68 - 0.06, 'Ella *se pasó*…', { size: 124, hlT: K.paso });
-headline(K.al68 - 0.06, S.I3[1], '…*al Titanic*.', { size: 136, hlT: K.titanic4 });
+headline(S.I3[0], K.al68 - 0.06, 'Ella *se pasó*…', { size: 124, hlT: K.paso, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(K.al68 - 0.06, S.I3[1], '… *al Titanic*', { size: 136, hlT: K.titanic4, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 {
   const A = [100, 460], B = [560, 460], WC = 320;
   const c = scene(S.I3[0], S.I3[1], t => {
@@ -81,7 +81,7 @@ headline(K.al68 - 0.06, S.I3[1], '…*al Titanic*.', { size: 136, hlT: K.titanic
    J1 · «Y EL BRITANNIC, DE ENFERMERA.» — carta 3 (barco hospital) y la cofia se vuelve toca
    ====================================================================== */
 headline(S.J1[0], K.enfermera - 0.35, 'Y el *Britannic*…', { size: 116, hlT: K.britannic });
-headline(K.enfermera - 0.35, S.J1[1], 'de *enfermera*.', { size: 124, hlT: K.enfermera });
+headline(K.enfermera - 0.35, S.J1[1], 'de *enfermera*', { size: 124, hlT: K.enfermera });
 {
   const c = scene(S.J1[0], S.J1[1], t => {
     set(cd.d, { s: pop(t, S.J1[0], 0.35), r: -5 + wobble(t, 0.4, 0.8), o: 1 });
@@ -163,7 +163,7 @@ headline(S.K1[0], S.K1[1], '¿A *por qué?*', { size: 150, hlT: K.porque });
 /* ======================================================================
    K2 · «A POR EL CEPILLO DE DIENTES.» — el cepillo gigante, como un tesoro
    ====================================================================== */
-headline(S.K2[0], S.K2[1], 'A por el *cepillo de dientes*.', { size: 92, hlT: K.cepillo });
+headline(S.K2[0], S.K2[1], 'A por el *cepillo de dientes*', { size: 92, hlT: K.cepillo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 {
   const c = scene(S.K2[0], S.K2[1], t => {
     set(ry, { r: t * 20 });
@@ -287,7 +287,7 @@ colorHit(S.M1[0], S.M1[1], YEL, c => {
 /* ======================================================================
    M2 · «GOLPE EN LA CABEZA…» — chapuzón, oscuridad y estrellas de grabado
    ====================================================================== */
-headline(S.M2[0], S.M2[1], 'Golpe *en la cabeza*…', { size: 104, hlT: K.cabeza, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(S.M2[0], S.M2[1], 'Golpe *en la cabeza*', { size: 104, hlT: K.cabeza, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 {
   const c = scene(S.M2[0], S.M2[1], t => {
     const ks = p(t, S.M2[0], 0.35, E.outCubic);
@@ -312,7 +312,7 @@ headline(S.M2[0], S.M2[1], 'Golpe *en la cabeza*…', { size: 104, hlT: K.cabeza
 /* ======================================================================
    M3 · «…Y SALE VIVA.» — una mano la saca del agua; sello «3»
    ====================================================================== */
-headline(S.M3[0], S.M3[1], 'y *sale viva*.', { size: 130, hlT: K.viva });
+headline(S.M3[0], S.M3[1], 'y *sale viva*', { size: 130, hlT: K.viva });
 {
   const c = scene(S.M3[0], S.M3[1], t => {
     const ku = p(t, S.M3[0], 0.5, E.outBack);
@@ -389,14 +389,14 @@ headline(S.M4[0], S.M4[1], 'Con el *cráneo roto*', { size: 110, hlT: K.roto, co
   const gull = el('div', cam, { left: '120px', top: '440px', zIndex: 2 }, `<svg width="90" height="40" style="overflow:visible"><path d="M0,20 q22,-24 45,0 q22,-24 45,0" stroke="${INK}" stroke-width="6" fill="none"/></svg>`);
   const vio = mkViolet(cam, [300, 540, 480, 614]); vio.d.style.zIndex = 4;
   box(cam, 0, 0, 1080, 1920, { zIndex: 5 }).innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="0" y="1000" width="1080" height="20" fill="#fff" stroke="${INK}" stroke-width="5"/>${Array.from({ length: 18 }, (_, k) => `<path d="M${30 + k * 60},1020 V1150" stroke="#fff" stroke-width="10"/><path d="M${30 + k * 60},1020 V1150" stroke="${INK}" stroke-width="2.5" fill="none"/>`).join('')}<rect x="0" y="1150" width="1080" height="200" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="0" y="1150" width="1080" height="200" fill="url(#hW)" opacity=".35"/><g transform="translate(160,1060)"><circle r="70" fill="none" stroke="#fff" stroke-width="34"/><circle r="70" fill="none" stroke="${RED}" stroke-width="34" stroke-dasharray="36 36"/><circle r="88" fill="none" stroke="${INK}" stroke-width="4"/><circle r="52" fill="none" stroke="${INK}" stroke-width="4"/></g></svg>`;
-  const stV = stamp(cam, 110, 330, 'VOLVIÓ AL MAR', { size: 118, bw: 14, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+  const stV = stamp(cam, 250, 250, 'VOLVIÓ<br>AL MAR', { size: 124, bw: 14, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' }); stV.style.textAlign = 'center';
 }
 
 /* ======================================================================
    N3 · «DIO LA VUELTA AL MUNDO… EN BARCO.» — globo con un barquito; en «barco» se para
    ====================================================================== */
 headline(S.N3[0], K.en134 - 0.06, 'Dio *la vuelta al mundo*…', { size: 96, hlT: K.vuelta });
-headline(K.en134 - 0.06, S.N3[1], '…*en barco*.', { size: 150, hlT: K.barco });
+headline(K.en134 - 0.06, S.N3[1], '… *en barco*', { size: 150, hlT: K.barco });
 {
   const GC = [540, 860];
   const c = scene(S.N3[0], S.N3[1], t => {
@@ -424,8 +424,8 @@ headline(K.en134 - 0.06, S.N3[1], '…*en barco*.', { size: 150, hlT: K.barco })
 /* ======================================================================
    O · «TRES BARCOS LO INTENTARON. NINGUNO PUDO.» — las cartas otra vez; se dan la vuelta
    ====================================================================== */
-headline(S.O1[0], S.O1[1], 'Tres barcos *lo intentaron*.', { size: 92, hlT: K.intentaron });
-headline(S.O2[0], S.O2[1], '*Ninguno* pudo.', { size: 136, hlT: K.ninguno });
+headline(S.O1[0], S.O1[1], 'Tres barcos *lo intentaron*', { size: 92, hlT: K.intentaron, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(S.O2[0], S.O2[1], '*Ninguno* pudo.', { size: 136, hlT: K.ninguno, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 {
   const c = scene(S.O1[0], S.O2[1], t => {
     set(cam, { s: 1 + 0.04 * p(t, S.O1[0], 3, E.linear) });
@@ -443,14 +443,14 @@ headline(S.O2[0], S.O2[1], '*Ninguno* pudo.', { size: 136, hlT: K.ninguno });
   sceneBg(cam, { background: '#2f5a46', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.18), rgba(0,0,0,.35) 80%)' });
   rays(cam, -160, 120, 1400, 26, 'rgba(255,255,255,.06)', 'rgba(0,0,0,0)', 0);
   const CC = [mkCard(cam, CX3[0], CY3, 1, 'OLYMPIC', '1911', { w: CW }), mkCard(cam, CX3[1], CY3, 2, 'TITANIC', '1912', { w: CW, z: 12 }), mkCard(cam, CX3[2], CY3, 3, 'BRITANNIC', '1916', { w: CW, hospital: true })];
-  const TL = mkTally(cam, 342, 950, 110, 40);
+  const TL = mkTally(cam, 342, 1000, 110, 40);
 }
 
 /* ======================================================================
    O3 · «MURIÓ A LOS OCHENTA Y TRES, EN TIERRA FIRME.» — casita, huerto, gallinas… y el emú
    ====================================================================== */
 headline(S.O3[0], K.en148 - 0.06, 'Murió *a los 83*…', { size: 116, hlT: K.ochenta });
-headline(K.en148 - 0.06, S.O3[1], '…*en tierra firme*.', { size: 120, hlT: K.tierra });
+headline(K.en148 - 0.06, S.O3[1], '… *en tierra firme*', { size: 120, hlT: K.tierra });
 const T_EMU = K.firme + 0.02;
 {
   const c = scene(S.O3[0], S.O3[1], t => {
@@ -468,10 +468,10 @@ const T_EMU = K.firme + 0.02;
   sceneBg(cam, { background: '#cfe0e4' });
   box(cam, 0, 0, 1080, 1920, { zIndex: 1 }).innerHTML = cottageSvg();
   const smk = box(cam, 640, 280, 80, 80, { zIndex: 2, borderRadius: '50%', background: 'rgba(255,255,255,.7)', border: `3px solid ${INK}` });
-  const emuW = box(cam, 640, 560, 260, 330, { overflow: 'hidden', zIndex: 3 });
-  const emu = mkEmuF(emuW, [10, 20, 240, 360]);
+  const emuW = box(cam, 620, 500, 300, 390, { overflow: 'hidden', zIndex: 3 });
+  const emu = mkEmuF(emuW, [10, 20, 280, 420]);
   const HEN = [[120, 1000, 0], [300, 1080, 1], [520, 1010, 0], [700, 1100, 1], [430, 1180, 1]].map(([x, y, f]) => { const h = box(cam, x, y, 150, 140, { zIndex: 6 }); h.innerHTML = henSvg(f); return h; });
-  const stT = stamp(cam, 160, 1180, 'EN TIERRA FIRME', { size: 84, bw: 11, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+  const stT = stamp(cam, 190, 1190, 'EN TIERRA FIRME', { size: 70, bw: 11, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
 }
 
 /* ======================================================================

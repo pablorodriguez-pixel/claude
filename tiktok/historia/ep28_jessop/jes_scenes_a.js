@@ -114,8 +114,8 @@ headline(S.C[0], S.C[1], 'En el bote le lanzan *un bulto*…', { size: 80, hlT: 
 /* ======================================================================
    D · «UN BEBÉ. QUE NO ERA SUYO.» — el fardo se abre: un bebé
    ====================================================================== */
-headline(S.D[0], K.que22 - 0.06, 'Un *bebé*.', { size: 130, hlT: K.bebe, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
-headline(K.que22 - 0.06, S.D[1], 'Que *no era suyo*.', { size: 112, hlT: K.noera, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(S.D[0], K.que22 - 0.06, 'Un *bebé*', { size: 130, hlT: K.bebe, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(K.que22 - 0.06, S.D[1], 'Que *no era suyo*', { size: 112, hlT: K.noera, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 {
   const c = scene(S.D[0], S.D[1], t => {
     set(cam, { s: 1.04 + 0.06 * p(t, S.D[0], 2.3, E.linear) });
@@ -197,7 +197,7 @@ headline(S.E2[0], S.E2[1], 'una mujer *se lo arrancó*', { size: 96, hlT: K.arra
 /* ======================================================================
    F · «NI LAS GRACIAS.» — la mujer se va con el bebé; bocadillo que se queda en «…»
    ====================================================================== */
-headline(S.F[0], S.F[1], 'Ni *las gracias*.', { size: 124, hlT: K.gracias });
+headline(S.F[0], S.F[1], 'Ni *las gracias*', { size: 124, hlT: K.gracias });
 {
   const c = scene(S.F[0], S.F[1], t => {
     set(ry, { r: t * 8 });
@@ -254,10 +254,10 @@ headline(S.F[0], S.F[1], 'Ni *las gracias*.', { size: 124, hlT: K.gracias });
 /* ======================================================================
    H · «EL TITANIC NO FUE EL ÚNICO. TENÍA DOS GEMELOS… Y ELLA, EN LOS TRES.» — tres cartas en fila
    ====================================================================== */
-const CW = 250, CX3 = [60, 375, 690], CY3 = 470;
-headline(S.H[0], K.tenia - 0.06, 'El Titanic *no fue el único*', { size: 92, hlT: K.unico });
-headline(K.tenia - 0.06, K.y49 - 0.06, 'Tenía *dos gemelos*…', { size: 108, hlT: K.gemelos });
-headline(K.y49 - 0.06, S.H[1], 'y ella, *en los tres*.', { size: 108, hlT: K.tres3 });
+const CW = 250, CX3 = [60, 375, 690], CY3 = 540;
+headline(S.H[0], K.tenia - 0.06, 'El Titanic *no fue el único*', { size: 92, hlT: K.unico, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(K.tenia - 0.06, K.y49 - 0.06, 'Tenía *dos gemelos*…', { size: 108, hlT: K.gemelos, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
+headline(K.y49 - 0.06, S.H[1], 'y ella, *en los tres*', { size: 108, hlT: K.tres3, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}` });
 {
   const c = scene(S.H[0], S.H[1], t => {
     set(cam, { s: 1 + 0.04 * p(t, S.H[0], 5, E.linear) });
@@ -291,5 +291,5 @@ headline(K.y49 - 0.06, S.H[1], 'y ella, *en los tres*.', { size: 108, hlT: K.tre
   const C2 = mkCard(cam, CX3[1], CY3, 2, 'TITANIC', '1912', { w: CW, z: 12 });
   const C3 = mkCard(cam, CX3[2], CY3, 3, 'BRITANNIC', '1916', { w: CW, hospital: true });
   const cof = box(cam, 0, 0, 140, 70, { zIndex: 30 }); cof.innerHTML = cofiaSvg();
-  const TL = mkTally(cam, 342, 950, 110, 40);
+  const TL = mkTally(cam, 342, 1000, 110, 40);
 }

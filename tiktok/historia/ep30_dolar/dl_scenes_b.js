@@ -181,7 +181,7 @@ headline(S.H3[0], S.H3[1], 'bonito, pero *sin papeles*', { size: 96, hlT: K.pape
     set(cB, { s: pop(t, S.H3[0] + 0.1, 0.3), r: 4, o: 1 });
     set(hrt, { s: pop(t, K.bonito, 0.3) * (1 + 0.1 * Math.sin(t * 9)), o: t < K.bonito ? 0 : (t > K.sin ? 0.35 : 1) });
     stampA(st1, t, K.sin, -10, 1); stampA(st2, t, K.papeles, 8, 1);
-    DOC.forEach((d, i) => set(d, { y: ((t - S.H3[0]) * 600 + i * 260) % 900 - 100, r: (t * 120 + i * 60) % 360, o: t > K.sin ? 0.9 : 0 }));
+    DOC.forEach((d, i) => set(d, { y: ((t - S.H3[0]) * 600 + i * 260) % 700 + 420, r: (t * 120 + i * 60) % 360, o: t > K.sin ? 0.9 : 0 }));
   }, { clip: true });
   sceneBg(c, { background: '#DAD6CB' });
   halftone(c, 'rgba(43,33,24,.07)', 0);
@@ -218,7 +218,7 @@ ROWS8[0][1] = '45 ' + FR(1, 8);
 /* ======================================================================
    I2 · «…EN OCTAVOS DE DÓLAR HASTA 1997» — zoom a «⅛» gigante + sello «HASTA 1997»
    ====================================================================== */
-headline(S.I2[0], S.I2[1], 'en *octavos* de dólar', { size: 100, hlT: K.octavos8, y: 210, color: '#FBF6EA', keyColor: INK });
+headline(S.I2[0], S.I2[1], 'en *octavos* de dólar', { size: 100, hlT: K.octavos8, y: 210, color: '#FBF6EA', keyColor: YEL, hlc: 'rgba(255,62,165,.55)' });
 {
   const c = scene(S.I2[0], S.I2[1], t => {
     const kz = p(t, S.I2[0], 0.4, E.outBack);
@@ -255,34 +255,44 @@ colorHit(S.J[0], S.J[1], YEL, c => {
 });
 
 /* ======================================================================
-   K1 · «O SEA: ESE SÍMBOLO… PONE "PESOS"» — el «$» de la portada se desmonta al revés: $ → pˢ → PESOS
+   K1 · «O SEA: ESE SÍMBOLO… PONE "PESOS"» — el «$» de la portada se desmonta AL REVÉS (rima con los 4 pasos): $ → pˢ → «PESOS»
    ====================================================================== */
 {
+  const TSTOP = K.simbolo + 0.15, TR = K.simbolo + 0.35, TRe = K.pone - 0.02;
   const c = scene(S.K1[0], S.K1[1], t => {
     set(ry, { r: t * 12 });
-    const kin = pop(t, S.K1[0], 0.35);
-    const spin = t < K.simbolo + 0.3 ? Math.cos((t - S.K1[0]) * 2 * Math.PI / 0.75) : 1;
-    const kx = p(t, K.pone - 0.1, 0.35, E.inOutCubic);
-    set(dol, { s: kin * (1 - kx * 0.6), sx: Math.max(0.07, Math.abs(spin)), x: -kx * 250, y: -kx * 160, o: 1 - p(t, K.pesos10 - 0.05, 0.15) });
-    // el «$» se abre en p + s
-    const kp = p(t, K.pone, 0.4, E.outBack);
-    set(ps, { s: kp, o: t < K.pone ? 0 : 1 - p(t, K.pesos10 - 0.05, 0.15), x: kx * 0 });
+    const spin = t < TSTOP ? Math.cos(2 * Math.PI * (t - TSTOP) / 0.8) : 1;
+    set(wrap, { sx: Math.max(0.07, Math.abs(spin)) * pop(t, S.K1[0], 0.35), sy: pop(t, S.K1[0], 0.35), o: 1 - p(t, K.pesos10 - 0.05, 0.15) });
+    // al revés: la raya vuelve a ser P (vuelve la panza) y la S se baja de la P, chiquita
+    const kr = p(t, TR, TRe - TR, E.inOutCubic);
+    const sx = lerp(S_BIG.x, S_SMALL.x, kr), sy = lerp(S_BIG.y, S_SMALL.y, kr) - Math.sin(kr * Math.PI) * 120, ss = lerp(S_BIG.s, S_SMALL.s, kr);
+    sG.setAttribute('transform', `translate(${f1(sx)} ${f1(sy)}) scale(${f1(ss * 1000) / 1000})`);
+    sP.setAttribute('stroke-width', f1(PG.sw / ss * lerp(1, 0.55, kr)));
+    bowl.style.strokeDashoffset = f1(1000 * (1 - p(t, TR + 0.15, 0.4, E.inOutCubic)));
+    stemX.style.opacity = 1 - p(t, TR, 0.2);
+    set(hd, { s: pop(t, S.K1[0] + 0.05, 0.3), r: -1.5, o: 1 - p(t, K.pesos10 - 0.05, 0.15) });
+    set(arr, { o: t > TRe && t < K.pesos10 ? 1 : 0, x: Math.sin(t * 9) * 8 });
     // y en «pesos» cae la palabra entera (golpe rosa)
     set(pw, { s: pop(t, K.pesos10 - 0.04, 0.35) * (1 + 0.04 * Math.sin(t * 8)), r: -4, o: t < K.pesos10 - 0.04 ? 0 : 1 });
     pw.style.textShadow = (glitch(t, K.pesos10, 0.3) ? glitch(t, K.pesos10, 0.3) + ', ' : '') + OUTL(INK, 10);
     pinkBg.style.opacity = t > K.pesos10 - 0.04 ? 1 : 0;
     set(eqq, { s: pop(t, K.pesos10 + 0.15, 0.3), r: 4, o: t < K.pesos10 + 0.15 ? 0 : 1 });
-    set(arr, { o: t > K.pone && t < K.pesos10 ? 1 : 0, x: Math.sin(t * 9) * 8 });
   }, { clip: true, cut: true });
-  sceneBg(c, { background: '#EFE1C6' });
-  const ry = rays(c, -160, 260, 1400, 26, 'rgba(201,162,74,.18)', 'rgba(0,0,0,0)', 0);
+  sceneBg(c, { background: '#F3EAD3', backgroundImage: 'repeating-linear-gradient(0deg, rgba(122,154,176,.35) 0 2px, transparent 2px 96px)' });
+  const ry = rays(c, -160, 160, 1400, 26, 'rgba(201,162,74,.18)', 'rgba(0,0,0,0)', 0);
   const pinkBg = box(c, 0, 0, 1080, 1920, { zIndex: 1, background: PINK }); halftone(pinkBg, 'rgba(0,0,0,.1)', 1);
-  const hd = BIGT(c, 0, 220, 1080, `Ese símbolo… <i>pone</i>`, { fontSize: '100px', zIndex: 40 });
-  const dol = box(c, 260, 450, 560, 840, { zIndex: 10 }); dol.innerHTML = dollarSvg();
-  const ps = el('div', c, { left: '480px', top: '420px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '400px', lineHeight: 1, color: INK, zIndex: 12, whiteSpace: 'nowrap' }, `p<span style="font-size:.5em;position:relative;top:-0.9em">s</span>`);
-  const arr = el('div', c, { left: '380px', top: '560px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '120px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 13 }, '→');
+  const hd = BIGT(c, 0, 210, 1080, `Ese símbolo… <i>pone</i>`, { fontSize: '100px', zIndex: 40 });
+  const wrap = box(c, 0, 0, 1080, 1920, { zIndex: 10, transformOrigin: '540px 760px' });
+  const gl = svgLayer(wrap, 5);
+  gl.innerHTML = `<g transform="translate(70 0)">
+    <path class="stemX" d="M${PG.x},${PG.top} V${PG.top - 40} M${PG.x},${PG.bot} V${PG.bot + 40}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/>
+    <path d="${P_STEM}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/>
+    <path class="bowl" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="${P_BOWL}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/>
+    <g class="sG"><path class="sP" d="${S_PATH}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/></g></g>`;
+  const stemX = gl.querySelector('.stemX'), bowl = gl.querySelector('.bowl'), sG = gl.querySelector('.sG'), sP = gl.querySelector('.sP');
+  const arr = el('div', c, { left: '760px', top: '760px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '120px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 13 }, '?');
   const pw = BIGT(c, 0, 640, 1080, '«PESOS»', { fontSize: '220px', color: YEL, zIndex: 30 });
-  const eqq = chip(c, 330, 940, '$ = pˢ = pesos', { size: 64, bg: INK, color: YEL, z: 31 });
+  const eqq = chip(c, 300, 940, '', { size: 64, bg: INK, color: YEL, z: 31 });
   eqq.innerHTML = `$ = p<span style="font-size:.6em;position:relative;top:-0.6em">s</span> = pesos`;
 }
 

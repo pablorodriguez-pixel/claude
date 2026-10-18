@@ -196,7 +196,7 @@ headline(S.D1[0], S.D1[1], 'La *Real Academia*', { size: 112, hlT: K.academia, y
   const bk = box(c, 480, 640, 400, 533, { zIndex: 4 }); bk.innerHTML = oldBookSvg('ORTOGRAFÍA', 'R. Academia');
   const st = stamp(c, 150, 330, '1754', { size: 260, bw: 22, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal', font: 'Playfair' });
   st.style.fontWeight = 900;
-  const rd = chip(c, 440, 1210, 'se lo inventa la RAE', { size: 40, bg: PINK, z: 30 });
+  const rd = chip(c, 440, 1210, 'la propone la RAE', { size: 40, bg: PINK, z: 30 });
 }
 
 /* ======================================================================
@@ -208,7 +208,7 @@ headline(K.puesta - 0.28, S.D3[1], '…puesta *del revés*', { size: 110, hlT: K
   const c = scene(S.D3[0], S.D3[1], t => {
     const kr = p(t, K.puesta - 0.02, 0.55, E.inOutCubic);           // giro de 180°
     const kf = p(t, K.reves + 0.05, 0.4, E.inOutCubic);              // vuela al principio de la frase
-    set(gq, { r: kr * 180 + (kr === 0 ? SWING(t) * 0.5 : 0), s: lerp(1, 0.22, kf) * pop(t, S.D3[0], 0.35), x: lerp(0, -272, kf), y: lerp(0, 452, kf) });
+    set(gq, { r: kr * 180 + (kr === 0 ? SWING(t) * 0.5 : 0), s: lerp(1, 0.22, kf) * pop(t, S.D3[0], 0.35), x: lerp(0, -300, kf), y: lerp(0, 452, kf) });
     gq.style.filter = kr > 0 && kr < 1 ? 'none' : 'none';
     set(lb1, { s: pop(t, K.cerrar, 0.3), o: t < K.cerrar || t > K.puesta ? 0 : 1, r: -4 });
     set(lb2, { s: pop(t, K.puesta + 0.5, 0.3), o: t < K.puesta + 0.5 || t > K.reves + 0.05 ? 0 : 1, r: 4 });

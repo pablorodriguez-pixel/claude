@@ -3,7 +3,7 @@
 /* ======================================================================
    O1 · «OJO: PARECE COSA DE MONJES» — fila de monjes ante platos vacíos + chip OJO · TEORÍA
    ====================================================================== */
-headline(S.O1[0], S.O1[1], 'parece cosa *de monjes*', { size: 96, hlT: K.monjes, y: 330 });
+headline(S.O1[0], S.O1[1], 'parece cosa *de monjes*', { size: 84, hlT: K.monjes, y: 330 });
 {
   const MK = [];
   const c = scene(S.O1[0], S.O1[1], t => {
@@ -18,9 +18,9 @@ headline(S.O1[0], S.O1[1], 'parece cosa *de monjes*', { size: 96, hlT: K.monjes,
   sceneBg(c, { background: '#D9C9A8', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 3px, transparent 3px 120px)' });
   // arcos del refectorio
   box(c, 0, 0, 1080, 1920, { zIndex: 1 }).innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${[0, 1, 2].map(k => `<path d="M${60 + k * 330},940 V640 Q${225 + k * 330},470 ${390 + k * 330},640 V940" fill="#C9B48E" stroke="${INK}" stroke-width="6"/>`).join('')}</svg>`;
-  [[400, 700], [640, 690], [870, 710]].forEach((q, i) => { const m = mk(c, [q[0] - 150, q[1], 300, 383], monkInner(61 + i * 7, i === 1), '0 0 360 460', 'bust'); m.d.style.zIndex = 4; MK.push(m); });
+  [[260, 640], [540, 620], [820, 650]].forEach((q, i) => { const m = mk(c, [q[0] - 170, q[1], 340, 434], monkInner(61 + i * 7, i === 1), '0 0 360 460', 'bust'); m.d.style.zIndex = 4; MK.push(m); });
   const tb = box(c, 0, 1000, 1080, 300, { zIndex: 6 }); tb.innerHTML = tableSvg(1080, 300);
-  const PL = [[300, 1010], [530, 1010], [760, 1010]].map(q => { const e = box(c, q[0], q[1], 200, 64, { zIndex: 7 }); e.innerHTML = plateSvg(); return e; });
+  const PL = [[160, 1010], [440, 1010], [720, 1010]].map(q => { const e = box(c, q[0], q[1], 200, 64, { zIndex: 7 }); e.innerHTML = plateSvg(); return e; });
   const ojo = stamp(c, 260, 180, 'OJO · TEORÍA', { size: 88, bw: 11, z: 60, bg: YEL, blend: 'normal', col: INK });
 }
 /* O2 · «AYUNABAN HASTA LA NONA...» — tripa que ruge + reloj en las 3 con la etiqueta NONA */
@@ -40,7 +40,7 @@ headline(S.O2[0], S.O2[1], 'Ayunaban *hasta la nona*…', { size: 92, hlT: K.non
   const WV = [0, 1, 2].map(i => { const e = box(c, 520, 1120, 240, 160, { zIndex: 6 }); e.innerHTML = `<svg width="240" height="160" style="overflow:visible"><path d="M20,80 q25,-40 50,0 t50,0 t50,0 t50,0" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round"/></svg>`; return e; });
   const grr = chip(c, 720, 1000, 'grrr…', { size: 60, bg: RED, z: 20 });
   const ck = mkClock(c, 640, 470, 330, { z: 8 });
-  const tag = chip(c, 640, 830, 'NONA', { size: 62, bg: PINK, z: 30 });
+  const tag = chip(c, 400, 560, 'NONA', { size: 62, bg: PINK, z: 30 });
 }
 /* O3 · «...Y LA FUERON ADELANTANDO» — el dedo empuja la aguja de las 3 hacia las 12 */
 headline(S.O3[0], S.O3[1], 'y la fueron *adelantando*', { size: 92, hlT: K.adelantando, y: 330 });
@@ -50,18 +50,18 @@ headline(S.O3[0], S.O3[1], 'y la fueron *adelantando*', { size: 92, hlT: K.adela
     const hb = 3 - 3 * kp; // la aguja retrocede de las 3 a las 12 ck.setH(hb < 0 ? hb + 12 : hb);
     const a = (hb * 30 - 90) * Math.PI / 180, R = 210;
     set(fin, { x: Math.cos(a) * R, y: Math.sin(a) * R, r: hb * 30 - 30 });
-    set(tg, { x: Math.cos(a) * 300, y: Math.sin(a) * 300, r: -6 });
+    set(tg, { x: Math.cos(a) * 310 - 10, y: Math.sin(a) * 300, r: -6 });
     set(dir, { o: kp > 0.05 && kp < 0.98 ? 1 : 0, r: -t * 120 });
     popA(n12, t, K.adelantando + 0.4, { r: -4 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E9DFC6' });
   rays(c, -160, 340, 1400, 24, 'rgba(255,62,165,.08)', 'rgba(0,0,0,0)', 0);
-  const ck = mkClock(c, 240, 470, 600, { z: 4 });
-  const ctr = box(c, 540, 770, 1, 1, { zIndex: 9 });
+  const ck = mkClock(c, 240, 560, 600, { z: 4 });
+  const ctr = box(c, 540, 860, 1, 1, { zIndex: 9 });
   const fin = box(ctr, -60, -60, 120, 120, { zIndex: 9 }); fin.innerHTML = `<svg viewBox="-60 -70 120 120" width="120" height="120" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
   const tg = box(ctr, -70, -32, 140, 64, {}); tg.appendChild(chip(tg, 0, 0, 'NONA', { size: 44, bg: PINK, z: 10 }));
-  const dir = box(c, 760, 460, 120, 120, { zIndex: 10, fontSize: '100px', lineHeight: '120px', textAlign: 'center', color: PINK, fontFamily: 'Playfair', fontWeight: 900, textShadow: `3px 3px 0 ${INK}` }, '↺');
-  const n12 = stamp(c, 440, 1110, '→ 12:00', { size: 90, bw: 11, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const dir = box(c, 760, 560, 120, 120, { zIndex: 10, fontSize: '100px', lineHeight: '120px', textAlign: 'center', color: PINK, fontFamily: 'Playfair', fontWeight: 900, textShadow: `3px 3px 0 ${INK}` }, '↺');
+  const n12 = stamp(c, 330, 1180, '→ 12:00', { size: 90, bw: 11, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -130,9 +130,9 @@ const T_EMU = K.hambre + 0.12;
   const sl = mk(top, [150, 150, 230, 294], sleeperInner(), '0 0 360 460', 'bust'); sl.d.style.zIndex = 1;
   box(top, 20, 250, 520, 300, { zIndex: 3 }).innerHTML = `<svg viewBox="0 0 900 520" width="100%" height="100%" style="overflow:visible"><path d="M200,330 C300,450 600,450 700,330 C640,470 260,470 200,330 Z" fill="#F2C230" stroke="${INK}" stroke-width="7"/></svg>`;
   const cT = mkClock(top, 610, 110, 330, { z: 4 });
-  const tT12 = chip(top, 530, 460, '12:00', { size: 48, bg: '#fff', color: INK, z: 6 });
-  const tT15 = chip(top, 760, 460, '≈ 15:00', { size: 48, bg: YEL, color: INK, z: 6 });
-  const arrT = box(top, 650, 410, 160, 60, { zIndex: 7 }); arrT.innerHTML = `<svg width="160" height="60" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" d="M10,40 Q80,0 140,36 M120,20 L144,38 L118,50" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`; const aTP = arrT.querySelector('path');
+  const tT12 = chip(top, 500, 450, '12:00', { size: 54, bg: '#fff', color: INK, z: 6 });
+  const tT15 = chip(top, 730, 450, '≈ 15:00', { size: 54, bg: YEL, color: INK, z: 6 });
+  const arrT = box(top, 630, 400, 160, 60, { zIndex: 7 }); arrT.innerHTML = `<svg width="160" height="60" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" d="M10,40 Q80,0 140,36 M120,20 L144,38 L118,50" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`; const aTP = arrT.querySelector('path');
   // panel de abajo
   const lbB = el('div', bot, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '104px', lineHeight: 1, color: INK }, hlSpan('NOON', 'q2', PINK));
   bot.querySelector('.q2').style.transform = 'scaleX(1) rotate(-1.2deg)';
@@ -140,9 +140,9 @@ const T_EMU = K.hambre + 0.12;
   const en = mk(bot, [120, 200, 280, 358], englishInner(), '0 0 360 460', 'bust'); en.d.style.zIndex = 2;
   const tea = box(bot, 360, 380, 130, 106, { zIndex: 3 }); tea.innerHTML = teaSvg();
   const cB = mkClock(bot, 610, 110, 330, { z: 4 });
-  const tB15 = chip(bot, 530, 460, '≈ 15:00', { size: 48, bg: PINK, z: 6 });
-  const tB12 = chip(bot, 790, 460, '12:00', { size: 48, bg: '#fff', color: INK, z: 6 });
-  const arrB = box(bot, 700, 410, 160, 60, { zIndex: 7 }); arrB.innerHTML = `<svg width="160" height="60" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" d="M10,40 Q80,0 140,36 M120,20 L144,38 L118,50" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`; const aBP = arrB.querySelector('path');
+  const tB15 = chip(bot, 420, 450, '≈ 15:00', { size: 54, bg: PINK, z: 6 });
+  const tB12 = chip(bot, 720, 450, '12:00', { size: 54, bg: '#fff', color: INK, z: 6 });
+  const arrB = box(bot, 610, 400, 160, 60, { zIndex: 7 }); arrB.innerHTML = `<svg width="160" height="60" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" d="M10,40 Q80,0 140,36 M120,20 L144,38 L118,50" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/></svg>`; const aBP = arrB.querySelector('path');
   const cross = box(c, 380, 650, 320, 220, { zIndex: 20 });
   cross.innerHTML = `<svg width="320" height="220" style="overflow:visible"><path d="M30,30 L290,190" stroke="${INK}" stroke-width="34" stroke-linecap="round"/><path d="M30,30 L290,190" stroke="${YEL}" stroke-width="20" stroke-linecap="round"/><path d="M290,30 L30,190" stroke="${INK}" stroke-width="34" stroke-linecap="round"/><path d="M290,30 L30,190" stroke="${PINK}" stroke-width="20" stroke-linecap="round"/></svg>`;
 }
@@ -187,7 +187,7 @@ headline(S.R2[0], S.R2[1], 'Adivina quién *llega tarde*…', { size: 88, hlT: K
   const LG = [0, 1].map(i => { const l = box(runner, 210 + i * 40, 480, 60, 260, { zIndex: 1, transformOrigin: '30px 10px' }); l.innerHTML = `<svg width="60" height="260" style="overflow:visible"><path d="M18,0 L42,0 L40,210 L20,210 Z" fill="#5a4632" stroke="${INK}" stroke-width="4"/><path d="M10,206 L62,206 Q70,240 46,244 L10,244 Z" fill="${INK}"/></svg>`; return l; });
   const man = mk(runner, [0, 0, 480, 614], sleeperInner() + TONGUE() + SWEAT(), '0 0 360 460', 'bust'); man.d.style.zIndex = 2;
   const SL = [0, 1, 2, 3].map(i => { const e = box(c, 0, 700 + i * 120, 220, 20, { zIndex: 5, background: INK, borderRadius: '10px', opacity: 0.6 }); return e; });
-  const lt = chip(c, 640, 780, '¡llego!', { size: 54, bg: PINK, z: 20 });
+  const lt = chip(c, 660, 650, '¡llego!', { size: 54, bg: PINK, z: 20 });
 }
 /* R3 · «...HASTA A LA SIESTA» — se tira en la hamaca: sello TARDE */
 headline(S.R3[0], S.R3[1], 'hasta *a la siesta*', { size: 104, hlT: K.siesta12 });
