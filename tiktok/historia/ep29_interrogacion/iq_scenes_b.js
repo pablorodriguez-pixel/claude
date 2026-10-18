@@ -22,7 +22,7 @@ headline(K.en6 - 0.28, S.G1[1], 'En pleno *siglo XIX*', { size: 104, hlT: K.xix,
   const tb = box(cam, 830, 760, 100, 125, { zIndex: 8 }); tb.innerHTML = typeBlockSvg('¿');
   const tc = box(cam, 400, 1060, 540, 231, { zIndex: 7 }); tc.innerHTML = typeCaseSvg();
   const qm = qMark(cam, 760, 420, 120, PINK);
-  const st = stamp(cam, 430, 1000, 'SIGLO XIX', { size: 96, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const st = stamp(cam, 330, 1000, 'SIGLO XIX', { size: 84, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -74,7 +74,7 @@ headline(K.si7 - 0.28, S.H[1], 'sí la lleva: *puesta después*', { size: 72, hl
     const q = el('div', bk, { left: px(x - 34), top: px(y - 52), fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: '84px', color: RED, padding: '0 8px', borderRadius: '10px', zIndex: 3 }, '¿'); QY.push(q);
   });
   const ar = box(c, 560, 1000, 160, 160, { zIndex: 8 }); ar.innerHTML = arrowSvg('M140,150 Q120,60 40,20 M80,14 L40,20 L52,60', PINK, 12);
-  const lb = chip(c, 420, 1150, 'AÑADIDOS DESPUÉS', { size: 52, bg: INK, color: YEL, z: 30 });
+  const lb = chip(c, 370, 1150, 'AÑADIDOS DESPUÉS', { size: 52, bg: INK, color: YEL, z: 30 });
   const bag = chip(c, 140, 1050, 'edición escolar', { size: 38, bg: '#2f6fb0', color: '#fff', z: 30 });
 }
 
@@ -92,7 +92,7 @@ headline(S.I1[0], S.I1[1], 'No es *solo nuestra*', { size: 108, hlT: K.nuestra, 
   halftone(c, 'rgba(0,0,0,.10)', 1);
   const ry = rays(c, -160, 260, 1400, 24, 'rgba(255,255,255,.35)', 'rgba(0,0,0,0)', 1);
   const gq = box(c, 240, 340, 600, 900, { zIndex: 10, transformOrigin: '300px 30px' }); gq.innerHTML = glyphSvg('¿', { fs: 900, base: 640 });
-  const oj = stamp(c, 300, 1000, '¡OJO!', { size: 190, bw: 22, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const oj = stamp(c, 260, 1000, '¡OJO!', { size: 170, bw: 22, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -143,7 +143,7 @@ headline(S.J1[0], S.J1[1], 'Hoy es *obligatoria*', { size: 108, hlT: K.oblig, y:
   sceneBg(c, { background: '#E7D9BC' });
   const ry = rays(c, -160, 160, 1400, 28, 'rgba(200,16,46,.10)', 'rgba(0,0,0,0)', 0);
   const em = box(c, 340, 400, 480, 512, { zIndex: 5 }); em.innerHTML = emblemSvg();
-  const st = stamp(c, 330, 800, 'LA RAE: OBLIGATORIA', { size: 50, bw: 10, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const st = stamp(c, 300, 800, 'LA RAE: OBLIGATORIA', { size: 46, bw: 10, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -164,12 +164,12 @@ headline(K.novale - 0.28, S.J2[1], 'No vale *quitarla*', { size: 116, hlT: K.qui
     set(sh, { o: t > K.quitarla ? 1 : 0, r: t * 60 });
   }, { clip: true });
   sceneBg(c, { background: '#E4DCF0', backgroundImage: 'repeating-linear-gradient(45deg, rgba(43,33,24,.05) 0 3px, transparent 3px 40px)' });
-  const strip = el('div', c, { left: '410px', top: '560px', width: '540px', height: '200px', background: CREAM, border: `6px solid ${INK}`, borderRadius: '26px', boxShadow: `8px 9px 0 ${SH}`, zIndex: 8 });
+  const strip = el('div', c, { left: '360px', top: '560px', width: '560px', height: '200px', background: CREAM, border: `6px solid ${INK}`, borderRadius: '26px', boxShadow: `8px 9px 0 ${SH}`, zIndex: 8 });
   const qg = el('div', strip, { left: '20px', top: '10px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '130px', lineHeight: '170px', color: RED, zIndex: 3 }, '¿');
   el('div', strip, { left: '110px', top: '10px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '120px', lineHeight: '170px', color: INK, whiteSpace: 'nowrap' }, 'vienes?');
   const sh = el('div', c, { left: '380px', top: '470px', fontSize: '80px', color: YEL, textShadow: `3px 3px 0 ${INK}, -3px -3px 0 ${INK}`, zIndex: 12 }, '✦');
   const sc = box(c, 280, 520, 320, 160, { zIndex: 20 }); sc.innerHTML = scissorsSvg();
-  const nv = stamp(c, 380, 790, 'NO VALE', { size: 110, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const nv = stamp(c, 330, 790, 'NO VALE', { size: 100, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================

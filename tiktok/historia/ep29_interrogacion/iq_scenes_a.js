@@ -25,7 +25,7 @@ const SWING = t => Math.sin(t * Math.PI * 2 * 1.0) * 8; // péndulo ±8°, 1 cic
   // Cervantes detrás del signo, asomando por la curva de abajo
   const cv = mkCerv(cam, [500, 900, 470, 600]); cv.d.style.zIndex = 8;
   const gq = box(cam, 110, 640, 640, 960, { zIndex: 10, transformOrigin: '320px 40px' }); gq.innerHTML = glyphSvg('¿', { fs: 960, base: 720 });
-  const qs = qMark(cam, 820, 640, 130, PINK); qs.style.zIndex = 12;
+  const qs = qMark(cam, 790, 600, 130, PINK); qs.style.zIndex = 12;
 }
 
 /* ======================================================================
@@ -179,7 +179,7 @@ headline(S.D1[0], S.D1[1], 'La *Real Academia*', { size: 112, hlT: K.academia, y
   sceneBg(c, { background: '#E7D9BC' });
   const ry = rays(c, -160, 160, 1400, 28, 'rgba(201,162,74,.20)', 'rgba(0,0,0,0)', 0);
   const em = box(c, 300, 420, 640, 683, { zIndex: 5 }); em.innerHTML = emblemSvg();
-  const lb = chip(c, 420, 1150, 'Real Academia Española', { size: 42, bg: INK, color: YEL, z: 20 });
+  const lb = chip(c, 330, 1150, 'Real Academia Española', { size: 42, bg: INK, color: YEL, z: 20 });
 }
 
 /* ======================================================================
@@ -208,7 +208,7 @@ headline(K.puesta - 0.28, S.D3[1], '…puesta *del revés*', { size: 110, hlT: K
   const c = scene(S.D3[0], S.D3[1], t => {
     const kr = p(t, K.puesta - 0.02, 0.55, E.inOutCubic);           // giro de 180°
     const kf = p(t, K.reves + 0.05, 0.4, E.inOutCubic);              // vuela al principio de la frase
-    set(gq, { r: kr * 180 + (kr === 0 ? SWING(t) * 0.5 : 0), s: lerp(1, 0.22, kf) * pop(t, S.D3[0], 0.35), x: lerp(0, -300, kf), y: lerp(0, 452, kf) });
+    set(gq, { r: kr * 180 + (kr === 0 ? SWING(t) * 0.5 : 0), s: lerp(1, 0.22, kf) * pop(t, S.D3[0], 0.35), x: lerp(0, -260, kf), y: lerp(0, 452, kf) });
     gq.style.filter = kr > 0 && kr < 1 ? 'none' : 'none';
     set(lb1, { s: pop(t, K.cerrar, 0.3), o: t < K.cerrar || t > K.puesta ? 0 : 1, r: -4 });
     set(lb2, { s: pop(t, K.puesta + 0.5, 0.3), o: t < K.puesta + 0.5 || t > K.reves + 0.05 ? 0 : 1, r: 4 });
@@ -219,9 +219,9 @@ headline(K.puesta - 0.28, S.D3[1], '…puesta *del revés*', { size: 110, hlT: K
   sceneBg(c, { background: '#E4DCF0', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.05) 0 3px, transparent 3px 50px)' });
   const arc = box(c, 230, 380, 620, 620, { zIndex: 3, transformOrigin: '310px 310px' });
   arc.innerHTML = arrowSvg('M60,310 A250,250 0 0,1 560,310 M520,250 L560,310 L610,250', PINK, 14);
-  const gq = box(c, 340, 380, 400, 600, { zIndex: 10, transformOrigin: '200px 330px' }); gq.innerHTML = glyphSvg('?', { fs: 640, base: 560 });
-  const lb1 = chip(c, 640, 960, 'DE CERRAR', { size: 50, bg: INK, color: '#fff', z: 30 });
-  const lb2 = chip(c, 640, 960, 'DEL REVÉS = ¿', { size: 50, bg: RED, color: '#fff', z: 30 });
+  const gq = box(c, 300, 380, 400, 600, { zIndex: 10, transformOrigin: '200px 330px' }); gq.innerHTML = glyphSvg('?', { fs: 640, base: 560 });
+  const lb1 = chip(c, 580, 960, 'DE CERRAR', { size: 50, bg: INK, color: '#fff', z: 30 });
+  const lb2 = chip(c, 520, 960, 'DEL REVÉS = ¿', { size: 50, bg: RED, color: '#fff', z: 30 });
   const strip = el('div', c, { left: '380px', top: '760px', width: '560px', height: '170px', background: CREAM, border: `6px solid ${INK}`, borderRadius: '24px', boxShadow: `8px 9px 0 ${SH}`, zIndex: 8 });
   el('div', strip, { left: '150px', top: '18px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', lineHeight: '120px', color: INK, whiteSpace: 'nowrap' }, 'vienes?');
   const sp = el('div', c, { left: '398px', top: '700px', fontSize: '60px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 12 }, '✦');
@@ -289,13 +289,13 @@ headline(S.E2[0], S.E2[1], 'Di en voz *alta*:', { size: 116, hlT: K.alta, y: 230
   cv2.innerHTML = `<svg width="840" height="200" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M20,170 C200,166 420,166 560,150 C660,138 720,90 800,20" stroke="${PINK}" stroke-width="16" fill="none" stroke-linecap="round"/></svg>`;
   const c2 = cv2.querySelector('path');
   const t2 = box(c, 860, 790, 90, 90, { zIndex: 7 }); t2.innerHTML = arrowSvg('M10,70 L70,10 M30,10 L70,10 L70,50', PINK, 12);
-  const b2 = bubble(c, 120, 1010, '<span class="qa">¿</span>tienes hambre<span class="qb">?</span>', { size: 104, tail: 'bl', z: 20, bg: '#FFF3A8' });
+  const b2 = bubble(c, 100, 1010, '<span class="qa">¿</span>tienes hambre<span class="qb">?</span>', { size: 104, tail: 'bl', z: 20, bg: '#FFF3A8' });
   const q1 = [b2.querySelector('.qa')], q2 = [b2.querySelector('.qb')];
   [...q1, ...q2].forEach(q => { q.style.display = 'inline-block'; q.style.color = RED; });
   const note2 = chip(c, 560, 1200, '↗ preguntas', { size: 48, bg: PINK, color: '#fff', z: 25 });
   const gb = bubble(c, 120, 1010, '…?', { size: 104, tail: 'bl', z: 19, bg: 'rgba(255,255,255,.35)' }); gb.style.borderStyle = 'dashed'; gb.style.color = 'rgba(43,33,24,.45)';
   SC[SC.length - 1].fn = (f => t => { f(t); set(gb, { o: t > K.hambre1e && t < K.tienes2 - 0.06 ? 1 : 0, s: pop(t, K.hambre1e, 0.3) }); })(SC[SC.length - 1].fn);
-  const ya = stamp(c, 560, 820, 'Y AHORA:', { size: 70, bw: 9, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const ya = stamp(c, 500, 820, 'Y AHORA:', { size: 70, bw: 9, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
