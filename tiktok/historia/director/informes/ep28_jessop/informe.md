@@ -1,5 +1,6 @@
 # Ep28 Violet Jessop (VÍDEO v2, autoevaluación del animador) — VEREDICTO: PUBLICAR justo (80/100)
 v2 (con el visto bueno del coordinador): L0 regenerada (gancho de 3,17 s), L2 = «Un bebé. No era suyo. Al rescatarlos, una mujer se lo arrancó. Ni las gracias.» y tempo global 1,0. Voz 67,8 s, vídeo 68,2 s. Rótulo «SEGÚN SUS MEMORIAS» más grande (amarillo, 40 px) durante toda la L2. Lo que sigue es la v1, salvo esta cabecera y la puntuación.
+v3: aplicados los arreglos 1–7 del independiente (TÚ amarillo con contorno; barco ×1,2 e inclinado de +6° a +12°; salvavidas, tabla y reflejo de la luna en el agua; ACCIDENTES; subtítulo «Jessop»; cofia de Violet sobre el bote en las hélices, con el bote a 520 px; fuera «regazo vacío»; zoom y flechas en «Sube a un bote…»; venda en la calavera; titulares sin solape; corte seco en I3). 68,2 s; audio OK.
 Pendiente del director INDEPENDIENTE (esta nota no cuenta como aprobación).
 
 Exposición estimada: banda B (se parece a **Einstein**: famoso conocido + «no era como te contaron»), techo A por compartidos. Es historia de otros: no le dice al espectador que algo SUYO es falso.
