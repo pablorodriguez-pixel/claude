@@ -11,11 +11,11 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡El símbolo del dólar no es la S que tú crees! Es una palabra en español."
+   "text": "[excited] ¡El símbolo del dólar no es la S que tú crees!"
   },
   {
    "who": "VECINO",
-   "text": "Ese garabato, en realidad, pone «pesos».",
+   "text": "Es una palabra en español: ese garabato, en realidad, pone «pesos».",
    "gap_after": 0.7
   },
   {
@@ -48,7 +48,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Ojo: hay otras teorías, como la de las columnas de Hércules. Son bonitas, pero la del peso es la que tiene pruebas."
+   "text": "Ojo: hay quien dice que son las columnas de Hércules. Bonito, pero las pruebas dicen «pesos»."
   },
   {
    "who": "VECINO",
