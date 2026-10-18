@@ -24,37 +24,14 @@
 }
 
 /* ======================================================================
-   PASO 3 · b — «SE INVENTÓ OTROS VEINTISIETE. NINGUNO EXISTÍA… Y LOS ALEMANES LES PAGABAN EL SUELDO A TODOS»
-   Organigrama: los 27 salen en oleadas SIN cifras intermedias; el «27» cae con la voz. 3 encuadres.
+   ÁRBOL DE ESPÍAS INVENTADOS — se usa dos veces:
+   PASO 3 · b (L6): unos pocos espías inventados en Lisboa, NINGUNO EXISTÍA, sueldo alemán. Sin cifra.
+   R27 (L7): ya con los ingleses, la red se infla hasta 27 — el «27» cae con «veintisiete».
    ====================================================================== */
-const T_EMU = K.v27 + 0.75;
-{
+function orgTree(cam, o = {}) {
   const ROWS = [3, 4, 7, 7, 6], RY = [640, 790, 932, 1074, 1216], RS = [100, 92, 84, 84, 84];
-  const TJ = [K.invento, K.otros, K.v27, K.v27 + 0.3];
   const NODES = []; let gi = 0;
   ROWS.forEach((n, ri) => { for (let j = 0; j < n; j++) { const x = 110 + j * (760 / (n - 1)); NODES.push({ x: n === 3 ? 250 + j * 290 : x, y: RY[ri], sz: RS[ri], ri, k: gi++ }); } });
-  const grp = k => k < 3 ? 0 : k < 7 ? 1 : k < 14 ? 2 : 3;
-  const c = scene(S.P3b[0], S.P3b[1], t => {
-    framing(cam, t, [[S.P3b[0], 1.0, 0, 0], [K.ninguno - 0.06, 1.1, 0, -30], [K.y6b - 0.04, 1.02, 0, 10]], 0.03);
-    set(gb.d, { s: pop(t, S.P3b[0], 0.3), y: wobble(t, 0.5, 3) });
-    face(gb.f, t, { look: [0, 4], bL: 8, bR: 14, closed: t > K.existia && t < K.existia + 0.3, seed: 2 });
-    const ghost = t > K.ninguno - 0.06;
-    NODES.forEach((nd, i) => {
-      const t0 = TJ[grp(i)] + (i % 7) * 0.03, k = pop(t, t0, 0.3);
-      const emuOn = nd.emu && t > T_EMU - 0.1 && t < T_EMU + 0.6;
-      set(nd.b.d, { s: t < t0 ? 0 : k, y: Math.sin(t * 3 + i) * 4, o: t < t0 || emuOn ? 0 : ghost && t < K.y6b ? 0.45 : 1 });
-      nd.b.glow.style.opacity = t > K.sueldo - 0.1 ? 0.5 + 0.5 * Math.sin(t * 10 + i) : 0;
-      nd.ln.style.opacity = t < t0 ? 0 : 1; nd.ln.setAttribute('stroke-dashoffset', f1(-t * 50));
-      if (nd.pd) set(nd.pd, { s: t < nd.tp ? 0 : lerp(2, 1, p(t, nd.tp, 0.16)), o: t < nd.tp ? 0 : 0.95, r: -12 });
-    });
-    set(n27, { s: t < K.v27 ? 0 : lerp(1.9, 1, p(t, K.v27, 0.2, E.outCubic)), r: -6, o: t < K.v27 ? 0 : 1 });
-    stampA(stG, t, K.existia, -8, 1); if (t > K.pagaban - 0.2) stG.style.opacity = 1 - p(t, K.pagaban - 0.2, 0.2);
-    const ke = pop(t, T_EMU - 0.1, 0.25), ko = p(t, T_EMU + 0.5, 0.12);
-    set(emuW, { s: t < T_EMU - 0.1 || t > T_EMU + 0.62 ? 0 : ke * (1 - ko) * 1.15, r: Math.sin(t * 12) * 6 });
-    popA(nom, t, K.alemanes6, { r: 3 });
-    ENV.forEach(e => { const k = p(t, e.t, 0.5, E.inOutCubic); set(e.e, { x: lerp(980, e.x, k) - e.x0, y: lerp(260, e.y, k) - e.y0, s: 1 - 0.4 * k, r: (1 - k) * 30, o: t < e.t ? 0 : k < 1 ? 1 : 0 }); });
-  }, { clip: true, cut: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
   sceneBg(cam, { background: '#EFE1C6', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.05) 0 2px, transparent 2px 48px), repeating-linear-gradient(90deg, rgba(43,33,24,.05) 0 2px, transparent 2px 48px)' });
   const ls = lineSvg(cam, 3);
   const GX = 420, GY = 470;
@@ -65,45 +42,114 @@ const T_EMU = K.v27 + 0.75;
     nd.ln = addLine(ls, par.x, par.y, nd.x, nd.y, RED, 5, '12 9');
     nd.b = botAv(cam, nd.x - nd.sz / 2, nd.y - nd.sz / 2, nd.sz, nd.k, { z: 8 });
   });
-  const pr = rng(5); NODES.forEach((nd, i) => { if (i % 3 === 1 && nd.x > 180 && nd.x < 820) { nd.pd = stamp(cam, nd.x - 52, nd.y - 16, 'PAGADO', { size: 24, bw: 4, z: 30, bg: 'rgba(255,255,255,.92)', blend: 'normal' }); nd.pd.style.padding = '0 6px 2px'; nd.tp = K.sueldo + pr() * 0.6; } });
   const gb = pujolAv(cam, GX - 85, GY - 95, 170, { z: 12 });
   chip(cam, GX + 90, GY - 50, 'PUJOL', { size: 40, bg: INK, color: YEL, z: 14 });
-  const n27 = el('div', cam, { left: '660px', top: '400px', width: '250px', height: '180px', lineHeight: '180px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '160px', color: RED, background: 'rgba(255,255,255,.93)', border: `10px solid ${RED}`, borderRadius: '24px', zIndex: 40 }, '27');
-  const stG = stamp(cam, 180, 960, 'NINGUNO EXISTÍA', { size: 62, bw: 11, z: 45, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
-  const emN = NODES[9]; emN.emu = true;
-  const emuW = box(cam, emN.x - 85, emN.y - 85, 170, 170, { zIndex: 20 });
-  avatar(emuW, 0, 0, 170, 'EMU', { bg: '#F2D9A0', bw: 6 });
-  el('div', emuW, { left: '43px', top: '55px', width: '84px', height: '22px', zIndex: 9 }, `<svg width="84" height="24" viewBox="0 0 84 24"><path d="M2,4 h34 v8 q0,10 -17,10 q-17,0 -17,-10 Z M48,4 h34 v8 q0,10 -17,10 q-17,0 -17,-10 Z" fill="${INK}"/><path d="M36,8 h12" stroke="${INK}" stroke-width="4"/></svg>`);
-  const nom = chip(cam, 70, 548, 'sueldo pagado por Alemania', { size: 40, bg: RED, color: '#fff', z: 46 });
-  const ENV = [];
-  NODES.forEach((nd, i) => { if (i % 4 === 0) { const e = box(cam, nd.x - 45, nd.y - 30, 90, 60, { zIndex: 35 }); e.innerHTML = envSvg('', '#F4E4C0'); ENV.push({ e, x: nd.x - 45, y: nd.y - 30, x0: nd.x - 45, y0: nd.y - 30, t: K.pagaban - 0.1 + (i % 8) * 0.06 }); } });
+  return { NODES, gb, GX, GY };
+}
+{
+  const N = 7;   // en Lisboa: unos pocos, sin cifra en pantalla
+  const TJ = [K.otros, K.espias6, K.trabajaban];
+  const grp = k => k < 3 ? 0 : k < 5 ? 1 : 2;
+  const c = scene(S.P3b[0], S.P3b[1], t => {
+    framing(cam, t, [[S.P3b[0], 1.12, 0, 120], [K.trabajaban - 0.06, 1.2, 0, 160], [K.ninguno - 0.06, 1.28, 0, 200], [K.y6b - 0.04, 1.14, 0, 140]], 0.03);
+    set(T.gb.d, { s: pop(t, S.P3b[0], 0.3), y: wobble(t, 0.5, 3) });
+    face(T.gb.f, t, { look: [0, 4], bL: 8, bR: 14, closed: t > K.existia && t < K.existia + 0.3, seed: 2 });
+    const ghost = t > K.ninguno - 0.06 && t < K.y6b;
+    T.NODES.forEach((nd, i) => {
+      const on = i < N, t0 = on ? TJ[grp(i)] + (i % 3) * 0.05 : 1e9, k = pop(t, t0, 0.3);
+      set(nd.b.d, { s: t < t0 ? 0 : k, y: Math.sin(t * 3 + i) * 4, o: t < t0 ? 0 : ghost ? 0.4 : 1 });
+      nd.b.glow.style.opacity = on && t > K.sueldo - 0.1 ? 0.5 + 0.5 * Math.sin(t * 10 + i) : 0;
+      nd.ln.style.opacity = t < t0 ? 0 : 1; nd.ln.setAttribute('stroke-dashoffset', f1(-t * 50));
+    });
+    PD.forEach(q => set(q.e, { s: t < q.t ? 0 : lerp(2, 1, p(t, q.t, 0.16)), o: t < q.t ? 0 : 0.95, r: -12 }));
+    stampA(stG, t, K.existia, -8, 1); if (t > K.pagaban - 0.2) stG.style.opacity = 1 - p(t, K.pagaban - 0.2, 0.2);
+    popA(nom, t, K.alemanes6, { r: 3 });
+    ENV.forEach(e => { const k = p(t, e.t, 0.5, E.inOutCubic); set(e.e, { x: lerp(980, e.x, k) - e.x, y: lerp(300, e.y, k) - e.y, s: 1 - 0.4 * k, r: (1 - k) * 30, o: t < e.t ? 0 : k < 1 ? 1 : 0 }); });
+  }, { clip: true, cut: true });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 560px' });
+  const T = orgTree(cam);
+  const PD = [], ENV = [];
+  T.NODES.slice(0, N).forEach((nd, i) => {
+    const e = stamp(cam, nd.x - 52, nd.y + 30, 'PAGADO', { size: 24, bw: 4, z: 30, bg: 'rgba(255,255,255,.92)', blend: 'normal' }); e.style.padding = '0 6px 2px'; PD.push({ e, t: K.sueldo + i * 0.08 });
+    const v = box(cam, nd.x - 45, nd.y - 30, 90, 60, { zIndex: 35 }); v.innerHTML = envSvg('', '#F4E4C0'); ENV.push({ e: v, x: nd.x - 45, y: nd.y - 30, t: K.pagaban - 0.15 + i * 0.07 });
+  });
+  const stG = stamp(cam, 200, 860, 'NINGUNO EXISTÍA', { size: 58, bw: 10, z: 45, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  const nom = chip(cam, 150, 930, 'sueldo pagado por Alemania', { size: 40, bg: RED, color: '#fff', z: 46 });
 }
 
 /* ======================================================================
-   F1 · «AL FINAL, LOS INGLESES VIERON LO BUENO QUE ERA Y LE FICHARON» — 2 encuadres
+   F1 · «Y ENTONCES LOS INGLESES VIERON…» — los ingleses leen los informes (plano 1)
    ====================================================================== */
 {
   const c = scene(S.F1[0], S.F1[1], t => {
-    framing(cam, t, [[S.F1[0], 1.0, 0, 0], [K.ficharon - 0.08, 1.14, 0, -60]]);
-    const sh = t > K.bueno;
     set(g1.d, { s: pop(t, S.F1[0], 0.3), y: wobble(t, 0.5, 3) }); set(g2.d, { s: pop(t, S.F1[0] + 0.08, 0.3), y: wobble(t, 0.5, 3, 1), o: t < S.F1[0] + 0.08 ? 0 : 1 });
-    face(g1, t, { look: sh ? [0, 0] : [6, 6], bL: sh ? 20 : 4, bR: sh ? 20 : 4, seed: 1 }); face(g2, t, { look: sh ? [0, 0] : [-6, 6], bL: sh ? 20 : 4, bR: sh ? 20 : 4, seed: 2 });
-    [cup1, cup2].forEach((cp, i) => { const kf = t > K.bueno + 0.1 + i * 0.1 ? t - (K.bueno + 0.1 + i * 0.1) : 0; set(cp, { y: kf * kf * 2600, r: kf * 300 * (i ? 1 : -1), o: kf > 0.6 ? 0 : 1 }); });
-    set(rep, { s: pop(t, K.vieron - 0.1, 0.3), r: -3 + wobble(t, 0.5, 0.6), o: t < K.vieron - 0.1 ? 0 : 1 });
+    face(g1, t, { look: [6, 6], bL: 4, bR: 4, seed: 1 }); face(g2, t, { look: [-6, 6], bL: 4, bR: 4, seed: 2 });
+    set(rep, { s: pop(t, K.ingleses7 - 0.1, 0.3), r: -3 + wobble(t, 0.5, 0.6), o: t < K.ingleses7 - 0.1 ? 0 : 1 });
+    set(lup, { x: Math.sin(t * 3) * 40, y: Math.cos(t * 3) * 10, o: t > K.vieron - 0.1 ? 1 : 0 });
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#D8D0BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.07) 0 3px, transparent 3px 58px)' });
+  const g1 = mk(c, [110, 470, 410, 524], britInner(41, 0), '0 0 360 460', 'bust'); g1.d.style.zIndex = 4;
+  const g2 = mk(c, [530, 470, 410, 524], britInner(52, 1), '0 0 360 460', 'bust'); g2.d.style.zIndex = 4;
+  const rep = box(c, 250, 820, 580, 260, { zIndex: 9, background: '#F2E2B8', border: `6px solid ${INK}`, boxShadow: `10px 10px 0 ${SH}`, fontFamily: 'SpecialElite', fontSize: '44px', color: INK, textAlign: 'center', lineHeight: 1.3, paddingTop: '40px' }, 'INFORMES DE PUJOL<br>a los alemanes');
+  const lup = box(c, 420, 840, 220, 220, { zIndex: 12 }); lup.innerHTML = lupaSvg();
+}
+/* F1b · «…LO BUENO QUE ERA Y LE FICHARON» — Pujol fichado (plano 2) */
+{
+  const c = scene(S.F1b[0], S.F1b[1], t => {
+    framing(cam, t, [[S.F1b[0], 1.0, 0, 0], [K.ficharon - 0.08, 1.1, 0, -40]]);
+    set(pj.d, { s: pop(t, S.F1b[0], 0.3), y: wobble(t, 0.5, 3) });
+    face(pj, t, { look: [0, -2], bL: 10, bR: 18, closed: t > K.ficharon + 0.2 && t < K.ficharon + 0.5, seed: 3 });
+    [b1, b2].forEach((b, i) => { set(b.d, { s: pop(t, S.F1b[0] + 0.1 + i * 0.08, 0.3), y: wobble(t, 0.5, 3, i) }); face(b, t, { look: [i ? -8 : 8, -2], bL: t > K.bueno ? 18 : 6, bR: t > K.bueno ? 18 : 6, seed: i + 1 }); });
     popA(wow, t, K.bueno, { r: 4 });
     popA(cn, t, K.ficharon + 0.15, { r: -2 });
     stampA(stF, t, K.ficharon, -10, 1);
   }, { clip: true, cut: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 1000px' });
-  sceneBg(cam, { background: '#D8D0BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.07) 0 3px, transparent 3px 58px)' });
-  const g1 = mk(cam, [110, 470, 410, 524], britInner(41, 0), '0 0 360 460', 'bust'); g1.d.style.zIndex = 4;
-  const g2 = mk(cam, [530, 470, 410, 524], britInner(52, 1), '0 0 360 460', 'bust'); g2.d.style.zIndex = 4;
-  const cup1 = box(cam, 300, 900, 120, 110, { zIndex: 8 }); cup1.innerHTML = teaSvg();
-  const cup2 = box(cam, 700, 900, 120, 110, { zIndex: 8 }); cup2.innerHTML = teaSvg();
-  const rep = box(cam, 330, 760, 420, 150, { zIndex: 9, background: '#F2E2B8', border: `5px solid ${INK}`, boxShadow: `8px 8px 0 ${SH}`, fontFamily: 'SpecialElite', fontSize: '34px', color: INK, textAlign: 'center', lineHeight: 1.25, paddingTop: '18px' }, 'INFORMES DE PUJOL<br>(inventados)');
-  const wow = el('div', cam, { left: '760px', top: '420px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '74px', color: PINK, textShadow: `4px 4px 0 ${INK}`, zIndex: 30 }, '¡oh!');
-  const cn = chip(cam, 290, 1050, 'NOMBRE EN CLAVE: GARBO', { size: 40, bg: INK, color: YEL, z: 30 });
-  const stF = stamp(cam, 320, 1140, 'FICHADO', { size: 84, bw: 13, z: 40, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
+  sceneBg(cam, { background: '#E9DCC0' });
+  rays(cam, -160, 200, 1400, 24, 'rgba(255,255,255,.3)', 'rgba(0,0,0,0)', 0);
+  const pj = mk(cam, [300, 440, 480, 614], pujolInner(), '0 0 360 460', 'bust'); pj.d.style.zIndex = 6;
+  const b1 = mk(cam, [40, 700, 300, 384], britInner(41, 0), '0 0 360 460', 'bust'); b1.d.style.zIndex = 7;
+  const b2 = mk(cam, [640, 700, 300, 384], britInner(52, 1), '0 0 360 460', 'bust'); b2.d.style.zIndex = 7;
+  const wow = el('div', cam, { left: '700px', top: '480px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '74px', color: PINK, textShadow: `4px 4px 0 ${INK}`, zIndex: 30 }, '¡oh!');
+  const cn = chip(cam, 270, 1090, 'NOMBRE EN CLAVE: GARBO', { size: 40, bg: INK, color: YEL, z: 30 });
+  const stF = stamp(cam, 330, 900, 'FICHADO', { size: 90, bw: 13, z: 40, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+}
+
+/* ======================================================================
+   R27 · «JUNTOS INFLARON LA RED HASTA VEINTISIETE ESPÍAS INVENTADOS» — el árbol completo; «27» con la voz
+   ====================================================================== */
+const T_EMU = K.espias7 + 0.05;
+{
+  const c = scene(S.R27[0], S.R27[1], t => {
+    framing(cam, t, [[S.R27[0], 1.0, 0, 0], [K.v27 - 0.06, 1.05, 0, -20], [K.inventados7 - 0.06, 1.1, 0, -40]], 0.03);
+    set(T.gb.d, { y: wobble(t, 0.5, 3) });
+    face(T.gb.f, t, { look: [6, 0], bL: 8, bR: 16, seed: 2 });
+    set(br.d, { s: pop(t, K.juntos - 0.05, 0.3), y: wobble(t, 0.5, 3, 1) });
+    face(br.f, t, { look: [-6, 0], bL: 8, bR: 8, seed: 4 });
+    const grp = k => k < 7 ? -1 : k < 14 ? 0 : k < 21 ? 1 : 2;
+    const TJ = [K.inflaron, K.red7, K.v27 - 0.05];
+    T.NODES.forEach((nd, i) => {
+      const g = grp(i), t0 = g < 0 ? -1 : TJ[g] + (i % 7) * 0.03, k = g < 0 ? 1 : pop(t, t0, 0.3);
+      const emuOn = nd.emu && t > T_EMU - 0.1 && t < T_EMU + 0.6;
+      set(nd.b.d, { s: t < t0 ? 0 : k, y: Math.sin(t * 3 + i) * 4, o: t < t0 || emuOn ? 0 : 1 });
+      nd.b.glow.style.opacity = t > K.v27 ? 0.5 + 0.5 * Math.sin(t * 10 + i) : 0;
+      nd.ln.style.opacity = t < t0 ? 0 : 1; nd.ln.setAttribute('stroke-dashoffset', f1(-t * 50)); nd.ln.setAttribute('stroke', t > K.v27 ? PINK : RED);
+    });
+    set(n27, { s: t < K.v27 ? 0 : lerp(1.9, 1, p(t, K.v27, 0.2, E.outCubic)), r: -6, o: t < K.v27 ? 0 : 1 });
+    stampA(stI, t, K.inventados7, -8, 1);
+    const ke = pop(t, T_EMU - 0.1, 0.25), ko = p(t, T_EMU + 0.5, 0.12);
+    set(emuW, { s: t < T_EMU - 0.1 || t > T_EMU + 0.62 ? 0 : ke * (1 - ko) * 1.15, r: Math.sin(t * 12) * 6 });
+  }, { clip: true, cut: true });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
+  const T = orgTree(cam);
+  const br = pujolAv(cam, T.GX - 300, T.GY - 80, 150, { z: 12 }); br.d.innerHTML = ''; { const b = mk(br.d, [-82, -54, 297, 380], britInner(52, 1), '0 0 360 460', 'bust'); br.f = b; }
+  chip(cam, T.GX - 330, T.GY + 70, 'los ingleses', { size: 34, bg: '#fff', color: INK, z: 14 });
+  const n27 = el('div', cam, { left: '660px', top: '380px', width: '250px', height: '180px', lineHeight: '180px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '160px', color: RED, background: 'rgba(255,255,255,.93)', border: `10px solid ${RED}`, borderRadius: '24px', zIndex: 40 }, '27');
+  const stI = stamp(cam, 230, 960, 'INVENTADOS', { size: 72, bw: 11, z: 45, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  const emN = T.NODES[9]; emN.emu = true;
+  const emuW = box(cam, emN.x - 85, emN.y - 85, 170, 170, { zIndex: 20 });
+  avatar(emuW, 0, 0, 170, 'EMU', { bg: '#F2D9A0', bw: 6 });
+  el('div', emuW, { left: '43px', top: '55px', width: '84px', height: '22px', zIndex: 9 }, `<svg width="84" height="24" viewBox="0 0 84 24"><path d="M2,4 h34 v8 q0,10 -17,10 q-17,0 -17,-10 Z M48,4 h34 v8 q0,10 -17,10 q-17,0 -17,-10 Z" fill="${INK}"/><path d="M36,8 h12" stroke="${INK}" stroke-width="4"/></svg>`);
 }
 
 /* ======================================================================
