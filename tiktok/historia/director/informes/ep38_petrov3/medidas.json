@@ -1,0 +1,137 @@
+{
+ "episodio": "ep38_petrov3",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.122,
+   "dur": 3.0,
+   "palabras": 12,
+   "texto": "¡Estás vivo gracias a un señor del que nunca has oído hablar!"
+  },
+  {
+   "n": 1,
+   "s": 3.472,
+   "e": 9.391,
+   "dur": 5.92,
+   "palabras": 19,
+   "texto": "Se llamaba Stanislav Petrov, y una noche de mil novecientos ochenta y tres tuvo el mundo en sus manos."
+  },
+  {
+   "n": 2,
+   "s": 9.891,
+   "e": 13.006,
+   "dur": 3.12,
+   "palabras": 10,
+   "texto": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "n": 3,
+   "s": 13.356,
+   "e": 16.55,
+   "dur": 3.19,
+   "palabras": 10,
+   "texto": "¿Qué pasó esa noche? Te lo cuento en tres momentos."
+  },
+  {
+   "n": 4,
+   "s": 16.9,
+   "e": 30.493,
+   "dur": 13.59,
+   "palabras": 30,
+   "texto": "Uno: la alarma. Petrov era militar soviético y vigilaba los satélites que avisaban si Estados Unidos lanzaba misiles nucleares. Y a medianoche, la pantalla dijo: misil. Luego, otro. Hasta cinco."
+  },
+  {
+   "n": 5,
+   "s": 30.993,
+   "e": 42.188,
+   "dur": 11.2,
+   "palabras": 28,
+   "texto": "Dos: la decisión. Si avisaba a sus jefes, podían responder con un ataque nuclear. Y pensó: si Estados Unidos ataca de verdad, no manda cinco misiles. Manda cientos."
+  },
+  {
+   "n": 6,
+   "s": 42.688,
+   "e": 46.045,
+   "dur": 3.36,
+   "palabras": 11,
+   "texto": "Así que cogió el teléfono y dijo: «Es una falsa alarma»."
+  },
+  {
+   "n": 7,
+   "s": 46.545,
+   "e": 54.535,
+   "dur": 7.99,
+   "palabras": 19,
+   "texto": "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite lo había confundido con misiles."
+  },
+  {
+   "n": 8,
+   "s": 55.035,
+   "e": 61.671,
+   "dur": 6.64,
+   "palabras": 22,
+   "texto": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche."
+  },
+  {
+   "n": 9,
+   "s": 62.021,
+   "e": 68.73,
+   "dur": 6.71,
+   "palabras": 18,
+   "texto": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después."
+  },
+  {
+   "n": 10,
+   "s": 69.23,
+   "e": 72.586,
+   "dur": 3.36,
+   "palabras": 12,
+   "texto": "¿Tú qué habrías hecho en su silla: avisar, o no? Os leo."
+  },
+  {
+   "n": 11,
+   "s": 72.936,
+   "e": 75.294,
+   "dur": 2.36,
+   "palabras": 7,
+   "texto": "Y esto... no venía en el libro."
+  }
+ ],
+ "primera_palabra": "estas",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.0,
+ "gancho_palabras": 12,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 2,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 9.891,
+ "ojo_dur": 6.64,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Tú qué habrías hecho en su silla: avisar, o no? Os leo.",
+ "n_lineas": 12,
+ "n_palabras": 198,
+ "duracion_voz": 75.29,
+ "ppm": 157.8,
+ "lineas_mas_largas": [
+  [
+   4,
+   13.59,
+   "Uno: la alarma. Petrov era militar soviético y vigilaba los satélites "
+  ],
+  [
+   5,
+   11.2,
+   "Dos: la decisión. Si avisaba a sus jefes, podían responder con un ataq"
+  ],
+  [
+   7,
+   7.99,
+   "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep38_petrov3/final.mp4",
+ "duracion_video": 75.93
+}

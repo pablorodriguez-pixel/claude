@@ -1,0 +1,12 @@
+# Ep38 Petrov v3 (autoevaluación del animador, modo VÍDEO) — VEREDICTO: ARREGLAR, en el listón (79/100)
+Duración 75,9 s (voz 0,12–75,29 + cola 0,6 y bucle). QA audio OK: SNR 28 dB, −14,1 LUFS, pico −2,6 dBFS. Whisper: texto correcto («Stanislav Petrov», «misil»); lee el gancho como pregunta («¿Estás vivo…?»), igual que en ep31; no se regenera.
+Exposición estimada: banda B (Einstein: personaje ajeno que se vuelve «tuyo»; techo A solo por compartidos).
+Puertas: P1 ✅ (aviso: Petrov circula en inglés) · P2 ⚠️ 3,5/5 (excepción «historias con drama») · P3 ✅ 3,0 s, «tú», no destripa · P4 ✅ radar «MISIL» + «¿TE SALVÓ LA VIDA?» (4 palabras), título desde y≈318, ya en movimiento (parpadeo 2 Hz, barrido de radar, haz) · P5 ✅ «falsa alarma» a los 44,7 s (la promesa es «te salvó la vida»: se paga entera en L6–L9; la estructura numerada la anuncia a los 14 s) · P6 ✅ solo datos del guion (1983, 5, cientos, 15 años → 1998) · P7 ✅ · P8 ✅ «te salvó la vida… y el mundo no se enteró hasta 15 años después» · P9 ✅ · P10 ✅ · P11 ✅ (orden causal: alarma → decisión → era el sol).
+Sin símbolos políticos (la medalla ya no lleva estrella; sin banderas; la gorra lleva un botón con cruz). Sin nombres de usuario.
+Puntuación: Tema 18/25 · Gancho+portada 17/20 · Retención 17/20 · Conversación 11/15 · Chispa 11/15 · Factura 5/5 = 79.
+- Retención: titular numerado («1 · La alarma», «2 · La decisión», «3 · Era el sol», «¡Ojo!») que entra grande en el centro y sube arriba y aguanta todo el paso; 33 planos en 75 s (media 2,3 s), ninguno estático. Las líneas largas L4 (13,6 s) y L5 (11,2 s) van en 7 y 8 planos.
+- Datos en pantalla ≥ 1,5 s salvo dos sellos que duplican otro rótulo: «¡CINCO!» (0,9 s, pero el ×5 de la pantalla está 1,5 s) y «FALSA ALARMA» (1,1 s, pero el bocadillo «Es una falsa alarma» está 1,8 s).
+- Chispa: limitada por el guion (serio). Visual: satélite con cara, sol que guiña, emú funcionario con gafas sellando «PAPELEO», jefe gritando.
+Abogado del diablo: dura 76 s y es historia de otros; quien ya conoce a Petrov se va en el s 4.
+Fugas: 9,6–13,3 s marca temprana (decisión del guion) · 16,8–30,9 s L4 larga (mitigada con 7 planos) · 69–72,6 s pregunta final.
+Publicación: post «Una pantalla dijo "misil". Él dijo "falsa alarma". Y casi nadie sabe su nombre 👀 #historia #curiosidades #historiasreales #aprendeentiktok» · fijado «Cinco misiles en la pantalla y el teléfono en la mano. ¿Tú qué haces: avisas o no? 👇🎩»

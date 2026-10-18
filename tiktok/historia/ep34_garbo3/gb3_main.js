@@ -37,23 +37,30 @@ const CAP = (() => {
   // 2) frases largas: primero por comas, luego en trozos equilibrados
   const split = g => {
     if (len(g) <= MAXT) return [g];
-    for (let j = Math.floor(g.length / 2), d = 0; d < g.length; d++) for (const jj of [j - d, j + d]) {
-      if (jj > 0 && jj < g.length && /[,;]$/.test(W[g[jj - 1]].w) && len(g.slice(0, jj)) >= 12 && len(g.slice(jj)) >= 12) return [...split(g.slice(0, jj)), ...split(g.slice(jj))];
+    // corte que deja los dos trozos lo más largos posible EN TIEMPO (las comas puntúan extra)
+    let best = 1, bv = -1e9;
+    for (let j = 1; j < g.length; j++) {
+      const L = g.slice(0, j), R = g.slice(j);
+      const v = Math.min(dur(L), dur(R)) + (/[,;]$/.test(W[g[j - 1]].w) ? 0.35 : 0) - (len(L) > MAXT + 8 || len(R) > MAXT + 8 ? 5 : 0);
+      if (v > bv) { bv = v; best = j; }
     }
-    const n = Math.ceil(len(g) / (MAXT - 4)), tgt = len(g) / n; const out = []; let c2 = [];
-    g.forEach(i => { if (c2.length && len(c2) + W[i].w.length / 2 > tgt && out.length < n - 1) { out.push(c2); c2 = []; } c2.push(i); });
-    out.push(c2); return out;
+    return [...split(g.slice(0, best)), ...split(g.slice(best))];
   };
   let groups = []; phrases.forEach(g => groups.push(...split(g)));
   // 3) los que durarían < 1,2 s se funden con el vecino (misma línea de guion)
+  const show = k => (groups[k + 1] ? W[groups[k + 1][0]].s : W[groups[k][groups[k].length - 1]].e + 0.6) - W[groups[k][0]].s;
+  const ends = g => /[.?!…]$/.test(W[g[g.length - 1]].w);
   for (let k = 0; k < groups.length; k++) {
-    const g = groups[k]; if (dur(g) >= 1.2) continue;
+    const g = groups[k]; if (show(k) >= 1.5) continue;
     const n = groups[k + 1], pv = groups[k - 1];
-    if (n && W[n[0]].line === W[g[0]].line && len(g) + len(n) + 1 <= MAXT + 6) { groups.splice(k, 2, g.concat(n)); k--; }
-    else if (pv && W[pv[0]].line === W[g[0]].line && len(g) + len(pv) + 1 <= MAXT + 6) { groups.splice(k - 1, 2, pv.concat(g)); k -= 2; }
+    const okN = n && W[n[0]].line === W[g[0]].line && len(g) + len(n) + 1 <= MAXT + 10;
+    const okP = pv && W[pv[0]].line === W[g[0]].line && len(g) + len(pv) + 1 <= MAXT + 10;
+    const prefP = okP && (!okN || ends(g) || !ends(pv));
+    if (prefP) { groups.splice(k - 1, 2, pv.concat(g)); k -= 2; }
+    else if (okN) { groups.splice(k, 2, g.concat(n)); k--; }
   }
   const boxC = el('div', null, { left: '0', top: '1338px', width: '1080px', display: 'flex', justifyContent: 'center', zIndex: 900, pointerEvents: 'none' });
-  const pill = el('div', boxC, { position: 'relative', maxWidth: '780px', background: '#111', color: '#fff', borderRadius: '30px', padding: '10px 28px 14px', fontFamily: 'Bricolage', fontSize: '52px', fontWeight: 800, letterSpacing: '0.01em', lineHeight: 1.12, textAlign: 'center', boxShadow: `6px 6px 0 rgba(0,0,0,.25)` });
+  const pill = el('div', boxC, { position: 'relative', maxWidth: '800px', background: '#111', color: '#fff', borderRadius: '30px', padding: '10px 28px 14px', fontFamily: 'Bricolage', fontSize: '52px', fontWeight: 800, letterSpacing: '0.01em', lineHeight: 1.12, textAlign: 'center', boxShadow: `6px 6px 0 rgba(0,0,0,.25)` });
   // cada grupo aguanta hasta que empieza el siguiente (como mucho 0,6 s de cola tras su última palabra)
   const span = groups.map((g, k) => { const s0 = W[g[0]].s - 0.06; const nx = groups[k + 1] ? W[groups[k + 1][0]].s - 0.06 : 1e9; return [s0, Math.min(nx, W[g[g.length - 1]].e + 0.6)]; });
   let last = -1; const spans = [];
