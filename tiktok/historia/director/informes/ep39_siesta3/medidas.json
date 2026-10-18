@@ -69,23 +69,23 @@
   {
    "n": 8,
    "s": 46.742,
-   "e": 55.775,
-   "dur": 9.03,
-   "palabras": 31,
-   "texto": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas cuatro horas tarde a tu propia siesta."
+   "e": 56.252,
+   "dur": 9.51,
+   "palabras": 30,
+   "texto": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas tarde... hasta a tu propia siesta."
   },
   {
    "n": 9,
-   "s": 56.275,
-   "e": 58.504,
+   "s": 56.752,
+   "e": 58.981,
    "dur": 2.23,
    "palabras": 9,
    "texto": "¿A qué hora te la echas tú? Os leo."
   },
   {
    "n": 10,
-   "s": 58.854,
-   "e": 61.297,
+   "s": 59.331,
+   "e": 61.774,
    "dur": 2.44,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -104,19 +104,19 @@
  "cta_tipo": "abierta",
  "cta_texto": "¿A qué hora te la echas tú? Os leo.",
  "n_lineas": 11,
- "n_palabras": 178,
- "duracion_voz": 61.3,
- "ppm": 174.2,
+ "n_palabras": 177,
+ "duracion_voz": 61.77,
+ "ppm": 171.9,
  "lineas_mas_largas": [
+  [
+   8,
+   9.51,
+   "O sea: si te la echas a las tres y media, para un romano eso ya no es "
+  ],
   [
    6,
    9.03,
    "Y tres: a esa hora, con el calor, se paraba a comer y a descansar. Y d"
-  ],
-  [
-   8,
-   9.03,
-   "O sea: si te la echas a las tres y media, para un romano eso ya no es "
   ],
   [
    4,
@@ -125,5 +125,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep39_siesta3/final.mp4",
- "duracion_video": 61.93
+ "duracion_video": 62.4
 }

@@ -32,7 +32,9 @@ const CAP = (() => {
   const dur = g => W[g[g.length - 1]].e - W[g[0]].s;
   // 1) frases: cortes en punto, interrogación, dos puntos, puntos suspensivos y cambio de línea
   let phrases = []; let cur = [];
-  W.forEach((x, i) => { const prev = W[i - 1]; if (cur.length && (prev.line !== x.line || /[.?!:…]$/.test(prev.w))) { phrases.push(cur); cur = []; } cur.push(i); });
+  // cortes forzados a mano (frases largas que el reparto automático partiría mal)
+  const FORCE = new Set([find('normandia era solo una distraccion'), find('y de que el ataque de verdad')]);
+  W.forEach((x, i) => { const prev = W[i - 1]; if (cur.length && (prev.line !== x.line || /[.?!:…]$/.test(prev.w) || FORCE.has(i))) { phrases.push(cur); cur = []; } cur.push(i); });
   if (cur.length) phrases.push(cur);
   // 2) frases largas: primero por comas, luego en trozos equilibrados
   const split = g => {
@@ -41,7 +43,7 @@ const CAP = (() => {
     let best = 1, bv = -1e9;
     for (let j = 1; j < g.length; j++) {
       const L = g.slice(0, j), R = g.slice(j);
-      const v = Math.min(dur(L), dur(R)) + (/[,;]$/.test(W[g[j - 1]].w) ? 0.35 : 0) - (len(L) > MAXT + 8 || len(R) > MAXT + 8 ? 5 : 0);
+      const v = Math.min(dur(L), dur(R)) + (/[,;]$/.test(W[g[j - 1]].w) ? 0.35 : 0) - (len(L) > MAXT + 8 || len(R) > MAXT + 8 ? 5 : 0) - (len(L) < 14 || len(R) < 14 ? 2 : 0) - (/^(un|una|el|la|los|las|de|del|que|a|y|en|con|por|para|le|les|se|su|lo)$/i.test(W[g[j - 1]].w) ? 1.2 : 0);
       if (v > bv) { bv = v; best = j; }
     }
     return [...split(g.slice(0, best)), ...split(g.slice(best))];
@@ -60,7 +62,7 @@ const CAP = (() => {
     else if (okN) { groups.splice(k, 2, g.concat(n)); k--; }
   }
   const boxC = el('div', null, { left: '0', top: '1338px', width: '1080px', display: 'flex', justifyContent: 'center', zIndex: 900, pointerEvents: 'none' });
-  const pill = el('div', boxC, { position: 'relative', maxWidth: '800px', background: '#111', color: '#fff', borderRadius: '30px', padding: '10px 28px 14px', fontFamily: 'Bricolage', fontSize: '52px', fontWeight: 800, letterSpacing: '0.01em', lineHeight: 1.12, textAlign: 'center', boxShadow: `6px 6px 0 rgba(0,0,0,.25)` });
+  const pill = el('div', boxC, { position: 'relative', maxWidth: '800px', background: '#111', color: '#fff', borderRadius: '30px', padding: '10px 28px 14px', fontFamily: 'Bricolage', fontSize: '50px', fontWeight: 800, letterSpacing: '0.01em', lineHeight: 1.12, textAlign: 'center', boxShadow: `6px 6px 0 rgba(0,0,0,.25)` });
   // cada grupo aguanta hasta que empieza el siguiente (como mucho 0,6 s de cola tras su última palabra)
   const span = groups.map((g, k) => { const s0 = W[g[0]].s - 0.06; const nx = groups[k + 1] ? W[groups[k + 1][0]].s - 0.06 : 1e9; return [s0, Math.min(nx, W[g[g.length - 1]].e + 0.6)]; });
   let last = -1; const spans = [];
@@ -159,9 +161,9 @@ window.frame = t => {
 };
 
 /* ---------- temblores ---------- */
-[[K.engano0 - 0.05, .3, 14], [K.nunca1, .25, 10], [K.no4 + 0.02, .3, 14], [K.alemanes4, .25, 10], [K.londres, .25, 8], [K.lisboa, .25, 8],
+[[K.engano0 - 0.05, .3, 14], [K.nunca1, .25, 10], [K.no4 + 0.02, .3, 14], [K.espia4, .25, 10], [K.londres, .25, 8], [K.lisboa, .25, 8],
  [K.v27, .35, 16], [K.existia, .3, 12], [K.ficharon, .3, 12], [K.calais, .3, 12], [K.nunca8 - 0.05, .3, 12], [K.fingio, .3, 12],
- [K.cruz, .25, 10], [K.medalla, .25, 10], [K.mismo - 0.03, .4, 20], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
+ [K.cruz, .25, 10], [K.medalla, .25, 10], [K.mismo - 0.05, .4, 20], [S.O0[0] + 0.02, .3, 14], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
   [0.03, 'whoosh', .6], [K.hitler0 + 0.05, 'swoosh_up', .5], [K.medalla0, 'sparkle', .6], [K.espanol0, 'pop', .6], [K.engano0 - 0.05, 'stamp', 1.1],
@@ -170,19 +172,20 @@ window.frame = t => {
   [S.Q[0], 'whoosh', .5], [K.senor, 'boing', .5], [K.espia3, 'pop', .4], [S.T3[0], 'whoosh', .5], [K.en3 + 0.05, 'pop', .6], [K.tres3, 'pop', .6], [K.pasos, 'pop2', .6],
   [S.P1a[0], 'swoosh_up', .7], [S.P1a[0] + 0.06, 'stamp', .7], [K.quiso, 'pop', .5], [K.ingleses4 + 0.4, 'click', .5], [K.ingleses4 + 0.6, 'click', .5],
   [S.P1b[0], 'whoosh', .4], [K.no4 - 0.05, 'thud', 1.0], [K.no4 + 0.02, 'stamp', 1.0], [K.no4 + 0.3, 'sad', .4],
-  [S.P1c[0], 'paper', .6], [K.alemanes4, 'stamp', 1.0], [S.P1d[0], 'burst', .6], [K.dentro - 0.15, 'sparkle', .5],
+  [S.P1c[0], 'paper', .6], [K.espia4, 'stamp', 1.0], [S.P1d[0], 'burst', .6], [K.ingleses4b - 0.06, 'whoosh', .5], [K.fin4, 'heart', .5], [K.fin4 - 0.1, 'sparkle', .5],
   [S.P2a[0], 'swoosh_up', .7], [S.P2a[0] + 0.06, 'stamp', .7], [K.mandaron - 0.05, 'paper', .5], [K.londres, 'stamp', .8], [K.quedo, 'boing', .5], [K.lisboa, 'pop2', .7],
   [S.P2c[0], 'whoosh', .5], [S.P2c[0] + 0.1, 'typing', .5], [K.guia - 0.1, 'pop', .6], [K.mapa - 0.1, 'pop', .6], [K.mapa + 0.3, 'swoosh_up', .4],
   [S.P3a[0], 'swoosh_up', .7], [S.P3a[0] + 0.06, 'stamp', .7], [S.P3a[0] + 0.4, 'paper', .5], [S.P3a[0] + 1.2, 'paper', .5], [K.tanto - 0.05, 'stamp', .7],
-  [S.P3b[0], 'whoosh', .5], [K.invento, 'msg_in', .5], [K.otros, 'msg_in', .5], [K.v27, 'stamp', 1.1], [K.v27 + 0.3, 'msg_in', .6], [T_EMU - 0.1, 'emu', .9],
+  [S.P3b[0], 'whoosh', .5], [K.otros, 'msg_in', .5], [K.espias6, 'msg_in', .5], [K.trabajaban, 'msg_in', .5],
   [K.ninguno - 0.06, 'glitch', .4], [K.existia, 'stamp', 1.0], [K.pagaban - 0.1, 'whoosh', .5], [K.sueldo, 'cash', .8],
-  [S.F1[0], 'swoosh_up', .6], [K.vieron - 0.1, 'paper', .5], [K.bueno, 'boing', .4], [K.ficharon, 'stamp', 1.0],
+  [S.F1[0], 'swoosh_up', .6], [K.ingleses7 - 0.1, 'paper', .5], [S.F1b[0], 'whoosh', .5], [K.bueno, 'boing', .4], [K.ficharon, 'stamp', 1.0],
+  [S.R27[0], 'swoosh_up', .6], [K.juntos, 'pop', .5], [K.inflaron, 'msg_in', .5], [K.red7, 'msg_in', .5], [K.v27, 'stamp', 1.1], [T_EMU - 0.1, 'emu', .9], [K.inventados7, 'stamp', .8],
   [S.F2[0], 'whoosh', .5], [K.dia - 0.05, 'pop', .6], [K.desembarco - 0.1, 'swoosh_up', .5], [K.normandia, 'ding', .5],
   [S.T1[0], 'whoosh', .5], [K.aviso, 'typing', .7], [S.T2[0], 'whoosh', .5], [K.ataque - 0.05, 'swoosh_up', .6], [K.calais, 'stamp', 1.0], [K.hitler8b - 0.08, 'pop', .5], [K.creyo, 'ding', .6],
   [S.T3b[0], 'paper', .5], [K.dejo, 'pop', .4], [K.esperando - 0.04, 'whoosh', .5], [K.nunca8 - 0.05, 'stamp', 1.0],
-  [S.O1[0], 'stamp', .9], [K.fingio - 0.1, 'sad', .5], [K.fingio, 'stamp', 1.0], [S.O2[0], 'whoosh', .6], [K.venezuela, 'pop2', .7], [K.venezuela + 0.05, 'tada', .5],
-  [S.M1[0], 'drumroll', .4], [K.cruz + 0.12, 'thud', .8], [K.cruz + 0.15, 'sparkle', .5], [K.ingleses10 - 0.05, 'bell', .6], [K.medalla + 0.12, 'thud', .8], [K.medalla + 0.15, 'tada', .5],
-  [S.M2[0], 'whoosh', .5], [K.mismo - 0.03, 'stamp', 1.2], [K.engano, 'pop2', .5],
+  [S.O0[0], 'stamp', 1.0], [K.mas9 - 0.05, 'boing', .6], [S.O1[0], 'whoosh', .5], [K.africa - 0.05, 'pop', .5], [K.fingio - 0.1, 'sad', .5], [K.fingio, 'stamp', 1.0], [S.O2[0], 'whoosh', .6], [K.venezuela, 'pop2', .7], [K.tranquilo, 'stamp', .8],
+  [S.M[0], 'drumroll', .4], [K.nazis - 0.05, 'pop', .5], [K.cruz + 0.12, 'thud', .8], [K.cruz + 0.15, 'sparkle', .5], [K.ingleses10 - 0.05, 'bell', .6], [K.medalla + 0.12, 'thud', .8], [K.medalla + 0.15, 'tada', .5],
+  [K.por - 0.05, 'pop', .5], [K.mismo - 0.05, 'stamp', 1.2], [K.engano, 'pop2', .5],
   [S.Q2[0], 'whoosh', .6], [K.gordo - 0.05, 'click', .5], [K.inventado - 0.05, 'click', .5], [K.tu - 0.1, 'click', .5], [K.algo, 'pop2', .5], [K.os, 'ding', .7],
   [S.BK[0], 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [LOOP, 'whoosh', .6],
 ].forEach(s => sfx(s[1], s[0], s[2]));

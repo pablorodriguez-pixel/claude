@@ -51,7 +51,7 @@ function orgTree(cam, o = {}) {
   const TJ = [K.otros, K.espias6, K.trabajaban];
   const grp = k => k < 3 ? 0 : k < 5 ? 1 : 2;
   const c = scene(S.P3b[0], S.P3b[1], t => {
-    framing(cam, t, [[S.P3b[0], 1.12, 0, 120], [K.trabajaban - 0.06, 1.2, 0, 160], [K.ninguno - 0.06, 1.28, 0, 200], [K.y6b - 0.04, 1.14, 0, 140]], 0.03);
+    framing(cam, t, [[S.P3b[0], 1.0, 0, 90], [K.trabajaban - 0.06, 1.05, 0, 120], [K.ninguno - 0.06, 1.08, 0, 140], [K.y6b - 0.04, 1.02, 0, 100]], 0.03);
     set(T.gb.d, { s: pop(t, S.P3b[0], 0.3), y: wobble(t, 0.5, 3) });
     face(T.gb.f, t, { look: [0, 4], bL: 8, bR: 14, closed: t > K.existia && t < K.existia + 0.3, seed: 2 });
     const ghost = t > K.ninguno - 0.06 && t < K.y6b;
@@ -70,6 +70,7 @@ function orgTree(cam, o = {}) {
   const T = orgTree(cam);
   const PD = [], ENV = [];
   T.NODES.slice(0, N).forEach((nd, i) => {
+    if (nd.x < 180 || nd.x > 820) { const v = box(cam, nd.x - 45, nd.y - 30, 90, 60, { zIndex: 35 }); v.innerHTML = envSvg('', '#F4E4C0'); ENV.push({ e: v, x: nd.x - 45, y: nd.y - 30, t: K.pagaban - 0.15 + i * 0.07 }); return; }
     const e = stamp(cam, nd.x - 52, nd.y + 30, 'PAGADO', { size: 24, bw: 4, z: 30, bg: 'rgba(255,255,255,.92)', blend: 'normal' }); e.style.padding = '0 6px 2px'; PD.push({ e, t: K.sueldo + i * 0.08 });
     const v = box(cam, nd.x - 45, nd.y - 30, 90, 60, { zIndex: 35 }); v.innerHTML = envSvg('', '#F4E4C0'); ENV.push({ e: v, x: nd.x - 45, y: nd.y - 30, t: K.pagaban - 0.15 + i * 0.07 });
   });
@@ -182,10 +183,10 @@ function chanBase(c) {
    T1 · «PUJOL AVISÓ A HITLER DE QUE ERA UNA TRAMPA» — el télex
    ====================================================================== */
 {
-  const msg = 'NORMANDÍA = TRAMPA';
+  const msg = 'NORMANDÍA = DISTRACCIÓN';
   const c = scene(S.T1[0], S.T1[1], t => {
     const ku = p(t, S.T1[0], 0.4, E.outCubic);
-    set(strip, { y: (1 - ku) * 300, r: -2 + wobble(t, 0.5, 0.5) });
+    set(strip, { y: (1 - ku) * 300 + (t > K.normandia8 - 0.06 ? 40 : 0), r: -2 + wobble(t, 0.5, 0.5), s: t > K.normandia8 - 0.06 ? 1.08 : 1 });
     const n = Math.round(clamp((t - K.aviso) / (K.trampaE - 0.05 - K.aviso)) * msg.length);
     tx.textContent = msg.slice(0, n);
     set(mach, { y: Math.sin(t * 40) * (n < msg.length && t > K.aviso ? 2 : 0) });
@@ -230,7 +231,7 @@ function chanBase(c) {
   const head = box(mp, P_CAL[0] - 70, P_CAL[1] - 90, 120, 120, { zIndex: 13 }); head.innerHTML = `<svg viewBox="0 0 120 120" width="120" height="120" style="overflow:visible"><path d="M10,10 L110,60 L40,110 Z" fill="${RED}" stroke="${INK}" stroke-width="8" stroke-linejoin="round" transform="rotate(30 60 60)"/></svg>`;
   const tgt = box(mp, P_CAL[0] - 80, P_CAL[1] - 80, 160, 160, { borderRadius: '50%', border: `10px solid ${RED}`, zIndex: 11 });
   const stC = stamp(mp, P_CAL[0] - 330, P_CAL[1] + 100, 'CALAIS', { size: 100, bw: 12, z: 30, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
-  nlab = el('div', mp, { left: px(P_NOR[0] - 410), top: px(P_NOR[1] - 140), fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, background: 'rgba(255,255,255,.92)', border: `4px solid ${INK}`, borderRadius: '14px', padding: '2px 16px 6px', zIndex: 20, whiteSpace: 'nowrap' }, `<s style="text-decoration-color:${RED};text-decoration-thickness:6px">Normandía</s> = <span style="color:${RED}">trampa</span>`);
+  nlab = el('div', mp, { left: px(P_NOR[0] - 410), top: px(P_NOR[1] - 140), fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, background: 'rgba(255,255,255,.92)', border: `4px solid ${INK}`, borderRadius: '14px', padding: '2px 16px 6px', zIndex: 20, whiteSpace: 'nowrap' }, `<s style="text-decoration-color:${RED};text-decoration-thickness:6px">Normandía</s> = <span style="color:${RED}">distracción</span>`);
   const hb = mk(c, [540, 900, 360, 460], hitlerInner(), '0 0 360 460', 'bust'); hb.d.style.zIndex = 40;
   const bub = bubble(c, 330, 860, 'ajá…', { size: 64, tail: 'br', z: 42, it: true });
 }
@@ -274,10 +275,58 @@ function chanBase(c) {
 }
 
 /* ======================================================================
-   OJO · a — «DESPUÉS FINGIÓ SU PROPIA MUERTE» — esquela de periódico + sello FINGIDO
+   M · «O SEA: LOS NAZIS LE DIERON LA CRUZ DE HIERRO… Y LOS INGLESES, OTRA MEDALLA. POR EL MISMO ENGAÑO.»
+   Pantalla partida desde «los nazis»: cruz a la izquierda, MBE a la derecha, cada una ~40 % del ancho. 4 encuadres.
+   ====================================================================== */
+{
+  const c = scene(S.M[0], S.M[1], t => {
+    framing(cam, t, [[S.M[0], 1.0, 0, 0], [K.cruz - 0.08, 1.06, 30, 0], [K.y10 - 0.04, 1.06, -30, 0], [K.por - 0.06, 1.0, 0, 0], [K.engano - 0.06, 1.05, 0, -20]], 0.03);
+    const ki = p(t, K.cruz - 0.15, 0.3, E.inCubic);
+    set(ic, { y: (1 - ki) * -700, r: (1 - ki) * 30 + Math.sin(t * 2.4) * 4, o: t < K.cruz - 0.15 ? 0 : 1 });
+    const km = p(t, K.medalla - 0.15, 0.3, E.inCubic);
+    set(mb, { y: (1 - km) * -700, r: (1 - km) * -30 - Math.sin(t * 2.4) * 4, o: t < K.medalla - 0.15 ? 0 : 1 });
+    popA(lN, t, K.nazis - 0.05, { r: -3 }); popA(lI, t, K.ingleses10 - 0.05, { r: 3 });
+    set(q1, { o: t < K.cruz - 0.15 ? 1 : 0, r: Math.sin(t * 5) * 8 }); set(q2, { o: t < K.medalla - 0.15 ? 1 : 0, r: -Math.sin(t * 5) * 8 });
+    popA(n1, t, K.hierro, { r: -2 }); popA(n2, t, K.medalla + 0.1, { r: 2 });
+    SP.forEach((s, i) => set(s, { o: (t > K.cruz + 0.15 && i < 3) || (t > K.medalla + 0.15 && i >= 3) ? 1 : 0, s: 0.8 + 0.3 * Math.sin(t * 12 + i), r: t * 120 }));
+    stampA(stM, t, K.mismo - 0.05, -6, 1);
+    set(pj.d, { s: pop(t, K.por - 0.05, 0.35), o: t < K.por - 0.05 ? 0 : 1 });
+    face(pj.f, t, { look: [0, 0], bL: 10, bR: 18, closed: t > K.engano + 0.3 && t < K.engano + 0.6, seed: 6 });
+  }, { clip: true, cut: true });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 820px' });
+  sceneBg(cam, { background: 'linear-gradient(90deg, #D9D2C2 0 50%, #EBCBD4 50% 100%)' });
+  halftone(cam, 'rgba(43,33,24,.06)', 0);
+  box(cam, 536, 360, 8, 1000, { background: INK, zIndex: 1 });
+  const lN = chip(cam, 120, 400, 'LOS NAZIS', { size: 54, bg: INK, color: '#fff', z: 20 });
+  const lI = chip(cam, 590, 400, 'LOS INGLESES', { size: 50, bg: INK, color: '#fff', z: 20 });
+  const q1 = qMark(cam, 220, 620, 220, 'rgba(43,33,24,.25)'); q1.style.textShadow = 'none';
+  const q2 = qMark(cam, 720, 620, 220, 'rgba(43,33,24,.25)'); q2.style.textShadow = 'none';
+  const ic = medalCross(cam, 85, 500, 400, { z: 10 });
+  const mb = box(cam, 595, 500, 400, 528, { zIndex: 10, transformOrigin: '200px 0px' });
+  { const rb = box(mb, 144, 0, 112, 160, { zIndex: 1 }); rb.innerHTML = ribbonBar(['#c9c6c0', '#E88FA8', '#E88FA8', '#c9c6c0']); const m = box(mb, 0, 120, 400, 400, { zIndex: 2 }); m.innerHTML = mbeSvg(); }
+  const n1 = chip(cam, 110, 1050, 'Cruz de Hierro', { size: 44, bg: YEL, color: INK, z: 22 });
+  const n2 = chip(cam, 680, 1050, 'MBE', { size: 44, bg: YEL, color: INK, z: 22 });
+  const SP = [[150, 560], [420, 640], [260, 960], [610, 600], [810, 700], [740, 980]].map(q => el('div', cam, { left: px(q[0]), top: px(q[1]), fontSize: '60px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 25 }, '✦'));
+  const stM = stamp(cam, 190, 860, 'MISMO ENGAÑO', { size: 72, bw: 13, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const pj = pujolAv(cam, 450, 1120, 180, { z: 32 });
+}
+
+/* O0 · «Y OJO, QUE AÚN HAY MÁS» — golpe de color */
+{
+  colorHit(S.O0[0], S.O0[1], YEL, cc => {
+    const a = stamp(cc, 300, 470, '¡OJO!', { size: 150, bw: 16, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+    const b = BIGT(cc, 0, 800, 1080, 'que aún hay', { fontSize: '100px', zIndex: 20, fontStyle: 'italic' });
+    const d = BIGT(cc, 0, 920, 1080, 'MÁS', { fontSize: '210px', color: PINK, zIndex: 21, textShadow: OUTL(INK, 12) });
+    return t => { stampA(a, t, S.O0[0] + 0.02, -8, 1); set(b, { s: pop(t, K.mas9 - 0.4, 0.3), o: t < K.mas9 - 0.4 ? 0 : 1 }); set(d, { s: pop(t, K.mas9 - 0.05, 0.35), r: 3 + Math.sin(t * 6) * 2, o: t < K.mas9 - 0.05 ? 0 : 1 }); };
+  });
+}
+
+/* ======================================================================
+   OJO · a — «AÑOS DESPUÉS FINGIÓ SU PROPIA MUERTE EN ÁFRICA» — ficha de defunción + sello FINGIDA (2 encuadres)
    ====================================================================== */
 {
   const c = scene(S.O1[0], S.O1[1], t => {
+    framing(cam, t, [[S.O1[0], 1.0, 0, 0], [K.africa - 0.06, 1.1, 0, -40]]);
     const dead = t > K.fingio - 0.1;
     set(av.d, { s: pop(t, S.O1[0], 0.3), r: dead ? -4 : 0, y: wobble(t, 0.5, 3) });
     av.d.style.filter = dead ? 'grayscale(1) brightness(.8)' : 'none';
@@ -286,22 +335,23 @@ function chanBase(c) {
     set(rib, { s: pop(t, K.fingio - 0.05, 0.3), r: 12, o: t < K.fingio - 0.05 ? 0 : 1 });
     set(np, { s: pop(t, S.O1[0] + 0.05, 0.3), r: 3 + wobble(t, 0.4, 0.6) });
     stampA(stF, t, K.fingio, -10, 1);
-    popA(oj, t, S.O1[0], { r: -8, d: 0.3 });
+    popA(af, t, K.africa - 0.05, { r: -4 });
   }, { clip: true, cut: true });
-  sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
-  const np = box(c, 110, 430, 820, 700, { zIndex: 5, background: '#F4ECDB', border: `6px solid ${INK}`, boxShadow: `12px 12px 0 ${SH}`, transformOrigin: '410px 350px' });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 760px' });
+  sceneBg(cam, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
+  const np = box(cam, 110, 430, 820, 640, { zIndex: 5, background: '#F4ECDB', border: `6px solid ${INK}`, boxShadow: `12px 12px 0 ${SH}`, transformOrigin: '410px 320px' });
   el('div', np, { left: '0', top: '18px', width: '808px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '56px', color: INK, borderBottom: `5px double ${INK}`, paddingBottom: '10px' }, 'ANGOLA · 1949');
   el('div', np, { left: '330px', top: '130px', width: '440px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '66px', lineHeight: 1.0, color: INK }, '✝ Juan Pujol');
   el('div', np, { left: '330px', top: '290px', width: '440px', fontFamily: 'SpecialElite', fontSize: '34px', lineHeight: 1.25, color: '#5a4a3a' }, '«muerto de malaria»');
-  for (let i = 0; i < 5; i++) box(np, 40, 470 + i * 34, i % 2 ? 560 : 730, 10, { background: 'rgba(43,33,24,.4)' });
+  for (let i = 0; i < 4; i++) box(np, 40, 470 + i * 34, i % 2 ? 560 : 730, 10, { background: 'rgba(43,33,24,.4)' });
   const av = pujolAv(np, 40, 120, 260, { z: 6 });
   const rib = box(np, 230, 110, 100, 120, { zIndex: 12 }); rib.innerHTML = ribbonSvg();
   const wink = el('div', np, { left: '230px', top: '330px', fontSize: '64px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 14 }, '✦');
-  const stF = stamp(c, 330, 880, 'FINGIDA', { size: 110, bw: 14, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
-  const oj = stamp(c, 600, 1170, '¡OJO!', { size: 70, bw: 10, z: 42, col: INK, bg: YEL, blend: 'normal' });
+  const stF = stamp(cam, 300, 860, 'FINGIDA', { size: 100, bw: 14, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const af = chip(cam, 360, 1110, 'en África', { size: 56, bg: YEL, color: INK, z: 42 });
 }
 
-/* OJO · b — «…Y SE FUE A VIVIR A VENEZUELA» — mapa de Latinoamérica */
+/* OJO · b — «…Y SE FUE A VIVIR TAN TRANQUILO A VENEZUELA» — mapa de Latinoamérica */
 {
   const VEN = laPj(-66.5, 7.5).map(Number);
   const c = scene(S.O2[0], S.O2[1], t => {
@@ -311,7 +361,7 @@ function chanBase(c) {
     face(tok.f, t, { look: [-4, 4], bL: 10, bR: 16, seed: 6 });
     set(pin, { y: (1 - p(t, K.venezuela, 0.25, E.outBounce)) * -140, o: t < K.venezuela ? 0 : 1 });
     set(cV, { s: 1 + 0.15 * p(t, K.venezuela, 0.25, E.outBack) * (1 - p(t, K.venezuela + 0.4, 0.3)), r: -3 });
-    stampA(viv, t, K.venezuela + 0.05, -6, 1);
+    stampA(viv, t, K.tranquilo, -6, 1);
   }, { clip: true, cut: true });
   sceneBg(c, { background: SEA2, backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 2px, transparent 2px 64px), repeating-linear-gradient(90deg, rgba(43,33,24,.06) 0 2px, transparent 2px 64px)' });
   const mp = box(c, 0, 0, 1080, 1920, { zIndex: 2, transformOrigin: `${VEN[0]}px ${VEN[1]}px` });
@@ -324,56 +374,9 @@ function chanBase(c) {
 }
 
 /* ======================================================================
-   O SEA · M1 — «LOS NAZIS LE DIERON LA CRUZ DE HIERRO… Y LOS INGLESES, OTRA MEDALLA» — solapa (2 encuadres)
-   ====================================================================== */
-{
-  const c = scene(S.M1[0], S.M1[1], t => {
-    framing(cam, t, [[S.M1[0], 1.0, 0, 0], [K.nazis - 0.08, 1.1, 110, 30], [K.y10 - 0.04, 1.05, -90, 0]], 0.03);
-    const ki = p(t, K.cruz - 0.15, 0.3, E.inCubic);
-    set(ic, { y: (1 - ki) * -140, r: (1 - ki) * Math.sin(t * 2.6) * 10 + Math.sin(t * 3) * 2 });
-    popA(c1, t, K.hierro, { r: -3 }); popA(cA, t, K.nazis - 0.05, { r: 3 });
-    set(cr, { s: pop(t, K.ingleses10 - 0.05, 0.4), r: -6 + wobble(t, 0.6, 3), o: t < K.ingleses10 - 0.05 ? 0 : 1 });
-    const km = p(t, K.medalla - 0.12, 0.3, E.inCubic);
-    set(mb, { y: (1 - km) * -1000, r: (1 - km) * -40 + Math.sin(t * 3 + 1) * 2 });
-    SP.forEach((s, i) => set(s, { o: (t > K.cruz + 0.15 && t < K.cruz + 0.9 && i < 3) || (t > K.medalla + 0.15 && i >= 3) ? 1 : 0, s: 0.8 + 0.3 * Math.sin(t * 12 + i), r: t * 120 }));
-  }, { clip: true, cut: true });
-  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
-  sceneBg(cam, { background: '#2f2620' });
-  const jk = box(cam, -100, 0, 1280, 1920, { zIndex: 1 });
-  jk.innerHTML = `<svg width="1280" height="1920" style="overflow:visible"><path d="M-40,380 L620,380 L800,1500 L-40,1500 Z" fill="#3d3328" stroke="${INK}" stroke-width="6"/><path d="M620,380 L1320,380 L1320,1500 L800,1500 Z" fill="#33291f" stroke="${INK}" stroke-width="6"/><path d="M480,380 L660,380 L800,760 L620,900 Z" fill="#4a3d30" stroke="${INK}" stroke-width="6"/><path d="M660,380 L860,380 L790,780 Z" fill="#fff" stroke="${INK}" stroke-width="5"/><path d="M740,400 L780,400 L800,700 L760,760 L720,700 Z" fill="${RED}" stroke="${INK}" stroke-width="4"/></svg>`;
-  const ic = medalCross(cam, 150, 520, 330, { z: 10 });
-  const cA = chip(cam, 300, 440, 'LOS NAZIS', { size: 46, bg: '#fff', color: INK, z: 20 });
-  const c1 = chip(cam, 200, 1010, 'CRUZ DE HIERRO · 1944', { size: 40, bg: YEL, color: INK, z: 20 });
-  const cr = box(cam, 690, 420, 240, 166, { zIndex: 12 }); cr.innerHTML = crownSvg();
-  const mb = box(cam, 640, 640, 300, 396, { zIndex: 10 });
-  { const rb = box(mb, 108, 0, 84, 120, { zIndex: 1 }); rb.innerHTML = ribbonBar(['#c9c6c0', '#E88FA8', '#E88FA8', '#c9c6c0']); const m = box(mb, 0, 96, 300, 300, { zIndex: 2 }); m.innerHTML = mbeSvg(); }
-  const SP = [[160, 600], [440, 620], [300, 900], [640, 700], [880, 860], [760, 1000]].map(q => el('div', cam, { left: px(q[0]), top: px(q[1]), fontSize: '60px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 25 }, '✦'));
-}
-
-/* O SEA · M2 — «POR EL MISMO ENGAÑO» — las dos medallas, una a cada lado */
-{
-  const c = scene(S.M2[0], S.M2[1], t => {
-    set(m1, { s: pop(t, S.M2[0], 0.3), r: Math.sin(t * 3) * 8 });
-    set(m2, { s: pop(t, S.M2[0] + 0.08, 0.3), r: -Math.sin(t * 3) * 8 });
-    popA(b1, t, S.M2[0] + 0.05, { r: -4 }); popA(b2, t, S.M2[0] + 0.1, { r: 4 });
-    stampA(stM, t, K.mismo - 0.03, -6, 1);
-    set(pj.d, { s: pop(t, K.engano, 0.35), o: t < K.engano ? 0 : 1 });
-    face(pj.f, t, { look: [0, 0], bL: 10, bR: 18, closed: t > K.engano + 0.3 && t < K.engano + 0.6, seed: 6 });
-  }, { clip: true, cut: true });
-  sceneBg(c, { background: 'linear-gradient(90deg, #D9D2C2 0 50%, #EBCBD4 50% 100%)' });
-  box(c, 536, 380, 8, 1000, { background: INK, zIndex: 1 });
-  const m1 = box(c, 120, 470, 300, 300, { zIndex: 5 }); m1.innerHTML = ironCrossSvg();
-  const m2 = box(c, 630, 470, 300, 300, { zIndex: 5 }); m2.innerHTML = mbeSvg();
-  const b1 = chip(c, 110, 820, 'ALEMANIA · Cruz', { size: 42, bg: INK, color: '#fff', z: 20 });
-  const b2 = chip(c, 580, 820, 'INGLESES · MBE', { size: 42, bg: INK, color: '#fff', z: 20 });
-  const stM = stamp(c, 170, 960, 'MISMO ENGAÑO', { size: 78, bw: 13, z: 30, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
-  const pj = pujolAv(c, 450, 1110, 180, { z: 22 });
-}
-
-/* ======================================================================
    Q2 · «¿QUÉ ES LO MÁS GORDO QUE TE HAS INVENTADO TÚ PARA LIBRARTE DE ALGO? OS LEO.»
    ====================================================================== */
-headline(S.Q2[0], S.Q2[1], '¿Y lo más *gordo* que te has inventado *tú?*', { size: 80, hlT: K.gordo, y: 200 });
+headline(S.Q2[0], S.Q2[1], '¿Qué es lo más *gordo* que te has inventado *tú?*', { size: 80, hlT: K.gordo, y: 200 });
 {
   const RW = [];
   const c = scene(S.Q2[0], S.Q2[1], t => {

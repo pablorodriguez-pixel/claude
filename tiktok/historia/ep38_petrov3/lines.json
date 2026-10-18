@@ -58,29 +58,29 @@
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche.",
+  "text": "Ojo: no le dieron ni una medalla. Según contó él, le cayó una bronca por el papeleo de esa noche.",
   "s": 55.51,
-  "e": 62.145
+  "e": 62.466
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después.",
-  "s": 62.495,
-  "e": 69.204
+  "text": "O sea: ese señor te salvó la vida, y el mundo no se enteró hasta quince años después… y tú, hasta hoy.",
+  "s": 62.816,
+  "e": 70.806
  },
  {
   "line": 10,
   "who": "VECINO",
-  "text": "¿Tú qué habrías hecho en su silla: dar la alarma, o colgar? Os leo.",
-  "s": 69.704,
-  "e": 73.539
+  "text": "¿Tú qué habrías hecho en su silla: creerte la pantalla, o creerte a ti? Os leo.",
+  "s": 71.306,
+  "e": 76.1
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 73.889,
-  "e": 76.248
+  "s": 76.45,
+  "e": 78.808
  }
 ]

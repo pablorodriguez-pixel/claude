@@ -16,3 +16,4 @@ Publicación: post «Cada vez que te echas la siesta dices un número en latín 
 - Ya no hay hueco marrón: los paneles entran a tamaño completo en el primer fotograma. La CTA y la pregunta entran con corte, sin fundido.
 - Duración: 61,9 s. QA de audio OK: SNR 27,8 dB, −14,1 LUFS.
 - A verificar: «cuatro horas tarde» cuenta de la sexta a la décima (son 4 horas romanas). Con el sol a las 6, las 15:30 caen en la décima (15–16 h). El Ojo dura 6,6 s, por encima del objetivo de 6 s.
+- Vuelta 3: L8 regenerada con «Llegas tarde... hasta a tu propia siesta.» (137 c; total 1.329). Sello «¡TARDE!» en «tarde». Duración 62,4 s.

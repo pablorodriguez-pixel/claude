@@ -147,17 +147,17 @@ function phoneRig(c, crtY = 300) {
   const BW = [];
   [['«Es', K.es6], ['una', K.una6], ['falsa', K.falsa], ['alarma»', K.alarma6]].forEach(([s, tt], i) => { const e = document.createElement('span'); e.style.display = 'inline-block'; e.style.margin = '0 0.1em'; e.textContent = s; bb.insertBefore(e, bb.lastChild); if (i === 1) bb.insertBefore(document.createElement('br'), bb.lastChild); BW.push({ e, t: tt }); });
   const lbJ = el('div', c, { left: '320px', top: '870px', fontFamily: 'Rye', fontSize: '54px', color: INK, background: YEL, border: `5px solid ${INK}`, borderRadius: '12px', padding: '2px 18px', zIndex: 42, whiteSpace: 'nowrap', boxShadow: `5px 5px 0 ${INK}` }, 'A SUS JEFES:');
-  const stF = stamp(c, 260, 560, 'FALSA ALARMA', { size: 96, bw: 14, z: 41, bg: YEL, col: INK, blend: 'normal', font: 'Playfair' }); stF.style.fontWeight = 900;
+  const stF = stamp(c, 190, 560, 'FALSA ALARMA', { size: 76, bw: 12, z: 41, bg: YEL, col: INK, blend: 'normal', font: 'Playfair' }); stF.style.fontWeight = 900;
 }
 
 /* ======================================================================
    CH3 · CAPÍTULO 3 · ERA EL SOL — y el sello «¡TENÍA RAZÓN!»
    ====================================================================== */
-stepBanner(K.tres7 - 0.05, K.razon - 0.2, S.T2[1], '3', 'La verdad', { nbg: '#C9A24A' });
+stepBanner(K.y7 - 0.05, K.razon - 0.2, S.T2[1], '3', 'La verdad', { nbg: '#C9A24A' });
 chapter(S.CH3[0], S.CH3[1], YEL, '3', c => {
   const st = stamp(c, 150, 1060, '¡TENÍA RAZÓN!', { size: 86, bw: 12, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal', col: INK, font: 'Playfair' }); st.style.fontWeight = 900;
   const ck = box(c, 400, 440, 280, 280, { zIndex: 12 }); ck.innerHTML = `<svg viewBox="0 0 100 100" width="280" height="280" style="overflow:visible"><path d="M12,54 L40,82 L92,14" stroke="${INK}" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12,54 L40,82 L92,14" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
-  return t => { stampA(st, t, K.tenia, -4, 1); set(ck, { s: pop(t, K.razon, 0.3), r: -8, o: t < K.razon ? 0 : 1 }); };
+  return t => { stampA(st, t, K.tenia, -4, 1); set(ck, { s: pop(t, K.y7 + 0.15, 0.3), r: -8, o: t < K.y7 + 0.15 ? 0 : 1 }); };
 });
 
 /* ======================================================================
@@ -243,7 +243,7 @@ stepBanner(K.ojo - 0.05, K.ojo + 0.55, Math.min(S.O3[1], K.ojo + 6.0), '!', '¡O
   const md = mk(c, [340, 420, 400, 600], medalInner(), '0 0 200 300', 'medal'); md.d.style.zIndex = 4;
   const xx = box(c, 260, 520, 560, 560, { zIndex: 6 }); xx.innerHTML = `<svg width="560" height="560" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" class="x1" d="M40,40 L520,520" stroke="${RED}" stroke-width="44" stroke-linecap="round"/><path pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" class="x2" d="M520,40 L40,520" stroke="${RED}" stroke-width="44" stroke-linecap="round"/></svg>`;
   const x1 = xx.querySelector('.x1'), x2 = xx.querySelector('.x2');
-  const chM = chip(c, 240, 1130, 'ninguna medalla', { size: 66, bg: INK, color: YEL, z: 30 });
+  const chM = chip(c, 240, 1130, 'ni una medalla', { size: 66, bg: INK, color: YEL, z: 30 });
 }
 
 /* O2 · «SEGÚN CONTÓ ÉL,» — Petrov, ya mayor, lo cuenta */
@@ -344,6 +344,24 @@ headline(S.R2[0], S.R2[1], 'El mundo *no se enteró*', { size: 100, hlT: K.enter
   const st15 = stamp(c, 420, 880, '15 AÑOS<br>DESPUÉS', { size: 96, bw: 15, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' }); st15.style.textAlign = 'center';
 }
 
+/* R4 · «…Y TÚ, HASTA HOY.» — tú, con el móvil: el sello HOY */
+headline(S.R4[0], S.R4[1], 'y *tú,* hasta hoy', { size: 120, hlT: K.tu9, y: 236 });
+{
+  const c = scene(S.R4[0], S.R4[1], t => {
+    set(yu.d, { s: pop(t, S.R4[0] + 0.02, 0.35), y: wobble(t, 0.6, 3) });
+    face(yu, t, { look: [4, 10], bL: t > K.hoy ? 14 : 4, bR: t > K.hoy ? 14 : 4, seed: 1 });
+    set(glow, { o: 0.6 + 0.4 * Math.sin(t * 8) });
+    stampA(stH, t, K.hoy, -6, 1);
+    EX.forEach((e, i) => set(e, { s: pop(t, K.hoy + 0.1 + i * 0.06, 0.25), o: t < K.hoy + 0.1 + i * 0.06 ? 0 : 1, r: (i - 1) * 25 }));
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#CFE0E6' });
+  halftone(c, 'rgba(43,33,24,.06)', 0);
+  const glow = box(c, 0, 0, 1080, 1920, { zIndex: 1, background: 'radial-gradient(circle at 50% 70%, rgba(255,255,255,.9), rgba(255,255,255,0) 40%)' });
+  const yu = mk(c, [240, 520, 600, 767], youInner(), '0 0 360 460', 'bust'); yu.d.style.zIndex = 4;
+  const stH = stamp(c, 300, 420, '¡HASTA HOY!', { size: 96, bw: 13, z: 40, bg: YEL, blend: 'normal', col: INK, font: 'Playfair' }); stH.style.fontWeight = 900;
+  const EX = [0, 1, 2].map(i => el('div', c, { left: px(250 + i * 250), top: '590px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 7 }, '!'));
+}
+
 /* ======================================================================
    M1 · «¿TÚ QUÉ HABRÍAS HECHO EN SU SILLA:» — la silla vacía ante la pantalla roja
    M2 · «AVISAR, O NO? OS LEO.» — el teléfono que suena
@@ -363,7 +381,7 @@ headline(S.M1[0], S.M1[1], '¿Tú qué *habrías hecho* en su silla?', { size: 8
   vignette(c, 7, 0.6);
   const yt = chip(c, 120, 1100, '¿Y TÚ?', { size: 96, bg: YEL, color: INK, z: 40 });
 }
-headline(S.M2[0], S.M2[1], '¿Dar la alarma… o *colgar?*', { size: 92, hlT: K.avisar, y: 236, color: '#fff', hlc: RED });
+headline(S.M2[0], S.M2[1], '¿Creerte la pantalla… o *a ti?*', { size: 88, hlT: K.no10, y: 170, color: '#fff', hlc: RED });
 {
   const c = scene(S.M2[0], S.M2[1], t => {
     set(cam, { s: 1 + 0.06 * p(t, S.M2[0], 2.3, E.linear) });
@@ -376,7 +394,7 @@ headline(S.M2[0], S.M2[1], '¿Dar la alarma… o *colgar?*', { size: 92, hlT: K.
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 1000px' });
   sceneBg(cam, { background: BUNK });
-  const R = phoneRig(cam, 380);
+  const R = phoneRig(cam, 440);
   const RG = [0, 1].map(i => { const e = box(cam, 300 - i * 30, 860 - i * 30, 480 + i * 60, 360 + i * 60, { zIndex: 5, border: `7px solid ${YEL}`, borderRadius: '50%' }); return e; });
   const ol = chip(c, 380, 1240, 'Os leo 👇', { size: 64, bg: PINK, z: 40 });
   const hand = box(c, 250, 1230, 130, 130, { zIndex: 41 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
