@@ -58,9 +58,12 @@ function updOval(t) {
 }
 
 /* ---------- frame ---------- */
+// toda escena (también las de corte seco) sigue 0,25 s debajo de la siguiente: sin fotogramas de papel vacío en las transiciones.
+// Excepciones: el montaje E0 (va encima de D2), el golpe de color J (z alto) y el balcón (no debe asomar bajo el libro).
+SC.forEach(s => { if (s.t0 === S.E0[0] || s.t0 === S.J[0] || s.t0 === S.BAL[0]) s.noExt = true; });
 window.frame = t => {
   SC.forEach(s => {
-    const vis = t >= s.t0 && t < s.t1 + (s.t1 < 900 && !s.cut ? 0.25 : 0); s.c.style.display = vis ? '' : 'none'; if (!vis) return;
+    const vis = t >= s.t0 && t < s.t1 + (s.t1 < 900 && !s.noExt ? 0.25 : 0); s.c.style.display = vis ? '' : 'none'; if (!vis) return;
     if (s.cut) set(s.c, { o: 1 });
     else { const kin = p(t, s.t0, 0.22, E.outCubic); set(s.c, { x: (1 - kin) * 160 * s.dir, o: clamp(kin * 1.8) }); }
     if (s.fn) s.fn(t);
