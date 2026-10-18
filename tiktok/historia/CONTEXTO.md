@@ -29,6 +29,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 ~1,2 pts/s; el dato raro y comprobable 0,3–0,5; la pregunta final ~2 pts/s; solo el 2–4 % veía la tarjeta final.
 
 ## Reglas vigentes (v3)
+00. STORYTELLING Y RITMO (19/10, manda sobre la duración): ver director/RUBRICA.md. Historia de corrido con conectores, pausas tras cada dato, tempo 0,92–0,95, gap 0,4–0,5, hasta 75–90 s si hace falta. Nada de frases telegráficas.
 0. DECISIÓN DEL USUARIO (17/10): NADA de votaciones ni de vídeos-respuesta a comentarios. El cierre es siempre una pregunta abierta y personal + «Os leo». ep23 (respuesta a Daniela) queda archivado.
 1. TEMA: cosas del día a día del espectador con historia oculta (palabras, letras, calendario, costumbres, su cuerpo, España). Filtro: toca su vida,
    le dice que está equivocado, lo puede comprobar en el momento, ángulo español, genera debate (≥4 de 5).
