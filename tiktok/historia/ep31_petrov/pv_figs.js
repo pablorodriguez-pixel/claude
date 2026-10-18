@@ -98,7 +98,7 @@ function mkCRT(pa, x, y, w, h, o = {}) {
 // estado de la pantalla: 'red' (alarma, parpadea), 'off' (apagada), 'dim'
 function crtState(c, t, mode = 'red') {
   const on = blink2(t);
-  if (mode === 'red') { c.scr.style.background = on ? '#E0202F' : '#8E0A1E'; c.glow.style.opacity = on ? 1 : 0.35; c.txt.style.opacity = on ? 1 : 0.55; }
+  if (mode === 'red') { c.scr.style.background = on ? '#E0202F' : '#5E0712'; c.glow.style.opacity = on ? 1 : 0.1; c.txt.style.opacity = on ? 1 : 0.3; }
   else if (mode === 'off') { c.scr.style.background = CRTOFF; c.glow.style.opacity = 0; c.txt.style.opacity = 0; }
   else { c.scr.style.background = '#5a1a20'; c.glow.style.opacity = 0.15; c.txt.style.opacity = 0.35; }
   set(c.sweep, { y: ((t * 260) % (c.sh + 80)) - 60 });

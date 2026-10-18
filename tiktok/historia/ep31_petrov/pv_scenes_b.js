@@ -8,7 +8,7 @@ headline(K.no6 - 0.06, S.G1[1], 'no *cinco*', { size: 124, hlT: K.cinco6, y: 186
 {
   const RK = [], R5 = [];
   const c = scene(S.G1[0], S.G1[1], t => {
-    popA(pL, t, S.G1[0] + 0.02, { r: -1.5 }); popA(pR, t, K.no6 - 0.1, { r: 1.5 });
+    popA(pL, t, S.G1[0] + 0.02, { r: -1.5 }); popA(pR, t, S.G1[0] + 0.15, { r: 1.5 });
     RK.forEach(q => set(q.e, { s: pop(t, q.t, 0.2) * q.s, r: q.r, o: t < q.t ? 0 : 1, y: t > q.t ? -(t - q.t) * 30 : 0 }));
     R5.forEach(q => set(q.e, { s: pop(t, q.t, 0.25) * 1.3, r: q.r, o: t < q.t ? 0 : 1, y: t > q.t ? -(t - q.t) * 20 : 0 }));
     popA(lC, t, K.cientos + 0.1, { r: -5 });
@@ -19,7 +19,7 @@ headline(K.no6 - 0.06, S.G1[1], 'no *cinco*', { size: 124, hlT: K.cinco6, y: 186
   const pL = panel(60, 'DE VERDAD', '#C9D3D8'), pR = panel(560, 'LA PANTALLA', '#E9C6BE');
   const r = rng(31);
   for (let i = 0; i < 64; i++) { const e = box(pL, 20 + r() * 400, 100 + r() * 600, 30, 80, { zIndex: 4 }); e.innerHTML = rocketSvg(); RK.push({ e, t: K.cientos - 0.15 + r() * 0.55, s: 0.6 + r() * 0.5, r: (r() - 0.5) * 30 }); }
-  [[140, 380], [300, 300], [210, 520], [90, 600], [330, 560]].forEach((q, i) => { const e = box(pR, q[0], q[1], 36, 96, { zIndex: 4 }); e.innerHTML = rocketSvg(); R5.push({ e, t: K.no6 + i * 0.07, r: (i - 2) * 6 }); });
+  [[140, 380], [300, 300], [210, 520], [90, 600], [330, 560]].forEach((q, i) => { const e = box(pR, q[0], q[1], 36, 96, { zIndex: 4 }); e.innerHTML = rocketSvg(); R5.push({ e, t: S.G1[0] + 0.3 + i * 0.07, r: (i - 2) * 6 }); });
   const lC = stamp(pL, 40, 380, 'CIENTOS', { size: 74, bw: 10, z: 20, bg: 'rgba(255,255,255,.94)', blend: 'normal', col: INK });
   const st5 = stamp(pR, 150, 640, '5', { size: 150, bw: 13, z: 20, bg: YEL, col: INK, blend: 'normal', font: 'Playfair' }); st5.style.fontWeight = 900;
 }
@@ -102,7 +102,7 @@ function STARS(c) { const r = rng(7); let s = ''; for (let i = 0; i < 40; i++) s
 /* ======================================================================
    H3 · «EL SATÉLITE LO TOMÓ POR UN COHETE.» — en la cabeza del satélite, el destello se convierte en cohete
    ====================================================================== */
-headline(S.H3[0], S.H3[1], 'El satélite lo tomó por *un cohete*', { size: 80, hlT: K.cohete, y: 196, color: '#fff', hlc: RED });
+headline(S.H3[0], S.H3[1], 'Lo tomó por *un cohete*', { size: 92, hlT: K.cohete, y: 196, color: '#fff', hlc: RED });
 {
   const c = scene(S.H3[0], S.H3[1], t => {
     set(sat.d, { s: pop(t, S.H3[0] + 0.02, 0.35), y: wobble(t, 0.6, 5), r: -3 });
@@ -294,7 +294,7 @@ headline(S.K2[0], S.K2[1], 'Tampoco *se supo…*', { size: 108, hlT: K.supo10, y
   rays(c, -160, 220, 1400, 24, 'rgba(43,33,24,.06)', 'rgba(0,0,0,0)', 0);
   const np = box(c, 360, 420, 560, 680, { zIndex: 4 }); np.innerHTML = newsInner(560, 680);
   el('div', np, { left: 0, top: '150px', width: '560px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: INK, zIndex: 2 }, 'PETROV');
-  const st4 = stamp(c, 370, 1000, '4 MESES<br>DESPUÉS', { size: 100, bw: 13, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' }); st4.style.textAlign = 'center';
+  const st4 = stamp(c, 310, 1000, '4 MESES<br>DESPUÉS', { size: 100, bw: 13, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' }); st4.style.textAlign = 'center';
   const sn = el('div', c, { left: '420px', top: '1250px', zIndex: 5 }, `<svg width="120" height="80" style="overflow:visible"><path d="M10,70 L110,70 Q118,60 104,58 L40,58 Z" fill="#B9C79A" stroke="${INK}" stroke-width="4"/><circle cx="70" cy="40" r="30" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M70,40 m-14,0 a14,14 0 1,1 14,14" stroke="${INK}" stroke-width="3" fill="none"/><path d="M104,58 L112,30 M110,58 L124,34" stroke="${INK}" stroke-width="3"/></svg>`);
 }
 

@@ -9,7 +9,7 @@
     set(cam, { s: 1 + 0.03 * p(t, 0, 3, E.linear) + 0.1 * kz });
     set(beam, { r: -30 + t * 70 });
     crtState(crt, t, 'red');
-    set(crt.txt, { x: blink2(t) ? 0 : 3, s: 1 + 0.03 * Math.sin(t * 25) });
+    set(crt.txt, { x: blink2(t) ? 0 : 3, s: 1 + 0.03 * Math.sin(t * 25), o: blink2(t) ? 1 : 0.3 });
     set(sil.d, { y: wobble(t, 0.5, 4), r: wobble(t, 0.4, 1) });
     sil.d.style.filter = `brightness(0) drop-shadow(${blink2(t) ? 7 : 4}px 0 0 #E0202F)`;
     set(glowBg, { o: blink2(t) ? 1 : 0.55 });
@@ -242,10 +242,10 @@ headline(S.D2[0], S.D2[1], '*Derribado:* un avión de pasajeros', { size: 80, hl
   sky.innerHTML = [cloudSvg(1300, 1920, 220, 560, 1.1), cloudSvg(1300, 1920, 900, 460, 0.8), cloudSvg(1300, 1920, 700, 1060, 1.3)].join('');
   const plW = box(c, 0, 0, 1080, 1920, { zIndex: 5 });
   const pl = mk(plW, [0, 560, 640, 220], planeInner(), '0 0 640 220', 'plane');
-  const fl = el('div', pl.d, { left: '250px', top: '60px', width: '160px', height: '160px', zIndex: 3 }, `<svg viewBox="-80 -80 160 160" width="160" height="160" style="overflow:visible"><path d="M0,-78 L18,-22 L76,-30 L28,8 L56,62 L0,30 L-56,62 L-28,8 L-76,-30 L-18,-22 Z" fill="${YEL}" stroke="${INK}" stroke-width="5"/><path d="M0,-40 L10,-12 L38,-14 L14,4 L28,32 L0,16 L-28,32 L-14,4 L-38,-14 L-10,-12 Z" fill="${RED}"/></svg>`);
+  const fl = el('div', pl.d, { left: '250px', top: '60px', width: '160px', height: '160px', zIndex: 3 }, `<svg viewBox="-80 -80 160 160" width="160" height="160" style="overflow:visible"><circle cx="-22" cy="6" r="34" fill="#8E8A80" stroke="${INK}" stroke-width="5"/><circle cx="20" cy="-10" r="40" fill="#A39A88" stroke="${INK}" stroke-width="5"/><circle cx="26" cy="26" r="28" fill="#8E8A80" stroke="${INK}" stroke-width="5"/></svg>`);
   const SM = [0, 1, 2, 3, 4].map(i => el('div', pl.d, { left: px(230 - i * 20), top: px(90 + i * 6), width: '90px', height: '70px', borderRadius: '50%', background: '#5E5A52', border: `4px solid ${INK}`, zIndex: 2 }));
   const chA = chip(c, 420, 880, 'avión de pasajeros', { size: 48, bg: '#fff', color: INK, z: 30 });
-  const stT = stamp(c, 440, 1000, 'TENSIÓN<br>MÁXIMA', { size: 92, bw: 13, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' }); stT.style.textAlign = 'center';
+  const stT = stamp(c, 360, 1000, 'TENSIÓN<br>MÁXIMA', { size: 92, bw: 13, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' }); stT.style.textAlign = 'center';
 }
 
 /* ======================================================================
@@ -282,15 +282,15 @@ headline(K.podia - 0.06, S.E2[1], 'podía hacer que *alguien* lo pulsara', { siz
     WV.forEach((w, i) => set(w, { o: t > K.aviso - 0.1 && t < K.aviso + 0.9 ? (Math.floor(t * 8 + i) % 3 ? 1 : 0.3) : 0 }));
     // la mano baja… y se congela a 2 mm
     const kh = p(t, K.alguien - 0.1, 0.4, E.outCubic), kp = p(t, K.pulsara - 0.05, 0.3, E.inCubic);
-    set(hand, { y: lerp(-420, -40, kh) + kp * 34 + (t > K.pulsara + 0.25 ? Math.sin(t * 40) * 1.5 : 0) });
+    set(hand, { y: lerp(-160, -40, kh) + kp * 34 + (t > K.pulsara + 0.25 ? Math.sin(t * 40) * 1.5 : 0) });
     set(pulse, { o: t > K.pulsara ? (blink2(t) ? 0.7 : 0.2) : 0 });
     popA(chP, t, S.E2[0] + 0.05, { r: -3 }); popA(chQ, t, K.alguien + 0.05, { r: 3 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E7D9BC' });
   box(c, 540, 0, 540, 1920, { zIndex: 0, background: '#E9C6BE' });
   const pulse = box(c, 540, 0, 540, 1920, { zIndex: 1, background: 'radial-gradient(circle at 50% 62%, rgba(224,32,47,.7), rgba(224,32,47,0) 60%)' });
-  const wall = box(c, 500, 380, 80, 1000, { zIndex: 8 });
-  { let b = ''; for (let y = 0; y < 1000; y += 50) b += `<path d="M0,${y} H80 M${(y / 50) % 2 ? 40 : 0},${y} V${y + 50}" stroke="${INK}" stroke-width="3"/>`; wall.innerHTML = `<svg width="80" height="1000" style="overflow:visible"><rect x="0" y="0" width="80" height="1000" fill="#B98A6A" stroke="${INK}" stroke-width="6"/>${b}<rect x="0" y="0" width="80" height="1000" fill="url(#hA)" opacity=".35"/></svg>`; }
+  const wall = box(c, 500, 440, 80, 940, { zIndex: 8 });
+  { let b = ''; for (let y = 0; y < 940; y += 50) b += `<path d="M0,${y} H80 M${(y / 50) % 2 ? 40 : 0},${y} V${y + 50}" stroke="${INK}" stroke-width="3"/>`; wall.innerHTML = `<svg width="80" height="940" style="overflow:visible"><rect x="0" y="0" width="80" height="940" fill="#B98A6A" stroke="${INK}" stroke-width="6"/>${b}<rect x="0" y="0" width="80" height="940" fill="url(#hA)" opacity=".35"/></svg>`; }
   const pv = mk(c, [60, 700, 420, 537], silPhoneInner(), '0 0 360 460', 'bust'); pv.d.style.zIndex = 4;
   const chP = chip(c, 120, 1220, 'PETROV', { size: 48, bg: '#fff', color: INK, z: 30 });
   const WV = [0, 1, 2].map(i => { const e = box(c, 40 - i * 26, 800 - i * 20, 60 + i * 30, 120 + i * 40, { zIndex: 5 }); e.innerHTML = `<svg width="${60 + i * 30}" height="${120 + i * 40}" style="overflow:visible"><path d="M${50 + i * 30},10 Q${10},${60 + i * 20} ${50 + i * 30},${110 + i * 40}" stroke="${INK}" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`; return e; });
