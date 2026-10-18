@@ -1,4 +1,5 @@
-# Ep28 Violet Jessop (VÍDEO, autoevaluación del animador) — VEREDICTO: ARREGLAR (78/100)
+# Ep28 Violet Jessop (VÍDEO v2, autoevaluación del animador) — VEREDICTO: PUBLICAR justo (80/100)
+v2 (con el visto bueno del coordinador): L0 regenerada (gancho de 3,17 s), L2 = «Un bebé. No era suyo. Al rescatarlos, una mujer se lo arrancó. Ni las gracias.» y tempo global 1,0. Voz 67,8 s, vídeo 68,2 s. Rótulo «SEGÚN SUS MEMORIAS» más grande (amarillo, 40 px) durante toda la L2. Lo que sigue es la v1, salvo esta cabecera y la puntuación.
 Pendiente del director INDEPENDIENTE (esta nota no cuenta como aprobación).
 
 Exposición estimada: banda B (se parece a **Einstein**: famoso conocido + «no era como te contaron»), techo A por compartidos. Es historia de otros: no le dice al espectador que algo SUYO es falso.
@@ -17,7 +18,7 @@ Puertas:
 - P9 ✅ una sola complicidad: cartel «DIMITO» del Vecino en «¿Tú lo dejas?».
 - P10 ✅ «¿Alguien se salvó del Titanic y le volvió a pasar?».
 
-Puntuación: Tema 17/25 · Gancho+portada 16/20 · Retención 15/20 · Conversación 12/15 · Chispa 13/15 · Factura 5/5 = **78/100**
+Puntuación v2: Tema 17/25 · Gancho+portada 17/20 · Retención 16/20 · Conversación 12/15 · Chispa 13/15 · Factura 5/5 = **80/100** (v1: Gancho 16 · Retención 15 · Conversación 12/15 · Chispa 13/15 · Factura 5/5 = **78/100**
 
 Fugas de retención:
 - 0–4,3 s: el gancho dura 4,25 s. Es lento para el 40 % que se va en 5 s. El plano se mueve (la proa se inclina, el agua sube, Violet sale del agua y cae un lazo con «?»).
