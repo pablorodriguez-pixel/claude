@@ -41,7 +41,8 @@ Napoleón ≈ 13 · OK ≈ 13 · Aventicum ≈ 12 · Vikingos ≈ 6 · Aladino v
 El usuario rechaza el estilo telegráfico: frases de 2–4 palabras («Es que no existía.») que pasan antes de que dé tiempo a oírlas o verlas, y saltos que obligan a ir hilando.
 1. Se cuenta como una historia de bar: frases completas unidas con conectores («así que», «pero», «y entonces», «al final»), en orden causal. Nada de frases sueltas de una idea a medias.
 2. Cada dato clave tiene su respiro: pausa de 0,6–0,9 s después (gap_after) y el plano que lo enseña aguanta ≥ 1,5 s.
-3. Voz a tempo 0,92–0,95, gap 0,40–0,50, inner_cap ≥ 0,45. Prohibido acelerar líneas o apretar pausas para encajar en 65 s.
+3. El problema NO es la velocidad: Napoleón (64 mil) va a tempo 1,08 y gap 0,28, pero con 12 frases largas y completas (media 5,5 s). Lo que falla es trocear. Voz a tempo 1,0, gap 0,35, gap_after 0,5 tras cada revelación. Prohibido partir una idea en frases de 2–4 palabras.
+6. Plantilla Napoleón: gancho que contradice (≤ 3,5 s) → respuesta en una frase → marca → pregunta + bucle numerado («Por tres cosas» / «En tres pasos») → Una / Dos / Tres (una frase larga cada una) → Ojo → «O sea» con el remate más fuerte → pregunta personal + «Os leo».
 4. Menos datos y mejor contados. La duración puede llegar a 75–90 s si la historia lo pide y no hay huecos.
 5. Los subtítulos tienen que poder leerse: una frase no puede pasar en menos de 1,5 s.
 
