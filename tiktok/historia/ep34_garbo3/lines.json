@@ -30,64 +30,64 @@
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se ofreció a los alemanes... para engañarlos desde dentro.",
+  "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se hizo espía de los alemanes... para engañarlos y que los ingleses por fin le hicieran caso.",
   "s": 15.662,
-  "e": 23.498
+  "e": 24.297
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa.",
-  "s": 23.998,
-  "e": 31.352
+  "s": 24.797,
+  "e": 32.151
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Y tres: como un espía solo no daba para tanto, se inventó otros veintisiete. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
-  "s": 31.852,
-  "e": 40.884
+  "text": "Y tres: como un espía solo no daba para tanto, se inventó a otros espías que trabajaban para él. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
+  "s": 32.651,
+  "e": 42.325
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Al final, los ingleses vieron lo bueno que era y le ficharon. Y llegó el gran día: el desembarco de Normandía.",
-  "s": 41.384,
-  "e": 47.859
+  "text": "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos inflaron la red hasta veintisiete espías inventados. Y llegó el gran día: el desembarco de Normandía.",
+  "s": 42.825,
+  "e": 54.414
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Pujol avisó a Hitler de que era una trampa, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
-  "s": 48.209,
-  "e": 57.242
+  "text": "Pujol avisó a Hitler de que Normandía era solo una distracción, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
+  "s": 54.764,
+  "e": 65.798
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "Ojo: después fingió su propia muerte y se fue a vivir a Venezuela.",
-  "s": 57.742,
-  "e": 61.74
+  "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño.",
+  "s": 66.298,
+  "e": 73.256
  },
  {
   "line": 10,
   "who": "VECINO",
-  "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño.",
-  "s": 62.09,
-  "e": 69.049
+  "text": "Y ojo, que aún hay más: años después fingió su propia muerte en África, y se fue a vivir tan tranquilo a Venezuela.",
+  "s": 73.756,
+  "e": 80.627
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo.",
-  "s": 69.549,
-  "e": 73.622
+  "s": 81.127,
+  "e": 85.2
  },
  {
   "line": 12,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 73.972,
-  "e": 76.337
+  "s": 85.55,
+  "e": 87.915
  }
 ]

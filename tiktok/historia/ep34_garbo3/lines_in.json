@@ -28,7 +28,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se ofreció a los alemanes... para engañarlos desde dentro.",
+   "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se hizo espía de los alemanes... para engañarlos y que los ingleses por fin le hicieran caso.",
    "gap_after": 0.5
   },
   {
@@ -38,25 +38,26 @@
   },
   {
    "who": "VECINO",
-   "text": "Y tres: como un espía solo no daba para tanto, se inventó otros veintisiete. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
+   "text": "Y tres: como un espía solo no daba para tanto, se inventó a otros espías que trabajaban para él. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
    "gap_after": 0.5
   },
   {
    "who": "VECINO",
-   "text": "Al final, los ingleses vieron lo bueno que era y le ficharon. Y llegó el gran día: el desembarco de Normandía."
+   "text": "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos inflaron la red hasta veintisiete espías inventados. Y llegó el gran día: el desembarco de Normandía."
   },
   {
    "who": "VECINO",
-   "text": "Pujol avisó a Hitler de que era una trampa, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
+   "text": "Pujol avisó a Hitler de que Normandía era solo una distracción, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
    "gap_after": 0.5
-  },
-  {
-   "who": "VECINO",
-   "text": "Ojo: después fingió su propia muerte y se fue a vivir a Venezuela."
   },
   {
    "who": "VECINO",
    "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ojo, que aún hay más: años después fingió su propia muerte en África, y se fue a vivir tan tranquilo a Venezuela.",
    "gap_after": 0.5
   },
   {
