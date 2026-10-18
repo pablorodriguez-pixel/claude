@@ -54,8 +54,8 @@ function medalCross(pa, x, y, w, o = {}) {
   const hit = mk(cam, [40, 930, 400, 511], hitlerInner(), '0 0 360 460', 'bust'); hit.d.style.zIndex = 30;
   const pj = mk(cam, [580, 960, 360, 460], pujolInner(), '0 0 360 460', 'bust'); pj.d.style.zIndex = 30;
   const qm = qMark(cam, 712, 1010, 150, YEL); qm.style.zIndex = 34;
-  const chE = chip(cam, 600, 1240, 'un español', { size: 46, bg: YEL, color: INK, z: 40 });
-  const stE = stamp(cam, 70, 1110, '¡ENGAÑADO!', { size: 76, bw: 11, z: 66, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const chE = chip(cam, 610, 880, 'un español', { size: 46, bg: YEL, color: INK, z: 40 });
+  const stE = stamp(cam, 50, 990, '¡ENGAÑADO!', { size: 70, bw: 11, z: 66, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================

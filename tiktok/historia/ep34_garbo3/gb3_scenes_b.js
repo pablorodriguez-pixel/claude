@@ -83,7 +83,7 @@ function orgTree(cam, o = {}) {
    ====================================================================== */
 {
   const c = scene(S.F1[0], S.F1[1], t => {
-    set(g1.d, { s: pop(t, S.F1[0], 0.3), y: wobble(t, 0.5, 3) }); set(g2.d, { s: pop(t, S.F1[0] + 0.08, 0.3), y: wobble(t, 0.5, 3, 1), o: t < S.F1[0] + 0.08 ? 0 : 1 });
+    set(g1.d, { s: 1, y: wobble(t, 0.5, 3) }); set(g2.d, { s: 1, y: wobble(t, 0.5, 3, 1), o: 1 });
     face(g1, t, { look: [6, 6], bL: 4, bR: 4, seed: 1 }); face(g2, t, { look: [-6, 6], bL: 4, bR: 4, seed: 2 });
     set(rep, { s: pop(t, K.ingleses7 - 0.1, 0.3), r: -3 + wobble(t, 0.5, 0.6), o: t < K.ingleses7 - 0.1 ? 0 : 1 });
     set(lup, { x: Math.sin(t * 3) * 40, y: Math.cos(t * 3) * 10, o: t > K.vieron - 0.1 ? 1 : 0 });

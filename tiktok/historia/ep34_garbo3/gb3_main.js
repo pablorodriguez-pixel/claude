@@ -19,7 +19,8 @@ function updBanners(t) {
     if (!B.fit) { const w0 = B.bt.offsetWidth; if (w0 > 0) { B.fit = Math.min(1, 640 / w0); B.bt.style.transform = `scale(${f1(B.fit * 100) / 100})`; } }
     const prev = BANNERS[i - 1], chain = prev && Math.abs(prev.t1 - B.t0) < 0.05;
     const k = p(t, B.t0, chain ? 0.22 : 0.32, E.outBack);
-    set(B.b, { x: chain ? 0 : (1 - k) * -1000, s: chain ? 0.92 + 0.08 * k : 1, r: -1.2 + wobble(t, 0.35, 0.4), o: clamp(chain ? k * 2 : 1) * (1 - p(t, B.t1 - 0.1, 0.1)) });
+    const nxt = BANNERS[i + 1], chainOut = nxt && Math.abs(nxt.t0 - B.t1) < 0.05;
+    set(B.b, { x: chain ? 0 : (1 - k) * -1000, s: chain ? 0.96 + 0.04 * k : 1, r: -1.2 + wobble(t, 0.35, 0.4), o: chainOut ? 1 : 1 - p(t, B.t1 - 0.1, 0.1) });
     set(B.bd, { s: lerp(1.8, 1, p(t, B.t0 + 0.05, 0.22, E.outCubic)), r: -8 + Math.sin(t * 2) * 3 });
     B.hl.forEach(e => { e.style.transform = `scaleX(${f1(p(t, B.t0 + 0.25, 0.4, E.outCubic) * 1000) / 1000}) rotate(-1.2deg)`; });
   });
