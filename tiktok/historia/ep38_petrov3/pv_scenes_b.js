@@ -135,7 +135,7 @@ function phoneRig(c, crtY = 300) {
     set(offT, { o: off ? 1 : 0 });
     set(bb, { s: pop(t, K.es6 - 0.05, 0.3), r: -2, o: t < K.es6 - 0.05 ? 0 : 1 });
     BW.forEach(w => set(w.e, { o: t >= w.t - 0.04 ? 1 : 0, y: (1 - p(t, w.t - 0.04, 0.2, E.outBack)) * 20 }));
-    stampA(stF, t, K.falsa, -6, 1);
+    stampA(stF, t, K.una6, -6, 1);
     popA(lbJ, t, S.F2b[0] + 0.02, { r: -2 });
     set(sl.d, { y: wobble(t, 0.5, 3) });
   }, { clip: true, cut: true });

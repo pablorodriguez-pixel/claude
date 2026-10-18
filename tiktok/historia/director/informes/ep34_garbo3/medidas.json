@@ -77,31 +77,31 @@
   {
    "n": 9,
    "s": 66.298,
-   "e": 73.256,
-   "dur": 6.96,
-   "palabras": 19,
-   "texto": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño."
+   "e": 77.427,
+   "dur": 11.13,
+   "palabras": 32,
+   "texto": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño. Dos medallas por una mentira: ni tu mejor excusa ha llegado tan lejos."
   },
   {
    "n": 10,
-   "s": 73.756,
-   "e": 80.627,
+   "s": 78.027,
+   "e": 84.898,
    "dur": 6.87,
    "palabras": 23,
    "texto": "Y ojo, que aún hay más: años después fingió su propia muerte en África, y se fue a vivir tan tranquilo a Venezuela."
   },
   {
    "n": 11,
-   "s": 81.127,
-   "e": 85.2,
+   "s": 85.398,
+   "e": 89.471,
    "dur": 4.07,
    "palabras": 16,
    "texto": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo."
   },
   {
    "n": 12,
-   "s": 85.55,
-   "e": 87.915,
+   "s": 89.821,
+   "e": 92.186,
    "dur": 2.37,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -120,9 +120,9 @@
  "cta_tipo": "abierta",
  "cta_texto": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo.",
  "n_lineas": 13,
- "n_palabras": 259,
- "duracion_voz": 87.92,
- "ppm": 176.8,
+ "n_palabras": 272,
+ "duracion_voz": 92.19,
+ "ppm": 177.0,
  "lineas_mas_largas": [
   [
    7,
@@ -130,16 +130,16 @@
    "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos "
   ],
   [
+   9,
+   11.13,
+   "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra m"
+  ],
+  [
    8,
    11.03,
    "Pujol avisó a Hitler de que Normandía era solo una distracción, y de q"
-  ],
-  [
-   6,
-   9.67,
-   "Y tres: como un espía solo no daba para tanto, se inventó a otros espí"
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep34_garbo3/final.mp4",
- "duracion_video": 88.53
+ "duracion_video": 92.8
 }
