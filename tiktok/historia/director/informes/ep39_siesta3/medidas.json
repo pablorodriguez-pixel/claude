@@ -5,87 +5,87 @@
   {
    "n": 0,
    "s": 0.12,
-   "e": 3.534,
-   "dur": 3.41,
+   "e": 3.442,
+   "dur": 3.32,
    "palabras": 12,
-   "texto": "¡Siesta es un número! Y te lo echas casi todos los días."
+   "texto": "¡Siesta es un número! Y te la echas casi todos los días."
   },
   {
    "n": 1,
-   "s": 4.134,
-   "e": 7.653,
+   "s": 4.042,
+   "e": 7.561,
    "dur": 3.52,
    "palabras": 10,
    "texto": "Viene del latín «sexta»: la hora sexta de los romanos."
   },
   {
    "n": 2,
-   "s": 8.153,
-   "e": 11.264,
+   "s": 8.061,
+   "e": 11.172,
    "dur": 3.11,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 11.614,
-   "e": 14.972,
+   "s": 11.522,
+   "e": 14.88,
    "dur": 3.36,
    "palabras": 11,
    "texto": "¿Y cómo acaba un número siendo tu siesta? En tres pasos."
   },
   {
    "n": 4,
-   "s": 15.472,
-   "e": 23.469,
+   "s": 15.38,
+   "e": 23.377,
    "dur": 8.0,
    "palabras": 21,
    "texto": "Uno: los romanos no contaban las horas desde medianoche, sino desde que salía el sol: la primera, la segunda, la tercera..."
   },
   {
    "n": 5,
-   "s": 23.969,
-   "e": 29.725,
+   "s": 23.877,
+   "e": 29.633,
    "dur": 5.76,
    "palabras": 21,
    "texto": "Dos: si el sol sale a las seis de la mañana, la hora sexta cae justo a las doce del mediodía."
   },
   {
    "n": 6,
-   "s": 30.225,
-   "e": 39.256,
+   "s": 30.133,
+   "e": 39.164,
    "dur": 9.03,
    "palabras": 25,
    "texto": "Y tres: a esa hora, con el calor, se paraba a comer y a descansar. Y descansar en la sexta... acabó siendo «echar la siesta»."
   },
   {
    "n": 7,
-   "s": 39.756,
-   "e": 46.392,
-   "dur": 6.64,
-   "palabras": 21,
-   "texto": "Ojo: la primera hora iba de seis a siete. Así que la sexta era la que terminaba justo a las doce."
+   "s": 39.664,
+   "e": 43.736,
+   "dur": 4.07,
+   "palabras": 17,
+   "texto": "Ojo: la primera hora iba de seis a siete, así que la sexta acababa a las doce."
   },
   {
    "n": 8,
-   "s": 46.742,
-   "e": 56.252,
+   "s": 44.086,
+   "e": 53.597,
    "dur": 9.51,
    "palabras": 30,
    "texto": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas tarde... hasta a tu propia siesta."
   },
   {
    "n": 9,
-   "s": 56.752,
-   "e": 58.981,
+   "s": 54.097,
+   "e": 56.326,
    "dur": 2.23,
    "palabras": 9,
    "texto": "¿A qué hora te la echas tú? Os leo."
   },
   {
    "n": 10,
-   "s": 59.331,
-   "e": 61.774,
+   "s": 56.676,
+   "e": 59.119,
    "dur": 2.44,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -93,20 +93,20 @@
  ],
  "primera_palabra": "siesta",
  "primera_palabra_muletilla": false,
- "gancho_dur": 3.41,
+ "gancho_dur": 3.32,
  "gancho_palabras": 12,
  "gancho_apela_a_ti": true,
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 8.153,
- "ojo_dur": 6.64,
+ "marca_inicio_s": 8.061,
+ "ojo_dur": 4.07,
  "cta_tipo": "abierta",
  "cta_texto": "¿A qué hora te la echas tú? Os leo.",
  "n_lineas": 11,
- "n_palabras": 177,
- "duracion_voz": 61.77,
- "ppm": 171.9,
+ "n_palabras": 173,
+ "duracion_voz": 59.12,
+ "ppm": 175.6,
  "lineas_mas_largas": [
   [
    8,
@@ -125,5 +125,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep39_siesta3/final.mp4",
- "duracion_video": 62.4
+ "duracion_video": 59.73
 }

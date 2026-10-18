@@ -17,3 +17,4 @@ Publicación: post «Cada vez que te echas la siesta dices un número en latín 
 - Duración: 61,9 s. QA de audio OK: SNR 27,8 dB, −14,1 LUFS.
 - A verificar: «cuatro horas tarde» cuenta de la sexta a la décima (son 4 horas romanas). Con el sol a las 6, las 15:30 caen en la décima (15–16 h). El Ojo dura 6,6 s, por encima del objetivo de 6 s.
 - Vuelta 3: L8 regenerada con «Llegas tarde... hasta a tu propia siesta.» (137 c; total 1.329). Sello «¡TARDE!» en «tarde». Duración 62,4 s.
+- Vuelta 4 (independiente2, 76): L7 «Ojo: la primera hora iba de seis a siete, así que la sexta acababa a las doce.» (4,07 s); L0 «Y te la echas» con [excited] (3 tomas; la elegida: Whisper oye «Si esta es» = «Siesta es»); CTA a tamaño completo desde su primer fotograma; tira mini I…X con la X en rojo bajo «es la décima» (R1b alargado hasta «tarde»). 276 caracteres (total 1.605). Duración 59,7 s; pico real del mp4 −2,2 dBTP.
