@@ -5,141 +5,141 @@
   {
    "n": 0,
    "s": 0.12,
-   "e": 2.446,
-   "dur": 2.33,
+   "e": 2.366,
+   "dur": 2.25,
    "palabras": 10,
    "texto": "¡Hitler le dio una medalla al español que le engañó!"
   },
   {
    "n": 1,
-   "s": 2.796,
-   "e": 7.034,
-   "dur": 4.24,
+   "s": 2.586,
+   "e": 6.67,
+   "dur": 4.08,
    "palabras": 12,
    "texto": "Se llamaba Juan Pujol, era de Barcelona, y nunca había sido espía."
   },
   {
    "n": 2,
-   "s": 7.534,
-   "e": 10.651,
-   "dur": 3.12,
+   "s": 7.17,
+   "e": 10.177,
+   "dur": 3.01,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 11.001,
-   "e": 15.312,
-   "dur": 4.31,
+   "s": 10.397,
+   "e": 14.561,
+   "dur": 4.16,
    "palabras": 13,
    "texto": "¿Cómo engaña a Hitler un señor que no era espía? En tres pasos."
   },
   {
    "n": 4,
-   "s": 15.662,
-   "e": 24.297,
-   "dur": 8.63,
+   "s": 14.781,
+   "e": 23.097,
+   "dur": 8.32,
    "palabras": 29,
    "texto": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se hizo espía de los alemanes... para engañarlos y que los ingleses por fin le hicieran caso."
   },
   {
    "n": 5,
-   "s": 24.797,
-   "e": 32.151,
-   "dur": 7.35,
+   "s": 23.597,
+   "e": 30.678,
+   "dur": 7.08,
    "palabras": 24,
    "texto": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa."
   },
   {
    "n": 6,
-   "s": 32.651,
-   "e": 42.325,
-   "dur": 9.67,
+   "s": 31.178,
+   "e": 40.494,
+   "dur": 9.32,
    "palabras": 30,
    "texto": "Y tres: como un espía solo no daba para tanto, se inventó a otros espías que trabajaban para él. Ninguno existía... y los alemanes les pagaban el sueldo a todos."
   },
   {
    "n": 7,
-   "s": 42.825,
-   "e": 54.414,
-   "dur": 11.59,
+   "s": 40.994,
+   "e": 52.155,
+   "dur": 11.16,
    "palabras": 29,
    "texto": "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos inflaron la red hasta veintisiete espías inventados. Y llegó el gran día: el desembarco de Normandía."
   },
   {
    "n": 8,
-   "s": 54.764,
-   "e": 65.798,
-   "dur": 11.03,
+   "s": 52.375,
+   "e": 63.001,
+   "dur": 10.63,
    "palabras": 37,
    "texto": "Pujol avisó a Hitler de que Normandía era solo una distracción, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó."
   },
   {
    "n": 9,
-   "s": 66.298,
-   "e": 77.427,
-   "dur": 11.13,
+   "s": 63.501,
+   "e": 74.233,
+   "dur": 10.73,
    "palabras": 32,
    "texto": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño. Dos medallas por una mentira: ni tu mejor excusa ha llegado tan lejos."
   },
   {
    "n": 10,
-   "s": 78.027,
-   "e": 84.898,
-   "dur": 6.87,
+   "s": 74.733,
+   "e": 81.365,
+   "dur": 6.63,
    "palabras": 23,
    "texto": "Y ojo, que aún hay más: años después fingió su propia muerte en África, y se fue a vivir tan tranquilo a Venezuela."
   },
   {
    "n": 11,
-   "s": 85.398,
-   "e": 89.471,
-   "dur": 4.07,
+   "s": 81.865,
+   "e": 85.801,
+   "dur": 3.94,
    "palabras": 16,
    "texto": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo."
   },
   {
    "n": 12,
-   "s": 89.821,
-   "e": 92.186,
-   "dur": 2.37,
+   "s": 86.021,
+   "e": 88.316,
+   "dur": 2.3,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
   }
  ],
  "primera_palabra": "hitler",
  "primera_palabra_muletilla": false,
- "gancho_dur": 2.33,
+ "gancho_dur": 2.25,
  "gancho_palabras": 10,
  "gancho_apela_a_ti": false,
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 7.534,
+ "marca_inicio_s": 7.17,
  "ojo_dur": null,
  "cta_tipo": "abierta",
  "cta_texto": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo.",
  "n_lineas": 13,
  "n_palabras": 272,
- "duracion_voz": 92.19,
- "ppm": 177.0,
+ "duracion_voz": 88.32,
+ "ppm": 184.8,
  "lineas_mas_largas": [
   [
    7,
-   11.59,
+   11.16,
    "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos "
   ],
   [
    9,
-   11.13,
+   10.73,
    "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra m"
   ],
   [
    8,
-   11.03,
+   10.63,
    "Pujol avisó a Hitler de que Normandía era solo una distracción, y de q"
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep34_garbo3/final.mp4",
- "duracion_video": 92.8
+ "duracion_video": 88.9
 }
