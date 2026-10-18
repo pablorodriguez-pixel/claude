@@ -72,3 +72,17 @@ El que ya sabe lo de la sexta se va en el s 8. Lo frenan el rótulo «y no es lo
 ## Publicación
 - **Post:** «Cada vez que te echas la siesta dices un número en latín 😴 Y los ingleses, otro. #historia #curiosidades #siesta #palabras»
 - **Comentario fijado:** «Confiesa: ¿a qué hora te la echas y cuánto dura DE VERDAD? Dime también tu país 👇🎩»
+
+## Vuelta 2 (arreglos 1–7 del independiente, sin voz) — nuevo render con flock + audio.py OK (SNR 28,1 dB, −14,1 LUFS)
+1. Rótulo «y no es lo más raro…»: píldora rosa de 66 px, centrada a y=1170 y fuera de la ficha. Va de 11,5 a 14,5 s (K.rae+0,3 → K.romanos+2,75), entra con un golpe y no se desvanece antes. El óvalo se oculta en ese tramo para no taparlo.
+2. Pantalla partida viva:
+   - El panel NOON se empuja (+3 %) durante L11.
+   - La aguja de abajo gira rápido («clockfast») desde «de los ingleses» hasta las 3.
+   - En «tres», el inglés sorbe el té; en «y lo dicen», abre la boca y da un respingo.
+   - freezedetect (n=0,01, d=1,5) ya no detecta parada en 46–51 s.
+3. Sin precarga: en L10 el panel NOON está al 25 % de opacidad y sin agujas hasta K.y11−0,2.
+4. El cartel SEXTA baja a y=475 y ya no tapa la 2.ª línea del titular.
+5. Monje: el titular sube a y=250 y el reloj pasa a (640, 540, 300). «hasta la nona» queda libre.
+6. El Vecino del libro baja a y=330, así que el bombín ya no tapa «…en el libro.».
+7. Portada: el señor tiene los ojos dormidos con arcos «‿» gruesos (también en la hamaca), y las Z van a 150 px (mínimo ~112 px en pantalla).
+Queda: freezedetect marca 1,8 s casi quietos en 43,6–45,4 s (L10, panel de arriba entre «doce» y «tres»: solo se mueven la hamaca y la aguja).
