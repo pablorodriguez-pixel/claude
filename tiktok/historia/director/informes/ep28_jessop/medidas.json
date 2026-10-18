@@ -1,0 +1,145 @@
+{
+ "episodio": "ep28_jessop",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 4.375,
+   "dur": 4.25,
+   "palabras": 8,
+   "texto": "¡Titanic! Tú no salías vivo. Esta camarera, sí."
+  },
+  {
+   "n": 1,
+   "s": 4.575,
+   "e": 8.489,
+   "dur": 3.91,
+   "palabras": 12,
+   "texto": "Violet Yésop, nacida en Argentina. En el bote le lanzan un bulto..."
+  },
+  {
+   "n": 2,
+   "s": 8.689,
+   "e": 16.123,
+   "dur": 7.43,
+   "palabras": 17,
+   "texto": "Un bebé. Que no era suyo. Al rescatarlos, cuenta, una mujer se lo arrancó. Ni las gracias."
+  },
+  {
+   "n": 3,
+   "s": 16.323,
+   "e": 23.004,
+   "dur": 6.68,
+   "palabras": 17,
+   "texto": "¿Fin? Qué va: el Titanic no fue el único. Tenía dos gemelos... y ella, en los tres."
+  },
+  {
+   "n": 4,
+   "s": 23.204,
+   "e": 29.31,
+   "dur": 6.11,
+   "palabras": 16,
+   "texto": "Al Olympic lo embistió un buque de guerra. ¿Tú lo dejas? Ella se pasó... al Titanic."
+  },
+  {
+   "n": 5,
+   "s": 29.51,
+   "e": 34.398,
+   "dur": 4.89,
+   "palabras": 11,
+   "texto": "Y el Britannic, de enfermera. Una mina... y vuelve al camarote."
+  },
+  {
+   "n": 6,
+   "s": 34.598,
+   "e": 39.965,
+   "dur": 5.37,
+   "palabras": 14,
+   "texto": "¿A por qué? A por el cepillo de dientes. Del Titanic salió sin él."
+  },
+  {
+   "n": 7,
+   "s": 40.165,
+   "e": 46.44,
+   "dur": 6.27,
+   "palabras": 15,
+   "texto": "Sube a un bote... y el agua lo arrastra a las hélices, que siguen girando."
+  },
+  {
+   "n": 8,
+   "s": 46.64,
+   "e": 52.67,
+   "dur": 6.03,
+   "palabras": 14,
+   "texto": "Salta. Golpe en la cabeza... y sale viva. Con el cráneo roto, según contó."
+  },
+  {
+   "n": 9,
+   "s": 52.87,
+   "e": 58.404,
+   "dur": 5.53,
+   "palabras": 12,
+   "texto": "¿Y después? Volvió al mar. Dio la vuelta al mundo... en barco."
+  },
+  {
+   "n": 10,
+   "s": 58.604,
+   "e": 64.542,
+   "dur": 5.94,
+   "palabras": 15,
+   "texto": "Tres barcos lo intentaron. Ninguno pudo. Murió a los ochenta y tres, en tierra firme."
+  },
+  {
+   "n": 11,
+   "s": 64.742,
+   "e": 67.241,
+   "dur": 2.5,
+   "palabras": 8,
+   "texto": "¿Tú volverías a subirte a uno? Os leo."
+  },
+  {
+   "n": 12,
+   "s": 67.441,
+   "e": 70.681,
+   "dur": 3.24,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "titanic",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 4.25,
+ "gancho_palabras": 8,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 12,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 67.441,
+ "ojo_dur": null,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Tú volverías a subirte a uno? Os leo.",
+ "n_lineas": 13,
+ "n_palabras": 169,
+ "duracion_voz": 70.68,
+ "ppm": 143.5,
+ "lineas_mas_largas": [
+  [
+   2,
+   7.43,
+   "Un bebé. Que no era suyo. Al rescatarlos, cuenta, una mujer se lo arra"
+  ],
+  [
+   3,
+   6.68,
+   "¿Fin? Qué va: el Titanic no fue el único. Tenía dos gemelos... y ella,"
+  ],
+  [
+   7,
+   6.27,
+   "Sube a un bote... y el agua lo arrastra a las hélices, que siguen gira"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep28_jessop/final.mp4",
+ "duracion_video": 71.3
+}
