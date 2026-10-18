@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¡Si tu nevera está así, la comida se te estropea antes de tiempo!",
+  "s": 0.12,
+  "e": 4.022
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Dos cosas que puedes arreglar hoy mismo.",
+  "s": 4.122,
+  "e": 6.466
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Una: la temperatura. Tiene que estar a unos cuatro grados.",
+  "s": 6.616,
+  "e": 10.074
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "El truco: deja un vaso de agua con un termómetro en la balda del medio, y al día siguiente, míralo.",
+  "s": 10.224,
+  "e": 16.296
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Si marca más de cinco, ponla más fría.",
+  "s": 16.446,
+  "e": 18.699
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Dos: lo crudo, siempre abajo.",
+  "s": 18.849,
+  "e": 21.1
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "La carne y el pescado, en la última balda. Si gotean, no caen sobre lo que ya está listo para comer.",
+  "s": 21.25,
+  "e": 27.062
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Y la puerta es la zona menos fría: para bebidas y salsas.",
+  "s": 27.212,
+  "e": 30.853
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "Guárdate este vídeo para cuando ordenes la nevera... y sígueme, que cada día te traigo dos más.",
+  "s": 31.003,
+  "e": 36.291
+ }
+]
