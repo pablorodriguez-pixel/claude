@@ -101,7 +101,9 @@ const STRAW = (col = '#E2C27A') => {
   let st = ''; for (let k = 0; k < 7; k++) st += `<path d="M${40 + k * 46},${160 - Math.abs(3 - k) * 4} q24,-10 46,0" stroke="${INK}" stroke-width="1.6" fill="none" opacity=".45"/>`;
   return cut(P(crown) + P(brim), 4, 6) + D(brim, col, 4) + st + D(crown, col, 4) + `<path d="${crown}" fill="url(#hA)" opacity=".3"/><path d="M121,128 L239,128 L240,148 L120,148 Z" fill="${RED}" stroke="${INK}" stroke-width="3"/>`;
 };
-function sleeperInner() { return bustInner({ uniform: 'farmer', moustache: true, seed: 33 }) + STRAW(); }
+// ojos dormidos que se leen a 150 px: párpados tapados + arcos «‿» gruesos
+const SLEEPEYES = () => `<ellipse cx="156" cy="204" rx="16" ry="13" fill="${FIG}"/><ellipse cx="204" cy="204" rx="16" ry="13" fill="${FIG}"/><path d="M138,198 Q156,220 174,198 M186,198 Q204,220 222,198" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/>`;
+function sleeperInner(sleep = false) { return bustInner({ uniform: 'farmer', moustache: true, seed: 33 }) + (sleep ? SLEEPEYES() : '') + STRAW(); }
 // romano: toga + corona de laurel
 const TOGA = () => {
   const tg = 'M28,460 C32,384 80,338 140,328 L220,328 C280,338 328,384 332,460 Z', sash = 'M210,330 C250,360 270,420 262,460 L200,460 C210,420 196,370 160,334 Z';

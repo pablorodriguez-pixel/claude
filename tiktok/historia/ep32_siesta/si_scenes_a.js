@@ -1,9 +1,9 @@
 /* Ep. 32 · escenas L0–L7 (todo clavado por texto vía K) */
 const SHADOW_SPIN = t => 1.2 + t * 0.55; // la sombra del reloj de sol de la portada avanza siempre (bucle: misma fórmula en t=0)
-function zzz(pa, x, y, n = 5) { // «Z» que suben y se convierten en «?» rosas
+function zzz(pa, x, y, n = 5, sz = 150) { // «Z» que suben y se convierten en «?» rosas
   const Z = [];
   for (let i = 0; i < n; i++) {
-    const e = el('div', pa, { left: px(x), top: px(y), fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1, color: INK, textShadow: `4px 4px 0 rgba(255,255,255,.8)`, zIndex: 30 }, 'Z');
+    const e = el('div', pa, { left: px(x), top: px(y), fontFamily: 'Playfair', fontWeight: 900, fontSize: px(sz), lineHeight: 1, color: INK, textShadow: `4px 4px 0 rgba(255,255,255,.8)`, zIndex: 30 }, 'Z');
     Z.push(e);
   }
   return t => Z.forEach((e, i) => {
@@ -12,7 +12,7 @@ function zzz(pa, x, y, n = 5) { // «Z» que suben y se convierten en «?» rosa
     e.textContent = q ? '?' : 'Z';
     e.style.color = q ? PINK : INK;
     e.style.textShadow = q ? `4px 4px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}` : `4px 4px 0 rgba(255,255,255,.8)`;
-    set(e, { x: ph * 260 + Math.sin(ph * 9 + i) * 30, y: -ph * (pa.zR || 420), s: 0.5 + ph * 0.9, r: -14 + Math.sin(ph * 6) * 12, o: clamp(ph * 6) * clamp((1 - ph) * 5) });
+    set(e, { x: ph * 260 + Math.sin(ph * 9 + i) * 30, y: -ph * (pa.zR || 420), s: 0.75 + ph * 0.6, r: -14 + Math.sin(ph * 6) * 12, o: clamp(ph * 6) * clamp((1 - ph) * 5) });
   });
 }
 
@@ -44,7 +44,7 @@ function zzz(pa, x, y, n = 5) { // «Z» que suben y se convierten en «?» rosa
   const l2 = BIGT(cam, 0, 455, 1080, `UN ${hlSpan('NÚMERO', 'hn0')}?`, { fontSize: '134px', textShadow: `8px 8px 0 rgba(43,33,24,.25)`, zIndex: 40 });
   l2.querySelector('.hn0').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const dial = mkDial(cam, 90, 680, 900, { z: 6 });
-  const man = mk(cam, [10, 900, 420, 537], sleeperInner(), '0 0 360 460', 'bust'); man.d.style.zIndex = 12;
+  const man = mk(cam, [10, 900, 420, 537], sleeperInner(true), '0 0 360 460', 'bust'); man.d.style.zIndex = 12;
   zf = zzz(cam, 250, 1130, 5);
   const bigQ = qMark(cam, 610, 690, 300, PINK); bigQ.style.zIndex = 35;
 }
@@ -215,7 +215,7 @@ headline(S.F1[0], S.F1[1], 'Y descansar *a la sexta*…', { size: 84, hlT: K.sex
   box(c, 0, 1060, 1080, 860, { zIndex: 4, background: '#B9A27E', borderTop: `6px solid ${INK}` });
   box(c, 300, 1040, 640, 70, { zIndex: 4, background: 'rgba(43,33,24,.35)', borderRadius: '50%' });
   const rom = mk(c, [400, 620, 420, 537], romanInner(), '0 0 360 460', 'bust'); rom.d.style.zIndex = 6; rom.d.style.transformOrigin = '210px 500px';
-  const zW = box(c, 0, 0, 1080, 1920, { zIndex: 8 }); zW.zR = 300; const zf = zzz(zW, 420, 980, 4);
+  const zW = box(c, 0, 0, 1080, 1920, { zIndex: 8 }); zW.zR = 300; const zf = zzz(zW, 420, 980, 4, 110);
 }
 /* F2 · «...ACABÓ SIENDO "ECHAR LA SIESTA"» — el señor de la portada en la hamaca + SEXTA → SIESTA */
 headline(S.F2[0], S.F2[1], 'acabó siendo *«echar la siesta»*', { size: 82, hlT: K.siesta5 });
@@ -241,10 +241,10 @@ headline(S.F2[0], S.F2[1], 'acabó siendo *«echar la siesta»*', { size: 82, hl
   rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.22)', 'rgba(0,0,0,0)', 0);
   box(c, 0, 1180, 1080, 740, { zIndex: 1, background: '#B9A27E', borderTop: `6px solid ${INK}` });
   const hm = box(c, 90, 760, 900, 520, { zIndex: 5, transformOrigin: '450px 100px' }); hm.innerHTML = hammockSvg();
-  const man = mk(c, [340, 650, 380, 486], sleeperInner(), '0 0 360 460', 'bust'); man.d.style.zIndex = 4;
+  const man = mk(c, [340, 650, 380, 486], sleeperInner(true), '0 0 360 460', 'bust'); man.d.style.zIndex = 4;
   // la tela de la hamaca por delante del busto
   const front = box(c, 90, 760, 900, 520, { zIndex: 6, transformOrigin: '450px 100px' }); front.innerHTML = `<svg viewBox="0 0 900 520" width="100%" height="100%" style="overflow:visible"><path d="M200,330 C300,450 600,450 700,330 C640,470 260,470 200,330 Z" fill="#F2C230" stroke="${INK}" stroke-width="6"/><path d="M260,400 q10,30 0,50 M450,420 q10,30 0,40 M640,400 q10,30 0,50" stroke="${RED}" stroke-width="14" opacity=".75" fill="none"/></svg>`;
-  const bub = box(c, 70, 410, 940, 210, { zIndex: 20, background: '#fff', border: `6px solid ${INK}`, borderRadius: '40px', boxShadow: `8px 9px 0 ${SH}` });
+  const bub = box(c, 70, 475, 940, 210, { zIndex: 20, background: '#fff', border: `6px solid ${INK}`, borderRadius: '40px', boxShadow: `8px 9px 0 ${SH}` });
   // fichas: S E X T A  →  S I E S T A
   const TW = 130, G = 12;
   const pos6 = i => 50 + i * (TW + G); // x final (6 letras, centradas en el bocadillo)

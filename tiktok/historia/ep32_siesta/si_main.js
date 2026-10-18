@@ -19,7 +19,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
   <g transform="translate(${cx},${OV.h + 60})"><rect x="-104" y="-26" width="208" height="46" rx="10" fill="${INK}" stroke="${BRASS}" stroke-width="4"/><text x="0" y="8" text-anchor="middle" font-family="Rye" font-size="25" fill="${YEL}">EL VECINO</text></g></svg>`;
 }
 const CX = -41, CY = 45, CS = 0.75;
-const OV_VIS = [[S.C[0], S.D2[0]], [S.G1[0], S.G3[0]], [S.O1[0], S.P[0]]];
+const OV_VIS = [[S.C[0], K.rae + 0.3], [S.G1[0], S.G3[0]], [S.O1[0], S.P[0]]];
 function ovalState(t) {
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
     const kin = pop(t, a, 0.4), kout = p(t, b - 0.14, 0.14, E.inCubic);
@@ -48,8 +48,8 @@ function updOval(t) {
 }
 
 /* ---------- rótulo «y no es lo más raro…» (sale al acabar L2 y cruza el corte a los romanos) ---------- */
-const RARO = chip(world, 300, 410, 'y no es lo más raro…', { size: 50, bg: PINK, z: 600 });
-const RARO_T = [K.rae + 0.4, K.romanos + 1.3];
+const RARO = el('div', world, { left: '0', top: '1170px', width: '1080px', textAlign: 'center', zIndex: 600 }, `<span style="display:inline-block;background:${PINK};color:#fff;font-family:Bricolage;font-weight:800;font-size:66px;padding:10px 40px 14px;border-radius:100px;border:5px solid ${INK};box-shadow:7px 7px 0 ${INK};white-space:nowrap">y no es lo más raro…</span>`);
+const RARO_T = [K.rae + 0.3, K.romanos + 2.75];
 
 /* ---------- precarga de fuentes (invisible: hidden + opacidad 0 + fuera de cuadro) ---------- */
 {
@@ -72,7 +72,7 @@ window.frame = t => {
     h.spans.forEach(s => { const k = p(t, s.t - 0.14, 0.26, E.outBack); set(s.e, { y: (1 - k) * 42, o: clamp(k * 1.5) }); });
     h.hls.forEach(s => { s.e.style.transform = `scaleX(${f1(p(t, s.t, 0.36, E.outCubic) * 1000) / 1000}) rotate(-1.2deg)`; });
   });
-  { const vis = t >= RARO_T[0] && t < RARO_T[1]; RARO.style.display = vis ? '' : 'none'; if (vis) { const k = pop(t, RARO_T[0], 0.4); set(RARO, { s: k, r: -3 + wobble(t, 0.6, 1.5), o: 1 - p(t, RARO_T[1] - 0.15, 0.15) }); } }
+  { const vis = t >= RARO_T[0] && t < RARO_T[1]; RARO.style.display = vis ? '' : 'none'; if (vis) { const k = 1 + 0.18 * Math.sin(Math.PI * p(t, RARO_T[0], 0.22, E.linear)); set(RARO, { s: k, r: -2 + wobble(t, 0.6, 1), o: 1 - p(t, RARO_T[1] - 0.12, 0.12) }); } }
   updOval(t);
   let sh = 0; SHAKES.forEach(s => sh += shake(t, s[0], s[1], s[2]));
   set(world, { x: sh, y: sh * 0.6 });

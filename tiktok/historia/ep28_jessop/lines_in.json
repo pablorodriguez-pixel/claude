@@ -3,7 +3,7 @@
   "VECINO": [
    "851ejYcv2BoNPjrkw93G",
    0.0,
-   0.98
+   1.0
   ]
  },
  "gap": 0.2,
@@ -11,8 +11,7 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Titanic! Tú no salías vivo. Esta camarera, sí.",
-   "tempo": 1.15
+   "text": "[excited] ¡Titanic! Tú no salías vivo. Esta camarera, sí."
   },
   {
    "who": "VECINO",

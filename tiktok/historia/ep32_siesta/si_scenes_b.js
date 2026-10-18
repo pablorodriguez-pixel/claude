@@ -24,7 +24,7 @@ headline(S.O1[0], S.O1[1], 'parece cosa *de monjes*', { size: 84, hlT: K.monjes,
   const ojo = stamp(c, 260, 180, 'OJO · TEORÍA', { size: 88, bw: 11, z: 60, bg: YEL, blend: 'normal', col: INK });
 }
 /* O2 · «AYUNABAN HASTA LA NONA...» — tripa que ruge + reloj en las 3 con la etiqueta NONA */
-headline(S.O2[0], S.O2[1], 'Ayunaban *hasta la nona*…', { size: 92, hlT: K.nona8, y: 330 });
+headline(S.O2[0], S.O2[1], 'Ayunaban *hasta la nona*…', { size: 92, hlT: K.nona8, y: 250 });
 {
   const c = scene(S.O2[0], S.O2[1], t => {
     set(m.d, { s: pop(t, S.O2[0] + 0.02, 0.4), x: (t > K.hasta8 ? Math.sin(t * 40) * 4 : 0), y: wobble(t, 0.6, 3), o: t < S.O2[0] + 0.02 ? 0 : 1 });
@@ -39,7 +39,7 @@ headline(S.O2[0], S.O2[1], 'Ayunaban *hasta la nona*…', { size: 92, hlT: K.non
   const m = mk(c, [380, 640, 520, 664], monkInner(75, false), '0 0 360 460', 'bust'); m.d.style.zIndex = 4;
   const WV = [0, 1, 2].map(i => { const e = box(c, 520, 1120, 240, 160, { zIndex: 6 }); e.innerHTML = `<svg width="240" height="160" style="overflow:visible"><path d="M20,80 q25,-40 50,0 t50,0 t50,0 t50,0" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round"/></svg>`; return e; });
   const grr = chip(c, 720, 1000, 'grrr…', { size: 60, bg: RED, z: 20 });
-  const ck = mkClock(c, 640, 470, 330, { z: 8 });
+  const ck = mkClock(c, 640, 540, 300, { z: 8 });
   const tag = chip(c, 400, 560, 'NONA', { size: 62, bg: PINK, z: 30 });
 }
 /* O3 · «...Y LA FUERON ADELANTANDO» — el dedo empuja la aguja de las 3 hacia las 12 */
@@ -100,7 +100,7 @@ const T_EMU = K.hambre - 0.08;
     const kIn = p(t, S.Q[0], 0.35, E.outCubic);
     const fTop = 1 - p(t, K.y11 - 0.2, 0.35, E.inOutCubic); // 1 = foco arriba (L10), 0 = foco abajo (L11)
     set(top, { x: (1 - kIn) * -1080, s: lerp(0.96, 1.03, fTop), o: lerp(0.55, 1, fTop) });
-    set(bot, { x: (1 - p(t, S.Q[0] + 0.12, 0.35, E.outCubic)) * 1080, s: lerp(1.03, 0.96, fTop), o: lerp(1, 0.55, fTop) });
+    set(bot, { x: (1 - p(t, S.Q[0] + 0.12, 0.35, E.outCubic)) * 1080, s: lerp(1.03, 0.96, fTop) + 0.03 * p(t, K.y11, K.doce11 - K.y11, E.linear), o: lerp(1, 0.25, fTop) });
     // ARRIBA · SIESTA: 12 → ≈ 15
     const kT = p(t, K.y10 - 0.05, K.tres10 - K.y10 + 0.1, E.inOutCubic);
     cT.setH(lerp(12, 15, kT));
@@ -109,12 +109,19 @@ const T_EMU = K.hambre - 0.08;
     set(hm, { r: Math.sin(t * 2.4) * 4 });
     face(sl, t, { closed: true, jaw: 0.15, seed: 0 });
     // ABAJO · NOON: ≈ 15 → 12
+    // aguja oculta hasta que la voz llega al NOON; gira rápido («clockfast») en «de los ingleses» hasta las 3; luego retrocede a las 12
+    const kS = p(t, K.ingleses - 0.1, K.tres11 - K.ingleses + 0.1, E.inOutCubic);
     const kB = p(t, K.y11b - 0.05, K.doce11 - K.y11b + 0.1, E.inOutCubic);
-    cB.setH(lerp(15, 12, kB));
+    cB.setH(t < K.y11b - 0.05 ? lerp(3, 15, kS) : lerp(15, 12, kB));
+    const hv = t > K.y11 - 0.2 ? 1 : 0; cB.hh.style.opacity = hv; cB.mh.style.opacity = hv;
     popA(tB15, t, K.tres11 - 0.03, { r: -3 }); popA(tB12, t, K.doce11 - 0.03, { r: 3 });
     arrB.style.opacity = t > K.doce11 - 0.03 ? 1 : 0; aBP.style.strokeDashoffset = f1(1000 * (1 - p(t, K.doce11 - 0.03, 0.3)));
-    face(en, t, { look: [6, -4], seed: 2, jaw: 0 });
-    set(tea, { r: wobble(t, 0.7, 4), y: wobble(t, 0.5, 4) });
+    // el inglés reacciona en «tres»: sorbe el té y abre la boca
+    const kd = p(t, K.tres11 - 0.1, 0.3, E.outBack) * (1 - p(t, K.y11b + 0.25, 0.3, E.inOutCubic));
+    const surp = t > K.y11b + 0.1 && t < K.doce11 + 0.9;
+    face(en, t, { look: surp ? [0, -6] : [6, -4], seed: 2, jaw: surp ? 0.7 : 0, bL: surp ? 16 : kd * 8, bR: surp ? 16 : kd * 8 });
+    set(tea, { x: -kd * 120, y: -kd * 70 + wobble(t, 0.5, 4), r: -kd * 28 + wobble(t, 0.7, 4) });
+    set(en.d, { y: surp ? -Math.abs(Math.sin((t - K.y11b) * 14)) * 10 : 0 });
     popA(lbT, t, K.siesta10 - 0.04, { r: -2 }); popA(lbB, t, K.nun11 - 0.04, { r: 2 });
     // flechas que se cruzan en el centro al final
     const kx = p(t, K.doce11 + 0.15, 0.35, E.outBack);
@@ -127,7 +134,7 @@ const T_EMU = K.hambre - 0.08;
   const lbT = el('div', top, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '104px', lineHeight: 1, color: INK }, hlSpan('SIESTA', 'q1', YEL));
   top.querySelector('.q1').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const hm = box(top, 20, 250, 520, 300, { zIndex: 2, transformOrigin: '260px 40px' }); hm.innerHTML = hammockSvg();
-  const sl = mk(top, [150, 150, 230, 294], sleeperInner(), '0 0 360 460', 'bust'); sl.d.style.zIndex = 1;
+  const sl = mk(top, [150, 150, 230, 294], sleeperInner(true), '0 0 360 460', 'bust'); sl.d.style.zIndex = 1;
   box(top, 20, 250, 520, 300, { zIndex: 3 }).innerHTML = `<svg viewBox="0 0 900 520" width="100%" height="100%" style="overflow:visible"><path d="M200,330 C300,450 600,450 700,330 C640,470 260,470 200,330 Z" fill="#F2C230" stroke="${INK}" stroke-width="7"/></svg>`;
   const cT = mkClock(top, 610, 110, 330, { z: 4 });
   const tT12 = chip(top, 500, 450, '12:00', { size: 54, bg: '#fff', color: INK, z: 6 });
@@ -280,7 +287,7 @@ headline(S.R3[0], S.R3[1], 'hasta *a la siesta*', { size: 104, hlT: K.siesta12 }
     pots.push(d);
   });
   const tag = chip(cam, 640, 610, 'tu vecino', { size: 44, bg: PINK });
-  const zW = box(cam, 0, 0, 1080, 1920, { zIndex: 30 }); const zf = zzz(zW, 620, 760, 3);
+  const zW = box(cam, 0, 0, 1080, 1920, { zIndex: 30 }); const zf = zzz(zW, 620, 760, 3, 96);
   const sign = box(cam, 120, 150, 840, 270, { zIndex: 40 });
   sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
   const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
@@ -311,7 +318,7 @@ headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 })
   sceneBg(c, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px)' });
   rays(c, -160, 360, 1400, 24, 'rgba(255,255,255,.18)', 'rgba(0,0,0,0)', 1);
   const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px', zIndex: 2 });
-  const vb = mk(bookW, [150, 250, 380, 470], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); vb.d.style.zIndex = 0;
+  const vb = mk(bookW, [150, 330, 380, 470], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); vb.d.style.zIndex = 0;
   const bs = svgLayer(bookW, 1);
   let lines = ''; for (let i = 0; i < 12; i++) lines += `<path d="M180,${790 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
   let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
