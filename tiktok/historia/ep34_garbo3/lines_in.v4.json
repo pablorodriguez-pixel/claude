@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.04
+  ]
+ },
+ "gap": 0.22,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Hitler le dio una medalla al español que le engañó!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Se llamaba Juan Pujol, era de Barcelona, y nunca había sido espía.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo engaña a Hitler un señor que no era espía? En tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se hizo espía de los alemanes... para engañarlos y que los ingleses por fin le hicieran caso.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: como un espía solo no daba para tanto, se inventó a otros espías que trabajaban para él. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos inflaron la red hasta veintisiete espías inventados. Y llegó el gran día: el desembarco de Normandía."
+  },
+  {
+   "who": "VECINO",
+   "text": "Pujol avisó a Hitler de que Normandía era solo una distracción, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño. Dos medallas por una mentira: ni tu mejor excusa ha llegado tan lejos.",
+   "gap_after": 0.5,
+   "tempo": 1.12
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ojo, que aún hay más: años después fingió su propia muerte en África, y se fue a vivir tan tranquilo a Venezuela.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}

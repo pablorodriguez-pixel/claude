@@ -75,8 +75,23 @@ for n,L in enumerate(cfg["lines"]):
             if tt*SR>=c1: sh+=c1-c0
             elif tt*SR>c0: sh+=tt*SR-c0
         return tt-sh/SR
+    # pausas añadidas por línea: "pausas": {"palabra_tal_cual": segundos} -> silencio tras esa palabra (opcional)
+    ins=[]
+    pz=L.get("pausas") or {}
+    if pz:
+        for j,(txt,s_,e_) in enumerate(rel):
+            if txt in pz:
+                e2=rm(e_); nx=rm(rel[j+1][1]) if j+1<len(rel) else len(x)/SR
+                pt=(e2+nx)/2 if nx-e2>0.04 else e2+0.02
+                ins.append((int(pt*SR),int(pz[txt]*SR)))
+        if ins:
+            keep=[];prev=0
+            for p0,ln in ins: keep.append(x[prev:p0]); keep.append(np.zeros(ln,dtype=x.dtype)); prev=p0
+            keep.append(x[prev:]); x=np.concatenate(keep)
+    def ad(tt):
+        return tt+sum(ln for p0,ln in ins if tt*SR>p0)/SR
     for (txt,s,e) in rel:
-        W.append({"i":len(W),"w":txt,"s":round(t+rm(s),3),"e":round(t+rm(e),3),"line":n,"who":L["who"]})
+        W.append({"i":len(W),"w":txt,"s":round(t+ad(rm(s)),3),"e":round(t+ad(rm(e)),3),"line":n,"who":L["who"]})
     if "slot" in L and len(x)<int(L["slot"]*SR): x=np.concatenate([x,np.zeros(int(L["slot"]*SR)-len(x))])
     t+=len(x)/SR; audio.append(x)
     clean=re.sub(r"\[[^\]]*\]\s*","",L["text"]).strip()

@@ -3,10 +3,10 @@
   "VECINO": [
    "851ejYcv2BoNPjrkw93G",
    0.0,
-   1.04
+   1.0
   ]
  },
- "gap": 0.22,
+ "gap": 0.3,
  "inner_cap": 0.45,
  "lines": [
   {
@@ -16,7 +16,7 @@
   {
    "who": "VECINO",
    "text": "Se llamaba Juan Pujol, era de Barcelona, y nunca había sido espía.",
-   "gap_after": 0.5
+   "gap_after": 0.55
   },
   {
    "who": "VECINO",
@@ -29,37 +29,43 @@
   {
    "who": "VECINO",
    "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se hizo espía de los alemanes... para engañarlos y que los ingleses por fin le hicieran caso.",
-   "gap_after": 0.5
+   "gap_after": 0.55
   },
   {
    "who": "VECINO",
    "text": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa.",
-   "gap_after": 0.5
+   "gap_after": 0.55
   },
   {
    "who": "VECINO",
    "text": "Y tres: como un espía solo no daba para tanto, se inventó a otros espías que trabajaban para él. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
-   "gap_after": 0.5
+   "gap_after": 0.55,
+   "pausas": {
+    "existía...": 0.4
+   }
   },
   {
    "who": "VECINO",
-   "text": "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos inflaron la red hasta veintisiete espías inventados. Y llegó el gran día: el desembarco de Normandía."
+   "text": "Y entonces los ingleses vieron lo bueno que era y le ficharon. Juntos inflaron la red hasta veintisiete espías inventados. Y llegó el gran día: el desembarco de Normandía.",
+   "pausas": {
+    "inventados.": 0.4
+   }
   },
   {
    "who": "VECINO",
    "text": "Pujol avisó a Hitler de que Normandía era solo una distracción, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
-   "gap_after": 0.5
+   "gap_after": 0.55,
+   "pausas": {
+    "Calais.": 0.4
+   }
   },
   {
    "who": "VECINO",
    "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño. Dos medallas por una mentira: ni tu mejor excusa ha llegado tan lejos.",
-   "gap_after": 0.5,
-   "tempo": 1.12
-  },
-  {
-   "who": "VECINO",
-   "text": "Y ojo, que aún hay más: años después fingió su propia muerte en África, y se fue a vivir tan tranquilo a Venezuela.",
-   "gap_after": 0.5
+   "gap_after": 0.55,
+   "pausas": {
+    "Hierro...": 0.35
+   }
   },
   {
    "who": "VECINO",
