@@ -22,7 +22,7 @@ headline(K.en6 - 0.28, S.G1[1], 'En pleno *siglo XIX*', { size: 104, hlT: K.xix,
   const tb = box(cam, 830, 760, 100, 125, { zIndex: 8 }); tb.innerHTML = typeBlockSvg('¿');
   const tc = box(cam, 400, 1060, 540, 231, { zIndex: 7 }); tc.innerHTML = typeCaseSvg();
   const qm = qMark(cam, 760, 420, 120, PINK);
-  const st = stamp(cam, 330, 1000, 'SIGLO XIX', { size: 84, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const st = stamp(cam, 370, 990, 'SIGLO XIX', { size: 80, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
