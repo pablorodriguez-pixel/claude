@@ -4,97 +4,97 @@
   "who": "VECINO",
   "text": "Hitler: lo troleó un español con veintisiete cuentas falsas.",
   "s": 0.12,
-  "e": 3.735
+  "e": 4.045
  },
  {
   "line": 1,
   "who": "VECINO",
-  "text": "Juan Pujol quiso espiar para los ingleses. Lo dejaron en visto. Tres veces.",
-  "s": 3.975,
-  "e": 8.631
+  "text": "Juan Pujol quiso espiar para los ingleses. Lo dejaron en visto.",
+  "s": 4.245,
+  "e": 7.907
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Así que se hizo espía... de los nazis.",
-  "s": 8.871,
-  "e": 11.852
+  "s": 8.107,
+  "e": 11.088
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "Lo mandan a Londres. Se queda en Lisboa... y se lo inventa todo con una guía de turismo.",
-  "s": 12.092,
-  "e": 17.918
+  "text": "Se queda en Lisboa... y se lo inventa todo con una guía de turismo.",
+  "s": 11.288,
+  "e": 15.867
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Se abre cuentas: espías inventados. Y cuela tanto, que los del «visto»... lo fichan.",
-  "s": 18.158,
-  "e": 24.648
+  "s": 16.067,
+  "e": 22.558
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Juntos llegan a veintisiete: una red de bots... con sueldo nazi.",
-  "s": 24.888,
-  "e": 29.627
+  "s": 22.758,
+  "e": 27.497
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Uno se «muere»: esquela y todo. Y los nazis, pensión a la viuda... de un señor que no existía.",
-  "s": 29.867,
-  "e": 37.13
+  "text": "Uno se «muere». Y los nazis, pensión a la viuda... de un señor que no existía.",
+  "s": 27.697,
+  "e": 33.661
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Día D. Pujol avisa: «Normandía es una distracción. Lo gordo, en Calais».",
-  "s": 37.37,
-  "e": 43.17
+  "s": 33.861,
+  "e": 39.661
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Hitler se lo traga: deja tropas en Calais... esperando a nadie.",
-  "s": 43.41,
-  "e": 47.894
+  "s": 39.861,
+  "e": 44.345
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "¿Premio? La Cruz de Hierro nazi. Y del rey inglés... otra medalla.",
-  "s": 48.134,
-  "e": 53.706
+  "s": 44.545,
+  "e": 50.117
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Dos medallas, de los dos bandos... por el mismo troleo.",
-  "s": 53.946,
-  "e": 57.932
+  "s": 50.317,
+  "e": 54.302
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y luego fingió su muerte. Su última cuenta falsa... él mismo.",
-  "s": 58.172,
-  "e": 62.744
+  "s": 54.502,
+  "e": 59.075
  },
  {
   "line": 12,
   "who": "VECINO",
   "text": "¿Y tú, cuántas cuentas tienes? Os leo.",
-  "s": 62.984,
-  "e": 65.801
+  "s": 59.275,
+  "e": 62.091
  },
  {
   "line": 13,
   "who": "VECINO",
   "text": "Soy tu vecino... y esto no venía en el libro.",
-  "s": 66.041,
-  "e": 69.509
+  "s": 62.291,
+  "e": 65.759
  }
 ]

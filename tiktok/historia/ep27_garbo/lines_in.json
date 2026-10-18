@@ -6,7 +6,7 @@
    0.96
   ]
  },
- "gap": 0.24,
+ "gap": 0.2,
  "inner_cap": 0.35,
  "lines": [
   {
@@ -15,7 +15,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Juan Pujol quiso espiar para los ingleses. Lo dejaron en visto. Tres veces."
+   "text": "Juan Pujol quiso espiar para los ingleses. Lo dejaron en visto."
   },
   {
    "who": "VECINO",
@@ -23,7 +23,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Lo mandan a Londres. Se queda en Lisboa... y se lo inventa todo con una guía de turismo."
+   "text": "Se queda en Lisboa... y se lo inventa todo con una guía de turismo."
   },
   {
    "who": "VECINO",
@@ -35,7 +35,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Uno se «muere»: esquela y todo. Y los nazis, pensión a la viuda... de un señor que no existía."
+   "text": "Uno se «muere». Y los nazis, pensión a la viuda... de un señor que no existía."
   },
   {
    "who": "VECINO",

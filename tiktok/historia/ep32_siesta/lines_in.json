@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Siesta es un número! Y lo duermes sin saberlo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y no: no son los minutos que duermes. Ojalá."
+  },
+  {
+   "who": "VECINO",
+   "text": "Viene del latín «sexta»: la hora sexta. Lo dice la RAE."
+  },
+  {
+   "who": "VECINO",
+   "text": "Los romanos contaban las horas desde el amanecer: primera, segunda..."
+  },
+  {
+   "who": "VECINO",
+   "text": "Si amanece a las seis... la sexta cae a mediodía."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y descansar a la sexta... acabó siendo «echar la siesta»."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ahora, lo bueno: mediodía, en inglés, es «nun». Y viene de «nona»: la hora novena."
+  },
+  {
+   "who": "VECINO",
+   "text": "Más o menos... las tres de la tarde."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: parece cosa de monjes. Ayunaban hasta la nona... y la fueron adelantando."
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo que hace el hambre."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: tu siesta era a las doce... y te la echas a las tres."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el «nun» de los ingleses era a las tres... y lo dicen a las doce."
+  },
+  {
+   "who": "VECINO",
+   "text": "Se cambiaron la hora. Y adivina quién llega tarde... hasta a la siesta."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A qué hora te la echas tú? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}

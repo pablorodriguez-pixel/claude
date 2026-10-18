@@ -1,0 +1,69 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Estás vivo porque un tío dudó de una máquina!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Rusia, año ochenta y tres. La pantalla de Stanislav Petrov grita: misil."
+  },
+  {
+   "who": "VECINO",
+   "text": "Un misil nuclear desde Estados Unidos. Luego otro. Hasta cinco."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ese mismo mes, los soviéticos habían derribado un avión de pasajeros."
+  },
+  {
+   "who": "VECINO",
+   "text": "No tenía el botón. Pero su aviso podía hacer que alguien lo pulsara."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué hace? Coge el teléfono: «Falsa alarma»."
+  },
+  {
+   "who": "VECINO",
+   "text": "Un ataque de verdad serían cientos, no cinco. Y el sistema era nuevo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Acertó: era el sol, reflejado en nubes altas. El satélite lo tomó por un cohete."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y su premio? Ojo, que esto lo cuenta él: una bronca. Por el papeleo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el mundo no lo supo en quince años."
+  },
+  {
+   "who": "VECINO",
+   "text": "Murió en dos mil diecisiete... y tampoco se supo hasta cuatro meses después."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: te salvó la vida... y no te enteraste. Dos veces."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú qué habrías hecho en su silla? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}
