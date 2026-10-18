@@ -40,9 +40,9 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   const bow = box(cam, -250, 640, 1300, 760, { zIndex: 3, transformOrigin: '1100px 520px' });
   bow.innerHTML = svgW(bowInner(), '0 0 1300 760');
   const wat = box(cam, 0, 1110, 1080, 1100, { zIndex: 5 }); wat.innerHTML = WAVES(11, '#152131', '#c9d6e2');
-  const MR = [0, 1, 2, 3, 4, 5].map(i => box(cam, 640 + (i % 3) * 40 - 20, 1330 + i * 70, 220 - i * 18, 10, { zIndex: 6, borderRadius: '6px', background: '#FBF6EA' }));
-  const buoy = box(cam, 90, 1420, 200, 120, { zIndex: 8 }); buoy.innerHTML = `<svg width="200" height="120" style="overflow:visible"><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="${INK}" stroke-width="40"/><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="#fff" stroke-width="30"/><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="${RED}" stroke-width="30" stroke-dasharray="44 44"/></svg>`;
-  const plank = box(cam, 380, 1560, 300, 50, { zIndex: 8, background: WOOD, border: `5px solid ${INK}`, borderRadius: '6px' });
+  const MR = [0, 1, 2, 3, 4, 5].map(i => box(cam, 640 + (i % 3) * 40 - 20, 1330 + i * 70, 220 - i * 18, 10, { zIndex: 9, borderRadius: '6px', background: '#FBF6EA' }));
+  const buoy = box(cam, 90, 1420, 200, 120, { zIndex: 10 }); buoy.innerHTML = `<svg width="200" height="120" style="overflow:visible"><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="${INK}" stroke-width="40"/><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="#fff" stroke-width="30"/><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="${RED}" stroke-width="30" stroke-dasharray="44 44"/></svg>`;
+  const plank = box(cam, 380, 1560, 300, 50, { zIndex: 10, background: WOOD, border: `5px solid ${INK}`, borderRadius: '6px' });
   box(cam, 0, 1110, 1080, 900, { zIndex: 6, background: 'linear-gradient(180deg, rgba(10,18,28,0) 0%, rgba(10,18,28,.55) 100%)' });
   // Violet (sale del agua) dentro de un recorte con el borde inferior en la línea de agua del primer plano
   const vClip = box(cam, 540, 820, 420, 470, { overflow: 'hidden', zIndex: 7 });

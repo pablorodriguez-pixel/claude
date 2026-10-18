@@ -68,7 +68,7 @@ headline(K.al68 - 0.06, S.I3[1], '… *al Titanic*', { size: 136, hlT: K.titanic
     const x0 = A[0] + WC / 2 - 80, x1 = B[0] + WC / 2 - 80;
     set(cof, { x: lerp(x0, x1, kj), y: A[1] - 66 - Math.sin(kj * Math.PI) * 220 + wobble(t, 0.8, 3), r: Math.sin(kj * Math.PI * 2) * 25, o: 1 });
     SP.forEach((s2, i) => set(s2, { o: t > K.titanic4 ? 0.5 + 0.5 * Math.sin(t * 9 + i) : 0, s: 1 + 0.3 * Math.sin(t * 7 + i), r: t * 90 }));
-  }, { clip: true });
+  }, { clip: true, cut: true });
   sceneBg(c, { background: '#2f5a46', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.18), rgba(0,0,0,.35) 80%)' });
   const ry = rays(c, 20, 0, 1400, 26, 'rgba(255,230,0,.16)', 'rgba(0,0,0,0)', 0);
   const c1 = mkCard(c, A[0], A[1], 1, 'OLYMPIC', '1911', { w: WC });
@@ -240,10 +240,10 @@ headline(S.L2[0], S.L2[1], 'lo arrastra *a las hélices*', { size: 94, hlT: K.he
   sceneBg(cam, { background: `linear-gradient(180deg, #3f8a90 0%, ${DEEP} 35%, ${DEEP2} 100%)` });
   box(cam, 0, 0, 1080, 1920, { zIndex: 1, background: 'repeating-linear-gradient(100deg, rgba(255,255,255,.06) 0 50px, transparent 50px 150px)' });
   // casco del barco por debajo + ejes
-  box(cam, 0, 0, 1080, 1920, { zIndex: 2 }).innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><path d="M-40,560 C300,620 700,640 1120,600 L1120,500 L-40,500 Z" fill="${HULL}" stroke="${INK}" stroke-width="6"/><path d="M-40,560 C300,620 700,640 1120,600" stroke="#8a2a1e" stroke-width="16" fill="none"/><path d="M560,620 L560,1000 M50,600 L50,1000" stroke="#5e5a52" stroke-width="30"/><path d="M560,620 L560,1000 M50,600 L50,1000" stroke="${INK}" stroke-width="4" stroke-dasharray="10 14"/></svg>`;
+  box(cam, 0, 0, 1080, 1920, { zIndex: 2 }).innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="-40" y="0" width="1160" height="640" fill="#3f8a90" opacity=".55"/><path d="M-40,640 ${Array.from({ length: 30 }, () => 'q20,-12 40,0').join(' ')}" stroke="#dfe8ef" stroke-width="6" fill="none"/><path d="M560,620 L560,1000 M50,600 L50,1000" stroke="#5e5a52" stroke-width="30"/><path d="M560,620 L560,1000 M50,600 L50,1000" stroke="${INK}" stroke-width="4" stroke-dasharray="10 14"/></svg>`;
   const pr2 = box(cam, -150, 800, 400, 400, { zIndex: 4 }); pr2.innerHTML = svgW(propInner(3), '0 0 400 400');
   const pr1 = box(cam, 260, 720, 600, 600, { zIndex: 5 }); pr1.innerHTML = svgW(propInner(3), '0 0 400 400');
-  const bt = box(cam, 70, 290, 520, 315, { zIndex: 3 }); bt.innerHTML = `<svg viewBox="0 -120 380 230" width="520" height="315" style="overflow:visible"><g transform="translate(130,-110) scale(0.46)"><circle cx="130" cy="150" r="70" fill="#4a2e1c" stroke="${INK}" stroke-width="8"/>${cofiaInner()}</g><path d="M10,20 C80,100 300,100 370,20 Z" fill="#2a1f17" stroke="${INK}" stroke-width="5"/><path d="M0,20 H380" stroke="#cfe0e4" stroke-width="6"/></svg>`;
+  const bt = box(cam, 70, 440, 520, 315, { zIndex: 3 }); bt.innerHTML = `<svg viewBox="0 -120 380 230" width="520" height="315" style="overflow:visible"><g transform="translate(130,-62) scale(0.46)"><circle cx="130" cy="150" r="70" fill="#4a2e1c" stroke="${INK}" stroke-width="8"/>${cofiaInner()}</g><path d="M10,20 C80,100 300,100 370,20 Z" fill="#2a1f17" stroke="${INK}" stroke-width="5"/><path d="M0,20 H380" stroke="#cfe0e4" stroke-width="6"/></svg>`;
   const AR = [0, 1, 2].map(i => { const a = box(cam, 360 + i * 70, 640 + i * 60, 160, 120, { zIndex: 6 }); a.innerHTML = arrowSvg('M10,10 Q80,30 130,100 M100,96 L134,104 L128,70', PINK, 10); return a; });
   const BUB = []; for (let i = 0; i < 10; i++) BUB.push(box(cam, 120 + i * 85, 1300, 14 + (i % 3) * 8, 14 + (i % 3) * 8, { borderRadius: '50%', border: '3px solid #cfe0e4', zIndex: 6 }));
 }
@@ -265,7 +265,7 @@ headline(S.L3[0], S.L3[1], 'que *siguen girando*', { size: 110, hlT: K.girando, 
   sceneBg(cam, { background: `radial-gradient(circle at 50% 55%, #1f5560 0%, ${DEEP2} 75%)` });
   const pr = box(cam, 160, 580, 760, 760, { zIndex: 4 }); pr.innerHTML = svgW(propInner(3), '0 0 400 400');
   const RT = [0, 1].map(() => { const a = box(cam, 120, 540, 840, 840, { zIndex: 5 }); a.innerHTML = `<svg viewBox="0 0 840 840" width="840" height="840" style="overflow:visible"><path d="M420,40 A380,380 0 0,1 790,360" stroke="${INK}" stroke-width="26" fill="none" stroke-linecap="round"/><path d="M420,40 A380,380 0 0,1 790,360" stroke="${PINK}" stroke-width="14" fill="none" stroke-linecap="round"/><path d="M760,330 L796,380 L820,318" stroke="${INK}" stroke-width="26" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M760,330 L796,380 L820,318" stroke="${PINK}" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`; return a; });
-  const bt = box(cam, 270, 290, 520, 315, { zIndex: 3 }); bt.innerHTML = `<svg viewBox="0 -120 380 230" width="520" height="315" style="overflow:visible"><g transform="translate(130,-110) scale(0.46)"><circle cx="130" cy="150" r="70" fill="#4a2e1c" stroke="${INK}" stroke-width="8"/>${cofiaInner()}</g><path d="M10,20 C80,100 300,100 370,20 Z" fill="#2a1f17" stroke="${INK}" stroke-width="5"/><path d="M0,20 H380" stroke="#cfe0e4" stroke-width="6"/></svg>`;
+  const bt = box(cam, 270, 430, 520, 315, { zIndex: 3 }); bt.innerHTML = `<svg viewBox="0 -120 380 230" width="520" height="315" style="overflow:visible"><g transform="translate(130,-62) scale(0.46)"><circle cx="130" cy="150" r="70" fill="#4a2e1c" stroke="${INK}" stroke-width="8"/>${cofiaInner()}</g><path d="M10,20 C80,100 300,100 370,20 Z" fill="#2a1f17" stroke="${INK}" stroke-width="5"/><path d="M0,20 H380" stroke="#cfe0e4" stroke-width="6"/></svg>`;
   const BUB = []; for (let i = 0; i < 12; i++) BUB.push(box(cam, 140 + i * 70, 1300, 14 + (i % 3) * 8, 14 + (i % 3) * 8, { borderRadius: '50%', border: '3px solid #cfe0e4', zIndex: 6 }));
 }
 
