@@ -28,3 +28,7 @@ Edición aplicada en las vueltas de revisión: «MISIL» del primer plano reduci
 Publicación (del guion):
 - Post: «Una pantalla dijo "misiles". Un tío dijo "falsa alarma". Y casi nadie sabe su nombre 👀 #historia #curiosidades #historiasreales #aprendeentiktok»
 - Comentario fijado: «Sé sincero: cinco misiles en la pantalla y el teléfono en la mano… ¿tú qué dices? 👇🎩»
+
+## Vuelta 2 (arreglos 1–6 del director independiente, 75 → re-render)
+1. Estrella roja del fogonazo (16,6–17,2 s) sustituida por bocanada de humo gris. 2. Pared de E2 baja a y=440 («pulsara» legible); titular H3 → «Lo tomó por *un cohete*» en una línea; la manga baja desde más abajo. 3. Panel «LA PANTALLA» y sus 5 cohetes desde el inicio de G1 (+0,15/+0,3 s). 4. «TENSIÓN MÁXIMA» x 360 y «4 MESES DESPUÉS» x 310 (≤ 915 px). 5. Portada: parpadeo real de 2 Hz (texto 1 ↔ 0,3, pantalla #E0202F ↔ #5E0712); fotograma 0 encendido. 6. Libro abierto a escala 1,0 centrado; crece a 1,25 y se centra al cerrarse.
+audio.py OK (−14,1 LUFS, SNR 28 dB). Duración 63,63 s.

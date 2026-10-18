@@ -211,7 +211,7 @@ function flipCard(c, k) { // k 0..1
 function mkTally(pa, x, y, sz = 120, z = 40) {
   const gap = sz * 0.3, W3 = sz * 3 + gap * 2;
   const d = box(pa, x, y, W3, sz + 64, { zIndex: z });
-  el('div', d, { left: 0, top: 0, width: px(W3), textAlign: 'center', fontFamily: 'Rye', fontSize: px(sz * 0.3), color: INK, letterSpacing: '0.06em' }, 'NAUFRAGIOS');
+  el('div', d, { left: 0, top: 0, width: px(W3), textAlign: 'center', fontFamily: 'Rye', fontSize: px(sz * 0.3), color: INK, letterSpacing: '0.06em' }, 'ACCIDENTES');
   const st = [];
   for (let i = 0; i < 3; i++) {
     const bx = box(d, i * (sz + gap), 52, sz, sz, { background: '#FBF6EA', border: `6px solid ${INK}`, borderRadius: '10px', boxShadow: `6px 6px 0 ${SH}` });

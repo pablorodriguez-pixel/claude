@@ -7,9 +7,9 @@
    5    2.13-  2.58  Esta
    6    2.62-  3.06  camarera,
    7    3.11-  3.30  sí.
---- LÍNEA 1  [VECINO]  3.49-7.33  «Violet Yésop, nacida en Argentina. En el bote le lanzan un bulto...»
+--- LÍNEA 1  [VECINO]  3.49-7.33  «Violet Jessop, nacida en Argentina. En el bote le lanzan un bulto...»
    8    3.49-  3.89  Violet
-   9    3.97-  4.45  Yésop,
+   9    3.97-  4.45  Jessop,
   10    4.49-  4.77  nacida
   11    4.80-  4.85  en
   12    4.91-  5.81  Argentina.

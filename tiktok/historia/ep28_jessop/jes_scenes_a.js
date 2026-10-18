@@ -10,7 +10,9 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
     set(cam, { s: 1.02 + 0.05 * p(t, 0, 4.4, E.linear) });
     // la proa se inclina (+3° → +8°) y se hunde
     const kr = p(t, 0, 4.4, E.linear);
-    set(bow, { r: 3 + 5 * kr + wobble(t, 0.35, 0.4), y: 70 * kr + wobble(t, 0.4, 4) });
+    set(bow, { r: 6 + 6 * kr + wobble(t, 0.35, 0.4), y: 70 * kr + wobble(t, 0.4, 4), s: 1.2 });
+    set(buoy, { y: Math.sin(t * 2.1) * 10, r: Math.sin(t * 1.7) * 8 }); set(plank, { y: Math.sin(t * 2.3 + 1) * 8, r: -12 + Math.sin(t * 1.9) * 6 });
+    MR.forEach((m, i) => set(m, { x: Math.sin(t * 3 + i) * 14, o: 0.35 + 0.25 * Math.sin(t * 4 + i * 2) }));
     // «Tú no salías vivo»: el agua sube y tapa la proa
     const kw = p(t, K.tu0 - 0.1, 1.6, E.inOutCubic);
     set(wat, { y: -150 * kw, x: -((tl * 30) % 60) });
@@ -35,10 +37,13 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   const sky = sceneBg(cam, { background: `linear-gradient(180deg, ${NIGHT} 0%, ${NIGHT2} 55%, #5d6f86 100%)` });
   svgBox(cam, 0, 0, 1080, 1100, stars(90, 7, 1080, 1000), '0 0 1080 1100', 1);
   box(cam, 640, 120, 200, 200, { borderRadius: '50%', background: 'radial-gradient(circle, #FBF6EA 0 38%, rgba(251,246,234,.25) 40%, rgba(251,246,234,0) 70%)', zIndex: 1 });
-  const bow = box(cam, -250, 770, 1300, 760, { zIndex: 3, transformOrigin: '1100px 520px' });
+  const bow = box(cam, -250, 640, 1300, 760, { zIndex: 3, transformOrigin: '1100px 520px' });
   bow.innerHTML = svgW(bowInner(), '0 0 1300 760');
-  const wat = box(cam, 0, 1200, 1080, 1100, { zIndex: 5 }); wat.innerHTML = WAVES(11, '#152131', '#c9d6e2');
-  box(cam, 0, 1200, 1080, 900, { zIndex: 6, background: 'linear-gradient(180deg, rgba(10,18,28,0) 0%, rgba(10,18,28,.55) 100%)' });
+  const wat = box(cam, 0, 1110, 1080, 1100, { zIndex: 5 }); wat.innerHTML = WAVES(11, '#152131', '#c9d6e2');
+  const MR = [0, 1, 2, 3, 4, 5].map(i => box(cam, 640 + (i % 3) * 40 - 20, 1330 + i * 70, 220 - i * 18, 10, { zIndex: 6, borderRadius: '6px', background: '#FBF6EA' }));
+  const buoy = box(cam, 90, 1420, 200, 120, { zIndex: 8 }); buoy.innerHTML = `<svg width="200" height="120" style="overflow:visible"><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="${INK}" stroke-width="40"/><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="#fff" stroke-width="30"/><ellipse cx="100" cy="60" rx="86" ry="40" fill="none" stroke="${RED}" stroke-width="30" stroke-dasharray="44 44"/></svg>`;
+  const plank = box(cam, 380, 1560, 300, 50, { zIndex: 8, background: WOOD, border: `5px solid ${INK}`, borderRadius: '6px' });
+  box(cam, 0, 1110, 1080, 900, { zIndex: 6, background: 'linear-gradient(180deg, rgba(10,18,28,0) 0%, rgba(10,18,28,.55) 100%)' });
   // Violet (sale del agua) dentro de un recorte con el borde inferior en la línea de agua del primer plano
   const vClip = box(cam, 540, 820, 420, 470, { overflow: 'hidden', zIndex: 7 });
   const vio = mkViolet(vClip, [60, 40, 300, 383], { noCap: true });
@@ -46,9 +51,7 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   const fwave = box(cam, -30, 1262, 1140, 120, { zIndex: 8 });
   fwave.innerHTML = `<svg width="1140" height="120" style="overflow:visible"><path d="M0,30 ${Array.from({ length: 20 }, (_, k) => `q30,-22 60,0`).join(' ')} V700 H0 Z" fill="#152131"/><path d="M0,30 ${Array.from({ length: 20 }, (_, k) => `q30,-22 60,0`).join(' ')}" fill="none" stroke="#dfe8ef" stroke-width="5"/><path d="M0,60 ${Array.from({ length: 28 }, () => 'q20,-12 40,0').join(' ')}" stroke="#dfe8ef" stroke-width="2.5" fill="none" opacity=".5"/></svg>`;
   const cof = box(cam, 618, 1192, 240, 120, { zIndex: 9 }); cof.innerHTML = cofiaSvg();
-  const l1 = BIGT(cam, 0, 335, 1080, `¿${hlSpan('TÚ', 'tuH')} TE`, { fontSize: '170px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
-  l1.querySelector('.tuH').style.transform = 'scaleX(1) rotate(-1.2deg)';
-  l1.querySelector('.tuH').parentNode.style.color = INK; l1.querySelector('.tuH').parentNode.style.textShadow = '6px 6px 0 rgba(251,246,234,.9)';
+  const l1 = BIGT(cam, 0, 335, 1080, `¿<span style="color:${YEL}">TÚ</span> TE`, { fontSize: '170px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
   const l2 = BIGT(cam, 0, 505, 1080, 'SALVABAS?', { fontSize: '150px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
   const rib = box(cam, 330, 1000, 220, 200, { zIndex: 30 });
   rib.innerHTML = `<svg viewBox="0 0 260 230" width="220" height="200" style="overflow:visible">${cut('<path d="M130,90 C80,10 10,30 30,90 C46,130 100,110 130,90 Z M130,90 C180,10 250,30 230,90 C214,130 160,110 130,90 Z M110,100 L70,220 L110,196 L130,226 L140,110 Z M150,100 L190,220 L150,196 L130,226 Z"/>', 5, 7)}<path d="M110,100 L70,220 L110,196 L130,226 L140,110 Z M150,100 L190,220 L150,196 L130,226 Z" fill="${PINK}" stroke="${INK}" stroke-width="5"/><path d="M130,90 C80,10 10,30 30,90 C46,130 100,110 130,90 Z M130,90 C180,10 250,30 230,90 C214,130 160,110 130,90 Z" fill="${PINK}" stroke="${INK}" stroke-width="5"/><circle cx="130" cy="92" r="26" fill="${PINK}" stroke="${INK}" stroke-width="5"/><text x="130" y="108" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="44" fill="#fff" stroke="${INK}" stroke-width="2">?</text></svg>`;
@@ -177,7 +180,6 @@ headline(S.E2[0], S.E2[1], 'una mujer *se lo arrancó*', { size: 96, hlT: K.arra
     set(bun, { y: -ko * 1000, r: -ko * 30 });
     face(vio, t, { look: t > K.arranco ? [4, -8] : [3, 4], bL: t > K.arranco ? 18 : 4, bR: t > K.arranco ? 18 : 4, seed: 5.3 });
     set(vio.d, { y: wobble(t, 0.5, 3) + (t > K.arranco && t < K.arranco + 0.3 ? Math.sin(t * 60) * 5 : 0) });
-    popA(empty, t, K.arranco + 0.35, { r: -4 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '640px 800px' });
   sceneBg(cam, { background: 'linear-gradient(180deg, #8fb3cf 0%, #f2b8c6 50%, #f7d7a8 80%)' });
@@ -185,7 +187,6 @@ headline(S.E2[0], S.E2[1], 'una mujer *se lo arrancó*', { size: 96, hlT: K.arra
   const vio = mkViolet(cam, [420, 520, 420, 537]); vio.d.style.zIndex = 4;
   const bun = box(cam, 470, 880, 360, 264, { zIndex: 6 }); bun.innerHTML = svgW(bundleInner(true), '0 0 300 220');
   const hd = box(cam, 460, 860, 380, 260, { zIndex: 7 }); hd.innerHTML = handsSvg();
-  const empty = chip(cam, 520, 1150, 'regazo vacío', { size: 44, bg: INK, color: '#fff', z: 20 });
 }
 
 /* rótulo pequeño «SEGÚN SUS MEMORIAS» durante toda la L2 (P6 en pantalla) */
