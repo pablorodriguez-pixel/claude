@@ -3,7 +3,7 @@ const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
   K.cerv0 = ws(0); K.nunca = ws(1); K.escribio = ws(2); K.signo0 = ws(4); K.y0 = ws(5); K.tu0 = ws(6); K.usas = ws(8); K.cada = ws(9); K.dia = ws(10);
-  const i1 = find('en el quijote original'); K.en1 = ws(i1); K.quijote = ws(i1 + 2); K.original = ws(i1 + 8); K.mil1 = ws(i1 + 4); K.no1 = ws(i1 + 9); K.hay = ws(i1 + 10); K.ni = ws(i1 + 11); K.uno = ws(i1 + 12);
+  const i1 = find('en el quijote de mil seiscientos'); K.en1 = ws(i1); K.quijote = ws(i1 + 2); K.original = ws(i1 + 8); K.mil1 = ws(i1 + 4); K.no1 = ws(i1 + 9); K.hay = ws(i1 + 10); K.ni = ws(i1 + 11); K.uno = ws(i1 + 12);
   K.porque1 = ws(i1 + 14); K.el1 = ws(i1 + 15); K.todavia1 = ws(i1 + 17); K.no1b = ws(i1 + 18); K.existia = ws(i1 + 19); K.existiaE = wE(i1 + 19);
   const is = find('soy tu vecino', i1); K.isoy = is; K.soy = ws(is); K.vecino = ws(is + 2); K.iye2 = is + 3; K.esto2 = ws(is + 4); K.libro2 = ws(is + 9);
   const i3 = find('y entonces quien se lo invento', is); K.y3 = ws(i3); K.quien = ws(i3 + 2); K.invento3 = ws(i3 + 5); K.y3b = ws(i3 + 6); K.solo3 = ws(i3 + 7); K.usamos = ws(i3 + 8); K.nosotros = ws(i3 + 8);

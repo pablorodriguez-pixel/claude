@@ -156,7 +156,7 @@ stepHead(K.y6 - 0.08, K.y7 - 0.08, 3, ['Aun así, *costó*'], { size: 108, ty: 2
       el('div', pg.inner, { left: px(118 + w), top: px(y - 30), fontFamily: 'Playfair', fontWeight: 900, fontSize: '60px', color: RED }, '?');
     } else box(pg.inner, 60, y, 520 + r() * 140, 12, { background: INK, opacity: 0.4, borderRadius: '6px' });
   }
-  const st = stamp(c, 230, 1010, '¡NI CASO!', { size: 130, bw: 18, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const st = stamp(c, 250, 1010, '¡NI CASO!', { size: 104, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* G2 · «TODAVÍA EN EL SIGLO XIX SE IMPRIMÍAN LIBROS SIN ÉL» — la prensa escupe hojas y el «¿» acaba en la papelera */
