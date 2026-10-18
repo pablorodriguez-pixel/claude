@@ -127,7 +127,7 @@ headline(S.G2[0], S.G2[1], 'hasta *80 años* después', { size: 100, hlT: K.oche
 /* ======================================================================
    H1 · «OJO: LO DE LAS COLUMNAS DE HÉRCULES…» — las columnas con la banda en S
    ====================================================================== */
-headline(S.H1[0], S.H1[1], 'las columnas de *Hércules*', { size: 84, hlT: K.hercules, y: 220 });
+headline(S.H1[0], S.H1[1], 'columnas de *Hércules*', { size: 88, hlT: K.hercules, y: 220 });
 {
   const c = scene(S.H1[0], S.H1[1], t => {
     stampA(ojo, t, K.ojo, -8, 1);

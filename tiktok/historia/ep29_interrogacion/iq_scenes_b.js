@@ -50,7 +50,7 @@ headline(S.G2[0], S.G2[1], 'se imprimían libros *sin ella*', { size: 84, hlT: K
   [0, 1, 2, 3, 4].forEach(i => { const e = box(c, 560, 900, 200, 264, { zIndex: 9 - i }); e.innerHTML = sheetSvg(i + 3); SH_.push({ e, t: S.G2[0] + 0.25 + i * 0.5, dx: -120 - i * 70 + (i % 2) * 40, dy: -380 + i * 60, r: -14 + i * 8 }); });
   const tb = box(c, 880, 560, 90, 112, { zIndex: 12 }); tb.innerHTML = typeBlockSvg('¿');
   const bin = box(c, 290, 1060, 200, 200, { zIndex: 11 }); bin.innerHTML = binSvg();
-  const st = stamp(c, 380, 760, 'SIN «¿»', { size: 130, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const st = stamp(c, 300, 780, 'SIN «¿»', { size: 110, bw: 16, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -196,7 +196,7 @@ headline(S.J3[0], S.J3[1], 'por *imitar* a otras lenguas', { size: 86, hlT: K.im
    K1 · «ASÍ QUE, EN EL CHAT… CERVANTES TENÍA EXCUSA.» — chat sin «¿» y Cervantes señalándolo
    ====================================================================== */
 headline(S.K1[0], K.cerv10 - 0.28, 'Así que, en el *chat*…', { size: 100, hlT: K.chat, y: 200 });
-headline(K.cerv10 - 0.28, S.K1[1], 'Cervantes tenía *excusa*', { size: 92, hlT: K.excusa, y: 200 });
+headline(K.cerv10 - 0.28, S.K1[1], 'Cervantes tenía *excusa*', { size: 80, hlT: K.excusa, y: 200 });
 {
   const c = scene(S.K1[0], S.K1[1], t => {
     const kz = p(t, K.cerv10 - 0.1, 0.4, E.inOutCubic);
@@ -221,7 +221,7 @@ headline(K.cerv10 - 0.28, S.K1[1], 'Cervantes tenía *excusa*', { size: 92, hlT:
   const gh = el('div', ph, { left: '14px', top: '240px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '70px', color: PINK, textShadow: `3px 3px 0 ${INK}`, zIndex: 6 }, '¿?');
   const ty = el('div', ph, { left: '50px', top: '420px', background: '#fff', border: `4px solid ${INK}`, borderRadius: '24px', padding: '0 22px 6px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '50px', color: INK, zIndex: 4 }, '•••');
   const cv = mkCerv(cam, [20, 760, 420, 537]); cv.d.style.zIndex = 8;
-  const hand = box(cam, 330, 640, 150, 150, { zIndex: 9 }); hand.innerHTML = `<svg viewBox="-70 -70 140 140" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, 50, 1.3)}</svg>`;
+  const hand = box(cam, 290, 760, 150, 150, { zIndex: 9 }); hand.innerHTML = `<svg viewBox="-70 -70 140 140" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, 50, 1.3)}</svg>`;
   const ex = stamp(cam, 420, 1060, 'ÉL TENÍA EXCUSA', { size: 56, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 

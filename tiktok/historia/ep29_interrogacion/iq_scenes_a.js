@@ -163,7 +163,7 @@ headline(S.B2[0], S.B2[1], 'No era un *descuidado*', { size: 96, hlT: K.descuida
   const wipe = box(c, 200, 360, 0, 900, { background: '#2f3a33', zIndex: 3 });
   const er = box(c, 160, 700, 260, 150, { zIndex: 6 });
   er.innerHTML = `<svg viewBox="0 0 260 150" width="260" height="150" style="overflow:visible">${cut('<rect x="10" y="20" width="240" height="110" rx="14"/>', 5, 7)}<rect x="10" y="20" width="240" height="70" rx="14" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="10" y="80" width="240" height="50" rx="8" fill="#e8e2d4" stroke="${INK}" stroke-width="5"/><rect x="10" y="20" width="240" height="70" fill="url(#hW)" opacity=".4"/></svg>`;
-  const st = stamp(c, 170, 760, 'NO EXISTÍA', { size: 130, bw: 16, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const st = stamp(c, 150, 760, 'NO EXISTÍA', { size: 108, bw: 14, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -323,7 +323,7 @@ headline(ws(find('solo cambia', 52)) - 0.28, S.F1[1], 'Solo cambia el *tono*', {
   const b2 = bubble(c, 140, 640, '<span style="color:' + RED + '">¿</span>' + hlSpan('tienes hambre', 'fh2') + '<span style="color:' + RED + '">?</span>', { size: 100, tail: 'bl', z: 21, bg: '#FFF3A8' });
   const lnk = box(c, 0, 0, 1080, 1920, { zIndex: 22 }); lnk.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${[290, 420, 560, 700].map(x => `<path d="M${x},540 V650" stroke="${PINK}" stroke-width="6" stroke-dasharray="10 8"/>`).join('')}</svg>`;
   const fl = el('div', c, { left: '860px', top: '560px', fontSize: '90px', color: YEL, textShadow: `3px 3px 0 ${INK}, -3px -3px 0 ${INK}`, zIndex: 30 }, '✦');
-  const eq = stamp(c, 180, 800, '= IGUALES', { size: 70, bw: 10, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const eq = stamp(c, 180, 830, '= IGUALES', { size: 70, bw: 10, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const cA = box(c, 100, 930, 420, 200, { zIndex: 6 }); cA.innerHTML = `<svg width="420" height="200" style="overflow:visible"><path d="M20,60 C140,58 260,60 330,90 C370,110 390,140 400,170" stroke="${INK}" stroke-width="14" fill="none" stroke-linecap="round"/><text x="20" y="190" font-family="Bricolage" font-weight="800" font-size="40" fill="${INK}">afirmas ↘</text></svg>`;
   const cB = box(c, 560, 930, 420, 200, { zIndex: 6 }); cB.innerHTML = `<svg width="420" height="200" style="overflow:visible"><path d="M20,150 C140,150 260,146 320,120 C360,100 380,60 390,20" stroke="${PINK}" stroke-width="16" fill="none" stroke-linecap="round"/><text x="20" y="196" font-family="Bricolage" font-weight="800" font-size="40" fill="${RED}">preguntas ↗</text></svg>`;
   const en = chip(c, 180, 1150, 'Inglés: you are → are you?', { size: 38, bg: INK, color: '#fff', z: 30 });
