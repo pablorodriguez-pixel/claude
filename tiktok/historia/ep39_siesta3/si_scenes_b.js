@@ -308,14 +308,16 @@ headline(S.O2[0], S.O2[1], 'la sexta acababa *a las 12*', { size: 92, hlT: K.ter
   box(top, 20, 250, 520, 300, { zIndex: 3 }).innerHTML = `<svg viewBox="0 0 900 520" width="100%" height="100%" style="overflow:visible"><path d="M200,330 C300,450 600,450 700,330 C640,470 260,470 200,330 Z" fill="#F2C230" stroke="${INK}" stroke-width="7"/></svg>`;
   const cT = mkClock(top, 600, 120, 290, { z: 4 });
   const sT = box(top, 520, 420, 420, 120, { zIndex: 8 }); sT.appendChild(cstamp(sT, 0, 'VI · 12:00', { size: 70, bw: 10 })).style.width = '420px'; set(sT, { r: -6 });
-  el('div', bot, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `La ${hlSpan('tuya', 'q2', PINK)}`);
+  el('div', bot, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `La ${hlSpan('tuya', 'q2', YEL)}`);
   bot.querySelector('.q2').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const sl2 = mk(bot, [80, 150, 300, 383], sleeperInner(false), '0 0 360 460', 'bust'); sl2.d.style.zIndex = 2;
   const cB = mkClock(bot, 520, 110, 290, { z: 4 });
   const sB = box(bot, 440, 420, 420, 120, { zIndex: 8 }); sB.appendChild(cstamp(sB, 0, '15:30', { size: 84, bw: 11 })).style.width = '420px';
 }
 /* R1b · «PARA UN ROMANO ESO YA NO ES LA SEXTA... ES LA DÉCIMA.» — reloj de sol de VI a X + sello rojo X sobre «La tuya 15:30» */
-headline(S.R1b[0], S.R1b[1], 'Para un romano… *la décima*', { size: 88, hlT: K.decima });
+headline(S.R1b[0], K.decima - 0.12 + 0.16, 'Para un romano…', { size: 88 });
+headline(K.decima - 0.12, S.R1b[1], 'Para un romano… *la décima*', { size: 88, hlT: K.decima });
+{ const h = HLS[HLS.length - 1]; h.spans.slice(0, 3).forEach(s => { s.t = h.t0 - 1; }); h.spans.slice(3).forEach(s => { s.t = K.decima - 0.1; }); h.fadeIn = false; }
 {
   const c = scene(S.R1b[0], S.R1b[1], t => {
     const kd = p(t, K.decima - 0.45, 0.5, E.inOutCubic);
@@ -335,7 +337,7 @@ headline(S.R1b[0], S.R1b[1], 'Para un romano… *la décima*', { size: 88, hlT: 
   const c6 = chip(c, 230, 640, 'sexta = 12:00', { size: 40, bg: YEL, color: INK, z: 20 });
   const MS = []; for (let i = 0; i < 10; i++) { const m = box(c, 100 + i * 56, 900, 50, 66, { zIndex: 12, background: '#FBF6EA', border: `4px solid ${INK}`, borderRadius: '9px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: i > 6 ? '24px' : '30px', lineHeight: '58px', color: INK }, ROM[i + 1]); MS.push(m); }
   const card = box(c, 100, 1000, 560, 240, { zIndex: 10, background: '#D7DCE2', border: `7px solid ${INK}`, borderRadius: '26px', boxShadow: `10px 12px 0 ${SH}` });
-  el('div', card, { left: '-50px', top: '28px', width: '546px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '64px', lineHeight: 1, color: INK }, `La ${hlSpan('tuya', 'q3', PINK)}`);
+  el('div', card, { left: '-50px', top: '28px', width: '546px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '64px', lineHeight: 1, color: INK }, `La ${hlSpan('tuya', 'q3', YEL)}`);
   card.querySelector('.q3').style.transform = 'scaleX(1) rotate(-1.2deg)';
   el('div', card, { left: '-40px', top: '110px', width: '486px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1, color: INK }, '15:30');
   const sX = box(c, 450, 1015, 220, 220, { zIndex: 30 }); sX.innerHTML = `<div style="position:absolute;left:0;top:0;width:220px;text-align:center"><span style="display:inline-block;border:14px solid ${RED};color:${RED};font-family:Rye;font-size:150px;line-height:1;padding:0 26px 10px;border-radius:20px;background:rgba(255,255,255,.85)">X</span></div>`;
