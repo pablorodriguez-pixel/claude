@@ -69,31 +69,31 @@
   {
    "n": 8,
    "s": 55.51,
-   "e": 62.145,
-   "dur": 6.64,
-   "palabras": 22,
-   "texto": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche."
+   "e": 62.466,
+   "dur": 6.96,
+   "palabras": 20,
+   "texto": "Ojo: no le dieron ni una medalla. Según contó él, le cayó una bronca por el papeleo de esa noche."
   },
   {
    "n": 9,
-   "s": 62.495,
-   "e": 69.204,
-   "dur": 6.71,
-   "palabras": 18,
-   "texto": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después."
+   "s": 62.816,
+   "e": 70.806,
+   "dur": 7.99,
+   "palabras": 22,
+   "texto": "O sea: ese señor te salvó la vida, y el mundo no se enteró hasta quince años después… y tú, hasta hoy."
   },
   {
    "n": 10,
-   "s": 69.704,
-   "e": 73.539,
-   "dur": 3.84,
-   "palabras": 14,
-   "texto": "¿Tú qué habrías hecho en su silla: dar la alarma, o colgar? Os leo."
+   "s": 71.306,
+   "e": 76.1,
+   "dur": 4.79,
+   "palabras": 16,
+   "texto": "¿Tú qué habrías hecho en su silla: creerte la pantalla, o creerte a ti? Os leo."
   },
   {
    "n": 11,
-   "s": 73.889,
-   "e": 76.248,
+   "s": 76.45,
+   "e": 78.808,
    "dur": 2.36,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -108,13 +108,13 @@
  "marca_linea": 2,
  "marca_es_ultima": false,
  "marca_inicio_s": 10.528,
- "ojo_dur": 6.64,
+ "ojo_dur": 6.96,
  "cta_tipo": "abierta",
- "cta_texto": "¿Tú qué habrías hecho en su silla: dar la alarma, o colgar? Os leo.",
+ "cta_texto": "¿Tú qué habrías hecho en su silla: creerte la pantalla, o creerte a ti? Os leo.",
  "n_lineas": 12,
- "n_palabras": 204,
- "duracion_voz": 76.25,
- "ppm": 160.5,
+ "n_palabras": 208,
+ "duracion_voz": 78.81,
+ "ppm": 158.4,
  "lineas_mas_largas": [
   [
    4,
@@ -133,5 +133,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep38_petrov3/final.mp4",
- "duracion_video": 76.87
+ "duracion_video": 79.43
 }
