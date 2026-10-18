@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El símbolo del dólar no es una S! Es una palabra en español.",
+  "s": 0.12,
+  "e": 4.017
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Ese garabato, en realidad, pone «pesos».",
+  "s": 4.367,
+  "e": 7.243
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 7.743,
+  "e": 10.537
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Cómo acaba una palabra española en el dinero de Estados Unidos? En tres pasos.",
+  "s": 10.887,
+  "e": 15.366
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos».",
+  "s": 15.716,
+  "e": 27.233
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó una raya.",
+  "s": 27.733,
+  "e": 34.126
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español: el mismo valor... y el mismo símbolo.",
+  "s": 34.626,
+  "e": 41.822
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete.",
+  "s": 42.322,
+  "e": 46.953
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: hay otras teorías, como la de las columnas de Hércules. Son bonitas, pero la del peso es la que tiene pruebas.",
+  "s": 47.453,
+  "e": 53.846
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: cada vez que ves el símbolo del dólar... estás leyendo «pesos», en español.",
+  "s": 54.196,
+  "e": 60.67
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Y en tu país, cómo le llamáis al dinero? Os leo.",
+  "s": 61.17,
+  "e": 63.885
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 64.235,
+  "e": 66.519
+ }
+]

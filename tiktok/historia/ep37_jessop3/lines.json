@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Esta mujer sobrevivió al Titanic... y no fue lo más raro de su vida!",
+  "s": 0.12,
+  "e": 4.056
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Se llamaba Violet Jessop, era camarera de barcos, y viajó en los tres hermanos gemelos del Titanic. Los tres tuvieron un accidente.",
+  "s": 4.406,
+  "e": 11.836
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 12.336,
+  "e": 15.13
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Te los cuento uno a uno.",
+  "s": 15.48,
+  "e": 17.237
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: el Olympic. En mil novecientos once chocó contra un buque de guerra. Ella iba a bordo y salió sin un rasguño.",
+  "s": 17.587,
+  "e": 23.979
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: el Titanic. Al año siguiente. Ella se salvó en un bote salvavidas, con un bebé que le pusieron en los brazos al subir.",
+  "s": 24.479,
+  "e": 32.076
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y tres: el Britannic, en plena guerra, convertido en barco hospital. Chocó con una mina y se hundió. Ella iba de enfermera.",
+  "s": 32.576,
+  "e": 39.527
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Su bote salvavidas acabó arrastrado hacia las hélices, que seguían girando. Así que saltó al agua, se golpeó la cabeza... y sobrevivió otra vez.",
+  "s": 39.877,
+  "e": 48.11
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: antes de abandonar el barco, volvió a su camarote a por una cosa: su cepillo de dientes. Era lo que más había echado de menos después del Titanic.",
+  "s": 48.61,
+  "e": 58.122
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: tres naufragios... y siguió trabajando en barcos casi cuarenta años más. La llamaban «Miss Insumergible».",
+  "s": 58.622,
+  "e": 67.34
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Tú te habrías vuelto a subir a un barco? Os leo.",
+  "s": 67.84,
+  "e": 70.956
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 71.306,
+  "e": 73.67
+ }
+]

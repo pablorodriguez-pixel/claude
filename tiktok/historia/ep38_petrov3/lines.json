@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Estás vivo gracias a un señor del que nunca has oído hablar!",
+  "s": 0.12,
+  "e": 3.122
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Se llamaba Stanislav Petrov, y una noche de mil novecientos ochenta y tres tuvo el mundo en sus manos.",
+  "s": 3.472,
+  "e": 9.391
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 9.891,
+  "e": 13.006
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Qué pasó esa noche? Te lo cuento en tres momentos.",
+  "s": 13.356,
+  "e": 16.55
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: la alarma. Petrov era militar soviético y vigilaba los satélites que avisaban si Estados Unidos lanzaba misiles nucleares. Y a medianoche, la pantalla dijo: misil. Luego, otro. Hasta cinco.",
+  "s": 16.9,
+  "e": 30.493
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: la decisión. Si avisaba a sus jefes, podían responder con un ataque nuclear. Y pensó: si Estados Unidos ataca de verdad, no manda cinco misiles. Manda cientos.",
+  "s": 30.993,
+  "e": 42.188
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Así que cogió el teléfono y dijo: «Es una falsa alarma».",
+  "s": 42.688,
+  "e": 46.045
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite lo había confundido con misiles.",
+  "s": 46.545,
+  "e": 54.535
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche.",
+  "s": 55.035,
+  "e": 61.671
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después.",
+  "s": 62.021,
+  "e": 68.73
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Tú qué habrías hecho en su silla: avisar, o no? Os leo.",
+  "s": 69.23,
+  "e": 72.586
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 72.936,
+  "e": 75.294
+ }
+]

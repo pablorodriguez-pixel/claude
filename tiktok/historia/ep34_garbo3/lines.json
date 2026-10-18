@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Hitler le dio una medalla al español que le engañó!",
+  "s": 0.12,
+  "e": 2.446
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Se llamaba Juan Pujol, era de Barcelona, y nunca había sido espía.",
+  "s": 2.796,
+  "e": 7.034
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 7.534,
+  "e": 10.651
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Cómo engaña a Hitler un señor que no era espía? En tres pasos.",
+  "s": 11.001,
+  "e": 15.312
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se ofreció a los alemanes... para engañarlos desde dentro.",
+  "s": 15.662,
+  "e": 23.498
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa.",
+  "s": 23.998,
+  "e": 31.352
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y tres: como un espía solo no daba para tanto, se inventó otros veintisiete. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
+  "s": 31.852,
+  "e": 40.884
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Al final, los ingleses vieron lo bueno que era y le ficharon. Y llegó el gran día: el desembarco de Normandía.",
+  "s": 41.384,
+  "e": 47.859
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Pujol avisó a Hitler de que era una trampa, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
+  "s": 48.209,
+  "e": 57.242
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: después fingió su propia muerte y se fue a vivir a Venezuela.",
+  "s": 57.742,
+  "e": 61.74
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño.",
+  "s": 62.09,
+  "e": 69.049
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo.",
+  "s": 69.549,
+  "e": 73.622
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 73.972,
+  "e": 76.337
+ }
+]
