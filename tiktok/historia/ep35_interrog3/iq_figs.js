@@ -3,11 +3,11 @@ const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
   K.cerv0 = ws(0); K.nunca = ws(1); K.escribio = ws(2); K.signo0 = ws(4); K.y0 = ws(5); K.tu0 = ws(6); K.usas = ws(8); K.cada = ws(9); K.dia = ws(10);
-  const i1 = find('en el quijote original'); K.en1 = ws(i1); K.quijote = ws(i1 + 2); K.original = ws(i1 + 3); K.mil1 = ws(i1 + 6); K.no1 = ws(i1 + 9); K.hay = ws(i1 + 10); K.ni = ws(i1 + 11); K.uno = ws(i1 + 12);
+  const i1 = find('en el quijote original'); K.en1 = ws(i1); K.quijote = ws(i1 + 2); K.original = ws(i1 + 8); K.mil1 = ws(i1 + 4); K.no1 = ws(i1 + 9); K.hay = ws(i1 + 10); K.ni = ws(i1 + 11); K.uno = ws(i1 + 12);
   K.porque1 = ws(i1 + 14); K.el1 = ws(i1 + 15); K.todavia1 = ws(i1 + 17); K.no1b = ws(i1 + 18); K.existia = ws(i1 + 19); K.existiaE = wE(i1 + 19);
   const is = find('soy tu vecino', i1); K.isoy = is; K.soy = ws(is); K.vecino = ws(is + 2); K.iye2 = is + 3; K.esto2 = ws(is + 4); K.libro2 = ws(is + 9);
-  const i3 = find('y entonces quien se lo invento', is); K.y3 = ws(i3); K.quien = ws(i3 + 2); K.invento3 = ws(i3 + 5); K.y3b = ws(i3 + 6); K.solo3 = ws(i3 + 9); K.usamos = ws(i3 + 11); K.nosotros = ws(i3 + 12);
-  K.te3 = ws(i3 + 13); K.cuento = ws(i3 + 15); K.tres3 = ws(i3 + 17); K.pasos = ws(i3 + 18);
+  const i3 = find('y entonces quien se lo invento', is); K.y3 = ws(i3); K.quien = ws(i3 + 2); K.invento3 = ws(i3 + 5); K.y3b = ws(i3 + 6); K.solo3 = ws(i3 + 7); K.usamos = ws(i3 + 8); K.nosotros = ws(i3 + 8);
+  K.te3 = ws(i3 + 9); K.cuento = ws(i3 + 11); K.tres3 = ws(i3 + 13); K.pasos = ws(i3 + 14);
   const i4 = find('uno en mil setecientos', i3); K.uno4 = ws(i4); K.mil = ws(i4 + 2); K.cuatro = ws(i4 + 6); K.cuando = ws(i4 + 7); K.cerv4 = ws(i4 + 8); K.llevaba = ws(i4 + 9); K.mas4 = ws(i4 + 10); K.cien = ws(i4 + 12); K.muerto = ws(i4 + 14);
   K.la4 = ws(i4 + 15); K.real = ws(i4 + 16); K.academia = ws(i4 + 17); K.decidio = ws(i4 + 18); K.inventar = ws(i4 + 19); K.inventarE = wE(i4 + 19);
   const i5 = find('dos lo hizo porque', i4); K.dos = ws(i5); K.hizo = ws(i5 + 2); K.porque5 = ws(i5 + 3); K.espanol = ws(i5 + 5);
@@ -25,10 +25,10 @@ const K = {};
 /* cortes de escena: un plano nuevo cada 1,5–2,5 s; ningún dato menos de 1,5 s en pantalla */
 const S = {
   A0: [-1, K.y0 - 0.06], A1: [K.y0 - 0.06, K.en1 - 0.06], B1: [K.en1 - 0.06, K.el1 - 0.06], D1: [K.el1 - 0.06, K.soy - 0.08],
-  BAL: [K.soy - 0.08, K.y3 - 0.08], C0: [K.y3 - 0.08, K.y3b - 0.06], C1: [K.y3b - 0.06, K.cuento - 0.06], C2: [K.cuento - 0.06, K.uno4 - 0.06],
+  BAL: [K.soy - 0.08, K.y3 - 0.08], C0: [K.y3 - 0.08, K.y3b - 0.06], C1: [K.y3b - 0.06, K.tres3 - 0.06], C2: [K.tres3 - 0.06, K.uno4 - 0.06],
   D2: [K.uno4 - 0.06, K.cuando - 0.06], D3: [K.cuando - 0.06, K.la4 - 0.06], D4: [K.la4 - 0.06, K.dos - 0.08],
-  E1: [K.dos - 0.08, K.tienes1 - 0.1], E2: [K.tienes1 - 0.1, K.asi - 0.06], E4: [K.asi - 0.06, K.y6 - 0.08],
-  G1: [K.y6 - 0.08, K.todavia - 0.06], G2: [K.todavia - 0.06, K.y7 - 0.08],
+  E1: [K.dos - 0.08, K.espanol - 0.06], E2: [K.espanol - 0.06, K.asi - 0.06], E4: [K.asi - 0.06, K.y6 - 0.08],
+  G1: [K.y6 - 0.08, K.muchisimo - 0.06], G1b: [K.muchisimo - 0.06, K.todavia - 0.06], G2: [K.todavia - 0.06, K.y7 - 0.08],
   H1: [K.y7 - 0.08, K.esta - 0.06], H2: [K.esta - 0.06, K.osea - 0.06],
   K1: [K.osea - 0.06, K.tu8 - 0.08], K3: [K.tu8 - 0.08, K.tu9 + 0.45], K4: [K.tu9 + 0.45, K.ye - 0.1], BK: [K.ye - 0.1, 999],
 };

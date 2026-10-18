@@ -3,7 +3,7 @@
   "VECINO": [
    "851ejYcv2BoNPjrkw93G",
    0.0,
-   1.0
+   0.96
   ]
  },
  "gap": 0.35,
@@ -15,7 +15,7 @@
   },
   {
    "who": "VECINO",
-   "text": "En el Quijote original, el de mil seiscientos cinco, no hay ni uno solo, porque el signo todavía no existía.",
+   "text": "En el Quijote de mil seiscientos cinco, el original, no hay ni uno solo, porque el signo todavía no existía.",
    "gap_after": 0.7
   },
   {
@@ -24,7 +24,7 @@
   },
   {
    "who": "VECINO",
-   "text": "¿Y entonces quién se lo inventó, y por qué solo lo usamos nosotros? Te lo cuento en tres pasos."
+   "text": "¿Y entonces quién se lo inventó, y por qué? Te lo cuento en tres pasos."
   },
   {
    "who": "VECINO",

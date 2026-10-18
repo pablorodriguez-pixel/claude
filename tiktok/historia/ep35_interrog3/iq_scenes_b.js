@@ -37,7 +37,7 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['Escrito, el tono', '*no se oye*'], { si
     // planos: 1) primera frase · 2) llega la segunda (la cámara baja) · 3) «mismas palabras» (plano general) · 4) «sin el signo» (zoom al «¿»)
     const z2 = t > K.tienes2 - 0.1, z3 = t > K.son - 0.06, z4 = t > K.y5b - 0.06;
     set(cam, z4 ? { s: 1.03, x: 10, y: -24 } : z3 ? { s: 1, x: 0, y: 0 } : z2 ? { s: 1.06, x: 20, y: -40 } : { s: 1.1, x: 40, y: 140 });
-    set(b1, { s: pop(t, K.tienes1 - 0.04, 0.35), r: -2 + wobble(t, 0.5, 0.6), o: t < K.tienes1 - 0.04 ? 0 : 1 });
+    set(b1, { s: pop(t, K.espanol - 0.04, 0.35), r: -2 + wobble(t, 0.5, 0.6), o: t < K.espanol - 0.04 ? 0 : 1 });
     c1.style.strokeDashoffset = f1(1000 * (1 - p(t, K.tienes1, K.hambre1E - K.tienes1 + 0.1, E.linear)));
     set(n1, { s: pop(t, K.hambre1E - 0.1, 0.3), r: -3 });
     set(b2, { s: pop(t, K.tienes2 - 0.06, 0.35), r: 2 + wobble(t, 0.5, 0.6, 1), o: t < K.tienes2 - 0.06 ? 0 : 1 });
@@ -120,8 +120,8 @@ stepHead(K.y6 - 0.08, K.y7 - 0.08, 3, ['Aun así, *costó*'], { size: 108, ty: 2
     const doubt = t > K.costo;
     face(pr, t, { look: doubt ? [8, -3] : [0, 2], brow: doubt ? -10 : 0, seed: 0.6 });
     set(tb, { r: -10 + Math.sin(t * 3) * 6, y: Math.sin(t * 2.4) * 10, s: pop(t, S.G1[0] + 0.15, 0.35), o: t < S.G1[0] + 0.15 ? 0 : 1 });
-    set(qm, { s: pop(t, K.muchisimo, 0.3), r: 12 + Math.sin(t * 6) * 8, o: t < K.muchisimo ? 0 : 1 });
-    set(bb, { s: pop(t, K.gente - 0.05, 0.32), r: -3 + wobble(t, 0.6, 1), o: t < K.gente - 0.05 ? 0 : 1 });
+    set(qm, { s: pop(t, K.aun, 0.3), r: 12 + Math.sin(t * 6) * 8, o: t < K.aun ? 0 : 1 });
+    set(bb, { s: pop(t, K.costo - 0.05, 0.32), r: -3 + wobble(t, 0.6, 1), o: t < K.costo - 0.05 ? 0 : 1 });
     set(tc, { y: (1 - p(t, S.G1[0] + 0.1, 0.4, E.outBack)) * 400 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '640px 800px' });
@@ -131,6 +131,32 @@ stepHead(K.y6 - 0.08, K.y7 - 0.08, 3, ['Aun así, *costó*'], { size: 108, ty: 2
   const tc = box(cam, 400, 1060, 540, 231, { zIndex: 7 }); tc.innerHTML = typeCaseSvg();
   const qm = qMark(cam, 820, 560, 120, PINK);
   const bb = bubble(cam, 120, 560, '¿esto? bah…', { size: 62, tail: 'br', z: 30, bg: '#fff' });
+}
+
+/* G1b · «…QUE LA GENTE LE HICIERA CASO» — un libro de la época impreso sin «¿» y el sello «¡NI CASO!» */
+{
+  const c = scene(S.G1b[0], S.G1b[1], t => {
+    set(cam, t > K.gente - 0.06 ? { s: 1.12, x: 30, y: 40 } : { s: 1 + 0.02 * p(t, S.G1b[0], 1.5, E.linear) });
+    set(pg.wrap, { y: (1 - p(t, S.G1b[0], 0.35, E.outBack)) * 900, r: -2 + wobble(t, 0.4, 0.5) });
+    GH.forEach((g, i) => set(g, { o: t > S.G1b[0] + 0.3 + i * 0.2 ? (Math.floor(t * 4 + i) % 2 ? 1 : 0.35) : 0 }));
+    stampA(st, t, K.gente, -8, 1);
+  }, { clip: true });
+  sceneBg(c, { background: '#D9CDB4', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px', zIndex: 2 });
+  const pg = paperPiece(cam, 150, 420, 780, 760, { seed: 21, bg: '#F3E6C6' });
+  el('div', pg.inner, { left: 0, top: '26px', width: '762px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '40px', color: INK, letterSpacing: '0.05em' }, 'LIBRO IMPRESO');
+  el('div', pg.inner, { left: 0, top: '78px', width: '762px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '28px', color: INK }, 'después de 1754');
+  box(pg.inner, 60, 124, 642, 4, { background: INK });
+  const GH = []; const r = rng(7);
+  for (let i = 0; i < 11; i++) {
+    const y = 160 + i * 50;
+    if (i % 3 === 1) {
+      GH.push(box(pg.inner, 50, y - 18, 44, 52, { border: `4px dashed ${PINK}`, borderRadius: '8px', zIndex: 3 }));
+      const w = 360 + r() * 160; box(pg.inner, 110, y, w, 12, { background: INK, opacity: 0.55, borderRadius: '6px' });
+      el('div', pg.inner, { left: px(118 + w), top: px(y - 30), fontFamily: 'Playfair', fontWeight: 900, fontSize: '60px', color: RED }, '?');
+    } else box(pg.inner, 60, y, 520 + r() * 140, 12, { background: INK, opacity: 0.4, borderRadius: '6px' });
+  }
+  const st = stamp(c, 230, 1010, '¡NI CASO!', { size: 130, bw: 18, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* G2 · «TODAVÍA EN EL SIGLO XIX SE IMPRIMÍAN LIBROS SIN ÉL» — la prensa escupe hojas y el «¿» acaba en la papelera */

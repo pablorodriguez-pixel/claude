@@ -34,7 +34,7 @@
     boxC.style.visibility = 'visible';
     if (gi !== last) {
       pill.innerHTML = ''; spans.length = 0;
-      G[gi].forEach((wi, j) => { const sp = document.createElement('span'); sp.textContent = (j ? ' ' : '') + W[wi].w.replace(/[«»"]/g, ''); pill.appendChild(sp); spans.push([sp, wi]); });
+      G[gi].forEach((wi, j) => { const sp = document.createElement('span'); sp.textContent = (j ? ' ' : '') + W[wi].w.replace(/«/g, '“').replace(/»/g, '”'); pill.appendChild(sp); spans.push([sp, wi]); });
       last = gi;
     }
     spans.forEach(([sp, wi]) => { sp.style.color = t >= W[wi].s - 0.03 && t <= W[wi].e + 0.08 ? '#FFE600' : '#fff'; });

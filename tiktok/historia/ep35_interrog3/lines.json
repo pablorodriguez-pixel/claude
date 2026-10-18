@@ -4,76 +4,76 @@
   "who": "VECINO",
   "text": "¡Cervantes nunca escribió este signo, y tú lo usas cada día!",
   "s": 0.12,
-  "e": 3.122
+  "e": 3.241
  },
  {
   "line": 1,
   "who": "VECINO",
-  "text": "En el Quijote original, el de mil seiscientos cinco, no hay ni uno solo, porque el signo todavía no existía.",
-  "s": 3.472,
-  "e": 9.222
+  "text": "En el Quijote de mil seiscientos cinco, el original, no hay ni uno solo, porque el signo todavía no existía.",
+  "s": 3.591,
+  "e": 9.668
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 9.922,
-  "e": 12.717
+  "s": 10.368,
+  "e": 13.273
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "¿Y entonces quién se lo inventó, y por qué solo lo usamos nosotros? Te lo cuento en tres pasos.",
-  "s": 13.067,
-  "e": 18.097
+  "text": "¿Y entonces quién se lo inventó, y por qué? Te lo cuento en tres pasos.",
+  "s": 13.623,
+  "e": 18.61
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Uno: en mil setecientos cincuenta y cuatro, cuando Cervantes llevaba más de cien años muerto, la Real Academia decidió inventárselo.",
-  "s": 18.447,
-  "e": 25.314
+  "s": 18.96,
+  "e": 26.116
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Dos: lo hizo porque en español «tienes hambre» y «¿tienes hambre?» son las mismas palabras, y al escribir el tono no se oye; así que en una frase larga no sabías que era una pregunta hasta el final.",
-  "s": 26.014,
-  "e": 37.052
+  "s": 26.816,
+  "e": 38.308
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Y tres: aun así, costó muchísimo que la gente le hiciera caso, y todavía en el siglo diecinueve se imprimían libros sin él.",
-  "s": 37.752,
-  "e": 46.546
+  "s": 39.008,
+  "e": 48.168
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Y ahora lo bueno: el Quijote que leíste en el cole está lleno de signos de abrir que Cervantes jamás escribió. Se los pusieron después.",
-  "s": 47.246,
-  "e": 54.602
+  "s": 48.868,
+  "e": 56.519
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "O sea: Cervantes tenía excusa para no ponerlo. Tú, en el WhatsApp, no.",
-  "s": 55.302,
-  "e": 59.771
+  "s": 57.219,
+  "e": 61.872
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo.",
-  "s": 60.271,
-  "e": 63.379
+  "s": 62.372,
+  "e": 65.611
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 63.729,
-  "e": 66.094
+  "s": 65.961,
+  "e": 68.41
  }
 ]
