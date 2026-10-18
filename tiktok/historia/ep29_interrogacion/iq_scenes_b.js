@@ -221,7 +221,7 @@ headline(K.cerv10 - 0.28, S.K1[1], 'Cervantes tenía *excusa*', { size: 80, hlT:
   const gh = el('div', ph, { left: '14px', top: '240px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '70px', color: PINK, textShadow: `3px 3px 0 ${INK}`, zIndex: 6 }, '¿?');
   const ty = el('div', ph, { left: '50px', top: '420px', background: '#fff', border: `4px solid ${INK}`, borderRadius: '24px', padding: '0 22px 6px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '50px', color: INK, zIndex: 4 }, '•••');
   const cv = mkCerv(cam, [20, 760, 420, 537]); cv.d.style.zIndex = 8;
-  const hand = box(cam, 290, 760, 150, 150, { zIndex: 9 }); hand.innerHTML = `<svg viewBox="-70 -70 140 140" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, 50, 1.3)}</svg>`;
+  const hand = box(cam, 230, 820, 150, 150, { zIndex: 9 }); hand.innerHTML = `<svg viewBox="-70 -70 140 140" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, 50, 1.3)}</svg>`;
   const ex = stamp(c, 300, 1130, 'ÉL TENÍA EXCUSA', { size: 56, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
@@ -231,7 +231,7 @@ headline(K.cerv10 - 0.28, S.K1[1], 'Cervantes tenía *excusa*', { size: 80, hlT:
 colorHit(S.K3[0], S.K3[1], PINK, c => {
   const big = el('div', c, { left: 0, top: '250px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '200px', lineHeight: '210px', color: '#fff', textShadow: OUTL(INK, 10), zIndex: 10, whiteSpace: 'nowrap' }, 'Tú, no.');
   const bb = el('div', c, { left: '220px', top: '620px', background: '#fff', border: `6px solid ${INK}`, borderRadius: '34px 34px 34px 8px', padding: '18px 36px 22px', fontFamily: 'Bricolage', fontWeight: 700, fontSize: '70px', color: INK, whiteSpace: 'nowrap', boxShadow: `8px 8px 0 ${INK}`, zIndex: 8 }, 'vienes mañana?');
-  const st = stamp(c, 150, 780, 'SIN EXCUSA', { size: 110, bw: 18, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const st = stamp(c, 110, 780, 'SIN EXCUSA', { size: 96, bw: 18, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
   return t => {
     set(big, { s: pop(t, K.tu10 - 0.04, 0.3), r: -3, o: t < K.tu10 - 0.04 ? 0 : 1 });
     big.style.textShadow = (glitch(t, K.no10, 0.3) ? glitch(t, K.no10, 0.3) + ', ' : '') + OUTL(INK, 10);
@@ -331,7 +331,7 @@ headline(S.BK[0], LOOP, '…en el *libro.*', { size: 96, hlT: K.libro, y: 150 })
     // al cerrarse, el libro (que solo ocupa la mitad derecha) se desplaza para quedar centrado
     set(bookW, { x: 210 * 1.25 * p(t, TC + 0.2, 0.25, E.outCubic), s: 1.25 * pop(t, S.BK[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
     stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
-    puffs.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1.5) * 150 * kf, y: -kf * 120, s: 0.5 + kf, o: closed ? 1 - kf : 0 }); });
+    puffs.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1.5) * 150 * kf, y: -kf * 120, s: 0.5 + kf, o: 0 }); });
     // el Vecino asoma tras el libro y dice adiós con el abanico (rima con la mano de la portada)
     const kv = p(t, S.BK[0] + 0.05, 0.35, E.outBack);
     set(vb.d, { y: (1 - kv) * 200 + wobble(t, 0.6, 3), o: t < S.BK[0] + 0.05 ? 0 : 1 });

@@ -102,7 +102,7 @@ headline(S.B1[0], S.B1[1], 'Ni una vez en el *Quijote*', { size: 76, hlT: K.quij
     stampA(st, t, K.quijote + 0.05, -8, 1);
   }, { clip: true });
   sceneBg(c, { background: '#D9CDB4', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
-  const pg = paperPiece(c, 120, 380, 840, 880, { seed: 16, bg: '#F3E6C6' });
+  const pg = paperPiece(c, 120, 410, 840, 880, { seed: 16, bg: '#F3E6C6' });
   el('div', pg.inner, { left: 0, top: '28px', width: '822px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '44px', color: INK, letterSpacing: '0.06em' }, 'DON QVIXOTE');
   el('div', pg.inner, { left: 0, top: '84px', width: '822px', textAlign: 'center', fontFamily: 'SpecialElite', fontSize: '30px', color: INK }, 'Madrid · año 1605');
   box(pg.inner, 60, 136, 702, 4, { background: INK });
@@ -116,7 +116,7 @@ headline(S.B1[0], S.B1[1], 'Ni una vez en el *Quijote*', { size: 76, hlT: K.quij
       box(pg.inner, 50, y - 18, 44, 52, { border: `4px dashed ${PINK}`, borderRadius: '8px', zIndex: 3 });
       box(pg.inner, 110, y, w, 12, { background: INK, opacity: 0.55, borderRadius: '6px' });
       const qm = el('div', pg.inner, { left: px(118 + w), top: px(y - 30), fontFamily: 'Playfair', fontWeight: 900, fontSize: '64px', color: INK, zIndex: 4 }, '?');
-      QL.push({ gh, qm, t: [K.vez - 0.1, K.todo || (K.quijote - 0.45), K.quijote - 0.05][k], lx: 120 + 118 + w - 120, ly: 380 + y - 110 });
+      QL.push({ gh, qm, t: [K.vez - 0.1, K.todo || (K.quijote - 0.45), K.quijote - 0.05][k], lx: 120 + 118 + w - 120, ly: 410 + y - 110 });
     } else box(pg.inner, 60, y, 560 + r() * 140, 12, { background: INK, opacity: 0.4, borderRadius: '6px' });
   }
   const lu = box(c, 0, 0, 300, 300, { zIndex: 20 }); lu.innerHTML = lupaSvg();
@@ -208,7 +208,8 @@ headline(K.puesta - 0.28, S.D3[1], '…puesta *del revés*', { size: 110, hlT: K
   const c = scene(S.D3[0], S.D3[1], t => {
     const kr = p(t, K.puesta - 0.02, 0.55, E.inOutCubic);           // giro de 180°
     const kf = p(t, K.reves + 0.05, 0.4, E.inOutCubic);              // vuela al principio de la frase
-    set(gq, { r: kr * 180 + (kr === 0 ? SWING(t) * 0.5 : 0), s: lerp(1, 0.22, kf) * pop(t, S.D3[0], 0.35), x: lerp(0, -260, kf), y: lerp(0, 452, kf) });
+    set(gq, { r: kr * 180 + (kr === 0 ? SWING(t) * 0.5 : 0), s: lerp(1, 0.24, kf) * pop(t, S.D3[0], 0.35), x: lerp(0, -30, kf), y: lerp(0, 120, kf), o: kf > 0.92 ? 0 : 1 });
+    set(qin, { o: kf > 0.92 ? 1 : 0, s: kf > 0.92 ? 1 + 0.35 * (1 - p(t, K.reves + 0.42, 0.25, E.outBack)) : 0 });
     gq.style.filter = kr > 0 && kr < 1 ? 'none' : 'none';
     set(lb1, { s: pop(t, K.cerrar, 0.3), o: t < K.cerrar || t > K.puesta ? 0 : 1, r: -4 });
     set(lb2, { s: pop(t, K.puesta + 0.5, 0.3), o: t < K.puesta + 0.5 || t > K.reves + 0.05 ? 0 : 1, r: 4 });
@@ -224,7 +225,8 @@ headline(K.puesta - 0.28, S.D3[1], '…puesta *del revés*', { size: 110, hlT: K
   const lb2 = chip(c, 520, 960, 'DEL REVÉS = ¿', { size: 50, bg: RED, color: '#fff', z: 30 });
   const strip = el('div', c, { left: '380px', top: '760px', width: '560px', height: '170px', background: CREAM, border: `6px solid ${INK}`, borderRadius: '24px', boxShadow: `8px 9px 0 ${SH}`, zIndex: 8 });
   el('div', strip, { left: '150px', top: '18px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', lineHeight: '120px', color: INK, whiteSpace: 'nowrap' }, 'vienes?');
-  const sp = el('div', c, { left: '398px', top: '700px', fontSize: '60px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 12 }, '✦');
+  const qin = el('div', strip, { left: '78px', top: '18px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', lineHeight: '120px', color: RED, zIndex: 3 }, '¿');
+  const sp = el('div', c, { left: '420px', top: '730px', fontSize: '60px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 12 }, '✦');
 }
 
 /* ======================================================================
