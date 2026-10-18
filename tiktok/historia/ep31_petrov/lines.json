@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Estás vivo porque un tío dudó de una máquina!",
+  "s": 0.12,
+  "e": 2.789
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Rusia, año ochenta y tres. La pantalla de Stanislav Petrov grita: misil.",
+  "s": 3.029,
+  "e": 9.679
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Un misil nuclear desde Estados Unidos. Luego otro. Hasta cinco.",
+  "s": 9.919,
+  "e": 14.406
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y ese mismo mes, los soviéticos habían derribado un avión de pasajeros.",
+  "s": 14.646,
+  "e": 18.633
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "No tenía el botón. Pero su aviso podía hacer que alguien lo pulsara.",
+  "s": 18.873,
+  "e": 22.941
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "¿Qué hace? Coge el teléfono: «Falsa alarma».",
+  "s": 23.181,
+  "e": 25.915
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Un ataque de verdad serían cientos, no cinco. Y el sistema era nuevo.",
+  "s": 26.155,
+  "e": 30.872
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Acertó: era el sol, reflejado en nubes altas. El satélite lo tomó por un cohete.",
+  "s": 31.112,
+  "e": 37.519
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "¿Y su premio? Ojo, que esto lo cuenta él: una bronca. Por el papeleo.",
+  "s": 37.759,
+  "e": 42.908
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y el mundo no lo supo en quince años.",
+  "s": 43.148,
+  "e": 45.962
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Murió en dos mil diecisiete... y tampoco se supo hasta cuatro meses después.",
+  "s": 46.202,
+  "e": 51.524
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: te salvó la vida... y no te enteraste. Dos veces.",
+  "s": 51.764,
+  "e": 56.833
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Tú qué habrías hecho en su silla? Os leo.",
+  "s": 57.073,
+  "e": 59.477
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 59.717,
+  "e": 63.016
+ }
+]

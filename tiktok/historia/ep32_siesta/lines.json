@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Siesta! Es un número. Y lo duermes sin saberlo.",
+  "s": 0.12,
+  "e": 3.581
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no: no son los minutos que duermes. Ojalá.",
+  "s": 3.821,
+  "e": 7.145
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Viene del latín «sexta»: la hora sexta. Lo dice la RAE.",
+  "s": 7.385,
+  "e": 11.545
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Los romanos contaban las horas desde el amanecer: primera, segunda...",
+  "s": 11.785,
+  "e": 16.53
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Si amanece a las seis... la sexta cae a mediodía.",
+  "s": 16.77,
+  "e": 20.386
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y descansar a la sexta... acabó siendo «echar la siesta».",
+  "s": 20.626,
+  "e": 24.444
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Ahora, lo bueno: mediodía, en inglés, es «nun». Y viene de «nona»: la hora novena.",
+  "s": 24.684,
+  "e": 32.0
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Más o menos... las tres de la tarde.",
+  "s": 32.24,
+  "e": 34.809
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: parece cosa de monjes. Ayunaban hasta la nona... y la fueron adelantando.",
+  "s": 35.049,
+  "e": 40.873
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Lo que hace el hambre.",
+  "s": 41.113,
+  "e": 42.1
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: tu siesta era a las doce... y te la echas a las tres.",
+  "s": 42.34,
+  "e": 45.759
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y el «nun» de los ingleses era a las tres... y lo dicen a las doce.",
+  "s": 45.999,
+  "e": 50.817
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Se cambiaron la hora. Y adivina quién llega tarde... hasta a la siesta.",
+  "s": 51.057,
+  "e": 56.637
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿A qué hora te la echas tú? Os leo.",
+  "s": 56.877,
+  "e": 59.03
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Soy tu vecino... y esto no venía en el libro.",
+  "s": 59.27,
+  "e": 62.822
+ }
+]

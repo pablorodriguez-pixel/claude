@@ -11,7 +11,8 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Interrogación! Tú la abres. Cervantes, jamás."
+   "text": "[excited] ¡Interro-gación! Tú la abres. Cervantes, jamás.",
+   "tempo": 1.12
   },
   {
    "who": "VECINO",
