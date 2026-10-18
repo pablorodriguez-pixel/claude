@@ -32,7 +32,7 @@ function orgTree(cam, o = {}) {
   const ROWS = [3, 4, 7, 7, 6], RY = [640, 790, 932, 1074, 1216], RS = [100, 92, 84, 84, 84];
   const NODES = []; let gi = 0;
   ROWS.forEach((n, ri) => { for (let j = 0; j < n; j++) { const x = 110 + j * (760 / (n - 1)); NODES.push({ x: n === 3 ? 250 + j * 290 : x, y: RY[ri], sz: RS[ri], ri, k: gi++ }); } });
-  sceneBg(cam, { background: '#EFE1C6', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.05) 0 2px, transparent 2px 48px), repeating-linear-gradient(90deg, rgba(43,33,24,.05) 0 2px, transparent 2px 48px)' });
+  box(cam, -300, -500, 1680, 2920, { zIndex: 0, background: '#EFE1C6', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.05) 0 2px, transparent 2px 48px), repeating-linear-gradient(90deg, rgba(43,33,24,.05) 0 2px, transparent 2px 48px)' });
   const ls = lineSvg(cam, 3);
   const GX = 420, GY = 470;
   const rowsAt = ri => NODES.filter(n => n.ri === ri);
@@ -51,7 +51,7 @@ function orgTree(cam, o = {}) {
   const TJ = [K.otros, K.espias6, K.trabajaban];
   const grp = k => k < 3 ? 0 : k < 5 ? 1 : 2;
   const c = scene(S.P3b[0], S.P3b[1], t => {
-    framing(cam, t, [[S.P3b[0], 1.0, 0, 90], [K.trabajaban - 0.06, 1.05, 0, 120], [K.ninguno - 0.06, 1.08, 0, 140], [K.y6b - 0.04, 1.02, 0, 100]], 0.03);
+    framing(cam, t, [[S.P3b[0], 1.0, 0, 230], [K.trabajaban - 0.06, 1.05, 0, 250], [K.ninguno - 0.06, 1.08, 0, 260], [K.y6b - 0.04, 1.02, 0, 220]], 0.03);
     set(T.gb.d, { s: pop(t, S.P3b[0], 0.3), y: wobble(t, 0.5, 3) });
     face(T.gb.f, t, { look: [0, 4], bL: 8, bR: 14, closed: t > K.existia && t < K.existia + 0.3, seed: 2 });
     const ghost = t > K.ninguno - 0.06 && t < K.y6b;
@@ -92,7 +92,7 @@ function orgTree(cam, o = {}) {
   const g1 = mk(c, [110, 470, 410, 524], britInner(41, 0), '0 0 360 460', 'bust'); g1.d.style.zIndex = 4;
   const g2 = mk(c, [530, 470, 410, 524], britInner(52, 1), '0 0 360 460', 'bust'); g2.d.style.zIndex = 4;
   const rep = box(c, 250, 820, 580, 260, { zIndex: 9, background: '#F2E2B8', border: `6px solid ${INK}`, boxShadow: `10px 10px 0 ${SH}`, fontFamily: 'SpecialElite', fontSize: '44px', color: INK, textAlign: 'center', lineHeight: 1.3, paddingTop: '40px' }, 'INFORMES DE PUJOL<br>a los alemanes');
-  const lup = box(c, 420, 840, 220, 220, { zIndex: 12 }); lup.innerHTML = lupaSvg();
+  const lup = box(c, 640, 960, 220, 220, { zIndex: 12 }); lup.innerHTML = lupaSvg();
 }
 /* F1b · «…LO BUENO QUE ERA Y LE FICHARON» — Pujol fichado (plano 2) */
 {
@@ -231,7 +231,7 @@ function chanBase(c) {
   const head = box(mp, P_CAL[0] - 70, P_CAL[1] - 90, 120, 120, { zIndex: 13 }); head.innerHTML = `<svg viewBox="0 0 120 120" width="120" height="120" style="overflow:visible"><path d="M10,10 L110,60 L40,110 Z" fill="${RED}" stroke="${INK}" stroke-width="8" stroke-linejoin="round" transform="rotate(30 60 60)"/></svg>`;
   const tgt = box(mp, P_CAL[0] - 80, P_CAL[1] - 80, 160, 160, { borderRadius: '50%', border: `10px solid ${RED}`, zIndex: 11 });
   const stC = stamp(mp, P_CAL[0] - 330, P_CAL[1] + 100, 'CALAIS', { size: 100, bw: 12, z: 30, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
-  nlab = el('div', mp, { left: px(P_NOR[0] - 410), top: px(P_NOR[1] - 140), fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, background: 'rgba(255,255,255,.92)', border: `4px solid ${INK}`, borderRadius: '14px', padding: '2px 16px 6px', zIndex: 20, whiteSpace: 'nowrap' }, `<s style="text-decoration-color:${RED};text-decoration-thickness:6px">Normandía</s> = <span style="color:${RED}">distracción</span>`);
+  nlab = el('div', mp, { left: px(P_NOR[0] - 410), top: px(P_NOR[1] - 10), fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, background: 'rgba(255,255,255,.92)', border: `4px solid ${INK}`, borderRadius: '14px', padding: '2px 16px 6px', zIndex: 20, whiteSpace: 'nowrap' }, `<s style="text-decoration-color:${RED};text-decoration-thickness:6px">Normandía</s> = <span style="color:${RED}">distracción</span>`);
   const hb = mk(c, [540, 900, 360, 460], hitlerInner(), '0 0 360 460', 'bust'); hb.d.style.zIndex = 40;
   const bub = bubble(c, 330, 860, 'ajá…', { size: 64, tail: 'br', z: 42, it: true });
 }

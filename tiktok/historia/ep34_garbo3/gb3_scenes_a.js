@@ -35,7 +35,7 @@ function medalCross(pa, x, y, w, o = {}) {
     face(hit, t, { look: eng ? [0, -2] : [4, -7], bL: eng ? 16 : 4, bR: eng ? 16 : 8, seed: 0.4 });
     // el español: silueta con «?» hasta que la voz dice «español»
     const rev = t > K.espanol0 - 0.04;
-    pj.d.style.filter = rev ? 'none' : 'brightness(0) invert(.8) sepia(.75) contrast(.9)';
+    pj.d.style.filter = rev ? 'none' : 'brightness(0) invert(.42) sepia(1) saturate(1.4)';
     set(pj.d, { y: wobble(t, 0.55, 3, 1), s: rev ? 1 + 0.08 * (1 - p(t, K.espanol0 - 0.04, 0.3, E.outCubic)) : 1 });
     face(pj, t, { look: [-6, -4], bL: 6, bR: eng ? 18 : 10, closed: eng && t < K.engano0 + 0.35 && t > K.engano0 + 0.05, seed: 2 });
     set(qm, { o: rev ? 0 : 1, r: Math.sin(t * 4) * 10, s: 1 + 0.08 * Math.sin(t * 6) });
