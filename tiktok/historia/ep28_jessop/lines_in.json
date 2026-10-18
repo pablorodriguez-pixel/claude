@@ -11,7 +11,8 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Titanic! Tú no salías vivo. Esta camarera, sí."
+   "text": "[excited] ¡Titanic! Tú no salías vivo. Esta camarera, sí.",
+   "tempo": 1.15
   },
   {
    "who": "VECINO",
@@ -19,7 +20,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Un bebé. Que no era suyo. Al rescatarlos, cuenta, una mujer se lo arrancó. Ni las gracias."
+   "text": "Un bebé. No era suyo. Al rescatarlos, una mujer se lo arrancó. Ni las gracias."
   },
   {
    "who": "VECINO",

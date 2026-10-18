@@ -4,90 +4,90 @@
   "who": "VECINO",
   "text": "¡Titanic! Tú no salías vivo. Esta camarera, sí.",
   "s": 0.12,
-  "e": 4.375
+  "e": 3.766
  },
  {
   "line": 1,
   "who": "VECINO",
   "text": "Violet Yésop, nacida en Argentina. En el bote le lanzan un bulto...",
-  "s": 4.575,
-  "e": 8.489
+  "s": 3.966,
+  "e": 7.881
  },
  {
   "line": 2,
   "who": "VECINO",
-  "text": "Un bebé. Que no era suyo. Al rescatarlos, cuenta, una mujer se lo arrancó. Ni las gracias.",
-  "s": 8.689,
-  "e": 16.123
+  "text": "Un bebé. No era suyo. Al rescatarlos, una mujer se lo arrancó. Ni las gracias.",
+  "s": 8.081,
+  "e": 14.682
  },
  {
   "line": 3,
   "who": "VECINO",
   "text": "¿Fin? Qué va: el Titanic no fue el único. Tenía dos gemelos... y ella, en los tres.",
-  "s": 16.323,
-  "e": 23.004
+  "s": 14.882,
+  "e": 21.563
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Al Olympic lo embistió un buque de guerra. ¿Tú lo dejas? Ella se pasó... al Titanic.",
-  "s": 23.204,
-  "e": 29.31
+  "s": 21.763,
+  "e": 27.869
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Y el Britannic, de enfermera. Una mina... y vuelve al camarote.",
-  "s": 29.51,
-  "e": 34.398
+  "s": 28.069,
+  "e": 32.958
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "¿A por qué? A por el cepillo de dientes. Del Titanic salió sin él.",
-  "s": 34.598,
-  "e": 39.965
+  "s": 33.158,
+  "e": 38.525
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Sube a un bote... y el agua lo arrastra a las hélices, que siguen girando.",
-  "s": 40.165,
-  "e": 46.44
+  "s": 38.725,
+  "e": 44.999
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Salta. Golpe en la cabeza... y sale viva. Con el cráneo roto, según contó.",
-  "s": 46.64,
-  "e": 52.67
+  "s": 45.199,
+  "e": 51.229
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "¿Y después? Volvió al mar. Dio la vuelta al mundo... en barco.",
-  "s": 52.87,
-  "e": 58.404
+  "s": 51.429,
+  "e": 56.963
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Tres barcos lo intentaron. Ninguno pudo. Murió a los ochenta y tres, en tierra firme.",
-  "s": 58.604,
-  "e": 64.542
+  "s": 57.163,
+  "e": 63.101
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "¿Tú volverías a subirte a uno? Os leo.",
-  "s": 64.742,
-  "e": 67.241
+  "s": 63.301,
+  "e": 65.8
  },
  {
   "line": 12,
   "who": "VECINO",
   "text": "Soy tu vecino... y esto no venía en el libro.",
-  "s": 67.441,
-  "e": 70.681
+  "s": 66.0,
+  "e": 69.24
  }
 ]
