@@ -8,12 +8,12 @@ function stepBanner(t0, tFly, t1, num, txt, o = {}) {
     `<span style="display:inline-flex;align-items:center;gap:22px;background:${o.bg || '#FBF6EA'};border:7px solid ${INK};border-radius:999px;padding:8px 40px 12px 12px;box-shadow:9px 10px 0 ${INK};font-family:Playfair;font-weight:900;font-size:${o.size || 86}px;line-height:1.05;color:${INK}">` +
     `<span style="display:inline-block;width:112px;height:112px;border-radius:50%;background:${o.nbg || RED};border:6px solid ${INK};color:#fff;font-size:84px;line-height:96px;text-align:center;font-style:normal">${num}</span>` +
     `<span style="font-style:italic">${txt}</span></span>`);
-  BANNERS.push({ b: pill, t0, tFly, t1 });
+  BANNERS.push({ b: pill, t0, tFly, t1, direct: o.direct });
 }
 function updBanners(t) {
   BANNERS.forEach(B => {
     const vis = t >= B.t0 && t < B.t1; B.b.style.display = vis ? '' : 'none'; if (!vis) return;
-    const kin = pop(t, B.t0, 0.4), kf = p(t, B.tFly, 0.35, E.inOutCubic);
+    const kin = pop(t, B.t0, 0.4), kf = B.direct ? 1 : p(t, B.tFly, 0.35, E.inOutCubic);
     const y = lerp(760, 168, kf), s = lerp(1.32, 1, kf) * kin;
     set(B.b, { y, s, r: lerp(-3, -1.2, kf) + (kf >= 1 ? wobble(t, 0.4, 0.4) : 0), o: 1 - p(t, B.t1 - 0.12, 0.12) });
   });

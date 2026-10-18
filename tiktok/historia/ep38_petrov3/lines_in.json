@@ -39,7 +39,8 @@
   {
    "who": "VECINO",
    "text": "Así que cogió el teléfono y les dijo a sus jefes: «Es una falsa alarma».",
-   "gap_after": 0.5
+   "gap_after": 0.8,
+   "tempo": 0.92
   },
   {
    "who": "VECINO",

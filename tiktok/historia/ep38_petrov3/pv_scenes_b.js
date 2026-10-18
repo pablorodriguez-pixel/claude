@@ -226,7 +226,7 @@ chapter(S.CH3[0], S.CH3[1], YEL, '3', c => {
 /* ======================================================================
    OJO (titular que aguanta toda la frase)
    ====================================================================== */
-stepBanner(K.ojo - 0.05, K.ojo + 0.55, Math.min(S.O3[1], K.ojo + 6.0), '!', '¡Ojo!', { nbg: RED, bg: YEL });
+stepBanner(K.ojo - 0.05, K.ojo + 0.55, Math.min(S.O3[1], K.ojo + 6.0), '!', '¡Ojo!', { nbg: RED, bg: YEL, direct: true });
 
 /* O1 · «NO LE DIERON NINGUNA MEDALLA.» — la medalla baja… y se tacha */
 {
