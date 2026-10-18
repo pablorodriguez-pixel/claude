@@ -51,7 +51,7 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
 /* ======================================================================
    A2 · «…Y NO FUE LO MÁS RARO DE SU VIDA» — Violet, y detrás dos barcos más con «?»
    ====================================================================== */
-headline(S.A2[0], S.A2[1], 'Para esta mujer… *solo el segundo susto*', { size: 84, hlT: K.segundo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(S.A2[0], S.A2[1], 'Para ella, *solo el segundo susto*', { size: 84, hlT: K.segundo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.A2[0], S.A2[1], t => {
     set(ry, { r: t * 9 });

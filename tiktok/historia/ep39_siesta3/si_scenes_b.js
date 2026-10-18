@@ -325,20 +325,22 @@ headline(S.R1b[0], S.R1b[1], 'Para un romano… *la décima*', { size: 88, hlT: 
     set(card, { s: pop(t, S.R1b[0] + 0.05, 0.35), r: -3, o: t < S.R1b[0] + 0.05 ? 0 : 1 });
     stampA(sX, t, K.decima + 0.02, -8, 1);
     popA(cX, t, K.decima + 0.15, { r: 5 });
+    MS.forEach((m, i) => { const ti = K.decima - 0.1 + i * 0.05; set(m, { s: pop(t, ti, 0.25), o: t < ti ? 0 : 1 }); const on = t > ti + 0.1; m.style.background = !on ? '#FBF6EA' : i === 9 ? RED : i === 5 ? YEL : '#E8DCC0'; m.style.color = on && i === 9 ? '#fff' : INK; });
     const shake = t > K.no8 - 0.05 && t < K.no8 + 0.9;
     set(rom.d, { s: pop(t, K.romano - 0.15, 0.4), x: shake ? Math.sin(t * 22) * 14 : 0, y: wobble(t, 0.5, 3), o: t < K.romano - 0.15 ? 0 : 1 });
     face(rom, t, { look: shake ? [Math.sin(t * 22) * 6, 0] : [-6, 0], bL: 4, bR: 14, seed: 1.1 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: 'linear-gradient(180deg, #F6D9A8 0%, #EFE1C6 60%)' });
-  const dial = mkDial(c, 130, 420, 820, { z: 4 });
-  const c6 = chip(c, 330, 975, 'sexta = 12:00', { size: 44, bg: YEL, color: INK, z: 20 });
-  const card = box(c, 100, 1075, 560, 240, { zIndex: 10, background: '#D7DCE2', border: `7px solid ${INK}`, borderRadius: '26px', boxShadow: `10px 12px 0 ${SH}` });
+  const dial = mkDial(c, 190, 420, 700, { z: 4 });
+  const c6 = chip(c, 230, 640, 'sexta = 12:00', { size: 40, bg: YEL, color: INK, z: 20 });
+  const MS = []; for (let i = 0; i < 10; i++) { const m = box(c, 100 + i * 56, 900, 50, 66, { zIndex: 12, background: '#FBF6EA', border: `4px solid ${INK}`, borderRadius: '9px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: i > 6 ? '24px' : '30px', lineHeight: '58px', color: INK }, ROM[i + 1]); MS.push(m); }
+  const card = box(c, 100, 1000, 560, 240, { zIndex: 10, background: '#D7DCE2', border: `7px solid ${INK}`, borderRadius: '26px', boxShadow: `10px 12px 0 ${SH}` });
   el('div', card, { left: '-50px', top: '28px', width: '546px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '64px', lineHeight: 1, color: INK }, `La ${hlSpan('tuya', 'q3', PINK)}`);
   card.querySelector('.q3').style.transform = 'scaleX(1) rotate(-1.2deg)';
   el('div', card, { left: '-40px', top: '110px', width: '486px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1, color: INK }, '15:30');
-  const sX = box(c, 450, 1090, 220, 220, { zIndex: 30 }); sX.innerHTML = `<div style="position:absolute;left:0;top:0;width:220px;text-align:center"><span style="display:inline-block;border:14px solid ${RED};color:${RED};font-family:Rye;font-size:150px;line-height:1;padding:0 26px 10px;border-radius:20px;background:rgba(255,255,255,.85)">X</span></div>`;
-  const cX = chip(c, 690, 780, 'décima', { size: 52, bg: RED, z: 32 });
-  const rom = mk(c, [680, 990, 260, 332], romanInner(), '0 0 360 460', 'bust'); rom.d.style.zIndex = 8;
+  const sX = box(c, 450, 1015, 220, 220, { zIndex: 30 }); sX.innerHTML = `<div style="position:absolute;left:0;top:0;width:220px;text-align:center"><span style="display:inline-block;border:14px solid ${RED};color:${RED};font-family:Rye;font-size:150px;line-height:1;padding:0 26px 10px;border-radius:20px;background:rgba(255,255,255,.85)">X</span></div>`;
+  const cX = chip(c, 670, 700, 'décima', { size: 52, bg: RED, z: 32 });
+  const rom = mk(c, [680, 930, 260, 332], romanInner(), '0 0 360 460', 'bust'); rom.d.style.zIndex = 8;
 }
 /* R2 · «LLEGAS TARDE... HASTA A TU PROPIA SIESTA.» — el señor corre con la lengua fuera + sello */
 headline(S.R2[0], S.R2[1], 'Llegas tarde… *hasta a tu siesta*', { size: 84, hlT: K.siesta8b });
@@ -371,10 +373,10 @@ headline(S.R2[0], S.R2[1], 'Llegas tarde… *hasta a tu siesta*', { size: 84, hl
    ====================================================================== */
 {
   const c = scene(S.T[0], S.T[1], t => {
-    WD.forEach(w => set(w.e, { s: pop(t, w.t - 0.04, 0.3), o: t < w.t - 0.04 ? 0 : 1 }));
+    WD.forEach(w => set(w.e, { s: 1, o: 1 }));
     paint(tHL, t, K.tu13, 0.3);
     ck.setH((t - S.T[0]) * 2.2 + 1);
-    set(ck.d, { s: pop(t, S.T[0] + 0.05, 0.4), r: wobble(t, 0.6, 2), o: t < S.T[0] + 0.05 ? 0 : 1 });
+    set(ck.d, { s: 1, r: wobble(t, 0.6, 2), o: 1 });
     QM.forEach((q, i) => set(q, { s: pop(t, K.echas13 + i * 0.1, 0.3), r: Math.sin(t * 5 + i) * 10, o: t < K.echas13 + i * 0.1 ? 0 : 1 }));
     popA(ol, t, K.os, { r: -4 });
     set(hand, { o: t > K.os ? 1 : 0, y: Math.sin(t * 6) * 12, s: pop(t, K.os, 0.3) });

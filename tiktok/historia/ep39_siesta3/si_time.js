@@ -2,7 +2,7 @@
 const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
-  K.siesta0 = ws(0); K.numero0 = ws(find('numero')); const i0 = find('y te lo echas'); K.y0 = ws(i0); K.echas0 = ws(i0 + 3); K.casi0 = ws(i0 + 4); K.todos0 = ws(i0 + 5); K.dias0 = ws(i0 + 7); K.L0e = wE(i0 + 7);
+  K.siesta0 = ws(0); K.numero0 = ws(find('numero')); const i0 = find('y te la echas'); K.y0 = ws(i0); K.echas0 = ws(i0 + 3); K.casi0 = ws(i0 + 4); K.todos0 = ws(i0 + 5); K.dias0 = ws(i0 + 7); K.L0e = wE(i0 + 7);
   const i1 = find('viene del latin', i0); K.viene = ws(i1); K.latin1 = ws(i1 + 2); K.sexta1 = ws(i1 + 3); K.la1 = ws(i1 + 4); K.hora1 = ws(i1 + 5); K.sexta1b = ws(i1 + 6); K.romanos1 = ws(i1 + 9); K.L1e = wE(i1 + 9);
   const is = find('soy tu vecino', i1); K.isoy = is; K.soy = ws(is); K.vecino = ws(is + 2); K.y2 = ws(is + 3); K.esto2 = ws(is + 4); K.libro2 = ws(is + 9); K.L2e = wE(is + 9);
   const i3 = find('y como acaba un numero', is); K.i3 = i3; K.y3 = ws(i3); K.numero3 = ws(i3 + 4); K.siendo3 = ws(i3 + 5); K.siesta3 = ws(i3 + 7); K.en3 = ws(i3 + 8); K.tres3 = ws(i3 + 9); K.pasos = ws(i3 + 10);
@@ -12,7 +12,7 @@ const K = {};
   K.hora5 = ws(i5 + 12); K.sexta5 = ws(i5 + 13); K.cae = ws(i5 + 14); K.justo = ws(i5 + 15); K.doce5 = ws(i5 + 18); K.mediodia = ws(i5 + 20); K.L5e = wE(i5 + 20);
   const i6 = find('y tres a esa hora', i5); K.y6 = ws(i6); K.tres6 = ws(i6 + 1); K.esa = ws(i6 + 3); K.calor = ws(i6 + 7); K.se6 = ws(i6 + 8); K.paraba = ws(i6 + 9); K.comer = ws(i6 + 11); K.descansar6 = ws(i6 + 14);
   const i6b = find('y descansar en la sexta', i6); K.y6b = ws(i6b); K.descansar6b = ws(i6b + 1); K.sexta6 = ws(i6b + 4); K.acabo = ws(i6b + 5); K.echar = ws(i6b + 7); K.siesta6 = ws(i6b + 9); K.L6e = wE(i6b + 9);
-  const i7 = find('ojo la primera hora', i6b); K.ojo = ws(i7); K.primera7 = ws(i7 + 2); K.seis7 = ws(i7 + 6); K.siete7 = ws(i7 + 8); K.asi7 = ws(i7 + 9); K.sexta7 = ws(i7 + 12); K.terminaba = ws(i7 + 16); K.justo7 = ws(i7 + 17); K.doce7 = ws(i7 + 20); K.L7e = wE(i7 + 20);
+  const i7 = find('ojo la primera hora', i6b); K.ojo = ws(i7); K.primera7 = ws(i7 + 2); K.seis7 = ws(i7 + 6); K.siete7 = ws(i7 + 8); K.asi7 = ws(i7 + 9); K.sexta7 = ws(i7 + 12); K.terminaba = ws(i7 + 13); K.doce7 = ws(i7 + 16); K.L7e = wE(i7 + 16);
   const i8 = find('o sea si te la echas', i7); K.osea = ws(i8); K.echas8 = ws(i8 + 5); K.tres8 = ws(i8 + 8); K.media = ws(i8 + 10); K.para8 = ws(i8 + 11); K.romano = ws(i8 + 13); K.no8 = ws(i8 + 16); K.sexta8 = ws(i8 + 19); K.decima = ws(i8 + 22);
   const i8b = find('llegas tarde hasta a tu propia', i8); K.llegas = ws(i8b); K.tarde = ws(i8b + 1); K.hasta = ws(i8b + 2); K.propia = ws(i8b + 5); K.siesta8b = ws(i8b + 6);
   const i9 = find('a que hora te la echas tu', i8b); K.i13 = i9; K.aq = ws(i9); K.echas13 = ws(i9 + 5); K.tu13 = ws(i9 + 6); K.os = ws(i9 + 7); K.leo = ws(i9 + 8);
@@ -31,7 +31,7 @@ const S = {
   // PASO 3
   P3a: [K.y6 + 0.06, K.se6 - 0.08], P3b: [K.se6 - 0.08, K.y6b - 0.08], P3c: [K.y6b - 0.08, K.acabo - 0.08], P3d: [K.acabo - 0.08, K.ojo - 0.1],
   O1: [K.ojo - 0.1, K.asi7 - 0.08], O2: [K.asi7 - 0.08, K.osea - 0.08],
-  R1: [K.osea - 0.08, K.romano - 0.08], R1b: [K.romano - 0.08, K.llegas - 0.08], R2: [K.llegas - 0.08, K.aq - 0.08],
+  R1: [K.osea - 0.08, K.romano - 0.08], R1b: [K.romano - 0.08, K.tarde - 0.1], R2: [K.tarde - 0.1, K.aq - 0.08],
   T: [K.aq - 0.08, K.yF - 0.08], BK: [K.yF - 0.08, 999],
 };
 const STEPS = [[S.P1a[0], S.P1d[1]], [S.P2a[0], S.P2c[1]], [S.P3a[0], S.P3d[1]]];

@@ -4,8 +4,7 @@ const EP_TAG = 'Ep. 37 · Violet Jessop';
 const K = {};
 {
   // L0 gancho
-  K.titanic0 = ws(0); const i0 = find('para ti fue una tragedia'); K.para0 = ws(i0); K.ti0 = ws(i0 + 1); K.tragedia = ws(i0 + 4);
-  const i0b = find('para esta mujer', i0); K.para2 = ws(i0b); K.mujer = ws(i0b + 2); K.solo0 = ws(i0b + 3); K.segundo = ws(i0b + 5); K.susto = ws(i0b + 6); K.L0e = wE(i0b + 6);
+  K.titanic0 = ws(0); const i0b = find('para ella solo el segundo susto'); K.para2 = ws(i0b); K.tragedia = K.para2; K.mujer = ws(i0b + 1); K.solo0 = ws(i0b + 2); K.segundo = ws(i0b + 4); K.susto = ws(i0b + 5); K.L0e = wE(i0b + 5);
   // L1 contexto
   const i1 = find('se llamaba violet', i0b); K.se1 = ws(i1); K.violet = ws(i1 + 2); K.jessop = ws(i1 + 3);
   const ic = find('era camarera de barco', i1); K.era = ws(ic); K.camarera = ws(ic + 1);
@@ -69,9 +68,9 @@ const K = {};
 }
 /* cortes de escena: un plano nuevo cada 1,5–2,5 s; ningún dato en pantalla menos de 1,5 s */
 const S = {
-  A: [-1, K.para2 - 0.04],                    // portada: Titanic + Violet en un bote + ¿SALIÓ VIVA DE LOS 3 BARCOS?
-  A2: [K.para2 - 0.04, K.se1 - 0.1],           // «Para esta mujer… solo el segundo susto»
-  B1: [K.se1 - 0.1, K.era - 0.1],              // nombre a máquina
+  A: [-1, K.solo0 - 0.06],                    // portada: Titanic + Violet en un bote + ¿SALIÓ VIVA DE LOS 3 BARCOS?
+  A2: [K.solo0 - 0.06, K.se1 + 0.35],           // «Para esta mujer… solo el segundo susto»
+  B1: [K.se1 + 0.35, K.era - 0.1],              // nombre a máquina
   B2: [K.era - 0.1, K.era + 1.4],              // camarera de barco
   H1: [K.era + 1.4, K.y1b - 0.06],             // el Titanic y sus dos gemelos
   H2: [K.y1b - 0.06, K.soy - 0.1],             // en los tres hubo un accidente, con ella a bordo
