@@ -2,78 +2,78 @@
  {
   "line": 0,
   "who": "VECINO",
-  "text": "¡Cervantes nunca escribió este signo! Y tú lo usas todos los días.",
+  "text": "¡Cervantes nunca escribió este signo, y tú lo usas cada día!",
   "s": 0.12,
-  "e": 4.486
+  "e": 3.122
  },
  {
   "line": 1,
   "who": "VECINO",
-  "text": "En todo el Quijote no hay ni un solo signo de abrir pregunta. Ni uno.",
-  "s": 4.836,
-  "e": 9.719
+  "text": "En el Quijote original, el de mil seiscientos cinco, no hay ni uno solo, porque el signo todavía no existía.",
+  "s": 3.472,
+  "e": 9.222
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 10.219,
-  "e": 13.014
+  "s": 9.922,
+  "e": 12.717
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "¿Entonces por qué lo usamos nosotros, y casi nadie más? Por tres cosas.",
-  "s": 13.364,
-  "e": 17.601
+  "text": "¿Y entonces quién se lo inventó, y por qué solo lo usamos nosotros? Te lo cuento en tres pasos.",
+  "s": 13.067,
+  "e": 18.097
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Una: en tiempos de Cervantes no existía. Lo inventó la Real Academia en mil setecientos cincuenta y cuatro, cuando él llevaba más de cien años muerto.",
-  "s": 17.951,
-  "e": 25.144
+  "text": "Uno: en mil setecientos cincuenta y cuatro, cuando Cervantes llevaba más de cien años muerto, la Real Academia decidió inventárselo.",
+  "s": 18.447,
+  "e": 25.314
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "Dos: en español, la pregunta va en el tono. «Tienes hambre» y «¿tienes hambre?» son las mismas palabras. Sin el signo de abrir, en una frase larga no sabías que era una pregunta hasta el final.",
-  "s": 25.644,
-  "e": 38.809
+  "text": "Dos: lo hizo porque en español «tienes hambre» y «¿tienes hambre?» son las mismas palabras, y al escribir el tono no se oye; así que en una frase larga no sabías que era una pregunta hasta el final.",
+  "s": 26.014,
+  "e": 37.052
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Y tres: costó muchísimo que la gente lo usara. Todavía en el siglo diecinueve se imprimían libros sin él.",
-  "s": 39.309,
-  "e": 46.026
+  "text": "Y tres: aun así, costó muchísimo que la gente le hiciera caso, y todavía en el siglo diecinueve se imprimían libros sin él.",
+  "s": 37.752,
+  "e": 46.546
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Ojo: el Quijote que leíste en el cole sí lo lleva. Se lo pusieron después.",
-  "s": 46.526,
-  "e": 51.078
+  "text": "Y ahora lo bueno: el Quijote que leíste en el cole está lleno de signos de abrir que Cervantes jamás escribió. Se los pusieron después.",
+  "s": 47.246,
+  "e": 54.602
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "O sea: Cervantes tenía excusa para no ponerlo. Tú, en el WhatsApp, no.",
-  "s": 51.428,
-  "e": 55.897
+  "s": 55.302,
+  "e": 59.771
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo.",
-  "s": 56.397,
-  "e": 59.505
+  "s": 60.271,
+  "e": 63.379
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 59.855,
-  "e": 62.219
+  "s": 63.729,
+  "e": 66.094
  }
 ]

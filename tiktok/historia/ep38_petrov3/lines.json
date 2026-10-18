@@ -23,64 +23,64 @@
  {
   "line": 3,
   "who": "VECINO",
-  "text": "¿Qué pasó esa noche? Te lo cuento en tres momentos.",
+  "text": "¿Qué pasó? Te lo cuento en tres momentos.",
   "s": 13.992,
-  "e": 17.187
+  "e": 16.788
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Uno: la alarma. Petrov era militar soviético y vigilaba los satélites que avisaban si Estados Unidos lanzaba misiles nucleares. Y a medianoche, la pantalla dijo: misil. Luego, otro. Hasta cinco.",
-  "s": 17.537,
-  "e": 31.13
+  "s": 17.138,
+  "e": 30.73
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Dos: la decisión. Si daba la alarma, sus jefes podían responder con un ataque nuclear. Pero pensó: si Estados Unidos ataca de verdad, no manda cinco misiles, manda cientos.",
-  "s": 31.63,
-  "e": 42.828
+  "s": 31.23,
+  "e": 42.429
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Así que cogió el teléfono y les dijo a sus jefes: «Es una falsa alarma».",
-  "s": 43.328,
-  "e": 46.919
+  "s": 42.929,
+  "e": 46.52
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite lo había confundido con misiles.",
-  "s": 47.419,
-  "e": 55.409
+  "s": 47.02,
+  "e": 55.01
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche.",
-  "s": 55.909,
-  "e": 62.544
+  "s": 55.51,
+  "e": 62.145
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después.",
-  "s": 62.894,
-  "e": 69.604
+  "s": 62.495,
+  "e": 69.204
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "¿Tú qué habrías hecho en su silla: dar la alarma, o colgar? Os leo.",
-  "s": 70.104,
-  "e": 73.939
+  "s": 69.704,
+  "e": 73.539
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 74.289,
-  "e": 76.647
+  "s": 73.889,
+  "e": 76.248
  }
 ]

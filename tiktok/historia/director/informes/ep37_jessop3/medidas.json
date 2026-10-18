@@ -77,23 +77,23 @@
   {
    "n": 9,
    "s": 58.622,
-   "e": 67.34,
-   "dur": 8.72,
-   "palabras": 17,
-   "texto": "O sea: tres naufragios... y siguió trabajando en barcos casi cuarenta años más. La llamaban «Miss Insumergible»."
+   "e": 70.387,
+   "dur": 11.77,
+   "palabras": 21,
+   "texto": "O sea: tres barcos, tres accidentes... y ella siguió trabajando en el mar más de treinta años. La llamaban «Miss Insumergible»."
   },
   {
    "n": 10,
-   "s": 67.84,
-   "e": 70.956,
+   "s": 70.887,
+   "e": 74.004,
    "dur": 3.12,
    "palabras": 11,
    "texto": "¿Tú te habrías vuelto a subir a un barco? Os leo."
   },
   {
    "n": 11,
-   "s": 71.306,
-   "e": 73.67,
+   "s": 74.354,
+   "e": 76.718,
    "dur": 2.36,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -112,19 +112,19 @@
  "cta_tipo": "abierta",
  "cta_texto": "¿Tú te habrías vuelto a subir a un barco? Os leo.",
  "n_lineas": 12,
- "n_palabras": 208,
- "duracion_voz": 73.67,
- "ppm": 169.4,
+ "n_palabras": 212,
+ "duracion_voz": 76.72,
+ "ppm": 165.8,
  "lineas_mas_largas": [
+  [
+   9,
+   11.77,
+   "O sea: tres barcos, tres accidentes... y ella siguió trabajando en el "
+  ],
   [
    8,
    9.51,
    "Ojo: antes de abandonar el barco, volvió a su camarote a por una cosa:"
-  ],
-  [
-   9,
-   8.72,
-   "O sea: tres naufragios... y siguió trabajando en barcos casi cuarenta "
   ],
   [
    7,
@@ -133,5 +133,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep37_jessop3/final.mp4",
- "duracion_video": 74.3
+ "duracion_video": 77.33
 }

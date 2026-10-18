@@ -1,5 +1,6 @@
 # Ep37 Violet Jessop v3 (rehecho, guion v3 aprobado por el usuario) — VEREDICTO: ARREGLAR, al límite (78/100). Autoevaluación del animador
 Pendiente del DIRECTOR INDEPENDIENTE (esta nota no cuenta como aprobación).
+v2 (P6, pedido del coordinador): L9 regenerada → «O sea: tres barcos, tres accidentes... y ella siguió trabajando en el mar más de treinta años. La llamaban «Miss Insumergible».» Portada «¿SALIÓ VIVA DE LOS 3 BARCOS?», chip del s 61 «3 ACCIDENTES», plano «MÁS DE 30 AÑOS». Ya no sale «naufragios» en ningún sitio. Whisper oye «Miss Insumergible». final.mp4: 77,3 s; audio OK (SNR 28,1 dB, −14,1 LUFS, pico −2,6). P6 ✅ ahora. La nota de abajo sube a ~80.
 
 final.mp4: 74,3 s, 1080x1920, 30 fps, h264 + aac. Audio (audio.py): OK. Voz −16,0 LUFS, música −20 LU, SNR 28,1 dB, final −14,1 LUFS, pico −2,6 dBFS.
 Voz: una sola toma (1.139 caracteres de texto). Whisper: todo correcto. «Yésop» se oye «Jessop» y el subtítulo dice «Jessop» (fix_jessop.sh). «Miss Insumergible» lo transcribe como «mis insumergibles»: escúchalo.

@@ -1,7 +1,7 @@
 VECINO: ¡Estás vivo gracias a un señor del que nunca has oído hablar!
 VECINO: Se llamaba Stanislav Petrov, y en mil novecientos ochenta y tres paró una guerra nuclear sin levantarse de la silla.
 VECINO: Soy tu vecino, y esto no venía en el libro.
-VECINO: ¿Qué pasó esa noche? Te lo cuento en tres momentos.
+VECINO: ¿Qué pasó? Te lo cuento en tres momentos.
 VECINO: Uno: la alarma. Petrov era militar soviético y vigilaba los satélites que avisaban si Estados Unidos lanzaba misiles nucleares. Y a medianoche, la pantalla dijo: misil. Luego, otro. Hasta cinco.
 VECINO: Dos: la decisión. Si daba la alarma, sus jefes podían responder con un ataque nuclear. Pero pensó: si Estados Unidos ataca de verdad, no manda cinco misiles, manda cientos.
 VECINO: Así que cogió el teléfono y les dijo a sus jefes: «Es una falsa alarma».

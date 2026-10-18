@@ -11,12 +11,12 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Cervantes nunca escribió este signo! Y tú lo usas todos los días."
+   "text": "[excited] ¡Cervantes nunca escribió este signo, y tú lo usas cada día!"
   },
   {
    "who": "VECINO",
-   "text": "En todo el Quijote no hay ni un solo signo de abrir pregunta. Ni uno.",
-   "gap_after": 0.5
+   "text": "En el Quijote original, el de mil seiscientos cinco, no hay ni uno solo, porque el signo todavía no existía.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
@@ -24,26 +24,27 @@
   },
   {
    "who": "VECINO",
-   "text": "¿Entonces por qué lo usamos nosotros, y casi nadie más? Por tres cosas."
+   "text": "¿Y entonces quién se lo inventó, y por qué solo lo usamos nosotros? Te lo cuento en tres pasos."
   },
   {
    "who": "VECINO",
-   "text": "Una: en tiempos de Cervantes no existía. Lo inventó la Real Academia en mil setecientos cincuenta y cuatro, cuando él llevaba más de cien años muerto.",
-   "gap_after": 0.5
+   "text": "Uno: en mil setecientos cincuenta y cuatro, cuando Cervantes llevaba más de cien años muerto, la Real Academia decidió inventárselo.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
-   "text": "Dos: en español, la pregunta va en el tono. «Tienes hambre» y «¿tienes hambre?» son las mismas palabras. Sin el signo de abrir, en una frase larga no sabías que era una pregunta hasta el final.",
-   "gap_after": 0.5
+   "text": "Dos: lo hizo porque en español «tienes hambre» y «¿tienes hambre?» son las mismas palabras, y al escribir el tono no se oye; así que en una frase larga no sabías que era una pregunta hasta el final.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
-   "text": "Y tres: costó muchísimo que la gente lo usara. Todavía en el siglo diecinueve se imprimían libros sin él.",
-   "gap_after": 0.5
+   "text": "Y tres: aun así, costó muchísimo que la gente le hiciera caso, y todavía en el siglo diecinueve se imprimían libros sin él.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
-   "text": "Ojo: el Quijote que leíste en el cole sí lo lleva. Se lo pusieron después."
+   "text": "Y ahora lo bueno: el Quijote que leíste en el cole está lleno de signos de abrir que Cervantes jamás escribió. Se los pusieron después.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",

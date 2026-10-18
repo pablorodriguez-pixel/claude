@@ -183,7 +183,7 @@ headline(S.N3[0], S.N3[1], 'sin levantarse *de la silla*', { size: 90, hlT: K.si
 /* ======================================================================
    Q1 · «¿QUÉ PASÓ ESA NOCHE?» — la pantalla, aún apagada, en el búnker
    ====================================================================== */
-headline(S.Q1[0], S.Q1[1], '¿Qué pasó *esa noche?*', { size: 104, hlT: K.noche3, y: 236, color: '#fff', hlc: RED });
+headline(S.Q1[0], S.Q1[1], '¿Qué *pasó?*', { size: 120, hlT: K.paso3, y: 236, color: '#fff', hlc: RED });
 {
   const c = scene(S.Q1[0], S.Q1[1], t => {
     crtState(crt, t, 'dim');

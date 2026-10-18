@@ -19,7 +19,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
   <g transform="translate(${cx},${OV.h + 60})"><rect x="-104" y="-26" width="208" height="46" rx="10" fill="${INK}" stroke="${BRASS}" stroke-width="4"/><text x="0" y="8" text-anchor="middle" font-family="Rye" font-size="25" fill="${YEL}">EL VECINO</text></g></svg>`;
 }
 const CX = -41, CY = 45, CS = 0.75;
-const OV_VIS = [[S.D2[0], S.E1[0]], [S.G1[0], S.G2[0]]];
+const OV_VIS = [[S.D2[0], S.D4[0]], [S.G1[0], S.G2[0]]];
 function ovalState(t) {
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
     const kin = pop(t, a, 0.4), kout = p(t, b - 0.14, 0.14, E.inCubic);

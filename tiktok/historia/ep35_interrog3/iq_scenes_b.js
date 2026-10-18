@@ -3,20 +3,20 @@
 /* ======================================================================
    PASO 2 · «2 · La pregunta va en el tono» (aguanta todo L5)
    ====================================================================== */
-stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { size: 88, ty: 0 });
+stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['Escrito, el tono', '*no se oye*'], { size: 88, ty: 0 });
 
 /* E1 · «DOS: EN ESPAÑOL, LA PREGUNTA VA EN EL TONO.» — el Vecino lo dice y el tono se dibuja subiendo */
 {
   const c = scene(S.E1[0], S.E1[1], t => {
-    const zc = t > K.preg5 - 0.06;
-    set(cam, zc ? { s: 1.08 + 0.02 * p(t, K.preg5, 2, E.linear), x: 20, y: 60 } : { s: lerp(1, 1.04, p(t, S.E1[0], 1.5, E.linear)) });
+    const zc = t > K.porque5 - 0.06;
+    set(cam, zc ? { s: 1.08 + 0.02 * p(t, K.porque5, 2, E.linear), x: 20, y: 60 } : { s: lerp(1, 1.04, p(t, S.E1[0], 1.5, E.linear)) });
     set(vb.d, { s: pop(t, S.E1[0], 0.35), y: wobble(t, 0.6, 3) });
-    vecFace(vb, t, { jaw: talkW(t, 'VECINO'), look: [6, -2], bL: 10, bR: t > K.tono ? 16 : 10, fan: wobble(t, 0.9, 6), seed: 0.9 });
+    vecFace(vb, t, { jaw: talkW(t, 'VECINO'), look: [6, -2], bL: 10, bR: t > K.espanol ? 16 : 10, fan: wobble(t, 0.9, 6), seed: 0.9 });
     WV.forEach((w, i) => { const ph = ((t * 1.6 + i / 3) % 1); set(w, { s: 0.6 + ph * 0.8, o: (1 - ph) }); });
-    popA(ce, t, K.espanol, { r: -3 });
-    curs.forEach(cu => cu.style.strokeDashoffset = f1(1000 * (1 - p(t, K.preg5, K.tonoE - K.preg5 + 0.2, E.inOutCubic)))); set(cv, { o: t > K.preg5 ? 1 : 0 });
-    set(qe, { s: pop(t, K.tonoE - 0.1, 0.35), o: t < K.tonoE - 0.1 ? 0 : 1, r: 10 + Math.sin(t * 5) * 6 });
-    NT.forEach((n, i) => { const tt = K.tono + i * 0.15; set(n, { y: -p(t, tt, 1.2) * 120, o: t > tt ? 1 - p(t, tt + 0.6, 0.6) : 0, r: Math.sin(t * 4 + i) * 12 }); });
+    popA(ce, t, K.porque5, { r: -3 });
+    curs.forEach(cu => cu.style.strokeDashoffset = f1(1000 * (1 - p(t, K.hizo, K.tienes1 - K.hizo - 0.3, E.inOutCubic)))); set(cv, { o: t > K.hizo ? 1 : 0 });
+    set(qe, { s: pop(t, K.espanol + 0.2, 0.35), o: t < K.espanol + 0.2 ? 0 : 1, r: 10 + Math.sin(t * 5) * 6 });
+    NT.forEach((n, i) => { const tt = K.porque5 + i * 0.15; set(n, { y: -p(t, tt, 1.2) * 120, o: t > tt ? 1 - p(t, tt + 0.6, 0.6) : 0, r: Math.sin(t * 4 + i) * 12 }); });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '400px 800px' });
   sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 58px)' });
@@ -27,7 +27,7 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { siz
   const curs = [...cv.querySelectorAll('path')];
   const qe = el('div', cam, { left: '800px', top: '440px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '130px', lineHeight: 1, color: RED, textShadow: OUTL(INK, 6), zIndex: 9 }, '?');
   const NT = [0, 1, 2].map(i => el('div', cam, { left: px(560 + i * 90), top: px(640 - i * 40), fontSize: '70px', color: INK, zIndex: 8 }, '♪'));
-  const ce = chip(cam, 540, 1010, 'en ESPAÑOL', { size: 50, bg: INK, color: YEL, z: 20 });
+  const ce = chip(cam, 540, 1010, 'en español, se oye', { size: 46, bg: INK, color: YEL, z: 20 });
 }
 
 /* E2 · «TIENES HAMBRE» Y «¿TIENES HAMBRE?» SON LAS MISMAS PALABRAS. SIN EL SIGNO DE ABRIR…
@@ -35,24 +35,25 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { siz
 {
   const c = scene(S.E2[0], S.E2[1], t => {
     // planos: 1) primera frase · 2) llega la segunda (la cámara baja) · 3) «mismas palabras» (plano general) · 4) «sin el signo» (zoom al «¿»)
-    const z2 = t > K.tienes2 - 0.1, z3 = t > K.son - 0.06, z4 = t > K.sin5 - 0.06;
+    const z2 = t > K.tienes2 - 0.1, z3 = t > K.son - 0.06, z4 = t > K.y5b - 0.06;
     set(cam, z4 ? { s: 1.03, x: 10, y: -24 } : z3 ? { s: 1, x: 0, y: 0 } : z2 ? { s: 1.06, x: 20, y: -40 } : { s: 1.1, x: 40, y: 140 });
     set(b1, { s: pop(t, K.tienes1 - 0.04, 0.35), r: -2 + wobble(t, 0.5, 0.6), o: t < K.tienes1 - 0.04 ? 0 : 1 });
     c1.style.strokeDashoffset = f1(1000 * (1 - p(t, K.tienes1, K.hambre1E - K.tienes1 + 0.1, E.linear)));
-    set(n1, { s: pop(t, K.hambre1E - 0.1, 0.3), o: t < K.hambre1E - 0.1 ? 0 : 1, r: -3 });
+    set(n1, { s: pop(t, K.hambre1E - 0.1, 0.3), r: -3 });
     set(b2, { s: pop(t, K.tienes2 - 0.06, 0.35), r: 2 + wobble(t, 0.5, 0.6, 1), o: t < K.tienes2 - 0.06 ? 0 : 1 });
     c2.style.strokeDashoffset = f1(1000 * (1 - p(t, K.tienes2, K.hambre2E - K.tienes2 + 0.1, E.linear)));
-    set(n2, { s: pop(t, K.hambre2E - 0.15, 0.3), o: t < K.hambre2E - 0.15 ? 0 : 1, r: 3 });
+    set(n2, { s: pop(t, K.hambre2E - 0.15, 0.3), r: 3 });
     set(ya, { s: pop(t, K.y5 - 0.05, 0.3), o: t < K.y5 - 0.05 || t > K.tienes2 ? 0 : 1, r: -4 });
     set(lnk, { o: z3 && !z4 ? 1 : 0 });
     paint(c.querySelector('.fh1'), t, K.mismas, 0.3); paint(c.querySelector('.fh2'), t, K.mismas + 0.1, 0.3);
     stampA(eq, t, K.son, -6, 1);
     // en «sin el signo de abrir», el «¿» rojo salta fuera de la frase y queda tachado
-    const kq = p(t, K.sin5, 0.45, E.inOutCubic);
-    set(qa, { x: lerp(0, -40, kq), y: lerp(0, -230, kq) - Math.sin(kq * Math.PI) * 60, r: kq * -30, s: 1 + kq * 0.6 });
-    set(xq, { o: t > K.sin5 + 0.4 ? 1 : 0, s: pop(t, K.sin5 + 0.4, 0.25) });
-    set(gap, { o: t > K.sin5 + 0.2 ? (Math.floor(t * 4) % 2 ? 1 : 0.35) : 0 });
-    popA(sn, t, K.abrir5 - 0.1, { r: 4 });
+    // «al escribir el tono no se oye»: las curvas de tono se borran; en papel solo queda el «¿»
+    const kf = p(t, K.nose, 0.4, E.inCubic);
+    set(cv1, { o: 1 - kf }); set(cv2, { o: 1 - kf }); set(n1, { o: t < K.hambre1E - 0.1 ? 0 : 1 - kf }); set(n2, { o: t < K.hambre2E - 0.15 ? 0 : 1 - kf });
+    set(xq, { o: t > K.nose + 0.1 ? 1 : 0, s: pop(t, K.nose + 0.1, 0.25) });
+    popA(sn, t, K.escribir - 0.1, { r: -3 });
+    set(qa, { s: t > K.oye ? 1 + 0.25 * Math.abs(Math.sin(t * 6)) : 1 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
   sceneBg(cam, { background: '#EFE1C6', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.05) 0 2px, transparent 2px 60px)' });
@@ -68,13 +69,12 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { siz
   const c2 = cv2.querySelector('path');
   const b2 = bubble(cam, 110, 940, '<span class="qa" style="display:inline-block;color:' + RED + '">¿</span>' + hlSpan('tienes hambre', 'fh2') + '<span style="color:' + RED + '">?</span>', { size: 92, tail: 'bl', z: 21, bg: '#FFF3A8' });
   const qa = b2.querySelector('.qa');
-  const gap = box(b2, 30, 18, 58, 92, { border: `5px dashed ${PINK}`, borderRadius: '10px', zIndex: 2 });
-  const xq = el('div', cam, { left: '120px', top: '720px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '170px', lineHeight: 1, color: INK, zIndex: 40 }, '✕');
+    const xq = stamp(cam, 520, 400, '🔇 EL TONO', { size: 54, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const n2 = chip(cam, 600, 1090, '↗ preguntas', { size: 44, bg: PINK, color: '#fff', z: 25 });
   const ya = stamp(cam, 560, 820, 'Y AHORA:', { size: 60, bw: 9, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const lnk = box(cam, 0, 0, 1080, 1920, { zIndex: 22 }); lnk.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${[260, 380, 500, 620, 740].map(x => `<path d="M${x},660 V940" stroke="${PINK}" stroke-width="6" stroke-dasharray="12 9"/>`).join('')}</svg>`;
   const eq = stamp(cam, 150, 1205, '= MISMAS PALABRAS', { size: 64, bw: 10, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
-  const sn = chip(cam, 500, 750, 'sin el «¿»…', { size: 46, bg: INK, color: YEL, z: 30 });
+  const sn = bubble(cam, 470, 720, '✍️ por escrito, no se oye', { size: 46, tail: 'bl', z: 35, bg: '#fff', font: 'Bricolage' });
 }
 
 /* E4 · «EN UNA FRASE LARGA NO SABÍAS QUE ERA UNA PREGUNTA HASTA EL FINAL» — teletipo sin «¿»: el «?» llega tarde */
@@ -109,13 +109,13 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { siz
 /* ======================================================================
    PASO 3 · «3 · Costó usarlo» (aguanta todo L6)
    ====================================================================== */
-stepHead(K.y6 - 0.08, K.ojo - 0.08, 3, ['Costó *usarlo*'], { size: 112, ty: 22 });
+stepHead(K.y6 - 0.08, K.y7 - 0.08, 3, ['Aun así, *costó*'], { size: 108, ty: 22 });
 
 /* G1 · «COSTÓ MUCHÍSIMO QUE LA GENTE LO USARA» — el impresor con el tipo «¿» en la mano, que no le convence */
 {
   const c = scene(S.G1[0], S.G1[1], t => {
-    const zg = t > K.gente - 0.06;
-    set(cam, zg ? { s: 1.15, x: 60, y: 60 } : { s: lerp(1, 1.04, p(t, S.G1[0], 2, E.linear)) });
+    const zm = t > K.muchisimo - 0.06, zg = t > K.gente - 0.06;
+    set(cam, zg ? { s: 1.15, x: 60, y: 60 } : zm ? { s: 1.06, x: -30, y: 20 } : { s: lerp(1, 1.03, p(t, S.G1[0], 1.5, E.linear)) });
     set(pr.d, { s: pop(t, S.G1[0], 0.4), y: wobble(t, 0.6, 3), r: t > K.gente ? Math.sin(t * 3) * 3 : 0 });
     const doubt = t > K.costo;
     face(pr, t, { look: doubt ? [8, -3] : [0, 2], brow: doubt ? -10 : 0, seed: 0.6 });
@@ -162,34 +162,38 @@ stepHead(K.y6 - 0.08, K.ojo - 0.08, 3, ['Costó *usarlo*'], { size: 112, ty: 22 
 }
 
 /* ======================================================================
-   H1 · «OJO: EL QUIJOTE QUE LEÍSTE EN EL COLE…» — sello OJO + el Quijote escolar cerrado
+   H1 · REMATE: «Y AHORA LO BUENO: EL QUIJOTE QUE LEÍSTE EN EL COLE…» — sello rojo + el Quijote escolar
    ====================================================================== */
 headline(S.H1[0], S.H1[1], 'El Quijote *del cole*…', { size: 104, hlT: K.cole, y: 236 });
 {
   const c = scene(S.H1[0], S.H1[1], t => {
-    stampA(oj, t, K.ojo, -8, 1);
+    stampA(oj, t, K.ahora, -8, 1);
     set(gq, { r: SWING(t), s: pop(t, S.H1[0], 0.35) });
     set(ry, { r: t * 12 });
     const kb = p(t, K.quijote7 - 0.1, 0.4, E.outBack);
     set(bk, { y: (1 - kb) * 900, r: 5 + wobble(t, 0.5, 1), o: t < K.quijote7 - 0.1 ? 0 : 1 });
   }, { clip: true, cut: true });
-  sceneBg(c, { background: YEL });
-  halftone(c, 'rgba(0,0,0,.10)', 1);
-  const ry = rays(c, -160, 260, 1400, 24, 'rgba(255,255,255,.35)', 'rgba(0,0,0,0)', 1);
-  const gq = box(c, 90, 460, 360, 540, { zIndex: 10, transformOrigin: '180px 30px' }); gq.innerHTML = glyphSvg('¿', { fs: 900, base: 640 });
+  sceneBg(c, { background: '#F3D9D2' });
+  halftone(c, 'rgba(200,16,46,.10)', 1);
+  const ry = rays(c, -160, 260, 1400, 24, 'rgba(200,16,46,.10)', 'rgba(0,0,0,0)', 1);
+  const gq = box(c, 90, 460, 360, 540, { zIndex: 10, transformOrigin: '180px 30px' }); gq.innerHTML = glyphSvg('¿', { fs: 900, base: 640, col: RED });
   const bk = box(c, 470, 430, 420, 565, { zIndex: 12 }); bk.innerHTML = schoolCoverSvg();
-  const oj = stamp(c, 230, 1060, '¡OJO!', { size: 150, bw: 20, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const oj = stamp(c, 150, 1060, 'Y AHORA, LO BUENO', { size: 76, bw: 14, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
 }
 
-/* H2 · «…SÍ LO LLEVA. SE LO PUSIERON DESPUÉS.» — el libro se abre y salen los «¿» en amarillo (+ cameo del emú) */
-headline(S.H2[0], S.H2[1], 'sí lo lleva: *puesto después*', { size: 80, hlT: K.pusieron, y: 236 });
+/* H2 · «…ESTÁ LLENO DE SIGNOS DE ABRIR QUE CERVANTES JAMÁS ESCRIBIÓ. SE LOS PUSIERON DESPUÉS.» (+ cameo del emú) */
+headline(S.H2[0], K.se7 - 0.06, 'Signos que Cervantes *no escribió*', { size: 76, hlT: K.jamas, y: 236 });
+headline(K.se7 - 0.06, S.H2[1], 'Se los *pusieron después*', { size: 92, hlT: K.pusieron, y: 236 });
 const T_EMU = K.despuesE + 0.05;
 {
   const QY = [];
   const c = scene(S.H2[0], S.H2[1], t => {
     const k = p(t, S.H2[0], 0.4, E.outBack);
-    set(bk, { y: (1 - k) * 900, r: -2 + wobble(t, 0.4, 0.6), s: 1 + 0.04 * p(t, S.H2[0], 2.6, E.linear) });
-    QY.forEach((q, i) => { const tq = K.si7 + 0.05 + i * 0.1; set(q, { s: pop(t, tq, 0.3), o: t < tq ? 0 : 1 }); q.style.background = t > tq ? YEL : 'transparent'; });
+    const zs = t > K.se7 - 0.06;
+    set(cam, zs ? { s: 0.92, x: 0, y: -40 } : { s: 1 + 0.03 * p(t, S.H2[0], 3, E.linear) });
+    set(bk, { y: (1 - k) * 900, r: -2 + wobble(t, 0.4, 0.6) });
+    QY.forEach((q, i) => { const tq = K.lleno + i * 0.14; set(q, { s: pop(t, tq, 0.3), o: t < tq ? 0 : 1 }); q.style.background = t > tq ? YEL : 'transparent'; });
+    stampA(st, t, K.jamas, -6, 1);
     set(ar, { o: t > K.se7 ? 1 : 0, x: Math.sin(t * 8) * 6 });
     popA(lb, t, K.se7, { r: -4 });
     const ke = p(t, T_EMU - 0.15, 0.22, E.outBack) * (1 - p(t, T_EMU + 0.6, 0.2, E.inCubic));
@@ -198,15 +202,17 @@ const T_EMU = K.despuesE + 0.05;
     face(emu, t, { look: [0, 0], blink: false, bL: 16, bR: 22, jaw: t > T_EMU && t < T_EMU + 0.3 ? 0.5 : 0 });
   }, { clip: true });
   sceneBg(c, { background: '#CFE0EA', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 2px, transparent 2px 56px)' });
-  const bk = box(c, 90, 400, 900, 600, { zIndex: 5 }); bk.innerHTML = schoolBookSvg();
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 700px', zIndex: 2 });
+  const bk = box(cam, 90, 400, 900, 600, { zIndex: 5 }); bk.innerHTML = schoolBookSvg();
   [[120, 155], [520, 231], [130, 345], [540, 421], [130, 497]].forEach(([x, y]) => {
     const q = el('div', bk, { left: px(x - 34), top: px(y - 52), fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: '84px', color: RED, padding: '0 8px', borderRadius: '10px', zIndex: 3 }, '¿'); QY.push(q);
   });
-  const ar = box(c, 300, 980, 150, 150, { zIndex: 8 }); ar.innerHTML = arrowSvg('M20,140 Q30,60 110,20 M70,14 L110,20 L100,60', PINK, 12);
-  const lb = chip(c, 110, 1140, 'AÑADIDOS DESPUÉS', { size: 52, bg: INK, color: YEL, z: 30 });
-  const emuW = box(c, 620, 900, 320, 430, { overflow: 'hidden', zIndex: 30 });
-  const emu = mkEmuF(emuW, [30, 40, 260, 390]);
-  el('div', emu.d, { left: '86px', top: '-60px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', color: PINK, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3, transform: 'rotate(-10deg)' }, '¿');
+  const st = stamp(c, 420, 1010, 'CERVANTES: 0', { size: 70, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const ar = box(c, 300, 1000, 150, 150, { zIndex: 8 }); ar.innerHTML = arrowSvg('M20,140 Q30,60 110,20 M70,14 L110,20 L100,60', PINK, 12);
+  const lb = chip(c, 110, 1150, 'AÑADIDOS DESPUÉS', { size: 52, bg: INK, color: YEL, z: 30 });
+  const emuW = box(c, 640, 960, 300, 380, { overflow: 'hidden', zIndex: 30 });
+  const emu = mkEmuF(emuW, [30, 40, 240, 360]);
+  el('div', emu.d, { left: '80px', top: '-60px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', color: PINK, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3, transform: 'rotate(-10deg)' }, '¿');
 }
 
 /* ======================================================================
@@ -354,6 +360,6 @@ headline(S.BK[0], LOOP, 'Y esto… no venía *en el libro.*', { size: 84, hlT: K
     <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
   const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
   const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '1200px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-  const epl = el('div', c, { left: '0', top: '1292px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:40px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 29 · Interrogación</span>`);
+  const epl = el('div', c, { left: '0', top: '1292px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:40px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 35 · Interrogación</span>`);
   const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, TC + 0.15, { r: -1 }); };
 }

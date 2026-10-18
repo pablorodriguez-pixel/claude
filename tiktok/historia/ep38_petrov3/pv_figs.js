@@ -6,7 +6,7 @@ const K = {};
   const i1 = find('se llamaba stanislav'); K.se1 = ws(i1); K.stanislav = ws(i1 + 2); K.petrov = ws(i1 + 3); K.y1 = ws(i1 + 4); K.en1 = ws(i1 + 5);
   K.mil = ws(i1 + 6); K.ochenta = ws(i1 + 8); K.tres1 = ws(i1 + 10); K.paro = ws(i1 + 11); K.guerra = ws(i1 + 13); K.nuclear1 = ws(i1 + 14); K.sin1 = ws(i1 + 15); K.silla1 = ws(i1 + 19);
   const is = find('soy tu vecino', i1); K.soy = ws(is); K.vecino = ws(is + 2); K.isoy = is; K.esto2 = ws(is + 4); K.libro2 = ws(is + 9); K.libro2e = wE(is + 9);
-  const i3 = find('que paso esa noche', is); K.que3 = ws(i3); K.noche3 = ws(i3 + 3); K.te3 = ws(i3 + 4); K.tres3 = ws(i3 + 8); K.momentos = ws(i3 + 9);
+  const i3 = find('que paso te lo', is); K.que3 = ws(i3); K.paso3 = ws(i3 + 1); K.te3 = ws(i3 + 2); K.tres3 = ws(i3 + 6); K.momentos = ws(i3 + 7);
   const i4 = find('uno la alarma', i3); K.uno = ws(i4); K.alarma4 = ws(i4 + 2); K.petrov4 = ws(i4 + 3); K.militar = ws(i4 + 5); K.sovietico = ws(i4 + 6);
   K.y4 = ws(i4 + 7); K.vigilaba = ws(i4 + 8); K.satelites = ws(i4 + 10); K.avisaban = ws(i4 + 12); K.estados4 = ws(i4 + 14); K.lanzaba = ws(i4 + 16); K.misiles4 = ws(i4 + 17); K.nucleares = ws(i4 + 18);
   const i4b = find('y a medianoche', i4); K.y4b = ws(i4b); K.medianoche = ws(i4b + 2); K.pantalla4 = ws(i4b + 4); K.dijo4 = ws(i4b + 5); K.misil = ws(i4b + 6);

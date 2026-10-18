@@ -1,31 +1,35 @@
-/* Ep. 35 (rehecho del Ep. 29) · «¿» — tiempos clave (todo por TEXTO con find()) + figuras de grabado recortado */
+/* Ep. 35 (v3b, guion del director independiente; rehecho del Ep. 29) · «¿» — tiempos clave (todo por TEXTO con find()) + figuras de grabado recortado */
 const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
-  K.cerv0 = ws(0); K.nunca = ws(1); K.escribio = ws(2); K.signo0 = ws(4); K.y0 = ws(5); K.tu0 = ws(6); K.usas = ws(8); K.todos = ws(9); K.dias = ws(11);
-  const i1 = find('en todo el quijote'); K.en1 = ws(i1); K.quijote = ws(i1 + 3); K.ni = ws(i1 + 6); K.solo = ws(i1 + 8); K.abrir1 = ws(i1 + 11); K.preg1 = ws(i1 + 12); K.ni2 = ws(i1 + 13); K.uno = ws(i1 + 14);
+  K.cerv0 = ws(0); K.nunca = ws(1); K.escribio = ws(2); K.signo0 = ws(4); K.y0 = ws(5); K.tu0 = ws(6); K.usas = ws(8); K.cada = ws(9); K.dia = ws(10);
+  const i1 = find('en el quijote original'); K.en1 = ws(i1); K.quijote = ws(i1 + 2); K.original = ws(i1 + 3); K.mil1 = ws(i1 + 6); K.no1 = ws(i1 + 9); K.hay = ws(i1 + 10); K.ni = ws(i1 + 11); K.uno = ws(i1 + 12);
+  K.porque1 = ws(i1 + 14); K.el1 = ws(i1 + 15); K.todavia1 = ws(i1 + 17); K.no1b = ws(i1 + 18); K.existia = ws(i1 + 19); K.existiaE = wE(i1 + 19);
   const is = find('soy tu vecino', i1); K.isoy = is; K.soy = ws(is); K.vecino = ws(is + 2); K.iye2 = is + 3; K.esto2 = ws(is + 4); K.libro2 = ws(is + 9);
-  const i3 = find('entonces por que lo usamos', is); K.entonces = ws(i3); K.usamos = ws(i3 + 4); K.nosotros = ws(i3 + 5); K.casi = ws(i3 + 7); K.nadie = ws(i3 + 8); K.mas3 = ws(i3 + 9); K.por3 = ws(i3 + 10); K.tres3 = ws(i3 + 11); K.cosas = ws(i3 + 12);
-  const i4 = find('una en tiempos de cervantes', i3); K.una = ws(i4); K.tiempos = ws(i4 + 2); K.cerv4 = ws(i4 + 4); K.no4 = ws(i4 + 5); K.existia = ws(i4 + 6); K.existiaE = wE(i4 + 6); K.invento = ws(i4 + 8);
-  K.real = ws(i4 + 10); K.academia = ws(i4 + 11); K.mil = ws(i4 + 13); K.cuatro = ws(i4 + 17); K.cuando = ws(i4 + 18); K.mas4 = ws(i4 + 21); K.cien = ws(i4 + 23); K.muerto = ws(i4 + 25);
-  const i5 = find('dos en espanol la pregunta', i4); K.dos = ws(i5); K.espanol = ws(i5 + 2); K.preg5 = ws(i5 + 4); K.tono = ws(i5 + 8); K.tonoE = wE(i5 + 8);
-  K.tienes1 = ws(i5 + 9); K.hambre1E = wE(i5 + 10); K.y5 = ws(i5 + 11); K.tienes2 = ws(i5 + 12); K.hambre2 = ws(i5 + 13); K.hambre2E = wE(i5 + 13); K.son = ws(i5 + 14); K.mismas = ws(i5 + 16); K.palabras = ws(i5 + 17);
-  K.sin5 = ws(i5 + 18); K.abrir5 = ws(i5 + 22); K.en5 = ws(i5 + 23); K.frase = ws(i5 + 25); K.larga = ws(i5 + 26); K.sabias = ws(i5 + 28); K.preg5b = ws(i5 + 32); K.final = ws(i5 + 35);
-  const i6 = find('y tres costo muchisimo', i5); K.y6 = ws(i6); K.costo = ws(i6 + 2); K.muchisimo = ws(i6 + 3); K.gente = ws(i6 + 6); K.usara = ws(i6 + 8); K.todavia = ws(i6 + 9); K.siglo = ws(i6 + 12); K.xix = ws(i6 + 13);
-  K.imprimian = ws(i6 + 15); K.libros = ws(i6 + 16); K.sin6 = ws(i6 + 17);
-  const i7 = find('ojo el quijote que leiste', i6); K.ojo = ws(i7); K.quijote7 = ws(i7 + 2); K.cole = ws(i7 + 7); K.si7 = ws(i7 + 8); K.lleva = ws(i7 + 10); K.se7 = ws(i7 + 11); K.pusieron = ws(i7 + 13); K.despues = ws(i7 + 14); K.despuesE = wE(i7 + 14);
+  const i3 = find('y entonces quien se lo invento', is); K.y3 = ws(i3); K.quien = ws(i3 + 2); K.invento3 = ws(i3 + 5); K.y3b = ws(i3 + 6); K.solo3 = ws(i3 + 9); K.usamos = ws(i3 + 11); K.nosotros = ws(i3 + 12);
+  K.te3 = ws(i3 + 13); K.cuento = ws(i3 + 15); K.tres3 = ws(i3 + 17); K.pasos = ws(i3 + 18);
+  const i4 = find('uno en mil setecientos', i3); K.uno4 = ws(i4); K.mil = ws(i4 + 2); K.cuatro = ws(i4 + 6); K.cuando = ws(i4 + 7); K.cerv4 = ws(i4 + 8); K.llevaba = ws(i4 + 9); K.mas4 = ws(i4 + 10); K.cien = ws(i4 + 12); K.muerto = ws(i4 + 14);
+  K.la4 = ws(i4 + 15); K.real = ws(i4 + 16); K.academia = ws(i4 + 17); K.decidio = ws(i4 + 18); K.inventar = ws(i4 + 19); K.inventarE = wE(i4 + 19);
+  const i5 = find('dos lo hizo porque', i4); K.dos = ws(i5); K.hizo = ws(i5 + 2); K.porque5 = ws(i5 + 3); K.espanol = ws(i5 + 5);
+  K.tienes1 = ws(i5 + 6); K.hambre1E = wE(i5 + 7); K.y5 = ws(i5 + 8); K.tienes2 = ws(i5 + 9); K.hambre2E = wE(i5 + 10); K.son = ws(i5 + 11); K.mismas = ws(i5 + 13);
+  K.y5b = ws(i5 + 15); K.escribir = ws(i5 + 17); K.tono = ws(i5 + 19); K.nose = ws(i5 + 20); K.oye = ws(i5 + 22); K.asi = ws(i5 + 23); K.frase = ws(i5 + 27); K.larga = ws(i5 + 28); K.sabias = ws(i5 + 30);
+  K.preg5b = ws(i5 + 34); K.hasta = ws(i5 + 35); K.final = ws(i5 + 37);
+  const i6 = find('y tres aun asi costo', i5); K.y6 = ws(i6); K.aun = ws(i6 + 2); K.costo = ws(i6 + 4); K.muchisimo = ws(i6 + 5); K.que6 = ws(i6 + 6); K.gente = ws(i6 + 8); K.caso = ws(i6 + 11);
+  K.todavia = ws(i6 + 13); K.siglo = ws(i6 + 16); K.xix = ws(i6 + 17); K.imprimian = ws(i6 + 19); K.libros = ws(i6 + 20); K.sin6 = ws(i6 + 21);
+  const i7 = find('y ahora lo bueno', i6); K.y7 = ws(i7); K.ahora = ws(i7 + 1); K.bueno = ws(i7 + 3); K.el7 = ws(i7 + 4); K.quijote7 = ws(i7 + 5); K.cole = ws(i7 + 10); K.esta = ws(i7 + 11); K.lleno = ws(i7 + 12);
+  K.signos7 = ws(i7 + 14); K.cerv7 = ws(i7 + 18); K.jamas = ws(i7 + 19); K.se7 = ws(i7 + 21); K.pusieron = ws(i7 + 23); K.despues = ws(i7 + 24); K.despuesE = wE(i7 + 24);
   const i8 = find('o sea cervantes tenia excusa', i7); K.osea = ws(i8); K.cerv8 = ws(i8 + 2); K.tenia = ws(i8 + 3); K.excusa = ws(i8 + 4); K.ponerlo = ws(i8 + 7); K.tu8 = ws(i8 + 8); K.whats = ws(i8 + 11); K.no8 = ws(i8 + 12);
   const i9 = find('tu lo pones cuando escribes', i8); K.i9 = i9; K.tu9 = ws(i9); K.pones = ws(i9 + 2); K.escribes = ws(i9 + 4); K.eres = ws(i9 + 6); K.no9 = ws(i9 + 10); K.os = ws(i9 + 11); K.leo = ws(i9 + 12);
   const iye = find('y esto no venia en el libro', i9); K.iye = iye; K.ye = ws(iye); K.esto = ws(iye + 1); K.enL = ws(iye + 4); K.libro = ws(iye + 6); K.END = wE(iye + 6);
 }
 /* cortes de escena: un plano nuevo cada 1,5–2,5 s; ningún dato menos de 1,5 s en pantalla */
 const S = {
-  A0: [-1, K.y0 - 0.06], A1: [K.y0 - 0.06, K.en1 - 0.06], B1: [K.en1 - 0.06, K.soy - 0.08],
-  BAL: [K.soy - 0.08, K.entonces - 0.08], C1: [K.entonces - 0.08, K.por3 - 0.08], C2: [K.por3 - 0.08, K.una - 0.06],
-  D1: [K.una - 0.06, K.invento - 0.08], D2: [K.invento - 0.08, K.cuando - 0.06], D3: [K.cuando - 0.06, K.dos - 0.08],
-  E1: [K.dos - 0.08, K.tienes1 - 0.1], E2: [K.tienes1 - 0.1, K.en5 - 0.06], E4: [K.en5 - 0.06, K.y6 - 0.08],
-  G1: [K.y6 - 0.08, K.todavia - 0.06], G2: [K.todavia - 0.06, K.ojo - 0.08],
-  H1: [K.ojo - 0.08, K.si7 - 0.08], H2: [K.si7 - 0.08, K.osea - 0.06],
+  A0: [-1, K.y0 - 0.06], A1: [K.y0 - 0.06, K.en1 - 0.06], B1: [K.en1 - 0.06, K.el1 - 0.06], D1: [K.el1 - 0.06, K.soy - 0.08],
+  BAL: [K.soy - 0.08, K.y3 - 0.08], C0: [K.y3 - 0.08, K.y3b - 0.06], C1: [K.y3b - 0.06, K.cuento - 0.06], C2: [K.cuento - 0.06, K.uno4 - 0.06],
+  D2: [K.uno4 - 0.06, K.cuando - 0.06], D3: [K.cuando - 0.06, K.la4 - 0.06], D4: [K.la4 - 0.06, K.dos - 0.08],
+  E1: [K.dos - 0.08, K.tienes1 - 0.1], E2: [K.tienes1 - 0.1, K.asi - 0.06], E4: [K.asi - 0.06, K.y6 - 0.08],
+  G1: [K.y6 - 0.08, K.todavia - 0.06], G2: [K.todavia - 0.06, K.y7 - 0.08],
+  H1: [K.y7 - 0.08, K.esta - 0.06], H2: [K.esta - 0.06, K.osea - 0.06],
   K1: [K.osea - 0.06, K.tu8 - 0.08], K3: [K.tu8 - 0.08, K.tu9 + 0.45], K4: [K.tu9 + 0.45, K.ye - 0.1], BK: [K.ye - 0.1, 999],
 };
 const DUR = K.END + 0.6, LOOP = DUR - 0.4;
