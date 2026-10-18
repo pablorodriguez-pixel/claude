@@ -236,8 +236,8 @@ headline(S.K0[0], S.K0[1], 'Cada vez que *tú escribes*…', { size: 88, hlT: K.
   const pen = box(cam, 0, 0, 120, 240, { zIndex: 9 });
   pen.innerHTML = quillSvg().replace('</svg>', `<g transform="translate(64 196) rotate(200) scale(1.5)">${gloveHand(0, 0, 0, 1)}</g></svg>`);
   const chT = chip(c, 120, 1270, 'tú', { size: 60, bg: INK, color: YEL, z: 30 });
-  const chP = chip(c, 560, 1150, '¡la P escondida!', { size: 52, bg: PINK, z: 30 });
-  const arP = el('div', c, { left: '440px', top: '1080px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 31, transform: 'rotate(-20deg)' }, '↖');
+  const chP = chip(c, 480, 1150, '¡la P escondida!', { size: 52, bg: PINK, z: 30 });
+  const arP = el('div', c, { left: '380px', top: '1060px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 31, transform: 'rotate(-20deg)' }, '↖');
 }
 
 /* ======================================================================
@@ -266,7 +266,7 @@ headline(S.K1[0], S.K1[1], '…estás *escribiendo*', { size: 100, hlT: K.leyend
   const pw = stamp(c, 220, 960, '«PESOS»', { size: 110, bw: 16, z: 40, bg: 'rgba(255,255,255,.96)', blend: 'normal' });
   const eqq = chip(c, 300, 1160, '', { size: 60, bg: INK, color: YEL, z: 31 });
   eqq.innerHTML = `$ = p<span style="font-size:.6em;position:relative;top:-0.6em">s</span> = pesos`;
-  const chEs = chip(c, 640, 1250, 'en español', { size: 52, bg: '#fff', color: INK, z: 31 });
+  const chEs = chip(c, 560, 1250, 'en español', { size: 52, bg: '#fff', color: INK, z: 31 });
 }
 
 /* ======================================================================

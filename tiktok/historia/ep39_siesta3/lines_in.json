@@ -11,7 +11,7 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Siesta es un número! Y te lo echas casi todos los días.",
+   "text": "[excited] ¡Siesta es un número! Y te la echas casi todos los días.",
    "gap_after": 0.6
   },
   {
@@ -45,7 +45,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Ojo: la primera hora iba de seis a siete. Así que la sexta era la que terminaba justo a las doce."
+   "text": "Ojo: la primera hora iba de seis a siete, así que la sexta acababa a las doce."
   },
   {
    "who": "VECINO",

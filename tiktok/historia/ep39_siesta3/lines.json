@@ -2,78 +2,78 @@
  {
   "line": 0,
   "who": "VECINO",
-  "text": "¡Siesta es un número! Y te lo echas casi todos los días.",
+  "text": "¡Siesta es un número! Y te la echas casi todos los días.",
   "s": 0.12,
-  "e": 3.534
+  "e": 2.962
  },
  {
   "line": 1,
   "who": "VECINO",
   "text": "Viene del latín «sexta»: la hora sexta de los romanos.",
-  "s": 4.134,
-  "e": 7.653
+  "s": 3.562,
+  "e": 7.081
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 8.153,
-  "e": 11.264
+  "s": 7.581,
+  "e": 10.692
  },
  {
   "line": 3,
   "who": "VECINO",
   "text": "¿Y cómo acaba un número siendo tu siesta? En tres pasos.",
-  "s": 11.614,
-  "e": 14.972
+  "s": 11.042,
+  "e": 14.4
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Uno: los romanos no contaban las horas desde medianoche, sino desde que salía el sol: la primera, la segunda, la tercera...",
-  "s": 15.472,
-  "e": 23.469
+  "s": 14.9,
+  "e": 22.896
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Dos: si el sol sale a las seis de la mañana, la hora sexta cae justo a las doce del mediodía.",
-  "s": 23.969,
-  "e": 29.725
+  "s": 23.396,
+  "e": 29.153
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Y tres: a esa hora, con el calor, se paraba a comer y a descansar. Y descansar en la sexta... acabó siendo «echar la siesta».",
-  "s": 30.225,
-  "e": 39.256
+  "s": 29.653,
+  "e": 38.684
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "Ojo: la primera hora iba de seis a siete. Así que la sexta era la que terminaba justo a las doce.",
-  "s": 39.756,
-  "e": 46.392
+  "text": "Ojo: la primera hora iba de seis a siete, así que la sexta acababa a las doce.",
+  "s": 39.184,
+  "e": 43.256
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas tarde... hasta a tu propia siesta.",
-  "s": 46.742,
-  "e": 56.252
+  "s": 43.606,
+  "e": 53.116
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "¿A qué hora te la echas tú? Os leo.",
-  "s": 56.752,
-  "e": 58.981
+  "s": 53.616,
+  "e": 55.845
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 59.331,
-  "e": 61.774
+  "s": 56.195,
+  "e": 58.638
  }
 ]
