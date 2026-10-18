@@ -103,7 +103,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
   <g transform="translate(${cx},${OV.h + 60})"><rect x="-104" y="-26" width="208" height="46" rx="10" fill="${INK}" stroke="${BRASS}" stroke-width="4"/><text x="0" y="8" text-anchor="middle" font-family="Rye" font-size="25" fill="${YEL}">EL VECINO</text></g></svg>`;
 }
 const CX = -41, CY = 45, CS = 0.75;
-const OV_VIS = [[S.P2c[0], S.P2c[1]], [S.Q2[0], S.Q2[1]]];
+const OV_VIS = [[S.P2c[0], S.P2c[1]], [K.y8b - 0.05, S.T2[1]], [S.O2[0], S.O2[1]], [S.Q2[0], S.Q2[1]]];
 function ovalState(t) {
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
     const kin = pop(t, a, 0.4), kout = p(t, b - 0.14, 0.14, E.inCubic);
@@ -116,11 +116,12 @@ function updOval(t) {
   const st = ovalState(t);
   if (!st) { ovalW.style.visibility = 'hidden'; return; }
   ovalW.style.visibility = 'visible';
-  const laugh = IN(t, K.mapa + 0.05, K.mapa + 0.7);
+  const laugh = IN(t, K.mapa + 0.05, K.mapa + 0.7) || IN(t, K.venezuela + 0.1, K.venezuela + 0.9);
   const shk = laugh ? Math.sin(t * 40) * 5 : 0;
   set(ovalW, { x: st.x, y: st.y + shk + wobble(t, 0.5, 2), s: st.s, r: laugh ? Math.sin(t * 20) * 2 : 0 });
   const o = { jaw: talkW(t, 'VECINO'), look: [5, -2], bL: 0, bR: 0, fan: wobble(t, 0.8, 5), seed: 1.3 };
   if (IN(t, K.guia - 0.1, K.turismo + 0.6)) { o.bL = 4; o.bR = 14; o.look = [6, -3]; }
+  if (IN(t, K.creyo - 0.05, S.T2[1])) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 16; o.bR = 16; o.look = [6, -4]; }
   if (IN(t, K.tu - 0.1, K.algo + 0.4)) { o.look = [0, 0]; o.bL = 10; o.bR = 4; }
   if (IN(t, K.os - 0.05, K.leo + 0.4)) { o.bL = 10; o.bR = 10; o.look = [0, 0]; }
   if (laugh) { o.hm = true; o.closed = true; o.bL = 10; o.bR = 10; o.jaw = 0.3; }

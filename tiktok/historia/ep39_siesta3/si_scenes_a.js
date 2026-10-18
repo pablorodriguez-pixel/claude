@@ -1,6 +1,6 @@
 /* Ep. 39 · escenas L0–L4 (todo clavado por texto vía K) — reutiliza figuras del Ep. 32 */
 const SHADOW_SPIN = t => 1.2 + t * 0.55;
-function zzz(pa, x, y, n = 5, sz = 150) { // «Z» que suben y se convierten en «?» rosas
+function zzz(pa, x, y, n = 5, sz = 150, dx = 240) { // «Z» que suben y se convierten en «?» rosas
   const Z = [];
   for (let i = 0; i < n; i++) Z.push(el('div', pa, { left: px(x), top: px(y), fontFamily: 'Playfair', fontWeight: 900, fontSize: px(sz), lineHeight: 1, color: INK, textShadow: `4px 4px 0 rgba(255,255,255,.8)`, zIndex: 30 }, 'Z'));
   return (t, noQ) => Z.forEach((e, i) => {
@@ -8,7 +8,7 @@ function zzz(pa, x, y, n = 5, sz = 150) { // «Z» que suben y se convierten en 
     e.textContent = q ? '?' : 'Z';
     e.style.color = q ? PINK : INK;
     e.style.textShadow = q ? `4px 4px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}` : `4px 4px 0 rgba(255,255,255,.8)`;
-    set(e, { x: ph * 240 + Math.sin(ph * 9 + i) * 30, y: -ph * (pa.zR || 420), s: 0.75 + ph * 0.6, r: -14 + Math.sin(ph * 6) * 12, o: clamp(ph * 6) * clamp((1 - ph) * 5) });
+    set(e, { x: ph * dx + Math.sin(ph * 9 + i) * Math.min(30, dx * 0.3), y: -ph * (pa.zR || 420), s: 0.75 + ph * 0.6, r: -14 + Math.sin(ph * 6) * 12, o: clamp(ph * 6) * clamp((1 - ph) * 5) });
   });
 }
 // número romano de piedra (HTML): relleno piedra, trazo tinta y recorte blanco
@@ -79,10 +79,10 @@ function updTitle(t) {
   sceneBg(cam, { background: '#EFE1C6' });
   box(cam, 0, 0, 1080, 1920, { background: 'radial-gradient(circle at 55% 62%, rgba(255,230,0,.42), rgba(255,230,0,0) 55%)' });
   const ry = rays(cam, -160, 340, 1400, 26, 'rgba(255,62,165,.09)', 'rgba(0,0,0,0)', 0);
-  const vi = stoneNum(cam, 300, 640, 640, 'VI', 560, { z: 6 });
+  const vi = stoneNum(cam, 330, 660, 620, 'VI', 530, { z: 6 });
   const man = mk(cam, [40, 860, 400, 511], sleeperInner(true), '0 0 360 460', 'bust'); man.d.style.zIndex = 12;
-  zf = zzz(cam, 250, 1060, 4, 140);
-  const bigQ = qMark(cam, 760, 600, 230, PINK); bigQ.style.zIndex = 35;
+  cam.zR = 230; zf = zzz(cam, 70, 830, 3, 120, 40);
+  const bigQ = qMark(cam, 190, 640, 170, PINK); bigQ.style.zIndex = 35;
 }
 /* A2 · «Y TE LO ECHAS CASI TODOS LOS DÍAS» — hamaca + semana con 6 de 7 días marcados */
 {
@@ -127,6 +127,7 @@ headline(S.B1[0], S.B2[1], 'Viene del latín *«sexta»*', { size: 92, hlT: K.se
     popA(w1, t, S.B1[0] + 0.2, {}); popA(arr, t, K.latin1, {}); popA(w2, t, K.sexta1 - 0.04, { r: -2 });
     paint(hl2, t, K.sexta1 + 0.1, 0.35);
     popA(lat, t, K.latin1, { r: 6 });
+    stampA(stRA, t, K.latin1 + 0.05, -6, 1);
   }, { clip: true });
   sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
   const card = box(c, 130, 420, 820, 470, { zIndex: 5, background: '#FBF6EA', border: `7px solid ${INK}`, borderRadius: '18px', boxShadow: `14px 16px 0 ${SH}` });
@@ -137,14 +138,15 @@ headline(S.B1[0], S.B2[1], 'Viene del latín *«sexta»*', { size: 92, hlT: K.se
   const w2 = el('div', card, { left: '0', top: '300px', width: '806px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '110px', color: RED, lineHeight: 1 }, `lat. ${hlSpan('sexta', 'hl2')}`);
   const hl2 = card.querySelector('.hl2');
   const lat = chip(c, 640, 380, 'latín', { size: 46, bg: INK, color: YEL, z: 30 });
+  const stRA = el('div', c, { left: '0', top: '930px', width: '1080px', textAlign: 'center', zIndex: 60 }, `<span style="display:inline-block;border:13px solid ${RED};color:${RED};font-family:Rye;font-size:92px;padding:4px 30px 10px;border-radius:16px;white-space:nowrap;line-height:1.05;letter-spacing:0.04em;background:rgba(255,255,255,.93)">REAL ACADEMIA</span>`);
 }
 /* B2 · «LA HORA SEXTA DE LOS ROMANOS» — romano junto al reloj de sol con el VI encendido */
 {
   const c = scene(S.B2[0], S.B2[1], t => {
     set(dial.d, { y: (1 - p(t, S.B2[0], 0.35, E.outBack)) * 600 });
-    dial.setH(lerp(4.5, 6, p(t, K.sexta1b - 0.3, 0.5, E.inOutCubic)));
-    for (let k = 1; k <= 12; k++) { dial.lit(k, k === 6 && t > K.sexta1b - 0.05, YEL); dial.dim(k, k !== 6); }
-    popA(lab, t, K.sexta1b - 0.04, { r: -4 });
+    dial.setH(6);
+    for (let k = 1; k <= 12; k++) { dial.lit(k, k === 6, YEL); dial.dim(k, k !== 6); }
+    popA(lab, t, S.B2[0] + 0.05, { r: -4 });
     set(rom.d, { s: pop(t, K.romanos1 - 0.1, 0.4), y: wobble(t, 0.5, 3), o: t < K.romanos1 - 0.1 ? 0 : 1 });
     face(rom, t, { look: [-6, -2], bL: 8, bR: 8, seed: 1.1, jaw: t > K.romanos1 && t < K.romanos1 + 0.5 ? 0.4 : 0 });
   }, { clip: true, cut: true });
@@ -157,21 +159,21 @@ headline(S.B1[0], S.B2[1], 'Viene del latín *«sexta»*', { size: 92, hlT: K.se
 /* ======================================================================
    Q · «¿Y POR QUÉ UNA HORA SE LLAMABA "SEXTA"?» — reloj con la etiqueta SEXTA y «?»
    ====================================================================== */
-headline(S.Q[0], S.Q[1], '¿Por qué una hora se llamaba *«sexta»*?', { size: 84, hlT: K.sexta3 });
+headline(S.Q[0], S.Q[1], '¿Cómo acaba *un número* siendo tu siesta?', { size: 84, hlT: K.numero3 });
 {
   const c = scene(S.Q[0], S.Q[1], t => {
-    set(ck.d, { s: pop(t, S.Q[0] + 0.05, 0.4), r: wobble(t, 0.6, 3), o: t < S.Q[0] + 0.05 ? 0 : 1 });
-    ck.setH(6 + (t - S.Q[0]) * 2.4);
-    const kt = p(t, K.sexta3 - 0.1, 0.5, E.outElastic);
-    set(tag, { y: (1 - clamp(kt)) * -300, r: Math.sin((t - K.sexta3) * 5) * 8 * Math.exp(-Math.max(0, t - K.sexta3) * 1.4), o: t < K.sexta3 - 0.1 ? 0 : 1 });
-    QM.forEach((q, i) => set(q, { s: pop(t, K.hora3 + i * 0.12, 0.3), r: Math.sin(t * 5 + i) * 10, o: t < K.hora3 + i * 0.12 ? 0 : 1 }));
+    set(vi, { s: pop(t, S.Q[0] + 0.05, 0.4), r: -4 + wobble(t, 0.5, 1.5), o: t < S.Q[0] + 0.05 ? 0 : 1 });
+    const ka = p(t, K.siendo3 - 0.1, 0.35, E.outCubic); set(arr, { sx: ka, o: ka > 0.01 ? 1 : 0 });
+    set(man.d, { s: pop(t, K.siesta3 - 0.1, 0.4), y: wobble(t, 0.5, 4), r: -6, o: t < K.siesta3 - 0.1 ? 0 : 1 });
+    face(man, t, { closed: true, jaw: 0.15, seed: 0 });
+    QM.forEach((q, i) => set(q, { s: pop(t, K.siesta3 + 0.1 + i * 0.12, 0.3), r: Math.sin(t * 5 + i) * 10, o: t < K.siesta3 + 0.1 + i * 0.12 ? 0 : 1 }));
   }, { clip: true });
   sceneBg(c, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 90px)' });
   rays(c, -160, 300, 1400, 24, 'rgba(255,255,255,.2)', 'rgba(0,0,0,0)', 0);
-  const ck = mkClock(c, 300, 520, 480, { z: 6, roman: true });
-  const tag = box(c, 580, 860, 330, 200, { zIndex: 10, transformOrigin: '40px 0px' });
-  tag.innerHTML = `<svg width="330" height="200" style="overflow:visible"><path d="M40,0 L70,60" stroke="${INK}" stroke-width="5"/>${cut('<rect x="30" y="56" width="290" height="130" rx="18"/>', 6, 8)}<rect x="30" y="56" width="290" height="130" rx="18" fill="${YEL}" stroke="${INK}" stroke-width="6"/><circle cx="64" cy="90" r="9" fill="#fff" stroke="${INK}" stroke-width="4"/><text x="186" y="150" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="78" fill="${INK}">SEXTA</text></svg>`;
-  const QM = [[150, 560], [820, 470], [150, 800]].map((q, i) => qMark(c, q[0], q[1], 140, i % 2 ? YEL : PINK));
+  const vi = stoneNum(c, 380, 470, 400, 'VI', 330, { z: 6 });
+  const arr = box(c, 500, 830, 90, 140, { zIndex: 7, transformOrigin: '45px 0px' }); arr.innerHTML = `<svg width="90" height="140" style="overflow:visible"><path d="M45,0 V110 M15,80 L45,118 L75,80" stroke="${INK}" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M45,0 V110 M15,80 L45,118 L75,80" stroke="${PINK}" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
+  const man = mk(c, [400, 960, 300, 383], sleeperInner(true), '0 0 360 460', 'bust'); man.d.style.zIndex = 6;
+  const QM = [[740, 980], [780, 600], [230, 560]].map((q, i) => qMark(c, q[0], q[1], 130, i % 2 ? YEL : PINK));
 }
 /* N3 · «EN TRES PASOS» — tres cartas 1 · 2 · 3 */
 headline(S.N3[0], S.N3[1], 'En *tres* pasos', { size: 112, hlT: K.tres3 });

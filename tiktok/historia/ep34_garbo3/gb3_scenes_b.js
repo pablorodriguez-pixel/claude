@@ -173,8 +173,10 @@ function chanBase(c) {
     set(hb.d, { s: hin, y: wobble(t, 0.5, 3) + (t > K.creyo ? Math.abs(Math.sin((t - K.creyo) * 9)) * 14 * (1 - p(t, K.creyo, 0.9)) : 0), o: t < K.hitler8b - 0.08 ? 0 : 1 });
     face(hb, t, { look: [-6, -4], bL: t > K.creyo ? 16 : 6, bR: t > K.creyo ? 16 : 6, closed: t > K.creyo + 0.2 && t < K.creyo + 0.5, seed: 0.9 });
     set(bub, { s: pop(t, K.creyo, 0.3), r: -4, o: t < K.creyo ? 0 : 1 });
+    nlab.style.opacity = 1 - p(t, K.y8b - 0.1, 0.12);
   }, { clip: true, cut: true });
   const mp = chanBase(c);
+  let nlab;
   const ar = box(mp, 0, 0, 1080, 1920, { zIndex: 12 });
   const A0 = mpC(0.4, 51.65).map(Number);
   ar.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><path class="a" pathLength="1000" stroke-dasharray="1000" d="M${A0[0] - 160},${A0[1] - 120} Q${A0[0] + 40},${A0[1] - 60} ${P_CAL[0] - 30},${P_CAL[1] - 40}" stroke="${INK}" stroke-width="46" fill="none" stroke-linecap="round"/><path class="ai" pathLength="1000" stroke-dasharray="1000" d="M${A0[0] - 160},${A0[1] - 120} Q${A0[0] + 40},${A0[1] - 60} ${P_CAL[0] - 30},${P_CAL[1] - 40}" stroke="${RED}" stroke-width="30" fill="none" stroke-linecap="round"/></svg>`;
@@ -182,7 +184,7 @@ function chanBase(c) {
   const head = box(mp, P_CAL[0] - 70, P_CAL[1] - 90, 120, 120, { zIndex: 13 }); head.innerHTML = `<svg viewBox="0 0 120 120" width="120" height="120" style="overflow:visible"><path d="M10,10 L110,60 L40,110 Z" fill="${RED}" stroke="${INK}" stroke-width="8" stroke-linejoin="round" transform="rotate(30 60 60)"/></svg>`;
   const tgt = box(mp, P_CAL[0] - 80, P_CAL[1] - 80, 160, 160, { borderRadius: '50%', border: `10px solid ${RED}`, zIndex: 11 });
   const stC = stamp(mp, P_CAL[0] - 330, P_CAL[1] + 100, 'CALAIS', { size: 100, bw: 12, z: 30, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
-  el('div', mp, { left: px(P_NOR[0] - 230), top: px(P_NOR[1] + 40), fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, background: 'rgba(255,255,255,.92)', border: `4px solid ${INK}`, borderRadius: '14px', padding: '2px 16px 6px', zIndex: 20, whiteSpace: 'nowrap' }, `<s style="text-decoration-color:${RED};text-decoration-thickness:6px">Normandía</s> = <span style="color:${RED}">trampa</span>`);
+  nlab = el('div', mp, { left: px(P_NOR[0] - 410), top: px(P_NOR[1] - 140), fontFamily: 'Bricolage', fontWeight: 800, fontSize: '44px', color: INK, background: 'rgba(255,255,255,.92)', border: `4px solid ${INK}`, borderRadius: '14px', padding: '2px 16px 6px', zIndex: 20, whiteSpace: 'nowrap' }, `<s style="text-decoration-color:${RED};text-decoration-thickness:6px">Normandía</s> = <span style="color:${RED}">trampa</span>`);
   const hb = mk(c, [540, 900, 360, 460], hitlerInner(), '0 0 360 460', 'bust'); hb.d.style.zIndex = 40;
   const bub = bubble(c, 330, 860, 'ajá…', { size: 64, tail: 'br', z: 42, it: true });
 }
