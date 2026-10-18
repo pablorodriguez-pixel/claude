@@ -63,7 +63,7 @@ window.frame = t => {
   HLS.forEach(h => {
     const vis = t >= h.t0 - 0.02 && t < h.t1; h.b.style.display = vis ? '' : 'none'; if (!vis) return;
     h.b.style.opacity = 1 - p(t, h.t1 - 0.12, 0.12, E.inCubic);
-    h.spans.forEach(s => { const k = p(t, s.t - 0.14, 0.26, E.outBack); set(s.e, { y: (1 - k) * 42, o: clamp(k * 1.5) }); });
+    h.spans.forEach(s => { const k = p(t, Math.max(h.t0, s.t - 0.14), 0.26, E.outBack); set(s.e, { y: (1 - k) * 42, o: clamp(k * 1.5) }); });
     h.hls.forEach(s => { s.e.style.transform = `scaleX(${f1(p(t, s.t, 0.36, E.outCubic) * 1000) / 1000}) rotate(-1.2deg)`; });
   });
   updOval(t);

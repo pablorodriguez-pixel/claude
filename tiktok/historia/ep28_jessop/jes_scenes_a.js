@@ -184,7 +184,7 @@ headline(S.E2[0], S.E2[1], 'una mujer *se lo arrancó*', { size: 96, hlT: K.arra
   rays(cam, -160, 200, 1400, 22, 'rgba(255,255,255,.18)', 'rgba(0,0,0,0)', 0);
   const vio = mkViolet(cam, [420, 520, 420, 537]); vio.d.style.zIndex = 4;
   const bun = box(cam, 470, 880, 360, 264, { zIndex: 6 }); bun.innerHTML = svgW(bundleInner(true), '0 0 300 220');
-  const hd = box(cam, 470, 760, 380, 260, { zIndex: 7 }); hd.innerHTML = handsSvg();
+  const hd = box(cam, 460, 860, 380, 260, { zIndex: 7 }); hd.innerHTML = handsSvg();
   const empty = chip(cam, 520, 1150, 'regazo vacío', { size: 44, bg: INK, color: '#fff', z: 20 });
 }
 
