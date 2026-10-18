@@ -34,3 +34,10 @@ Publicación:
 - Comentario fijado: «Confiesa: en WhatsApp, ¿abres las preguntas o escribes como Cervantes? ¿Y qué falta no le perdonas a nadie? 👇»
 
 A verificar: (1) el facsímil de la princeps de 1605 sin «¿» (lógicamente seguro: el signo es de 1754); (2) la redacción exacta del DPD sobre «no suprimirlo por imitación» (en pantalla no hay cita literal, solo «LA RAE: OBLIGATORIA» y «NO VALE»).
+
+## Ronda 2 (arreglos 1–4 del director independiente; voz intacta, sin gen_lines)
+1. El «¿» que gira ahora aterriza en la tira (escala 0,24, x −30, y +120) y lo sustituye un «¿» rojo fijo dentro de la tira, pegado a «vienes». El destello se ha movido a ese hueco. «¿vienes?» se ve completo desde el s 15,45 hasta el corte (15,83). Lo comprobé en el render cada 0,1 s entre 15,0 y 16,0 y en final.mp4 en 15,3, 15,6 y 15,8.
+2. Sello «SIN EXCUSA»: tamaño 96 y left 110. Borde derecho ≈ 825 px en el s 54 (pasa de 945 px solo en el fotograma del impacto, a escala 2,3).
+3. Mano de Cervantes (K1) en 230,820: queda debajo de la burbuja y no tapa la «v».
+4. Se han quitado los 4 anillos del cierre (opacidad 0) y la página del Quijote baja 30 px (top 410), así que «Ni una» ya no la pisa.
+Render con flock y audio.py OK (SNR 27,6 dB). Duración: 61,77 s.

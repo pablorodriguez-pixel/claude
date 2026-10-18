@@ -49,6 +49,7 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 - PUBLICADO 17/10: ep25 Chao (medir a 48 h). Siguiente en subir: ep21 Cumpleaños; ep26 Aladino al llegar a 1.000.
 - 18/10 COLA APROBADA POR EL USUARIO (historias con drama), por probabilidad de viralizar: 1 Garbo (ep27), 2 Violet Jessop (ep28), 3 Petrov, 4 Onoda. Napoleón NO se repite.
   19/10 TANDA DE 6 (objetivo del usuario: >20 mil cada uno; se suben durante el día): 1 ep27 Garbo · 2 ep29 «¿» · 3 ep28 Jessop · 4 ep30 «$» · 5 ep31 Petrov · 6 ep32 Siesta. El usuario aprobó la tanda; se le enseñan las fichas igualmente.
+  ENTREGADOS los 6 (19/10), todos con director independiente y arreglos: Garbo, «$», Jessop, Siesta, «¿», Petrov. Orden de subida propuesto: Garbo → «$» → Jessop → Siesta (14–15 h) → «¿» → Petrov (tarde-noche).
   Curiosidades fáciles tipo Ñ/OK, alternando con las historias: ep29 «¿» solo en español, ep30 el «$» es español, CH/LL ya no son letras, siesta = «sexta» (reserva).
 - Lección del especial: el usuario prefiere UNA historia muy top bien explicada a varios datos medianos; el gancho con lo más universal (Aladino/Disney).
 - Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
