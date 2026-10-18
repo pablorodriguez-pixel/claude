@@ -6,7 +6,7 @@
    1.04
   ]
  },
- "gap": 0.35,
+ "gap": 0.22,
  "inner_cap": 0.45,
  "lines": [
   {
@@ -53,7 +53,7 @@
   {
    "who": "VECINO",
    "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño. Dos medallas por una mentira: ni tu mejor excusa ha llegado tan lejos.",
-   "gap_after": 0.6,
+   "gap_after": 0.5,
    "tempo": 1.12
   },
   {

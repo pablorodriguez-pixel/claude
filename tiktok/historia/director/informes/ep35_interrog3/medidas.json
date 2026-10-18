@@ -5,125 +5,125 @@
   {
    "n": 0,
    "s": 0.12,
-   "e": 3.122,
-   "dur": 3.0,
+   "e": 3.241,
+   "dur": 3.12,
    "palabras": 11,
    "texto": "¡Cervantes nunca escribió este signo, y tú lo usas cada día!"
   },
   {
    "n": 1,
-   "s": 3.472,
-   "e": 9.222,
-   "dur": 5.75,
+   "s": 3.591,
+   "e": 9.668,
+   "dur": 6.08,
    "palabras": 20,
-   "texto": "En el Quijote original, el de mil seiscientos cinco, no hay ni uno solo, porque el signo todavía no existía."
+   "texto": "En el Quijote de mil seiscientos cinco, el original, no hay ni uno solo, porque el signo todavía no existía."
   },
   {
    "n": 2,
-   "s": 9.922,
-   "e": 12.717,
-   "dur": 2.79,
+   "s": 10.368,
+   "e": 13.273,
+   "dur": 2.9,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 13.067,
-   "e": 18.097,
-   "dur": 5.03,
-   "palabras": 19,
-   "texto": "¿Y entonces quién se lo inventó, y por qué solo lo usamos nosotros? Te lo cuento en tres pasos."
+   "s": 13.623,
+   "e": 18.61,
+   "dur": 4.99,
+   "palabras": 15,
+   "texto": "¿Y entonces quién se lo inventó, y por qué? Te lo cuento en tres pasos."
   },
   {
    "n": 4,
-   "s": 18.447,
-   "e": 25.314,
-   "dur": 6.87,
+   "s": 18.96,
+   "e": 26.116,
+   "dur": 7.16,
    "palabras": 20,
    "texto": "Uno: en mil setecientos cincuenta y cuatro, cuando Cervantes llevaba más de cien años muerto, la Real Academia decidió inventárselo."
   },
   {
    "n": 5,
-   "s": 26.014,
-   "e": 37.052,
-   "dur": 11.04,
+   "s": 26.816,
+   "e": 38.308,
+   "dur": 11.49,
    "palabras": 38,
    "texto": "Dos: lo hizo porque en español «tienes hambre» y «¿tienes hambre?» son las mismas palabras, y al escribir el tono no se oye; así que en una frase larga no sabías que era una pregunta hasta el final."
   },
   {
    "n": 6,
-   "s": 37.752,
-   "e": 46.546,
-   "dur": 8.79,
+   "s": 39.008,
+   "e": 48.168,
+   "dur": 9.16,
    "palabras": 23,
    "texto": "Y tres: aun así, costó muchísimo que la gente le hiciera caso, y todavía en el siglo diecinueve se imprimían libros sin él."
   },
   {
    "n": 7,
-   "s": 47.246,
-   "e": 54.602,
-   "dur": 7.36,
+   "s": 48.868,
+   "e": 56.519,
+   "dur": 7.65,
    "palabras": 25,
    "texto": "Y ahora lo bueno: el Quijote que leíste en el cole está lleno de signos de abrir que Cervantes jamás escribió. Se los pusieron después."
   },
   {
    "n": 8,
-   "s": 55.302,
-   "e": 59.771,
-   "dur": 4.47,
+   "s": 57.219,
+   "e": 61.872,
+   "dur": 4.65,
    "palabras": 13,
    "texto": "O sea: Cervantes tenía excusa para no ponerlo. Tú, en el WhatsApp, no."
   },
   {
    "n": 9,
-   "s": 60.271,
-   "e": 63.379,
-   "dur": 3.11,
+   "s": 62.372,
+   "e": 65.611,
+   "dur": 3.24,
    "palabras": 13,
    "texto": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo."
   },
   {
    "n": 10,
-   "s": 63.729,
-   "e": 66.094,
-   "dur": 2.36,
+   "s": 65.961,
+   "e": 68.41,
+   "dur": 2.45,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
   }
  ],
  "primera_palabra": "cervantes",
  "primera_palabra_muletilla": false,
- "gancho_dur": 3.0,
+ "gancho_dur": 3.12,
  "gancho_palabras": 11,
  "gancho_apela_a_ti": true,
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 9.922,
+ "marca_inicio_s": 10.368,
  "ojo_dur": null,
  "cta_tipo": "abierta",
  "cta_texto": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo.",
  "n_lineas": 11,
- "n_palabras": 199,
- "duracion_voz": 66.09,
- "ppm": 180.7,
+ "n_palabras": 195,
+ "duracion_voz": 68.41,
+ "ppm": 171.0,
  "lineas_mas_largas": [
   [
    5,
-   11.04,
+   11.49,
    "Dos: lo hizo porque en español «tienes hambre» y «¿tienes hambre?» son"
   ],
   [
    6,
-   8.79,
+   9.16,
    "Y tres: aun así, costó muchísimo que la gente le hiciera caso, y todav"
   ],
   [
    7,
-   7.36,
+   7.65,
    "Y ahora lo bueno: el Quijote que leíste en el cole está lleno de signo"
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep35_interrog3/final.mp4",
- "duracion_video": 66.7
+ "duracion_video": 69.03
 }
