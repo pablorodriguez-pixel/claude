@@ -1,0 +1,71 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Hitler le dio una medalla al español que le engañó!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Se llamaba Juan Pujol, era de Barcelona, y nunca había sido espía.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo engaña a Hitler un señor que no era espía? En tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: quiso espiar para los ingleses, pero no le quisieron. Así que se ofreció a los alemanes... para engañarlos desde dentro.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: los alemanes le mandaron a Londres. Pero él se quedó en Lisboa, inventándose los informes con una guía de turismo y un mapa.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: como un espía solo no daba para tanto, se inventó otros veintisiete. Ninguno existía... y los alemanes les pagaban el sueldo a todos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Al final, los ingleses vieron lo bueno que era y le ficharon. Y llegó el gran día: el desembarco de Normandía."
+  },
+  {
+   "who": "VECINO",
+   "text": "Pujol avisó a Hitler de que era una trampa, y de que el ataque de verdad sería en Calais. Y Hitler se lo creyó: dejó a miles de soldados esperando un ataque que nunca llegó.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: después fingió su propia muerte y se fue a vivir a Venezuela."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: los nazis le dieron la Cruz de Hierro... y los ingleses, otra medalla. Por el mismo engaño.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué es lo más gordo que te has inventado tú para librarte de algo? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}

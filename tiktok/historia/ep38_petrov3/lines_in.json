@@ -1,0 +1,67 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Estás vivo gracias a un señor del que nunca has oído hablar!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Se llamaba Stanislav Petrov, y una noche de mil novecientos ochenta y tres tuvo el mundo en sus manos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué pasó esa noche? Te lo cuento en tres momentos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: la alarma. Petrov era militar soviético y vigilaba los satélites que avisaban si Estados Unidos lanzaba misiles nucleares. Y a medianoche, la pantalla dijo: misil. Luego, otro. Hasta cinco.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: la decisión. Si avisaba a sus jefes, podían responder con un ataque nuclear. Y pensó: si Estados Unidos ataca de verdad, no manda cinco misiles. Manda cientos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que cogió el teléfono y dijo: «Es una falsa alarma».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite lo había confundido con misiles.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú qué habrías hecho en su silla: avisar, o no? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}

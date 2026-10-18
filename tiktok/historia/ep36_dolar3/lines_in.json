@@ -1,0 +1,67 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El símbolo del dólar no es una S! Es una palabra en español."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ese garabato, en realidad, pone «pesos».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo acaba una palabra española en el dinero de Estados Unidos? En tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó una raya.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español: el mismo valor... y el mismo símbolo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hay otras teorías, como la de las columnas de Hércules. Son bonitas, pero la del peso es la que tiene pruebas."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: cada vez que ves el símbolo del dólar... estás leyendo «pesos», en español.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y en tu país, cómo le llamáis al dinero? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}

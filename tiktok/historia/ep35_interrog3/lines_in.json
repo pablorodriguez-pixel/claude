@@ -1,0 +1,62 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Cervantes nunca escribió este signo! Y tú lo usas todos los días."
+  },
+  {
+   "who": "VECINO",
+   "text": "En todo el Quijote no hay ni un solo signo de abrir pregunta. Ni uno.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Entonces por qué lo usamos nosotros, y casi nadie más? Por tres cosas."
+  },
+  {
+   "who": "VECINO",
+   "text": "Una: en tiempos de Cervantes no existía. Lo inventó la Real Academia en mil setecientos cincuenta y cuatro, cuando él llevaba más de cien años muerto.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: en español, la pregunta va en el tono. «Tienes hambre» y «¿tienes hambre?» son las mismas palabras. Sin el signo de abrir, en una frase larga no sabías que era una pregunta hasta el final.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: costó muchísimo que la gente lo usara. Todavía en el siglo diecinueve se imprimían libros sin él.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: el Quijote que leíste en el cole sí lo lleva. Se lo pusieron después."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: Cervantes tenía excusa para no ponerlo. Tú, en el WhatsApp, no.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}
