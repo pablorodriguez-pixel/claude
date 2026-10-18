@@ -45,9 +45,9 @@ const K = {};
   const iem = find('era lo que mas habia echado de menos', icp); K.era8 = ws(iem); K.mas8 = ws(iem + 3); K.echado = ws(iem + 5); K.menos = ws(iem + 7);
   const idt = find('despues del titanic', iem); K.despues = ws(idt); K.titanic8 = ws(idt + 2); K.L8e = wE(idt + 2);
   // L9 O sea
-  const i9 = find('o sea tres naufragios', idt); K.osea = ws(i9); K.tres9 = ws(i9 + 2); K.naufragios = ws(i9 + 3); K.naufragiosE = wE(i9 + 3);
-  const ist = find('y siguio trabajando en barcos', i9); K.y9 = ws(ist); K.siguio = ws(ist + 1); K.trabajando = ws(ist + 2); K.barcos9 = ws(ist + 4);
-  const ica = find('casi cuarenta anos mas', ist); K.casi = ws(ica); K.cuarenta = ws(ica + 1); K.anos = ws(ica + 2); K.mas9 = ws(ica + 3);
+  const i9 = find('o sea tres barcos tres accidentes', idt); K.osea = ws(i9); K.tres9 = ws(i9 + 2); K.barcos9a = ws(i9 + 3); K.tres9b = ws(i9 + 4); K.naufragios = ws(i9 + 5); K.naufragiosE = wE(i9 + 5);
+  const ist = find('y ella siguio trabajando en el mar', i9); K.y9 = ws(ist); K.siguio = ws(ist + 2); K.trabajando = ws(ist + 3); K.barcos9 = ws(ist + 6);
+  const ica = find('mas de treinta anos', ist); K.casi = ws(ica); K.cuarenta = ws(ica + 2); K.anos = ws(ica + 3); K.mas9 = wE(ica + 3);
   const ill = find('la llamaban', ica); K.la9 = ws(ill); K.llamaban = ws(ill + 1); K.miss = ws(ill + 2); K.insumergible = ws(ill + 3); K.L9e = wE(ill + 3);
   // L10 pregunta + Os leo
   const i10 = find('tu te habrias vuelto', ill); K.tu10 = ws(i10); K.te10 = ws(i10 + 1); K.habrias = ws(i10 + 2); K.vuelto = ws(i10 + 3); K.a10 = ws(i10 + 4); K.subir10 = ws(i10 + 5); K.un10 = ws(i10 + 7); K.barco10 = ws(i10 + 8);

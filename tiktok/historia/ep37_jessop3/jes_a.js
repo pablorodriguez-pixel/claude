@@ -48,9 +48,9 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   fwave.innerHTML = `<svg width="1140" height="120" style="overflow:visible"><path d="M0,30 ${Array.from({ length: 20 }, () => `q30,-22 60,0`).join(' ')} V700 H0 Z" fill="#152131"/><path d="M0,30 ${Array.from({ length: 20 }, () => `q30,-22 60,0`).join(' ')}" fill="none" stroke="#dfe8ef" stroke-width="5"/><path d="M0,60 ${Array.from({ length: 28 }, () => 'q20,-12 40,0').join(' ')}" stroke="#dfe8ef" stroke-width="2.5" fill="none" opacity=".5"/></svg>`;
   const cof = box(cam, 624, 1290, 240, 120, { zIndex: 9 }); cof.innerHTML = cofiaSvg();
   // la pregunta (≤ 6 palabras), borde superior por debajo de y≈300 (recorte del perfil)
-  const l1 = BIGT(cam, 0, 318, 1080, '¿SOBREVIVIÓ', { fontSize: '128px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
-  const l2 = BIGT(cam, 0, 446, 1080, `A <span style="color:${YEL};font-size:250px;line-height:0.8">3</span>`, { fontSize: '150px', color: '#FBF6EA', textShadow: OUTL(INK, 10), zIndex: 40 });
-  const l3 = BIGT(cam, 0, 668, 1080, 'NAUFRAGIOS?', { fontSize: '120px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
+  const l1 = BIGT(cam, 0, 318, 1080, '¿SALIÓ VIVA', { fontSize: '128px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
+  const l2 = BIGT(cam, 0, 446, 1080, `DE LOS <span style="color:${YEL};font-size:250px;line-height:0.8">3</span>`, { fontSize: '140px', color: '#FBF6EA', textShadow: OUTL(INK, 10), zIndex: 40 });
+  const l3 = BIGT(cam, 0, 668, 1080, 'BARCOS?', { fontSize: '128px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
 }
 
 /* ======================================================================

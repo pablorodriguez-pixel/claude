@@ -116,16 +116,16 @@ colorHit(S.J5[0], S.J5[1], PINK, c => {
   sceneBg(cam, { background: '#2f5a46', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.18), rgba(0,0,0,.35) 80%)' });
   rays(cam, -160, 120, 1400, 26, 'rgba(255,255,255,.06)', 'rgba(0,0,0,0)', 0);
   const CC = [mkCard(cam, CX3[0], 700, 1, 'OLYMPIC', '1911', { w: CW }), mkCard(cam, CX3[1], 700, 2, 'TITANIC', '1912', { w: CW, z: 12 }), mkCard(cam, CX3[2], 700, 3, 'BRITANNIC', '1916', { w: CW, hospital: true })];
-  const TS = [K.naufragios + 0.1, K.naufragios + 0.45, K.naufragios + 0.8];
+  const TS = [K.naufragios + 0.1, K.naufragios + 0.4, K.naufragios + 0.7];
   const STP = CX3.map((x, i) => { const s = stamp(cam, x + 10, 860, 'SALIÓ<br>VIVA', { size: 52, bw: 9, z: 40, bg: 'rgba(255,255,255,.92)', blend: 'normal' }); s.style.textAlign = 'center'; return s; });
   const big = BIGT(cam, 0, 240, 1080, `<span style="color:${YEL}">3</span>`, { fontSize: '330px', textShadow: OUTL(INK, 12), zIndex: 30 });
-  const lab = chip(cam, 300, 1110, 'naufragios', { size: 72, bg: RED, color: '#fff', z: 30 });
+  const lab = chip(cam, 260, 1110, '3 ACCIDENTES', { size: 72, bg: RED, color: '#fff', z: 30 });
 }
 
 /* ======================================================================
    R2 · «…Y SIGUIÓ TRABAJANDO EN BARCOS» — Violet con la bandeja otra vez, en cubierta
    ====================================================================== */
-headline(S.R2[0], S.R2[1], 'y siguió *trabajando en barcos*', { size: 88, hlT: K.trabajando });
+headline(S.R2[0], S.R2[1], 'y siguió trabajando *en el mar*', { size: 88, hlT: K.barcos9 });
 {
   const c = scene(S.R2[0], S.R2[1], t => {
     set(cam, { s: 1.04 + 0.05 * p(t, S.R2[0], 1.6, E.linear) });
@@ -160,9 +160,9 @@ headline(S.R2[0], S.R2[1], 'y siguió *trabajando en barcos*', { size: 88, hlT: 
   sceneBg(c, { background: '#2b2118' });
   const ry = rays(c, -160, 260, 1400, 26, 'rgba(255,230,0,.2)', 'rgba(0,0,0,0)', 0);
   const PG = Array.from({ length: 9 }, (_, i) => box(c, 470, 800, 140, 160, { zIndex: 2, background: '#FBF6EA', border: `5px solid ${INK}`, borderTop: `26px solid ${RED}`, borderRadius: '8px' }));
-  const cs = BIGT(c, 0, 470, 1080, 'casi', { fontSize: '110px', fontStyle: 'italic', color: '#FBF6EA', textShadow: OUTL(INK, 7), zIndex: 10 });
-  const n40 = BIGT(c, 0, 590, 1080, '40', { fontSize: '380px', color: YEL, textShadow: OUTL(INK, 12), zIndex: 10 });
-  const am = BIGT(c, 0, 980, 1080, 'AÑOS MÁS', { fontSize: '120px', color: '#FBF6EA', textShadow: OUTL(INK, 8), zIndex: 10 });
+  const cs = BIGT(c, 0, 470, 1080, 'más de', { fontSize: '110px', fontStyle: 'italic', color: '#FBF6EA', textShadow: OUTL(INK, 7), zIndex: 10 });
+  const n40 = BIGT(c, 0, 590, 1080, '30', { fontSize: '380px', color: YEL, textShadow: OUTL(INK, 12), zIndex: 10 });
+  const am = BIGT(c, 0, 980, 1080, 'AÑOS', { fontSize: '120px', color: '#FBF6EA', textShadow: OUTL(INK, 8), zIndex: 10 });
 }
 
 /* ======================================================================
