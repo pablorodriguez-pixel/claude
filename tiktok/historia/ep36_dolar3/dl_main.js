@@ -76,8 +76,9 @@ window.frame = t => {
   });
   updSteps(t);
   updOval(t);
-  let sh = 0; SHAKES.forEach(s => sh += shake(t, s[0], s[1], s[2]));
-  set(world, { x: sh, y: sh * 0.6 });
+  let sh = 0, inSh = false; SHAKES.forEach(s => { sh += shake(t, s[0], s[1], s[2]); if (t >= s[0] && t < s[0] + s[1]) inSh = true; });
+  // durante el temblor la escena crece al 103 % para que no asome el borde
+  set(world, { x: sh, y: sh * 0.6, s: inSh ? 1.03 : 1 });
 };
 
 /* ---------- temblores ---------- */

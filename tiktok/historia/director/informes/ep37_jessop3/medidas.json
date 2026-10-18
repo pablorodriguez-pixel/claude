@@ -5,95 +5,95 @@
   {
    "n": 0,
    "s": 0.12,
-   "e": 5.009,
-   "dur": 4.89,
-   "palabras": 13,
-   "texto": "¡Titanic! Para ti fue una tragedia. Para esta mujer... solo el segundo susto."
+   "e": 2.996,
+   "dur": 2.88,
+   "palabras": 7,
+   "texto": "¡Titanic! Para ella, solo el segundo susto."
   },
   {
    "n": 1,
-   "s": 5.359,
-   "e": 13.995,
-   "dur": 8.64,
+   "s": 3.346,
+   "e": 11.981,
+   "dur": 8.63,
    "palabras": 30,
    "texto": "Se llamaba Violet Jessop, era camarera de barco, y trabajó en el Titanic y en sus dos barcos gemelos... y en los tres hubo un accidente con ella a bordo."
   },
   {
    "n": 2,
-   "s": 14.695,
-   "e": 17.488,
+   "s": 12.681,
+   "e": 15.475,
    "dur": 2.79,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 17.838,
-   "e": 21.51,
+   "s": 15.825,
+   "e": 19.497,
    "dur": 3.67,
    "palabras": 14,
    "texto": "¿Y cómo se sale viva de los tres? Te lo cuento barco a barco."
   },
   {
    "n": 4,
-   "s": 21.86,
-   "e": 28.979,
+   "s": 19.847,
+   "e": 26.966,
    "dur": 7.12,
    "palabras": 23,
    "texto": "Uno: el Olympic, en mil novecientos once. Chocó contra un buque de guerra, pero no se hundió, y ella bajó sin un rasguño."
   },
   {
    "n": 5,
-   "s": 29.579,
-   "e": 37.415,
+   "s": 27.566,
+   "e": 35.401,
    "dur": 7.84,
    "palabras": 26,
    "texto": "Dos: el Titanic, al año siguiente. Mientras se hundía, la subieron a un bote salvavidas y, según contó ella, le pusieron un bebé en los brazos."
   },
   {
    "n": 6,
-   "s": 38.115,
-   "e": 50.029,
+   "s": 36.101,
+   "e": 48.016,
    "dur": 11.91,
    "palabras": 40,
    "texto": "Y tres: el Britannic, en plena guerra, convertido en barco hospital, y ella a bordo con la Cruz Roja. Chocó con una mina, y mientras se hundía, volvió a su camarote a por una sola cosa... ahora te digo cuál."
   },
   {
    "n": 7,
-   "s": 50.629,
-   "e": 59.589,
+   "s": 48.616,
+   "e": 57.576,
    "dur": 8.96,
    "palabras": 29,
    "texto": "Y entonces vino lo peor: su bote acabó arrastrado hacia las hélices, que seguían girando, así que saltó al agua, se golpeó la cabeza... y aun así salió viva."
   },
   {
    "n": 8,
-   "s": 60.389,
-   "e": 64.867,
+   "s": 58.376,
+   "e": 62.854,
    "dur": 4.48,
    "palabras": 18,
    "texto": "Ojo: lo del bebé solo lo cuenta ella en sus memorias, y nunca se supo de quién era."
   },
   {
    "n": 9,
-   "s": 65.217,
-   "e": 76.974,
+   "s": 63.204,
+   "e": 74.961,
    "dur": 11.76,
    "palabras": 34,
    "texto": "O sea: se le hundieron dos barcos encima, y lo único que volvió a buscar al camarote fue... su cepillo de dientes. Porque después del Titanic, era lo que más había echado de menos."
   },
   {
    "n": 10,
-   "s": 77.774,
-   "e": 82.644,
+   "s": 75.761,
+   "e": 80.63,
    "dur": 4.87,
    "palabras": 15,
    "texto": "Y tú, si se hunde tu barco, ¿qué vuelves a buscar al camarote? Os leo."
   },
   {
    "n": 11,
-   "s": 82.994,
-   "e": 85.358,
+   "s": 80.98,
+   "e": 83.345,
    "dur": 2.36,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -101,19 +101,19 @@
  ],
  "primera_palabra": "titanic",
  "primera_palabra_muletilla": false,
- "gancho_dur": 4.89,
- "gancho_palabras": 13,
- "gancho_apela_a_ti": true,
+ "gancho_dur": 2.88,
+ "gancho_palabras": 7,
+ "gancho_apela_a_ti": false,
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 14.695,
+ "marca_inicio_s": 12.681,
  "ojo_dur": 4.48,
  "cta_tipo": "abierta",
  "cta_texto": "Y tú, si se hunde tu barco, ¿qué vuelves a buscar al camarote? Os leo.",
  "n_lineas": 12,
- "n_palabras": 259,
- "duracion_voz": 85.36,
+ "n_palabras": 253,
+ "duracion_voz": 83.34,
  "ppm": 182.1,
  "lineas_mas_largas": [
   [
@@ -133,5 +133,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep37_jessop3/final.mp4",
- "duracion_video": 85.97
+ "duracion_video": 83.97
 }

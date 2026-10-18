@@ -51,7 +51,7 @@ const S = {
   // OJO
   H0: [K.ojo - 0.12, K.columnas - 0.35], H1: [K.columnas - 0.35, K.bonitas - 0.1], H2: [K.bonitas - 0.1, K.osea - 0.1],
   // O SEA
-  K0: [K.osea - 0.1, K.estas - 0.1], K1: [K.estas - 0.1, K.y10 - 0.1],
+  K0: [K.osea - 0.1, K.leyendo + 0.2], K1: [K.leyendo + 0.2, K.y10 - 0.1],
   K2: [K.y10 - 0.1, K.y11 - 0.12],
   BK: [K.y11 - 0.12, 999],
 };
