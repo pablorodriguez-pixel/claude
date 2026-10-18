@@ -23,7 +23,7 @@ chapter(S.CH2[0], S.CH2[1], PINK, '2', c => {
   sceneBg(c, { background: '#E7D9BC' });
   box(c, 540, 0, 540, 1920, { zIndex: 0, background: '#C9D3D8' });
   const pv = mk(c, [40, 640, 460, 588], silPhoneInner(), '0 0 360 460', 'bust'); pv.d.style.zIndex = 4;
-  const av = bubble(c, 140, 520, '¡AVISO!', { size: 62, tail: 'bl', z: 40, bg: YEL });
+  const av = bubble(c, 140, 520, '¡ALARMA!', { size: 62, tail: 'bl', z: 40, bg: YEL });
   const BS = [[600, 700, 300], [720, 560, 220], [560, 520, 200]].reverse().map(([x, y, w], i) => { const b = mk(c, [x, y, w, f1(w * 1.28)], bossInner(), '0 0 360 460', 'bust'); b.d.style.zIndex = 3 + i; return b; });
   const chJ = chip(c, 600, 1110, 'sus jefes', { size: 60, bg: INK, color: YEL, z: 30 });
 }
@@ -136,6 +136,7 @@ function phoneRig(c, crtY = 300) {
     set(bb, { s: pop(t, K.es6 - 0.05, 0.3), r: -2, o: t < K.es6 - 0.05 ? 0 : 1 });
     BW.forEach(w => set(w.e, { o: t >= w.t - 0.04 ? 1 : 0, y: (1 - p(t, w.t - 0.04, 0.2, E.outBack)) * 20 }));
     stampA(stF, t, K.falsa, -6, 1);
+    popA(lbJ, t, S.F2b[0] + 0.02, { r: -2 });
     set(sl.d, { y: wobble(t, 0.5, 3) });
   }, { clip: true, cut: true });
   sceneBg(c, { background: BUNK });
@@ -145,13 +146,14 @@ function phoneRig(c, crtY = 300) {
   const bb = bubble(c, 300, 940, '', { size: 70, tail: 'l', z: 40, bg: '#fff', it: true });
   const BW = [];
   [['«Es', K.es6], ['una', K.una6], ['falsa', K.falsa], ['alarma»', K.alarma6]].forEach(([s, tt], i) => { const e = document.createElement('span'); e.style.display = 'inline-block'; e.style.margin = '0 0.1em'; e.textContent = s; bb.insertBefore(e, bb.lastChild); if (i === 1) bb.insertBefore(document.createElement('br'), bb.lastChild); BW.push({ e, t: tt }); });
+  const lbJ = el('div', c, { left: '320px', top: '870px', fontFamily: 'Rye', fontSize: '44px', color: INK, background: YEL, border: `5px solid ${INK}`, borderRadius: '12px', padding: '2px 18px', zIndex: 42, whiteSpace: 'nowrap', boxShadow: `5px 5px 0 ${INK}` }, 'A SUS JEFES:');
   const stF = stamp(c, 260, 560, 'FALSA ALARMA', { size: 96, bw: 14, z: 41, bg: YEL, col: INK, blend: 'normal', font: 'Playfair' }); stF.style.fontWeight = 900;
 }
 
 /* ======================================================================
    CH3 · CAPÍTULO 3 · ERA EL SOL — y el sello «¡TENÍA RAZÓN!»
    ====================================================================== */
-stepBanner(K.tres7 - 0.05, K.razon - 0.2, S.T2[1], '3', 'Era el sol', { nbg: '#C9A24A' });
+stepBanner(K.tres7 - 0.05, K.razon - 0.2, S.T2[1], '3', 'La verdad', { nbg: '#C9A24A' });
 chapter(S.CH3[0], S.CH3[1], YEL, '3', c => {
   const st = stamp(c, 150, 1060, '¡TENÍA RAZÓN!', { size: 86, bw: 12, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal', col: INK, font: 'Playfair' }); st.style.fontWeight = 900;
   const ck = box(c, 400, 440, 280, 280, { zIndex: 12 }); ck.innerHTML = `<svg viewBox="0 0 100 100" width="280" height="280" style="overflow:visible"><path d="M12,54 L40,82 L92,14" stroke="${INK}" stroke-width="24" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M12,54 L40,82 L92,14" stroke="#fff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
@@ -171,6 +173,7 @@ chapter(S.CH3[0], S.CH3[1], YEL, '3', c => {
     ray1.style.strokeDashoffset = f1(1000 * (1 - k1)); ray2.style.strokeDashoffset = f1(1000 * (1 - k2));
     set(gl, { s: t > K.reflejado + 0.35 ? (1 + 0.25 * Math.sin(t * 14)) * pop(t, K.reflejado + 0.35, 0.3) : 0, r: t * 140, o: t > K.reflejado + 0.35 ? 1 : 0 });
     stampA(chN, t, K.reflejado, -4, 1);
+    stampA(stSol, t, K.sol, -5, 1);
     set(sat.d, { x: Math.sin(t * 1.4) * 8, y: Math.cos(t * 1.2) * 6, r: -6, s: pop(t, S.T1[0] + 0.15, 0.4) });
     face(sat, t, { look: t > K.nubes + 0.4 ? [-6, 8] : [-4, 2], seed: 0.6 });
   }, { clip: true, cut: true });
@@ -184,6 +187,7 @@ chapter(S.CH3[0], S.CH3[1], YEL, '3', c => {
   const gl = el('div', c, { left: '505px', top: '870px', fontSize: '120px', lineHeight: 1, color: '#fff', textShadow: `0 0 20px ${YEL}, 3px 3px 0 ${INK}`, zIndex: 8 }, '✦');
   const chN = stamp(c, 440, 1120, 'REFLEJO EN<br>LAS NUBES', { size: 62, bw: 9, z: 20, bg: 'rgba(255,255,255,.95)', blend: 'normal', col: INK });
   const sat = mk(c, [540, 420, 380, 219], satInner(), '0 0 520 300', 'sat'); sat.d.style.zIndex = 9;
+  const stSol = stamp(c, 90, 760, '¡ERA EL SOL!', { size: 80, bw: 11, z: 30, bg: YEL, blend: 'normal', col: INK, font: 'Playfair' }); stSol.style.fontWeight = 900;
 }
 
 /* ======================================================================
@@ -222,13 +226,13 @@ chapter(S.CH3[0], S.CH3[1], YEL, '3', c => {
 /* ======================================================================
    OJO (titular que aguanta toda la frase)
    ====================================================================== */
-stepBanner(K.ojo - 0.05, K.ojo + 0.55, S.O3[1], '!', '¡Ojo!', { nbg: RED, bg: YEL });
+stepBanner(K.ojo - 0.05, K.ojo + 0.55, Math.min(S.O3[1], K.ojo + 6.0), '!', '¡Ojo!', { nbg: RED, bg: YEL });
 
 /* O1 · «NO LE DIERON NINGUNA MEDALLA.» — la medalla baja… y se tacha */
 {
   const c = scene(S.O1[0], S.O1[1], t => {
-    const k = p(t, S.O1[0] + 0.05, 0.5, E.outBack);
-    set(md.d, { y: (1 - k) * -900 + Math.sin(t * 3) * 8, r: Math.sin(t * 2.4) * 6 });
+    const k = p(t, S.O1[0], 0.3, E.outBack);
+    set(md.d, { y: (1 - k) * -60 + Math.sin(t * 3) * 8, s: lerp(0.85, 1, k), r: Math.sin(t * 2.4) * 6 });
     const kx = p(t, K.no8 - 0.05, 0.25, E.outCubic);
     x1.style.strokeDashoffset = f1(1000 * (1 - clamp(kx * 2))); x2.style.strokeDashoffset = f1(1000 * (1 - clamp(kx * 2 - 1)));
     popA(chM, t, K.no8, { r: -3 });
@@ -359,7 +363,7 @@ headline(S.M1[0], S.M1[1], '¿Tú qué *habrías hecho* en su silla?', { size: 8
   vignette(c, 7, 0.6);
   const yt = chip(c, 120, 1100, '¿Y TÚ?', { size: 96, bg: YEL, color: INK, z: 40 });
 }
-headline(S.M2[0], S.M2[1], '*¿Avisar…* o no?', { size: 120, hlT: K.avisar, y: 236, color: '#fff', hlc: RED });
+headline(S.M2[0], S.M2[1], '¿Dar la alarma… o *colgar?*', { size: 92, hlT: K.avisar, y: 236, color: '#fff', hlc: RED });
 {
   const c = scene(S.M2[0], S.M2[1], t => {
     set(cam, { s: 1 + 0.06 * p(t, S.M2[0], 2.3, E.linear) });

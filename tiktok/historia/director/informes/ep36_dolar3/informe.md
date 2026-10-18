@@ -1,0 +1,9 @@
+# Ep36 Dólar v3 (autoevaluación del animador) — VEREDICTO: PUBLICAR al límite (80/100)
+Exposición estimada: banda B (se parece a OK: es un símbolo que todo el mundo usa y tiene un origen escondido; le falta la pelea de Napoleón).
+Puertas: P1 ⚠️ (el público latino puede decir «ya lo sabía») · P2 ✅ · P3 ⚠️ (el tema va primero y contradice, pero no dice «tú») · P4 ✅ · P5 ✅ (los 3 pasos están pagados a los 34 s; la respuesta, «pesos», a los 6,3 s) · P6 ✅ · P7 ✅ (28,2 dB, -14,1 LUFS) · P8 ✅ · P9 ✅ (la tecla «tu teclado» es la única complicidad) · P10 ✅ · P11 ✅
+Puntuación: Tema 21/25 · Gancho+portada 17/20 · Retención 16/20 · Conversación 12/15 · Chispa 10/15 · Factura 4/5 = 80
+- Retención: hay un plano nuevo cada 1,5–2,5 s. Cada paso lleva su titular numerado («1 · P + S = pesos», «2 · La S se monta en la P», «3 · EE. UU. lo copia»), que aguanta el paso entero. El paso 2 es lento y se ve claro: la S en rosa se desliza durante 2,5 s (30,1–32,6 s), luego hay un primer plano y la panza de la P se borra (32,9–33,7 s). El «$» con «= $» aguanta hasta los 35 s. Fugas: L4 (15,7–27,2 s, 11,5 s de contexto, aunque en 5 planos) y el Ojo (6,4 s, por encima del límite de 6 s).
+- Chispa: hay gags (la S con la X, el bebé dólar, el tendero que muerde la moneda, el emú detrás de la columna), pero el Vecino no se mete con el espectador.
+- Factura: el script no encuentra texto en x>940 entre y 700 y 1500, salvo un fotograma suelto en el impacto de un sello. La precarga es invisible, el libro final queda centrado y cerrado desde ~65,9 s y no hay usuarios inventados. Pendiente menor: el titular del cierre lo pisa un poco el sombrero del Vecino.
+Abogado del diablo: el dato ya ha circulado en español; quien lo conoce se va en el s 3.
+Publicación: «El $ no es una S: pone "pesos" 🤯 #historia #curiosidades #dolar #español» · Fijado: «¿Cómo le llamáis al dinero en vuestro país? Yo empiezo: en España, "pasta".»

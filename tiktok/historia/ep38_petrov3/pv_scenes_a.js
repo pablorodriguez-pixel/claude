@@ -119,11 +119,10 @@ headline(S.A2[0], S.A2[1], 'Nunca has *oído hablar*', { size: 92, hlT: K.nunca 
 {
   const c = scene(S.N1[0], S.N1[1], t => {
     set(cam, { s: 1 + 0.1 * p(t, S.N1[0], S.N1[1] - S.N1[0], E.linear) });
-    set(moon, { s: pop(t, K.noche1 - 0.05, 0.45), r: wobble(t, 0.3, 3), o: t < K.noche1 - 0.05 ? 0 : 1 });
+    set(moon, { s: pop(t, S.N1[0] + 0.05, 0.45), r: wobble(t, 0.3, 3), o: t < S.N1[0] + 0.05 ? 0 : 1 });
     WIN.forEach((w, i) => w.style.opacity = (Math.floor(t * 3 + i * 1.3) % 4) ? 1 : 0.35);
     set(dish, { r: Math.sin(t * 1.4) * 12 });
     stampA(st83, t, K.mil, -6, 1);
-    popA(nchip, t, S.N1[0] + 0.1, { r: -3 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 1000px' });
   sceneBg(cam, { background: 'linear-gradient(180deg, #141a2e 0%, #2f3550 60%, #3a3530 100%)' });
@@ -137,21 +136,20 @@ headline(S.A2[0], S.A2[1], 'Nunca has *oído hablar*', { size: 92, hlT: K.nunca 
   const WIN = [[240, 1060], [330, 1060], [680, 1060], [770, 1060]].map(q => box(cam, q[0], q[1], 60, 40, { zIndex: 5, background: YEL, border: `4px solid ${INK}` }));
   const dish = box(cam, 580, 760, 130, 120, { zIndex: 5, transformOrigin: '60px 100px' }); dish.innerHTML = `<svg viewBox="0 0 130 120" width="130" height="120" style="overflow:visible"><path d="M10,40 Q65,130 120,40 Z" fill="#CFC8B8" stroke="${INK}" stroke-width="6"/><path d="M65,80 L65,30 M65,30 l-8,-8 M65,30 l8,-8" stroke="${INK}" stroke-width="5"/><path d="M60,92 L60,118 L70,118 L70,92" fill="${INK}"/></svg>`;
   vignette(cam, 8, 0.55);
-  const nchip = chip(c, 300, 300, 'una noche…', { size: 70, bg: '#fff', color: INK, z: 40 });
   const st83 = stamp(c, 310, 470, '1983', { size: 190, bw: 16, z: 41, bg: YEL, blend: 'normal', col: INK, font: 'Playfair' }); st83.style.fontWeight = 900;
 }
 
 /* ======================================================================
    N2 · «…TUVO EL MUNDO EN SUS MANOS.» — el planeta en dos manos enguantadas (el chip 1983 se queda)
    ====================================================================== */
-headline(S.N2[0], S.N2[1], 'Tuvo el mundo *en sus manos*', { size: 84, hlT: K.manos, y: 236 });
+headline(S.N2[0], S.N2[1], 'Paró una *guerra nuclear*', { size: 96, hlT: K.guerra, y: 236 });
 function globeAwake() { return globeSvg().replace('M150,220 q26,20 52,0 M258,220 q26,20 52,0', 'M150,226 q26,-22 52,0 M258,226 q26,-22 52,0'); }
 {
   const c = scene(S.N2[0], S.N2[1], t => {
     const kg = p(t, S.N2[0], 0.45, E.outBack);
     set(gb, { y: (1 - kg) * -500 + Math.sin(t * 2.4) * 8, r: t * 5, s: 1 });
     set(hands, { y: (1 - p(t, S.N2[0] + 0.05, 0.4, E.outCubic)) * 400 + Math.sin(t * 2.4) * 8 });
-    SW.forEach((s, i) => { const t0 = K.mundo1 + i * 0.1; set(s, { s: pop(t, t0, 0.25), o: t > t0 ? 1 : 0, r: (i - 1) * 20 + Math.sin(t * 8 + i) * 10 }); });
+    SW.forEach((s, i) => { const t0 = K.guerra + i * 0.1; set(s, { s: pop(t, t0, 0.25), o: t > t0 ? 1 : 0, r: (i - 1) * 20 + Math.sin(t * 8 + i) * 10 }); });
     set(y83, { s: 1, r: -6, o: 1 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E7D9BC' });
@@ -160,6 +158,26 @@ function globeAwake() { return globeSvg().replace('M150,220 q26,20 52,0 M258,220
   const hands = box(c, 0, 0, 1080, 1920, { zIndex: 5 }); hands.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><path d="M120,1320 L260,1000 L360,1040 L260,1320 Z" fill="#3d4a3a" stroke="${INK}" stroke-width="6"/><path d="M960,1320 L820,1000 L720,1040 L820,1320 Z" fill="#3d4a3a" stroke="${INK}" stroke-width="6"/>${gloveHand(330, 990, 40, 1.6)}${gloveHand(750, 990, -40, 1.6)}</svg>`;
   const SW = [0, 1, 2].map(i => el('div', c, { left: px(250 + i * 260), top: px(400 + (i % 2) * 40), fontSize: '90px', color: '#9fd3f0', textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 6 }, i === 1 ? '!' : '✦'));
   const y83 = stamp(c, 60, 1080, '1983', { size: 96, bw: 11, z: 30, bg: YEL, blend: 'normal', col: INK, font: 'Playfair' }); y83.style.fontWeight = 900;
+}
+
+/* ======================================================================
+   N3 · «…SIN LEVANTARSE DE LA SILLA.» — Petrov, sentado ante la pantalla
+   ====================================================================== */
+headline(S.N3[0], S.N3[1], 'sin levantarse *de la silla*', { size: 90, hlT: K.silla1, y: 236 });
+{
+  const c = scene(S.N3[0], S.N3[1], t => {
+    set(cam, { s: 1 + 0.08 * p(t, S.N3[0], S.N3[1] - S.N3[0], E.linear) });
+    crtState(crt, t, 'dim');
+    set(pv.d, { y: wobble(t, 0.5, 3) }); face(pv, t, { look: [6, -4], bL: 4, bR: 4, seed: 0.8 });
+    set(ring, { s: pop(t, K.silla1 - 0.05, 0.35), r: wobble(t, 0.5, 2), o: t < K.silla1 - 0.05 ? 0 : 1 });
+  }, { clip: true, cut: true });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
+  sceneBg(cam, { background: BUNK });
+  const crt = mkCRT(cam, 560, 520, 400, 320, { z: 3, size: 70 });
+  const ch = mk(cam, [180, 760, 420, 560], chairInner(), '0 0 300 400', 'chair'); ch.d.style.zIndex = 4;
+  const pv = mk(cam, [200, 560, 380, 486], petrovInner(), '0 0 360 460', 'bust'); pv.d.style.zIndex = 5;
+  const ring = box(cam, 120, 960, 540, 420, { zIndex: 6 }); ring.innerHTML = `<svg width="540" height="420" style="overflow:visible"><ellipse cx="270" cy="210" rx="250" ry="190" fill="none" stroke="${YEL}" stroke-width="16" stroke-dasharray="30 18"/></svg>`;
+  vignette(cam, 8, 0.6);
 }
 
 /* ======================================================================

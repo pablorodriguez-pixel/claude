@@ -80,8 +80,8 @@ window.frame = t => {
 [
   [0.02, 'error', .55], [0.9, 'tick', .35], [1.6, 'tick', .35], [S.A2[0] + 0.02, 'whoosh', .5], [S.A2[0] + 0.3, 'pop', .4], [S.A2[0] + 0.48, 'pop', .4], [S.A2[0] + 0.66, 'pop', .4],
   [S.B2[0] + 0.02, 'swoosh_up', .4], [K.stanislav, 'pop', .5], [K.petrov, 'pop2', .5],
-  [S.N1[0] + 0.02, 'whoosh', .5], [K.noche1, 'sparkle', .4], [K.mil, 'stamp', .9],
-  [S.N2[0] + 0.02, 'whoosh', .5], [K.mundo1, 'ding', .45],
+  [S.N1[0] + 0.02, 'whoosh', .5], [S.N1[0] + 0.05, 'sparkle', .4], [K.mil, 'stamp', .9],
+  [S.N2[0] + 0.02, 'whoosh', .5], [K.guerra, 'ding', .45], [S.N3[0] + 0.02, 'whoosh', .5], [K.silla1, 'pop', .5],
   [S.BAL[0] + 0.05, 'whoosh', .7], [K.soy, 'swoosh_up', .6], [K.vecino, 'pop', .6],
   [S.Q1[0] + 0.02, 'whoosh', .5], [S.Q1[0] + 0.2, 'pop', .4], [S.Q2[0] + 0.1, 'paper', .5], [S.Q2[0] + 0.45, 'paper', .5], [K.tres3 - 0.05, 'paper', .6], [K.tres3 + 0.1, 'ding', .5],
   [S.CH1[0] + 0.02, 'burst', .5], [K.uno, 'error', .4], [S.CH1[1] - 0.36, 'swoosh_up', .5],

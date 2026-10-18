@@ -3,32 +3,32 @@ const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
   K.estas = ws(0); K.gracias = ws(2); K.senor0 = ws(5); K.nunca = ws(find('nunca has oido'));
-  const i1 = find('se llamaba stanislav'); K.se1 = ws(i1); K.stanislav = ws(i1 + 2); K.petrov = ws(i1 + 3); K.y1 = ws(i1 + 4); K.noche1 = ws(i1 + 6);
-  K.mil = ws(i1 + 8); K.ochenta = ws(i1 + 10); K.tres1 = ws(i1 + 12); K.tuvo = ws(i1 + 13); K.mundo1 = ws(i1 + 15); K.manos = ws(i1 + 18);
+  const i1 = find('se llamaba stanislav'); K.se1 = ws(i1); K.stanislav = ws(i1 + 2); K.petrov = ws(i1 + 3); K.y1 = ws(i1 + 4); K.en1 = ws(i1 + 5);
+  K.mil = ws(i1 + 6); K.ochenta = ws(i1 + 8); K.tres1 = ws(i1 + 10); K.paro = ws(i1 + 11); K.guerra = ws(i1 + 13); K.nuclear1 = ws(i1 + 14); K.sin1 = ws(i1 + 15); K.silla1 = ws(i1 + 19);
   const is = find('soy tu vecino', i1); K.soy = ws(is); K.vecino = ws(is + 2); K.isoy = is; K.esto2 = ws(is + 4); K.libro2 = ws(is + 9); K.libro2e = wE(is + 9);
   const i3 = find('que paso esa noche', is); K.que3 = ws(i3); K.noche3 = ws(i3 + 3); K.te3 = ws(i3 + 4); K.tres3 = ws(i3 + 8); K.momentos = ws(i3 + 9);
   const i4 = find('uno la alarma', i3); K.uno = ws(i4); K.alarma4 = ws(i4 + 2); K.petrov4 = ws(i4 + 3); K.militar = ws(i4 + 5); K.sovietico = ws(i4 + 6);
   K.y4 = ws(i4 + 7); K.vigilaba = ws(i4 + 8); K.satelites = ws(i4 + 10); K.avisaban = ws(i4 + 12); K.estados4 = ws(i4 + 14); K.lanzaba = ws(i4 + 16); K.misiles4 = ws(i4 + 17); K.nucleares = ws(i4 + 18);
   const i4b = find('y a medianoche', i4); K.y4b = ws(i4b); K.medianoche = ws(i4b + 2); K.pantalla4 = ws(i4b + 4); K.dijo4 = ws(i4b + 5); K.misil = ws(i4b + 6);
   K.luego = ws(i4b + 7); K.otro = ws(i4b + 8); K.hasta4 = ws(i4b + 9); K.cinco4 = ws(i4b + 10);
-  const i5 = find('dos la decision', i4b); K.dos = ws(i5); K.decision = ws(i5 + 2); K.si5 = ws(i5 + 3); K.avisaba = ws(i5 + 4); K.jefes = ws(i5 + 7);
-  K.podian = ws(i5 + 8); K.responder = ws(i5 + 9); K.ataque5 = ws(i5 + 12); K.nuclear5 = ws(i5 + 13);
-  K.y5 = ws(i5 + 14); K.penso = ws(i5 + 15); K.si5b = ws(i5 + 16); K.estados5 = ws(i5 + 17); K.ataca = ws(i5 + 19); K.verdad5 = ws(i5 + 21);
-  K.no5 = ws(i5 + 22); K.manda5 = ws(i5 + 23); K.cinco5 = ws(i5 + 24); K.misiles5 = ws(i5 + 25); K.manda5b = ws(i5 + 26); K.cientos = ws(i5 + 27);
-  const i6 = find('asi que cogio', i5); K.asi = ws(i6); K.cogio = ws(i6 + 2); K.telefono = ws(i6 + 4); K.dijo6 = ws(i6 + 6); K.es6 = ws(i6 + 7); K.una6 = ws(i6 + 8); K.falsa = ws(i6 + 9); K.alarma6 = ws(i6 + 10);
+  const i5 = find('dos la decision', i4b); K.dos = ws(i5); K.decision = ws(i5 + 2); K.si5 = ws(i5 + 3); K.avisaba = ws(i5 + 4); K.alarma5 = ws(i5 + 6); K.jefes = ws(i5 + 8);
+  K.podian = ws(i5 + 9); K.responder = ws(i5 + 10); K.ataque5 = ws(i5 + 13); K.nuclear5 = ws(i5 + 14);
+  K.y5 = ws(i5 + 15); K.penso = ws(i5 + 16); K.si5b = ws(i5 + 17); K.estados5 = ws(i5 + 18); K.ataca = ws(i5 + 20); K.verdad5 = ws(i5 + 22);
+  K.no5 = ws(i5 + 23); K.manda5 = ws(i5 + 24); K.cinco5 = ws(i5 + 25); K.misiles5 = ws(i5 + 26); K.manda5b = ws(i5 + 27); K.cientos = ws(i5 + 28);
+  const i6 = find('asi que cogio', i5); K.asi = ws(i6); K.cogio = ws(i6 + 2); K.telefono = ws(i6 + 4); K.dijo6 = ws(i6 + 7); K.jefes6 = ws(i6 + 10); K.es6 = ws(i6 + 11); K.una6 = ws(i6 + 12); K.falsa = ws(i6 + 13); K.alarma6 = ws(i6 + 14);
   const i7 = find('y tres tenia razon', i6); K.y7 = ws(i7); K.tres7 = ws(i7 + 1); K.tenia = ws(i7 + 2); K.razon = ws(i7 + 3);
   K.era7 = ws(i7 + 4); K.sol = ws(i7 + 6); K.reflejado = ws(i7 + 7); K.nubes = ws(i7 + 10); K.y7b = ws(i7 + 11); K.satelite7 = ws(i7 + 13); K.habia = ws(i7 + 15); K.confundido = ws(i7 + 16); K.misiles7 = ws(i7 + 18);
   const i8 = find('ojo no le dieron', i7); K.ojo = ws(i8); K.no8 = ws(i8 + 1); K.ninguna = ws(i8 + 4); K.medalla = ws(i8 + 5); K.segun = ws(i8 + 6); K.conto = ws(i8 + 7); K.el8 = ws(i8 + 8);
   K.echaron = ws(i8 + 10); K.bronca = ws(i8 + 12); K.rellenar = ws(i8 + 15); K.papeleo = ws(i8 + 18); K.noche8e = wE(i8 + 21);
   const i9 = find('o sea ese senor', i8); K.osea = ws(i9); K.ese9 = ws(i9 + 2); K.te9 = ws(i9 + 4); K.salvo = ws(i9 + 5); K.vida = ws(i9 + 7); K.y9 = ws(i9 + 8);
   K.mundo9 = ws(i9 + 10); K.entero = ws(i9 + 13); K.hasta9 = ws(i9 + 14); K.quince = ws(i9 + 15); K.anos9 = ws(i9 + 16); K.despues9 = ws(i9 + 17);
-  const i10 = find('tu que habrias', i9); K.tu10 = ws(i10); K.habrias = ws(i10 + 2); K.silla = ws(i10 + 6); K.avisar = ws(i10 + 7); K.o10 = ws(i10 + 8); K.no10 = ws(i10 + 9); K.os = ws(i10 + 10); K.leo = ws(i10 + 11);
+  const i10 = find('tu que habrias', i9); K.tu10 = ws(i10); K.habrias = ws(i10 + 2); K.silla = ws(i10 + 6); K.avisar = ws(i10 + 7); K.o10 = ws(i10 + 10); K.no10 = ws(i10 + 11); K.os = ws(i10 + 12); K.leo = ws(i10 + 13);
   const iye = find('y esto no venia en el libro', i10); K.iye = iye; K.y11 = ws(iye); K.esto = ws(iye + 1); K.no11 = ws(iye + 2); K.enL = ws(iye + 4); K.libro = ws(iye + 6); K.END = wE(iye + 6);
 }
 /* cortes: un plano nuevo cada 1,5–2,5 s; ningún dato en pantalla < 1,5 s */
 const S = {
   A: [-1, K.nunca - 0.1], A2: [K.nunca - 0.1, K.se1 - 0.08],
-  B2: [K.se1 - 0.08, K.y1 - 0.06], N1: [K.y1 - 0.06, K.tuvo - 0.1], N2: [K.tuvo - 0.1, K.soy - 0.25],
+  B2: [K.se1 - 0.08, K.y1 - 0.06], N1: [K.y1 - 0.06, K.paro - 0.1], N2: [K.paro - 0.1, K.sin1 - 0.08], N3: [K.sin1 - 0.08, K.soy - 0.25],
   BAL: [K.soy - 0.25, K.que3 - 0.1],
   Q1: [K.que3 - 0.1, K.te3 - 0.08], Q2: [K.te3 - 0.08, K.uno - 0.1],
   CH1: [K.uno - 0.1, K.petrov4 - 0.08],
