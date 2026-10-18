@@ -115,7 +115,7 @@ headline(S.C[0], S.C[1], 'En el bote le lanzan *un bulto*…', { size: 80, hlT: 
    D · «UN BEBÉ. QUE NO ERA SUYO.» — el fardo se abre: un bebé
    ====================================================================== */
 headline(S.D[0], K.que22 - 0.06, 'Un *bebé*', { size: 130, hlT: K.bebe, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
-headline(K.que22 - 0.06, S.D[1], 'Que *no era suyo*', { size: 112, hlT: K.noera, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(K.que22 - 0.06, S.D[1], '*No era suyo*', { size: 112, hlT: K.noera, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.D[0], S.D[1], t => {
     set(cam, { s: 1.04 + 0.06 * p(t, S.D[0], 2.3, E.linear) });
@@ -190,7 +190,7 @@ headline(S.E2[0], S.E2[1], 'una mujer *se lo arrancó*', { size: 96, hlT: K.arra
 
 /* rótulo pequeño «SEGÚN SUS MEMORIAS» durante toda la L2 (P6 en pantalla) */
 {
-  const mem = el('div', world, { left: '420px', top: '1262px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '30px', color: INK, background: 'rgba(251,246,234,.95)', border: `3px solid ${INK}`, borderRadius: '100px', padding: '4px 20px 6px', zIndex: 520, letterSpacing: '0.06em', whiteSpace: 'nowrap', visibility: 'hidden' }, 'SEGÚN SUS MEMORIAS');
+  const mem = el('div', world, { left: '400px', top: '1250px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '40px', color: INK, background: YEL, border: `4px solid ${INK}`, borderRadius: '100px', padding: '6px 26px 8px', boxShadow: `5px 5px 0 ${INK}`, zIndex: 520, letterSpacing: '0.06em', whiteSpace: 'nowrap', visibility: 'hidden' }, 'SEGÚN SUS MEMORIAS');
   SCX.push(t => { const on = t >= S.D[0] + 0.1 && t < S.F[1]; mem.style.visibility = on ? 'visible' : 'hidden'; if (on) set(mem, { s: pop(t, S.D[0] + 0.1, 0.3), o: 1 }); });
 }
 
