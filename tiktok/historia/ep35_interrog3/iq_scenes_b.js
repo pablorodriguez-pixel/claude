@@ -69,12 +69,12 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['Escrito, el tono', '*no se oye*'], { si
   const c2 = cv2.querySelector('path');
   const b2 = bubble(cam, 110, 940, '<span class="qa" style="display:inline-block;color:' + RED + '">¿</span>' + hlSpan('tienes hambre', 'fh2') + '<span style="color:' + RED + '">?</span>', { size: 92, tail: 'bl', z: 21, bg: '#FFF3A8' });
   const qa = b2.querySelector('.qa');
-    const xq = stamp(cam, 520, 400, '🔇 EL TONO', { size: 54, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+    const xq = stamp(cam, 560, 830, '🔇 EL TONO', { size: 54, bw: 9, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const n2 = chip(cam, 600, 1090, '↗ preguntas', { size: 44, bg: PINK, color: '#fff', z: 25 });
   const ya = stamp(cam, 560, 820, 'Y AHORA:', { size: 60, bw: 9, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
   const lnk = box(cam, 0, 0, 1080, 1920, { zIndex: 22 }); lnk.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${[260, 380, 500, 620, 740].map(x => `<path d="M${x},660 V940" stroke="${PINK}" stroke-width="6" stroke-dasharray="12 9"/>`).join('')}</svg>`;
   const eq = stamp(cam, 150, 1205, '= MISMAS PALABRAS', { size: 64, bw: 10, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
-  const sn = bubble(cam, 470, 720, '✍️ por escrito, no se oye', { size: 46, tail: 'bl', z: 35, bg: '#fff', font: 'Bricolage' });
+  const sn = bubble(cam, 360, 700, '✍️ por escrito, no se oye', { size: 44, tail: 'bl', z: 35, bg: '#fff', font: 'Bricolage' });
 }
 
 /* E4 · «EN UNA FRASE LARGA NO SABÍAS QUE ERA UNA PREGUNTA HASTA EL FINAL» — teletipo sin «¿»: el «?» llega tarde */
@@ -178,19 +178,19 @@ headline(S.H1[0], S.H1[1], 'El Quijote *del cole*…', { size: 104, hlT: K.cole,
   const ry = rays(c, -160, 260, 1400, 24, 'rgba(200,16,46,.10)', 'rgba(0,0,0,0)', 1);
   const gq = box(c, 90, 460, 360, 540, { zIndex: 10, transformOrigin: '180px 30px' }); gq.innerHTML = glyphSvg('¿', { fs: 900, base: 640, col: RED });
   const bk = box(c, 470, 430, 420, 565, { zIndex: 12 }); bk.innerHTML = schoolCoverSvg();
-  const oj = stamp(c, 150, 1060, 'Y AHORA, LO BUENO', { size: 76, bw: 14, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const oj = stamp(c, 120, 1060, 'Y AHORA, LO BUENO', { size: 60, bw: 12, z: 40, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
 }
 
 /* H2 · «…ESTÁ LLENO DE SIGNOS DE ABRIR QUE CERVANTES JAMÁS ESCRIBIÓ. SE LOS PUSIERON DESPUÉS.» (+ cameo del emú) */
 headline(S.H2[0], K.se7 - 0.06, 'Signos que Cervantes *no escribió*', { size: 76, hlT: K.jamas, y: 236 });
-headline(K.se7 - 0.06, S.H2[1], 'Se los *pusieron después*', { size: 92, hlT: K.pusieron, y: 236 });
+headline(K.se7 - 0.06, S.H2[1], 'Se los *pusieron después*', { size: 80, hlT: K.pusieron, y: 236 });
 const T_EMU = K.despuesE + 0.05;
 {
   const QY = [];
   const c = scene(S.H2[0], S.H2[1], t => {
     const k = p(t, S.H2[0], 0.4, E.outBack);
     const zs = t > K.se7 - 0.06;
-    set(cam, zs ? { s: 0.92, x: 0, y: -40 } : { s: 1 + 0.03 * p(t, S.H2[0], 3, E.linear) });
+    set(cam, zs ? { s: 0.9, x: 0, y: 30 } : { s: 1 + 0.03 * p(t, S.H2[0], 3, E.linear) });
     set(bk, { y: (1 - k) * 900, r: -2 + wobble(t, 0.4, 0.6) });
     QY.forEach((q, i) => { const tq = K.lleno + i * 0.14; set(q, { s: pop(t, tq, 0.3), o: t < tq ? 0 : 1 }); q.style.background = t > tq ? YEL : 'transparent'; });
     stampA(st, t, K.jamas, -6, 1);
@@ -207,9 +207,9 @@ const T_EMU = K.despuesE + 0.05;
   [[120, 155], [520, 231], [130, 345], [540, 421], [130, 497]].forEach(([x, y]) => {
     const q = el('div', bk, { left: px(x - 34), top: px(y - 52), fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: '84px', color: RED, padding: '0 8px', borderRadius: '10px', zIndex: 3 }, '¿'); QY.push(q);
   });
-  const st = stamp(c, 420, 1010, 'CERVANTES: 0', { size: 70, bw: 12, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
-  const ar = box(c, 300, 1000, 150, 150, { zIndex: 8 }); ar.innerHTML = arrowSvg('M20,140 Q30,60 110,20 M70,14 L110,20 L100,60', PINK, 12);
-  const lb = chip(c, 110, 1150, 'AÑADIDOS DESPUÉS', { size: 52, bg: INK, color: YEL, z: 30 });
+  const st = stamp(c, 500, 1030, 'CERVANTES: 0', { size: 60, bw: 11, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const ar = box(c, 330, 1020, 140, 140, { zIndex: 8 }); ar.innerHTML = arrowSvg('M20,140 Q30,60 110,20 M70,14 L110,20 L100,60', PINK, 12);
+  const lb = chip(c, 90, 1170, 'AÑADIDOS DESPUÉS', { size: 52, bg: INK, color: YEL, z: 30 });
   const emuW = box(c, 640, 960, 300, 380, { overflow: 'hidden', zIndex: 30 });
   const emu = mkEmuF(emuW, [30, 40, 240, 360]);
   el('div', emu.d, { left: '80px', top: '-60px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', color: PINK, textShadow: `3px 3px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3, transform: 'rotate(-10deg)' }, '¿');
@@ -360,6 +360,6 @@ headline(S.BK[0], LOOP, 'Y esto… no venía *en el libro.*', { size: 84, hlT: K
     <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
   const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
   const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '1200px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-  const epl = el('div', c, { left: '0', top: '1292px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:40px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 35 · Interrogación</span>`);
+  const epl = el('div', c, { left: '0', top: '1170px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:40px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 35 · Interrogación</span>`);
   const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, TC + 0.15, { r: -1 }); };
 }

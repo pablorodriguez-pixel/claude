@@ -5,95 +5,95 @@
   {
    "n": 0,
    "s": 0.12,
-   "e": 4.017,
-   "dur": 3.9,
-   "palabras": 13,
-   "texto": "¡El símbolo del dólar no es una S! Es una palabra en español."
+   "e": 4.684,
+   "dur": 4.56,
+   "palabras": 16,
+   "texto": "¡El símbolo del dólar no es la S que tú crees! Es una palabra en español."
   },
   {
    "n": 1,
-   "s": 4.367,
-   "e": 7.243,
-   "dur": 2.88,
+   "s": 5.034,
+   "e": 7.985,
+   "dur": 2.95,
    "palabras": 6,
    "texto": "Ese garabato, en realidad, pone «pesos»."
   },
   {
    "n": 2,
-   "s": 7.743,
-   "e": 10.537,
+   "s": 8.685,
+   "e": 11.478,
    "dur": 2.79,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 10.887,
-   "e": 15.366,
+   "s": 11.828,
+   "e": 16.307,
    "dur": 4.48,
    "palabras": 14,
    "texto": "¿Cómo acaba una palabra española en el dinero de Estados Unidos? En tres pasos."
   },
   {
    "n": 4,
-   "s": 15.716,
-   "e": 27.233,
+   "s": 16.657,
+   "e": 28.174,
    "dur": 11.52,
    "palabras": 32,
    "texto": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos»."
   },
   {
    "n": 5,
-   "s": 27.733,
-   "e": 34.126,
-   "dur": 6.39,
-   "palabras": 22,
-   "texto": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó una raya."
+   "s": 28.874,
+   "e": 36.226,
+   "dur": 7.35,
+   "palabras": 27,
+   "texto": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó la raya que ves en el dólar."
   },
   {
    "n": 6,
-   "s": 34.626,
-   "e": 41.822,
+   "s": 36.926,
+   "e": 44.121,
    "dur": 7.2,
    "palabras": 20,
    "texto": "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español: el mismo valor... y el mismo símbolo."
   },
   {
    "n": 7,
-   "s": 42.322,
-   "e": 46.953,
+   "s": 44.621,
+   "e": 49.253,
    "dur": 4.63,
    "palabras": 15,
    "texto": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete."
   },
   {
    "n": 8,
-   "s": 47.453,
-   "e": 53.846,
+   "s": 49.953,
+   "e": 56.346,
    "dur": 6.39,
    "palabras": 22,
    "texto": "Ojo: hay otras teorías, como la de las columnas de Hércules. Son bonitas, pero la del peso es la que tiene pruebas."
   },
   {
    "n": 9,
-   "s": 54.196,
-   "e": 60.67,
-   "dur": 6.47,
-   "palabras": 15,
-   "texto": "O sea: cada vez que ves el símbolo del dólar... estás leyendo «pesos», en español."
+   "s": 56.696,
+   "e": 62.85,
+   "dur": 6.15,
+   "palabras": 14,
+   "texto": "O sea: el dinero más poderoso del mundo lleva escrito «pesos»... y en español."
   },
   {
    "n": 10,
-   "s": 61.17,
-   "e": 63.885,
+   "s": 63.35,
+   "e": 66.065,
    "dur": 2.71,
    "palabras": 11,
    "texto": "¿Y en tu país, cómo le llamáis al dinero? Os leo."
   },
   {
    "n": 11,
-   "s": 64.235,
-   "e": 66.519,
+   "s": 66.415,
+   "e": 68.699,
    "dur": 2.28,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -101,20 +101,20 @@
  ],
  "primera_palabra": "el",
  "primera_palabra_muletilla": false,
- "gancho_dur": 3.9,
- "gancho_palabras": 13,
- "gancho_apela_a_ti": false,
+ "gancho_dur": 4.56,
+ "gancho_palabras": 16,
+ "gancho_apela_a_ti": true,
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 7.743,
+ "marca_inicio_s": 8.685,
  "ojo_dur": 6.39,
  "cta_tipo": "abierta",
  "cta_texto": "¿Y en tu país, cómo le llamáis al dinero? Os leo.",
  "n_lineas": 12,
- "n_palabras": 187,
- "duracion_voz": 66.52,
- "ppm": 168.7,
+ "n_palabras": 194,
+ "duracion_voz": 68.7,
+ "ppm": 169.4,
  "lineas_mas_largas": [
   [
    4,
@@ -122,16 +122,16 @@
    "Uno: hace trescientos años, la moneda que mandaba en medio mundo era e"
   ],
   [
+   5,
+   7.35,
+   "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P."
+  ],
+  [
    6,
    7.2,
    "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español"
-  ],
-  [
-   9,
-   6.47,
-   "O sea: cada vez que ves el símbolo del dólar... estás leyendo «pesos»,"
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep36_dolar3/final.mp4",
- "duracion_video": 67.13
+ "duracion_video": 69.33
 }
