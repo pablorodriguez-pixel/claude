@@ -164,7 +164,7 @@ window.frame = t => {
 /* ---------- temblores ---------- */
 [[K.engano0 - 0.05, .3, 14], [K.nunca1, .25, 10], [K.no4 + 0.02, .3, 14], [K.espia4, .25, 10], [K.londres, .25, 8], [K.lisboa, .25, 8],
  [K.v27, .35, 16], [K.existia, .3, 12], [K.ficharon, .3, 12], [K.calais, .3, 12], [K.nunca8 - 0.05, .3, 12], [K.fingio, .3, 12],
- [K.cruz, .25, 10], [K.medalla, .25, 10], [K.mismo - 0.05, .4, 20], [S.O0[0] + 0.02, .3, 14], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
+ [K.cruz, .25, 10], [K.medalla, .25, 10], [K.mismo - 0.05, .4, 20], [K.mentira - 0.05, .35, 14], [S.O0[0] + 0.02, .3, 14], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
   [0.03, 'whoosh', .6], [K.hitler0 + 0.05, 'swoosh_up', .5], [K.medalla0, 'sparkle', .6], [K.espanol0, 'pop', .6], [K.engano0 - 0.05, 'stamp', 1.1],
@@ -186,7 +186,7 @@ window.frame = t => {
   [S.T3b[0], 'paper', .5], [K.dejo, 'pop', .4], [K.esperando - 0.04, 'whoosh', .5], [K.nunca8 - 0.05, 'stamp', 1.0],
   [S.O0[0], 'stamp', 1.0], [K.mas9 - 0.05, 'boing', .6], [S.O1[0], 'whoosh', .5], [K.africa - 0.05, 'pop', .5], [K.fingio - 0.1, 'sad', .5], [K.fingio, 'stamp', 1.0], [S.O2[0], 'whoosh', .6], [K.venezuela, 'pop2', .7], [K.tranquilo, 'stamp', .8],
   [S.M[0], 'drumroll', .4], [K.nazis - 0.05, 'pop', .5], [K.cruz + 0.12, 'thud', .8], [K.cruz + 0.15, 'sparkle', .5], [K.ingleses10 - 0.05, 'bell', .6], [K.medalla + 0.12, 'thud', .8], [K.medalla + 0.15, 'tada', .5],
-  [K.por - 0.05, 'pop', .5], [K.mismo - 0.05, 'stamp', 1.2], [K.engano, 'pop2', .5],
+  [K.por - 0.05, 'pop', .5], [K.mismo - 0.05, 'stamp', 1.2], [K.mentira - 0.05, 'stamp', 1.1], [K.excusa - 0.05, 'pop2', .6], [K.lejos, 'boing', .4], [K.engano, 'pop2', .5],
   [S.Q2[0], 'whoosh', .6], [K.gordo - 0.05, 'click', .5], [K.inventado - 0.05, 'click', .5], [K.tu - 0.1, 'click', .5], [K.algo, 'pop2', .5], [K.os, 'ding', .7],
   [S.BK[0], 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [LOOP, 'whoosh', .6],
 ].forEach(s => sfx(s[1], s[0], s[2]));

@@ -280,18 +280,22 @@ function chanBase(c) {
    ====================================================================== */
 {
   const c = scene(S.M[0], S.M[1], t => {
-    framing(cam, t, [[S.M[0], 1.0, 0, 0], [K.cruz - 0.08, 1.06, 30, 0], [K.y10 - 0.04, 1.06, -30, 0], [K.por - 0.06, 1.0, 0, 0], [K.engano - 0.06, 1.05, 0, -20]], 0.03);
+    framing(cam, t, [[S.M[0], 1.0, 0, 0], [K.cruz - 0.08, 1.06, 30, 0], [K.y10 - 0.04, 1.06, -30, 0], [K.por - 0.06, 1.0, 0, 0], [K.dosm - 0.06, 1.05, 0, -20], [K.ni - 0.06, 1.0, 0, 0]], 0.03);
+    set(shd, { o: t > K.nazis && t < K.cruz - 0.15 ? 0.25 + 0.2 * Math.abs(Math.sin(t * 9)) : 0, r: Math.sin(t * 2.4) * 4 });
+    if (t > K.mentira - 0.05) stampA(stM2, t, K.mentira - 0.05, -6, 1); else stM2.style.opacity = 0;
+    stM.style.visibility = t > K.mentira - 0.05 ? 'hidden' : 'visible';
+    popA(ex, t, K.excusa - 0.05, { r: -3 });
     const ki = p(t, K.cruz - 0.15, 0.3, E.inCubic);
     set(ic, { y: (1 - ki) * -700, r: (1 - ki) * 30 + Math.sin(t * 2.4) * 4, o: t < K.cruz - 0.15 ? 0 : 1 });
     const km = p(t, K.medalla - 0.15, 0.3, E.inCubic);
     set(mb, { y: (1 - km) * -700, r: (1 - km) * -30 - Math.sin(t * 2.4) * 4, o: t < K.medalla - 0.15 ? 0 : 1 });
-    popA(lN, t, K.nazis - 0.05, { r: -3 }); popA(lI, t, K.ingleses10 - 0.05, { r: 3 });
+    popA(lN, t, K.nazis, { r: -3 }); popA(lI, t, K.ingleses10 - 0.05, { r: 3 });
     set(q1, { o: t < K.cruz - 0.15 ? 1 : 0, r: Math.sin(t * 5) * 8 }); set(q2, { o: t < K.medalla - 0.15 ? 1 : 0, r: -Math.sin(t * 5) * 8 });
     popA(n1, t, K.hierro, { r: -2 }); popA(n2, t, K.medalla + 0.1, { r: 2 });
     SP.forEach((s, i) => set(s, { o: (t > K.cruz + 0.15 && i < 3) || (t > K.medalla + 0.15 && i >= 3) ? 1 : 0, s: 0.8 + 0.3 * Math.sin(t * 12 + i), r: t * 120 }));
     stampA(stM, t, K.mismo - 0.05, -6, 1);
-    set(pj.d, { s: pop(t, K.por - 0.05, 0.35), o: t < K.por - 0.05 ? 0 : 1 });
-    face(pj.f, t, { look: [0, 0], bL: 10, bR: 18, closed: t > K.engano + 0.3 && t < K.engano + 0.6, seed: 6 });
+    set(pj.d, { s: pop(t, S.M[0], 0.3), y: wobble(t, 0.5, 3) });
+    face(pj.f, t, { look: t > K.ni ? [0, 4] : [0, 0], bL: 10, bR: 18, closed: (t > K.engano + 0.3 && t < K.engano + 0.6) || (t > K.lejos && t < K.lejos + 0.3), seed: 6 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 820px' });
   sceneBg(cam, { background: 'linear-gradient(90deg, #D9D2C2 0 50%, #EBCBD4 50% 100%)' });
@@ -301,14 +305,17 @@ function chanBase(c) {
   const lI = chip(cam, 590, 400, 'LOS INGLESES', { size: 50, bg: INK, color: '#fff', z: 20 });
   const q1 = qMark(cam, 220, 620, 220, 'rgba(43,33,24,.25)'); q1.style.textShadow = 'none';
   const q2 = qMark(cam, 720, 620, 220, 'rgba(43,33,24,.25)'); q2.style.textShadow = 'none';
+  const shd = medalCross(cam, 85, 500, 400, { z: 9 }); shd.style.filter = 'brightness(0)';
   const ic = medalCross(cam, 85, 500, 400, { z: 10 });
   const mb = box(cam, 595, 500, 400, 528, { zIndex: 10, transformOrigin: '200px 0px' });
   { const rb = box(mb, 144, 0, 112, 160, { zIndex: 1 }); rb.innerHTML = ribbonBar(['#c9c6c0', '#E88FA8', '#E88FA8', '#c9c6c0']); const m = box(mb, 0, 120, 400, 400, { zIndex: 2 }); m.innerHTML = mbeSvg(); }
-  const n1 = chip(cam, 110, 1050, 'Cruz de Hierro', { size: 44, bg: YEL, color: INK, z: 22 });
-  const n2 = chip(cam, 680, 1050, 'MBE', { size: 44, bg: YEL, color: INK, z: 22 });
+  const n1 = chip(cam, 110, 1040, 'Cruz de Hierro', { size: 48, bg: YEL, color: INK, z: 22 });
+  const n2 = chip(cam, 690, 1040, 'MBE', { size: 48, bg: YEL, color: INK, z: 22 });
   const SP = [[150, 560], [420, 640], [260, 960], [610, 600], [810, 700], [740, 980]].map(q => el('div', cam, { left: px(q[0]), top: px(q[1]), fontSize: '60px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 25 }, '✦'));
   const stM = stamp(cam, 190, 860, 'MISMO ENGAÑO', { size: 72, bw: 13, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
-  const pj = pujolAv(cam, 450, 1120, 180, { z: 32 });
+  const stM2 = stamp(cam, 150, 860, '2 MEDALLAS · 1 MENTIRA', { size: 46, bw: 11, z: 31, bg: 'rgba(255,255,255,.96)', blend: 'normal' });
+  const pj = pujolAv(cam, 70, 1100, 210, { z: 32 });
+  const ex = chip(cam, 300, 1180, 'tu mejor excusa: 0 medallas', { size: 40, bg: PINK, color: '#fff', z: 34 });
 }
 
 /* O0 · «Y OJO, QUE AÚN HAY MÁS» — golpe de color */
@@ -423,6 +430,8 @@ headline(S.Q2[0], S.Q2[1], '¿Qué es lo más *gordo* que te has inventado *tú?
     sw.forEach(q => set(q.e, { o: t >= q.t - 0.05 ? 1 : 0, y: (1 - p(t, q.t - 0.05, 0.2, E.outBack)) * 30 }));
     paint(sHL, t, K.vecino, 0.3);
     pots.forEach((pt, i) => set(pt, { r: wobble(t, 0.7, 1.5, i) }));
+    set(stk.d, { s: pop(t, T0, 0.3), r: 6 + wobble(t, 0.5, 2) }); face(stk.f, t, { look: [-4, 2], bL: 8, bR: 12, seed: 2 });
+    set(stq, { r: Math.sin(t * 4) * 10, s: 1 + 0.08 * Math.sin(t * 6) }); set(stc, { r: Math.sin(t * 2.4) * 8 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
   sceneBg(cam, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.13) 0 3px, transparent 3px 58px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 116px)' });
@@ -448,7 +457,10 @@ headline(S.Q2[0], S.Q2[1], '¿Qué es lo más *gordo* que te has inventado *tú?
     d.innerHTML = `<svg viewBox="0 0 200 160" width="200" height="160" style="overflow:visible">${fl}${cut('<path d="M30,110 L170,110 L156,160 L44,160 Z"/>', 5, 6)}<path d="M30,110 L170,110 L156,160 L44,160 Z" fill="#C1663A" stroke="${INK}" stroke-width="4"/><path d="M30,110 L170,110 L156,160 L44,160 Z" fill="url(#hA)" opacity=".5"/><rect x="24" y="104" width="152" height="16" rx="4" fill="#C1663A" stroke="${INK}" stroke-width="4"/></svg>`;
     pots.push(d);
   });
-  const tag = chip(cam, 620, 610, 'tu vecino', { size: 44, bg: PINK });
+  const tag = chip(cam, 170, 610, 'tu vecino', { size: 44, bg: PINK });
+  const stk = pujolAv(cam, 700, 540, 220, { z: 45, bw: 7 }); stk.d.style.transform = 'rotate(6deg)';
+  const stq = qMark(cam, 860, 500, 120, YEL); stq.style.zIndex = 46;
+  const stc = medalCross(cam, 610, 520, 100, { z: 44 });
   const sign = box(cam, 120, 222, 840, 270, { zIndex: 40 });
   sign.innerHTML = `<svg width="840" height="270" style="position:absolute;left:0;top:0;overflow:visible"><path d="M160,0 L200,40 M680,0 L640,40" stroke="${INK}" stroke-width="5"/>${cut('<rect x="20" y="40" width="800" height="226" rx="22"/>')}<rect x="20" y="40" width="800" height="226" rx="22" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="36" y="56" width="768" height="194" rx="14" fill="none" stroke="${INK}" stroke-width="2" stroke-dasharray="6 6"/></svg>`;
   const sl1 = el('div', sign, { left: '0', top: '62px', width: '840px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' });
