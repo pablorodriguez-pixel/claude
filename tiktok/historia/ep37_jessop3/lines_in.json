@@ -11,7 +11,7 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Titanic! Para ella, solo el segundo susto."
+   "text": "[excited] ¡Titanic! Tú lo llamas tragedia; ella, el segundo susto."
   },
   {
    "who": "VECINO",
@@ -29,7 +29,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Uno: el Olympic, en mil novecientos once. Chocó contra un buque de guerra, pero no se hundió, y ella bajó sin un rasguño.",
+   "text": "Uno: el Olympic, en mil novecientos once. Chocó contra un buque de guerra, pero no se hundió, y ella bajó sin un rasguño: ni el uniforme se le arrugó.",
    "gap_after": 0.6
   },
   {
@@ -49,16 +49,17 @@
   },
   {
    "who": "VECINO",
-   "text": "Ojo: lo del bebé solo lo cuenta ella en sus memorias, y nunca se supo de quién era."
+   "text": "O sea: se le hundieron dos barcos encima, y lo único que volvió a buscar al camarote fue... su cepillo de dientes.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
-   "text": "O sea: se le hundieron dos barcos encima, y lo único que volvió a buscar al camarote fue... su cepillo de dientes. Porque después del Titanic, era lo que más había echado de menos.",
+   "text": "Porque después del Titanic, era lo que más había echado de menos.",
    "gap_after": 0.8
   },
   {
    "who": "VECINO",
-   "text": "Y tú, si se hunde tu barco, ¿qué vuelves a buscar al camarote? Os leo."
+   "text": "Se le hunden dos barcos y vuelve a por el cepillo. Prioridades, vecino. Y tú, si se hunde el tuyo, ¿qué vuelves a buscar al camarote? Os leo."
   },
   {
    "who": "VECINO",

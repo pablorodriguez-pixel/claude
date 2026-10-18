@@ -1,0 +1,68 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.6,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Titanic! Para ella, solo el segundo susto."
+  },
+  {
+   "who": "VECINO",
+   "text": "Se llamaba Violet Yésop, era camarera de barco, y trabajó en el Titanic y en sus dos barcos gemelos... y en los tres hubo un accidente con ella a bordo.",
+   "gap_after": 0.7
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro.",
+   "gap_after": 0.35
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y cómo se sale viva de los tres? Te lo cuento barco a barco."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el Olympic, en mil novecientos once. Chocó contra un buque de guerra, pero no se hundió, y ella bajó sin un rasguño.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el Titanic, al año siguiente. Mientras se hundía, la subieron a un bote salvavidas y, según contó ella, le pusieron un bebé en los brazos.",
+   "gap_after": 0.7
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: el Britannic, en plena guerra, convertido en barco hospital, y ella a bordo con la Cruz Roja. Chocó con una mina, y mientras se hundía, volvió a su camarote a por una sola cosa... ahora te digo cuál.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Y entonces vino lo peor: su bote acabó arrastrado hacia las hélices, que seguían girando, así que saltó al agua, se golpeó la cabeza... y aun así salió viva.",
+   "gap_after": 0.8
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo del bebé solo lo cuenta ella en sus memorias, y nunca se supo de quién era."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: se le hundieron dos barcos encima, y lo único que volvió a buscar al camarote fue... su cepillo de dientes. Porque después del Titanic, era lo que más había echado de menos.",
+   "gap_after": 0.8
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tú, si se hunde tu barco, ¿qué vuelves a buscar al camarote? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}
