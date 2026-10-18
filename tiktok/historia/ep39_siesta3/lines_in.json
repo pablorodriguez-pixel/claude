@@ -11,7 +11,8 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Siesta es un número! Y te lo echas casi todos los días."
+   "text": "[excited] ¡Siesta es un número! Y te lo echas casi todos los días.",
+   "gap_after": 0.6
   },
   {
    "who": "VECINO",
@@ -24,7 +25,8 @@
   },
   {
    "who": "VECINO",
-   "text": "¿Y por qué una hora se llamaba «sexta»? En tres pasos."
+   "text": "¿Y cómo acaba un número siendo tu siesta? En tres pasos.",
+   "gap_after": 0.5
   },
   {
    "who": "VECINO",
@@ -43,11 +45,11 @@
   },
   {
    "who": "VECINO",
-   "text": "Ojo: no es una teoría de bar. Lo dice el diccionario de la Real Academia."
+   "text": "Ojo: la primera hora iba de seis a siete. Así que la sexta era la que terminaba justo a las doce."
   },
   {
    "who": "VECINO",
-   "text": "O sea: la siesta de verdad era a las doce. Así que si te la echas a las tres y media... llegas tarde hasta a la siesta.",
+   "text": "O sea: si te la echas a las tres y media, para un romano eso ya no es la sexta... es la décima. Llegas cuatro horas tarde a tu propia siesta.",
    "gap_after": 0.5
   },
   {
