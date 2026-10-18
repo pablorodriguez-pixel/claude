@@ -234,79 +234,114 @@ const T_EMU = K.descansar6 + 0.12;
 }
 
 /* ======================================================================
-   O1 · «OJO: NO ES UNA TEORÍA DE BAR.» — sello ¡OJO! + letrero de taberna tachado
+   OJO (L7) · la regla: 1.ª hora = de 6 a 7 … la sexta acaba a las 12 — regla con las horas I…VI
    ====================================================================== */
+function mkRuler(pa) {
+  const R = { B: [] };
+  const X0 = 110, BW = 125, Y0 = 640;
+  for (let i = 0; i < 6; i++) {
+    const b = box(pa, X0 + i * BW + 4, Y0, BW - 8, 240, { zIndex: 5, background: '#FBF6EA', border: `6px solid ${INK}`, borderRadius: '16px', boxShadow: `6px 7px 0 ${SH}` });
+    const tx = el('div', b, { left: 0, top: '40px', width: px(BW - 20), textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK }, ROM[i + 1]);
+    el('div', b, { left: 0, top: '150px', width: px(BW - 20), textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '30px', lineHeight: 1, color: INK }, `${i + 1}.ª`);
+    R.B.push({ b, tx });
+  }
+  R.T = [];
+  for (let i = 0; i <= 6; i++) {
+    box(pa, X0 + i * BW - 3, Y0 + 250, 6, 40, { zIndex: 5, background: INK });
+    R.T.push(el('div', pa, { left: px(X0 + i * BW - 70), top: px(Y0 + 296), width: '140px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: i === 6 ? '58px' : '50px', lineHeight: 1, color: i === 6 ? RED : INK, zIndex: 6 }, `${6 + i}:00`.replace(/^(\d+):00$/, (m, h) => (i === 0 || i === 6) ? m : h)));
+  }
+  R.lit = (i, on, col) => { const q = R.B[i]; q.b.style.background = on ? (col || YEL) : '#FBF6EA'; q.tx.style.color = on && col === RED ? '#fff' : INK; };
+  return R;
+}
+headline(S.O1[0], S.O1[1], 'La 1.ª hora: *de 6 a 7*', { size: 92, hlT: K.seis7 });
 {
   const c = scene(S.O1[0], S.O1[1], t => {
     stampA(ojo, t, K.ojo, -6, 1);
-    const ks = p(t, S.O1[0] + 0.05, 0.6, E.outElastic);
-    set(sg, { y: (1 - clamp(ks)) * -700, r: Math.sin((t - S.O1[0]) * 4) * 3 * Math.exp(-Math.max(0, t - S.O1[0]) * 1.2) });
-    stampA(no, t, K.no7 + 0.02, 7, 1);
+    const kz = p(t, S.O1[0], 0.4, E.outCubic);
+    set(cam, { x: 368 * kz, y: 0, s: lerp(1, 1.75, kz) });
+    for (let i = 0; i < 6; i++) { R.lit(i, i === 0 && t > K.primera7 - 0.05); R.B[i].b.style.opacity = i === 0 ? 1 : 0.35; }
+    R.T.forEach((e, i) => { e.style.opacity = i === 0 ? (t > K.seis7 - 0.05 ? 1 : 0) : i === 1 ? (t > K.siete7 - 0.05 ? 1 : 0) : 0; });
+    ck.setH(lerp(6, 7, p(t, K.seis7, K.siete7 - K.seis7 + 0.2, E.inOutCubic)));
+    set(ck.d, { s: pop(t, K.seis7 - 0.1, 0.35), o: t < K.seis7 - 0.1 ? 0 : 1 });
   }, { clip: true });
-  sceneBg(c, { background: '#D9C9A8', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 3px, transparent 3px 120px)' });
-  const ojo = cstamp(c, 200, '¡OJO!', { size: 130, bw: 15, z: 60, bg: YEL, col: INK });
-  const sg = box(c, 200, 460, 680, 408, { zIndex: 5, transformOrigin: '340px 0px' }); sg.innerHTML = tavernSignSvg();
-  el('div', sg, { left: '40px', top: '150px', width: '540px', textAlign: 'center', fontFamily: 'Rye', fontSize: '68px', lineHeight: 1.05, color: GOLD, textShadow: `4px 4px 0 ${INK}`, zIndex: 3 }, 'TEORÍAS<br>DE BAR');
-  const no = cstamp(c, 930, 'NO', { size: 170, bw: 18, z: 60 });
+  sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '172px 800px' });
+  const R = mkRuler(cam);
+  const ojo = cstamp(c, 1170, '¡OJO!', { size: 120, bw: 14, z: 60, bg: YEL, col: INK });
+  const ck = mkClock(c, 720, 950, 220, { z: 30 });
 }
-/* O2 · «LO DICE EL DICCIONARIO DE LA REAL ACADEMIA.» — ficha del diccionario + sello REAL ACADEMIA */
-headline(S.O2[0], S.O2[1], 'Lo dice *el diccionario*', { size: 96, hlT: K.diccionario });
+headline(S.O2[0], S.O2[1], 'la sexta acababa *a las 12*', { size: 92, hlT: K.terminaba });
 {
   const c = scene(S.O2[0], S.O2[1], t => {
-    const k = p(t, S.O2[0], 0.4, E.outBack);
-    set(card, { y: (1 - k) * 900, r: lerp(8, -2, k) + wobble(t, 0.4, 0.5), s: 1 + 0.05 * p(t, K.diccionario, 2.5, E.inOutCubic) });
-    popA(dic, t, K.diccionario - 0.05, { r: -3 });
-    stampA(st, t, K.real - 0.02, -7, 1);
+    const T6 = K.sexta7;
+    for (let i = 0; i < 6; i++) { const ti = i < 5 ? lerp(S.O2[0] + 0.15, T6 - 0.25, i / 4) : T6 - 0.05; R.lit(i, t > ti, i === 5 ? RED : YEL); set(R.B[i].b, { s: t > ti ? 1 + 0.12 * (1 - p(t, ti, 0.25)) : 1 }); }
+    R.T.forEach((e, i) => { const ti = i < 6 ? lerp(S.O2[0] + 0.15, T6 - 0.25, Math.min(i, 4) / 4) : K.terminaba; e.style.opacity = t > ti - 0.05 ? 1 : 0.25; });
+    stampA(st, t, K.terminaba + 0.02, -5, 1);
+    popA(lab, t, T6 - 0.05, { r: -3 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
-  const card = box(c, 130, 450, 820, 470, { zIndex: 5, background: '#FBF6EA', border: `7px solid ${INK}`, borderRadius: '18px', boxShadow: `14px 16px 0 ${SH}` });
-  box(card, 18, 18, 770, 420, { border: `3px dashed rgba(43,33,24,.45)`, borderRadius: '10px' });
-  el('div', card, { left: '40px', top: '34px', fontFamily: 'SpecialElite', fontSize: '34px', color: '#7a6a58' }, 'diccionario · s. v.');
-  el('div', card, { left: '0', top: '90px', width: '806px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '128px', color: INK, lineHeight: 1 }, 'siesta');
-  el('div', card, { left: '0', top: '250px', width: '806px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 800, fontSize: '76px', color: RED, lineHeight: 1.1 }, 'Del lat. <b>sexta</b><br>[hora]');
-  const dic = chip(c, 600, 410, 'DLE', { size: 50, bg: INK, color: YEL, z: 30 });
-  const st = cstamp(c, 1010, 'REAL ACADEMIA', { size: 96, bw: 13, z: 60 });
+  const R = mkRuler(c);
+  const lab = chip(c, 640, 540, 'la sexta', { size: 50, bg: RED, z: 20 });
+  const st = cstamp(c, 1060, 'VI → 12:00', { size: 100, bw: 13, z: 60 });
 }
 
 /* ======================================================================
-   R1 · «O SEA: LA SIESTA DE VERDAD ERA A LAS DOCE. ASÍ QUE SI TE LA ECHAS A LAS TRES Y MEDIA...»
-   pantalla partida: arriba LA DE VERDAD (12:00) · abajo LA TUYA (12 → 15:30)
+   R1 · «O SEA: SI TE LA ECHAS A LAS TRES Y MEDIA,» — pantalla partida: LA DE VERDAD 12:00 · LA TUYA 12 → 15:30
    ====================================================================== */
 {
   const c = scene(S.R1[0], S.R1[1], t => {
-    const kIn = p(t, S.R1[0], 0.35, E.outCubic);
-    const fTop = 1 - p(t, K.asi - 0.15, 0.35, E.inOutCubic);
-    const kSp = p(t, K.asi - 0.25, 0.4, E.inOutCubic);
-    set(top, { x: (1 - kIn) * -1080, y: lerp(330, 0, kSp), s: lerp(1.08, lerp(0.97, 1.02, fTop), kSp), o: lerp(0.6, 1, fTop) });
-    const kB = p(t, K.asi - 0.2, 0.35, E.outCubic);
-    set(bot, { x: (1 - kB) * 1080, s: lerp(1.02, 0.97, fTop), o: t < K.asi - 0.2 ? 0 : 1 });
+    set(top, { s: lerp(0.92, 1, p(t, S.R1[0], 0.25, E.outBack)) });
+    set(bot, { s: lerp(0.92, 1, p(t, S.R1[0] + 0.05, 0.25, E.outBack)) });
     cT.setH(12); set(hm1, { r: Math.sin(t * 2.4) * 4 }); face(sl1, t, { closed: true, jaw: 0.15, seed: 0 });
-    stampA(sT, t, K.doce8 - 0.02, -6, 1);
-    popA(lbT, t, K.verdad - 0.04, { r: -2 });
     const kc = p(t, K.echas8 - 0.1, K.media - K.echas8 + 0.15, E.inOutCubic);
     cB.setH(lerp(12, 15.5, kc));
     set(sl2.d, { y: wobble(t, 0.5, 3) }); face(sl2, t, { look: [6, -2], bL: 4, bR: 12, seed: 0.4 });
     stampA(sB, t, K.tres8 - 0.02, 5, 1);
-    popA(lbB, t, K.asi - 0.05, { r: 2 });
-  }, { clip: true });
+  }, { clip: true, cut: true });
   sceneBg(c, { background: '#2B2118' });
   const mkPanel = (y, bg) => box(c, 30, y, 1020, 560, { zIndex: 4, background: bg, border: `7px solid ${INK}`, borderRadius: '30px', boxShadow: `10px 12px 0 rgba(0,0,0,.35)`, overflow: 'hidden', transformOrigin: '510px 280px' });
   const top = mkPanel(180, '#F6E7B8'), bot = mkPanel(770, '#D7DCE2');
-  const lbT = el('div', top, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `La de ${hlSpan('verdad', 'q1', YEL)}`);
+  el('div', top, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `La de ${hlSpan('verdad', 'q1', YEL)}`);
   top.querySelector('.q1').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const hm1 = box(top, 20, 250, 520, 300, { zIndex: 2, transformOrigin: '260px 40px' }); hm1.innerHTML = hammockSvg();
   const sl1 = mk(top, [150, 150, 230, 294], sleeperInner(true), '0 0 360 460', 'bust'); sl1.d.style.zIndex = 1;
   box(top, 20, 250, 520, 300, { zIndex: 3 }).innerHTML = `<svg viewBox="0 0 900 520" width="100%" height="100%" style="overflow:visible"><path d="M200,330 C300,450 600,450 700,330 C640,470 260,470 200,330 Z" fill="#F2C230" stroke="${INK}" stroke-width="7"/></svg>`;
   const cT = mkClock(top, 600, 120, 290, { z: 4 });
-  const sT = box(top, 520, 420, 420, 120, { zIndex: 8 }); sT.appendChild(cstamp(sT, 0, '12:00', { size: 84, bw: 11 })).style.width = '420px';
-  const lbB = el('div', bot, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `La ${hlSpan('tuya', 'q2', PINK)}`);
+  const sT = box(top, 520, 420, 420, 120, { zIndex: 8 }); sT.appendChild(cstamp(sT, 0, 'VI · 12:00', { size: 70, bw: 10 })).style.width = '420px'; set(sT, { r: -6 });
+  el('div', bot, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', lineHeight: 1, color: INK, whiteSpace: 'nowrap' }, `La ${hlSpan('tuya', 'q2', PINK)}`);
   bot.querySelector('.q2').style.transform = 'scaleX(1) rotate(-1.2deg)';
   const sl2 = mk(bot, [80, 150, 300, 383], sleeperInner(false), '0 0 360 460', 'bust'); sl2.d.style.zIndex = 2;
   const cB = mkClock(bot, 520, 110, 290, { z: 4 });
   const sB = box(bot, 440, 420, 420, 120, { zIndex: 8 }); sB.appendChild(cstamp(sB, 0, '15:30', { size: 84, bw: 11 })).style.width = '420px';
 }
-/* R2 · «...LLEGAS TARDE HASTA A LA SIESTA.» — el señor corre con la lengua fuera + sello TARDE */
-headline(S.R2[0], S.R2[1], 'Llegas tarde *hasta a la siesta*', { size: 84, hlT: K.siesta8b });
+/* R1b · «PARA UN ROMANO ESO YA NO ES LA SEXTA... ES LA DÉCIMA.» — reloj de sol de VI a X + sello rojo X sobre «La tuya 15:30» */
+headline(S.R1b[0], S.R1b[1], 'Para un romano… *la décima*', { size: 88, hlT: K.decima });
+{
+  const c = scene(S.R1b[0], S.R1b[1], t => {
+    const kd = p(t, K.decima - 0.45, 0.5, E.inOutCubic);
+    dial.setH(lerp(6, 10, kd));
+    for (let k = 1; k <= 12; k++) { dial.lit(k, (k === 6 && t > K.sexta8 - 0.05) || (k === 10 && t > K.decima - 0.05), k === 10 ? RED : YEL); dial.dim(k, k !== 6 && k !== 10); }
+    popA(c6, t, K.sexta8 - 0.04, { r: -4 });
+    set(card, { s: pop(t, S.R1b[0] + 0.05, 0.35), r: -3, o: t < S.R1b[0] + 0.05 ? 0 : 1 });
+    stampA(sX, t, K.decima + 0.02, -8, 1);
+    popA(cX, t, K.decima + 0.15, { r: 5 });
+    const shake = t > K.no8 - 0.05 && t < K.no8 + 0.9;
+    set(rom.d, { s: pop(t, K.romano - 0.15, 0.4), x: shake ? Math.sin(t * 22) * 14 : 0, y: wobble(t, 0.5, 3), o: t < K.romano - 0.15 ? 0 : 1 });
+    face(rom, t, { look: shake ? [Math.sin(t * 22) * 6, 0] : [-6, 0], bL: 4, bR: 14, seed: 1.1 });
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: 'linear-gradient(180deg, #F6D9A8 0%, #EFE1C6 60%)' });
+  const dial = mkDial(c, 130, 420, 820, { z: 4 });
+  const c6 = chip(c, 330, 975, 'sexta = 12:00', { size: 44, bg: YEL, color: INK, z: 20 });
+  const card = box(c, 100, 1075, 560, 240, { zIndex: 10, background: '#D7DCE2', border: `7px solid ${INK}`, borderRadius: '26px', boxShadow: `10px 12px 0 ${SH}` });
+  el('div', card, { left: '-50px', top: '28px', width: '546px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '64px', lineHeight: 1, color: INK }, `La ${hlSpan('tuya', 'q3', PINK)}`);
+  card.querySelector('.q3').style.transform = 'scaleX(1) rotate(-1.2deg)';
+  el('div', card, { left: '-40px', top: '110px', width: '486px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1, color: INK }, '15:30');
+  const sX = box(c, 450, 1090, 220, 220, { zIndex: 30 }); sX.innerHTML = `<div style="position:absolute;left:0;top:0;width:220px;text-align:center"><span style="display:inline-block;border:14px solid ${RED};color:${RED};font-family:Rye;font-size:150px;line-height:1;padding:0 26px 10px;border-radius:20px;background:rgba(255,255,255,.85)">X</span></div>`;
+  const cX = chip(c, 690, 780, 'décima', { size: 52, bg: RED, z: 32 });
+  const rom = mk(c, [680, 990, 260, 332], romanInner(), '0 0 360 460', 'bust'); rom.d.style.zIndex = 8;
+}
+/* R2 · «LLEGAS CUATRO HORAS TARDE A TU PROPIA SIESTA.» — el señor corre con la lengua fuera + sello */
+headline(S.R2[0], S.R2[1], 'Llegas *cuatro horas* tarde', { size: 88, hlT: K.cuatro });
 {
   const c = scene(S.R2[0], S.R2[1], t => {
     const tl = t - S.R2[0];
@@ -317,16 +352,18 @@ headline(S.R2[0], S.R2[1], 'Llegas tarde *hasta a la siesta*', { size: 84, hlT: 
     LG.forEach((l, i) => set(l, { r: (i ? 1 : -1) * run * 38 }));
     SL.forEach((s, i) => set(s, { x: -((tl * 1400 + i * 300) % 1200) + 900, o: 0.7 }));
     ck.setH(15.5 + 0.2 * p(t, S.R2[0], 1.8, E.linear));
-    stampA(st, t, K.tarde + 0.02, -7, 1);
+    popA(hx, t, S.R2[0] + 0.1, { r: 4 });
+    stampA(st, t, K.cuatro + 0.02, -7, 1);
   }, { clip: true, cut: true });
   sceneBg(c, { background: 'linear-gradient(180deg, #F6D9A8 0%, #EFE1C6 60%)' });
   const bgS = box(c, 0, 0, 2400, 1920, { zIndex: 1 }); bgS.innerHTML = `<svg width="2400" height="1920" style="overflow:visible">${[...Array(10)].map((_, k) => `<rect x="${k * 270}" y="1040" width="18" height="160" fill="${WOOD}" stroke="${INK}" stroke-width="3"/>`).join('')}<rect x="0" y="1180" width="2400" height="740" fill="#B9A27E" stroke="${INK}" stroke-width="6"/></svg>`;
-  const ck = mkClock(c, 660, 470, 260, { z: 3 });
+  const ck = mkClock(c, 660, 440, 240, { z: 3 });
+  const hx = chip(c, 620, 700, '15:30 = hora X', { size: 44, bg: RED, z: 20 });
   const runner = box(c, 200, 560, 500, 760, { zIndex: 6 });
   const LG = [0, 1].map(i => { const l = box(runner, 210 + i * 40, 480, 60, 260, { zIndex: 1, transformOrigin: '30px 10px' }); l.innerHTML = `<svg width="60" height="260" style="overflow:visible"><path d="M18,0 L42,0 L40,210 L20,210 Z" fill="#5a4632" stroke="${INK}" stroke-width="4"/><path d="M10,206 L62,206 Q70,240 46,244 L10,244 Z" fill="${INK}"/></svg>`; return l; });
   const man = mk(runner, [0, 0, 480, 614], sleeperInner() + TONGUE() + SWEAT(), '0 0 360 460', 'bust'); man.d.style.zIndex = 2;
   const SL = [0, 1, 2, 3].map(i => box(c, 0, 700 + i * 120, 220, 20, { zIndex: 5, background: INK, borderRadius: '10px', opacity: 0.6 }));
-  const st = cstamp(c, 1080, '¡TARDE!', { size: 150, bw: 17, z: 60 });
+  const st = cstamp(c, 1010, '4 HORAS<br>TARDE', { size: 110, bw: 15, z: 60 });
 }
 
 /* ======================================================================
@@ -341,7 +378,7 @@ headline(S.R2[0], S.R2[1], 'Llegas tarde *hasta a la siesta*', { size: 84, hlT: 
     QM.forEach((q, i) => set(q, { s: pop(t, K.echas13 + i * 0.1, 0.3), r: Math.sin(t * 5 + i) * 10, o: t < K.echas13 + i * 0.1 ? 0 : 1 }));
     popA(ol, t, K.os, { r: -4 });
     set(hand, { o: t > K.os ? 1 : 0, y: Math.sin(t * 6) * 12, s: pop(t, K.os, 0.3) });
-  }, { clip: true });
+  }, { clip: true, cut: true });
   sceneBg(c, { background: '#EFE1C6' });
   rays(c, -160, 340, 1400, 24, 'rgba(255,230,0,.25)', 'rgba(0,0,0,0)', 0);
   const l1 = el('div', c, { left: 0, top: '230px', width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });

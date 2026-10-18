@@ -138,7 +138,7 @@ headline(S.B1[0], S.B2[1], 'Viene del latín *«sexta»*', { size: 92, hlT: K.se
   const w2 = el('div', card, { left: '0', top: '300px', width: '806px', textAlign: 'center', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '110px', color: RED, lineHeight: 1 }, `lat. ${hlSpan('sexta', 'hl2')}`);
   const hl2 = card.querySelector('.hl2');
   const lat = chip(c, 640, 380, 'latín', { size: 46, bg: INK, color: YEL, z: 30 });
-  const stRA = el('div', c, { left: '0', top: '930px', width: '1080px', textAlign: 'center', zIndex: 60 }, `<span style="display:inline-block;border:13px solid ${RED};color:${RED};font-family:Rye;font-size:92px;padding:4px 30px 10px;border-radius:16px;white-space:nowrap;line-height:1.05;letter-spacing:0.04em;background:rgba(255,255,255,.93)">REAL ACADEMIA</span>`);
+  const stRA = el('div', c, { left: '0', top: '820px', width: '1080px', textAlign: 'center', zIndex: 60 }, `<span style="display:inline-block;border:13px solid ${RED};color:${RED};font-family:Rye;font-size:92px;padding:4px 30px 10px;border-radius:16px;white-space:nowrap;line-height:1.05;letter-spacing:0.04em;background:rgba(255,255,255,.93)">REAL ACADEMIA</span>`);
 }
 /* B2 · «LA HORA SEXTA DE LOS ROMANOS» — romano junto al reloj de sol con el VI encendido */
 {
@@ -167,7 +167,7 @@ headline(S.Q[0], S.Q[1], '¿Cómo acaba *un número* siendo tu siesta?', { size:
     set(man.d, { s: pop(t, K.siesta3 - 0.1, 0.4), y: wobble(t, 0.5, 4), r: -6, o: t < K.siesta3 - 0.1 ? 0 : 1 });
     face(man, t, { closed: true, jaw: 0.15, seed: 0 });
     QM.forEach((q, i) => set(q, { s: pop(t, K.siesta3 + 0.1 + i * 0.12, 0.3), r: Math.sin(t * 5 + i) * 10, o: t < K.siesta3 + 0.1 + i * 0.12 ? 0 : 1 }));
-  }, { clip: true });
+  }, { clip: true, cut: true });
   sceneBg(c, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 90px)' });
   rays(c, -160, 300, 1400, 24, 'rgba(255,255,255,.2)', 'rgba(0,0,0,0)', 0);
   const vi = stoneNum(c, 380, 470, 400, 'VI', 330, { z: 6 });

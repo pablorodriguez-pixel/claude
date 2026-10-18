@@ -13,87 +13,87 @@
   {
    "n": 1,
    "s": 3.472,
-   "e": 9.391,
-   "dur": 5.92,
-   "palabras": 19,
-   "texto": "Se llamaba Stanislav Petrov, y una noche de mil novecientos ochenta y tres tuvo el mundo en sus manos."
+   "e": 10.028,
+   "dur": 6.56,
+   "palabras": 20,
+   "texto": "Se llamaba Stanislav Petrov, y en mil novecientos ochenta y tres paró una guerra nuclear sin levantarse de la silla."
   },
   {
    "n": 2,
-   "s": 9.891,
-   "e": 13.006,
-   "dur": 3.12,
+   "s": 10.528,
+   "e": 13.642,
+   "dur": 3.11,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 13.356,
-   "e": 16.55,
-   "dur": 3.19,
+   "s": 13.992,
+   "e": 17.187,
+   "dur": 3.2,
    "palabras": 10,
    "texto": "¿Qué pasó esa noche? Te lo cuento en tres momentos."
   },
   {
    "n": 4,
-   "s": 16.9,
-   "e": 30.493,
+   "s": 17.537,
+   "e": 31.13,
    "dur": 13.59,
    "palabras": 30,
    "texto": "Uno: la alarma. Petrov era militar soviético y vigilaba los satélites que avisaban si Estados Unidos lanzaba misiles nucleares. Y a medianoche, la pantalla dijo: misil. Luego, otro. Hasta cinco."
   },
   {
    "n": 5,
-   "s": 30.993,
-   "e": 42.188,
+   "s": 31.63,
+   "e": 42.828,
    "dur": 11.2,
-   "palabras": 28,
-   "texto": "Dos: la decisión. Si avisaba a sus jefes, podían responder con un ataque nuclear. Y pensó: si Estados Unidos ataca de verdad, no manda cinco misiles. Manda cientos."
+   "palabras": 29,
+   "texto": "Dos: la decisión. Si daba la alarma, sus jefes podían responder con un ataque nuclear. Pero pensó: si Estados Unidos ataca de verdad, no manda cinco misiles, manda cientos."
   },
   {
    "n": 6,
-   "s": 42.688,
-   "e": 46.045,
-   "dur": 3.36,
-   "palabras": 11,
-   "texto": "Así que cogió el teléfono y dijo: «Es una falsa alarma»."
+   "s": 43.328,
+   "e": 46.919,
+   "dur": 3.59,
+   "palabras": 15,
+   "texto": "Así que cogió el teléfono y les dijo a sus jefes: «Es una falsa alarma»."
   },
   {
    "n": 7,
-   "s": 46.545,
-   "e": 54.535,
+   "s": 47.419,
+   "e": 55.409,
    "dur": 7.99,
    "palabras": 19,
    "texto": "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite lo había confundido con misiles."
   },
   {
    "n": 8,
-   "s": 55.035,
-   "e": 61.671,
-   "dur": 6.64,
+   "s": 55.909,
+   "e": 62.544,
+   "dur": 6.63,
    "palabras": 22,
    "texto": "Ojo: no le dieron ninguna medalla. Según contó él, le echaron la bronca por no rellenar bien el papeleo de esa noche."
   },
   {
    "n": 9,
-   "s": 62.021,
-   "e": 68.73,
+   "s": 62.894,
+   "e": 69.604,
    "dur": 6.71,
    "palabras": 18,
    "texto": "O sea: ese señor te salvó la vida... y el mundo no se enteró hasta quince años después."
   },
   {
    "n": 10,
-   "s": 69.23,
-   "e": 72.586,
-   "dur": 3.36,
-   "palabras": 12,
-   "texto": "¿Tú qué habrías hecho en su silla: avisar, o no? Os leo."
+   "s": 70.104,
+   "e": 73.939,
+   "dur": 3.83,
+   "palabras": 14,
+   "texto": "¿Tú qué habrías hecho en su silla: dar la alarma, o colgar? Os leo."
   },
   {
    "n": 11,
-   "s": 72.936,
-   "e": 75.294,
+   "s": 74.289,
+   "e": 76.647,
    "dur": 2.36,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -107,14 +107,14 @@
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 9.891,
- "ojo_dur": 6.64,
+ "marca_inicio_s": 10.528,
+ "ojo_dur": 6.63,
  "cta_tipo": "abierta",
- "cta_texto": "¿Tú qué habrías hecho en su silla: avisar, o no? Os leo.",
+ "cta_texto": "¿Tú qué habrías hecho en su silla: dar la alarma, o colgar? Os leo.",
  "n_lineas": 12,
- "n_palabras": 198,
- "duracion_voz": 75.29,
- "ppm": 157.8,
+ "n_palabras": 206,
+ "duracion_voz": 76.65,
+ "ppm": 161.3,
  "lineas_mas_largas": [
   [
    4,
@@ -124,7 +124,7 @@
   [
    5,
    11.2,
-   "Dos: la decisión. Si avisaba a sus jefes, podían responder con un ataq"
+   "Dos: la decisión. Si daba la alarma, sus jefes podían responder con un"
   ],
   [
    7,
@@ -133,5 +133,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep38_petrov3/final.mp4",
- "duracion_video": 75.93
+ "duracion_video": 77.27
 }
