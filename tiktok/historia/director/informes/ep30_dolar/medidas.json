@@ -1,0 +1,137 @@
+{
+ "episodio": "ep30_dolar",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.346,
+   "dur": 3.23,
+   "palabras": 10,
+   "texto": "¡Dólar va con D... y tú lo escribes con S!"
+  },
+  {
+   "n": 1,
+   "s": 3.586,
+   "e": 9.658,
+   "dur": 6.07,
+   "palabras": 16,
+   "texto": "Pista: en México o en Argentina, eso es un peso. Y peso... tampoco empieza por S."
+  },
+  {
+   "n": 2,
+   "s": 9.898,
+   "e": 15.051,
+   "dur": 5.15,
+   "palabras": 14,
+   "texto": "Hace trescientos años, el dinero que mandaba en medio mundo era español: el peso."
+  },
+  {
+   "n": 3,
+   "s": 15.291,
+   "e": 20.198,
+   "dur": 4.91,
+   "palabras": 14,
+   "texto": "Se abreviaba a mano: una P y una S chiquita, la del plural. Pesos."
+  },
+  {
+   "n": 4,
+   "s": 20.438,
+   "e": 26.194,
+   "dur": 5.76,
+   "palabras": 18,
+   "texto": "De tanto escribirlo rápido, la S se montó sobre la P... y la P quedó en una raya."
+  },
+  {
+   "n": 5,
+   "s": 26.434,
+   "e": 31.002,
+   "dur": 4.57,
+   "palabras": 12,
+   "texto": "Y lo mejor: cuando nació el dólar americano, lo copiaron del peso."
+  },
+  {
+   "n": 6,
+   "s": 31.242,
+   "e": 35.985,
+   "dur": 4.74,
+   "palabras": 14,
+   "texto": "Y allí se pagó con pesos, legales, hasta ochenta años después de su independencia."
+  },
+  {
+   "n": 7,
+   "s": 36.225,
+   "e": 42.042,
+   "dur": 5.82,
+   "palabras": 17,
+   "texto": "Ojo: lo de las columnas de Hércules, o la U sobre la S... bonito, pero sin papeles."
+  },
+  {
+   "n": 8,
+   "s": 42.282,
+   "e": 46.517,
+   "dur": 4.24,
+   "palabras": 14,
+   "texto": "Y Wall Street contó en octavos de dólar hasta mil novecientos noventa y siete."
+  },
+  {
+   "n": 9,
+   "s": 46.757,
+   "e": 48.994,
+   "dur": 2.24,
+   "palabras": 7,
+   "texto": "Octavos. Como el real de a ocho."
+  },
+  {
+   "n": 10,
+   "s": 49.234,
+   "e": 56.487,
+   "dur": 7.25,
+   "palabras": 17,
+   "texto": "O sea: ese símbolo... pone «pesos». ¿Y en tu país, cómo le dices al dinero? Os leo."
+  },
+  {
+   "n": 11,
+   "s": 56.727,
+   "e": 60.537,
+   "dur": 3.81,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "dolar",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.23,
+ "gancho_palabras": 10,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 11,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 56.727,
+ "ojo_dur": 5.82,
+ "cta_tipo": "abierta",
+ "cta_texto": "O sea: ese símbolo... pone «pesos». ¿Y en tu país, cómo le dices al dinero? Os leo.",
+ "n_lineas": 12,
+ "n_palabras": 163,
+ "duracion_voz": 60.54,
+ "ppm": 161.5,
+ "lineas_mas_largas": [
+  [
+   10,
+   7.25,
+   "O sea: ese símbolo... pone «pesos». ¿Y en tu país, cómo le dices al di"
+  ],
+  [
+   1,
+   6.07,
+   "Pista: en México o en Argentina, eso es un peso. Y peso... tampoco emp"
+  ],
+  [
+   7,
+   5.82,
+   "Ojo: lo de las columnas de Hércules, o la U sobre la S... bonito, pero"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep30_dolar/final.mp4",
+ "duracion_video": 61.17
+}
