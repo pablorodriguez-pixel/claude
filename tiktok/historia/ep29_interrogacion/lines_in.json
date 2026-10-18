@@ -1,0 +1,61 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Interrogación! Tú la abres. Cervantes, jamás."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ni una vez en todo el Quijote. Y no, no era un descuidado."
+  },
+  {
+   "who": "VECINO",
+   "text": "Es que no existía."
+  },
+  {
+   "who": "VECINO",
+   "text": "La sacó la Real Academia en mil setecientos cincuenta y cuatro: la de cerrar... puesta del revés."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Para qué? Di en voz alta: «tienes hambre». Y ahora: «¿tienes hambre?»."
+  },
+  {
+   "who": "VECINO",
+   "text": "Mismas palabras: solo cambia el tono. Y en una frase larga, te enterabas al final."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y costó: en pleno siglo diecinueve aún se imprimían libros sin ella."
+  },
+  {
+   "who": "VECINO",
+   "text": "Tu Quijote del cole sí la lleva: se la pusieron después."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: no es solo nuestra. También la usa el asturiano. Y el gallego la permite."
+  },
+  {
+   "who": "VECINO",
+   "text": "Hoy es obligatoria. Y la Academia avisa: no vale quitarla por imitar a otras lenguas."
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que, en el chat... Cervantes tenía excusa. Tú, no. ¿Qué falta no le perdonas a nadie? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}

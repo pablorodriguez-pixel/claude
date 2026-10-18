@@ -19,4 +19,4 @@ Pasos:
 6b. Tu autoevaluación NO basta: después, el coordinador lanza un DIRECTOR INDEPENDIENTE que no ve tu nota. Sin su PUBLICAR no se entrega.
 7. No hagas commits. Devuelve: ruta de final.mp4, duración, nota final del director con el desglose, caracteres gastados, texto del post y comentario fijado,
    y cualquier dato que siga «a verificar».
-No lances más de un render a la vez (hay otros dos animadores en la máquina de 4 núcleos).
+RENDER EN COLA: lanza SIEMPRE el render completo con `flock /tmp/claude-0/render.lock node ../engine/render.js $PWD video` (así los animadores no renderizan a la vez y no se ahoga la máquina). Las hojas/capturas sueltas (sheet) no necesitan cola.

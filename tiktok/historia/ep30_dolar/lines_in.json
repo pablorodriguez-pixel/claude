@@ -1,0 +1,61 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   0.96
+  ]
+ },
+ "gap": 0.24,
+ "inner_cap": 0.35,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Dólar va con D... y tú lo escribes con S!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Pista: en México o en Argentina, eso es un peso. Y peso... tampoco empieza por S."
+  },
+  {
+   "who": "VECINO",
+   "text": "Hace trescientos años, el dinero que mandaba en medio mundo era español: el peso."
+  },
+  {
+   "who": "VECINO",
+   "text": "Se abreviaba a mano: una P y una S chiquita, la del plural. Pesos."
+  },
+  {
+   "who": "VECINO",
+   "text": "De tanto escribirlo rápido, la S se montó sobre la P... y la P quedó en una raya."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y lo mejor: cuando nació el dólar americano, lo copiaron del peso."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y allí se pagó con pesos, legales, hasta ochenta años después de su independencia."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo de las columnas de Hércules, o la U sobre la S... bonito, pero sin papeles."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y Wall Street contó en octavos de dólar hasta mil novecientos noventa y siete."
+  },
+  {
+   "who": "VECINO",
+   "text": "Octavos. Como el real de a ocho."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: ese símbolo... pone «pesos». ¿Y en tu país, cómo le dices al dinero? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Soy tu vecino... y esto no venía en el libro."
+  }
+ ]
+}
