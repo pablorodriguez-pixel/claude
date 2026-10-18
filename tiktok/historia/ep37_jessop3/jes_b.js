@@ -131,6 +131,24 @@ const T_CRAC = K.choco1 + 0.12;
 }
 
 /* ======================================================================
+   O4 · «…NI EL UNIFORME SE LE ARRUGÓ.» — Violet impecable, brillos y sello «NI UNA ARRUGA»
+   ====================================================================== */
+{
+  const c = scene(S.O4[0], S.O4[1], t => {
+    set(ry, { r: t * 12 });
+    set(vio.d, { s: pop(t, S.O4[0], 0.35) * (1 + 0.03 * Math.sin(t * 4)), y: wobble(t, 0.5, 3), o: 1 });
+    face(vio, t, { look: [0, -2], bL: 4, bR: 4, seed: 4.4, closed: t > K.arrugo && t < K.arrugo + 0.25 });
+    stampA(stA, t, K.uniforme - 0.04, -6, 1);
+    SP.forEach((s2, i) => set(s2, { o: 0.5 + 0.5 * Math.sin(t * 8 + i * 1.7), s: 1 + 0.3 * Math.sin(t * 6 + i), r: t * 140 }));
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#EFE1C6' });
+  const ry = rays(c, -160, 220, 1400, 24, 'rgba(255,230,0,.25)', 'rgba(0,0,0,0)', 0);
+  const vio = mkViolet(c, [260, 480, 560, 716]); vio.d.style.zIndex = 4;
+  const SP = [[230, 620], [820, 660], [300, 980], [760, 1000], [540, 520]].map(([x, y]) => el('div', c, { left: px(x), top: px(y), fontSize: '70px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 6 }, '✦'));
+  const stA = stamp(c, 170, 1080, 'NI UNA ARRUGA', { size: 84, bw: 12, z: 60, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+}
+
+/* ======================================================================
    T1 · «DOS: EL TITANIC.» — el Titanic, de noche, con todas las luces
    ====================================================================== */
 {
@@ -485,16 +503,17 @@ headline(S.P0[0], S.P0[1], 'Y entonces vino *lo peor*', { size: 100, hlT: K.peor
   const c = scene(S.P0[0], S.P0[1], t => {
     const k = p(t, S.P0[0], S.P0[1] - S.P0[0], E.inOutCubic);
     set(cam, { s: 1 + 0.12 * k });
-    set(stern, { r: -14 - 4 * k, y: Math.sin(t * 1.6) * 6 });
+    set(stern, { r: 12 + 6 * k, y: 120 + 60 * k + Math.sin(t * 1.6) * 6 });
     PR.forEach((pr, i) => set(pr, { r: t * 260 * (i ? -1 : 1) }));
     set(sea, { x: -(((t - S.P0[0]) * 40) % 60) });
     flash.style.opacity = t > K.peor - 0.05 && t < K.peor + 0.15 ? 0.6 : 0;
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
   sceneBg(cam, { background: `linear-gradient(180deg, #3a2f2a 0%, #6b5646 100%)` });
-  const stern = box(cam, 120, 560, 840, 560, { zIndex: 2, transformOrigin: '420px 520px' });
-  stern.innerHTML = `<svg viewBox="0 0 840 560" width="840" height="560" style="overflow:visible">${cut('<path d="M40,520 L60,140 Q120,40 300,40 L800,40 L800,520 Z"/>', 8, 10)}<path d="M40,520 L60,140 Q120,40 300,40 L800,40 L800,520 Z" fill="#F6F3EA" stroke="${INK}" stroke-width="7"/><path d="M40,520 L60,140 Q120,40 300,40 L800,40 L800,520 Z" fill="url(#hB)" opacity=".25"/><path d="M60,300 H800" stroke="#3f7a52" stroke-width="16"/><rect x="430" y="150" width="90" height="90" fill="#fff" stroke="${INK}" stroke-width="3"/><rect x="462" y="160" width="26" height="70" fill="${RED}"/><rect x="440" y="182" width="70" height="26" fill="${RED}"/><path d="M90,520 L70,560" stroke="${INK}" stroke-width="10"/></svg>`;
-  const PR = [[60, 980], [330, 1020]].map(([x, y]) => { const d = box(cam, x, y, 220, 220, { zIndex: 3 }); d.innerHTML = svgW(propInner(3), '0 0 400 400'); return d; });
+  const stern = box(cam, 40, 640, 1000, 333, { zIndex: 2, transformOrigin: '500px 300px' }); stern.innerHTML = shipSvg({ hospital: true });
+  const SMK = [0, 1, 2, 3, 4].map(i => box(cam, 300 + i * 90, 600, 140, 100, { borderRadius: '50%', background: 'rgba(70,60,52,.75)', border: `4px solid ${INK}`, zIndex: 1 }));
+  SCX.push(t => { if (t < S.P0[0] || t >= S.P0[1]) return; SMK.forEach((m, i) => { const ph = ((t - S.P0[0]) * 0.8 + i * 0.2) % 1; set(m, { x: -ph * 120, y: -ph * 420, s: 0.6 + ph * 1.4, o: 1 - ph * 0.7 }); }); });
+  const PR = [[60, 1060], [300, 1110]].map(([x, y]) => { const d = box(cam, x, y, 200, 200, { zIndex: 3 }); d.style.display = 'none'; d.innerHTML = svgW(propInner(3), '0 0 400 400'); return d; });
   const sea = box(cam, 0, 0, 1140, 1920, { zIndex: 4 }); sea.innerHTML = waterSvg(1110, 500, 37, '#3b4a52', '#c9d6e2', 1140);
   const flash = box(cam, 0, 0, 1080, 1920, { zIndex: 9, background: '#fff', opacity: 0 });
 }

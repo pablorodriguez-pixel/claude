@@ -77,7 +77,7 @@ window.frame = t => {
 [[K.titanic0, .25, 6], [K.segundo - 0.05, .3, 12], [K.tres1, .2, 8], [K.hubo, .2, 8], [K.accidente, .3, 12], [K.yesto2 - 0.04, .25, 8],
  [T_CRAC, .2, 16], [K.nohundio - 0.04, .25, 10], [K.sin - 0.04, .3, 12], [K.bebe, .2, 6], [STEPS[1].tDone, .25, 8],
  [T_BUM, .45, 24], [K.peor - 0.05, .35, 14], [K.helices, .25, 8], [K.salto - 0.04, .3, 14], [K.cabeza, .5, 26], [K.salio - 0.05, .3, 12],
- [K.ojo - 0.04, .35, 16], [K.nunca - 0.05, .25, 10], [K.hundieron, .3, 12], [K.cepillo - 0.04, .45, 22], [K.echado - 0.06, .25, 10],
+ [K.hundieron, .3, 12], [K.cepillo - 0.04, .45, 22], [K.echado - 0.06, .25, 10],
  [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
@@ -101,7 +101,8 @@ window.frame = t => {
   [S.P1[0], 'whoosh', .4], [K.arrastrado - 0.05, 'swoosh_up', .4], [S.P2[0], 'gulp', .5], [K.seguian, 'drumroll', .4],
   [K.salto - 0.04, 'swoosh_up', .8], [S.P4[0], 'gulp', .7], [K.cabeza, 'thud', 1.3], [K.cabeza + 0.05, 'burst', .6],
   [S.P5[0], 'swoosh_up', .5], [K.salio - 0.05, 'stamp', 1.0], [STEPS[2].tDone + 0.05, 'tada', .6],
-  [K.ojo - 0.04, 'stamp', 1.1], [S.J2[0], 'paper', .6], [K.nunca - 0.05, 'stamp', .8],
+  [K.uniforme - 0.04, 'stamp', .8], [S.O4[0], 'sparkle', .5], [K.tragedia - 0.04, 'stamp', .8],
+  [S.V1[0], 'whoosh', .5], [K.hunden10, 'gulp', .6], [K.cepillo10 - 0.1, 'pop2', .6], [S.V2[0], 'whoosh', .5], [K.prioridades - 0.04, 'stamp', 1.0],
   [S.R1[0], 'whoosh', .5], [K.hundieron, 'gulp', .7], [T_EMU - 0.1, 'emu', .9],
   [S.R2[0], 'whoosh', .4], [K.buscar9, 'drumroll', .5],
   [K.cepillo - 0.04, 'stamp', 1.3], [K.cepillo, 'tada', .7], [K.cepillo + 0.1, 'sparkle', .5],

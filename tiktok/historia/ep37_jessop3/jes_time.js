@@ -4,7 +4,8 @@ const EP_TAG = 'Ep. 37 · Violet Jessop';
 const K = {};
 {
   // L0 gancho
-  K.titanic0 = ws(0); const i0b = find('para ella solo el segundo susto'); K.para2 = ws(i0b); K.tragedia = K.para2; K.mujer = ws(i0b + 1); K.solo0 = ws(i0b + 2); K.segundo = ws(i0b + 4); K.susto = ws(i0b + 5); K.L0e = wE(i0b + 5);
+  K.titanic0 = ws(0); const i0 = find('tu lo llamas tragedia'); K.tu0 = ws(i0); K.tragedia = ws(i0 + 3);
+  const i0b = find('ella el segundo susto', i0); K.para2 = ws(i0b); K.mujer = ws(i0b); K.solo0 = ws(i0b + 1); K.segundo = ws(i0b + 2); K.susto = ws(i0b + 3); K.L0e = wE(i0b + 3);
   // L1 contexto
   const i1 = find('se llamaba violet', i0b); K.se1 = ws(i1); K.violet = ws(i1 + 2); K.jessop = ws(i1 + 3);
   const ic = find('era camarera de barco', i1); K.era = ws(ic); K.camarera = ws(ic + 1);
@@ -23,7 +24,8 @@ const K = {};
   const iy = find('en mil novecientos once', i4); K.mil = ws(iy + 1);
   const ich = find('choco contra un buque de guerra', iy); K.choco1 = ws(ich); K.buque = ws(ich + 3);
   const inh = find('pero no se hundio', ich); K.pero4 = ws(inh); K.nohundio = ws(inh + 1);
-  const ib4 = find('y ella bajo sin un rasguno', inh); K.ella4 = ws(ib4 + 1); K.bajo = ws(ib4 + 2); K.sin = ws(ib4 + 3); K.rasguno = ws(ib4 + 5); K.L4e = wE(ib4 + 5);
+  const ib4 = find('y ella bajo sin un rasguno', inh); K.ella4 = ws(ib4 + 1); K.bajo = ws(ib4 + 2); K.sin = ws(ib4 + 3); K.rasguno = ws(ib4 + 5);
+  const iuf = find('ni el uniforme se le arrugo', ib4); K.ni4 = ws(iuf); K.uniforme = ws(iuf + 2); K.arrugo = ws(iuf + 5); K.L4e = wE(iuf + 5);
   // L5 · 2 Titanic
   const i5 = find('dos el titanic', ib4); K.dos = ws(i5); K.titanic5 = ws(i5 + 2);
   const ias = find('al ano siguiente', i5); K.ano = ws(ias + 1);
@@ -49,18 +51,17 @@ const K = {};
   const isa = find('asi que salto al agua', ihl); K.asi = ws(isa); K.salto = ws(isa + 2); K.agua = ws(isa + 4);
   const igo = find('se golpeo la cabeza', isa); K.se7 = ws(igo); K.golpeo = ws(igo + 1); K.cabeza = ws(igo + 3);
   const iso = find('y aun asi salio viva', igo); K.y7b = ws(iso); K.aun = ws(iso + 1); K.salio = ws(iso + 3); K.viva7 = ws(iso + 4); K.L7e = wE(iso + 4);
-  // L8 Ojo (≤ 6 s)
-  const i8 = find('ojo lo del bebe', iso); K.ojo = ws(i8); K.bebe8 = ws(i8 + 3);
-  const imm = find('en sus memorias', i8); K.memorias = ws(imm + 2);
-  const inq = find('y nunca se supo de quien era', imm); K.y8 = ws(inq); K.nunca = ws(inq + 1); K.quien = ws(inq + 5); K.L8e = wE(inq + 6);
+  const inq = iso; // (v4b: sin «Ojo»)
   // L9 O sea: el remate (el cepillo)
   const i9 = find('o sea se le hundieron dos barcos encima', inq); K.osea = ws(i9); K.hundieron = ws(i9 + 4); K.dos9 = ws(i9 + 5); K.encima = ws(i9 + 7);
   const iun = find('y lo unico que volvio a buscar al camarote fue', i9); K.y9 = ws(iun); K.unico = ws(iun + 2); K.buscar9 = ws(iun + 6); K.camarote9 = ws(iun + 8); K.fue = ws(iun + 9);
   const icp = find('su cepillo de dientes', iun); K.su9 = ws(icp); K.cepillo = ws(icp + 1); K.dientes = ws(icp + 3);
   const ipq = find('porque despues del titanic', icp); K.porque = ws(ipq); K.despues = ws(ipq + 1); K.titanic9 = ws(ipq + 3);
   const iem = find('era lo que mas habia echado de menos', ipq); K.era9 = ws(iem); K.echado = ws(iem + 5); K.menos = ws(iem + 7); K.L9e = wE(iem + 7);
-  // L10 pregunta + Os leo
-  const i10 = find('y tu si se hunde tu barco', iem); K.y10 = ws(i10); K.tu10 = ws(i10 + 1); K.si10 = ws(i10 + 2); K.hunde10 = ws(i10 + 4); K.barco10 = ws(i10 + 6);
+  // L10 opinión del Vecino + pregunta + Os leo
+  const i10a = find('se le hunden dos barcos y vuelve a por el cepillo', iem); K.y10 = ws(i10a); K.hunden10 = ws(i10a + 2); K.vuelve10 = ws(i10a + 6); K.cepillo10 = ws(i10a + 10);
+  const ipr = find('prioridades vecino', i10a); K.prioridades = ws(ipr); K.vecino10 = ws(ipr + 1);
+  const i10 = find('y tu si se hunde el tuyo', ipr); K.yt10 = ws(i10); K.tu10 = ws(i10 + 1); K.si10 = ws(i10 + 2); K.hunde10 = ws(i10 + 4); K.tuyo = ws(i10 + 6); K.barco10 = K.tuyo;
   const iq = find('que vuelves a buscar al camarote', i10); K.que10 = ws(iq); K.vuelves = ws(iq + 1); K.buscar10 = ws(iq + 3); K.camarote10 = ws(iq + 5);
   const iol = find('os leo', iq); K.os = ws(iol); K.leo = ws(iol + 1);
   // L11 cierre
@@ -68,8 +69,8 @@ const K = {};
 }
 /* cortes de escena: un plano nuevo cada 1,5–2,5 s; ningún dato en pantalla menos de 1,5 s */
 const S = {
-  A: [-1, K.solo0 - 0.06],                    // portada: Titanic + Violet en un bote + ¿SALIÓ VIVA DE LOS 3 BARCOS?
-  A2: [K.solo0 - 0.06, K.se1 + 0.35],           // «Para esta mujer… solo el segundo susto»
+  A: [-1, K.para2 - 0.06],                    // portada: Titanic + Violet en un bote + ¿SALIÓ VIVA DE LOS 3 BARCOS?
+  A2: [K.para2 - 0.06, K.se1 + 0.35],           // «Para esta mujer… solo el segundo susto»
   B1: [K.se1 + 0.35, K.era - 0.1],              // nombre a máquina
   B2: [K.era - 0.1, K.era + 1.4],              // camarera de barco
   H1: [K.era + 1.4, K.y1b - 0.06],             // el Titanic y sus dos gemelos
@@ -79,7 +80,8 @@ const S = {
   M: [K.te3 - 0.1, K.uno - 0.1],               // te lo cuento barco a barco
   O1: [K.uno - 0.1, K.mil - 0.12],             // 1 · Olympic
   O2: [K.mil - 0.12, K.pero4 - 0.06],          // 1911: chocó contra un buque de guerra
-  O3: [K.pero4 - 0.06, K.dos - 0.08],          // pero no se hundió… sin un rasguño
+  O3: [K.pero4 - 0.06, K.ni4 - 0.06],
+  O4: [K.ni4 - 0.06, K.dos - 0.08],           // ni el uniforme se le arrugó          // pero no se hundió… sin un rasguño
   T1: [K.dos - 0.08, K.mientras5 - 0.08],      // 2 · Titanic, al año siguiente
   T2: [K.mientras5 - 0.08, K.hundia5 + 0.45],  // mientras se hundía
   T3: [K.hundia5 + 0.45, K.y5 - 0.06],         // la subieron a un bote salvavidas
@@ -95,14 +97,14 @@ const S = {
   P2: [K.hacia - 0.03, K.asi - 0.08],          // hacia las hélices que seguían girando
   P3: [K.asi - 0.08, K.cabeza - 0.15],         // ¡SALTÓ!
   P4: [K.cabeza - 0.15, K.y7b - 0.04],         // golpe en la cabeza
-  P5: [K.y7b - 0.04, K.ojo - 0.06],            // y aun así salió viva
-  J1: [K.ojo - 0.06, K.memorias - 0.06],       // ¡OJO! lo del bebé…
-  J2: [K.memorias - 0.06, K.osea - 0.08],      // …en sus memorias; nunca se supo de quién era
+  P5: [K.y7b - 0.04, K.osea - 0.08],           // y aun así salió viva
   R1: [K.osea - 0.08, K.y9 - 0.06],            // se le hundieron dos barcos encima
   R2: [K.y9 - 0.06, K.su9 - 0.08],             // lo único que volvió a buscar al camarote fue…
-  R3: [K.su9 - 0.08, K.porque + 0.6],          // ¡EL CEPILLO! (plano grande ≥ 2 s)
-  R4: [K.porque + 0.6, K.y10 - 0.08],          // después del Titanic, lo que más echó de menos
-  CTA: [K.y10 - 0.08, K.y11 - 0.1],            // Y tú, si se hunde tu barco… Os leo
+  R3: [K.su9 - 0.08, K.porque - 0.04],         // ¡EL CEPILLO! (plano grande ≥ 2 s)
+  R4: [K.porque - 0.04, K.y10 - 0.08],          // después del Titanic, lo que más echó de menos
+  V1: [K.y10 - 0.08, K.prioridades - 0.08],    // se le hunden dos barcos y vuelve a por el cepillo
+  V2: [K.prioridades - 0.08, K.yt10 - 0.08],   // Prioridades, vecino. (ceja + cepillo en la mano)
+  CTA: [K.yt10 - 0.08, K.y11 - 0.1],           // Y tú, si se hunde el tuyo… Os leo
   BAL2: [K.y11 - 0.1, K.no11 - 0.04],          // Y esto…
   BK: [K.no11 - 0.04, 999],                    // …no venía en el libro
 };
@@ -111,5 +113,5 @@ const SCX = [];
 const STEPS = [
   { n: 1, name: 'Olympic', year: '1911', t0: S.O1[0], t1: S.T1[0], tN: K.uno, tName: K.olympic, tYear: K.mil, tDone: K.rasguno + 0.45 },
   { n: 2, name: 'Titanic', year: '1912', t0: S.T1[0], t1: S.B1x[0], tN: K.dos, tName: K.titanic5, tYear: K.ano, tDone: K.brazos + 0.4 },
-  { n: 3, name: 'Britannic', year: '1916', t0: S.B1x[0], t1: S.J1[0], tN: K.tres6, tName: K.britannic, tYear: K.plena, tDone: K.salio },
+  { n: 3, name: 'Britannic', year: '1916', t0: S.B1x[0], t1: S.R1[0], tN: K.tres6, tName: K.britannic, tYear: K.plena, tDone: K.salio, t1x: 1 },
 ];

@@ -8,10 +8,10 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
 {
   const c = scene(S.A[0], S.A[1], t => {
     const tl = Math.max(0, t);
-    set(cam, { s: 1.0 + 0.04 * p(t, 0, 2.4, E.linear) });
+    set(cam, { s: 1.0 + 0.07 * p(t, 0, 2.4, E.linear) });
     // la proa ya va inclinada en el fotograma 0 y se hunde
     const kr = p(t, 0, 2.4, E.linear);
-    set(bow, { r: 9 + 5 * kr + wobble(t, 0.35, 0.4), y: 60 * kr + wobble(t, 0.4, 4), s: 1.05 });
+    set(bow, { r: 10 + 9 * kr + Math.sin(t * 2.6) * 1.2, y: 90 * kr + wobble(t, 0.4, 4), s: 1.05 });
     set(buoy, { y: Math.sin(t * 2.1) * 10, r: Math.sin(t * 1.7) * 8 }); set(plank, { y: Math.sin(t * 2.3 + 1) * 8, r: -12 + Math.sin(t * 1.9) * 6 });
     set(chair, { y: Math.sin(t * 1.9 + 2) * 9, r: 18 + Math.sin(t * 1.6) * 6 });
     MR.forEach((m, i) => set(m, { x: Math.sin(t * 3 + i) * 14, o: 0.35 + 0.25 * Math.sin(t * 4 + i * 2) }));
@@ -22,7 +22,8 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
     set(l2, { r: 1.5 + wobble(t, 0.45, 0.7, 1), s: 1 + 0.035 * Math.sin(t * 3.1 + 1) });
     set(l3, { r: -1 + wobble(t, 0.5, 0.7, 2), s: 1 + 0.02 * Math.sin(t * 3.1 + 2) });
     // Violet, a salvo DENTRO de un bote salvavidas desde el fotograma 0 (se mece)
-    set(lbt, { y: Math.sin(t * 2.2) * 10, r: Math.sin(t * 1.8) * 3 });
+    set(lbt, { y: Math.sin(t * 3.1) * 16, r: Math.sin(t * 2.6) * 6 });
+    stampA(stT, t, K.tragedia - 0.04, -6, 1);
     face(vio, t, { look: [-6, -4], bL: t > K.tragedia ? 12 : 6, bR: t > K.tragedia ? 12 : 6, seed: 0.4 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
@@ -43,6 +44,7 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   const fwave = box(cam, -30, 1350, 1140, 120, { zIndex: 8 });
   fwave.innerHTML = `<svg width="1140" height="120" style="overflow:visible"><path d="M0,30 ${Array.from({ length: 20 }, () => `q30,-22 60,0`).join(' ')} V700 H0 Z" fill="#152131"/><path d="M0,30 ${Array.from({ length: 20 }, () => `q30,-22 60,0`).join(' ')}" fill="none" stroke="#dfe8ef" stroke-width="5"/><path d="M0,60 ${Array.from({ length: 28 }, () => 'q20,-12 40,0').join(' ')}" stroke="#dfe8ef" stroke-width="2.5" fill="none" opacity=".5"/></svg>`;
   // la pregunta (≤ 6 palabras), borde superior por debajo de y≈300 (recorte del perfil)
+  const stT = stamp(cam, 150, 850, 'TÚ: TRAGEDIA', { size: 84, bw: 12, z: 45, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
   const l1 = BIGT(cam, 0, 318, 1080, '¿SALIÓ VIVA', { fontSize: '128px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
   const l2 = BIGT(cam, 0, 446, 1080, `DE LOS <span style="color:${YEL};font-size:250px;line-height:0.8">3</span>`, { fontSize: '140px', color: '#FBF6EA', textShadow: OUTL(INK, 10), zIndex: 40 });
   const l3 = BIGT(cam, 0, 668, 1080, 'BARCOS?', { fontSize: '128px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
@@ -51,7 +53,6 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
 /* ======================================================================
    A2 · «…Y NO FUE LO MÁS RARO DE SU VIDA» — Violet, y detrás dos barcos más con «?»
    ====================================================================== */
-headline(S.A2[0], S.A2[1], 'Para ella, *solo el segundo susto*', { size: 84, hlT: K.segundo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.A2[0], S.A2[1], t => {
     set(ry, { r: t * 9 });
@@ -59,14 +60,15 @@ headline(S.A2[0], S.A2[1], 'Para ella, *solo el segundo susto*', { size: 84, hlT
     set(vio.d, { s: pop(t, S.A2[0], 0.35), y: wobble(t, 0.5, 3), o: 1 });
     face(vio, t, { look: [5, -3], bL: t > K.segundo ? 4 : 10, bR: t > K.segundo ? 18 : 10, seed: 0.9 });
     SH3.forEach((s2, i) => set(s2, { x: (1 - p(t, S.A2[0] + 0.15 + i * 0.12, 0.35, E.outBack)) * (i ? 700 : -700), y: Math.sin(t * 2 + i) * 6, o: 1 }));
-    stampA(st2, t, K.segundo - 0.05, -8, 1);
+    stampA(st2, t, K.segundo - 0.05, -6, 1); set(stT2, { s: 0.8, r: -6, o: 0.9 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
   sceneBg(cam, { background: '#2f5a46', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.18), rgba(0,0,0,.35) 80%)' });
   const ry = rays(cam, -160, 160, 1400, 26, 'rgba(255,255,255,.06)', 'rgba(0,0,0,0)', 0);
   const vio = mkViolet(cam, [300, 470, 480, 614]); vio.d.style.zIndex = 5;
   const SH3 = [[70, 1110], [380, 1130], [690, 1110]].map(([x, y], i) => { const d = box(cam, x, y, 310, 104, { zIndex: 6 }); d.innerHTML = shipSvg({ hospital: i === 2 }); if (i === 1) d.style.filter = 'none'; return d; });
-  const st2 = stamp(cam, 330, 1010, '2.º SUSTO', { size: 84, bw: 12, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  const st2 = stamp(cam, 130, 1000, 'ELLA: 2.º SUSTO', { size: 84, bw: 12, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  const stT2 = stamp(cam, 240, 250, 'TÚ: TRAGEDIA', { size: 70, bw: 10, z: 40, bg: 'rgba(255,255,255,.85)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -81,7 +83,7 @@ headline(S.A2[0], S.A2[1], 'Para ella, *solo el segundo susto*', { size: 84, hlT
     face(vio, t, { look: [3, -2], bL: 6, bR: 6, seed: 1.1 });
     const n = Math.min(NAME.length, Math.max(0, Math.floor((t - K.violet + 0.05) * 18)));
     nm.textContent = NAME.slice(0, n) + (n < NAME.length && Math.floor(t * 6) % 2 ? '|' : '');
-    set(strip, { s: pop(t, S.B1[0] + 0.02, 0.35), r: -1.5 });
+    set(strip, { s: pop(t, K.violet - 0.12, 0.3), r: -1.5, o: t < K.violet - 0.12 ? 0 : 1 });
     popA(lab, t, S.B1[0] + 0.1, { r: -3 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });

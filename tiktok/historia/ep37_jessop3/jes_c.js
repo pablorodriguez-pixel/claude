@@ -1,42 +1,6 @@
 /* Ep. 37 v4 · L8–L11 (Ojo, «O sea» con el cepillo, pregunta, balcón y libro) + balcón de la marca (L2) */
 
 /* ======================================================================
-   J1 · «¡OJO! LO DEL BEBÉ…» — sello OJO sobre el fardo con el bebé
-   ====================================================================== */
-{
-  const c = scene(S.J1[0], S.J1[1], t => {
-    set(ry, { r: t * 8 });
-    stampA(oj, t, K.ojo - 0.04, -8, 1);
-    set(bnd, { s: pop(t, S.J1[0] + 0.05, 0.35), r: wobble(t, 0.6, 2), y: wobble(t, 0.8, 4), o: 1 });
-    const mano = bnd.querySelector('.mano'); if (mano) mano.setAttribute('transform', `rotate(${f1(Math.sin(t * 9) * 12)} 232 132)`);
-    popA(lab, t, K.bebe8 - 0.05, { r: 3 });
-  }, { clip: true, cut: true });
-  sceneBg(c, { background: '#EFE1C6' });
-  const ry = rays(c, -160, 260, 1400, 24, 'rgba(200,16,46,.07)', 'rgba(0,0,0,0)', 0);
-  const bnd = box(c, 270, 640, 540, 396, { zIndex: 5 }); bnd.innerHTML = svgW(bundleInner(true), '0 0 300 220');
-  const oj = stamp(c, 230, 300, '¡OJO!', { size: 190, bw: 18, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
-  const lab = chip(c, 330, 1110, 'lo del bebé…', { size: 64, bg: INK, color: YEL, z: 30 });
-}
-
-/* ======================================================================
-   J2 · «…SOLO LO CUENTA ELLA EN SUS MEMORIAS, Y NUNCA SE SUPO DE QUIÉN ERA.»
-   ====================================================================== */
-headline(S.J2[0], S.J2[1], 'solo lo cuenta *en sus memorias*', { size: 84, hlT: K.memorias });
-{
-  const c = scene(S.J2[0], S.J2[1], t => {
-    set(bk, { s: pop(t, S.J2[0], 0.35), r: -3 + wobble(t, 0.4, 1), o: 1 });
-    set(qq, { s: pop(t, K.nunca - 0.05, 0.3), r: -4 + Math.sin(t * 5) * 3, o: t < K.nunca - 0.05 ? 0 : 1 });
-    set(pen, { x: Math.sin(t * 9) * 30, y: Math.cos(t * 7) * 10, r: -20 });
-  }, { clip: true, cut: true });
-  sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
-  const bk = box(c, 110, 480, 860, 560, { zIndex: 3 });
-  let ln = ''; for (let i = 0; i < 9; i++) ln += `<path d="M60,${200 + i * 34} H${i % 3 === 2 ? 300 : 380}" stroke="${INK}" stroke-width="4" opacity=".5"/><path d="M480,${130 + i * 34} H${i % 4 === 3 ? 700 : 800}" stroke="${INK}" stroke-width="4" opacity=".5"/>`;
-  bk.innerHTML = `<svg viewBox="0 0 860 560" width="860" height="560" style="overflow:visible">${cut('<rect x="0" y="0" width="860" height="560" rx="16"/>')}<rect x="0" y="0" width="860" height="560" rx="16" fill="${LEATHER}" stroke="${INK}" stroke-width="6"/><rect x="20" y="16" width="410" height="528" fill="#F7F0E0" stroke="${INK}" stroke-width="4"/><rect x="430" y="16" width="410" height="528" fill="#FBF6EA" stroke="${INK}" stroke-width="4"/><text x="225" y="90" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="54" fill="${INK}">MEMORIAS</text><text x="225" y="140" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="700" font-size="36" fill="${INK}">de Violet Jessop</text>${ln}<g transform="translate(560,380) scale(0.45)">${bundleInner(true)}</g></svg>`;
-  const pen = box(c, 760, 400, 60, 260, { zIndex: 5 }); pen.innerHTML = `<svg width="60" height="260" style="overflow:visible"><path d="M30,0 C60,60 50,160 34,240 L26,240 C10,160 0,60 30,0 Z" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M30,240 L30,260" stroke="${INK}" stroke-width="5"/></svg>`;
-  const qq = stamp(c, 200, 1080, '¿DE QUIÉN ERA?', { size: 78, bw: 12, z: 60, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
-}
-
-/* ======================================================================
    R1 · «O SEA: SE LE HUNDIERON DOS BARCOS ENCIMA,» — Titanic y Britannic se hunden; el Olympic, no
    ====================================================================== */
 headline(S.R1[0], S.R1[1], 'se le hundieron *dos barcos* encima', { size: 86, hlT: K.dos9, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
@@ -128,6 +92,42 @@ colorHit(S.R4[0], S.R4[1], PINK, c => {
 });
 
 /* ======================================================================
+   V1 · «SE LE HUNDEN DOS BARCOS Y VUELVE A POR EL CEPILLO.» — dos barcos que se hunden / el cepillo
+   ====================================================================== */
+headline(S.V1[0], S.V1[1], 'Se le hunden dos barcos… *y vuelve a por el cepillo*', { size: 80, hlT: K.cepillo10, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+{
+  const c = scene(S.V1[0], S.V1[1], t => {
+    SHP.forEach((d, i) => { const k = p(t, K.hunden10 + i * 0.2, 1.0, E.inCubic); set(d, { r: (i ? 1 : -1) * 18 * k, y: 260 * k }); });
+    set(wv, { x: -(((t - S.V1[0]) * 40) % 60) });
+    const kb = p(t, K.cepillo10 - 0.1, 0.4, E.outBack);
+    set(br, { s: t < K.cepillo10 - 0.1 ? 0 : kb, r: -18 + wobble(t, 0.5, 3), o: t < K.cepillo10 - 0.1 ? 0 : 1 });
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#2f5a46', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.18), rgba(0,0,0,.35) 80%)' });
+  const SHP = [[40, 640, false], [560, 660, true]].map(([x, y, h]) => { const d = box(c, x, y, 480, 160, { zIndex: 2 }); d.innerHTML = shipSvg({ hospital: h }); return d; });
+  const wv = box(c, 0, 0, 1140, 1920, { zIndex: 3 }); wv.innerHTML = waterSvg(800, 700, 71, '#123a44', '#cfe0e4', 1140);
+  const br = box(c, 140, 900, 800, 176, { zIndex: 5 }); br.innerHTML = svgW(brushInner(), '0 0 820 180');
+}
+
+/* ======================================================================
+   V2 · «PRIORIDADES, VECINO.» — el Vecino con la ceja levantada y el cepillo en la mano
+   ====================================================================== */
+{
+  const c = scene(S.V2[0], S.V2[1], t => {
+    set(ry, { r: t * 10 });
+    set(vec.d, { s: pop(t, S.V2[0], 0.35), y: wobble(t, 0.5, 3), o: 1 });
+    vecFace(vec, t, { jaw: talkW(t, 'VECINO'), look: [4, -4], bL: 2, bR: 24, fan: wobble(t, 0.9, 6), seed: 0.9 });
+    set(br, { r: -40 + Math.sin(t * 5) * 6, y: Math.sin(t * 5) * 8 });
+    stampA(stP, t, K.prioridades - 0.04, -6, 1);
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#E9C6BE' });
+  const ry = rays(c, -160, 200, 1400, 24, 'rgba(255,255,255,.3)', 'rgba(0,0,0,0)', 0);
+  const vec = mkVec(c, [200, 420, 680, 842]); vec.d.style.zIndex = 4;
+  const br = box(c, 560, 820, 420, 92, { zIndex: 6, transformOrigin: '60px 46px' }); br.innerHTML = svgW(brushInner(), '0 0 820 180');
+  const stP = stamp(c, 160, 260, 'PRIORIDADES', { size: 104, bw: 14, z: 60, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  chip(c, 380, 1180, 'vecino', { size: 56, bg: PINK, z: 30 });
+}
+
+/* ======================================================================
    CTA · «Y TÚ, SI SE HUNDE TU BARCO, ¿QUÉ VUELVES A BUSCAR AL CAMAROTE? OS LEO.»
    ====================================================================== */
 {
@@ -147,7 +147,7 @@ colorHit(S.R4[0], S.R4[1], PINK, c => {
   const mkL = (y, sz) => el('div', c, { left: 0, top: px(y), width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: px(sz), lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });
   const l1 = mkL(236, 68), l2 = mkL(340, 112), l3 = mkL(470, 112), l4 = mkL(600, 92);
   const WD = [];
-  [['Y TÚ,', l1, K.y10], ['si se hunde', l1, K.si10], ['tu barco…', l1, K.barco10], ['¿QUÉ', l2, K.que10], ['VUELVES', l2, K.vuelves], ['A BUSCAR', l3, K.buscar10], ['AL CAMAROTE?', l4, K.camarote10]].forEach(([s2, ln, tt]) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.15em'; if (s2 === 'VUELVES') { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('VUELVES', 'vhl', YEL); } else s.textContent = s2; ln.appendChild(s); WD.push({ e: s, t: tt }); });
+  [['Y TÚ,', l1, K.yt10], ['si se hunde', l1, K.si10], ['el tuyo…', l1, K.tuyo], ['¿QUÉ', l2, K.que10], ['VUELVES', l2, K.vuelves], ['A BUSCAR', l3, K.buscar10], ['AL CAMAROTE?', l4, K.camarote10]].forEach(([s2, ln, tt]) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.15em'; if (s2 === 'VUELVES') { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('VUELVES', 'vhl', YEL); } else s.textContent = s2; ln.appendChild(s); WD.push({ e: s, t: tt }); });
   const vHL = c.querySelector('.vhl');
   const ol = chip(c, 520, 1150, 'Os leo 👇', { size: 64, bg: PINK, z: 40 });
   const hand = box(c, 400, 1140, 130, 130, { zIndex: 41 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="130" height="130" style="overflow:visible">${gloveHand(0, 0, 180, 1.0)}</svg>`;
