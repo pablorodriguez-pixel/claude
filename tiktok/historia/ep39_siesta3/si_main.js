@@ -69,7 +69,7 @@ window.frame = t => {
 /* ---------- temblores ---------- */
 [[K.numero0 + 0.3, .3, 12], [K.sexta1, .25, 8], [K.siesta3, .25, 8], [S.P1a[0] + 0.12, .3, 12], [K.no4 + 0.15, .3, 12], [K.primera, .2, 6], [K.segunda, .2, 6], [K.tercera, .2, 6],
  [S.P2a[0] + 0.12, .3, 12], [K.seis, .25, 8], [K.doce5 + 0.02, .4, 18], [S.P3a[0] + 0.12, .3, 12], [K.calor, .25, 8], [K.acabo + 0.3, .3, 10],
- [K.latin1 + 0.05, .3, 12], [K.ojo, .3, 12], [K.sexta7, .25, 10], [K.terminaba, .3, 12], [K.tres8, .3, 12], [K.decima + 0.02, .4, 18], [K.cuatro + 0.02, .4, 18], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
+ [K.latin1 + 0.05, .3, 12], [K.ojo, .3, 12], [K.sexta7, .25, 10], [K.terminaba, .3, 12], [K.tres8, .3, 12], [K.decima + 0.02, .4, 18], [K.tarde + 0.02, .4, 18], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
   [0.03, 'whoosh', .6], [K.numero0 - 0.05, 'swoosh_up', .5], [K.numero0 + 0.3, 'boing', .7],
@@ -89,7 +89,7 @@ window.frame = t => {
   [S.O2[0] + 0.03, 'whoosh', .5], ...[0, 1, 2, 3, 4].map(i => [lerp(S.O2[0] + 0.15, K.sexta7 - 0.25, i / 4), 'tick', .6]), [K.sexta7 - 0.05, 'ding', .7], [K.terminaba + 0.02, 'stamp', 1.0],
   [S.R1[0] + 0.03, 'whoosh', .6], [K.echas8 - 0.1, 'clockfast', .45], [K.tres8 - 0.02, 'stamp', .9],
   [S.R1b[0] + 0.03, 'whoosh', .5], [K.sexta8, 'pop', .5], [K.no8, 'error', .5], [K.decima - 0.4, 'clockfast', .4], [K.decima + 0.02, 'stamp', 1.2],
-  [S.R2[0] + 0.03, 'whoosh', .5], [K.cuatro + 0.02, 'stamp', 1.2],
+  [S.R2[0] + 0.03, 'whoosh', .5], [K.tarde + 0.02, 'stamp', 1.2],
   [S.T[0] + 0.03, 'whoosh', .5], [K.echas13, 'pop', .4], [K.tu13, 'pop', .5], [K.os, 'ding', .7],
   [S.BK[0] + 0.03, 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [LOOP, 'whoosh', .6],
 ].filter(s => s[2] > 0).forEach(s => sfx(s[1], s[0], s[2]));

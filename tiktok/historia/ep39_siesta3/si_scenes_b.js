@@ -340,8 +340,8 @@ headline(S.R1b[0], S.R1b[1], 'Para un romano… *la décima*', { size: 88, hlT: 
   const cX = chip(c, 690, 780, 'décima', { size: 52, bg: RED, z: 32 });
   const rom = mk(c, [680, 990, 260, 332], romanInner(), '0 0 360 460', 'bust'); rom.d.style.zIndex = 8;
 }
-/* R2 · «LLEGAS CUATRO HORAS TARDE A TU PROPIA SIESTA.» — el señor corre con la lengua fuera + sello */
-headline(S.R2[0], S.R2[1], 'Llegas *cuatro horas* tarde', { size: 88, hlT: K.cuatro });
+/* R2 · «LLEGAS TARDE... HASTA A TU PROPIA SIESTA.» — el señor corre con la lengua fuera + sello */
+headline(S.R2[0], S.R2[1], 'Llegas tarde… *hasta a tu siesta*', { size: 84, hlT: K.siesta8b });
 {
   const c = scene(S.R2[0], S.R2[1], t => {
     const tl = t - S.R2[0];
@@ -353,7 +353,7 @@ headline(S.R2[0], S.R2[1], 'Llegas *cuatro horas* tarde', { size: 88, hlT: K.cua
     SL.forEach((s, i) => set(s, { x: -((tl * 1400 + i * 300) % 1200) + 900, o: 0.7 }));
     ck.setH(15.5 + 0.2 * p(t, S.R2[0], 1.8, E.linear));
     popA(hx, t, S.R2[0] + 0.1, { r: 4 });
-    stampA(st, t, K.cuatro + 0.02, -7, 1);
+    stampA(st, t, K.tarde + 0.02, -7, 1);
   }, { clip: true, cut: true });
   sceneBg(c, { background: 'linear-gradient(180deg, #F6D9A8 0%, #EFE1C6 60%)' });
   const bgS = box(c, 0, 0, 2400, 1920, { zIndex: 1 }); bgS.innerHTML = `<svg width="2400" height="1920" style="overflow:visible">${[...Array(10)].map((_, k) => `<rect x="${k * 270}" y="1040" width="18" height="160" fill="${WOOD}" stroke="${INK}" stroke-width="3"/>`).join('')}<rect x="0" y="1180" width="2400" height="740" fill="#B9A27E" stroke="${INK}" stroke-width="6"/></svg>`;
@@ -363,7 +363,7 @@ headline(S.R2[0], S.R2[1], 'Llegas *cuatro horas* tarde', { size: 88, hlT: K.cua
   const LG = [0, 1].map(i => { const l = box(runner, 210 + i * 40, 480, 60, 260, { zIndex: 1, transformOrigin: '30px 10px' }); l.innerHTML = `<svg width="60" height="260" style="overflow:visible"><path d="M18,0 L42,0 L40,210 L20,210 Z" fill="#5a4632" stroke="${INK}" stroke-width="4"/><path d="M10,206 L62,206 Q70,240 46,244 L10,244 Z" fill="${INK}"/></svg>`; return l; });
   const man = mk(runner, [0, 0, 480, 614], sleeperInner() + TONGUE() + SWEAT(), '0 0 360 460', 'bust'); man.d.style.zIndex = 2;
   const SL = [0, 1, 2, 3].map(i => box(c, 0, 700 + i * 120, 220, 20, { zIndex: 5, background: INK, borderRadius: '10px', opacity: 0.6 }));
-  const st = cstamp(c, 1010, '4 HORAS<br>TARDE', { size: 110, bw: 15, z: 60 });
+  const st = cstamp(c, 1060, '¡TARDE!', { size: 150, bw: 17, z: 60 });
 }
 
 /* ======================================================================

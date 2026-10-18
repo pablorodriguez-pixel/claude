@@ -21,13 +21,9 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
     set(l1, { r: -2 + wobble(t, 0.5, 0.7), s: 1 + 0.02 * Math.sin(t * 3.1) });
     set(l2, { r: 1.5 + wobble(t, 0.45, 0.7, 1), s: 1 + 0.035 * Math.sin(t * 3.1 + 1) });
     set(l3, { r: -1 + wobble(t, 0.5, 0.7, 2), s: 1 + 0.02 * Math.sin(t * 3.1 + 2) });
-    // «Esta mujer»: Violet sale del agua (la cofia que flotaba es la suya)
-    const ke = p(t, K.mujer - 0.05, 0.6, E.outBack);
-    set(vio.d, { y: lerp(440, 0, clamp(ke)) + wobble(t, 0.5, 3) * ke });
-    face(vio, t, { look: [-4, -3], closed: t < K.mujer + 0.3, bL: t > K.titanic0 ? 10 : 4, bR: t > K.titanic0 ? 10 : 4, seed: 0.4 });
-    const bob = Math.sin(t * 2.4) * 8, rot = Math.sin(t * 2.0) * 7;
-    set(cof, { x: lerp(0, 8, ke), y: lerp(0, -306, clamp(ke)) + bob * (1 - ke), r: rot * (1 - ke) - 4 * ke, s: lerp(1, 0.78, clamp(ke)) });
-    BUB.forEach((b, i) => { const ph = (tl * 0.9 + i * 0.37) % 1; set(b, { y: -ph * 160, o: (1 - ph) * 0.8 }); });
+    // Violet, a salvo DENTRO de un bote salvavidas desde el fotograma 0 (se mece)
+    set(lbt, { y: Math.sin(t * 2.2) * 10, r: Math.sin(t * 1.8) * 3 });
+    face(vio, t, { look: [-6, -4], bL: t > K.tragedia ? 12 : 6, bR: t > K.tragedia ? 12 : 6, seed: 0.4 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
   sceneBg(cam, { background: `linear-gradient(180deg, ${NIGHT} 0%, ${NIGHT2} 55%, #5d6f86 100%)` });
@@ -41,12 +37,11 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   const plank = box(cam, 380, 1600, 300, 50, { zIndex: 10, background: WOOD, border: `5px solid ${INK}`, borderRadius: '6px' });
   const chair = box(cam, 300, 1380, 150, 90, { zIndex: 8 }); chair.innerHTML = `<svg width="150" height="90" style="overflow:visible"><path d="M10,70 L60,10 L140,30 L100,80 Z" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><path d="M30,50 L110,62 M44,32 L124,46" stroke="${INK}" stroke-width="3"/></svg>`;
   box(cam, 0, 1250, 1080, 900, { zIndex: 6, background: 'linear-gradient(180deg, rgba(10,18,28,0) 0%, rgba(10,18,28,.55) 100%)' });
-  const vClip = box(cam, 560, 900, 420, 470, { overflow: 'hidden', zIndex: 7 });
-  const vio = mkViolet(vClip, [50, 40, 300, 383], { noCap: true });
-  const BUB = []; for (let i = 0; i < 6; i++) BUB.push(box(cam, 620 + i * 46, 1360, 18 + (i % 3) * 8, 18 + (i % 3) * 8, { borderRadius: '50%', border: '3px solid #dfe8ef', zIndex: 8 }));
+  const lbt = box(cam, 380, 1010, 540, 420, { zIndex: 9, transformOrigin: '270px 330px' });
+  const vio = mkViolet(lbt, [120, 0, 300, 383]); vio.d.style.zIndex = 1;
+  box(lbt, 0, 260, 540, 216, { zIndex: 2 }).innerHTML = svgW(lifeboatInner(), '0 0 600 240');
   const fwave = box(cam, -30, 1350, 1140, 120, { zIndex: 8 });
   fwave.innerHTML = `<svg width="1140" height="120" style="overflow:visible"><path d="M0,30 ${Array.from({ length: 20 }, () => `q30,-22 60,0`).join(' ')} V700 H0 Z" fill="#152131"/><path d="M0,30 ${Array.from({ length: 20 }, () => `q30,-22 60,0`).join(' ')}" fill="none" stroke="#dfe8ef" stroke-width="5"/><path d="M0,60 ${Array.from({ length: 28 }, () => 'q20,-12 40,0').join(' ')}" stroke="#dfe8ef" stroke-width="2.5" fill="none" opacity=".5"/></svg>`;
-  const cof = box(cam, 624, 1290, 240, 120, { zIndex: 9 }); cof.innerHTML = cofiaSvg();
   // la pregunta (≤ 6 palabras), borde superior por debajo de y≈300 (recorte del perfil)
   const l1 = BIGT(cam, 0, 318, 1080, '¿SALIÓ VIVA', { fontSize: '128px', color: '#FBF6EA', textShadow: OUTL(INK, 9), zIndex: 40 });
   const l2 = BIGT(cam, 0, 446, 1080, `DE LOS <span style="color:${YEL};font-size:250px;line-height:0.8">3</span>`, { fontSize: '140px', color: '#FBF6EA', textShadow: OUTL(INK, 10), zIndex: 40 });
@@ -56,22 +51,22 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
 /* ======================================================================
    A2 · «…Y NO FUE LO MÁS RARO DE SU VIDA» — Violet, y detrás dos barcos más con «?»
    ====================================================================== */
-headline(S.A2[0], S.A2[1], 'y no fue *lo más raro* de su vida', { size: 84, hlT: K.raro, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(S.A2[0], S.A2[1], 'Para esta mujer… *solo el segundo susto*', { size: 84, hlT: K.segundo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.A2[0], S.A2[1], t => {
     set(ry, { r: t * 9 });
     set(cam, { s: 1 + 0.05 * p(t, S.A2[0], 2, E.linear) });
     set(vio.d, { s: pop(t, S.A2[0], 0.35), y: wobble(t, 0.5, 3), o: 1 });
-    face(vio, t, { look: [5, -3], bL: t > K.raro ? 4 : 10, bR: t > K.raro ? 18 : 10, seed: 0.9 });
+    face(vio, t, { look: [5, -3], bL: t > K.segundo ? 4 : 10, bR: t > K.segundo ? 18 : 10, seed: 0.9 });
     SH3.forEach((s2, i) => set(s2, { x: (1 - p(t, S.A2[0] + 0.15 + i * 0.12, 0.35, E.outBack)) * (i ? 700 : -700), y: Math.sin(t * 2 + i) * 6, o: 1 }));
-    QQ.forEach((q, i) => set(q, { s: pop(t, K.raro - 0.05 + i * 0.12, 0.3), r: Math.sin(t * 6 + i) * 12, o: t < K.raro - 0.05 + i * 0.12 ? 0 : 1 }));
+    stampA(st2, t, K.segundo - 0.05, -8, 1);
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
   sceneBg(cam, { background: '#2f5a46', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,255,255,.18), rgba(0,0,0,.35) 80%)' });
   const ry = rays(cam, -160, 160, 1400, 26, 'rgba(255,255,255,.06)', 'rgba(0,0,0,0)', 0);
   const vio = mkViolet(cam, [300, 470, 480, 614]); vio.d.style.zIndex = 5;
   const SH3 = [[70, 1110], [380, 1130], [690, 1110]].map(([x, y], i) => { const d = box(cam, x, y, 310, 104, { zIndex: 6 }); d.innerHTML = shipSvg({ hospital: i === 2 }); if (i === 1) d.style.filter = 'none'; return d; });
-  const QQ = [[160, 960], [790, 960]].map(([x, y]) => qMark(cam, x, y, 150, YEL));
+  const st2 = stamp(cam, 330, 1010, '2.º SUSTO', { size: 84, bw: 12, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
 }
 
 /* ======================================================================
@@ -102,7 +97,7 @@ headline(S.A2[0], S.A2[1], 'y no fue *lo más raro* de su vida', { size: 84, hlT
 /* ======================================================================
    B2 · «ERA CAMARERA DE BARCOS» — Violet con la bandeja, en cubierta
    ====================================================================== */
-headline(S.B2[0], S.B2[1], 'Era *camarera de barcos*', { size: 96, hlT: K.camarera });
+headline(S.B2[0], S.B2[1], 'Era *camarera de barco*', { size: 96, hlT: K.camarera });
 {
   const c = scene(S.B2[0], S.B2[1], t => {
     set(cam, { s: 1.04 + 0.05 * p(t, S.B2[0], 1.6, E.linear) });
@@ -130,22 +125,21 @@ headline(S.B2[0], S.B2[1], 'Era *camarera de barcos*', { size: 96, hlT: K.camare
    H · «…Y VIAJÓ EN LOS TRES HERMANOS GEMELOS DEL TITANIC. LOS TRES TUVIERON UN ACCIDENTE.»
    ====================================================================== */
 const CW = 250, CX3 = [60, 375, 690], CY3 = 560;
-headline(S.H1[0], S.H1[1], 'Viajó en los *tres gemelos* del Titanic', { size: 84, hlT: K.gemelos, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
-headline(S.H2[0], S.H2[1], 'Los tres tuvieron *un accidente*', { size: 88, hlT: K.accidente, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(S.H1[0], S.H1[1], 'Trabajó en el Titanic… *y en sus dos gemelos*', { size: 84, hlT: K.gemelos, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(S.H2[0], S.H2[1], 'En los tres hubo *un accidente*… con ella a bordo', { size: 82, hlT: K.accidente, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.H1[0], S.H2[1], t => {
     const inH2 = t >= S.H2[0];
     set(cam, { s: (inH2 ? 1.06 : 1) + 0.03 * p(t, inH2 ? S.H2[0] : S.H1[0], 2.5, E.linear), y: inH2 ? -30 : 0 });
     set(ry, { r: t * 6 });
-    const ks = [K.tres1 - 0.1, K.hermanos - 0.05, K.gemelos - 0.05];
+    const ks = [K.dos1 - 0.05, K.titanic1 - 0.1, K.gemelos - 0.05];
     CC.forEach((cc, i) => {
       const k = p(t, ks[i], 0.4, E.outBack);
       set(cc.d, { y: (1 - k) * 900, r: (i - 1) * 3 + wobble(t, 0.4, 0.8, i) + (inH2 && t > CR[i] ? Math.sin((t - CR[i]) * 40) * 3 * (1 - p(t, CR[i], 0.4)) : 0), o: 1 });
     });
     CC[1].glow.style.opacity = t > K.titanic1 - 0.05 && !inH2 ? 0.8 : 0;
-    set(tag, { s: pop(t, K.titanic1, 0.35), r: -4, o: t < K.titanic1 || inH2 ? 0 : 1 });
     // la cofia de Violet salta de carta en carta: 1 → 2 → 3
-    const jumps = [[K.tres1, 0], [K.hermanos + 0.05, 1], [K.gemelos + 0.05, 2]];
+    const jumps = [[K.con1 - 0.05, 0], [K.ella1 + 0.05, 1], [K.bordo1, 2]];
     let cx = CX3[0] + CW / 2 - 70, cy = CY3 - 70, sc = 0, rr = 0;
     jumps.forEach(([tj, i], j) => {
       if (t < tj) return;
@@ -153,7 +147,7 @@ headline(S.H2[0], S.H2[1], 'Los tres tuvieron *un accidente*', { size: 88, hlT: 
       const fx = j ? CX3[i - 1] + CW / 2 - 70 : CX3[0] + CW / 2 - 70, tx = CX3[i] + CW / 2 - 70;
       cx = lerp(fx, tx, kj); cy = CY3 - 70 - Math.sin(kj * Math.PI) * (j ? 160 : 0) - (j ? 0 : (1 - kj) * 400); sc = 1; rr = Math.sin(kj * Math.PI) * 20;
     });
-    set(cof, { x: cx, y: cy + wobble(t, 0.8, 3), s: sc, r: rr, o: t < K.tres1 || inH2 ? 0 : 1 });
+    set(cof, { x: cx, y: cy + wobble(t, 0.8, 3), s: sc, r: rr, o: t < K.con1 - 0.05 ? 0 : 1 });
     // «Los tres tuvieron un accidente»: un ¡CRAC! en cada carta
     BG.forEach((b, i) => { set(b, { s: pop(t, CR[i], 0.3) * (1 + 0.06 * Math.sin(t * 12 + i)), r: t * 30 + i * 40, o: t < CR[i] ? 0 : 1 }); });
     XC.forEach((x, i) => { x.style.strokeDashoffset = f1(1000 * (1 - p(t, CR[i], 0.25))); });
@@ -163,8 +157,7 @@ headline(S.H2[0], S.H2[1], 'Los tres tuvieron *un accidente*', { size: 88, hlT: 
   const ry = rays(cam, -160, 120, 1400, 26, 'rgba(255,255,255,.06)', 'rgba(0,0,0,0)', 0);
   const CC = [mkCard(cam, CX3[0], CY3, 1, 'OLYMPIC', '1911', { w: CW }), mkCard(cam, CX3[1], CY3, 2, 'TITANIC', '1912', { w: CW, z: 12 }), mkCard(cam, CX3[2], CY3, 3, 'BRITANNIC', '1916', { w: CW, hospital: true })];
   const cof = box(cam, 0, 0, 140, 70, { zIndex: 30 }); cof.innerHTML = cofiaSvg();
-  const tag = chip(cam, 330, 1000, 'el famoso', { size: 46, bg: PINK, z: 30 });
-  const CR = [K.tres1b, K.tuvieron + 0.05, K.accidente];
+  const CR = [K.tres1, K.hubo, K.accidente];
   const BG = CX3.map(x => { const b = box(cam, x + 45, CY3 + 330, 160, 160, { zIndex: 25 }); b.innerHTML = svgW(boomInner(YEL) + `<text x="300" y="370" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="230" fill="#fff" stroke="${INK}" stroke-width="10" paint-order="stroke">!</text>`, '0 0 600 600'); return b; });
   const XC = CX3.map((x, i) => { const b = box(cam, x, CY3, CW, CW * 400 / 270, { zIndex: 24 }); b.innerHTML = `<svg width="${CW}" height="${f1(CW * 400 / 270)}" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" d="M${CW * 0.55},0 L${CW * 0.42},${CW * 0.5} L${CW * 0.6},${CW * 0.8} L${CW * 0.45},${CW * 1.2}" stroke="${RED}" stroke-width="9" fill="none" stroke-linejoin="round"/></svg>`; return b.querySelector('path'); });
 }
@@ -172,13 +165,29 @@ headline(S.H2[0], S.H2[1], 'Los tres tuvieron *un accidente*', { size: 88, hlT: 
 /* ======================================================================
    M · «TE LOS CUENTO UNO A UNO.» — tres medallones numerados (el bucle numerado)
    ====================================================================== */
-headline(S.M[0], S.M[1], 'Te los cuento *uno a uno*', { size: 96, hlT: K.uno3 });
+headline(S.Q[0], S.Q[1], '¿Y cómo se sale *viva* de los tres?', { size: 88, hlT: K.viva3, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+{
+  const c = scene(S.Q[0], S.Q[1], t => {
+    set(cam, { s: 1 + 0.05 * p(t, S.Q[0], 1.9, E.linear) });
+    set(vio.d, { s: pop(t, S.Q[0], 0.35), y: wobble(t, 0.5, 3), o: 1 });
+    face(vio, t, { look: [0, -6], bL: 14, bR: 14, seed: 2.9 });
+    SH3.forEach((s2, i) => set(s2, { y: Math.sin(t * 2 + i) * 6 }));
+    QQ.forEach((q, i) => set(q, { s: pop(t, K.tres3 - 0.1 + i * 0.12, 0.3), r: Math.sin(t * 6 + i) * 12, o: t < K.tres3 - 0.1 + i * 0.12 ? 0 : 1 }));
+  }, { clip: true, cut: true });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
+  sceneBg(cam, { background: `linear-gradient(180deg, ${NIGHT} 0%, ${NIGHT2} 100%)` });
+  svgBox(cam, 0, 0, 1080, 1000, stars(70, 3, 1080, 1000), '0 0 1080 1000', 1);
+  const vio = mkViolet(cam, [330, 470, 420, 537]); vio.d.style.zIndex = 5;
+  const SH3 = [[70, 1080], [380, 1100], [690, 1080]].map(([x, y], i) => { const d = box(cam, x, y, 310, 104, { zIndex: 6 }); d.innerHTML = shipSvg({ hospital: i === 2 }); return d; });
+  const QQ = [[170, 930], [480, 950], [790, 930]].map(([x, y]) => qMark(cam, x, y, 130, YEL));
+}
+headline(S.M[0], S.M[1], 'Te lo cuento *barco a barco*', { size: 96, hlT: K.barco3 });
 {
   const c = scene(S.M[0], S.M[1], t => {
     set(ry, { r: t * 10 });
     MD.forEach((m, i) => {
       const k = p(t, S.M[0] + 0.05 + i * 0.12, 0.4, E.outBack);
-      const pulse = i === 0 ? 0.12 * Math.sin(clamp((t - K.uno3) / 0.4) * Math.PI) + 0.12 * Math.sin(clamp((t - K.uno3b) / 0.4) * Math.PI) : 0;
+      const pulse = i === 0 ? 0.12 * Math.sin(clamp((t - K.barco3) / 0.4) * Math.PI) : i === 1 ? 0.12 * Math.sin(clamp((t - K.barco3b) / 0.4) * Math.PI) : 0;
       set(m.d, { y: (1 - k) * 800 + wobble(t, 0.5, 4, i), s: 1 + pulse, r: (i - 1) * 4, o: 1 });
     });
   }, { clip: true, cut: true });

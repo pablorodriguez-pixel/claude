@@ -14,7 +14,7 @@ const K = {};
   const i6b = find('y descansar en la sexta', i6); K.y6b = ws(i6b); K.descansar6b = ws(i6b + 1); K.sexta6 = ws(i6b + 4); K.acabo = ws(i6b + 5); K.echar = ws(i6b + 7); K.siesta6 = ws(i6b + 9); K.L6e = wE(i6b + 9);
   const i7 = find('ojo la primera hora', i6b); K.ojo = ws(i7); K.primera7 = ws(i7 + 2); K.seis7 = ws(i7 + 6); K.siete7 = ws(i7 + 8); K.asi7 = ws(i7 + 9); K.sexta7 = ws(i7 + 12); K.terminaba = ws(i7 + 16); K.justo7 = ws(i7 + 17); K.doce7 = ws(i7 + 20); K.L7e = wE(i7 + 20);
   const i8 = find('o sea si te la echas', i7); K.osea = ws(i8); K.echas8 = ws(i8 + 5); K.tres8 = ws(i8 + 8); K.media = ws(i8 + 10); K.para8 = ws(i8 + 11); K.romano = ws(i8 + 13); K.no8 = ws(i8 + 16); K.sexta8 = ws(i8 + 19); K.decima = ws(i8 + 22);
-  const i8b = find('llegas cuatro horas tarde', i8); K.llegas = ws(i8b); K.cuatro = ws(i8b + 1); K.tarde = ws(i8b + 3); K.propia = ws(i8b + 6); K.siesta8b = ws(i8b + 7);
+  const i8b = find('llegas tarde hasta a tu propia', i8); K.llegas = ws(i8b); K.tarde = ws(i8b + 1); K.hasta = ws(i8b + 2); K.propia = ws(i8b + 5); K.siesta8b = ws(i8b + 6);
   const i9 = find('a que hora te la echas tu', i8b); K.i13 = i9; K.aq = ws(i9); K.echas13 = ws(i9 + 5); K.tu13 = ws(i9 + 6); K.os = ws(i9 + 7); K.leo = ws(i9 + 8);
   const iye = find('y esto no venia en el libro', i9 + 1); K.iye = iye; K.yF = ws(iye); K.esto = ws(iye + 1); K.noF = ws(iye + 2); K.enL = ws(iye + 4); K.libro = ws(iye + 6); K.END = wE(iye + 6);
 }
