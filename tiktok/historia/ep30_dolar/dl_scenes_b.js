@@ -118,7 +118,7 @@ headline(S.G2[0], S.G2[1], 'hasta *80 años* después', { size: 100, hlT: K.oche
   box(c, 160, 984, 56, 56, { zIndex: 6, borderRadius: '50%', background: '#fff', border: `6px solid ${INK}` }).style.top = '984px';
   const y0 = chip(c, 80, 1060, '1776 · independencia', { size: 38, bg: '#fff', color: INK, z: 20 });
   const brk = box(c, 200, 920, 680, 60, { zIndex: 5, transformOrigin: '0 30px' }); brk.innerHTML = `<svg width="680" height="60" style="overflow:visible"><path d="M4,56 V20 H676 V56" stroke="${PINK}" stroke-width="10" fill="none" stroke-linejoin="round"/></svg>`;
-  const b80 = el('div', c, { left: '360px', top: '820px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', color: INK, background: YEL, border: `6px solid ${INK}`, borderRadius: '20px', padding: '0 24px 6px', boxShadow: `6px 6px 0 ${INK}`, zIndex: 20 }, '80 años');
+  const b80 = el('div', c, { left: '360px', top: '820px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '84px', color: INK, background: YEL, border: `6px solid ${INK}`, borderRadius: '20px', padding: '0 24px 6px', boxShadow: `6px 6px 0 ${INK}`, zIndex: 20 }, '+80 años');
   const st = stamp(c, 250, 1110, 'HASTA 1857', { size: 92, bw: 13, z: 40, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
   const bell = box(c, 560, 430, 300, 340, { zIndex: 8 }); bell.innerHTML = `<svg viewBox="0 0 300 340" width="100%" height="100%" style="overflow:visible">${bellSvg()}</svg>`;
   const crack = bell.querySelector('.crack');
@@ -167,7 +167,7 @@ const T_EMU = K.S7 + 0.1;
   rays(c, -160, 300, 1400, 24, 'rgba(255,62,165,.08)', 'rgba(0,0,0,0)', 0);
   const sB = box(c, 330, 720, 420, 476, { zIndex: 5 }); sB.innerHTML = woodLetterSvg('S');
   const uB = box(c, 380, 430, 320, 362, { zIndex: 6 }); uB.innerHTML = woodLetterSvg('U', RED);
-  const emu = mkEmuF(c, [560, 420, 520, 780]); emu.d.style.zIndex = 8;
+  const emu = mkEmuF(c, [480, 420, 520, 780]); emu.d.style.zIndex = 8;
   const eb = bubble(c, 520, 380, '¡mía!', { size: 60, it: true, tail: 'br', z: 55, pad: '4px 28px 10px', bg: '#FFF3A8' });
 }
 
@@ -212,7 +212,7 @@ ROWS8[0][1] = '45 ' + FR(1, 8);
   sceneBg(cam, { background: '#C7CCC2', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 4px, transparent 4px 120px)' });
   const QB = quoteBoard(cam, 70, 420, 870, ROWS8);
   const sg = box(cam, 300, 250, 520, 150, { zIndex: 40 }); sg.innerHTML = streetSignSvg('WALL ST');
-  const br = mk(cam, [600, 930, 360, 460], brokerInner(), '0 0 360 460', 'bust'); br.d.style.zIndex = 20;
+  const br = mk(cam, [560, 1060, 330, 420], brokerInner(), '0 0 360 460', 'bust'); br.d.style.zIndex = 20;
 }
 
 /* ======================================================================

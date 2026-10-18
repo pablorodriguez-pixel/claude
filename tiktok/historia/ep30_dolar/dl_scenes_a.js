@@ -182,7 +182,7 @@ headline(S.C3[0], S.C3[1], 'Era *español*: el peso', { size: 104, hlT: K.espano
 /* ======================================================================
    D1 · «SE ABREVIABA A MANO» — libro de cuentas con «250 pˢ» escrito con pluma
    ====================================================================== */
-headline(S.D1[0], S.D1[1], 'Se abreviaba *a mano*', { size: 104, hlT: K.mano, y: 210 });
+headline(S.D1[0], S.D1[1], 'Se abreviaba *a mano*', { size: 88, hlT: K.mano, y: 160 });
 {
   const RW = [];
   const c = scene(S.D1[0], S.D1[1], t => {
