@@ -84,7 +84,7 @@ Por qué ese remate: las medallas son lo más compartible; la muerte fingida cie
 Gancho del coordinador («Este español tenía 27 cuentas falsas... y con ellas troleó a Hitler»): mejorado, porque empezaba por «Este» (P3: la primera palabra tiene que ser el tema), duraba ~4,5 s y hacía esperar al «Hitler», que es lo que para el scroll.
 
 Notas de voz:
-- La L0, con energía y a volumen pleno; «troleó» bien marcado (si suena «tro-le-ó» en tres golpes raros, escribir «troleó a» → «la lió a»: NO, mejor regenerar la línea).
+- La L0, con energía y a volumen pleno, y «troleó» bien marcado. Si Whisper no lo oye limpio, se regenera solo esa línea (borrar clips/00.*), sin cambiar la palabra.
 - «Calais»: si la voz dice «ca-lais» a la inglesa, cambiar en la voz a «Calé». En pantalla, siempre «CALAIS».
 - «los del «visto»»: con retintín, con media sonrisa. «él mismo» (L11), con pausa antes y bajando.
 - Si la voz real pasa de 66 s, se corta en este orden: «Tres veces.» (L1, −0,9 s) → «esquela y todo» (L6, −1 s) → «Lo mandan a Londres.» por «Se queda en Lisboa» (−1,2 s). No se toca el tempo.
