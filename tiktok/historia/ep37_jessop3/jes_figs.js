@@ -41,7 +41,8 @@ function cofiaInner(o = {}) {
   s += `<path d="${frill}" fill="${CAP}" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/>`;
   for (let k = 0; k < 12; k++) { const a = Math.PI + (k + 0.5) / 12 * Math.PI; s += `<path d="M${f1(130 + Math.cos(a) * 80)},${f1(92 + Math.sin(a) * 46)} L${f1(130 + Math.cos(a) * 124)},${f1(92 + Math.sin(a) * 78)}" stroke="${INK}" stroke-width="1.6" opacity=".55"/>`; }
   s += `<path d="${band}" fill="#fff" stroke="${INK}" stroke-width="3.5"/><path d="${band}" fill="url(#hF)" opacity=".18"/><path d="M40,84 C80,64 180,64 220,84" stroke="${INK}" stroke-width="1.8" fill="none" stroke-dasharray="4 6"/>`;
-  if (!o.noBow) s += `<path d="M130,30 C112,10 96,16 100,30 C104,42 120,38 130,34 C140,38 156,42 160,30 C164,16 148,10 130,30 Z" fill="${o.bow || PINK}" stroke="${INK}" stroke-width="3"/><circle cx="130" cy="32" r="6" fill="${o.bow || PINK}" stroke="${INK}" stroke-width="2.5"/>`;
+  if (o.cross) s += `<rect x="116" y="30" width="28" height="40" rx="3" fill="#fff" stroke="${INK}" stroke-width="2.5"/><rect x="125" y="34" width="10" height="32" fill="${RED}"/><rect x="114" y="45" width="32" height="10" fill="${RED}"/>`;
+  else if (!o.noBow) s += `<path d="M130,30 C112,10 96,16 100,30 C104,42 120,38 130,34 C140,38 156,42 160,30 C164,16 148,10 130,30 Z" fill="${o.bow || PINK}" stroke="${INK}" stroke-width="3"/><circle cx="130" cy="32" r="6" fill="${o.bow || PINK}" stroke="${INK}" stroke-width="2.5"/>`;
   return s;
 }
 const cofiaSvg = (o) => `<svg viewBox="0 0 260 130" width="100%" height="100%" style="overflow:visible">${cofiaInner(o)}</svg>`;
@@ -74,8 +75,9 @@ function ladyInner(seed, hair = '#3a2a1e', dress = '#6b4a5a', o = {}) {
 }
 // Violet: uniforme de camarera azul marino + cofia (o toca de enfermera)
 function violetInner(o = {}) {
-  let s = ladyInner(o.seed || 28, '#4a2e1c', o.nurse ? '#e8e3d6' : NAVY, { collar: !o.nurse });
-  if (o.nurse) s += tocaOver();
+  // v4: con la Cruz Roja = su cara de siempre + cofia blanca con cruz roja (nada de capucha)
+  let s = ladyInner(o.seed || 28, '#4a2e1c', o.nurse ? '#d9d2c2' : NAVY, { collar: true });
+  if (o.nurse) s += `<g transform="translate(70,70) scale(0.85)">${cofiaInner({ cross: true })}</g><g transform="translate(180,420)"><rect x="-22" y="-22" width="44" height="44" fill="#fff" stroke="${INK}" stroke-width="3"/><rect x="-7" y="-17" width="14" height="34" fill="${RED}"/><rect x="-17" y="-7" width="34" height="14" fill="${RED}"/></g>`;
   else if (!o.noCap) s += `<g transform="translate(70,70) scale(0.85)">${cofiaInner({ noBow: false })}</g>`;
   return s;
 }

@@ -4,83 +4,83 @@
   "who": "VECINO",
   "text": "¡Titanic! Para ti fue una tragedia. Para esta mujer... solo el segundo susto.",
   "s": 0.12,
-  "e": 5.194
+  "e": 5.009
  },
  {
   "line": 1,
   "who": "VECINO",
   "text": "Se llamaba Violet Jessop, era camarera de barco, y trabajó en el Titanic y en sus dos barcos gemelos... y en los tres hubo un accidente con ella a bordo.",
-  "s": 5.544,
-  "e": 14.18
+  "s": 5.359,
+  "e": 13.995
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 14.88,
-  "e": 17.673
+  "s": 14.695,
+  "e": 17.488
  },
  {
   "line": 3,
   "who": "VECINO",
   "text": "¿Y cómo se sale viva de los tres? Te lo cuento barco a barco.",
-  "s": 18.023,
-  "e": 21.695
+  "s": 17.838,
+  "e": 21.51
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Uno: el Olympic, en mil novecientos once. Chocó contra un buque de guerra, pero no se hundió, y ella bajó sin un rasguño.",
-  "s": 22.045,
-  "e": 29.164
+  "s": 21.86,
+  "e": 28.979
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Dos: el Titanic, al año siguiente. Mientras se hundía, la subieron a un bote salvavidas y, según contó ella, le pusieron un bebé en los brazos.",
-  "s": 29.764,
-  "e": 37.599
+  "s": 29.579,
+  "e": 37.415
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Y tres: el Britannic, en plena guerra, convertido en barco hospital, y ella a bordo con la Cruz Roja. Chocó con una mina, y mientras se hundía, volvió a su camarote a por una sola cosa... ahora te digo cuál.",
-  "s": 38.299,
-  "e": 50.214
+  "s": 38.115,
+  "e": 50.029
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Y entonces vino lo peor: su bote acabó arrastrado hacia las hélices, que seguían girando, así que saltó al agua, se golpeó la cabeza... y aun así salió viva.",
-  "s": 50.814,
-  "e": 59.774
+  "s": 50.629,
+  "e": 59.589
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Ojo: lo del bebé solo lo cuenta ella en sus memorias, y nunca se supo de quién era.",
-  "s": 60.574,
-  "e": 65.052
+  "s": 60.389,
+  "e": 64.867
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "O sea: se le hundieron dos barcos encima, y lo único que volvió a buscar al camarote fue... su cepillo de dientes. Porque después del Titanic, era lo que más había echado de menos.",
-  "s": 65.402,
-  "e": 77.159
+  "s": 65.217,
+  "e": 76.974
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Y tú, si se hunde tu barco, ¿qué vuelves a buscar al camarote? Os leo.",
-  "s": 77.959,
-  "e": 82.829
+  "s": 77.774,
+  "e": 82.644
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 83.179,
-  "e": 85.543
+  "s": 82.994,
+  "e": 85.358
  }
 ]
