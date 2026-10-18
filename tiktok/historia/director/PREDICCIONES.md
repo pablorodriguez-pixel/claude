@@ -14,7 +14,8 @@ Hechas el 18/10/2026, antes de ver resultados. Base del canal: 2 de ~16 vídeos 
 | ep28 Violet Jessop (en guion) | — | 8–30 mil | 25 % | | |
 | ep29 «¿» solo en español (en guion) | — | 8–30 mil | 25 % | | |
 | ep30 «$» es español (en guion) | — | 8–30 mil | 25 % | | |
-| Petrov (cola) | — | 5–25 mil | 20 % | | |
+| ep31 Petrov | — | 5–25 mil | 20 % | | |
+| ep32 Siesta | — | 8–30 mil | 25 % | | |
 | Onoda (cola) | — | 5–20 mil | 15 % | | |
 
 Regla: si la realidad cae fuera del rango en más de la mitad, se recalibran RUBRICA.md (bandas y K1–K7) con los datos.
