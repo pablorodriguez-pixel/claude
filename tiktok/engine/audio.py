@@ -177,6 +177,12 @@ def lufs(x):
     os.remove(f)
     return float(re.findall(r'I:\s+(-?[\d.]+) LUFS', r)[-1])
 
+def true_peak(f):
+    """Pico real (dBTP) del audio de un archivo ya codificado."""
+    import re
+    r = subprocess.run(['ffmpeg', '-nostats', '-i', f, '-map', '0:a', '-af', 'ebur128=peak=true', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    return float(re.findall(r'Peak:\s+(-?[\d.]+) dBFS', r)[-1])
+
 def eq_music(x):
     """Hueco de frecuencias para la voz: baja 1–4 kHz y graves sucios en la música."""
     import tempfile, os
@@ -226,21 +232,29 @@ def main():
         if snr >= MIN_SNR_DB: break
         bed -= 2.0
     out = v + fx + mm
-    # volumen final: ganancia exacta hasta FINAL_LUFS + limitador suave de picos (sin bombeo de loudnorm)
-    for _ in range(3):
-        out = out * 10 ** ((FINAL_LUFS - lufs(out)) / 20)
-        thr, ceil = 0.6, 0.8   # techo ≈ -2 dBFS para que el AAC no sature
-        a = np.abs(out); over = a > thr
-        out[over] = np.sign(out[over]) * (thr + (ceil - thr) * np.tanh((a[over] - thr) / (ceil - thr)))
-    o = wave.open(d + '/mix.wav', 'wb'); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((np.clip(out, -1, 1) * 32767).astype(np.int16).tobytes()); o.close()
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', d + '/video_noaudio.mp4', '-i', d + '/mix.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-shortest', d + '/final.mp4'], check=True)
+    # volumen final: ganancia exacta hasta FINAL_LUFS + limitador suave de picos (sin bombeo de loudnorm).
+    # Se comprueba el pico REAL (dBTP) del final.mp4 ya en AAC: si pasa de -1, se baja el techo y se repite.
+    base = out; thr, ceil = 0.6, 0.8   # techo ≈ -2 dBFS para que el AAC no sature
+    for _intento in range(8):
+        out = base
+        for _ in range(3):
+            out = out * 10 ** ((FINAL_LUFS - lufs(out)) / 20)
+            a = np.abs(out); over = a > thr
+            out[over] = np.sign(out[over]) * (thr + (ceil - thr) * np.tanh((a[over] - thr) / (ceil - thr)))
+        o = wave.open(d + '/mix.wav', 'wb'); o.setnchannels(1); o.setsampwidth(2); o.setframerate(SR); o.writeframes((np.clip(out, -1, 1) * 32767).astype(np.int16).tobytes()); o.close()
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', d + '/video_noaudio.mp4', '-i', d + '/mix.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '44100', '-shortest', d + '/final.mp4'], check=True)
+        tp = true_peak(d + '/final.mp4')
+        if tp <= -1.0: break
+        thr, ceil = thr * 0.93, ceil * 0.93
     final_lufs = lufs(out)
     rep = {'final_LUFS': round(final_lufs, 1), 'voz_LUFS': VOICE_LUFS, 'musica_bajo_voz_LU': bed, 'ducking_dB': MUSIC_DUCK_DB, 'SNR_voz_musica_dB': round(float(snr), 1)}
     json.dump(rep, open(d + '/mix_report.json', 'w'))
     if abs(final_lufs - FINAL_LUFS) > 1.0: raise SystemExit(f'QA FALLIDA: volumen final {final_lufs:.1f} LUFS (objetivo {FINAL_LUFS})')
     pk_db = 20 * np.log10(np.max(np.abs(out)) + 1e-12)
-    rep['pico_dBFS'] = round(float(pk_db), 1)
+    rep['pico_dBFS'] = round(float(pk_db), 1); rep['pico_real_final_dBTP'] = round(tp, 1)
+    json.dump(rep, open(d + '/mix_report.json', 'w'))
     if pk_db > -1.0: raise SystemExit(f'QA FALLIDA: pico {pk_db:.1f} dBFS')
+    if tp > -1.0: raise SystemExit(f'QA FALLIDA: pico real del final.mp4 {tp:.1f} dBTP (máximo -1)')
     if snr < MIN_SNR_DB: raise SystemExit(f'QA FALLIDA: la voz solo está {snr:.1f} dB sobre la música (mínimo {MIN_SNR_DB})')
     print('ok', d + '/final.mp4', rep)
 

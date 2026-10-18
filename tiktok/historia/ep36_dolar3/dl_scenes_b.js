@@ -154,14 +154,13 @@ const T_EMU = K.hercules + 0.1;
     bandS.style.opacity = t > K.columnas + 0.2 ? 1 : 0.3;
     popA(sQ, t, K.columnas + 0.3, { r: -6 });
     // emú: asoma por detrás de la columna derecha, mira a cámara 0,6 s y se esconde
-    const ke = p(t, T_EMU - 0.1, 0.25, E.outBack) * (1 - p(t, T_EMU + 0.75, 0.25, E.inCubic));
-    set(emu.d, { x: (1 - ke) * 260, r: -8 + Math.sin(t * 10) * 2 });
+    const ke = p(t, T_EMU - 0.1, 0.25, E.outBack) * (1 - p(t, T_EMU + 1.2, 0.2, E.inCubic));
+    set(emu.d, { x: (1 - ke) * 420, r: -6 + Math.sin(t * 10) * 2 });
     face(emu, t, { look: [0, 0], blink: false, bL: 16, bR: 22, jaw: t > T_EMU + 0.1 && t < T_EMU + 0.4 ? 0.6 : 0 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E7D9BC' });
   halftone(c, 'rgba(43,33,24,.07)', 0);
-  const emuClip = box(c, 560, 380, 380, 820, { zIndex: 3, overflow: 'hidden' });
-  const emu = mkEmuF(emuClip, [120, 0, 300, 450]);
+  const emu = mkEmuF(c, [690, 700, 250, 375]); emu.d.style.zIndex = 8;
   const cl = box(c, 200, 400, 640, 720, { zIndex: 4 }); cl.innerHTML = columnsSvg(); const bandS = cl.querySelector('.bandS');
   const sQ = chip(c, 380, 1150, '¿la S?', { size: 60, bg: PINK, z: 31 });
 }
@@ -193,64 +192,81 @@ headline(S.H2[0], S.H2[1], 'Bonito, pero las *pruebas* dicen «pesos»', { size:
 }
 
 /* ======================================================================
-   K0 · «O SEA: CADA VEZ QUE VES EL SÍMBOLO DEL DÓLAR…» — el «$» en tu día a día: la tecla, el precio, el billete
+   K0 · «O SEA: CADA VEZ QUE TÚ ESCRIBES EL SÍMBOLO DEL DÓLAR…» — una mano escribe el $ en un papel… y se enciende la P escondida
    ====================================================================== */
-headline(S.K0[0], S.K0[1], 'el dinero más *poderoso* del mundo…', { size: 80, hlT: K.ves, y: 196 });
+headline(S.K0[0], S.K0[1], 'Cada vez que *tú escribes*…', { size: 88, hlT: K.escribes, y: 196 });
 {
+  const G = { x: 540, y: 820, s: 0.95 };          // el «$» del papel (coordenadas de escena)
+  const TSa = K.escribes - 0.05, TSb = K.simbolo9 + 0.35, TRa = TSb + 0.05, TRb = K.dolar9 + 0.35, TP = K.dolar9 + 0.75;
   const c = scene(S.K0[0], S.K0[1], t => {
-    set(ky, { s: pop(t, K.dolar9, 0.35), r: -6, o: t < K.dolar9 ? 0 : 1 });
-    set(pt, { s: pop(t, K.ves, 0.35), r: 5 + Math.sin(t * 4) * 2, o: t < K.ves ? 0 : 1 });
-    set(bl, { s: pop(t, S.K0[0] + 0.05, 0.4) * (1 + 0.04 * p(t, K.ves, 0.3, E.outBack)), r: -3 + wobble(t, 0.4, 1.5), o: 1 });
-    popA(chT, t, K.dolar9 + 0.15, { r: 4 });
-    RG.forEach((r, i) => set(r, { s: 1 + 0.6 * ((t * 1.2 + i / 3) % 1), o: t > K.dolar9 ? 1 - ((t * 1.2 + i / 3) % 1) : 0 }));
+    const kp = p(t, S.K0[0], 0.35, E.outBack);
+    set(pg, { y: (1 - kp) * 300, r: lerp(5, -1.5, kp) });
+    set(cam, { s: 1 + 0.12 * p(t, TP - 0.1, 0.5, E.inOutCubic) });
+    const ks = p(t, TSa, TSb - TSa, E.inOutCubic), kr = p(t, TRa, TRb - TRa, E.inOutCubic);
+    sI.style.strokeDashoffset = f1(1000 * (1 - ks)); rI.style.strokeDashoffset = f1(1000 * (1 - kr));
+    // la pluma (con la mano) sigue la punta del trazo
+    let tip;
+    if (t < TSa) tip = [G.x + 150, G.y - 330];
+    else if (t < TSb + 0.02) { const q = sI.getPointAtLength(ks * SL); tip = [G.x + q.x * G.s, G.y + q.y * G.s]; }
+    else if (t < TRb + 0.02) { tip = [G.x, G.y + lerp(-345, 345, kr) * G.s]; }
+    else tip = [G.x + 260, G.y + 250 - 60 * p(t, TRb, 0.5, E.outCubic)];
+    const wr = t >= TSa && t < TRb;
+    set(pen, { x: tip[0] - 60 + (wr ? Math.sin(t * 40) * 3 : 0), y: tip[1] - 236, r: wr ? 6 : 16, o: t > S.K0[0] + 0.1 ? 1 - p(t, TP + 0.6, 0.3) : 0 });
+    // la P escondida: el palo y la panza se iluminan en rosa
+    const kP = p(t, TP, 0.45, E.inOutCubic);
+    pB.style.strokeDashoffset = f1(1000 * (1 - kP)); pB.style.opacity = t > TP ? 1 : 0;
+    pS.style.opacity = t > TP ? 0.85 : 0;
+    popA(chP, t, TP + 0.3, { r: -5 });
+    set(arP, { o: t > TP + 0.3 ? 1 : 0, x: Math.sin(t * 9) * 8 });
+    popA(chT, t, K.tu9, { r: 4 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#F1D7DC' });
   halftone(c, 'rgba(43,33,24,.06)', 0);
-  const RG = [0, 1, 2].map(() => box(c, 340, 820, 400, 400, { zIndex: 2, borderRadius: '50%', border: `8px solid ${PINK}` }));
-  const ky = box(c, 110, 400, 260, 260, { zIndex: 8 }); ky.innerHTML = keySvg();
-  const chT = chip(c, 100, 690, 'tu teclado', { size: 46, bg: INK, color: YEL, z: 20 });
-  const pt = chip(c, 470, 470, '★ el más poderoso', { size: 54, bg: YEL, color: INK, z: 9 });
-  const bl = box(c, 170, 860, 740, 350, { zIndex: 7 }); bl.innerHTML = billSvg();
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: `${G.x}px ${G.y}px` });
+  const pg = box(cam, 0, 0, 1080, 1920);
+  ledgerPage(pg, 170, 390, 740, 860);
+  const gl = svgLayer(pg, 6);
+  gl.innerHTML = `<g transform="translate(${G.x} ${G.y}) scale(${G.s})">
+    <path class="pS" d="M0,-345 V345" stroke="${PINK}" stroke-width="92" fill="none" stroke-linecap="round" style="opacity:0"/>
+    <path class="pB" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M0,-330 C200,-356 300,-290 300,-160 C300,-20 170,20 0,8" stroke="${PINK}" stroke-width="40" fill="none" stroke-linecap="round" style="opacity:0"/>
+    <path class="sI" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="${S_PATH}" stroke="#3a2a6a" stroke-width="58" fill="none" stroke-linecap="round"/>
+    <path class="rI" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="M0,-345 V345" stroke="#3a2a6a" stroke-width="58" fill="none" stroke-linecap="round"/></g>`;
+  const sI = gl.querySelector('.sI'), rI = gl.querySelector('.rI'), pB = gl.querySelector('.pB'), pS = gl.querySelector('.pS');
+  const SL = sI.getTotalLength();
+  const pen = box(cam, 0, 0, 120, 240, { zIndex: 9 });
+  pen.innerHTML = quillSvg().replace('</svg>', `<g transform="translate(64 196) rotate(200) scale(1.5)">${gloveHand(0, 0, 0, 1)}</g></svg>`);
+  const chT = chip(c, 120, 1270, 'tú', { size: 60, bg: INK, color: YEL, z: 30 });
+  const chP = chip(c, 560, 1150, '¡la P escondida!', { size: 52, bg: PINK, z: 30 });
+  const arP = el('div', c, { left: '440px', top: '1080px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '100px', color: PINK, textShadow: OUTL(INK, 5), zIndex: 31, transform: 'rotate(-20deg)' }, '↖');
 }
 
 /* ======================================================================
-   K1 · «…ESTÁS LEYENDO "PESOS", EN ESPAÑOL» — el «$» se desmonta AL REVÉS: $ → pˢ → «PESOS» (golpe rosa)
+   K1 · «…ESTÁS ESCRIBIENDO "PESOS", EN ESPAÑOL» — la Pˢ nítida + sello «PESOS» (sin glifos intermedios)
    ====================================================================== */
+headline(S.K1[0], S.K1[1], '…estás *escribiendo*', { size: 100, hlT: K.leyendo, y: 196 });
 {
-  const TSTOP = S.K1[0] + 0.5, TR = K.leyendo - 0.1, TRe = K.pesos9 - 0.08;
   const c = scene(S.K1[0], S.K1[1], t => {
     set(ry, { r: t * 12 });
-    const spin = t < TSTOP ? Math.cos(2 * Math.PI * (t - TSTOP) / 0.8) : 1;
-    set(wrap, { sx: Math.max(0.07, Math.abs(spin)) * pop(t, S.K1[0], 0.35), sy: pop(t, S.K1[0], 0.35), o: 1 - p(t, K.pesos9 - 0.05, 0.15) });
-    const kr = p(t, TR, TRe - TR, E.inOutCubic);
-    const sx = lerp(S_BIG.x, S_SMALL.x, kr), sy = lerp(S_BIG.y, S_SMALL.y, kr) - Math.sin(kr * Math.PI) * 90, ss = lerp(S_BIG.s, S_SMALL.s, kr);
-    sG.setAttribute('transform', `translate(${f1(sx)} ${f1(sy)}) scale(${f1(ss * 1000) / 1000})`);
-    sP.setAttribute('stroke-width', f1(PG.sw / ss * lerp(1, 0.55, kr)));
-    bowl.style.strokeDashoffset = f1(1000 * (1 - p(t, TR + 0.15, 0.4, E.inOutCubic)));
-    stemX.style.opacity = 1 - p(t, TR, 0.2);
-    set(hd, { s: pop(t, S.K1[0] + 0.05, 0.3), r: -1.5, o: 1 - p(t, K.pesos9 - 0.05, 0.15) });
-    set(pw, { s: pop(t, K.pesos9 - 0.04, 0.35) * (1 + 0.04 * Math.sin(t * 8)), r: -4, o: t < K.pesos9 - 0.04 ? 0 : 1 });
-    pw.style.textShadow = (glitch(t, K.pesos9, 0.3) ? glitch(t, K.pesos9, 0.3) + ', ' : '') + OUTL(INK, 10);
-    pinkBg.style.opacity = t > K.pesos9 - 0.04 ? 1 : 0;
-    set(eqq, { s: pop(t, K.pesos9 + 0.15, 0.3), r: 4, o: t < K.pesos9 + 0.15 ? 0 : 1 });
-    set(chEs, { s: pop(t, K.espanol9 - 0.1, 0.3), r: -4, o: t < K.espanol9 - 0.1 ? 0 : 1 });
+    set(gw, { s: pop(t, S.K1[0] - 0.15, 0.4) * (1 + 0.02 * Math.sin(t * 4)), r: wobble(t, 0.5, 1.5), o: 1 });
+    stampA(pw, t, K.pesos9 - 0.02, -6, 1);
+    pw.style.textShadow = glitch(t, K.pesos9, 0.3) || 'none';
+    set(eqq, { s: pop(t, K.pesos9 + 0.3, 0.3), r: 3, o: t < K.pesos9 + 0.3 ? 0 : 1 });
+    set(chEs, { s: pop(t, K.en9 - 0.05, 0.3), r: -4, o: t < K.en9 - 0.05 ? 0 : 1 });
+    pinkBg.style.opacity = t > K.pesos9 - 0.02 ? 1 : 0;
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#F3EAD3', backgroundImage: 'repeating-linear-gradient(0deg, rgba(122,154,176,.35) 0 2px, transparent 2px 96px)' });
-  const ry = rays(c, -160, 160, 1400, 26, 'rgba(201,162,74,.18)', 'rgba(0,0,0,0)', 0);
   const pinkBg = box(c, 0, 0, 1080, 1920, { zIndex: 1, background: PINK }); halftone(pinkBg, 'rgba(0,0,0,.1)', 1);
-  const hd = BIGT(c, 0, 210, 1080, `…lleva <i>escrito</i>`, { fontSize: '100px', zIndex: 40 });
-  const wrap = box(c, 0, 0, 1080, 1920, { zIndex: 10, transformOrigin: '540px 760px' });
-  const gl = svgLayer(wrap, 5);
-  gl.innerHTML = `<g transform="translate(70 0)">
-    <path class="stemX" d="M${PG.x},${PG.top} V${PG.top - 40} M${PG.x},${PG.bot} V${PG.bot + 40}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/>
-    <path d="${P_STEM}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/>
-    <path class="bowl" pathLength="1000" stroke-dasharray="1000" stroke-dashoffset="1000" d="${P_BOWL}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/>
-    <g class="sG"><path class="sP" d="${S_PATH}" stroke="${INK}" stroke-width="${PG.sw}" fill="none" stroke-linecap="round"/></g></g>`;
-  const stemX = gl.querySelector('.stemX'), bowl = gl.querySelector('.bowl'), sG = gl.querySelector('.sG'), sP = gl.querySelector('.sP');
-  const pw = BIGT(c, 0, 590, 1080, '«PESOS»', { fontSize: '160px', color: YEL, zIndex: 30 });
-  const eqq = chip(c, 230, 860, '', { size: 70, bg: INK, color: YEL, z: 31 });
+  const ry = rays(c, -160, 160, 1400, 26, 'rgba(255,230,0,.25)', 'rgba(0,0,0,0)', 1);
+  // Pˢ nítida sobre una tarjeta de papel
+  const gw = box(c, 290, 360, 500, 560, { zIndex: 10, background: '#FBF6EA', border: `7px solid ${INK}`, borderRadius: '26px', boxShadow: `9px 10px 0 ${SH}` });
+  gw.innerHTML = `<svg viewBox="0 0 500 560" width="100%" height="100%"><g transform="translate(150 70)">
+    <path d="M0,0 V420" stroke="${INK}" stroke-width="44" stroke-linecap="round" fill="none"/>
+    <path d="M0,10 C130,-6 200,30 200,120 C200,214 116,240 0,232" stroke="${INK}" stroke-width="44" stroke-linecap="round" fill="none"/>
+    <g transform="translate(262 60) scale(0.24)"><path d="${S_PATH}" stroke="${INK}" stroke-width="150" fill="none" stroke-linecap="round"/></g></g></svg>`;
+  const pw = stamp(c, 220, 960, '«PESOS»', { size: 110, bw: 16, z: 40, bg: 'rgba(255,255,255,.96)', blend: 'normal' });
+  const eqq = chip(c, 300, 1160, '', { size: 60, bg: INK, color: YEL, z: 31 });
   eqq.innerHTML = `$ = p<span style="font-size:.6em;position:relative;top:-0.6em">s</span> = pesos`;
-  const chEs = chip(c, 330, 1050, 'en español', { size: 70, bg: '#fff', color: INK, z: 31 });
+  const chEs = chip(c, 640, 1250, 'en español', { size: 52, bg: '#fff', color: INK, z: 31 });
 }
 
 /* ======================================================================

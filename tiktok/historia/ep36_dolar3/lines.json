@@ -32,55 +32,55 @@
   "who": "VECINO",
   "text": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos».",
   "s": 15.578,
-  "e": 27.095
+  "e": 27.446
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó la raya que ves en el dólar.",
-  "s": 27.795,
-  "e": 35.147
+  "s": 28.146,
+  "e": 35.498
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español: el mismo valor... y el mismo símbolo.",
-  "s": 35.847,
-  "e": 43.042
+  "s": 36.198,
+  "e": 43.393
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete.",
-  "s": 43.542,
-  "e": 48.174
+  "s": 43.893,
+  "e": 48.525
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Ojo: hay quien dice que son las columnas de Hércules. Bonito, pero las pruebas dicen «pesos».",
-  "s": 48.874,
-  "e": 54.855
+  "s": 49.225,
+  "e": 55.505
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: el dinero más poderoso del mundo lleva escrito «pesos»... y en español.",
-  "s": 55.205,
-  "e": 61.359
+  "text": "O sea: cada vez que tú escribes el símbolo del dólar... estás escribiendo «pesos», en español.",
+  "s": 55.855,
+  "e": 63.365
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "¿Y en tu país, cómo le llamáis al dinero? Os leo.",
-  "s": 61.859,
-  "e": 64.574
+  "s": 63.865,
+  "e": 66.579
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 64.924,
-  "e": 67.208
+  "s": 66.929,
+  "e": 69.214
  }
 ]

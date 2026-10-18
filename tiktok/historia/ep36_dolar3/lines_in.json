@@ -7,7 +7,7 @@
   ]
  },
  "gap": 0.35,
- "inner_cap": 0.45,
+ "inner_cap": 0.8,
  "lines": [
   {
    "who": "VECINO",
@@ -53,7 +53,7 @@
   },
   {
    "who": "VECINO",
-   "text": "O sea: el dinero más poderoso del mundo lleva escrito «pesos»... y en español.",
+   "text": "O sea: cada vez que tú escribes el símbolo del dólar... estás escribiendo «pesos», en español.",
    "gap_after": 0.5
   },
   {

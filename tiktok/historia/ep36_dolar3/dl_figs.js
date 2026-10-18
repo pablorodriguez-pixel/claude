@@ -28,8 +28,8 @@ const K = {};
   const i8 = find('ojo hay quien dice', i7); K.ojo = ws(i8); K.otras = ws(i8 + 2); K.teorias = ws(i8 + 3); K.columnas = ws(i8 + 7); K.hercules = ws(i8 + 9); K.son = ws(i8 + 9);
   K.bonitas = ws(i8 + 10); K.pero8 = ws(i8 + 11); K.peso8 = ws(i8 + 13); K.tiene = ws(i8 + 13); K.pruebas = ws(i8 + 13); K.pesos8 = ws(i8 + 15);
   // L9 O sea
-  const i9 = find('o sea el dinero mas poderoso', i8); K.osea = ws(i9); K.cada = ws(i9 + 2); K.dinero9 = ws(i9 + 3); K.ves = ws(i9 + 5); K.simbolo9 = ws(i9 + 3); K.dolar9 = ws(i9 + 7); K.estas = ws(i9 + 8); K.leyendo = ws(i9 + 9);
-  K.pesos9 = ws(i9 + 10); K.en9 = ws(i9 + 12); K.espanol9 = ws(i9 + 13);
+  const i9 = find('o sea cada vez que tu escribes', i8); K.osea = ws(i9); K.cada = ws(i9 + 2); K.tu9 = ws(i9 + 5); K.escribes = ws(i9 + 6); K.ves = K.escribes; K.simbolo9 = ws(i9 + 8); K.dolar9 = ws(i9 + 10); K.dolar9E = wE(i9 + 10);
+  K.estas = ws(i9 + 11); K.leyendo = ws(i9 + 12); K.pesos9 = ws(i9 + 13); K.en9 = ws(i9 + 14); K.espanol9 = ws(i9 + 15);
   // L10 pregunta
   const i10 = find('y en tu pais como le llamais', i9); K.i10 = i10; K.y10 = ws(i10); K.tu10 = ws(i10 + 2); K.pais = ws(i10 + 3); K.como10 = ws(i10 + 4); K.llamais = ws(i10 + 6); K.dinero10 = ws(i10 + 8); K.os = ws(i10 + 9); K.leo = ws(i10 + 10);
   // L11 cierre

@@ -46,7 +46,7 @@ headline(S.A2[0], S.A2[1], 'Es una *palabra* en español', { size: 90, hlT: K.pa
 {
   const c = scene(S.A2[0], S.A2[1], t => {
     set(dl, { s: pop(t, S.A2[0], 0.35), r: -4 + wobble(t, 0.5, 2), o: 1 });
-    set(eq, { s: pop(t, S.A2[0] + 0.15, 0.3), o: t < S.A2[0] + 0.15 ? 0 : 1 });
+    set(eq, { s: pop(t, K.palabra0 - 0.15, 0.3), o: t < K.palabra0 - 0.15 ? 0 : 1 });
     TL.forEach((q, i) => {
       const t0 = K.palabra0 - 0.1 + i * 0.08;
       set(q.e, { s: pop(t, t0, 0.32), y: wobble(t, 0.6, 4, i), r: [-4, 3, -2, 4, -3][i], o: t < t0 ? 0 : 1 });
@@ -249,7 +249,7 @@ headline(K.en3 - 0.06, S.C2[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y:
    DOS: la S se desliza despacio y se monta encima de la P… y de la P solo queda una raya → «$»
    ====================================================================== */
 {
-  const T1 = K.P4 - 0.05, T1b = T1 + 0.32, TS = K.S4 - 0.04;
+  const T1 = S.D5[0] + 0.03, T1b = T1 + 0.32, TS = K.S4 - 0.04;
   const T2 = K.S5 - 0.06, T2e = K.P5e;                 // la S se desliza (≈ 2,5 s)
   const T3 = K.P5b - 0.08, T3e = T3 + 0.75;            // la panza de la P se borra
   const T4 = K.raya - 0.04;                            // queda el «$»

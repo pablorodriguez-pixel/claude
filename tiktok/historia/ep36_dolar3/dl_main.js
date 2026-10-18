@@ -23,7 +23,7 @@ const OV_VIS = [[S.D1[0], S.D5[0]], [S.F1[0], S.F3[0]], [S.G1[0], S.G2[0]], [S.H
 function ovalState(t) {
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
     const kin = pop(t, a, 0.4), kout = p(t, b - 0.14, 0.14, E.inCubic);
-    return { x: CX - kout * 300, y: CY, s: CS * kin, r: 0, o: 1 };
+    return { x: CX, y: CY, s: CS * kin, r: 0, o: 1 - kout };
   }
   return null;
 }
@@ -101,8 +101,8 @@ window.frame = t => {
   [S.G1[0], 'whoosh', .5], [K.pesos7 + 0.05, 'squish', .5], [S.G2[0], 'whoosh', .5], [K.mil, 'stamp', 1.0], [S.G2[0] + 0.35, 'cash', .7],
   [K.ojo, 'stamp', 1.0], [K.otras, 'pop', .5], [S.H1[0], 'whoosh', .5], [T_EMU, 'emu', .9],
   [S.H2[0], 'whoosh', .5], [K.bonitas, 'heart', .5], [K.tiene, 'stamp', .9],
-  [S.K0[0], 'whoosh', .6], [K.cada, 'click', .6], [K.ves, 'pop', .5], [K.simbolo9, 'cash', .6],
-  [S.K1[0], 'whoosh', .6], [K.leyendo, 'swoosh_up', .6], [K.pesos9, 'stamp', 1.2], [K.pesos9 + 0.05, 'glitch', .4], [K.espanol9, 'pop2', .5],
+  [S.K0[0], 'paper', .6], [K.tu9, 'pop', .5], [K.escribes, 'scratch', .45], [K.simbolo9 + 0.4, 'scratch', .45], [K.dolar9 + 0.75, 'sparkle', .7], [K.dolar9 + 1.05, 'ding', .5],
+  [S.K1[0], 'whoosh', .6], [K.pesos9, 'stamp', 1.2], [K.pesos9 + 0.05, 'glitch', .4], [K.espanol9, 'pop2', .5],
   [S.K2[0], 'whoosh', .6], [K.pais, 'pop', .4], [K.llamais, 'pop', .4], [K.os, 'ding', .7],
   [S.BK[0], 'whoosh', .5], [K.venia + 0.5, 'thud', 1.4], [LOOP, 'whoosh', .6],
 ].forEach(s => sfx(s[1], s[0], s[2]));

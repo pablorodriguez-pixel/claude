@@ -66,7 +66,7 @@ headline(S.BK[0], LOOP, 'Y esto… no venía en el *libro.*', { size: 88, hlT: K
     pageF.style.display = sx > 0 ? '' : 'none'; coverF.style.display = sx <= 0 ? '' : 'none';
     const closed = t > TC + 0.3;
     // al cerrarse, el libro (que solo ocupa la mitad derecha) se desplaza para quedar centrado
-    set(bookW, { x: 210 * 1.25 * p(t, TC + 0.05, 0.3, E.inOutCubic), s: 1.25 * pop(t, S.BK[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
+    set(bookW, { x: 210 * 1.1 * p(t, TC + 0.05, 0.3, E.inOutCubic), s: 1.1 * pop(t, S.BK[0] + 0.01, 0.3) * (1 + (closed ? 0.07 * (1 - p(t, TC + 0.3, 0.3)) : 0)), o: 1 });
     stars.forEach((s, i) => { const a = t * 4 + i * 2.1; set(s, { x: Math.cos(a) * 80, y: Math.sin(a) * 24, o: closed ? 1 : 0, r: t * 200 }); });
     puffs.forEach((f, i) => { const kf = p(t, TC + 0.3, 0.5, E.outCubic); set(f, { x: (i - 1.5) * 150 * kf, y: -kf * 120, s: 0.5 + kf, o: closed ? 1 - kf : 0 }); });
     // el Vecino asoma tras el libro y dice adiós con el abanico (rima con la mano de la portada)
