@@ -81,7 +81,7 @@ headline(S.R2[0], S.R2[1], 'lo único que volvió a buscar *fue…*', { size: 86
   box(cam, 0, 0, 1080, 1920, { zIndex: 1, background: 'repeating-linear-gradient(90deg, #8a5a36 0 120px, #7a4e2e 120px 240px)' });
   const lite = box(cam, 290, 500, 500, 740, { zIndex: 2, background: 'radial-gradient(circle at 50% 50%, #FFF3A8, #FFE600 60%, #d9a44a)' });
   const door = box(cam, 290, 500, 500, 740, { zIndex: 3, transformOrigin: '0px 370px', background: WOOD, border: `8px solid ${INK}`, boxSizing: 'border-box' });
-  door.innerHTML = `<div style="position:absolute;left:50px;top:50px;width:384px;height:270px;border:5px solid ${INK}"></div><div style="position:absolute;left:50px;top:380px;width:384px;height:280px;border:5px solid ${INK}"></div><div style="position:absolute;left:410px;top:350px;width:34px;height:34px;border-radius:50%;background:${BRASS};border:4px solid ${INK}"></div><div style="position:absolute;left:150px;top:110px;font-family:Rye;font-size:70px;color:${INK}">CAMAROTE</div>`;
+  door.innerHTML = `<div style="position:absolute;left:50px;top:50px;width:384px;height:270px;border:5px solid ${INK}"></div><div style="position:absolute;left:50px;top:380px;width:384px;height:280px;border:5px solid ${INK}"></div><div style="position:absolute;left:410px;top:350px;width:34px;height:34px;border-radius:50%;background:${BRASS};border:4px solid ${INK}"></div><div style="position:absolute;left:0;width:484px;text-align:center;top:118px;font-family:Rye;font-size:58px;color:${INK}">CAMAROTE</div>`;
   const q = qMark(cam, 440, 700, 280, YEL);
 }
 
@@ -101,7 +101,7 @@ headline(S.R2[0], S.R2[1], 'lo único que volvió a buscar *fue…*', { size: 86
   const ry = rays(c, -160, 160, 1400, 28, 'rgba(255,230,0,.28)', 'rgba(0,0,0,0)', 1);
   const gl = box(c, 90, 520, 900, 720, { zIndex: 2, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(255,230,0,.75), rgba(255,230,0,0))' });
   const br = box(c, 80, 760, 880, 193, { zIndex: 5 }); br.innerHTML = svgW(brushInner(), '0 0 820 180');
-  const stC = stamp(c, 170, 360, '¡EL CEPILLO!', { size: 120, bw: 15, z: 60, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
+  const stC = stamp(c, 150, 380, '¡EL CEPILLO!', { size: 96, bw: 14, z: 60, bg: 'rgba(255,255,255,.94)', blend: 'normal' });
   const SP = [[160, 660], [860, 640], [260, 1080], [780, 1100], [540, 600]].map(([x, y]) => el('div', c, { left: px(x), top: px(y), fontSize: '70px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 6 }, '✦'));
   chip(c, 300, 1110, 'de dientes', { size: 64, bg: PINK, z: 30 });
 }
@@ -145,7 +145,7 @@ colorHit(S.R4[0], S.R4[1], PINK, c => {
   const wt = box(c, 0, 0, 1140, 1920, { zIndex: 2 }); wt.innerHTML = waterSvg(1060, 400, 51, LAGOON, INK, 1140);
   const pb = box(c, 300, 800, 520, 312, { zIndex: 3, transformOrigin: '260px 290px' }); pb.innerHTML = svgW(paperBoatInner(), '0 0 600 360');
   const mkL = (y, sz) => el('div', c, { left: 0, top: px(y), width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: px(sz), lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 });
-  const l1 = mkL(230, 86), l2 = mkL(340, 112), l3 = mkL(470, 112), l4 = mkL(600, 92);
+  const l1 = mkL(236, 68), l2 = mkL(340, 112), l3 = mkL(470, 112), l4 = mkL(600, 92);
   const WD = [];
   [['Y TÚ,', l1, K.y10], ['si se hunde', l1, K.si10], ['tu barco…', l1, K.barco10], ['¿QUÉ', l2, K.que10], ['VUELVES', l2, K.vuelves], ['A BUSCAR', l3, K.buscar10], ['AL CAMAROTE?', l4, K.camarote10]].forEach(([s2, ln, tt]) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.15em'; if (s2 === 'VUELVES') { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('VUELVES', 'vhl', YEL); } else s.textContent = s2; ln.appendChild(s); WD.push({ e: s, t: tt }); });
   const vHL = c.querySelector('.vhl');

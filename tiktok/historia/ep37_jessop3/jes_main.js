@@ -19,7 +19,7 @@ const ovFrame = box(ovalW, -20, -36, OV.w + 40, OV.h + 80);
   <g transform="translate(${cx},${OV.h + 60})"><rect x="-104" y="-26" width="208" height="46" rx="10" fill="${INK}" stroke="${BRASS}" stroke-width="4"/><text x="0" y="8" text-anchor="middle" font-family="Rye" font-size="25" fill="${YEL}">EL VECINO</text></g></svg>`;
 }
 const CX = -41, CY = 45, CS = 0.75;
-const OV_VIS = [[S.M[0], S.M[1]], [S.J2[0], S.J5[0]], [S.R2[0], S.R4[0]], [S.CTA[0], S.CTA[1]]];
+const OV_VIS = [[S.M[0], S.M[1]], [S.C2[0], S.C2[1]], [S.R2[0], S.R2[1]], [S.CTA[0], S.CTA[1]]];
 function ovalState(t) {
   for (const [a, b] of OV_VIS) if (t >= a && t < b) {
     const kin = pop(t, a, 0.4), kout = p(t, b - 0.14, 0.14, E.inCubic);
@@ -28,7 +28,7 @@ function ovalState(t) {
   return null;
 }
 const IN = (t, a, b) => t > a && t < b;
-const LAUGH = [[K.dientes + 0.1, K.dientes + 0.9]];
+const LAUGH = [[K.ahora + 0.1, K.cual + 0.5]];
 function updOval(t) {
   const st = ovalState(t);
   if (!st) { ovalW.style.visibility = 'hidden'; return; }
@@ -37,12 +37,10 @@ function updOval(t) {
   const shk = inL ? Math.sin(t * 40) * 5 : 0;
   set(ovalW, { x: st.x, y: st.y + shk + wobble(t, 0.5, 2), s: st.s, r: st.r + (inL ? Math.sin(t * 20) * 2 : 0), o: st.o });
   const o = { jaw: talkW(t, 'VECINO'), look: [5, -2], bL: 0, bR: 0, fan: wobble(t, 0.8, 5), seed: 1.3 };
-  if (IN(t, K.uno3 - 0.1, K.uno3b + 0.5)) { o.bL = 8; o.bR = 8; o.look = [6, -4]; }
-  if (IN(t, K.camarote - 0.1, K.camarote + 0.7)) { o.bL = 14; o.bR = 14; o.look = [4, -6]; }
-  if (IN(t, K.cosa - 0.1, K.su8)) { o.bL = 2; o.bR = 20; o.look = [6, -4]; }
-  if (IN(t, K.cepillo - 0.1, K.dientes + 0.1)) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 14; o.bR = 14; o.look = [0, 0]; }
-  if (IN(t, K.cuarenta - 0.1, K.mas9 + 0.5)) { o.bL = 16; o.bR = 16; o.look = [0, -4]; }
-  if (IN(t, K.tu10 - 0.05, K.barco10 + 0.6)) { o.look = [0, 0]; o.bL = 10; o.bR = 10; }
+  if (IN(t, K.barco3 - 0.1, K.barco3b + 0.5)) { o.bL = 8; o.bR = 8; o.look = [6, -4]; }
+  if (IN(t, K.ahora - 0.1, K.cual + 0.6)) { o.bL = 2; o.bR = 20; o.look = [6, -4]; }
+  if (IN(t, K.fue - 0.2, S.R2[1])) { o.fan = Math.sin(t * 24) * 20 - 10; o.bL = 14; o.bR = 14; o.look = [0, 0]; }
+  if (IN(t, K.y10 - 0.05, K.camarote10 + 0.6)) { o.look = [0, 0]; o.bL = 10; o.bR = 10; }
   if (IN(t, K.os - 0.05, K.leo + 0.4)) { o.bL = 10; o.bR = 10; o.look = [0, 0]; }
   if (inL) { o.hm = true; o.closed = true; o.bL = 10; o.bR = 10; o.jaw = 0.3; }
   vecFace(vecO, t, o);
@@ -76,36 +74,39 @@ window.frame = t => {
 };
 
 /* ---------- temblores ---------- */
-[[K.titanic0, .25, 6], [K.tres1b, .2, 8], [K.tuvieron + 0.05, .2, 8], [K.accidente, .3, 12], [K.yesto2 - 0.04, .25, 8],
- [T_CRAC, .2, 16], [K.rasguno - 0.05, .3, 12], [K.ano - 0.08, .25, 8], [K.bebe, .2, 6], [STEPS[1].tDone, .25, 8],
- [T_BUM, .45, 24], [K.hundio, .3, 10], [K.helices, .25, 8], [K.salto - 0.04, .3, 14], [K.cabeza, .5, 26], [K.otra - 0.05, .3, 12],
- [K.ojo - 0.04, .35, 16], [K.cepillo - 0.05, .25, 8], [K.echado - 0.06, .25, 10], [K.tres9 - 0.05, .3, 14], [K.cuarenta - 0.05, .35, 16],
- [K.insumergible - 0.04, .35, 16], [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
+[[K.titanic0, .25, 6], [K.segundo - 0.05, .3, 12], [K.tres1, .2, 8], [K.hubo, .2, 8], [K.accidente, .3, 12], [K.yesto2 - 0.04, .25, 8],
+ [T_CRAC, .2, 16], [K.nohundio - 0.04, .25, 10], [K.sin - 0.04, .3, 12], [K.bebe, .2, 6], [STEPS[1].tDone, .25, 8],
+ [T_BUM, .45, 24], [K.peor - 0.05, .35, 14], [K.helices, .25, 8], [K.salto - 0.04, .3, 14], [K.cabeza, .5, 26], [K.salio - 0.05, .3, 12],
+ [K.ojo - 0.04, .35, 16], [K.nunca - 0.05, .25, 10], [K.hundieron, .3, 12], [K.cepillo - 0.04, .45, 22], [K.echado - 0.06, .25, 10],
+ [K.libro + 0.25, .5, 22]].forEach(s => shakeAt(s[0], s[1], s[2]));
 /* ---------- efectos de sonido ---------- */
 [
-  [0.03, 'whoosh', .6], [K.mujer - 0.05, 'swoosh_up', .6], [K.titanic0, 'gulp', .5], [S.A2[0], 'whoosh', .5], [K.raro - 0.05, 'boing', .5],
+  [0.03, 'whoosh', .6], [K.titanic0, 'gulp', .5], [K.tragedia, 'sad', .3], [S.A2[0], 'whoosh', .5], [K.segundo - 0.05, 'stamp', .9],
   [S.B1[0] + 0.05, 'paper', .6], [K.violet, 'type', .6], [S.B2[0], 'whoosh', .4], [K.camarera - 0.05, 'pop', .6],
-  [S.H1[0], 'whoosh', .5], [K.tres1 - 0.1, 'pop', .5], [K.hermanos - 0.05, 'pop', .5], [K.gemelos - 0.05, 'pop2', .6], [K.titanic1, 'ding', .5],
-  [K.tres1b, 'thud', .6], [K.tuvieron + 0.05, 'thud', .6], [K.accidente, 'burst', .8],
+  [S.H1[0], 'whoosh', .5], [K.titanic1 - 0.1, 'pop2', .6], [K.dos1 - 0.05, 'pop', .5], [K.gemelos - 0.05, 'pop', .5],
+  [K.tres1, 'thud', .6], [K.hubo, 'thud', .6], [K.accidente, 'burst', .8], [K.con1, 'boing', .4],
   [S.BAL[0] + 0.05, 'whoosh', .7], [K.soy, 'swoosh_up', .6], [K.vecino, 'pop', .6], [K.yesto2, 'pop2', .5],
-  [S.M[0], 'whoosh', .5], [S.M[0] + 0.05, 'pop', .4], [S.M[0] + 0.17, 'pop', .4], [S.M[0] + 0.29, 'pop', .4], [K.uno3, 'ding', .5],
+  [S.Q[0], 'whoosh', .5], [K.tres3 - 0.1, 'pop', .4], [K.tres3 + 0.02, 'pop', .4], [K.tres3 + 0.14, 'pop', .4],
+  [S.M[0], 'whoosh', .5], [S.M[0] + 0.05, 'pop', .4], [S.M[0] + 0.17, 'pop', .4], [S.M[0] + 0.29, 'pop', .4], [K.barco3, 'ding', .5],
   [STEPS[0].t0, 'swoosh_up', .7], [K.uno - 0.05, 'stamp', .9], [K.mil - 0.04, 'stamp', .6],
   [S.O2[0], 'whoosh', .4], [T_CRAC, 'thud', 1.0], [T_CRAC + 0.02, 'burst', .7],
-  [S.O3[0], 'whoosh', .4], [K.bordo - 0.05, 'pop', .5], [K.rasguno - 0.05, 'stamp', 1.0], [STEPS[0].tDone, 'scratch', .5], [STEPS[0].tDone + 0.18, 'ding', .6],
-  [STEPS[1].t0, 'swoosh_up', .7], [K.dos - 0.05, 'stamp', .9], [S.T2[0], 'whoosh', .4], [K.ano - 0.08, 'stamp', .7],
-  [S.T3[0], 'whoosh', .4], [K.bote5 - 0.05, 'pop', .5], [S.T4[0] + 0.02, 'swoosh_up', .5], [K.bebe, 'pop2', .7], [STEPS[1].tDone, 'scratch', .5], [STEPS[1].tDone + 0.18, 'ding', .6],
+  [S.O3[0], 'whoosh', .4], [K.nohundio - 0.04, 'stamp', .8], [K.sin - 0.04, 'stamp', 1.0], [STEPS[0].tDone, 'ding', .7],
+  [STEPS[1].t0, 'swoosh_up', .7], [K.dos - 0.05, 'stamp', .9], [K.ano - 0.04, 'stamp', .6], [S.T2[0], 'gulp', .5],
+  [S.T3[0], 'whoosh', .4], [K.bote5 - 0.05, 'pop', .5], [K.segun - 0.05, 'pop', .4], [K.pusieron - 0.3, 'swoosh_up', .5], [K.bebe, 'pop2', .7], [STEPS[1].tDone, 'ding', .7],
   [STEPS[2].t0, 'swoosh_up', .7], [K.tres6 - 0.05, 'stamp', .9], [K.plena - 0.05, 'pop', .5], [S.B2x[0], 'swoosh_up', .5], [K.hospital, 'sparkle', .5],
-  [S.B3x[0], 'whoosh', .4], [K.mina - 0.3, 'drumroll', .4], [T_BUM, 'burst', 1.1], [T_BUM + 0.05, 'thud', 1.0], [K.hundio, 'gulp', .6],
-  [S.B4x[0], 'whoosh', .4], [K.enfermera - 0.05, 'sparkle', .5],
+  [S.B4x[0], 'whoosh', .4], [K.cruz - 0.05, 'sparkle', .5],
+  [S.B3x[0], 'whoosh', .4], [K.mina - 0.3, 'drumroll', .4], [T_BUM, 'burst', 1.1], [T_BUM + 0.05, 'thud', 1.0], [K.hundia6, 'gulp', .6],
+  [S.C1[0], 'whoosh', .5], [K.camarote - 0.05, 'click', .6], [K.sola - 0.05, 'pop', .5], [S.C2[0], 'paper', .5], [K.cual, 'boing', .5],
+  [S.P0[0], 'whoosh', .5], [K.peor - 0.05, 'thud', .9],
   [S.P1[0], 'whoosh', .4], [K.arrastrado - 0.05, 'swoosh_up', .4], [S.P2[0], 'gulp', .5], [K.seguian, 'drumroll', .4],
   [K.salto - 0.04, 'swoosh_up', .8], [S.P4[0], 'gulp', .7], [K.cabeza, 'thud', 1.3], [K.cabeza + 0.05, 'burst', .6],
-  [S.P5[0], 'swoosh_up', .5], [K.otra - 0.05, 'stamp', 1.0], [STEPS[2].tDone, 'scratch', .5], [STEPS[2].tDone + 0.18, 'tada', .6],
-  [K.ojo - 0.04, 'stamp', 1.1], [S.J2[0], 'whoosh', .5], [K.camarote - 0.05, 'click', .6], [S.J3[0], 'paper', .5], [K.cosa, 'boing', .4],
-  [K.cepillo - 0.05, 'tada', .6], [K.cepillo + 0.1, 'sparkle', .5], [S.J5[0], 'whoosh', .5], [K.echado - 0.06, 'stamp', .8], [K.menos, 'heart', .5],
-  [S.R1[0], 'whoosh', .5], [K.tres9 - 0.05, 'stamp', 1.0], [K.naufragios + 0.1, 'stamp', .6], [K.naufragios + 0.45, 'stamp', .6], [K.naufragios + 0.8, 'stamp', .7],
-  [S.R2[0], 'whoosh', .4], [S.R3[0], 'whoosh', .5], [K.cuarenta - 0.05, 'stamp', 1.0],
-  [S.R4[0], 'whoosh', .5], [K.miss - 0.05, 'swoosh_up', .5], [K.insumergible - 0.04, 'stamp', 1.2], [T_EMU - 0.1, 'emu', .9],
-  [S.CTA[0], 'whoosh', .5], [K.vuelto, 'pop', .4], [K.os, 'ding', .7],
+  [S.P5[0], 'swoosh_up', .5], [K.salio - 0.05, 'stamp', 1.0], [STEPS[2].tDone + 0.05, 'tada', .6],
+  [K.ojo - 0.04, 'stamp', 1.1], [S.J2[0], 'paper', .6], [K.nunca - 0.05, 'stamp', .8],
+  [S.R1[0], 'whoosh', .5], [K.hundieron, 'gulp', .7], [T_EMU - 0.1, 'emu', .9],
+  [S.R2[0], 'whoosh', .4], [K.buscar9, 'drumroll', .5],
+  [K.cepillo - 0.04, 'stamp', 1.3], [K.cepillo, 'tada', .7], [K.cepillo + 0.1, 'sparkle', .5],
+  [S.R4[0], 'whoosh', .5], [K.echado - 0.06, 'stamp', .8], [K.menos, 'heart', .5],
+  [S.CTA[0], 'whoosh', .5], [K.vuelves, 'pop', .4], [K.os, 'ding', .7],
   [S.BAL2[0] + 0.05, 'whoosh', .6], [S.BK[0], 'whoosh', .5], [K.libro + 0.25, 'thud', 1.4], [LOOP, 'whoosh', .6],
 ].forEach(s => sfx(s[1], s[0], s[2]));
 

@@ -5,95 +5,95 @@
   {
    "n": 0,
    "s": 0.12,
-   "e": 4.684,
-   "dur": 4.56,
-   "palabras": 16,
-   "texto": "¡El símbolo del dólar no es la S que tú crees! Es una palabra en español."
+   "e": 2.727,
+   "dur": 2.61,
+   "palabras": 11,
+   "texto": "¡El símbolo del dólar no es la S que tú crees!"
   },
   {
    "n": 1,
-   "s": 5.034,
-   "e": 7.985,
-   "dur": 2.95,
-   "palabras": 6,
-   "texto": "Ese garabato, en realidad, pone «pesos»."
+   "s": 3.077,
+   "e": 6.905,
+   "dur": 3.83,
+   "palabras": 11,
+   "texto": "Es una palabra en español: ese garabato, en realidad, pone «pesos»."
   },
   {
    "n": 2,
-   "s": 8.685,
-   "e": 11.478,
+   "s": 7.605,
+   "e": 10.399,
    "dur": 2.79,
    "palabras": 10,
    "texto": "Soy tu vecino, y esto no venía en el libro."
   },
   {
    "n": 3,
-   "s": 11.828,
-   "e": 16.307,
+   "s": 10.749,
+   "e": 15.228,
    "dur": 4.48,
    "palabras": 14,
    "texto": "¿Cómo acaba una palabra española en el dinero de Estados Unidos? En tres pasos."
   },
   {
    "n": 4,
-   "s": 16.657,
-   "e": 28.174,
+   "s": 15.578,
+   "e": 27.095,
    "dur": 11.52,
    "palabras": 32,
    "texto": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos»."
   },
   {
    "n": 5,
-   "s": 28.874,
-   "e": 36.226,
+   "s": 27.795,
+   "e": 35.147,
    "dur": 7.35,
    "palabras": 27,
    "texto": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó la raya que ves en el dólar."
   },
   {
    "n": 6,
-   "s": 36.926,
-   "e": 44.121,
+   "s": 35.847,
+   "e": 43.042,
    "dur": 7.2,
    "palabras": 20,
    "texto": "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español: el mismo valor... y el mismo símbolo."
   },
   {
    "n": 7,
-   "s": 44.621,
-   "e": 49.253,
+   "s": 43.542,
+   "e": 48.174,
    "dur": 4.63,
    "palabras": 15,
    "texto": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete."
   },
   {
    "n": 8,
-   "s": 49.953,
-   "e": 56.346,
-   "dur": 6.39,
-   "palabras": 22,
-   "texto": "Ojo: hay otras teorías, como la de las columnas de Hércules. Son bonitas, pero la del peso es la que tiene pruebas."
+   "s": 48.874,
+   "e": 54.855,
+   "dur": 5.98,
+   "palabras": 16,
+   "texto": "Ojo: hay quien dice que son las columnas de Hércules. Bonito, pero las pruebas dicen «pesos»."
   },
   {
    "n": 9,
-   "s": 56.696,
-   "e": 62.85,
+   "s": 55.205,
+   "e": 61.359,
    "dur": 6.15,
    "palabras": 14,
    "texto": "O sea: el dinero más poderoso del mundo lleva escrito «pesos»... y en español."
   },
   {
    "n": 10,
-   "s": 63.35,
-   "e": 66.065,
+   "s": 61.859,
+   "e": 64.574,
    "dur": 2.71,
    "palabras": 11,
    "texto": "¿Y en tu país, cómo le llamáis al dinero? Os leo."
   },
   {
    "n": 11,
-   "s": 66.415,
-   "e": 68.699,
+   "s": 64.924,
+   "e": 67.208,
    "dur": 2.28,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -101,20 +101,20 @@
  ],
  "primera_palabra": "el",
  "primera_palabra_muletilla": false,
- "gancho_dur": 4.56,
- "gancho_palabras": 16,
+ "gancho_dur": 2.61,
+ "gancho_palabras": 11,
  "gancho_apela_a_ti": true,
  "gancho_es_pregunta": false,
  "marca_linea": 2,
  "marca_es_ultima": false,
- "marca_inicio_s": 8.685,
- "ojo_dur": 6.39,
+ "marca_inicio_s": 7.605,
+ "ojo_dur": 5.98,
  "cta_tipo": "abierta",
  "cta_texto": "¿Y en tu país, cómo le llamáis al dinero? Os leo.",
  "n_lineas": 12,
- "n_palabras": 194,
- "duracion_voz": 68.7,
- "ppm": 169.4,
+ "n_palabras": 188,
+ "duracion_voz": 67.21,
+ "ppm": 167.8,
  "lineas_mas_largas": [
   [
    4,
@@ -133,5 +133,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep36_dolar3/final.mp4",
- "duracion_video": 69.33
+ "duracion_video": 67.83
 }

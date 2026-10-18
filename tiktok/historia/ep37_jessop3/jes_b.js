@@ -158,7 +158,7 @@ const T_CRAC = K.choco1 + 0.12;
     const kh = p(t, S.T2[0], S.T2[1] - S.T2[0], E.inCubic);
     set(bw, { x: -60 * kh, y: Math.sin(t * 2) * 4 + 180 * kh, r: 2 + 12 * kh });
     set(ice, { x: -50 * p(t, S.T2[0], 1.7, E.linear), y: Math.sin(t * 1.4) * 3 });
-    popA(cal, t, K.hundia5 - 0.05, { r: -4 });
+    popA(cal, t, S.T2[0] + 0.1, { r: -4 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '600px 900px' });
   sceneBg(cam, { background: `linear-gradient(180deg, #0f1824 0%, ${NIGHT} 60%, #2c3d55 100%)` });
@@ -501,8 +501,8 @@ headline(S.P0[0], S.P0[1], 'Y entonces vino *lo peor*', { size: 100, hlT: K.peor
 
 /* rótulo del CAMAROTE con «?»: la promesa de L6 sigue abierta hasta que se paga en L9 */
 {
-  const tag = el('div', world, { left: '790px', top: '486px', zIndex: 790, visibility: 'hidden' });
+  const tag = el('div', world, { left: '40px', top: '486px', zIndex: 790, visibility: 'hidden' });
   tag.innerHTML = `<svg width="150" height="170" style="overflow:visible">${cut('<rect x="10" y="10" width="120" height="150" rx="10"/>', 5, 6)}<rect x="10" y="10" width="120" height="150" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="26" y="26" width="88" height="118" rx="4" fill="none" stroke="${INK}" stroke-width="3"/><circle cx="108" cy="90" r="7" fill="${BRASS}" stroke="${INK}" stroke-width="2"/><text x="70" y="112" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="96" fill="${YEL}" stroke="${INK}" stroke-width="4" paint-order="stroke">?</text></svg>`;
-  const T0 = S.P0[0], T1 = S.R2[0];
+  const T0 = S.P0[0], T1 = S.R1[0];
   SCX.push(t => { const on = t >= T0 && t < T1; tag.style.visibility = on ? 'visible' : 'hidden'; if (on) set(tag, { s: pop(t, T0, 0.35), r: -6 + Math.sin(t * 3) * 4, y: Math.sin(t * 2.2) * 5 }); });
 }

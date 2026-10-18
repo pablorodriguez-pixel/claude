@@ -35,7 +35,7 @@ function medalCross(pa, x, y, w, o = {}) {
     face(hit, t, { look: eng ? [0, -2] : [4, -7], bL: eng ? 16 : 4, bR: eng ? 16 : 8, seed: 0.4 });
     // el español: silueta con «?» hasta que la voz dice «español»
     const rev = t > K.espanol0 - 0.04;
-    pj.d.style.filter = rev ? 'none' : 'brightness(0.18) sepia(.4)';
+    pj.d.style.filter = rev ? 'none' : 'brightness(0) invert(.8) sepia(.75) contrast(.9)';
     set(pj.d, { y: wobble(t, 0.55, 3, 1), s: rev ? 1 + 0.08 * (1 - p(t, K.espanol0 - 0.04, 0.3, E.outCubic)) : 1 });
     face(pj, t, { look: [-6, -4], bL: 6, bR: eng ? 18 : 10, closed: eng && t < K.engano0 + 0.35 && t > K.engano0 + 0.05, seed: 2 });
     set(qm, { o: rev ? 0 : 1, r: Math.sin(t * 4) * 10, s: 1 + 0.08 * Math.sin(t * 6) });
@@ -196,17 +196,17 @@ headline(S.T3[0], S.T3[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y: 220 
 {
   const c = scene(S.P1c[0], S.P1c[1], t => {
     set(of.d, { s: pop(t, S.P1c[0], 0.3), y: wobble(t, 0.5, 3) });
-    face(of, t, { look: t > K.alemanes4 ? [0, 6] : [-6, 4], bL: t > K.alemanes4 ? 12 : 0, bR: t > K.alemanes4 ? 12 : 6, seed: 0.6 });
+    face(of, t, { look: t > K.espia4 ? [0, 6] : [-6, 4], bL: t > K.espia4 ? 12 : 0, bR: t > K.espia4 ? 12 : 6, seed: 0.6 });
     const kf = p(t, S.P1c[0] + 0.02, 0.32, E.outBack);
     set(file, { y: (1 - kf) * 700, r: -4 + wobble(t, 0.4, 0.5) });
-    stampA(stA, t, K.alemanes4, -10, 1);
-    popA(chA, t, K.alemanes4 - 0.1, { r: 3 });
+    stampA(stA, t, K.espia4, -10, 1);
+    popA(chA, t, K.alemanes4 - 0.05, { r: 3 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#C9C6B8', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 4px, transparent 4px 96px)' });
   const of = mk(c, [420, 400, 480, 613], officerInner(), '0 0 360 460', 'bust'); of.d.style.zIndex = 4;
   box(c, 0, 1000, 1080, 300, { zIndex: 6, background: WOOD, borderTop: `7px solid ${INK}`, backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.15) 0 3px, transparent 3px 30px)' });
   const file = box(c, 80, 760, 580, 400, { zIndex: 8, background: '#F2E2B8', border: `6px solid ${INK}`, borderRadius: '10px', boxShadow: `10px 10px 0 ${SH}` });
-  el('div', file, { left: '30px', top: '24px', fontFamily: 'SpecialElite', fontSize: '42px', color: INK, lineHeight: 1.35, whiteSpace: 'nowrap' }, 'SOLICITUD DE AGENTE<br>Nombre: J. Pujol<br>Se ofrece a: Alemania');
+  el('div', file, { left: '30px', top: '24px', fontFamily: 'SpecialElite', fontSize: '42px', color: INK, lineHeight: 1.35, whiteSpace: 'nowrap' }, 'SOLICITUD DE ESPÍA<br>Nombre: J. Pujol<br>Para: Alemania');
   const stA = stamp(c, 130, 1010, 'ACEPTADO', { size: 96, bw: 12, z: 40, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
   const chA = chip(c, 560, 1180, 'los alemanes', { size: 48, bg: INK, color: '#fff', z: 30 });
 }
@@ -215,11 +215,14 @@ headline(S.T3[0], S.T3[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y: 220 
 {
   const c = scene(S.P1d[0], S.P1d[1], t => {
     set(ry, { r: t * 12 });
-    set(wrap, { s: 1 + 0.12 * (1 - p(t, S.P1d[0], 0.35, E.outCubic)), y: wobble(t, 0.5, 4), r: wobble(t, 0.4, 1.2) });
-    face(pb, t, { look: [6, 0], bL: 4, bR: 16, closed: t > K.dentro && t < K.dentro + 0.3, seed: 1 });
+    const f2 = t > K.ingleses4b - 0.06;
+    set(wrap, { s: (f2 ? 0.86 : 1) + 0.12 * (1 - p(t, S.P1d[0], 0.35, E.outCubic)), x: f2 ? -150 : 0, y: wobble(t, 0.5, 4), r: wobble(t, 0.4, 1.2) });
+    face(pb, t, { look: f2 ? [8, -2] : [6, 0], bL: 4, bR: 16, closed: t > K.dentro && t < K.dentro + 0.3, seed: 1 });
+    set(dB, { s: pop(t, K.ingleses4b - 0.06, 0.35), r: 3 + wobble(t, 0.4, 0.6), o: f2 ? 1 : 0 });
+    set(hB, { o: t > K.fin4 ? 1 : 0, y: -((t * 40) % 60), s: 1 + 0.1 * Math.sin(t * 9) });
     puffs.forEach((f, i) => { const kf = p(t, S.P1d[0], 0.5, E.outCubic); set(f, { x: Math.cos(i * 1.3) * 260 * kf, y: Math.sin(i * 1.3) * 200 * kf, s: 0.4 + kf * 1.2, o: kf < 1 ? 1 - kf : 0 }); });
     popA(on, t, S.P1d[0] + 0.08, { r: -4 });
-    set(fing, { s: pop(t, K.dentro - 0.15, 0.3), r: 10 + Math.sin(t * 8) * 6, o: t < K.dentro - 0.15 ? 0 : 1 });
+    set(fing, { s: pop(t, K.fin4 - 0.1, 0.3), r: 10 + Math.sin(t * 8) * 6, o: t < K.fin4 - 0.1 ? 0 : 1 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#2B2118' });
   const ry = rays(c, -160, 240, 1400, 24, 'rgba(255,230,0,.10)', 'rgba(0,0,0,0)', 0);
@@ -227,7 +230,9 @@ headline(S.T3[0], S.T3[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y: 220 
   const pb = mk(wrap, [250, 440, 580, 741], pujolInner({ spy: true, tie: INK }), '0 0 360 460', 'bust');
   const puffs = [0, 1, 2, 3, 4, 5].map(() => box(c, 470, 760, 150, 110, { borderRadius: '50%', background: '#F4ECDB', border: `5px solid ${INK}`, zIndex: 8 }));
   const on = chip(c, 190, 1150, 'PLAN: ENGAÑARLOS', { size: 60, bg: YEL, color: INK, z: 30 });
-  const fing = el('div', c, { left: '730px', top: '880px', fontSize: '120px', zIndex: 32 }, '🤞');
+  const fing = el('div', c, { left: '460px', top: '880px', fontSize: '120px', zIndex: 32 }, '🤞');
+  const dB = box(c, 640, 600, 270, 470, { zIndex: 20 }); dB.innerHTML = doorSvg('BRITISH');
+  const hB = el('div', c, { left: '730px', top: '520px', fontSize: '80px', color: PINK, textShadow: `3px 3px 0 ${INK}`, zIndex: 41 }, '♥');
 }
 
 /* ======================================================================
