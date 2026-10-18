@@ -61,8 +61,8 @@
    ====================================================================== */
 {
   const c = scene(S.F3[0], S.F3[1], t => {
-    set(cA, { s: pop(t, S.F3[0], 0.3), r: -4 + wobble(t, 0.4, 1), o: 1 });
-    set(cB, { s: pop(t, S.F3[0] + 0.1, 0.3), r: 4 + wobble(t, 0.4, 1, 1), o: 1 });
+    set(cA, { s: pop(t, S.F3[0] - 0.2, 0.3), r: -4 + wobble(t, 0.4, 1), o: 1 });
+    set(cB, { s: pop(t, S.F3[0] - 0.12, 0.3), r: 4 + wobble(t, 0.4, 1, 1), o: 1 });
     set(eq, { s: pop(t, K.mismo6, 0.35) * (1 + 0.05 * Math.sin(t * 6)), o: t < K.mismo6 ? 0 : 1 });
     popA(chV, t, K.mismo6 + 0.05, { r: -3 });
     [dA, dB].forEach((d, i) => { const t0 = K.mismo6b - 0.1 + i * 0.12; set(d, { s: pop(t, t0, 0.35), r: [-6, 6][i], o: t < t0 ? 0 : 1 }); });
@@ -130,7 +130,7 @@
 /* ======================================================================
    H0 · «OJO: HAY OTRAS TEORÍAS…» — sello ¡OJO! y tres fichas de teoría con «?»
    ====================================================================== */
-headline(S.H0[0], S.H0[1], 'Ojo: hay *otras teorías*', { size: 96, hlT: K.otras, y: 196 });
+headline(S.H0[0], S.H0[1], 'Ojo: hay *quien dice*…', { size: 100, hlT: K.otras, y: 196 });
 {
   const c = scene(S.H0[0], S.H0[1], t => {
     stampA(ojo, t, K.ojo, -8, 1);
@@ -169,7 +169,7 @@ const T_EMU = K.hercules + 0.1;
 /* ======================================================================
    H2 · «SON BONITAS, PERO LA DEL PESO ES LA QUE TIENE PRUEBAS» — dos fichas: columnas ♥ / libro de cuentas pˢ con sello
    ====================================================================== */
-headline(S.H2[0], S.H2[1], 'Son bonitas… pero la del peso *tiene pruebas*', { size: 84, hlT: K.tiene, y: 196 });
+headline(S.H2[0], S.H2[1], 'Bonito, pero las *pruebas* dicen «pesos»', { size: 84, hlT: K.pruebas, y: 196 });
 {
   const c = scene(S.H2[0], S.H2[1], t => {
     set(cA, { s: pop(t, S.H2[0], 0.3) * (t > K.peso8 ? 0.9 : 1), r: -4, o: t > K.peso8 ? 0.55 : 1 });

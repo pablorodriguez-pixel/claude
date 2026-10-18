@@ -3,9 +3,10 @@ const ws = i => W[i].s, wE = i => W[i].e;
 const K = {};
 {
   // L0 gancho
-  K.simbolo0 = ws(1); K.dolar0 = ws(3); K.no0 = ws(4); K.una0 = ws(6); K.S0 = ws(7); K.crees = ws(10); K.es0 = ws(11); K.palabra0 = ws(13); K.espanol0 = ws(15);
+  K.simbolo0 = ws(1); K.dolar0 = ws(3); K.no0 = ws(4); K.una0 = ws(6); K.S0 = ws(7); K.crees = ws(10);
   // L1 respuesta
-  const i1 = find('ese garabato en realidad'); K.ese1 = ws(i1); K.garabato = ws(i1 + 1); K.realidad = ws(i1 + 3); K.pone1 = ws(i1 + 4); K.pesos1 = ws(i1 + 5);
+  const i1 = find('es una palabra en espanol ese garabato'); K.es0 = ws(i1); K.palabra0 = ws(i1 + 2); K.espanol0 = ws(i1 + 4);
+  K.ese1 = ws(i1 + 5); K.garabato = ws(i1 + 6); K.realidad = ws(i1 + 8); K.pone1 = ws(i1 + 9); K.pesos1 = ws(i1 + 10);
   // L2 marca
   const is = find('soy tu vecino y esto', i1); K.isoy = is; K.soy = ws(is); K.vecino = ws(is + 2); K.iye = is + 3; K.esto2 = ws(is + 4); K.libro2 = ws(is + 9);
   // L3 bucle numerado
@@ -24,8 +25,8 @@ const K = {};
   // L7 hasta 1857
   const i7 = find('tanto que alli se pudo', i6); K.tanto7 = ws(i7); K.alli = ws(i7 + 2); K.pagar = ws(i7 + 5); K.pesos7 = ws(i7 + 7); K.espanoles7 = ws(i7 + 8); K.hasta7 = ws(i7 + 9); K.mil = ws(i7 + 10); K.siete = ws(i7 + 14); K.sieteE = wE(i7 + 14);
   // L8 Ojo
-  const i8 = find('ojo hay otras teorias', i7); K.ojo = ws(i8); K.otras = ws(i8 + 2); K.teorias = ws(i8 + 3); K.columnas = ws(i8 + 8); K.hercules = ws(i8 + 10); K.son = ws(i8 + 11);
-  K.bonitas = ws(i8 + 12); K.pero8 = ws(i8 + 13); K.peso8 = ws(i8 + 16); K.tiene = ws(i8 + 20); K.pruebas = ws(i8 + 21);
+  const i8 = find('ojo hay quien dice', i7); K.ojo = ws(i8); K.otras = ws(i8 + 2); K.teorias = ws(i8 + 3); K.columnas = ws(i8 + 7); K.hercules = ws(i8 + 9); K.son = ws(i8 + 9);
+  K.bonitas = ws(i8 + 10); K.pero8 = ws(i8 + 11); K.peso8 = ws(i8 + 13); K.tiene = ws(i8 + 13); K.pruebas = ws(i8 + 13); K.pesos8 = ws(i8 + 15);
   // L9 O sea
   const i9 = find('o sea el dinero mas poderoso', i8); K.osea = ws(i9); K.cada = ws(i9 + 2); K.dinero9 = ws(i9 + 3); K.ves = ws(i9 + 5); K.simbolo9 = ws(i9 + 3); K.dolar9 = ws(i9 + 7); K.estas = ws(i9 + 8); K.leyendo = ws(i9 + 9);
   K.pesos9 = ws(i9 + 10); K.en9 = ws(i9 + 12); K.espanol9 = ws(i9 + 13);
@@ -36,8 +37,8 @@ const K = {};
 }
 /* cortes de escena: un plano nuevo cada 1,5–2,5 s; ningún dato en pantalla menos de 1,5 s */
 const S = {
-  A: [-1, K.es0 - 0.1], A2: [K.es0 - 0.1, K.ese1 - 0.1],
-  B1: [K.ese1 - 0.1, K.pone1 - 0.1], B2: [K.pone1 - 0.1, K.soy + 0.12],
+  A: [-1, wE(10) + 0.1], A2: [wE(10) + 0.1, K.garabato - 0.12],
+  B1: [K.garabato - 0.12, K.pone1 - 0.1], B2: [K.pone1 - 0.1, K.soy + 0.12],
   BAL: [K.soy + 0.12, K.como3 - 0.12],
   C1: [K.como3 - 0.12, K.dinero3 - 0.1], C2: [K.dinero3 - 0.1, K.uno - 0.12],
   // UNO
@@ -48,7 +49,7 @@ const S = {
   F1: [K.cuando - 0.1, K.lo6 - 0.1], F2: [K.lo6 - 0.1, K.el6 - 0.1], F3: [K.el6 - 0.1, K.alli - 0.1],
   G1: [K.alli - 0.1, K.hasta7 - 0.1], G2: [K.hasta7 - 0.1, K.ojo - 0.12],
   // OJO
-  H0: [K.ojo - 0.12, K.columnas - 0.15], H1: [K.columnas - 0.15, K.bonitas - 0.1], H2: [K.bonitas - 0.1, K.osea - 0.1],
+  H0: [K.ojo - 0.12, K.columnas - 0.35], H1: [K.columnas - 0.35, K.bonitas - 0.1], H2: [K.bonitas - 0.1, K.osea - 0.1],
   // O SEA
   K0: [K.osea - 0.1, K.estas - 0.1], K1: [K.estas - 0.1, K.y10 - 0.1],
   K2: [K.y10 - 0.1, K.y11 - 0.12],
