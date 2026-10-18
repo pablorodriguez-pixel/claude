@@ -4,90 +4,90 @@
   "who": "VECINO",
   "text": "¡Titanic! Tú no salías vivo. Esta camarera, sí.",
   "s": 0.12,
-  "e": 4.067
+  "e": 4.212
  },
  {
   "line": 1,
   "who": "VECINO",
   "text": "Violet Yésop, nacida en Argentina. En el bote le lanzan un bulto...",
-  "s": 4.307,
-  "e": 8.292
+  "s": 4.452,
+  "e": 8.437
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Un bebé. Que no era suyo. Al rescatarlos, cuenta, una mujer se lo arrancó. Ni las gracias.",
-  "s": 8.532,
-  "e": 16.182
+  "s": 8.677,
+  "e": 16.328
  },
  {
   "line": 3,
   "who": "VECINO",
   "text": "¿Fin? Qué va: el Titanic no fue el único. Tenía dos gemelos... y ella, en los tres.",
-  "s": 16.422,
-  "e": 23.24
+  "s": 16.568,
+  "e": 23.386
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Antes, al Olympic lo embistió un buque de guerra. ¿Tú lo dejas? Ella se pasó... al Titanic.",
-  "s": 23.48,
-  "e": 30.384
+  "text": "Al Olympic lo embistió un buque de guerra. ¿Tú lo dejas? Ella se pasó... al Titanic.",
+  "s": 23.626,
+  "e": 29.864
  },
  {
   "line": 5,
   "who": "VECINO",
   "text": "Y el Britannic, de enfermera. Una mina... y vuelve al camarote.",
-  "s": 30.624,
-  "e": 35.608
+  "s": 30.104,
+  "e": 35.088
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "¿A por qué? A por el cepillo de dientes. Del Titanic salió sin él.",
-  "s": 35.848,
-  "e": 41.39
+  "s": 35.328,
+  "e": 40.869
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Sube a un bote... y el agua lo arrastra a las hélices, que siguen girando.",
-  "s": 41.63,
-  "e": 48.036
+  "s": 41.109,
+  "e": 47.516
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Salta. Golpe en la cabeza... y sale viva. Con el cráneo roto, según contó.",
-  "s": 48.276,
-  "e": 54.428
+  "s": 47.756,
+  "e": 53.907
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "¿Y después? Volvió al mar. Décadas. Dio la vuelta al mundo... en barco.",
-  "s": 54.668,
-  "e": 62.008
+  "text": "¿Y después? Volvió al mar. Dio la vuelta al mundo... en barco.",
+  "s": 54.147,
+  "e": 59.8
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Tres barcos lo intentaron. Ninguno pudo. Murió a los ochenta y tres, en tierra firme.",
-  "s": 62.248,
-  "e": 68.379
+  "s": 60.04,
+  "e": 66.171
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "¿Tú volverías a subirte a uno? Os leo.",
-  "s": 68.619,
-  "e": 71.183
+  "s": 66.411,
+  "e": 68.976
  },
  {
   "line": 12,
   "who": "VECINO",
   "text": "Soy tu vecino... y esto no venía en el libro.",
-  "s": 71.423,
-  "e": 74.717
+  "s": 69.216,
+  "e": 72.509
  }
 ]
