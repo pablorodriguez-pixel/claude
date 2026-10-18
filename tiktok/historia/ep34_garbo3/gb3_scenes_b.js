@@ -153,7 +153,7 @@ function chanBase(c) {
   el('div', strip, { left: '36px', top: '30px', fontFamily: 'SpecialElite', fontSize: '40px', color: '#6a5a48', whiteSpace: 'nowrap' }, 'MENSAJE DE GARBO · 9 JUN 1944');
   box(strip, 30, 96, 748, 4, { background: INK, opacity: 0.4 });
   const tx = el('div', strip, { left: '36px', top: '150px', width: '740px', fontFamily: 'SpecialElite', fontSize: '92px', lineHeight: 1.15, color: INK }, '');
-  const to = el('div', strip, { left: '36px', top: '400px', fontFamily: 'SpecialElite', fontSize: '42px', color: RED, whiteSpace: 'nowrap' }, 'PARA: HITLER Y SU ALTO MANDO');
+  const to = el('div', strip, { left: '36px', top: '400px', fontFamily: 'SpecialElite', fontSize: '42px', color: RED, whiteSpace: 'nowrap' }, 'MADRID → BERLÍN → HITLER');
   const mach = box(c, 280, 960, 520, 300, { zIndex: 8 }); mach.innerHTML = telexSvg();
   const gb = pujolAv(c, 90, 1000, 170, { z: 12 });
 }
@@ -242,9 +242,9 @@ function chanBase(c) {
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
   const np = box(c, 110, 430, 820, 700, { zIndex: 5, background: '#F4ECDB', border: `6px solid ${INK}`, boxShadow: `12px 12px 0 ${SH}`, transformOrigin: '410px 350px' });
-  el('div', np, { left: '0', top: '18px', width: '808px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '56px', color: INK, borderBottom: `5px double ${INK}`, paddingBottom: '10px' }, 'DIARIO · 1949');
-  el('div', np, { left: '330px', top: '130px', width: '440px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '66px', lineHeight: 1.0, color: INK }, 'Muere Juan Pujol');
-  el('div', np, { left: '330px', top: '290px', width: '440px', fontFamily: 'SpecialElite', fontSize: '34px', lineHeight: 1.25, color: '#5a4a3a' }, 'en Angola, de malaria');
+  el('div', np, { left: '0', top: '18px', width: '808px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '56px', color: INK, borderBottom: `5px double ${INK}`, paddingBottom: '10px' }, 'ANGOLA · 1949');
+  el('div', np, { left: '330px', top: '130px', width: '440px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '66px', lineHeight: 1.0, color: INK }, '✝ Juan Pujol');
+  el('div', np, { left: '330px', top: '290px', width: '440px', fontFamily: 'SpecialElite', fontSize: '34px', lineHeight: 1.25, color: '#5a4a3a' }, '«muerto de malaria»');
   for (let i = 0; i < 5; i++) box(np, 40, 470 + i * 34, i % 2 ? 560 : 730, 10, { background: 'rgba(43,33,24,.4)' });
   const av = pujolAv(np, 40, 120, 260, { z: 6 });
   const rib = box(np, 230, 110, 100, 120, { zIndex: 12 }); rib.innerHTML = ribbonSvg();
