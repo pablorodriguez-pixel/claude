@@ -1,0 +1,129 @@
+{
+ "episodio": "ep39_siesta3",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.534,
+   "dur": 3.41,
+   "palabras": 12,
+   "texto": "¡Siesta es un número! Y te lo echas casi todos los días."
+  },
+  {
+   "n": 1,
+   "s": 3.884,
+   "e": 7.403,
+   "dur": 3.52,
+   "palabras": 10,
+   "texto": "Viene del latín «sexta»: la hora sexta de los romanos."
+  },
+  {
+   "n": 2,
+   "s": 7.903,
+   "e": 11.014,
+   "dur": 3.11,
+   "palabras": 10,
+   "texto": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "n": 3,
+   "s": 11.364,
+   "e": 14.72,
+   "dur": 3.36,
+   "palabras": 11,
+   "texto": "¿Y por qué una hora se llamaba «sexta»? En tres pasos."
+  },
+  {
+   "n": 4,
+   "s": 15.07,
+   "e": 23.066,
+   "dur": 8.0,
+   "palabras": 21,
+   "texto": "Uno: los romanos no contaban las horas desde medianoche, sino desde que salía el sol: la primera, la segunda, la tercera..."
+  },
+  {
+   "n": 5,
+   "s": 23.566,
+   "e": 29.323,
+   "dur": 5.76,
+   "palabras": 21,
+   "texto": "Dos: si el sol sale a las seis de la mañana, la hora sexta cae justo a las doce del mediodía."
+  },
+  {
+   "n": 6,
+   "s": 29.823,
+   "e": 38.854,
+   "dur": 9.03,
+   "palabras": 25,
+   "texto": "Y tres: a esa hora, con el calor, se paraba a comer y a descansar. Y descansar en la sexta... acabó siendo «echar la siesta»."
+  },
+  {
+   "n": 7,
+   "s": 39.354,
+   "e": 44.468,
+   "dur": 5.11,
+   "palabras": 15,
+   "texto": "Ojo: no es una teoría de bar. Lo dice el diccionario de la Real Academia."
+  },
+  {
+   "n": 8,
+   "s": 44.818,
+   "e": 52.973,
+   "dur": 8.16,
+   "palabras": 27,
+   "texto": "O sea: la siesta de verdad era a las doce. Así que si te la echas a las tres y media... llegas tarde hasta a la siesta."
+  },
+  {
+   "n": 9,
+   "s": 53.473,
+   "e": 55.702,
+   "dur": 2.23,
+   "palabras": 9,
+   "texto": "¿A qué hora te la echas tú? Os leo."
+  },
+  {
+   "n": 10,
+   "s": 56.052,
+   "e": 58.495,
+   "dur": 2.44,
+   "palabras": 7,
+   "texto": "Y esto... no venía en el libro."
+  }
+ ],
+ "primera_palabra": "siesta",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.41,
+ "gancho_palabras": 12,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 2,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 7.903,
+ "ojo_dur": 5.11,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿A qué hora te la echas tú? Os leo.",
+ "n_lineas": 11,
+ "n_palabras": 168,
+ "duracion_voz": 58.49,
+ "ppm": 172.3,
+ "lineas_mas_largas": [
+  [
+   6,
+   9.03,
+   "Y tres: a esa hora, con el calor, se paraba a comer y a descansar. Y d"
+  ],
+  [
+   8,
+   8.16,
+   "O sea: la siesta de verdad era a las doce. Así que si te la echas a la"
+  ],
+  [
+   4,
+   8.0,
+   "Uno: los romanos no contaban las horas desde medianoche, sino desde qu"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep39_siesta3/final.mp4",
+ "duracion_video": 59.1
+}
