@@ -76,7 +76,7 @@ const T_EMU = K.hambre - 0.08;
     face(m, t, { look: [-4, 6], jaw: chomp ? Math.abs(Math.sin(t * 22)) * 0.8 : 0, closed: chomp, bL: 8, bR: 8, seed: 0.5 });
     // el pan: entra, se acerca a la boca; en el cameo, el emú se lo lleva
     const kb = p(t, S.P[0] + 0.05, 0.35, E.outBack), ke = p(t, T_EMU, 0.25, E.inOutCubic);
-    set(br, { x: lerp(300, 0, kb) + ke * 900, y: -ke * 120, r: -10 + ke * 40, s: 1 - 0.15 * (chomp ? Math.abs(Math.sin(t * 22)) : 0), o: 1 });
+    const kx2 = p(t, T_EMU + 0.5, 0.25, E.inCubic); set(br, { x: lerp(300, 0, kb) + ke * 380 + kx2 * 520, y: -ke * 130, r: -10 + ke * 30, s: 1 - 0.15 * (chomp ? Math.abs(Math.sin(t * 22)) : 0), o: 1 });
     const kE = p(t, T_EMU - 0.2, 0.22, E.outBack) * (1 - p(t, T_EMU + 0.5, 0.25, E.inCubic));
     set(emu.d, { x: (1 - kE) * 520, r: -18 });
     emuW.style.visibility = kE > 0.001 ? 'visible' : 'hidden';

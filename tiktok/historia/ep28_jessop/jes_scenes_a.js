@@ -35,10 +35,10 @@ const WAVES = (seed, col, line, h = 1100) => waterSvg(0, h, seed, col, line);
   const sky = sceneBg(cam, { background: `linear-gradient(180deg, ${NIGHT} 0%, ${NIGHT2} 55%, #5d6f86 100%)` });
   svgBox(cam, 0, 0, 1080, 1100, stars(90, 7, 1080, 1000), '0 0 1080 1100', 1);
   box(cam, 640, 120, 200, 200, { borderRadius: '50%', background: 'radial-gradient(circle, #FBF6EA 0 38%, rgba(251,246,234,.25) 40%, rgba(251,246,234,0) 70%)', zIndex: 1 });
-  const bow = box(cam, -250, 690, 1300, 760, { zIndex: 3, transformOrigin: '1100px 520px' });
+  const bow = box(cam, -250, 770, 1300, 760, { zIndex: 3, transformOrigin: '1100px 520px' });
   bow.innerHTML = svgW(bowInner(), '0 0 1300 760');
-  const wat = box(cam, 0, 1130, 1080, 1100, { zIndex: 5 }); wat.innerHTML = WAVES(11, '#152131', '#c9d6e2');
-  box(cam, 0, 1130, 1080, 900, { zIndex: 6, background: 'linear-gradient(180deg, rgba(10,18,28,0) 0%, rgba(10,18,28,.55) 100%)' });
+  const wat = box(cam, 0, 1200, 1080, 1100, { zIndex: 5 }); wat.innerHTML = WAVES(11, '#152131', '#c9d6e2');
+  box(cam, 0, 1200, 1080, 900, { zIndex: 6, background: 'linear-gradient(180deg, rgba(10,18,28,0) 0%, rgba(10,18,28,.55) 100%)' });
   // Violet (sale del agua) dentro de un recorte con el borde inferior en la línea de agua del primer plano
   const vClip = box(cam, 540, 820, 420, 470, { overflow: 'hidden', zIndex: 7 });
   const vio = mkViolet(vClip, [60, 40, 300, 383], { noCap: true });

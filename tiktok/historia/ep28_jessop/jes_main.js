@@ -126,3 +126,5 @@ window.frame = t => {
     set(world, { x: (1 - k) * 1080 });
   };
 }
+/* palabras clave de los titulares: sin sombra (si no, se emborronan sobre el amarillo) */
+HLS.forEach(h => h.hls.forEach(x => { x.e.parentNode.style.textShadow = 'none'; }));

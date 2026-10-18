@@ -33,7 +33,7 @@ headline(S.G2[0], S.G2[1], 'Y el sistema era *nuevo*', { size: 100, hlT: K.nuevo
     set(crt.d, { s: pop(t, S.G2[0] + 0.02, 0.35), r: 2 + (t > K.nuevo + 0.2 ? Math.sin(t * 60) * 0.8 : 0), o: 1 });
     crtState(crt, t, 'red');
     const kt = p(t, K.nuevo - 0.08, 0.5, E.outElastic);
-    set(tag, { y: (1 - clamp(kt)) * -500, r: Math.sin((t - K.nuevo) * 6) * 14 * Math.exp(-Math.max(0, t - K.nuevo) * 1.5), o: t < K.nuevo - 0.08 ? 0 : 1 });
+    set(tag, { s: 1.35, y: (1 - clamp(kt)) * -500, r: Math.sin((t - K.nuevo) * 6) * 14 * Math.exp(-Math.max(0, t - K.nuevo) * 1.5), o: t < K.nuevo - 0.08 ? 0 : 1 });
     popA(chS, t, K.sistema, { r: -4 });
     SP.forEach((s, i) => { const t0 = K.nuevo + 0.25 + i * 0.12; set(s, { s: pop(t, t0, 0.2), o: t > t0 && t < t0 + 0.5 ? 1 : 0, r: t * 300 }); });
     set(dr, { o: t > K.nuevo + 0.3 ? 1 : 0, y: (t - K.nuevo - 0.3) * 80 });
