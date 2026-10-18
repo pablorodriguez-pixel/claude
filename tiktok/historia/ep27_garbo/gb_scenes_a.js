@@ -47,8 +47,8 @@ const BOTS_A = [];
   const r = rng(27);
   // 27 bots: dos filas bajo el perfil + algunos alrededor (todos dentro de x 60–930)
   const PB = [];
-  for (let i = 0; i < 14; i++) PB.push([96 + i * 64, 1218 + (i % 2) * 10]);
-  for (let i = 0; i < 13; i++) PB.push([128 + i * 64, 1290 + (i % 2) * 8]);
+  for (let i = 0; i < 14; i++) PB.push([92 + i * 62, 1218 + (i % 2) * 10]);
+  for (let i = 0; i < 13; i++) PB.push([122 + i * 62, 1290 + (i % 2) * 8]);
   PB.forEach((q, i) => {
     const sz = 58 + r() * 8;
     const b = botAv(cam, q[0] - sz / 2, q[1] - sz / 2, sz, i, { z: 9 }); BOTS_A.push(b);
@@ -67,21 +67,21 @@ const BOTS_A = [];
 headline(S.B1[0], S.B1[1], 'Quiso espiar para *los ingleses*', { size: 84, hlT: K.ingleses });
 {
   const c = scene(S.B1[0], S.B1[1], t => {
-    set(pj.d, { s: pop(t, S.B1[0], 0.4), y: wobble(t, 0.5, 4), o: 1 });
+    set(pj.d, { s: 1 + 0.03 * p(t, S.B1[0], 3.6, E.linear), y: wobble(t, 0.5, 4), o: 1 });
     face(pj, t, { look: t > K.ingleses ? [8, -2] : [4, 0], jaw: 0, bL: 10, bR: 14, seed: 2 });
-    popA(nm, t, K.pujol1, { r: -3 });
+    popA(nm, t, K.juan - 0.02, { r: -3 });
     const kd = p(t, K.ingleses - 0.1, 0.4, E.outBack);
-    set(door, { y: (1 - kd) * 900, r: 2 + wobble(t, 0.4, 0.6) });
+    set(door, { y: 0, s: 1 + 0.08 * kd * (1 - p(t, K.ingleses + 0.3, 0.3)), r: 2 + wobble(t, 0.4, 0.6) });
     popA(emb, t, K.ingleses + 0.1, { r: 3 });
     set(bub, { s: pop(t, K.espiar1 - 0.05, 0.35), r: -3 + wobble(t, 0.6, 1), o: t < K.espiar1 - 0.05 ? 0 : 1 });
     set(hearts, { o: t > K.ingleses ? 1 : 0, y: -((t * 40) % 60), s: 1 + 0.1 * Math.sin(t * 9) });
-  }, { clip: true });
+  }, { clip: true, cut: true });
   sceneBg(c, { background: '#E7D9BC', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.06) 0 3px, transparent 3px 44px)' });
   rays(c, -300, 200, 1400, 24, 'rgba(255,255,255,.22)', 'rgba(0,0,0,0)', 0);
   const pj = mk(c, [20, 480, 540, 690], pujolInner(), '0 0 360 460', 'bust'); pj.d.style.zIndex = 10;
-  const nm = chip(c, 60, 1180, 'JUAN PUJOL · BARCELONA', { size: 40, bg: INK, color: YEL, z: 30 });
+  const nm = chip(c, 50, 1170, 'JUAN PUJOL · BARCELONA', { size: 54, bg: INK, color: YEL, z: 30 });
   const door = box(c, 600, 560, 330, 572, { zIndex: 6 }); door.innerHTML = doorSvg('BRITISH');
-  const emb = chip(c, 560, 1110, 'embajada británica', { size: 40, bg: '#fff', color: INK, z: 30 });
+  const emb = chip(c, 470, 1080, 'embajada británica', { size: 38, bg: '#fff', color: INK, z: 30 });
   const bub = bubble(c, 330, 440, '¿Espío para vosotros?', { size: 50, tail: 'bl', z: 40, it: true });
   const hearts = el('div', c, { left: '470px', top: '640px', fontSize: '70px', color: PINK, textShadow: `3px 3px 0 ${INK}`, zIndex: 41 }, '♥');
 }
@@ -99,7 +99,7 @@ headline(S.B2[0], S.B2[1], 'Lo dejaron *en visto*', { size: 104, hlT: K.visto1 }
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#D9CDB3' });
   halftone(c, 'rgba(43,33,24,.07)', 0);
-  const ph = box(c, 130, 410, 820, 860, { background: '#FBF6EA', border: `8px solid ${INK}`, borderRadius: '48px', boxShadow: `14px 16px 0 ${SH}`, zIndex: 5 });
+  const ph = box(c, 130, 410, 800, 860, { background: '#FBF6EA', border: `8px solid ${INK}`, borderRadius: '48px', boxShadow: `14px 16px 0 ${SH}`, zIndex: 5 });
   const hd = box(ph, 0, 0, 804, 120, { background: INK, borderRadius: '40px 40px 0 0' });
   el('div', hd, { left: '40px', top: '28px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '50px', color: '#fff', whiteSpace: 'nowrap' }, 'Embajada británica');
   el('div', hd, { left: '600px', top: '34px', fontFamily: 'Bricolage', fontWeight: 600, fontSize: '34px', color: '#bdb3a0', whiteSpace: 'nowrap' }, 'en línea');
@@ -164,7 +164,7 @@ headline(S.C2[0], S.C2[1], '…de *los nazis*', { size: 116, hlT: K.nazis2 });
   const ink = box(c, 700, 860, 170, 220, { zIndex: 9 });
   ink.innerHTML = `<svg viewBox="0 0 170 220" width="170" height="220" style="overflow:visible"><rect x="40" y="10" width="90" height="40" rx="8" fill="#5a4a3a" stroke="${INK}" stroke-width="5"/><path d="M30,60 Q30,46 50,46 L120,46 Q140,46 140,60 L150,200 Q150,214 136,214 L34,214 Q20,214 20,200 Z" fill="rgba(220,240,255,.7)" stroke="${INK}" stroke-width="6"/><rect x="40" y="110" width="90" height="56" rx="6" fill="#fff" stroke="${INK}" stroke-width="3"/><text x="85" y="134" text-anchor="middle" font-family="SpecialElite" font-size="18" fill="${INK}">TINTA</text><text x="85" y="156" text-anchor="middle" font-family="SpecialElite" font-size="15" fill="${INK}">invisible</text></svg>`;
   const glowI = box(c, 650, 820, 270, 300, { borderRadius: '50%', background: 'radial-gradient(circle, rgba(255,230,0,.9), rgba(255,230,0,0) 65%)', zIndex: 7, opacity: 0 });
-  const chA = chip(c, 560, 1180, 'espionaje alemán', { size: 40, bg: INK, color: '#fff', z: 30 });
+  const chA = chip(c, 480, 1180, 'espionaje alemán', { size: 40, bg: INK, color: '#fff', z: 30 });
 }
 
 /* ======================================================================
@@ -199,6 +199,8 @@ headline(S.D1[0], S.D1[1], 'Se queda en *Lisboa…*', { size: 104, hlT: K.lisboa
   const pin = box(mp, LIS[0] - 30, LIS[1] - 80, 60, 80, { zIndex: 22 }); pin.innerHTML = pinSvg(RED);
   const cLis = chip(mp, LIS[0] + 30, LIS[1] - 190, 'LISBOA', { size: 66, bg: YEL, color: INK, z: 24 });
   const tok = pujolAv(mp, 0, 0, 140, { z: 23, bw: 6 });
+  const ord = el('div', c, { left: '0', top: '1250px', width: '1080px', textAlign: 'center', zIndex: 40 }, `<span style="display:inline-block;font-family:Bricolage;font-weight:800;font-size:50px;color:${YEL};background:${INK};padding:8px 30px 12px;border-radius:100px;border:5px solid ${INK};box-shadow:6px 6px 0 ${RED}">LE MANDAN A LONDRES… NO VA</span>`);
+  const _fd = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fd(t); popA(ord, t, S.D1[0] + 0.02, { r: -2, d: 0.3 }); };
 }
 
 /* ======================================================================
@@ -242,12 +244,12 @@ headline(K.guia - 0.12, S.D2[1], 'con una *guía de turismo*', { size: 90, hlT: 
     popA(toast, t, K.inventados + 0.25, { r: 0 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#2B2118' });
-  const cd = box(c, 70, 340, 940, 940, { background: '#fff', border: `8px solid ${INK}`, borderRadius: '30px', boxShadow: `14px 16px 0 rgba(0,0,0,.5)`, zIndex: 5 });
+  const cd = box(c, 70, 340, 860, 940, { background: '#fff', border: `8px solid ${INK}`, borderRadius: '30px', boxShadow: `14px 16px 0 rgba(0,0,0,.5)`, zIndex: 5 });
   const n1 = el('div', cd, { left: '56px', top: '46px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '78px', color: INK }, 'Nadie:');
   const n2 = el('div', cd, { left: '56px', top: '160px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '56px', color: INK, whiteSpace: 'nowrap' }, `Garbo: <i style="font-family:Playfair;font-weight:800;color:${PINK}">se abre otra cuenta</i>`);
   const AC = [];
   [[K.cuentas4, 'espía inventado n.º 1'], [K.espias4, 'espía inventado n.º 2'], [K.inventados, 'espía inventado n.º 3']].forEach(([tt, s], i) => {
-    const e = box(cd, 56, 290 + i * 170, 812, 140, { background: '#FBF6EA', border: `5px solid ${INK}`, borderRadius: '24px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 6 });
+    const e = box(cd, 40, 290 + i * 170, 760, 140, { background: '#FBF6EA', border: `5px solid ${INK}`, borderRadius: '24px', boxShadow: `6px 6px 0 ${SH}`, zIndex: 6 });
     botAv(e, 18, 14, 104, i + 1, { z: 7 });
     el('div', e, { left: '146px', top: '20px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '46px', color: INK, whiteSpace: 'nowrap' }, s);
     el('div', e, { left: '146px', top: '78px', fontFamily: 'SpecialElite', fontSize: '28px', color: '#6a5a48', whiteSpace: 'nowrap' }, 'cuenta nueva · 0 personas detrás');
@@ -298,7 +300,7 @@ headline(K.lo4 - 0.06, S.E3[1], '…lo *fichan*', { size: 120, hlT: K.fichan });
   const cup1 = box(c, 300, 900, 120, 110, { zIndex: 8 }); cup1.innerHTML = teaSvg();
   const cup2 = box(c, 700, 900, 120, 110, { zIndex: 8 }); cup2.innerHTML = teaSvg();
   const vis = el('div', c, { left: '640px', top: '420px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '52px', color: '#3b7dd8', background: '#fff', border: `5px solid ${INK}`, borderRadius: '20px', padding: '4px 22px 8px', boxShadow: `6px 6px 0 ${INK}`, zIndex: 30 }, 'Visto ✓✓');
-  const cn = chip(c, 390, 1040, 'NOMBRE EN CLAVE: GARBO', { size: 38, bg: INK, color: YEL, z: 30 });
+  const cn = chip(c, 385, 1040, 'NOMBRE EN CLAVE: GARBO', { size: 36, bg: INK, color: YEL, z: 30 });
   const stF = stamp(c, 420, 1140, 'FICHADO', { size: 88, bw: 12, z: 40, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
 }
 
@@ -314,7 +316,7 @@ const T_EMU = K.bots + 0.05;
   const ROWS = [3, 4, 7, 7, 6], RY = [600, 750, 892, 1034, 1176], RS = [100, 92, 84, 84, 84];
   const TJ = [K.juntos, K.llegan, K.llegan + 0.42, K.v27b + 0.4];
   const NODES = []; let gi = 0;
-  ROWS.forEach((n, ri) => { for (let j = 0; j < n; j++) { const x = 110 + (n === 1 ? 390 : j * (780 / (n - 1))) + (ri % 2 ? 0 : 0); NODES.push({ x: n === 3 ? 250 + j * 290 : x, y: RY[ri], sz: RS[ri], ri, k: gi++ }); } });
+  ROWS.forEach((n, ri) => { for (let j = 0; j < n; j++) { const x = 110 + (n === 1 ? 390 : j * (760 / (n - 1))) + (ri % 2 ? 0 : 0); NODES.push({ x: n === 3 ? 250 + j * 290 : x, y: RY[ri], sz: RS[ri], ri, k: gi++ }); } });
   const grp = k => k < 3 ? 0 : k < 7 ? 1 : k < 14 ? 2 : 3;
   const c = scene(S.F[0], S.F[1], t => {
     const kz = p(t, K.red - 0.1, 0.5, E.inOutCubic);

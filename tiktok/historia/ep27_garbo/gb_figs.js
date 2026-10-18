@@ -52,10 +52,10 @@ const FEDORA = (col = '#4a3a2c') => {
 const SHADES = () => `<path d="M136,192 h42 v14 q0,14 -21,14 q-21,0 -21,-14 Z M182,192 h42 v14 q0,14 -21,14 q-21,0 -21,-14 Z" fill="${INK}"/><path d="M176,198 h8 M136,196 L116,190 M224,196 L244,190" stroke="${INK}" stroke-width="4"/><path d="M144,198 l12,0 M190,198 l12,0" stroke="#fff" stroke-width="3" opacity=".55"/>`;
 const TIE = (col = RED) => `<path d="M172,334 L188,334 L194,420 L180,438 L166,420 Z" fill="${col}" stroke="${INK}" stroke-width="3"/><path d="M172,334 L188,334 L184,350 L176,350 Z" fill="${col}" stroke="${INK}" stroke-width="3"/>`;
 // Juan Pujol «Garbo»: pelo engominado con entradas, bigotito fino, traje y corbata
-const pujolHair = () => { const h = 'M116,206 C108,148 140,122 182,122 C226,122 254,148 246,206 C240,172 226,154 204,148 C182,142 156,146 138,164 C126,176 120,190 116,206 Z'; return D(h, '#2a1f17') + HF(h, 'hF') + `<path d="M150,140 Q180,130 214,140" stroke="#fff" stroke-width="2.5" opacity=".35" fill="none"/>`; };
+const pujolHair = () => { const h = 'M116,206 C108,148 140,122 182,122 C226,122 254,148 246,206 C240,172 226,154 204,148 C182,142 156,146 138,164 C126,176 120,190 116,206 Z'; return D(h, '#8a5a34') + HF(h, 'hF') + `<path d="M150,140 Q180,130 214,140" stroke="#fff" stroke-width="2.5" opacity=".35" fill="none"/>`; };
 const thinMou = () => `<path d="M154,242 Q180,230 206,242 Q180,248 154,242 Z" fill="${INK}"/>`;
 function pujolInner(o = {}) {
-  let s = bustInner({ uniform: 'soldier', seed: 27 }) + coatOver('#3d3328') + TIE(o.tie || RED);
+  let s = bustInner({ uniform: 'soldier', seed: 27 }) + coatOver(o.spy ? '#3d3328' : '#9b7b55') + TIE(o.tie || RED);
   s += pujolHair() + thinMou();
   if (o.spy) s += SHADES() + FEDORA();
   return s;

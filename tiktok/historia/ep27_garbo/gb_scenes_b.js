@@ -18,7 +18,7 @@ headline(S.G1[0], S.G1[1], 'Uno se *«muere»*', { size: 116, hlT: K.muere });
   const av = botAv(c, 120, 460, 400, 3, { z: 6 });
   const rib = box(c, 430, 440, 130, 150, { zIndex: 12 }); rib.innerHTML = ribbonSvg();
   const lv = chip(c, 150, 900, 'espía inventado · Liverpool', { size: 40, bg: INK, color: '#fff', z: 20 });
-  const np = box(c, 560, 640, 420, 520, { zIndex: 14, background: '#F4ECDB', border: `5px solid ${INK}`, boxShadow: `10px 10px 0 ${SH}`, transformOrigin: '210px 260px' });
+  const np = box(c, 510, 640, 420, 520, { zIndex: 14, background: '#F4ECDB', border: `5px solid ${INK}`, boxShadow: `10px 10px 0 ${SH}`, transformOrigin: '210px 260px' });
   el('div', np, { left: '0', top: '14px', width: '410px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '42px', color: INK, borderBottom: `4px double ${INK}`, paddingBottom: '8px' }, 'DIARIO LOCAL');
   const ob = el('div', np, { left: '40px', top: '96px', width: '320px', height: '250px', border: `8px solid #111`, background: '#fff', textAlign: 'center' });
   el('div', ob, { left: '0', top: '18px', width: '320px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '48px', color: '#111' }, 'ESQUELA');
@@ -48,7 +48,7 @@ headline(S.G2[0], S.G2[1], 'Y los nazis: *pensión* a la viuda…', { size: 84, 
   const pl = el('div', c, { left: '640px', top: '640px', width: '260px', textAlign: 'center', fontFamily: 'Rye', fontSize: '30px', color: INK, background: BRASS, border: `4px solid ${INK}`, borderRadius: '8px', padding: '6px 0 8px', zIndex: 8 }, 'Sra. viuda de…');
   const env = box(c, 0, 0, 300, 200, { zIndex: 20 }); env.innerHTML = envSvg('PENSIÓN', '#F4E4C0');
   const knock = el('div', c, { left: '470px', top: '880px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '64px', color: INK, zIndex: 22 }, '¡toc, toc!');
-  const chP = chip(c, 420, 1210, 'cada mes, de Alemania', { size: 40, bg: RED, color: '#fff', z: 30 });
+  const chP = chip(c, 400, 1210, 'cada mes, de Alemania', { size: 36, bg: RED, color: '#fff', z: 30 });
   void wall;
 }
 
@@ -71,7 +71,7 @@ headline(S.G3[0], S.G3[1], 'de un señor *que no existía*', { size: 92, hlT: K.
   const sil = fr.querySelector('.sil');
   const qm = qMark(c, 545, 560, 170, PINK);
   const stN = stamp(c, 300, 840, 'NO EXISTE', { size: 110, bw: 14, z: 40, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
-  const wd = chip(c, 420, 1150, 'y la viuda… cobrando', { size: 40, bg: YEL, color: INK, z: 30 });
+  const wd = chip(c, 400, 1150, 'y la viuda… cobrando', { size: 38, bg: YEL, color: INK, z: 30 });
 }
 
 /* ======================================================================
@@ -96,8 +96,8 @@ function chanBase(c) {
     WV.forEach((w, i) => { const k = ((t - K.avisa) * 1.6 + i / 3) % 1; set(w, { s: 0.4 + k * 1.4, o: t > K.avisa ? 1 - k : 0 }); });
   }, { clip: true });
   const mp = chanBase(c);
-  [[-1.2, 49.5], [-0.9, 49.45], [-0.55, 49.4], [-0.25, 49.38], [0.05, 49.38]].forEach((q, i) => { const pp = mpC(q[0], q[1] + 0.35).map(Number); const e = box(mp, pp[0] - 60, pp[1] - 40, 120, 80, { zIndex: 10 }); e.innerHTML = boatSvg(); BT.push({ e, t: S.H1[0] + 0.05 + i * 0.12 }); });
-  const dd = chip(mp, P_NOR[0] - 300, P_NOR[1] + 70, 'DÍA D · 6 JUN 1944', { size: 46, bg: YEL, color: INK, z: 20 });
+  [[-1.2, 49.5], [-0.9, 49.45], [-0.55, 49.4], [-0.25, 49.38], [0.05, 49.38]].forEach((q, i) => { const pp = mpC(q[0], q[1] + 0.35).map(Number); const e = box(mp, pp[0] - 90, pp[1] - 60, 180, 120, { zIndex: 10 }); e.innerHTML = boatSvg(); BT.push({ e, t: S.H1[0] + 0.05 + i * 0.12 }); });
+  const dd = el('div', mp, { left: '0', top: px(P_NOR[1] + 90), width: '1080px', textAlign: 'center', zIndex: 20 }, `<span style="display:inline-block;font-family:Bricolage;font-weight:800;font-size:48px;line-height:1.05;color:${INK};background:${YEL};padding:10px 30px 12px;border-radius:30px;border:5px solid ${INK};box-shadow:6px 6px 0 ${INK}">DÍA D: LOS ALIADOS DESEMBARCAN<br><span style="font-size:30px;font-weight:600">6 de junio de 1944 · Normandía</span></span>`);
   const WV = [0, 1, 2].map(() => box(mp, P_LON[0] - 110, P_LON[1] - 110, 220, 220, { borderRadius: '50%', border: `8px solid ${PINK}`, zIndex: 11 }));
   const gb = pujolAv(mp, P_LON[0] - 70, P_LON[1] - 70, 140, { z: 14 });
   chip(mp, P_LON[0] + 80, P_LON[1] - 40, 'LONDRES', { size: 34, bg: '#fff', color: INK, z: 15 });
@@ -188,7 +188,7 @@ headline(S.I2[0], S.I2[1], 'deja tropas en *Calais…*', { size: 88, hlT: K.cala
   const mp = chanBase(c);
   mp.style.transformOrigin = `${P_CAL[0]}px ${P_CAL[1] + 150}px`;
   const rp = rng(8);
-  for (let i = 0; i < 12; i++) { const x = P_CAL[0] - 210 + (i % 4) * 85 + rp() * 20, y = P_CAL[1] + 70 + Math.floor(i / 4) * 80 + rp() * 14; const e = box(mp, x, y, 70, 90, { zIndex: 10 + Math.floor(i / 4) }); e.innerHTML = pawnSvg(); PW.push({ e, t: K.tropas - 0.1 + i * 0.04 }); }
+  for (let i = 0; i < 12; i++) { const x = P_CAL[0] - 250 + (i % 4) * 85 + rp() * 20, y = P_CAL[1] + 70 + Math.floor(i / 4) * 80 + rp() * 14; const e = box(mp, x, y, 70, 90, { zIndex: 10 + Math.floor(i / 4) }); e.innerHTML = pawnSvg(); PW.push({ e, t: K.tropas - 0.1 + i * 0.04 }); }
   const cal = box(c, 90, 900, 300, 330, { zIndex: 30, background: '#fff', border: `6px solid ${INK}`, borderRadius: '16px', boxShadow: `8px 8px 0 ${SH}` });
   box(cal, 0, 0, 288, 80, { background: RED, borderBottom: `5px solid ${INK}`, borderRadius: '10px 10px 0 0' });
   const pJul = el('div', cal, { left: '0', top: '100px', width: '288px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '68px', color: INK }, 'JULIO');
@@ -268,8 +268,8 @@ headline(K.otra - 0.06, S.J3[1], '*…otra medalla*', { size: 116, hlT: K.medall
   const cr = box(cam, 690, 410, 260, 180, { zIndex: 12 }); cr.innerHTML = crownSvg();
   const mb = box(cam, 560, 740, 320, 320, { zIndex: 10 }); mb.innerHTML = mbeSvg();
   const mbr = box(cam, 678, 650, 84, 100, { zIndex: 9 }); mbr.innerHTML = ribbonBar(['#c9c6c0', '#E88FA8', '#E88FA8', '#c9c6c0']);
-  const c2 = chip(cam, 300, 1170, 'MBE · REY JORGE VI · 25 NOV 1944', { size: 34, bg: YEL, color: INK, z: 20 });
-  const SP = [[120, 620], [420, 620], [280, 940], [600, 760], [880, 900], [740, 1040]].map(q => el('div', cam, { left: px(q[0]), top: px(q[1]), fontSize: '60px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 25 }, '✦'));
+  const c2 = chip(cam, 180, 1170, 'MBE · REY JORGE VI · 25 NOV 1944', { size: 34, bg: YEL, color: INK, z: 20 });
+  const SP = [[120, 620], [420, 620], [280, 940], [600, 760], [830, 900], [740, 1040]].map(q => el('div', cam, { left: px(q[0]), top: px(q[1]), fontSize: '60px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 25 }, '✦'));
   // la cinta del MBE cae junto con la medalla; la de la cruz, con la cruz
   const _f = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _f(t); icr.style.transform = ic.style.transform.replace(/scale\([^)]*\)/, ''); mbr.style.transform = mb.style.transform.replace(/scale\([^)]*\)/, ''); };
 }
@@ -290,9 +290,9 @@ headline(S.K1[0], S.K1[1], 'Dos medallas, *de los dos bandos*', { size: 88, hlT:
   sceneBg(c, { background: 'linear-gradient(90deg, #D9D2C2 0 50%, #EBCBD4 50% 100%)' });
   box(c, 536, 380, 8, 1000, { background: INK, zIndex: 1 });
   const m1 = box(c, 130, 540, 300, 300, { zIndex: 5 }); m1.innerHTML = ironCrossSvg();
-  const m2 = box(c, 650, 540, 300, 300, { zIndex: 5 }); m2.innerHTML = mbeSvg();
+  const m2 = box(c, 610, 540, 300, 300, { zIndex: 5 }); m2.innerHTML = mbeSvg();
   const b1 = chip(c, 140, 900, 'ALEMANIA', { size: 52, bg: INK, color: '#fff', z: 20 });
-  const b2 = chip(c, 620, 900, 'REINO UNIDO', { size: 52, bg: INK, color: '#fff', z: 20 });
+  const b2 = chip(c, 560, 900, 'REINO UNIDO', { size: 46, bg: INK, color: '#fff', z: 20 });
   const vs = BIGT(c, 0, 1010, 1080, '= MISMO SEÑOR', { fontSize: '74px', color: RED, zIndex: 20, textShadow: `4px 4px 0 #fff` });
   const pj = pujolAv(c, 450, 1110, 180, { z: 22 });
 }
@@ -304,9 +304,9 @@ headline(S.K1[0], S.K1[1], 'Dos medallas, *de los dos bandos*', { size: 88, hlT:
   const c = colorHit(S.K2[0], S.K2[1], PINK, cc => {
     const a = BIGT(cc, 0, 430, 1080, 'por el mismo', { fontSize: '110px', color: INK, zIndex: 20, fontStyle: 'italic' });
     const b = BIGT(cc, 0, 590, 1080, 'TROLEO', { fontSize: '186px', color: '#fff', zIndex: 21, textShadow: OUTL(INK, 12) });
-    const st = stamp(cc, 200, 880, 'NIVEL: MÁXIMO', { size: 76, bw: 12, z: 30, col: INK, bg: YEL, blend: 'normal' });
+    const st = stamp(cc, 200, 880, 'NIVEL: MÁXIMO', { size: 62, bw: 12, z: 30, col: INK, bg: YEL, blend: 'normal' });
     const s1 = box(cc, 90, 1000, 200, 200, { zIndex: 10, filter: SIL }); s1.innerHTML = ironCrossSvg();
-    const s2 = box(cc, 790, 1000, 200, 200, { zIndex: 10, filter: SIL }); s2.innerHTML = mbeSvg();
+    const s2 = box(cc, 730, 1000, 200, 200, { zIndex: 10, filter: SIL }); s2.innerHTML = mbeSvg();
     return t => {
       set(a, { s: pop(t, S.K2[0], 0.3), r: -2 });
       set(b, { s: pop(t, K.troleo10 - 0.04, 0.35), r: 2 + Math.sin(t * 6) * 1.5, o: t < K.troleo10 - 0.04 ? 0 : 1 });
@@ -336,18 +336,18 @@ headline(K.el11 - 0.06, S.L2[1], '*…él mismo*', { size: 130, hlT: K.el11 });
     popA(an, t, K.muerte + 0.25, { r: -3 });
     an.style.display = t > K.su11 + 0.3 ? 'none' : '';
     stampA(stF, t, K.falsa11, -9, 1);
-    popA(vv, t, K.mismo11, { r: 3 });
+    popA(vv, t, K.falsa11, { r: 3 });
     set(wink, { s: pop(t, K.el11 + 0.1, 0.3), o: t > K.el11 + 0.1 && t < K.el11 + 0.7 ? 1 : 0 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '600px 760px' });
   sceneBg(cam, { background: '#EFE1C6' });
   rays(cam, -160, 160, 1400, 26, 'rgba(255,62,165,.08)', 'rgba(0,0,0,0)', 0);
-  const cd = profCard(cam, 330, 470, { w: 600, z: 10 });
+  const cd = profCard(cam, 310, 470, { w: 600, z: 10 });
   cd.d.style.transformOrigin = '300px 260px';
-  const rib = box(cam, 520, 470, 100, 120, { zIndex: 30 }); rib.innerHTML = ribbonSvg();
+  const rib = box(cam, 500, 470, 100, 120, { zIndex: 30 }); rib.innerHTML = ribbonSvg();
   const an = chip(cam, 420, 1030, 'ANGOLA, 1949 · «malaria»', { size: 40, bg: INK, color: '#fff', z: 30 });
-  const stF = stamp(cam, 330, 800, 'CUENTA FALSA', { size: 66, bw: 12, z: 40, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
-  const vv = chip(cam, 420, 1100, 'VIVO · VENEZUELA · 1984', { size: 40, bg: YEL, color: INK, z: 30 });
+  const stF = stamp(cam, 300, 800, 'CUENTA FALSA', { size: 60, bw: 12, z: 40, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+  const vv = el('div', cam, { left: '390px', top: '1010px', width: '540px', textAlign: 'center', zIndex: 30, whiteSpace: 'nowrap' }, `<span style="display:inline-block;white-space:nowrap;font-family:Bricolage;font-weight:800;font-size:52px;line-height:1.05;color:${INK};background:${YEL};padding:10px 30px 14px;border-radius:30px;border:5px solid ${INK};box-shadow:7px 7px 0 ${INK}">¡VIVO!<br>VENEZUELA · 1984</span>`);
   const wink = el('div', cam, { left: '590px', top: '480px', fontSize: '70px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 32 }, '✦');
 }
 

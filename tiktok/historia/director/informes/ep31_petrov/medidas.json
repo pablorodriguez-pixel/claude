@@ -1,0 +1,153 @@
+{
+ "episodio": "ep31_petrov",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 2.789,
+   "dur": 2.67,
+   "palabras": 9,
+   "texto": "¡Estás vivo porque un tío dudó de una máquina!"
+  },
+  {
+   "n": 1,
+   "s": 3.029,
+   "e": 9.679,
+   "dur": 6.65,
+   "palabras": 12,
+   "texto": "Rusia, año ochenta y tres. La pantalla de Stanislav Petrov grita: misil."
+  },
+  {
+   "n": 2,
+   "s": 9.919,
+   "e": 14.406,
+   "dur": 4.49,
+   "palabras": 10,
+   "texto": "Un misil nuclear desde Estados Unidos. Luego otro. Hasta cinco."
+  },
+  {
+   "n": 3,
+   "s": 14.646,
+   "e": 18.633,
+   "dur": 3.99,
+   "palabras": 12,
+   "texto": "Y ese mismo mes, los soviéticos habían derribado un avión de pasajeros."
+  },
+  {
+   "n": 4,
+   "s": 18.873,
+   "e": 22.941,
+   "dur": 4.07,
+   "palabras": 13,
+   "texto": "No tenía el botón. Pero su aviso podía hacer que alguien lo pulsara."
+  },
+  {
+   "n": 5,
+   "s": 23.181,
+   "e": 25.915,
+   "dur": 2.73,
+   "palabras": 7,
+   "texto": "¿Qué hace? Coge el teléfono: «Falsa alarma»."
+  },
+  {
+   "n": 6,
+   "s": 26.155,
+   "e": 30.872,
+   "dur": 4.72,
+   "palabras": 13,
+   "texto": "Un ataque de verdad serían cientos, no cinco. Y el sistema era nuevo."
+  },
+  {
+   "n": 7,
+   "s": 31.112,
+   "e": 37.519,
+   "dur": 6.41,
+   "palabras": 15,
+   "texto": "Acertó: era el sol, reflejado en nubes altas. El satélite lo tomó por un cohete."
+  },
+  {
+   "n": 8,
+   "s": 37.759,
+   "e": 42.908,
+   "dur": 5.15,
+   "palabras": 14,
+   "texto": "¿Y su premio? Ojo, que esto lo cuenta él: una bronca. Por el papeleo."
+  },
+  {
+   "n": 9,
+   "s": 43.148,
+   "e": 45.962,
+   "dur": 2.81,
+   "palabras": 9,
+   "texto": "Y el mundo no lo supo en quince años."
+  },
+  {
+   "n": 10,
+   "s": 46.202,
+   "e": 51.524,
+   "dur": 5.32,
+   "palabras": 13,
+   "texto": "Murió en dos mil diecisiete... y tampoco se supo hasta cuatro meses después."
+  },
+  {
+   "n": 11,
+   "s": 51.764,
+   "e": 56.833,
+   "dur": 5.07,
+   "palabras": 12,
+   "texto": "O sea: te salvó la vida... y no te enteraste. Dos veces."
+  },
+  {
+   "n": 12,
+   "s": 57.073,
+   "e": 59.477,
+   "dur": 2.4,
+   "palabras": 9,
+   "texto": "¿Tú qué habrías hecho en su silla? Os leo."
+  },
+  {
+   "n": 13,
+   "s": 59.717,
+   "e": 63.016,
+   "dur": 3.3,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "estas",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 2.67,
+ "gancho_palabras": 9,
+ "gancho_apela_a_ti": false,
+ "gancho_es_pregunta": false,
+ "marca_linea": 13,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 59.717,
+ "ojo_dur": null,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Tú qué habrías hecho en su silla? Os leo.",
+ "n_lineas": 14,
+ "n_palabras": 158,
+ "duracion_voz": 63.02,
+ "ppm": 150.4,
+ "lineas_mas_largas": [
+  [
+   1,
+   6.65,
+   "Rusia, año ochenta y tres. La pantalla de Stanislav Petrov grita: misi"
+  ],
+  [
+   7,
+   6.41,
+   "Acertó: era el sol, reflejado en nubes altas. El satélite lo tomó por "
+  ],
+  [
+   10,
+   5.32,
+   "Murió en dos mil diecisiete... y tampoco se supo hasta cuatro meses de"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep31_petrov/final.mp4",
+ "duracion_video": 63.63
+}
