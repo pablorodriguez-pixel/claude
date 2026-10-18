@@ -53,47 +53,47 @@
   {
    "n": 6,
    "s": 42.929,
-   "e": 46.52,
-   "dur": 3.59,
+   "e": 46.828,
+   "dur": 3.9,
    "palabras": 15,
    "texto": "Así que cogió el teléfono y les dijo a sus jefes: «Es una falsa alarma»."
   },
   {
    "n": 7,
-   "s": 47.02,
-   "e": 55.01,
+   "s": 47.628,
+   "e": 55.618,
    "dur": 7.99,
    "palabras": 19,
    "texto": "Y tres: tenía razón. Era el sol, reflejado en las nubes, y el satélite lo había confundido con misiles."
   },
   {
    "n": 8,
-   "s": 55.51,
-   "e": 61.568,
+   "s": 56.118,
+   "e": 62.176,
    "dur": 6.06,
    "palabras": 20,
    "texto": "Ojo: no le dieron ni una medalla. Según contó él, le cayó una bronca por el papeleo de esa noche."
   },
   {
    "n": 9,
-   "s": 61.918,
-   "e": 69.909,
+   "s": 62.526,
+   "e": 70.517,
    "dur": 7.99,
    "palabras": 22,
    "texto": "O sea: ese señor te salvó la vida, y el mundo no se enteró hasta quince años después… y tú, hasta hoy."
   },
   {
    "n": 10,
-   "s": 70.409,
-   "e": 75.202,
+   "s": 71.017,
+   "e": 75.81,
    "dur": 4.79,
    "palabras": 16,
    "texto": "¿Tú qué habrías hecho en su silla: creerte la pantalla, o creerte a ti? Os leo."
   },
   {
    "n": 11,
-   "s": 75.552,
-   "e": 77.91,
+   "s": 76.16,
+   "e": 78.519,
    "dur": 2.36,
    "palabras": 7,
    "texto": "Y esto... no venía en el libro."
@@ -113,8 +113,8 @@
  "cta_texto": "¿Tú qué habrías hecho en su silla: creerte la pantalla, o creerte a ti? Os leo.",
  "n_lineas": 12,
  "n_palabras": 208,
- "duracion_voz": 77.91,
- "ppm": 160.2,
+ "duracion_voz": 78.52,
+ "ppm": 158.9,
  "lineas_mas_largas": [
   [
    4,
@@ -133,5 +133,5 @@
   ]
  ],
  "video": "/home/user/claude/tiktok/historia/ep38_petrov3/final.mp4",
- "duracion_video": 78.53
+ "duracion_video": 79.13
 }
