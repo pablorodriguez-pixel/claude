@@ -1,0 +1,129 @@
+{
+ "episodio": "ep35_interrog3",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 4.486,
+   "dur": 4.37,
+   "palabras": 12,
+   "texto": "¡Cervantes nunca escribió este signo! Y tú lo usas todos los días."
+  },
+  {
+   "n": 1,
+   "s": 4.836,
+   "e": 9.719,
+   "dur": 4.88,
+   "palabras": 15,
+   "texto": "En todo el Quijote no hay ni un solo signo de abrir pregunta. Ni uno."
+  },
+  {
+   "n": 2,
+   "s": 10.219,
+   "e": 13.014,
+   "dur": 2.79,
+   "palabras": 10,
+   "texto": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "n": 3,
+   "s": 13.364,
+   "e": 17.601,
+   "dur": 4.24,
+   "palabras": 13,
+   "texto": "¿Entonces por qué lo usamos nosotros, y casi nadie más? Por tres cosas."
+  },
+  {
+   "n": 4,
+   "s": 17.951,
+   "e": 25.144,
+   "dur": 7.19,
+   "palabras": 26,
+   "texto": "Una: en tiempos de Cervantes no existía. Lo inventó la Real Academia en mil setecientos cincuenta y cuatro, cuando él llevaba más de cien años muerto."
+  },
+  {
+   "n": 5,
+   "s": 25.644,
+   "e": 38.809,
+   "dur": 13.16,
+   "palabras": 36,
+   "texto": "Dos: en español, la pregunta va en el tono. «Tienes hambre» y «¿tienes hambre?» son las mismas palabras. Sin el signo de abrir, en una frase larga no sabías que era una pregunta hasta el final."
+  },
+  {
+   "n": 6,
+   "s": 39.309,
+   "e": 46.026,
+   "dur": 6.72,
+   "palabras": 19,
+   "texto": "Y tres: costó muchísimo que la gente lo usara. Todavía en el siglo diecinueve se imprimían libros sin él."
+  },
+  {
+   "n": 7,
+   "s": 46.526,
+   "e": 51.078,
+   "dur": 4.55,
+   "palabras": 15,
+   "texto": "Ojo: el Quijote que leíste en el cole sí lo lleva. Se lo pusieron después."
+  },
+  {
+   "n": 8,
+   "s": 51.428,
+   "e": 55.897,
+   "dur": 4.47,
+   "palabras": 13,
+   "texto": "O sea: Cervantes tenía excusa para no ponerlo. Tú, en el WhatsApp, no."
+  },
+  {
+   "n": 9,
+   "s": 56.397,
+   "e": 59.505,
+   "dur": 3.11,
+   "palabras": 13,
+   "texto": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo."
+  },
+  {
+   "n": 10,
+   "s": 59.855,
+   "e": 62.219,
+   "dur": 2.36,
+   "palabras": 7,
+   "texto": "Y esto... no venía en el libro."
+  }
+ ],
+ "primera_palabra": "cervantes",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 4.37,
+ "gancho_palabras": 12,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 2,
+ "marca_es_ultima": false,
+ "marca_inicio_s": 10.219,
+ "ojo_dur": 4.55,
+ "cta_tipo": "abierta",
+ "cta_texto": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo.",
+ "n_lineas": 11,
+ "n_palabras": 179,
+ "duracion_voz": 62.22,
+ "ppm": 172.6,
+ "lineas_mas_largas": [
+  [
+   5,
+   13.16,
+   "Dos: en español, la pregunta va en el tono. «Tienes hambre» y «¿tienes"
+  ],
+  [
+   4,
+   7.19,
+   "Una: en tiempos de Cervantes no existía. Lo inventó la Real Academia e"
+  ],
+  [
+   6,
+   6.72,
+   "Y tres: costó muchísimo que la gente lo usara. Todavía en el siglo die"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep35_interrog3/final.mp4",
+ "duracion_video": 62.83
+}

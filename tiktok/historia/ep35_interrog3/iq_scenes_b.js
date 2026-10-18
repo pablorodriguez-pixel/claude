@@ -80,9 +80,8 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { siz
 /* E4 · «EN UNA FRASE LARGA NO SABÍAS QUE ERA UNA PREGUNTA HASTA EL FINAL» — teletipo sin «¿»: el «?» llega tarde */
 {
   const c = scene(S.E4[0], S.E4[1], t => {
-    const k = p(t, S.E4[0] + 0.05, K.preg5b - S.E4[0] - 0.05, E.linear);
-    const W0 = tk.offsetWidth || 3000;
-    set(tk, { x: lerp(1080, 820 - W0, k) });
+    const k = p(t, S.E4[0] + 0.05, K.preg5b - S.E4[0] - 0.35, E.linear);
+    TW.forEach((s, i) => { s.style.opacity = k * TW.length >= i + 0.3 ? 1 : 0; });
     const got = t > K.preg5b - 0.02;
     const zr = t > K.sabias - 0.06 ? 1.22 : 1;
     set(rd.d, { y: wobble(t, 0.6, 3) - (got ? 30 * p(t, K.preg5b, 0.25, E.outBack) : 0), s: pop(t, S.E4[0], 0.35) * zr });
@@ -91,19 +90,20 @@ stepHead(K.dos - 0.08, K.y6 - 0.08, 2, ['La pregunta', 'va en el *tono*'], { siz
     dots.textContent = '.'.repeat(1 + Math.floor(t * 4) % 3);
     set(qd, { o: !got ? 1 : 0, s: 1 + 0.08 * Math.sin(t * 8) });
     stampA(ah, t, K.preg5b, -6, 1);
-    set(qbig, { s: got ? 1 + 0.4 * (1 - p(t, K.preg5b, 0.3)) : 1 });
+    set(qbig, { s: got ? 1 + 0.4 * (1 - p(t, K.preg5b, 0.3)) : 0, o: got ? 1 : 0 });
     popA(lg, t, K.larga, { r: -3 });
   }, { clip: true });
   sceneBg(c, { background: '#EFE1C6' });
-  box(c, 0, 440, 1080, 190, { background: CREAM, borderTop: `6px solid ${INK}`, borderBottom: `6px solid ${INK}`, zIndex: 3 });
-  const tk = el('div', c, { left: '0px', top: '466px', fontFamily: 'SpecialElite', fontSize: '92px', lineHeight: '140px', color: INK, whiteSpace: 'nowrap', zIndex: 5 },
-    'y si el sábado por la tarde vamos todos juntos a la feria del pueblo a comer churros con chocolate<span class="qq" style="display:inline-block;font-family:Playfair;font-weight:900;color:' + RED + ';font-size:130px">?</span>');
+  box(c, 70, 400, 900, 330, { background: CREAM, border: `6px solid ${INK}`, borderRadius: '20px', boxShadow: `8px 9px 0 ${SH}`, zIndex: 3 });
+  const tk = el('div', c, { left: '100px', top: '418px', width: '850px', fontFamily: 'SpecialElite', fontSize: '60px', lineHeight: '72px', color: INK, zIndex: 5 },
+    'y si el sábado vamos todos a la feria del pueblo a comer churros con chocolate<span class="qq" style="display:inline-block;font-family:Playfair;font-weight:900;color:' + RED + ';font-size:96px;line-height:60px">?</span>');
+  const TW = []; { const raw = tk.innerHTML; const qi = raw.indexOf('<span'); const words = raw.slice(0, qi).split(' '); tk.innerHTML = words.map(w => `<span style="opacity:0">${w}</span>`).join(' ') + raw.slice(qi); TW.push(...[...tk.children].slice(0, words.length)); }
   const qbig = tk.querySelector('.qq');
-  const lg = chip(c, 120, 660, 'frase larga, sin «¿»', { size: 44, bg: INK, color: YEL, z: 20 });
-  const rd = mk(c, [300, 760, 440, 563], readerInner(), '0 0 360 460', 'bust'); rd.d.style.zIndex = 6;
-  const qd = el('div', c, { left: '700px', top: '700px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: PINK, textShadow: `4px 4px 0 ${INK}`, zIndex: 8 }, '?');
-  const dots = el('div', c, { left: '700px', top: '880px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', color: INK, zIndex: 8 }, '...');
-  const ah = stamp(c, 130, 1160, '¡AH, ERA PREGUNTA!', { size: 62, bw: 9, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
+  const lg = chip(c, 120, 752, 'frase larga, sin «¿»', { size: 44, bg: INK, color: YEL, z: 20 });
+  const rd = mk(c, [300, 830, 400, 512], readerInner(), '0 0 360 460', 'bust'); rd.d.style.zIndex = 6;
+  const qd = el('div', c, { left: '720px', top: '820px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: PINK, textShadow: `4px 4px 0 ${INK}`, zIndex: 8 }, '?');
+  const dots = el('div', c, { left: '730px', top: '1000px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '90px', color: INK, zIndex: 8 }, '...');
+  const ah = stamp(c, 130, 1180, '¡AH, ERA PREGUNTA!', { size: 62, bw: 9, z: 30, bg: 'rgba(255,255,255,.95)', blend: 'normal' });
 }
 
 /* ======================================================================

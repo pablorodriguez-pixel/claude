@@ -74,7 +74,7 @@ const T_EMU = K.v27 + 0.75;
   const emuW = box(cam, emN.x - 85, emN.y - 85, 170, 170, { zIndex: 20 });
   avatar(emuW, 0, 0, 170, 'EMU', { bg: '#F2D9A0', bw: 6 });
   el('div', emuW, { left: '43px', top: '55px', width: '84px', height: '22px', zIndex: 9 }, `<svg width="84" height="24" viewBox="0 0 84 24"><path d="M2,4 h34 v8 q0,10 -17,10 q-17,0 -17,-10 Z M48,4 h34 v8 q0,10 -17,10 q-17,0 -17,-10 Z" fill="${INK}"/><path d="M36,8 h12" stroke="${INK}" stroke-width="4"/></svg>`);
-  const nom = chip(cam, 250, 1268, 'sueldo pagado por Alemania', { size: 44, bg: RED, color: '#fff', z: 46 });
+  const nom = chip(cam, 70, 548, 'sueldo pagado por Alemania', { size: 40, bg: RED, color: '#fff', z: 46 });
   const ENV = [];
   NODES.forEach((nd, i) => { if (i % 4 === 0) { const e = box(cam, nd.x - 45, nd.y - 30, 90, 60, { zIndex: 35 }); e.innerHTML = envSvg('', '#F4E4C0'); ENV.push({ e, x: nd.x - 45, y: nd.y - 30, x0: nd.x - 45, y0: nd.y - 30, t: K.pagaban - 0.1 + (i % 8) * 0.06 }); } });
 }
@@ -280,9 +280,9 @@ function chanBase(c) {
    ====================================================================== */
 {
   const c = scene(S.M1[0], S.M1[1], t => {
-    framing(cam, t, [[S.M1[0], 1.05, 90, 0], [K.y10 - 0.04, 1.05, -90, 0]], 0.03);
+    framing(cam, t, [[S.M1[0], 1.0, 0, 0], [K.nazis - 0.08, 1.1, 110, 30], [K.y10 - 0.04, 1.05, -90, 0]], 0.03);
     const ki = p(t, K.cruz - 0.15, 0.3, E.inCubic);
-    set(ic, { y: (1 - ki) * -330, r: (1 - ki) * Math.sin(t * 2.6) * 10 + Math.sin(t * 3) * 2 });
+    set(ic, { y: (1 - ki) * -140, r: (1 - ki) * Math.sin(t * 2.6) * 10 + Math.sin(t * 3) * 2 });
     popA(c1, t, K.hierro, { r: -3 }); popA(cA, t, K.nazis - 0.05, { r: 3 });
     set(cr, { s: pop(t, K.ingleses10 - 0.05, 0.4), r: -6 + wobble(t, 0.6, 3), o: t < K.ingleses10 - 0.05 ? 0 : 1 });
     const km = p(t, K.medalla - 0.12, 0.3, E.inCubic);
@@ -294,7 +294,7 @@ function chanBase(c) {
   const jk = box(cam, -100, 0, 1280, 1920, { zIndex: 1 });
   jk.innerHTML = `<svg width="1280" height="1920" style="overflow:visible"><path d="M-40,380 L620,380 L800,1500 L-40,1500 Z" fill="#3d3328" stroke="${INK}" stroke-width="6"/><path d="M620,380 L1320,380 L1320,1500 L800,1500 Z" fill="#33291f" stroke="${INK}" stroke-width="6"/><path d="M480,380 L660,380 L800,760 L620,900 Z" fill="#4a3d30" stroke="${INK}" stroke-width="6"/><path d="M660,380 L860,380 L790,780 Z" fill="#fff" stroke="${INK}" stroke-width="5"/><path d="M740,400 L780,400 L800,700 L760,760 L720,700 Z" fill="${RED}" stroke="${INK}" stroke-width="4"/></svg>`;
   const ic = medalCross(cam, 150, 520, 330, { z: 10 });
-  const cA = chip(cam, 230, 440, 'LOS NAZIS', { size: 46, bg: '#fff', color: INK, z: 20 });
+  const cA = chip(cam, 300, 440, 'LOS NAZIS', { size: 46, bg: '#fff', color: INK, z: 20 });
   const c1 = chip(cam, 200, 1010, 'CRUZ DE HIERRO · 1944', { size: 40, bg: YEL, color: INK, z: 20 });
   const cr = box(cam, 690, 420, 240, 166, { zIndex: 12 }); cr.innerHTML = crownSvg();
   const mb = box(cam, 640, 640, 300, 396, { zIndex: 10 });
@@ -426,7 +426,7 @@ headline(S.Q2[0], S.Q2[1], '¿Y lo más *gordo* que te has inventado *tú?*', { 
   }, { cut: true });
   sceneBg(c, { background: '#EADFC8' });
   const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
-  const vb = mk(c, [330, 200, 420, 520], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); vb.d.style.zIndex = 0; bookW.style.zIndex = 2;
+  const vb = mk(c, [330, 130, 420, 520], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); vb.d.style.zIndex = 0; bookW.style.zIndex = 2;
   const bs = svgLayer(bookW, 1);
   let lines = ''; for (let i = 0; i < 12; i++) lines += `<path d="M180,${790 + i * 30} H${i % 4 === 3 ? 420 : 500}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
   let lines2 = ''; for (let i = 0; i < 14; i++) lines2 += `<path d="M580,${700 + i * 30} H${i % 5 === 4 ? 790 : 900}" stroke="${INK}" stroke-width="5" opacity=".55"/>`;
@@ -438,7 +438,7 @@ headline(S.Q2[0], S.Q2[1], '¿Y lo más *gordo* que te has inventado *tú?*', { 
     <g transform="translate(1510,0) scale(-1,1)"><text x="755" y="860" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="64" fill="#e9c75c">HISTORIA</text><text x="755" y="920" text-anchor="middle" font-family="Rye" font-size="30" fill="#e9c75c">Tomo I</text></g></g></g>`;
   const flap = bs.querySelector('.flap'), pageF = bs.querySelector('.pageF'), coverF = bs.querySelector('.coverF');
   const stars = []; for (let i = 0; i < 3; i++) stars.push(el('div', bookW, { left: '330px', top: '1200px', fontSize: '54px', color: YEL, textShadow: `2px 2px 0 ${INK}, -2px -2px 0 ${INK}`, zIndex: 3 }, '✦'));
-  const epl = el('div', c, { left: '0', top: '1250px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:38px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 34 · El español que engañó a Hitler</span>`);
-  const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, TC + 0.3, { r: -1 }); };
+  const epl = el('div', c, { left: '0', top: '1262px', width: '1080px', textAlign: 'center', zIndex: 30 }, `<span style="display:inline-block;font-family:Playfair;font-weight:800;font-size:38px;color:#fff;background:${INK};padding:8px 26px 12px;border-radius:12px;box-shadow:5px 5px 0 ${PINK}">Ep. 34 · El español que engañó a Hitler</span>`);
+  const _fe = SC[SC.length - 1].fn; SC[SC.length - 1].fn = t => { _fe(t); popA(epl, t, S.BK[0] + 0.15, { r: -1 }); };
   const puffs = [0, 1, 2, 3].map(() => box(bookW, 480, 600, 120, 80, { borderRadius: '50%', background: '#F4ECDB', border: `4px solid ${INK}`, zIndex: 3 }));
 }

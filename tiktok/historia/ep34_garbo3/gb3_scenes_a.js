@@ -91,7 +91,7 @@ headline(S.C[0], S.C[1], 'y nunca había sido *espía*', { size: 92, hlT: K.espi
     set(card, { s: pop(t, S.C[0], 0.3), r: -2 + wobble(t, 0.5, 0.6) });
     set(av.d, { r: wobble(t, 0.4, 2) }); face(av.f, t, { look: [4, 0], bL: 10, bR: 4, seed: 3 });
     stampA(stN, t, K.nunca1, -10, 1);
-    set(xx, { s: pop(t, K.espia1, 0.3), o: t < K.espia1 ? 0 : 1 });
+    set(xx, { s: pop(t, S.C[0] + 0.1, 0.3) * (1 + 0.1 * p(t, K.espia1, 0.2) * (1 - p(t, K.espia1 + 0.2, 0.3))), o: t < S.C[0] + 0.1 ? 0 : 1 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#D9CDB3' });
   halftone(c, 'rgba(43,33,24,.07)', 0);
@@ -246,7 +246,7 @@ headline(S.T3[0], S.T3[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y: 220 
     set(tok.d, { x: x - 70, y: y - 70, r: Math.sin(t * 6) * 6 });
     face(tok.f, t, { look: t > TU ? [-6, 4] : [4, -4], seed: 3 });
     trail.setAttribute('stroke-dashoffset', f1(-t * 80)); trail.style.opacity = t > K.mandaron - 0.1 ? 1 : 0;
-    popA(order, t, K.mandaron - 0.05, { r: -3 });
+    popA(order, t, K.mandaron - 0.05, { r: -3, o: 1 - p(t, K.quedo, 0.2) });
     stampA(stL, t, K.londres, -8, 1); stL.style.display = t > K.lisboa + 0.6 ? 'none' : '';
     set(xLon, { s: pop(t, TU + 0.1, 0.3), o: t < TU + 0.1 ? 0 : 1, r: -8 });
     popA(cLis, t, K.lisboa, { r: -4 });
@@ -262,7 +262,7 @@ headline(S.T3[0], S.T3[1], 'En *tres pasos*', { size: 120, hlT: K.tres3, y: 220 
   chip(mp, MAD[0] - 40, MAD[1] + 50, 'MADRID', { size: 34, bg: '#fff', color: INK, z: 20 });
   const xLon = el('div', mp, { left: px(LON[0] - 50), top: px(LON[1] - 70), fontFamily: 'Playfair', fontWeight: 900, fontSize: '150px', color: RED, textShadow: `4px 4px 0 ${INK}`, zIndex: 21, lineHeight: 1 }, '✗');
   const stL = stamp(mp, LON[0] - 290, LON[1] + 90, 'DESTINO: LONDRES', { size: 46, bw: 9, z: 30, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
-  const order = el('div', c, { left: '440px', top: '1190px', zIndex: 25 }, `<span style="display:inline-block;font-family:SpecialElite;font-size:40px;color:${INK};background:#F2E2B8;padding:10px 22px;border:5px solid ${INK};box-shadow:6px 6px 0 ${SH};white-space:nowrap">ORDEN: ¡A LONDRES!</span>`);
+  const order = el('div', c, { left: '440px', top: '1240px', zIndex: 25 }, `<span style="display:inline-block;font-family:SpecialElite;font-size:40px;color:${INK};background:#F2E2B8;padding:10px 22px;border:5px solid ${INK};box-shadow:6px 6px 0 ${SH};white-space:nowrap">ORDEN: ¡A LONDRES!</span>`);
   const pin = box(mp, LIS[0] - 30, LIS[1] - 80, 60, 80, { zIndex: 22 }); pin.innerHTML = pinSvg(RED);
   const cLis = chip(mp, LIS[0] + 40, LIS[1] - 200, 'LISBOA', { size: 72, bg: YEL, color: INK, z: 24 });
   const tok = pujolAv(mp, 0, 0, 140, { z: 23, bw: 6 });
