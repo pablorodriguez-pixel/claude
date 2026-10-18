@@ -114,8 +114,8 @@ headline(S.C[0], S.C[1], 'En el bote le lanzan *un bulto*…', { size: 80, hlT: 
 /* ======================================================================
    D · «UN BEBÉ. QUE NO ERA SUYO.» — el fardo se abre: un bebé
    ====================================================================== */
-headline(S.D[0], K.que22 - 0.06, 'Un *bebé*', { size: 130, hlT: K.bebe, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
-headline(K.que22 - 0.06, S.D[1], 'Que *no era suyo*', { size: 112, hlT: K.noera, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.D[0], K.que22 - 0.06, 'Un *bebé*', { size: 130, hlT: K.bebe, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(K.que22 - 0.06, S.D[1], 'Que *no era suyo*', { size: 112, hlT: K.noera, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.D[0], S.D[1], t => {
     set(cam, { s: 1.04 + 0.06 * p(t, S.D[0], 2.3, E.linear) });
@@ -255,9 +255,9 @@ headline(S.F[0], S.F[1], 'Ni *las gracias*', { size: 124, hlT: K.gracias });
    H · «EL TITANIC NO FUE EL ÚNICO. TENÍA DOS GEMELOS… Y ELLA, EN LOS TRES.» — tres cartas en fila
    ====================================================================== */
 const CW = 250, CX3 = [60, 375, 690], CY3 = 540;
-headline(S.H[0], K.tenia - 0.06, 'El Titanic *no fue el único*', { size: 92, hlT: K.unico, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
-headline(K.tenia - 0.06, K.y49 - 0.06, 'Tenía *dos gemelos*', { size: 108, hlT: K.gemelos, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
-headline(K.y49 - 0.06, S.H[1], 'y ella, *en los tres*', { size: 108, hlT: K.tres3, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.H[0], K.tenia - 0.06, 'El Titanic *no fue el único*', { size: 92, hlT: K.unico, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(K.tenia - 0.06, K.y49 - 0.06, 'Tenía *dos gemelos*', { size: 108, hlT: K.gemelos, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(K.y49 - 0.06, S.H[1], 'y ella, *en los tres*', { size: 108, hlT: K.tres3, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.H[0], S.H[1], t => {
     set(cam, { s: 1 + 0.04 * p(t, S.H[0], 5, E.linear) });

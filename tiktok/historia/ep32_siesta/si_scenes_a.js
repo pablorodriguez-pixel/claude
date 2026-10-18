@@ -116,7 +116,7 @@ headline(K.lo2 - 0.06, S.C[1], 'Lo dice *la RAE*', { size: 104, hlT: K.rae });
 /* ======================================================================
    D1 · «LOS ROMANOS CONTABAN LAS HORAS DESDE EL AMANECER» — romano en la colina; sale el sol
    ====================================================================== */
-headline(S.D1[0], K.desde - 0.06, 'Los *romanos* contaban…', { size: 94, hlT: K.romanos });
+headline(S.D1[0], K.desde - 0.06, 'Los *romanos* contaban…', { size: 80, hlT: K.romanos });
 headline(K.desde - 0.06, S.D1[1], 'desde *el amanecer*', { size: 104, hlT: K.amanecer });
 {
   const c = scene(S.D1[0], S.D1[1], t => {

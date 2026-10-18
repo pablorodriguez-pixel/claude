@@ -127,4 +127,4 @@ window.frame = t => {
   };
 }
 /* palabras clave de los titulares: sin sombra (si no, se emborronan sobre el amarillo) */
-HLS.forEach(h => h.hls.forEach(x => { x.e.parentNode.style.textShadow = 'none'; }));
+HLS.forEach(h => h.hls.forEach(x => { if (!x.e.parentNode.style.color) x.e.parentNode.style.textShadow = 'none'; }));

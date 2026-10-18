@@ -3,8 +3,8 @@
 /* ======================================================================
    I1 · «AL OLYMPIC LO EMBISTIÓ UN BUQUE DE GUERRA» — zoom a la carta 1; ¡CRAC! y sello «1»
    ====================================================================== */
-headline(S.I1[0], K.embistio - 0.06, 'Al *Olympic*…', { size: 120, hlT: K.olympic, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
-headline(K.embistio - 0.06, S.I1[1], 'lo embistió *un buque de guerra*', { size: 84, hlT: K.buque, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.I1[0], K.embistio - 0.06, 'Al *Olympic*…', { size: 120, hlT: K.olympic, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(K.embistio - 0.06, S.I1[1], 'lo embistió *un buque de guerra*', { size: 84, hlT: K.buque, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 const T_CRAC = K.embistio + 0.14;
 {
   const c = scene(S.I1[0], S.I1[1], t => {
@@ -55,8 +55,8 @@ headline(S.I2[0], S.I2[1], '¿Tú *lo dejas?*', { size: 136, hlT: K.dejas });
 /* ======================================================================
    I3 · «ELLA SE PASÓ… AL TITANIC.» — la cofia salta de la carta 1 a la 2, que brilla
    ====================================================================== */
-headline(S.I3[0], K.al68 - 0.06, 'Ella *se pasó*…', { size: 124, hlT: K.paso, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
-headline(K.al68 - 0.06, S.I3[1], '… *al Titanic*', { size: 136, hlT: K.titanic4, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.I3[0], K.al68 - 0.06, 'Ella *se pasó*…', { size: 124, hlT: K.paso, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(K.al68 - 0.06, S.I3[1], '… *al Titanic*', { size: 136, hlT: K.titanic4, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const A = [100, 460], B = [560, 460], WC = 320;
   const c = scene(S.I3[0], S.I3[1], t => {
@@ -163,7 +163,7 @@ headline(S.K1[0], S.K1[1], '¿A *por qué?*', { size: 150, hlT: K.porque });
 /* ======================================================================
    K2 · «A POR EL CEPILLO DE DIENTES.» — el cepillo gigante, como un tesoro
    ====================================================================== */
-headline(S.K2[0], S.K2[1], 'A por el *cepillo de dientes*', { size: 92, hlT: K.cepillo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.K2[0], S.K2[1], 'A por el *cepillo de dientes*', { size: 92, hlT: K.cepillo, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.K2[0], S.K2[1], t => {
     set(ry, { r: t * 20 });
@@ -204,7 +204,7 @@ colorHit(S.K3[0], S.K3[1], PINK, c => {
 /* ======================================================================
    L1 · «SUBE A UN BOTE…» — el bote visto desde arriba
    ====================================================================== */
-headline(S.L1[0], S.L1[1], 'Sube *a un bote*…', { size: 120, hlT: K.bote7, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.L1[0], S.L1[1], 'Sube *a un bote*…', { size: 120, hlT: K.bote7, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.L1[0], S.L1[1], t => {
     const tl = t - S.L1[0];
@@ -224,7 +224,7 @@ headline(S.L1[0], S.L1[1], 'Sube *a un bote*…', { size: 120, hlT: K.bote7, col
 /* ======================================================================
    L2 · «…Y EL AGUA LO ARRASTRA A LAS HÉLICES,» — contraplano bajo el agua
    ====================================================================== */
-headline(S.L2[0], S.L2[1], 'lo arrastra *a las hélices*', { size: 94, hlT: K.helices, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.L2[0], S.L2[1], 'lo arrastra *a las hélices*', { size: 94, hlT: K.helices, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.L2[0], S.L2[1], t => {
     set(cam, { s: 1 + 0.14 * p(t, K.helices - 0.1, 0.6, E.inOutCubic) });
@@ -249,7 +249,7 @@ headline(S.L2[0], S.L2[1], 'lo arrastra *a las hélices*', { size: 94, hlT: K.he
 /* ======================================================================
    L3 · «…QUE SIGUEN GIRANDO.» — la hélice, enorme, cada vez más cerca
    ====================================================================== */
-headline(S.L3[0], S.L3[1], 'que *siguen girando*', { size: 110, hlT: K.girando, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.L3[0], S.L3[1], 'que *siguen girando*', { size: 110, hlT: K.girando, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.L3[0], S.L3[1], t => {
     const kz = p(t, S.L3[0], S.L3[1] - S.L3[0], E.inCubic);
@@ -287,7 +287,7 @@ colorHit(S.M1[0], S.M1[1], YEL, c => {
 /* ======================================================================
    M2 · «GOLPE EN LA CABEZA…» — chapuzón, oscuridad y estrellas de grabado
    ====================================================================== */
-headline(S.M2[0], S.M2[1], 'Golpe *en la cabeza*', { size: 104, hlT: K.cabeza, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.M2[0], S.M2[1], 'Golpe *en la cabeza*', { size: 104, hlT: K.cabeza, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.M2[0], S.M2[1], t => {
     const ks = p(t, S.M2[0], 0.35, E.outCubic);
@@ -335,7 +335,7 @@ headline(S.M3[0], S.M3[1], 'y *sale viva*', { size: 130, hlT: K.viva });
 /* ======================================================================
    M4 · «CON EL CRÁNEO ROTO, SEGÚN CONTÓ.» — radiografía de grabado
    ====================================================================== */
-headline(S.M4[0], S.M4[1], 'Con el *cráneo roto*', { size: 110, hlT: K.roto, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.M4[0], S.M4[1], 'Con el *cráneo roto*', { size: 110, hlT: K.roto, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.M4[0], S.M4[1], t => {
     set(lb, { s: pop(t, S.M4[0], 0.35), o: 1 });
@@ -424,8 +424,8 @@ headline(K.en134 - 0.06, S.N3[1], '… *en barco*', { size: 150, hlT: K.barco })
 /* ======================================================================
    O · «TRES BARCOS LO INTENTARON. NINGUNO PUDO.» — las cartas otra vez; se dan la vuelta
    ====================================================================== */
-headline(S.O1[0], S.O1[1], 'Tres barcos *lo intentaron*', { size: 92, hlT: K.intentaron, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
-headline(S.O2[0], S.O2[1], '*Ninguno* pudo.', { size: 136, hlT: K.ninguno, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: INK });
+headline(S.O1[0], S.O1[1], 'Tres barcos *lo intentaron*', { size: 92, hlT: K.intentaron, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+headline(S.O2[0], S.O2[1], '*Ninguno* pudo.', { size: 136, hlT: K.ninguno, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
 {
   const c = scene(S.O1[0], S.O2[1], t => {
     set(cam, { s: 1 + 0.04 * p(t, S.O1[0], 3, E.linear) });
