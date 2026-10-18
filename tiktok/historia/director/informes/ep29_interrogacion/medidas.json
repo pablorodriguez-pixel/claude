@@ -1,0 +1,137 @@
+{
+ "episodio": "ep29_interrogacion",
+ "con_tiempos": true,
+ "lineas": [
+  {
+   "n": 0,
+   "s": 0.12,
+   "e": 3.821,
+   "dur": 3.7,
+   "palabras": 7,
+   "texto": "¡Interro-gación! Tú la abres. Cervantes, jamás."
+  },
+  {
+   "n": 1,
+   "s": 4.061,
+   "e": 8.685,
+   "dur": 4.62,
+   "palabras": 13,
+   "texto": "Ni una vez en todo el Quijote. Y no, no era un descuidado."
+  },
+  {
+   "n": 2,
+   "s": 8.925,
+   "e": 9.584,
+   "dur": 0.66,
+   "palabras": 4,
+   "texto": "Es que no existía."
+  },
+  {
+   "n": 3,
+   "s": 9.824,
+   "e": 15.647,
+   "dur": 5.82,
+   "palabras": 17,
+   "texto": "La sacó la Real Academia en mil setecientos cincuenta y cuatro: la de cerrar... puesta del revés."
+  },
+  {
+   "n": 4,
+   "s": 15.887,
+   "e": 22.987,
+   "dur": 7.1,
+   "palabras": 12,
+   "texto": "¿Para qué? Di en voz alta: «tienes hambre». Y ahora: «¿tienes hambre?»."
+  },
+  {
+   "n": 5,
+   "s": 23.227,
+   "e": 28.143,
+   "dur": 4.92,
+   "palabras": 15,
+   "texto": "Mismas palabras: solo cambia el tono. Y en una frase larga, te enterabas al final."
+  },
+  {
+   "n": 6,
+   "s": 28.383,
+   "e": 33.865,
+   "dur": 5.48,
+   "palabras": 12,
+   "texto": "Y costó: en pleno siglo diecinueve aún se imprimían libros sin ella."
+  },
+  {
+   "n": 7,
+   "s": 34.105,
+   "e": 36.587,
+   "dur": 2.48,
+   "palabras": 11,
+   "texto": "Tu Quijote del cole sí la lleva: se la pusieron después."
+  },
+  {
+   "n": 8,
+   "s": 36.827,
+   "e": 42.398,
+   "dur": 5.57,
+   "palabras": 15,
+   "texto": "Ojo: no es solo nuestra. También la usa el asturiano. Y el gallego la permite."
+  },
+  {
+   "n": 9,
+   "s": 42.638,
+   "e": 48.81,
+   "dur": 6.17,
+   "palabras": 15,
+   "texto": "Hoy es obligatoria. Y la Academia avisa: no vale quitarla por imitar a otras lenguas."
+  },
+  {
+   "n": 10,
+   "s": 49.05,
+   "e": 57.618,
+   "dur": 8.57,
+   "palabras": 19,
+   "texto": "Así que, en el chat... Cervantes tenía excusa. Tú, no. ¿Qué falta no le perdonas a nadie? Os leo."
+  },
+  {
+   "n": 11,
+   "s": 57.858,
+   "e": 61.151,
+   "dur": 3.29,
+   "palabras": 10,
+   "texto": "Soy tu vecino... y esto no venía en el libro."
+  }
+ ],
+ "primera_palabra": "interro",
+ "primera_palabra_muletilla": false,
+ "gancho_dur": 3.7,
+ "gancho_palabras": 7,
+ "gancho_apela_a_ti": true,
+ "gancho_es_pregunta": false,
+ "marca_linea": 11,
+ "marca_es_ultima": true,
+ "marca_inicio_s": 57.858,
+ "ojo_dur": 5.57,
+ "cta_tipo": "abierta",
+ "cta_texto": "Así que, en el chat... Cervantes tenía excusa. Tú, no. ¿Qué falta no le perdonas a nadie? Os leo.",
+ "n_lineas": 12,
+ "n_palabras": 150,
+ "duracion_voz": 61.15,
+ "ppm": 147.2,
+ "lineas_mas_largas": [
+  [
+   10,
+   8.57,
+   "Así que, en el chat... Cervantes tenía excusa. Tú, no. ¿Qué falta no l"
+  ],
+  [
+   4,
+   7.1,
+   "¿Para qué? Di en voz alta: «tienes hambre». Y ahora: «¿tienes hambre?»"
+  ],
+  [
+   9,
+   6.17,
+   "Hoy es obligatoria. Y la Academia avisa: no vale quitarla por imitar a"
+  ]
+ ],
+ "video": "/home/user/claude/tiktok/historia/ep29_interrogacion/final.mp4",
+ "duracion_video": 61.77
+}
