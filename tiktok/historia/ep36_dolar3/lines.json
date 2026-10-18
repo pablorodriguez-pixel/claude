@@ -2,85 +2,85 @@
  {
   "line": 0,
   "who": "VECINO",
-  "text": "¡El símbolo del dólar no es una S! Es una palabra en español.",
+  "text": "¡El símbolo del dólar no es la S que tú crees! Es una palabra en español.",
   "s": 0.12,
-  "e": 4.017
+  "e": 4.684
  },
  {
   "line": 1,
   "who": "VECINO",
   "text": "Ese garabato, en realidad, pone «pesos».",
-  "s": 4.367,
-  "e": 7.243
+  "s": 5.034,
+  "e": 7.985
  },
  {
   "line": 2,
   "who": "VECINO",
   "text": "Soy tu vecino, y esto no venía en el libro.",
-  "s": 7.743,
-  "e": 10.537
+  "s": 8.685,
+  "e": 11.478
  },
  {
   "line": 3,
   "who": "VECINO",
   "text": "¿Cómo acaba una palabra española en el dinero de Estados Unidos? En tres pasos.",
-  "s": 10.887,
-  "e": 15.366
+  "s": 11.828,
+  "e": 16.307
  },
  {
   "line": 4,
   "who": "VECINO",
   "text": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos».",
-  "s": 15.716,
-  "e": 27.233
+  "s": 16.657,
+  "e": 28.174
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó una raya.",
-  "s": 27.733,
-  "e": 34.126
+  "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó la raya que ves en el dólar.",
+  "s": 28.874,
+  "e": 36.226
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Y tres: cuando Estados Unidos creó su dólar, lo copió del peso español: el mismo valor... y el mismo símbolo.",
-  "s": 34.626,
-  "e": 41.822
+  "s": 36.926,
+  "e": 44.121
  },
  {
   "line": 7,
   "who": "VECINO",
   "text": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete.",
-  "s": 42.322,
-  "e": 46.953
+  "s": 44.621,
+  "e": 49.253
  },
  {
   "line": 8,
   "who": "VECINO",
   "text": "Ojo: hay otras teorías, como la de las columnas de Hércules. Son bonitas, pero la del peso es la que tiene pruebas.",
-  "s": 47.453,
-  "e": 53.846
+  "s": 49.953,
+  "e": 56.346
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "O sea: cada vez que ves el símbolo del dólar... estás leyendo «pesos», en español.",
-  "s": 54.196,
-  "e": 60.67
+  "text": "O sea: el dinero más poderoso del mundo lleva escrito «pesos»... y en español.",
+  "s": 56.696,
+  "e": 62.85
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "¿Y en tu país, cómo le llamáis al dinero? Os leo.",
-  "s": 61.17,
-  "e": 63.885
+  "s": 63.35,
+  "e": 66.065
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 64.235,
-  "e": 66.519
+  "s": 66.415,
+  "e": 68.699
  }
 ]

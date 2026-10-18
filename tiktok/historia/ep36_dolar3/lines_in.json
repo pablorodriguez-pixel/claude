@@ -11,12 +11,12 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡El símbolo del dólar no es una S! Es una palabra en español."
+   "text": "[excited] ¡El símbolo del dólar no es la S que tú crees! Es una palabra en español."
   },
   {
    "who": "VECINO",
    "text": "Ese garabato, en realidad, pone «pesos».",
-   "gap_after": 0.5
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
@@ -29,12 +29,12 @@
   {
    "who": "VECINO",
    "text": "Uno: hace trescientos años, la moneda que mandaba en medio mundo era el peso español. Y los comerciantes lo abreviaban a mano: una P, y al lado una S pequeñita, de «pesos».",
-   "gap_after": 0.5
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
-   "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó una raya.",
-   "gap_after": 0.5
+   "text": "Dos: de tanto escribirlo deprisa, la S se fue montando encima de la P... y de la P solo quedó la raya que ves en el dólar.",
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
@@ -44,7 +44,7 @@
   {
    "who": "VECINO",
    "text": "Tanto, que allí se pudo pagar con pesos españoles hasta mil ochocientos cincuenta y siete.",
-   "gap_after": 0.5
+   "gap_after": 0.7
   },
   {
    "who": "VECINO",
@@ -52,7 +52,7 @@
   },
   {
    "who": "VECINO",
-   "text": "O sea: cada vez que ves el símbolo del dólar... estás leyendo «pesos», en español.",
+   "text": "O sea: el dinero más poderoso del mundo lleva escrito «pesos»... y en español.",
    "gap_after": 0.5
   },
   {
