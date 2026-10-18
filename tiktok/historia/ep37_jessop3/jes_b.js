@@ -23,10 +23,8 @@ const MK = [];
   el('div', d, { left: '132px', top: '6px', fontFamily: 'Playfair', fontWeight: 900, fontSize: '46px', lineHeight: '50px', color: RED }, String(i + 1));
   el('div', d, { left: 0, top: '56px', width: '282px', textAlign: 'center', fontFamily: 'Rye', fontSize: i === 2 ? '33px' : '36px', lineHeight: '40px', color: INK, letterSpacing: '0.04em' }, nmS);
   const cofI = box(d, 196, -34, 84, 42, { zIndex: 4 }); cofI.innerHTML = cofiaSvg();
-  const strike = box(d, -14, 44, 310, 22, { zIndex: 5 }); strike.innerHTML = `<svg width="310" height="22" style="overflow:visible"><path pathLength="1000" stroke-dasharray="1000" d="M4,16 Q150,0 306,8" stroke="${RED}" stroke-width="14" stroke-linecap="round" fill="none"/></svg>`;
-  const sp = strike.querySelector('path');
-  const ok = box(d, 236, -26, 64, 64, { zIndex: 6 }); ok.innerHTML = `<svg viewBox="0 0 100 100" width="64" height="64" style="overflow:visible"><circle cx="50" cy="50" r="44" fill="#fff" stroke="${RED}" stroke-width="9"/><path d="M26,52 L44,70 L76,30" stroke="${RED}" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
-  MK.push({ d, sp, ok, cofI });
+  const ok = box(d, 228, -30, 72, 72, { zIndex: 6 }); ok.innerHTML = `<svg viewBox="0 0 100 100" width="72" height="72" style="overflow:visible"><circle cx="50" cy="50" r="44" fill="#3f7a52" stroke="${INK}" stroke-width="7"/><path d="M26,52 L44,70 L76,30" stroke="#fff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`;
+  MK.push({ d, ok, cofI });
 });
 const STEP_T0 = STEPS[0].t0, STEP_T1 = STEPS[2].t1;
 function updSteps(t) {
@@ -52,9 +50,9 @@ function updSteps(t) {
     const kin = p(t, STEP_T0 + 0.12 + i * 0.08, 0.32, E.outBack);
     set(m.d, { y: (1 - kin) * -300, s: act ? 1.06 + 0.02 * Math.sin(t * 6) : 1, r: act ? -1.5 : 0, o: 1 });
     m.d.style.background = act ? YEL : '#FBF6EA';
-    m.d.style.opacity = done ? 0.92 : (i > cur ? 0.78 : 1);
-    m.sp.style.strokeDashoffset = f1(1000 * (1 - p(t, st.tDone, 0.3, E.outCubic)));
-    stampA(m.ok, t, st.tDone + 0.18, -10, 1);
+    m.d.style.opacity = i > cur && !done ? 0.78 : 1;
+    m.d.style.background = act ? YEL : done ? '#E3F0DC' : '#FBF6EA';
+    stampA(m.ok, t, st.tDone, -10, 1.15);
     m.cofI.style.visibility = i === cur ? 'visible' : 'hidden';
     set(m.cofI, { y: Math.sin(t * 5) * 4, r: Math.sin(t * 3) * 8 });
   });
@@ -116,17 +114,18 @@ const T_CRAC = K.choco1 + 0.12;
     set(cam, { s: 1.04 + 0.05 * p(t, S.O3[0], 2.6, E.linear) });
     set(vio.d, { s: pop(t, S.O3[0], 0.4), y: wobble(t, 0.5, 4), r: wobble(t, 0.4, 1.5), o: 1 });
     face(vio, t, { look: [6, -3], bL: t > K.sin ? 4 : 8, bR: t > K.sin ? 4 : 8, seed: 11.2 });
+    set(vio.d, { y: lerp(-60, 0, p(t, K.bajo - 0.1, 0.4, E.outCubic)) + wobble(t, 0.5, 4) });
     set(wt, { x: -(((t - S.O3[0]) * 40) % 60) });
-    popA(abo, t, K.bordo - 0.05, { r: -4 });
-    stampA(stV, t, K.rasguno - 0.05, -7, 1);
-    SP.forEach((s2, i) => set(s2, { o: t > K.rasguno ? 0.5 + 0.5 * Math.sin(t * 8 + i * 1.3) : 0, r: t * 120 }));
+    stampA(abo, t, K.nohundio - 0.04, 5, 1);
+    stampA(stV, t, K.sin - 0.04, -7, 1);
+    SP.forEach((s2, i) => set(s2, { o: t > K.sin ? 0.5 + 0.5 * Math.sin(t * 8 + i * 1.3) : 0, r: t * 120 }));
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 800px' });
   sceneBg(cam, { background: 'linear-gradient(180deg, #9cc3d6 0%, #d7e6e6 50%, #EFE1C6 100%)' });
   const wt = box(cam, 0, 0, 1140, 1920, { zIndex: 1 }); wt.innerHTML = waterSvg(880, 600, 41, LAGOON, INK, 1140);
   const vio = mkViolet(cam, [330, 560, 460, 588]); vio.d.style.zIndex = 4;
   box(cam, 0, 0, 1080, 1920, { zIndex: 5 }).innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><rect x="0" y="1020" width="1080" height="20" fill="#fff" stroke="${INK}" stroke-width="5"/>${Array.from({ length: 18 }, (_, k) => `<path d="M${30 + k * 60},1040 V1160" stroke="#fff" stroke-width="10"/><path d="M${30 + k * 60},1040 V1160" stroke="${INK}" stroke-width="2.5" fill="none"/>`).join('')}<rect x="0" y="1160" width="1080" height="200" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="0" y="1160" width="1080" height="200" fill="url(#hW)" opacity=".35"/><g transform="translate(860,1080)"><circle r="62" fill="none" stroke="#fff" stroke-width="30"/><circle r="62" fill="none" stroke="${RED}" stroke-width="30" stroke-dasharray="32 32"/><circle r="78" fill="none" stroke="${INK}" stroke-width="4"/><circle r="46" fill="none" stroke="${INK}" stroke-width="4"/></g></svg>`;
-  const abo = chip(cam, 120, 560, 'iba a bordo', { size: 52, bg: INK, color: YEL, z: 20 });
+  const abo = stamp(cam, 200, 500, 'NO SE HUNDIÓ', { size: 80, bw: 12, z: 60, bg: 'rgba(255,255,255,.94)', blend: 'normal', col: '#2f6a46' });
   const stV = stamp(cam, 150, 1010, 'SIN UN RASGUÑO', { size: 82, bw: 12, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
   const SP = [[230, 760], [820, 720], [740, 980]].map(([x, y]) => el('div', cam, { left: px(x), top: px(y), fontSize: '64px', color: YEL, textShadow: `3px 3px 0 ${INK}`, zIndex: 6 }, '✦'));
 }
@@ -156,10 +155,10 @@ const T_CRAC = K.choco1 + 0.12;
 {
   const c = scene(S.T2[0], S.T2[1], t => {
     set(cam, { s: 1 + 0.08 * p(t, S.T2[0], 1.7, E.inCubic) });
-    set(bw, { x: -60 * p(t, S.T2[0], 1.7, E.linear), y: Math.sin(t * 2) * 4, r: 2 });
+    const kh = p(t, S.T2[0], S.T2[1] - S.T2[0], E.inCubic);
+    set(bw, { x: -60 * kh, y: Math.sin(t * 2) * 4 + 180 * kh, r: 2 + 12 * kh });
     set(ice, { x: -50 * p(t, S.T2[0], 1.7, E.linear), y: Math.sin(t * 1.4) * 3 });
-    const kc = p(t, K.ano - 0.08, 0.3, E.outBack);
-    set(cal, { s: t < K.ano - 0.08 ? 0 : kc, r: -8 + wobble(t, 0.5, 2), o: t < K.ano - 0.08 ? 0 : 1 });
+    popA(cal, t, K.hundia5 - 0.05, { r: -4 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '600px 900px' });
   sceneBg(cam, { background: `linear-gradient(180deg, #0f1824 0%, ${NIGHT} 60%, #2c3d55 100%)` });
@@ -167,9 +166,7 @@ const T_CRAC = K.choco1 + 0.12;
   const ice = box(cam, 600, 640, 420, 520, { zIndex: 2 }); ice.innerHTML = `<svg viewBox="0 0 420 520" width="420" height="520" style="overflow:visible">${cut('<path d="M20,500 L80,260 L150,300 L210,80 L280,240 L330,180 L400,500 Z"/>', 6, 8)}<path d="M20,500 L80,260 L150,300 L210,80 L280,240 L330,180 L400,500 Z" fill="#e8f2f7" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/><path d="M210,80 L190,300 L240,500 M80,260 L110,500 M330,180 L320,500" stroke="#9bb8c8" stroke-width="5" fill="none"/><path d="M210,80 L280,240 L330,180 L400,500 L240,500 Z" fill="url(#hB)" opacity=".35"/></svg>`;
   const sea = box(cam, 0, 0, 1140, 1920, { zIndex: 4 }); sea.innerHTML = waterSvg(1110, 500, 33, '#152131', '#c9d6e2', 1140);
   const bw = box(cam, -520, 700, 1300, 760, { zIndex: 3, transformOrigin: '1100px 520px' }); bw.innerHTML = svgW(bowInner(), '0 0 1300 760');
-  const cal = box(cam, 560, 520, 300, 320, { zIndex: 20 });
-  cal.innerHTML = `<svg viewBox="0 0 300 320" width="300" height="320" style="overflow:visible">${cut('<rect x="0" y="20" width="300" height="300" rx="16"/>', 6, 8)}<rect x="0" y="20" width="300" height="300" rx="16" fill="#FBF6EA" stroke="${INK}" stroke-width="6"/><rect x="0" y="20" width="300" height="80" rx="16" fill="${RED}" stroke="${INK}" stroke-width="6"/><circle cx="80" cy="22" r="14" fill="${INK}"/><circle cx="220" cy="22" r="14" fill="${INK}"/>
-   <text x="150" y="80" text-anchor="middle" font-family="Rye" font-size="40" fill="#fff">AÑO</text><text x="150" y="250" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="120" fill="${INK}">1912</text></svg>`;
+  const cal = chip(cam, 260, 560, 'mientras se hundía', { size: 60, bg: RED, color: '#fff', z: 30 });
 }
 
 /* ======================================================================
@@ -203,7 +200,7 @@ const T_CRAC = K.choco1 + 0.12;
 {
   const c = scene(S.T4[0], S.T4[1], t => {
     set(cam, { s: 1.04 + 0.06 * p(t, S.T4[0], 2.4, E.linear) });
-    const tb = S.T4[0] + 0.02, kb = p(t, tb, 0.3, E.inCubic);
+    const tb = K.pusieron - 0.3, kb = p(t, tb, 0.3, E.inCubic);
     const ko = p(t, K.bebe - 0.02, 0.2, E.outBack);
     set(bnd, { y: lerp(-900, 0, kb) + (t > tb + 0.3 ? Math.sin((t - tb - 0.3) * 30) * 8 * (1 - p(t, tb + 0.3, 0.4)) : 0), s: 1 + 0.1 * Math.sin(clamp(ko) * Math.PI), r: wobble(t, 0.6, 1.5) });
     bc.style.opacity = ko < 0.5 ? 1 : 0; bo.style.opacity = ko < 0.5 ? 0 : 1;
@@ -212,7 +209,8 @@ const T_CRAC = K.choco1 + 0.12;
     set(vio.d, { y: wobble(t, 0.5, 3) });
     set(hd, { y: lerp(-500, 0, p(t, K.pusieron - 0.15, 0.3, E.outCubic)) - 600 * p(t, K.brazos + 0.25, 0.35, E.inCubic), o: t > K.pusieron - 0.15 ? 1 : 0 });
     SP.forEach((s2, i) => set(s2, { o: t > K.bebe ? 0.5 + 0.5 * Math.sin(t * 7 + i) : 0, r: t * 80 + i * 40 }));
-    popA(lab, t, K.bebe, { r: 4 });
+    popA(lab, t, K.bebe, { r: 4 }); popA(seg, t, K.segun - 0.05, { r: -3 });
+    set(bnd, { o: t < tb ? 0 : 1 });
   }, { clip: true, cut: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '600px 900px' });
   sceneBg(cam, { background: `linear-gradient(180deg, ${NIGHT} 0%, ${NIGHT2} 70%, #485c74 100%)` });
@@ -224,7 +222,8 @@ const T_CRAC = K.choco1 + 0.12;
   const bo = box(bnd, 0, 0, 470, 345); bo.innerHTML = svgW(bundleInner(true), '0 0 300 220');
   const hd = box(cam, 600, 700, 300, 200, { zIndex: 7 }); hd.innerHTML = handsSvg();
   const SP = [[380, 860], [820, 900], [600, 820]].map(([x, y]) => el('div', cam, { left: px(x), top: px(y), fontSize: '50px', color: YEL, textShadow: `2px 2px 0 ${INK}`, zIndex: 7 }, '✦'));
-  const lab = chip(cam, 110, 600, '¡un bebé!', { size: 60, bg: PINK, z: 30 });
+  const lab = chip(cam, 110, 640, '¡un bebé!', { size: 60, bg: PINK, z: 30 });
+  const seg = chip(cam, 290, 520, 'SEGÚN CONTÓ ELLA', { size: 52, bg: YEL, color: INK, z: 31 });
 }
 
 /* ======================================================================
@@ -281,7 +280,7 @@ const T_BUM = Math.min(K.minaE - 0.1, K.mina + 0.25);
     const km = p(t, S.B3x[0], T_BUM - S.B3x[0], E.inCubic);
     set(mine, { y: lerp(800, 0, km), r: Math.sin(t * 3) * 4, o: t > T_BUM + 0.08 ? 0 : 1 });
     set(boom, { s: pop(t, T_BUM, 0.28) * (1 + 0.1 * Math.sin(t * 20)), r: t * 30, o: t < T_BUM ? 0 : 1 - p(t, T_BUM + 0.8, 0.3) });
-    const kt = t > T_BUM ? p(t, T_BUM, 0.3, E.outCubic) : 0, kh = p(t, K.hundio - 0.05, 0.9, E.inCubic);
+    const kt = t > T_BUM ? p(t, T_BUM, 0.3, E.outCubic) : 0, kh = p(t, K.hundia6 - 0.05, 0.9, E.inCubic);
     set(shp, { r: kt * 7 + kh * 10 + Math.sin(t * 2) * 0.5, y: kt * 30 + kh * 260 });
     SM.forEach((s2, i) => { const ks = p(t, T_BUM + 0.05 + i * 0.05, 0.9, E.outCubic); set(s2, { x: (i - 2) * 90 * ks, y: -ks * (180 + i * 30), s: 0.4 + ks * 1.2, o: t > T_BUM && ks < 1 ? 1 - ks * 0.8 : 0 }); });
     BUB.forEach((b, i) => { const ph = ((t - S.B3x[0]) * 0.8 + i * 0.21) % 1; set(b, { y: -ph * 700, o: 0.7 * (1 - ph) }); });
@@ -305,13 +304,13 @@ const T_BUM = Math.min(K.minaE - 0.1, K.mina + 0.25);
    ====================================================================== */
 {
   const c = scene(S.B4x[0], S.B4x[1], t => {
-    const km = p(t, K.enfermera - 0.1, 0.2, E.outCubic);
+    const km = p(t, K.cruz - 0.1, 0.2, E.outCubic);
     set(v1.d, { s: pop(t, S.B4x[0], 0.35) * (1 + 0.06 * Math.sin(km * Math.PI)), o: 1 - km, y: wobble(t, 0.5, 3) });
     set(v2.d, { s: 1 + 0.06 * Math.sin(km * Math.PI), o: km, y: wobble(t, 0.5, 3) });
     face(v1, t, { look: [-4, 0], bL: 4, bR: 4, seed: 8.1 }); face(v2, t, { look: [-4, 0], bL: 8, bR: 8, seed: 8.1 });
-    PF.forEach((f, i) => { const kf = p(t, K.enfermera - 0.08, 0.5, E.outCubic); set(f, { x: Math.cos(i * 1.6) * 180 * kf, y: Math.sin(i * 1.6) * 120 * kf, s: 0.4 + kf, o: t > K.enfermera - 0.08 && kf < 1 ? 1 - kf : 0 }); });
-    popA(cross, t, K.enfermera + 0.05, { r: 8 });
-    popA(lab, t, K.enfermera + 0.1, { r: -3 });
+    PF.forEach((f, i) => { const kf = p(t, K.cruz - 0.08, 0.5, E.outCubic); set(f, { x: Math.cos(i * 1.6) * 180 * kf, y: Math.sin(i * 1.6) * 120 * kf, s: 0.4 + kf, o: t > K.cruz - 0.08 && kf < 1 ? 1 - kf : 0 }); });
+    popA(cross, t, K.cruz + 0.05, { r: 8 });
+    popA(lab, t, K.cruz + 0.1, { r: -3 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: '#E9E3D6', backgroundImage: 'repeating-linear-gradient(90deg, rgba(200,16,46,.06) 0 3px, transparent 3px 80px)' });
   rays(c, -160, 220, 1400, 24, 'rgba(200,16,46,.07)', 'rgba(0,0,0,0)', 0);
@@ -319,7 +318,7 @@ const T_BUM = Math.min(K.minaE - 0.1, K.mina + 0.25);
   const v2 = mkViolet(c, [290, 520, 500, 639], { nurse: true }); v2.d.style.zIndex = 5;
   const PF = [0, 1, 2, 3].map(() => box(c, 480, 580, 120, 80, { borderRadius: '50%', background: '#fff', border: `4px solid ${INK}`, zIndex: 6 }));
   const cross = box(c, 760, 520, 130, 130, { zIndex: 8 }); cross.innerHTML = `<svg viewBox="0 0 100 100" width="130" height="130" style="overflow:visible">${cut('<path d="M35,5 H65 V35 H95 V65 H65 V95 H35 V65 H5 V35 H35 Z"/>', 4, 5)}<path d="M35,5 H65 V35 H95 V65 H65 V95 H35 V65 H5 V35 H35 Z" fill="${RED}" stroke="${INK}" stroke-width="5"/></svg>`;
-  const lab = chip(c, 330, 1170, 'de enfermera', { size: 64, bg: INK, color: '#fff', z: 30 });
+  const lab = chip(c, 260, 1170, 'con la Cruz Roja', { size: 64, bg: INK, color: '#fff', z: 30 });
 }
 
 /* ======================================================================
@@ -424,8 +423,8 @@ colorHit(S.P3[0], S.P3[1], YEL, c => {
     face(vio, t, { look: [4, -6], bL: 12, bR: 12, seed: 10.4 });
     set(ring, { y: lerp(420, 0, ku) + Math.sin(t * 2.4) * 6, r: Math.sin(t * 2) * 4 });
     set(wt, { x: -(((t - S.P5[0]) * 40) % 60) });
-    stampA(stO, t, K.otra - 0.05, -6, 1);
-    set(ry, { r: t * 10, o: t > K.sobrevivio7 ? 1 : 0 });
+    stampA(stO, t, K.salio - 0.05, -6, 1);
+    set(ry, { r: t * 10, o: t > K.aun ? 1 : 0 });
   }, { clip: true, cut: true });
   sceneBg(c, { background: 'linear-gradient(180deg, #f2b8c6 0%, #f7d7a8 60%)' });
   const ry = rays(c, -160, 300, 1400, 24, 'rgba(255,255,255,.3)', 'rgba(0,0,0,0)', 0);
@@ -433,5 +432,77 @@ colorHit(S.P3[0], S.P3[1], YEL, c => {
   const vio = mkViolet(vClip, [40, 40, 400, 511], { nurse: true });
   const ring = box(c, 330, 1000, 420, 200, { zIndex: 6 }); ring.innerHTML = `<svg width="420" height="200" style="overflow:visible"><ellipse cx="210" cy="100" rx="180" ry="70" fill="none" stroke="${INK}" stroke-width="64"/><ellipse cx="210" cy="100" rx="180" ry="70" fill="none" stroke="#fff" stroke-width="52"/><ellipse cx="210" cy="100" rx="180" ry="70" fill="none" stroke="${RED}" stroke-width="52" stroke-dasharray="70 70"/></svg>`;
   const wt = box(c, 0, 0, 1140, 1920, { zIndex: 5 }); wt.innerHTML = waterSvg(1110, 300, 31, '#6f8fa6', INK, 1140);
-  const stO = stamp(c, 260, 560, '¡OTRA VEZ!', { size: 110, bw: 14, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+  const stO = stamp(c, 210, 560, '¡SALIÓ VIVA!', { size: 100, bw: 14, z: 60, bg: 'rgba(255,255,255,.92)', blend: 'normal' });
+}
+
+/* ======================================================================
+   C1 · «…VOLVIÓ A SU CAMAROTE A POR UNA SOLA COSA…» — pasillo inclinado, la puerta se abre
+   ====================================================================== */
+{
+  const c = scene(S.C1[0], S.C1[1], t => {
+    set(cor, { r: 9 + Math.sin(t * 1.5) * 1, s: 1 + 0.25 * p(t, S.C1[0], S.C1[1] - S.C1[0], E.inCubic) });
+    const kd = p(t, K.camarote - 0.05, 0.4, E.outCubic);
+    set(door, { sx: lerp(1, 0.12, kd) });
+    lite.style.opacity = kd;
+    popA(lab, t, K.camarote - 0.05, { r: -3 });
+    popA(lab2, t, K.sola - 0.05, { r: 3 });
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#3a2a1e' });
+  const cor = box(c, 0, 0, 1080, 1920, { zIndex: 2, transformOrigin: '540px 820px' }); cor.innerHTML = corridorSvg();
+  const lite = box(cor, 390, 610, 300, 420, { background: 'radial-gradient(circle at 50% 50%, #FFF3A8, #FFE600 60%, #d9a44a)', zIndex: 3 });
+  const door = box(cor, 390, 610, 300, 420, { zIndex: 4, transformOrigin: '0px 210px', background: WOOD, border: `6px solid ${INK}`, boxSizing: 'border-box' });
+  door.innerHTML = `<div style="position:absolute;left:30px;top:30px;width:228px;height:150px;border:4px solid ${INK}"></div><div style="position:absolute;left:30px;top:210px;width:228px;height:160px;border:4px solid ${INK}"></div><div style="position:absolute;left:236px;top:196px;width:22px;height:22px;border-radius:50%;background:${BRASS};border:3px solid ${INK}"></div>`;
+  const lab = chip(c, 150, 1110, 'volvió a su camarote', { size: 58, bg: INK, color: YEL, z: 30 });
+  const lab2 = chip(c, 330, 1210, 'a por UNA cosa', { size: 52, bg: PINK, z: 30 });
+}
+
+/* ======================================================================
+   C2 · «…AHORA TE DIGO CUÁL.» — dentro del camarote: un fardo tapado con un «?» enorme
+   ====================================================================== */
+headline(S.C2[0], S.C2[1], 'Ahora te digo *cuál*', { size: 110, hlT: K.cual, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+{
+  const c = scene(S.C2[0], S.C2[1], t => {
+    set(rm, { r: 7 + Math.sin(t * 1.4) * 1.2 });
+    set(q, { s: pop(t, S.C2[0] + 0.05, 0.4) * (1 + 0.06 * Math.sin(t * 7)), r: Math.sin(t * 4) * 8, o: 1 });
+    set(gl, { s: 0.9 + 0.1 * Math.sin(t * 6), o: 0.8 });
+    set(cl, { y: Math.sin(t * 3) * 4 });
+  }, { clip: true, cut: true });
+  sceneBg(c, { background: '#2b2118' });
+  const rm = box(c, -100, -100, 1280, 2120, { zIndex: 1, transformOrigin: '640px 1000px' });
+  rm.innerHTML = `<svg width="1280" height="2120" style="overflow:visible"><rect x="0" y="0" width="1280" height="2120" fill="#c9b285"/><rect x="0" y="0" width="1280" height="2120" fill="url(#hW)" opacity=".2"/>${Array.from({ length: 12 }, (_, k) => `<path d="M${k * 110},0 V2120" stroke="${INK}" stroke-width="3" opacity=".25"/>`).join('')}
+   <circle cx="900" cy="560" r="110" fill="#1d2a3c" stroke="${BRASS}" stroke-width="26"/><circle cx="900" cy="560" r="110" fill="none" stroke="${INK}" stroke-width="5"/>${[0, 1, 2, 3, 4, 5, 6, 7].map(k => `<circle cx="${f1(900 + Math.cos(k * Math.PI / 4) * 124)}" cy="${f1(560 + Math.sin(k * Math.PI / 4) * 124)}" r="8" fill="${INK}"/>`).join('')}
+   <rect x="120" y="1240" width="800" height="90" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="6"/><rect x="140" y="1190" width="760" height="60" rx="20" fill="#fff" stroke="${INK}" stroke-width="5"/></svg>`;
+  const gl = box(c, 240, 620, 600, 600, { zIndex: 2, borderRadius: '50%', background: 'radial-gradient(closest-side, rgba(255,230,0,.6), rgba(255,230,0,0))' });
+  const cl = box(c, 340, 900, 400, 300, { zIndex: 3 }); cl.innerHTML = `<svg viewBox="0 0 400 300" width="400" height="300" style="overflow:visible">${cut('<path d="M20,280 C10,160 80,60 200,60 C320,60 390,160 380,280 Z"/>', 6, 8)}<path d="M20,280 C10,160 80,60 200,60 C320,60 390,160 380,280 Z" fill="#EFE6CF" stroke="${INK}" stroke-width="6"/><path d="M20,280 C10,160 80,60 200,60 C320,60 390,160 380,280 Z" fill="url(#hA)" opacity=".3"/><path d="M80,140 Q200,100 320,140 M60,210 Q200,170 340,210" stroke="${INK}" stroke-width="3" fill="none" opacity=".5"/></svg>`;
+  const q = qMark(c, 430, 620, 300, YEL);
+}
+
+/* ======================================================================
+   P0 · «Y ENTONCES VINO LO PEOR:» — la popa del Britannic asoma y se ven las hélices
+   ====================================================================== */
+headline(S.P0[0], S.P0[1], 'Y entonces vino *lo peor*', { size: 100, hlT: K.peor, color: '#FBF6EA', shadow: `5px 5px 0 ${INK}`, keyColor: YEL, hlc: 'rgba(255,62,165,.9)' });
+{
+  const c = scene(S.P0[0], S.P0[1], t => {
+    const k = p(t, S.P0[0], S.P0[1] - S.P0[0], E.inOutCubic);
+    set(cam, { s: 1 + 0.12 * k });
+    set(stern, { r: -14 - 4 * k, y: Math.sin(t * 1.6) * 6 });
+    PR.forEach((pr, i) => set(pr, { r: t * 260 * (i ? -1 : 1) }));
+    set(sea, { x: -(((t - S.P0[0]) * 40) % 60) });
+    flash.style.opacity = t > K.peor - 0.05 && t < K.peor + 0.15 ? 0.6 : 0;
+  }, { clip: true, cut: true });
+  const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px' });
+  sceneBg(cam, { background: `linear-gradient(180deg, #3a2f2a 0%, #6b5646 100%)` });
+  const stern = box(cam, 120, 560, 840, 560, { zIndex: 2, transformOrigin: '420px 520px' });
+  stern.innerHTML = `<svg viewBox="0 0 840 560" width="840" height="560" style="overflow:visible">${cut('<path d="M40,520 L60,140 Q120,40 300,40 L800,40 L800,520 Z"/>', 8, 10)}<path d="M40,520 L60,140 Q120,40 300,40 L800,40 L800,520 Z" fill="#F6F3EA" stroke="${INK}" stroke-width="7"/><path d="M40,520 L60,140 Q120,40 300,40 L800,40 L800,520 Z" fill="url(#hB)" opacity=".25"/><path d="M60,300 H800" stroke="#3f7a52" stroke-width="16"/><rect x="430" y="150" width="90" height="90" fill="#fff" stroke="${INK}" stroke-width="3"/><rect x="462" y="160" width="26" height="70" fill="${RED}"/><rect x="440" y="182" width="70" height="26" fill="${RED}"/><path d="M90,520 L70,560" stroke="${INK}" stroke-width="10"/></svg>`;
+  const PR = [[60, 980], [330, 1020]].map(([x, y]) => { const d = box(cam, x, y, 220, 220, { zIndex: 3 }); d.innerHTML = svgW(propInner(3), '0 0 400 400'); return d; });
+  const sea = box(cam, 0, 0, 1140, 1920, { zIndex: 4 }); sea.innerHTML = waterSvg(1110, 500, 37, '#3b4a52', '#c9d6e2', 1140);
+  const flash = box(cam, 0, 0, 1080, 1920, { zIndex: 9, background: '#fff', opacity: 0 });
+}
+
+/* rótulo del CAMAROTE con «?»: la promesa de L6 sigue abierta hasta que se paga en L9 */
+{
+  const tag = el('div', world, { left: '790px', top: '486px', zIndex: 790, visibility: 'hidden' });
+  tag.innerHTML = `<svg width="150" height="170" style="overflow:visible">${cut('<rect x="10" y="10" width="120" height="150" rx="10"/>', 5, 6)}<rect x="10" y="10" width="120" height="150" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="5"/><rect x="26" y="26" width="88" height="118" rx="4" fill="none" stroke="${INK}" stroke-width="3"/><circle cx="108" cy="90" r="7" fill="${BRASS}" stroke="${INK}" stroke-width="2"/><text x="70" y="112" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="96" fill="${YEL}" stroke="${INK}" stroke-width="4" paint-order="stroke">?</text></svg>`;
+  const T0 = S.P0[0], T1 = S.R2[0];
+  SCX.push(t => { const on = t >= T0 && t < T1; tag.style.visibility = on ? 'visible' : 'hidden'; if (on) set(tag, { s: pop(t, T0, 0.35), r: -6 + Math.sin(t * 3) * 4, y: Math.sin(t * 2.2) * 5 }); });
 }
