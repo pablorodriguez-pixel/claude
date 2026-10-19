@@ -93,3 +93,7 @@ Referencias de nota (para no inflar): RECHAZADOS por el usuario aunque el direct
   (el sombrero de la Ñ, el rojo del torero, la hora en España, los 7 días). No hace falta que sea desconocido: hace falta que nunca se lo hayan preguntado.
 - Los vídeos siguen creciendo semanas después (Hora 11→24 mil, SOS <750→5,5 mil, Colón 699→3,9 mil): no juzgar a las 48 h.
 - Fuente de temas con demanda real: `python3 -I ../engine/temas.py` → `director/TEMAS_GOOGLE.txt` (≈2.500 preguntas que la gente busca en Google).
+
+## Escalada (20/10, referencia `referencias/resuelta_grefg/`)
+Toda ficha incluye la CURVA del vídeo: 4 escalones de una frase, cada uno más fuerte que el anterior, el último desproporcionado.
+Puerta P12 · Escalada: si dos picos seguidos tienen la misma intensidad o el más fuerte no va al final, no se produce.

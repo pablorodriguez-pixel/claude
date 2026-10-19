@@ -14,7 +14,7 @@ con `grep -n`, nunca enteros. (Antes cada episodio leía ~60 KB de documentos, y
 | Leer transcripciones de otras sesiones | El traspaso es este archivo + la sección «Estado» de CONTEXTO.md |
 
 ## Pasos (por episodio)
-1. **Ficha de 4 líneas** (gancho, portada, pregunta de bar, remate) → «sí» del usuario. Fichas actuales: `director/FICHAS_19-10.md`.
+1. **Ficha de 4 líneas + CURVA de 4 escalones** (gancho, portada, pregunta de bar, remate; ver `director/referencias/resuelta_grefg/NOTAS.md`) → «sí» del usuario. Fichas actuales: `director/FICHAS_19-10.md`.
 2. **Guion** (`lines_in.json`) con la plantilla de `director/GUIONES_V3.md`. Director en texto, una pasada, con las puertas de abajo.
    Cifras en letra. Línea 0 ≤ 3,5 s, «Ojo» ≤ 6 s, penúltima «¿…? Os leo.», última «Y esto... no venía en el libro.»
 3. `bash ../engine/hacer.sh epNN_tema voz` → si la QA falla, arreglar solo esa línea (borrar `clips/NN.*`) y repetir.
