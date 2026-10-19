@@ -58,6 +58,8 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
 - 20/10 ENTREGADOS: ep40 Cambio de hora, ep41 Mona Lisa, ep43 Irse a la francesa (sustituye a ep42 Nabo/Halloween, DESCARTADO por el usuario).
   Indicación del usuario (20/10): curiosidades que den DEBATE y despierten algo; creérselo, más énfasis en la voz (etiquetas [excited], [surprised],
   [laughs], [mischievously] de ElevenLabs v3) y picos de interés cada 8–10 s, cada uno más fuerte que el anterior. Banco: director/TEMAS_GOOGLE.txt.
+- 20/10 ep44 Paco (CTA de seguir con cliffhanger): PROMETE «¿Por qué Pepe?» como SIGUIENTE episodio. Dato a verificar antes: origen de Pepe
+  (Josepe/Giuseppe→Peppe; la sigla P.P. «pater putativus» no tiene pruebas). Fuente de apodos: Boyd-Bowman 1955, NRFH 9.
 - Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
   Medir a 48 h: retención en s 3, 5 y 8 (éxito Pulgar: ≥ 66 % en s 5; pérdida en 20,6–24,8 s ≤ 0,5 pts/s) y comentarios por cada mil visualizaciones.
 - Fallos sistemáticos de la plantilla v3 (corregir en TODOS los guiones nuevos): el gancho da la respuesta y no dice «tú»; sello/veredicto antes de que se forme la pregunta;

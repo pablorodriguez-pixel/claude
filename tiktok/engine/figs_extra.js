@@ -132,3 +132,19 @@ function doorInner(open = 0) {
 }
 // barrotes de celda (vb 0 0 400 500)
 function barsInner() { return [...Array(6)].map((_, k) => `<rect x="${20 + k * 70}" y="0" width="22" height="500" rx="8" fill="#5E5A52" stroke="${INK}" stroke-width="4"/>`).join('') + `<rect x="0" y="40" width="400" height="26" fill="#5E5A52" stroke="${INK}" stroke-width="4"/><rect x="0" y="430" width="400" height="26" fill="#5E5A52" stroke="${INK}" stroke-width="4"/>`; }
+// bebé con chupete (vb 0 0 360 400); m = boca 0..1
+function babyInner(m = 0) {
+  const head = 'M180,40 C280,40 330,110 326,190 C322,280 260,330 180,330 C100,330 38,280 34,190 C30,110 80,40 180,40 Z';
+  return `${cut(P(head) + P('M60,400 C70,340 120,320 180,320 C240,320 290,340 300,400 Z'), 6, 8)}<path d="M60,400 C70,340 120,320 180,320 C240,320 290,340 300,400 Z" fill="#9fd3c0" stroke="${INK}" stroke-width="5"/>
+  ${D(head, '#F2D2B0', 6)}${HATCH(head, .2)}<path d="M170,40 C160,20 180,6 196,16 C186,20 182,30 186,42" fill="none" stroke="${INK}" stroke-width="5"/>
+  <circle cx="34" cy="200" r="26" fill="#F2D2B0" stroke="${INK}" stroke-width="5"/><circle cx="326" cy="200" r="26" fill="#F2D2B0" stroke="${INK}" stroke-width="5"/>
+  <ellipse cx="130" cy="180" rx="16" ry="20" fill="${INK}"/><ellipse cx="230" cy="180" rx="16" ry="20" fill="${INK}"/><circle cx="136" cy="172" r="6" fill="#fff"/><circle cx="236" cy="172" r="6" fill="#fff"/>
+  <circle cx="96" cy="230" r="20" fill="${PINK}" opacity=".35"/><circle cx="264" cy="230" r="20" fill="${PINK}" opacity=".35"/>
+  <ellipse cx="180" cy="${f1(250 + m * 6)}" rx="${f1(22 + m * 6)}" ry="${f1(8 + m * 16)}" fill="#7a2b2b" stroke="${INK}" stroke-width="4"/>`;
+}
+// etiqueta «HOLA, me llamo…» (vb 0 0 700 420)
+function nameTagInner(nombre) {
+  return `${FIGP('M20,20 L680,20 L680,400 L20,400 Z', '#fff', 6, .12)}<path d="M20,20 L680,20 L680,150 L20,150 Z" fill="${RED}" stroke="${INK}" stroke-width="6"/>
+  <text x="350" y="92" text-anchor="middle" font-family="Bricolage" font-weight="800" font-size="70" fill="#fff">HOLA</text><text x="350" y="136" text-anchor="middle" font-family="Bricolage" font-weight="800" font-size="34" fill="#fff">me llamo</text>
+  <text x="350" y="310" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="900" font-size="${nombre.length > 8 ? 96 : 130}" fill="${INK}">${nombre}</text>`;
+}

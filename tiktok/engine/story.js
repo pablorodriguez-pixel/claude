@@ -246,3 +246,29 @@ const Story = {
     const r0 = window.render; window.render = t => { r0(t); if (capBox && t >= LOOP) capBox.style.visibility = 'hidden'; };
   },
 };
+
+/* ---------- CTA de SEGUIR (una línea entera): el Vecino señala el botón «+» real de TikTok (barra derecha, avatar ≈ y 1040)
+   y una tarjeta adelanta el próximo episodio. Uso: sigueme(n, 'Próximo:', '¿Por qué Pepe?', 'sígueme') */
+function sigueme(line, l1, l2, palabra = 'sígueme') {
+  const T0 = L(line) - 0.1, T1 = L(line + 1) - 0.08, i0 = W.findIndex(x => x.line === line);
+  const iS = W.findIndex((x, i) => i >= i0 && x.line === line && normW(x.w).startsWith(normW(palabra))), tS = iS >= 0 ? W[iS].s : T0 + 1.5;
+  plano(T0, T1, { background: '#F4CFDA', backgroundImage: 'repeating-linear-gradient(90deg, #F4CFDA 0 40px, #F9E3EA 40px 80px)' }, c => {
+    const card = figura(c, 90, 300, 660, 380, `${FIGP('M0,0 L660,0 L660,380 L0,380 Z', '#FBF6EA', 6, .2)}<rect x="18" y="18" width="624" height="344" fill="none" stroke="${INK}" stroke-width="3" stroke-dasharray="10 8"/>`, '0 0 660 380', { z: 4, origin: '50% 50%' });
+    const c1 = texto(c, 340, l1, { size: 64, x: 90, w: 660, z: 6, italic: true }), c2 = texto(c, 440, l2, { size: 96, x: 90, w: 660, z: 6 });
+    const v = mk(c, [60, 760, 560, 693], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec');
+    const arrow = box(c, 520, 860, 420, 220, { zIndex: 12 }, arrowSvg('M10,190 Q200,40 400,170', PINK, 14));
+    const plus = box(c, 930, 990, 120, 120, { zIndex: 20, borderRadius: '50%', background: '#FE2C55', border: `8px solid #fff`, boxShadow: `0 0 0 6px ${INK}`, textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '96px', lineHeight: '100px', color: '#fff' }, '+');
+    const hand = box(c, 840, 1060, 150, 150, { zIndex: 22 }); hand.innerHTML = `<svg viewBox="-60 -70 120 120" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, -40, 1.1)}</svg>`;
+    const ch = chip(c, 560, 1180, '¡SÍGUEME!', { size: 72, bg: '#FE2C55', z: 30 });
+    sfx('ding', tS, 0.8); sfx('pop2', tS + 0.15, 0.6);
+    return t => {
+      set(card, { r: -2 + wobble(t, 0.4, 1), s: pop(t, T0 + 0.05, 0.35) }); set(c1, { o: t > T0 + 0.15 ? 1 : 0 }); set(c2, { s: pop(t, T0 + 0.3, 0.35), o: t > T0 + 0.3 ? 1 : 0 });
+      vecFace(v, t, { jaw: talkW(t, 'VECINO'), look: [6, 2], bL: 4, bR: 10, fan: wobble(t, 0.9, 6), seed: 0.5 });
+      set(arrow, { o: t > tS - 0.3 ? 1 : 0, sx: p(t, tS - 0.3, 0.3) });
+      const beat = 1 + 0.12 * Math.abs(Math.sin((t - tS) * 6));
+      set(plus, { s: t > tS - 0.2 ? beat : 0.001, o: t > tS - 0.2 ? 1 : 0 });
+      set(hand, { o: t > tS ? 1 : 0, x: Math.sin(t * 8) * 10, y: Math.abs(Math.sin(t * 8)) * -16 });
+      popA(ch, t, tS, { r: -5 });
+    };
+  });
+}
