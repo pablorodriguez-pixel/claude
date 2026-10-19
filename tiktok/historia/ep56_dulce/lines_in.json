@@ -1,0 +1,69 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El dulce de leche no lo inventó Argentina!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y la historia que te contaron... tiene trampa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil ochocientos veintinueve. Rosas y Lavalle, dos enemigos, se reúnen para firmar la paz.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Una criada calienta leche con azúcar... se despista, y cuando vuelve: ¡dulce de leche!",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pero espera: no hay ni un solo papel que lo demuestre. Es una leyenda.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y mientras, cada país lo llama a su manera: cajeta en México, arequipe en Colombia, manjar en Chile, doce de leite en Brasil...",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y Uruguay también lo reclama. Para ellos, es tan suyo como el mate.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hasta Francia tiene su leyenda, con un cocinero de Napoleón."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el dulce de leche no tiene inventor... tiene seis nombres.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo se llama en tu país? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
