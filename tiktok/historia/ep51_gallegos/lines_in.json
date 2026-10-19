@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡En Argentina, si eres español, eres gallego!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Aunque seas de Sevilla. Y la explicación es preciosa.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué en Argentina a cualquier español le dicen gallego? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: los barcos. Entre mil ochocientos ochenta y mil novecientos treinta, a Argentina llegaron millones de europeos. Y de los españoles, el grupo más grande... eran gallegos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Galicia era pobre y miraba al mar. Familias enteras cruzaban el Atlántico con una maleta de cartón.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: la ciudad. Llegaron tantos que a Buenos Aires la llamaban «la quinta provincia gallega».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Tenían sus bares, sus periódicos, hasta su propio hospital: el Centro Gallego. Para un argentino, el español de la esquina... era gallego.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: no solo Argentina. En Uruguay y en Cuba, igual. [surprised] Y el padre de Fidel Castro... era gallego.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el padre del nacionalismo gallego, Castelao, murió... en Buenos Aires.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: se dice que Buenos Aires tuvo más gallegos que La Coruña. No está tan claro."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: allí, decir «gallego»... es decir «abuelo».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tienes un abuelo o un bisabuelo que cruzó el charco? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
