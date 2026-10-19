@@ -1,3 +1,5 @@
+> **OBSOLETO (19/10):** ya no se lanzan agentes animadores ni directores independientes. Sigue `../PROCESO_RAPIDO.md`.
+
 # Encargo de producción (para un agente animador)
 
 Trabajas en /home/user/claude/tiktok/historia. Antes de nada lee ENTEROS: CONTEXTO.md, SERIE_HISTORIA.md, ../engine/BRIEF.md,

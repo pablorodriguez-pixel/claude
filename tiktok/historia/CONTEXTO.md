@@ -1,6 +1,6 @@
 # CONTEXTO — Canal «Esto no venía en el libro» (TikTok @no.venia.en.los.libros)
 
-Documento de traspaso para continuar el canal en una sesión nueva. Léelo entero antes de hacer nada.
+Documento de traspaso. PARA PRODUCIR, LEE SOLO `PROCESO_RAPIDO.md` (19/10): este archivo es de consulta, ábrelo por secciones con grep.
 
 ## Preferencias del usuario (obligatorias)
 - Hablar SIEMPRE en español.
