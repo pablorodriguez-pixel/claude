@@ -1,0 +1,79 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Estados Unidos se quedó un nombre que no era suyo!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] El primer mapa que escribió «América»... la puso en Brasil.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Año mil quinientos siete. Un alemán dibuja el Nuevo Mundo... y lo llama «América», por Américo Vespucio.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y dónde escribe el nombre? En el sur. Donde hoy está Brasil.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pero espera: seis años después, en su nuevo mapa... el nombre ya no está.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Demasiado tarde. En mil quinientos treinta y ocho, Mercator lo estira... hasta el norte.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y España ni lo llamaba América: lo llamaba «las Indias».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "En mil setecientos setenta y seis, trece colonias se independizan... como «Estados Unidos de América».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y desde entonces, «americano»... son solo ellos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hay quien dice que viene de unas montañas de Nicaragua. Casi ningún historiador lo cree."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el primer sitio del mundo que se llamó «América»... hoy es Brasil.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y en tu país, quién es americano? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
