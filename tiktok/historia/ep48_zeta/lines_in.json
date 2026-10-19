@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Si eres latino, hablas como un sevillano!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo del rey que ceceaba... es mentira.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué en Madrid «zapato» suena con zeta... y en México, con ese? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el mito. Te habrán contado que un rey de España ceceaba... y que toda la corte le imitó para hacerle la pelota.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] Pero nadie ha encontrado a ese rey. Y un idioma entero no cambia por imitar a nadie.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: lo que pasó de verdad. Hace quinientos años, el castellano tenía varias eses distintas. Y cada zona las arregló a su manera.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "En Castilla, una de ellas acabó siendo zeta. Pero en Sevilla... todas se quedaron en una sola ese.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: el barco. ¿Y desde dónde salían los barcos a América? [surprised] ¡Desde Sevilla! Y muchos de los que subían eran andaluces y canarios.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[excited] Por eso hoy un mexicano, un canario y un sevillano dicen «sapato» igual.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: los que hablamos con zeta somos menos de uno de cada diez hispanohablantes."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: los raros... somos los de la zeta.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú dices «zapato» con zeta... o con ese? Dime de dónde eres. Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

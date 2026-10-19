@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Si eres latino, hablas como un sevillano!",
+  "s": 0.12,
+  "e": 2.485
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y lo del rey que ceceaba... es mentira.",
+  "s": 2.835,
+  "e": 5.223
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 5.823,
+  "e": 8.294
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Por qué en Madrid «zapato» suena con zeta... y en México, con ese? Te lo cuento en tres pasos.",
+  "s": 8.644,
+  "e": 15.671
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: el mito. Te habrán contado que un rey de España ceceaba... y que toda la corte le imitó para hacerle la pelota.",
+  "s": 16.021,
+  "e": 23.374
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Pero nadie ha encontrado a ese rey. Y un idioma entero no cambia por imitar a nadie.",
+  "s": 23.874,
+  "e": 29.254
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: lo que pasó de verdad. Hace quinientos años, el castellano tenía varias eses distintas. Y cada zona las arregló a su manera.",
+  "s": 29.854,
+  "e": 37.85
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "En Castilla, una de ellas acabó siendo zeta. Pero en Sevilla... todas se quedaron en una sola ese.",
+  "s": 38.35,
+  "e": 44.583
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Tres: el barco. ¿Y desde dónde salían los barcos a América? ¡Desde Sevilla! Y muchos de los que subían eran andaluces y canarios.",
+  "s": 45.183,
+  "e": 53.258
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Por eso hoy un mexicano, un canario y un sevillano dicen «sapato» igual.",
+  "s": 53.758,
+  "e": 58.456
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: los que hablamos con zeta somos menos de uno de cada diez hispanohablantes.",
+  "s": 59.056,
+  "e": 64.332
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: los raros... somos los de la zeta.",
+  "s": 64.682,
+  "e": 68.437
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+  "s": 68.937,
+  "e": 73.934
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Y tú dices «zapato» con zeta... o con ese? Dime de dónde eres. Os leo.",
+  "s": 74.334,
+  "e": 80.012
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 80.362,
+  "e": 83.0
+ }
+]
