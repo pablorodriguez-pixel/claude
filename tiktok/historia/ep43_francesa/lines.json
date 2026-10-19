@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Si te vas sin decir adiós, los franceses dicen que eres inglés!",
+  "s": 0.12,
+  "e": 2.982
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y los ingleses... dicen que eres francés.",
+  "s": 3.332,
+  "e": 6.046
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 6.646,
+  "e": 9.36
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Quién tiene razón? Ninguno. Y la pelea que hay detrás es mejor de lo que parece. Te la cuento en tres pasos.",
+  "s": 9.71,
+  "e": 17.774
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: Francia, siglo dieciocho. En las fiestas de los aristócratas se puso de moda marcharse sin despedirse de los anfitriones, para no cortar la fiesta.",
+  "s": 18.124,
+  "e": 25.956
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y a los ingleses, que se pasaban la vida en guerra con Francia, aquello les pareció de maleducados. Así que lo bautizaron: irse a la francesa.",
+  "s": 26.456,
+  "e": 34.612
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: la venganza. Los franceses no se quedaron callados... y empezaron a decir lo mismo, pero al revés: irse a la inglesa.",
+  "s": 35.212,
+  "e": 43.666
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y el resto de Europa tuvo que elegir bando. Los italianos se van a la inglesa. Y los alemanes, a la francesa.",
+  "s": 44.266,
+  "e": 50.33
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y tres: nosotros. En España nos pusimos del lado inglés: para nosotros, el maleducado es el francés.",
+  "s": 50.83,
+  "e": 58.266
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: hay más teorías sobre el origen, pero ninguna está demostrada.",
+  "s": 58.766,
+  "e": 62.758
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y lo más gracioso es que aquí tenemos el problema contrario: dices «me voy»... y tardas cuarenta minutos en salir por la puerta.",
+  "s": 63.108,
+  "e": 72.19
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: en toda Europa, el maleducado que se va sin despedirse... siempre es el de al lado.",
+  "s": 72.79,
+  "e": 78.865
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Y tú: te vas a la francesa, o te despides de todos uno a uno? Os leo.",
+  "s": 79.365,
+  "e": 84.236
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 84.586,
+  "e": 87.062
+ }
+]

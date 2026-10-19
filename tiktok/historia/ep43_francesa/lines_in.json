@@ -1,0 +1,77 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Si te vas sin decir adiós, los franceses dicen que eres inglés!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y los ingleses... dicen que eres francés.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] ¿Quién tiene razón? Ninguno. Y la pelea que hay detrás es mejor de lo que parece. Te la cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: Francia, siglo dieciocho. En las fiestas de los aristócratas se puso de moda marcharse sin despedirse de los anfitriones, para no cortar la fiesta.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y a los ingleses, que se pasaban la vida en guerra con Francia, aquello les pareció de maleducados. Así que lo bautizaron: irse a la francesa.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: [mischievously] la venganza. Los franceses no se quedaron callados... y empezaron a decir lo mismo, pero al revés: irse a la inglesa.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y el resto de Europa tuvo que elegir bando. Los italianos se van a la inglesa. Y los alemanes, a la francesa.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: nosotros. En España nos pusimos del lado inglés: para nosotros, el maleducado es el francés.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hay más teorías sobre el origen, pero ninguna está demostrada."
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y lo más gracioso es que aquí tenemos el problema contrario: dices «me voy»... y tardas cuarenta minutos en salir por la puerta.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: en toda Europa, el maleducado que se va sin despedirse... siempre es el de al lado.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú: te vas a la francesa, o te despides de todos uno a uno? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
