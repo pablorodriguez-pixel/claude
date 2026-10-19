@@ -29,6 +29,5 @@ P1 no es un mito quemado · P2 toca su vida, le dice que se equivoca, lo comprue
 · P6 lo dudoso solo en el «Ojo» · P8 lo más fuerte al final · P9 un solo guiño a cámara · P10 prueba del bar · P11 de corrido, frases completas.
 Nada de «historia de otros» (Garbo/Jessop/Petrov no funcionaron), ni votaciones, ni «Sí o no».
 
-## Audio del motor (FALTA)
-`engine/el_sfx/` y `engine/el_music/ragtime.wav` no están en esta rama. En `claude/canal-lata-de-la-abuela` hay 19 efectos (no 32) y
-la música `abuela`, pero NO `ragtime` ni `bell, clockfast, emu, gulp, paper, tada`. Hay que regenerarlos con ElevenLabs una vez y subirlos aquí.
+## Audio del motor
+Resuelto el 19/10: 25 efectos en `engine/el_sfx/` (19 de `canal-lata-de-la-abuela` + 6 regenerados) y `engine/el_music/ragtime.wav` (30 s, en bucle). Ojo: .gitignore los ignora; para subirlos hace falta `git add -f`.
