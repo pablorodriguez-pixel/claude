@@ -1,0 +1,69 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Si eres español, hablas azteca todos los días!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y si no me crees... mira lo que tienes en la nevera.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Tomate. En náhuatl, la lengua de los aztecas: «tomatl».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Aguacate: «ahuacatl». Que, por cierto, también significaba... testículo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Chicle: «tzictli». Y cacahuete: «tlalcacahuatl», el cacao de la tierra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y hablando de clase: la tiza de la pizarra... también es azteca. «Tizatl».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero aquí viene la pelea: en México se dice «cacahuate». Y en Sudamérica, «maní», que viene del Caribe.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: con «chocolate», los lingüistas todavía discuten de dónde viene."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: sin los aztecas... te quedas sin guacamole y sin pizarra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú dices cacahuete, cacahuate o maní? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
