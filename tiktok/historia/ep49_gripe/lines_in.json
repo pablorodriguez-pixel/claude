@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡La gripe española no empezó en España!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y nos comimos la culpa... por ser los únicos que no la escondieron.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo acaba una pandemia mundial con nuestro nombre? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: la guerra. Mil novecientos dieciocho. Media Europa está en plena Primera Guerra Mundial... y los soldados empiezan a caer, pero de gripe.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y los países en guerra lo tapan. Si el enemigo sabe que tu ejército está enfermo... te ataca.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el chivato. España no estaba en esa guerra. Así que sus periódicos lo contaban todo. Hasta que el rey, Alfonso trece, también se contagió.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y el mundo leyó: gripe en España. Gripe... española.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: el juego de las culpas. Aquí la llamaban «el soldado de Nápoles», por una canción de moda.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y cada país culpaba a otro: en Brasil era la gripe alemana. En Polonia... la bolchevique.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: aún no se sabe dónde empezó. Se apunta a Estados Unidos, a Francia o a China."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: decir la verdad... nos costó cien años de mala fama.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿En tu familia se contaba algo de aquella gripe? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

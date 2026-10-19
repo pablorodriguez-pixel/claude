@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La gripe española no empezó en España!",
+  "s": 0.12,
+  "e": 2.404
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y nos comimos la culpa... por ser los únicos que no la escondieron.",
+  "s": 2.754,
+  "e": 7.279
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 7.879,
+  "e": 10.674
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Cómo acaba una pandemia mundial con nuestro nombre? Te lo cuento en tres pasos.",
+  "s": 11.024,
+  "e": 15.579
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: la guerra. Mil novecientos dieciocho. Media Europa está en plena Primera Guerra Mundial... y los soldados empiezan a caer, pero de gripe.",
+  "s": 15.929,
+  "e": 25.358
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y los países en guerra lo tapan. Si el enemigo sabe que tu ejército está enfermo... te ataca.",
+  "s": 25.858,
+  "e": 31.602
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: el chivato. España no estaba en esa guerra. Así que sus periódicos lo contaban todo. Hasta que el rey, Alfonso trece, también se contagió.",
+  "s": 32.202,
+  "e": 42.274
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y el mundo leyó: gripe en España. Gripe... española.",
+  "s": 42.774,
+  "e": 49.543
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Tres: el juego de las culpas. Aquí la llamaban «el soldado de Nápoles», por una canción de moda.",
+  "s": 50.143,
+  "e": 55.979
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y cada país culpaba a otro: en Brasil era la gripe alemana. En Polonia... la bolchevique.",
+  "s": 56.479,
+  "e": 62.2
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: aún no se sabe dónde empezó. Se apunta a Estados Unidos, a Francia o a China.",
+  "s": 62.8,
+  "e": 68.471
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: decir la verdad... nos costó cien años de mala fama.",
+  "s": 68.821,
+  "e": 73.935
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+  "s": 74.435,
+  "e": 80.159
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿En tu familia se contaba algo de aquella gripe? Os leo.",
+  "s": 80.559,
+  "e": 83.752
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 84.102,
+  "e": 86.26
+ }
+]
