@@ -201,40 +201,35 @@
  188   72.98- 73.03  no
  189   73.07- 73.28  lleva
  190   73.31- 73.67  nadie.
---- LÍNEA 12  [VECINO]  74.17-83.09  «Y cuando coges el teléfono... dices una palabra que eligió Edison. Te lo cuento en el siguiente: sígueme.»
+--- LÍNEA 12  [VECINO]  74.17-78.29  «Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.»
  191   74.21- 74.22  Y
- 192   74.27- 74.54  cuando
- 193   74.60- 74.94  coges
- 194   74.97- 75.02  el
- 195   75.08- 76.70  teléfono...
- 196   76.74- 77.10  dices
- 197   77.14- 77.26  una
- 198   77.32- 77.74  palabra
- 199   77.86- 78.22  que
- 200   78.27- 78.62  eligió
- 201   78.73- 79.50  Edison.
- 202   79.87- 80.62  Te
- 203   80.65- 80.70  lo
- 204   80.73- 80.94  cuento
- 205   80.97- 81.02  en
- 206   81.05- 81.10  el
- 207   81.14- 82.54  siguiente:
- 208   82.59- 83.10  sígueme.
---- LÍNEA 13  [VECINO]  83.50-85.96  «¿Y tú qué guardas en ese bolsillo? Os leo.»
- 209   83.50- 83.66  ¿Y
- 210   83.68- 83.73  tú
- 211   83.75- 83.81  qué
- 212   83.86- 84.14  guardas
- 213   84.16- 84.22  en
- 214   84.25- 84.38  ese
- 215   84.42- 85.25  bolsillo?
- 216   85.39- 85.66  Os
- 217   85.72- 85.97  leo.
---- LÍNEA 14  [VECINO]  86.31-88.79  «Y esto... no venía en el libro.»
- 218   86.31- 86.39  Y
- 219   86.49- 87.83  esto...
- 220   87.86- 87.91  no
- 221   87.97- 88.23  venía
- 222   88.26- 88.31  en
- 223   88.34- 88.39  el
- 224   88.43- 88.79  libro.
+ 192   74.27- 74.46  como
+ 193   74.52- 74.86  esta,
+ 194   74.94- 75.34  tengo
+ 195   75.39- 75.66  muchas
+ 196   75.74- 76.38  más.
+ 197   76.42- 76.86  Sígueme,
+ 198   76.98- 77.34  que
+ 199   77.37- 77.42  no
+ 200   77.45- 77.50  te
+ 201   77.54- 77.66  las
+ 202   77.69- 77.90  cuenten
+ 203   77.96- 78.30  mal.
+--- LÍNEA 13  [VECINO]  78.69-81.16  «¿Y tú qué guardas en ese bolsillo? Os leo.»
+ 204   78.69- 78.85  ¿Y
+ 205   78.88- 78.93  tú
+ 206   78.95- 79.01  qué
+ 207   79.05- 79.33  guardas
+ 208   79.36- 79.41  en
+ 209   79.45- 79.57  ese
+ 210   79.62- 80.45  bolsillo?
+ 211   80.58- 80.85  Os
+ 212   80.91- 81.17  leo.
+--- LÍNEA 14  [VECINO]  81.51-83.98  «Y esto... no venía en el libro.»
+ 213   81.51- 81.59  Y
+ 214   81.69- 83.03  esto...
+ 215   83.06- 83.11  no
+ 216   83.17- 83.43  venía
+ 217   83.46- 83.51  en
+ 218   83.54- 83.59  el
+ 219   83.63- 83.99  libro.

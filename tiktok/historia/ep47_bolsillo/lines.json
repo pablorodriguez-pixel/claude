@@ -86,22 +86,22 @@
  {
   "line": 12,
   "who": "VECINO",
-  "text": "Y cuando coges el teléfono... dices una palabra que eligió Edison. Te lo cuento en el siguiente: sígueme.",
+  "text": "Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.",
   "s": 74.173,
-  "e": 83.095
+  "e": 78.291
  },
  {
   "line": 13,
   "who": "VECINO",
   "text": "¿Y tú qué guardas en ese bolsillo? Os leo.",
-  "s": 83.495,
-  "e": 85.964
+  "s": 78.691,
+  "e": 81.16
  },
  {
   "line": 14,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 86.314,
-  "e": 88.788
+  "s": 81.51,
+  "e": 83.984
  }
 ]

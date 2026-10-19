@@ -86,22 +86,22 @@
  {
   "line": 12,
   "who": "VECINO",
-  "text": "Y lo de Charo... es todavía más loco. Te lo cuento en el siguiente: sígueme.",
+  "text": "Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.",
   "s": 74.181,
-  "e": 80.621
+  "e": 78.785
  },
  {
   "line": 13,
   "who": "VECINO",
   "text": "¿Tienes un Pepe en tu vida? Menciónale aquí, que se entere. Os leo.",
-  "s": 81.021,
-  "e": 85.256
+  "s": 79.185,
+  "e": 83.419
  },
  {
   "line": 14,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 85.606,
-  "e": 88.083
+  "s": 83.769,
+  "e": 86.247
  }
 ]

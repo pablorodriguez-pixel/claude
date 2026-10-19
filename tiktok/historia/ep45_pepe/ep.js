@@ -117,7 +117,7 @@ plano(L(10) - 0.1, L(11) - 0.1, PAPEL, c => {
 golpe(L(11) - 0.1, L(12) - 0.1, YEL, 'Tu tío Pepe…', '…y Pep Guardiola: ¡mismo apodo!', { y: 560, size: 130, size2: 86, t2: T.mismo - 0.4, draw: c => { TAG(c, 140, 1000, 380, 'Pepe'); TAG(c, 560, 1000, 380, 'Pep'); } });
 
 /* L12 · CTA de seguir con cliffhanger de Charo */
-sigueme(12, 'En el próximo:', '¿Por qué CHARO?', 'sígueme');
+sigueme(12, 'Como esta…', '¡tengo MUCHAS más!', 'sígueme');
 
 /* L13 · pregunta final: menciona a tu Pepe */
 preguntaFinal('¿Tienes un Pepe', 'en tu vida?', { size: 110, draw: c => { TAG(c, 240, 600, 600, 'Pepe'); aparece(chip(c, 300, 1000, '@ menciónale 👇', { size: 64, bg: YEL, color: INK }), L(13) + 1.2); } });

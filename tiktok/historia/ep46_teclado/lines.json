@@ -86,22 +86,22 @@
  {
   "line": 12,
   "who": "VECINO",
-  "text": "Y lo que llevas en el bolsillo del pantalón... también esconde algo. Te lo cuento en el siguiente: sígueme.",
+  "text": "Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.",
   "s": 74.457,
-  "e": 82.045
+  "e": 78.702
  },
  {
   "line": 13,
   "who": "VECINO",
   "text": "¿Tú escribes con dos dedos o con los diez? Os leo.",
-  "s": 82.445,
-  "e": 85.562
+  "s": 79.102,
+  "e": 82.219
  },
  {
   "line": 14,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 85.912,
-  "e": 88.629
+  "s": 82.569,
+  "e": 85.286
  }
 ]

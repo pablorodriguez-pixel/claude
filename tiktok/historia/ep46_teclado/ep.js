@@ -149,7 +149,7 @@ plano(L(10) - 0.1, L(11) - 0.1, PAPEL, c => {
 golpe(L(11) - 0.1, L(12) - 0.1, YEL, 'Tu móvil…', '…teclado del siglo XIX', { y: 480, size: 130, size2: 92, t2: T.siglo - 0.5, draw: c => { const m = figura(c, 160, 900, 300, 570, MOVIL, '0 0 400 760', { z: 6 }); figura(c, 520, 1000, 420, 312, MAQ, '0 0 700 520', { z: 6 }); FX.fns.push(t => set(m, { r: -6 + wobble(t, 0.6, 2) })); } });
 
 /* L12 · CTA de seguir: lo que llevas en el bolsillo */
-sigueme(12, 'En el próximo:', '¿Y tu BOLSILLO?', 'sígueme');
+sigueme(12, 'Como esta…', '¡tengo MUCHAS más!', 'sígueme');
 
 /* L13 · pregunta final: ¿dos dedos o diez? */
 preguntaFinal('¿Escribes con dos', 'dedos o con diez?', { size: 104, draw: c => { const k = TECLADO(c, 50, 640, 980, ROWS); aparece(chip(c, 200, 1050, '✌️ dos   o   diez 🙌', { size: 64, bg: YEL, color: INK }), L(13) + 1.0); FX.fns.push(t => luz(k, l => Math.sin(t * 7 + l.charCodeAt(0) * 1.7) > 0.6, PINK)); } });

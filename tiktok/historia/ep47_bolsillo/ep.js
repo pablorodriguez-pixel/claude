@@ -146,7 +146,7 @@ plano(L(10) - 0.1, L(11) - 0.1, PAPEL, c => {
 golpe(L(11) - 0.1, L(12) - 0.1, YEL, 'Un bolsillo para un reloj…', '…que ya no lleva nadie', { y: 460, size: 104, size2: 92, t2: T.nadie - 0.3, draw: c => { const r = figura(c, 380, 900, 320, 405, RELOJ, '0 0 300 380', { z: 6, origin: '50% 30%' }); FX.fns.push(t => set(r, { r: Math.sin(t * 2.4) * 10 })); } });
 
 /* L12 · CTA de seguir: la palabra de Edison */
-sigueme(12, 'En el próximo:', '¿Qué dijo EDISON?', 'sígueme');
+sigueme(12, 'Como esta…', '¡tengo MUCHAS más!', 'sígueme');
 
 /* L13 · pregunta final */
 preguntaFinal('¿Qué guardas tú', 'en ese bolsillo?', { size: 110, draw: c => { VAQ(c, 340, 620, 400); aparece(chip(c, 200, 1180, '🪙 💊 🎟️ … ¿o nada?', { size: 64, bg: YEL, color: INK }), L(13) + 1.0); } });
