@@ -20,7 +20,7 @@ if [[ $P == hoja || $P == todo ]]; then
   TS=$(python3 -c "print(' '.join(f'{x:.2f}' for x in [0.05]+[t*3.0 for t in range(1,int($DUR/3)+1)]))")
   rm -rf "$D/shots"; node "$E/render.js" "$D" sheet $TS > "$D/logs/hoja.log" 2>&1 || ko "hoja: $(tail -1 "$D/logs/hoja.log")"
   grep -q ERRORES "$D/logs/hoja.log" && echo "! errores de página: $(grep -m1 -A1 ERRORES "$D/logs/hoja.log" | tail -1 | cut -c1-160)"
-  ffmpeg -v error -y -pattern_type glob -i "$D/shots/s_*.jpg" -vf "scale=200:-1,tile=5x4:padding=3:color=white" -frames:v 1 "$D/hoja.jpg"
+  ffmpeg -v error -y -pattern_type glob -i "$D/shots/s_*.jpg" -vf "scale=200:-1,tile=5x$(( ($(ls "$D"/shots/s_*.jpg | wc -l) + 4) / 5 )):padding=3:color=white" -frames:v 1 "$D/hoja.jpg"
   ok "hoja: $D/hoja.jpg (fotograma 0 arriba-izquierda, luego cada 3 s)"
 fi
 

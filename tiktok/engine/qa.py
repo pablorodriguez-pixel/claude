@@ -40,7 +40,7 @@ if '--whisper' in sys.argv:
     guion = norm(' '.join(l['text'] for l in L)).split()
     sm = difflib.SequenceMatcher(None, guion, oido)
     ratio = sm.ratio()
-    malas = [(' '.join(guion[i1:i2]), ' '.join(oido[j1:j2])) for op, i1, i2, j1, j2 in sm.get_opcodes() if op != 'equal']
+    malas = [(' '.join(guion[i1:i2]), ' '.join(oido[j1:j2])) for op, i1, i2, j1, j2 in sm.get_opcodes() if op != 'equal' and not all(x.isdigit() for x in oido[j1:j2] or ['x'])]
     (fallos if ratio < 0.93 else avisos).append(f'Whisper: {ratio:.0%} de coincidencia')
     for g, o in malas[:6]: avisos.append(f'  guion «{g}» → se oye «{o}»')
 

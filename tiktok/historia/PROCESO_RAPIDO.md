@@ -18,7 +18,11 @@ con `grep -n`, nunca enteros. (Antes cada episodio leía ~60 KB de documentos, y
 2. **Guion** (`lines_in.json`) con la plantilla de `director/GUIONES_V3.md`. Director en texto, una pasada, con las puertas de abajo.
    Cifras en letra. Línea 0 ≤ 3,5 s, «Ojo» ≤ 6 s, penúltima «¿…? Os leo.», última «Y esto... no venía en el libro.»
 3. `bash ../engine/hacer.sh epNN_tema voz` → si la QA falla, arreglar solo esa línea (borrar `clips/NN.*`) y repetir.
-4. Animación: `cp -r` del episodio más parecido (ep39_siesta3 = plantilla Napoleón v3), cambiar textos/figuras.
+4. Animación: copia `index.html` de ep40_hora y escribe SOLO `ep.js` (≈150 líneas). Las piezas fijas (portada, marca en el balcón, cabeceras 1/2/3,
+   sellos, golpes de color, óvalo del Vecino, emú, pregunta final, libro que se cierra, bucle y efectos de sonido) están en `engine/story.js`;
+   figuras nuevas en `engine/figs_extra.js` (mariposa, red, cañón, cama, sol, marco, Gioconda, nabo, calabaza, diablo, corona, barco…).
+   Tiempos por texto: `L(n)` línea n, `Q('frase')` inicio de la frase (en orden de guion). Plantillas: ep40_hora, ep41_monalisa, ep42_nabo.
+   Carpeta: `kit/` (copia de ep07_ok/kit), `base.css` y `fonts -> ../../engine/fonts` (OJO: dos niveles).
 5. `bash ../engine/hacer.sh epNN_tema hoja` → mirar `hoja.jpg` UNA vez. Arreglar y, solo si hubo cambios grandes, repetir.
 6. `bash ../engine/hacer.sh epNN_tema video` en segundo plano → entregar `final.mp4` con SendUserFile (portada = fotograma 0).
 7. Commit y push a esta rama (sin vídeos de más de 95 MB).
