@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡España significa... tierra de conejos!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y los romanos lo dejaron grabado en sus monedas.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué España se llama España? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el error. Hace casi tres mil años, los fenicios llegan a nuestras costas. Y ven un bicho que no conocían: el conejo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo confunden con el damán, un animalito de su tierra. Y llaman al lugar «I-Shapan-im»: la costa de los damanes.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Los romanos lo oyen... y sale «Hispania». Y de Hispania... España.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: la prueba. Mira las monedas del emperador Adriano: Hispania, tumbada... ¡con un conejo a sus pies!",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: la plaga. Había tantos que en Baleares pidieron al emperador Augusto... soldados contra los conejos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y el poeta Catulo, para insultar a un hispano, le llamó «hijo de la Celtiberia conejera».",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: no todos los lingüistas lo aceptan. Hay más teorías."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: «España»... es un conejo mal identificado.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Sabes qué significa el nombre de tu país? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

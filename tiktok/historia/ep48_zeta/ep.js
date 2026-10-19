@@ -14,7 +14,7 @@ const T = {
 };
 const LETRA = (c, x, y, ch, col, sz = 260) => box(c, x, y, sz, sz, { zIndex: 8, borderRadius: '30px', background: col, border: `10px solid ${INK}`, boxShadow: `10px 10px 0 ${INK}`, textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: px(sz * 0.8), lineHeight: px(sz * 0.95), color: '#fff' }, ch);
 const NUMS = (c, t0) => [1, 2, 3].map((n, i) => aparece(box(c, 420 + i * 160, 1110, 130, 130, { borderRadius: '50%', background: YEL, border: `8px solid ${INK}`, boxShadow: `6px 6px 0 ${INK}`, textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '96px', lineHeight: '120px', color: INK, zIndex: 30 }, String(n)), t0 + i * 0.15, { sfx: i === 2 ? 'pop2' : 'pop' }));
-const REY = (c, x, y, w) => { const b = figura(c, x, y, w, w * 460 / 360, bustInner({ moustache: true, beard: true, seed: 23 }), '0 0 360 460', { z: 6 }); figura(c, x + w * 0.3, y - w * 0.02, w * 0.4, w * 0.3, crownInner(), '0 0 400 300', { z: 7 }); return b; };
+const REY = (c, x, y, w) => { const b = figura(c, x, y, w, w * 460 / 360, bustInner({ moustache: true, beard: true, seed: 23 }), '0 0 360 460', { z: 6 }); figura(c, x + w * 0.3, y + w * 0.1, w * 0.4, w * 0.3, crownInner(), '0 0 400 300', { z: 7 }); return b; };
 const LUPA = `<circle cx="120" cy="120" r="100" fill="rgba(255,255,255,.35)" stroke="${INK}" stroke-width="14"/><circle cx="120" cy="120" r="100" fill="none" stroke="${BRASS}" stroke-width="7"/><path d="M190,190 L300,300" stroke="${INK}" stroke-width="34" stroke-linecap="round"/><path d="M190,190 L300,300" stroke="${WOOD}" stroke-width="20" stroke-linecap="round"/>`;
 const ROJO = '#C8102E', VERDE = '#2f7a4a';
 
@@ -94,8 +94,8 @@ plano(L(8) - 0.1, L(9) - 0.1, { background: '#C9D3E6' }, c => {
   return t => { const k = p(t, T.desdeSev, 3.2); set(g, { x: lerp(760, 230, k), y: lerp(500, 820, k) + Math.sin(t * 3) * 10, r: wobble(t, 0.6, 5) }); };
 });
 plano(L(9) - 0.1, L(10) - 0.1, PAPEL, c => {
-  const ch = [['🇲🇽 mexicano', T.mexicano, VERDE], ['🇮🇨 canario', T.canario, '#2f5a9a'], ['🟩 sevillano', T.sevillano9, '#2f7a4a']].map(([s, t0, col], i) => aparece(chip(c, 140 + (i % 2) * 260, 640 + i * 150, s, { size: 66, bg: col }), t0, { sfx: 'pop2' }));
-  texto(c, 480, 'Hoy dicen igual:', { size: 88 });
+  const ch = [['🇲🇽 mexicano', T.mexicano, VERDE], ['🇮🇨 canario', T.canario, '#2f5a9a'], ['🟩 sevillano', T.sevillano9, '#2f7a4a']].map(([s, t0, col], i) => aparece(chip(c, 140 + (i % 2) * 260, 720 + i * 140, s, { size: 66, bg: col }), t0, { sfx: 'pop2' }));
+  texto(c, 560, 'Hoy dicen igual:', { size: 88 });
   const sa = texto(c, 1100, '«<span style="color:#2f7a4a">S</span>apato»', { size: 190 });
   sello(c, 1360, '¡IGUAL!', T.igual, { size: 150, r: -6 });
   return t => set(sa, { s: pop(t, T.igual - 0.6, 0.35), o: t > T.igual - 0.6 ? 1 : 0, r: -3 });

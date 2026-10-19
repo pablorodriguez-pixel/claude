@@ -37,12 +37,13 @@ if '--whisper' in sys.argv:
     a = np.frombuffer(subprocess.run(['ffmpeg', '-v', 'error', '-i', d + '/voice_final.wav', '-ac', '1', '-ar', '16000', '-f', 's16le', '-'], capture_output=True).stdout, np.int16).astype(np.float32) / 32768
     segs, _ = WhisperModel('small', device='cpu', compute_type='int8').transcribe(a, language='es')
     oido = norm(' '.join(s.text for s in segs)).split()
+    lid = [k for k, l in enumerate(L) for _ in norm(l['text']).split()]
     guion = norm(' '.join(l['text'] for l in L)).split()
     sm = difflib.SequenceMatcher(None, guion, oido)
     ratio = sm.ratio()
-    malas = [(' '.join(guion[i1:i2]), ' '.join(oido[j1:j2])) for op, i1, i2, j1, j2 in sm.get_opcodes() if op != 'equal' and not all(x.isdigit() for x in oido[j1:j2] or ['x'])]
+    malas = [(f"L{lid[min(i1, len(lid) - 1)]} " + ' '.join(guion[i1:i2]), ' '.join(oido[j1:j2])) for op, i1, i2, j1, j2 in sm.get_opcodes() if op != 'equal' and not all(x.isdigit() for x in oido[j1:j2] or ['x'])]
     (fallos if ratio < 0.93 else avisos).append(f'Whisper: {ratio:.0%} de coincidencia')
-    for g, o in malas[:6]: avisos.append(f'  guion «{g}» → se oye «{o}»')
+    for g, o in malas[:10]: avisos.append(f'  guion «{g}» → se oye «{o}»')
 
 print(f'{os.path.basename(d)} · {total:.1f} s · {len(L)} líneas · ' + ('QA OK' if not fallos else f'{len(fallos)} FALLOS'))
 for f in fallos: print('✗', f)

@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡México con jota... a un mexicano le duele!",
+  "s": 0.12,
+  "e": 3.621
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y la culpa es de una letra que antes sonaba «sh».",
+  "s": 3.971,
+  "e": 7.715
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 8.315,
+  "e": 11.267
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Por qué México se escribe con equis y se dice con jota? Te lo cuento en tres pasos.",
+  "s": 11.617,
+  "e": 16.816
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: el sonido. Hace quinientos años, la equis en español sonaba «sh». Los mexicas decían «Méshico»... y los españoles lo escribieron así: con equis.",
+  "s": 17.166,
+  "e": 28.2
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Por eso los ingleses llaman «sherry» al vino de Jerez: se escribía Xerez. Y dicen «Don Quixote».",
+  "s": 28.7,
+  "e": 34.668
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: el cambio. Ese «sh» acabó sonando a jota. Y en mil ochocientos quince, la Academia cambió las equis por jotas: Xerez, Jerez. Quixote, Quijote.",
+  "s": 35.268,
+  "e": 48.536
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Pero seis años después, México se independiza. Y su equis... no se toca. Se queda como bandera.",
+  "s": 49.036,
+  "e": 58.202
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Tres: la prueba. En España se escribió «Méjico» con jota durante muchísimo tiempo. Hasta que la propia Academia... recomendó la equis.",
+  "s": 58.802,
+  "e": 68.239
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y en México, la equis suena de cuatro formas: México, Xochimilco, Xola... y taxi.",
+  "s": 68.739,
+  "e": 75.179
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: «Méjico» con jota no es una falta. Es correcto, solo que no se recomienda.",
+  "s": 75.779,
+  "e": 81.454
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: esa equis no es un error... es una cicatriz de quinientos años.",
+  "s": 81.804,
+  "e": 87.474
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+  "s": 87.974,
+  "e": 92.979
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Qué palabra de tu país escribe todo el mundo mal? Os leo.",
+  "s": 93.379,
+  "e": 97.37
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 97.72,
+  "e": 100.037
+ }
+]

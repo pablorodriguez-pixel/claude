@@ -148,3 +148,56 @@ function nameTagInner(nombre) {
   <text x="350" y="92" text-anchor="middle" font-family="Bricolage" font-weight="800" font-size="70" fill="#fff">HOLA</text><text x="350" y="136" text-anchor="middle" font-family="Bricolage" font-weight="800" font-size="34" fill="#fff">me llamo</text>
   <text x="350" y="310" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="900" font-size="${nombre.length > 8 ? 96 : 130}" fill="${INK}">${nombre}</text>`;
 }
+
+/* ---- 21/10: España y Latinoamérica ---- */
+// galeón con velas (vb 0 0 600 520)
+function galeonInner(flag = RED) {
+  const hull = 'M40,360 L560,360 L520,460 Q300,500 80,460 Z', pop = 'M440,300 L560,300 L560,360 L440,360 Z';
+  const sail = (x, y, w, h) => `M${x},${y} Q${x + w / 2},${y + 30} ${x + w},${y} L${x + w - 10},${y + h} Q${x + w / 2},${y + h + 40} ${x + 10},${y + h} Z`;
+  return `${FIGP(hull, '#7a4a2a', 6, .4)}${FIGP(pop, '#8a5a34', 5, .3)}${[0, 1, 2, 3, 4].map(k => `<circle cx="${110 + k * 70}" cy="400" r="11" fill="${INK}"/>`).join('')}
+  ${[150, 300, 450].map((x, i) => `<rect x="${x - 6}" y="${60 + i * 20}" width="12" height="${300 - i * 20}" fill="#5a3a20" stroke="${INK}" stroke-width="4"/>`).join('')}
+  ${[[90, 110, 120, 150], [235, 90, 130, 170], [395, 120, 110, 140]].map(s => FIGP(sail(...s), '#FBF6E8', 5, .15)).join('')}
+  <path d="M300,40 L300,10 L360,22 L300,34" fill="${flag}" stroke="${INK}" stroke-width="4"/><path d="M265,190 l35,-40 l35,40 l-35,40 Z" fill="${RED}" opacity=".85"/>`;
+}
+// conejo sentado (vb 0 0 300 340); orejas 1 = conejo, 0.25 = damán
+function conejoInner(orejas = 1, col = '#b9a183') {
+  const eh = 150 * orejas;
+  const body = 'M60,330 C30,250 70,170 150,170 C230,170 270,250 240,330 Z', head = 'M95,190 C80,120 120,90 150,90 C180,90 220,120 205,190 Z';
+  const ear = x => `M${x - 18},110 C${x - 30},${110 - eh * 0.6} ${x - 10},${110 - eh} ${x},${110 - eh} C${x + 10},${110 - eh} ${x + 30},${110 - eh * 0.6} ${x + 18},110 Z`;
+  return `${FIGP(ear(118), col, 5, .3)}${FIGP(ear(182), col, 5, .3)}${FIGP(body, col, 6, .35)}${FIGP(head, col, 6, .3)}
+  <circle cx="130" cy="140" r="9" fill="${INK}"/><circle cx="170" cy="140" r="9" fill="${INK}"/><path d="M142,165 l8,8 l8,-8 Z" fill="${PINK}" stroke="${INK}" stroke-width="3"/>
+  <path d="M110,170 L70,160 M110,176 L72,182 M190,170 L230,160 M190,176 L228,182" stroke="${INK}" stroke-width="3"/><circle cx="245" cy="300" r="26" fill="#fff" stroke="${INK}" stroke-width="5"/>`;
+}
+// moneda romana: Hispania tumbada con un conejo (vb 0 0 400 400)
+function monedaHispaniaInner() {
+  const c = 'M200,10 a190,190 0 1,0 0.1,0 Z';
+  return `${FIGP(c, '#c9a96a', 7, .35)}<circle cx="200" cy="200" r="160" fill="none" stroke="${INK}" stroke-width="4" stroke-dasharray="4 8"/>
+  <path d="M90,270 C110,220 160,200 210,210 C250,190 270,170 290,200 L300,270 Z" fill="#a8874c" stroke="${INK}" stroke-width="5"/><circle cx="230" cy="160" r="26" fill="#a8874c" stroke="${INK}" stroke-width="5"/>
+  <path d="M240,180 L300,110" stroke="${INK}" stroke-width="7"/><circle cx="302" cy="104" r="10" fill="#a8874c" stroke="${INK}" stroke-width="4"/>
+  <g class="cj" transform="translate(70,190) scale(0.28)">${conejoInner(1, '#a8874c')}</g>
+  <text x="200" y="320" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="44" fill="${INK}">HISPANIA</text>`;
+}
+// libro viejo abierto con texto (vb 0 0 760 480); txt = líneas de la página derecha
+function libroViejoInner(titulo, lineas = []) {
+  return `${FIGP('M20,40 L370,20 L370,460 L20,470 Z', '#F2E6C8', 5, .2)}${FIGP('M390,20 L740,40 L740,470 L390,460 Z', '#F2E6C8', 5, .2)}<path d="M380,20 V470" stroke="${INK}" stroke-width="6"/>
+  <text x="195" y="110" text-anchor="middle" font-family="Rye" font-size="${titulo.length > 10 ? 34 : 44}" fill="${RED}">${titulo}</text>${[...Array(8)].map((_, k) => `<path d="M60,${160 + k * 34} H330" stroke="${INK}" stroke-width="4" opacity=".4"/>`).join('')}
+  ${lineas.map((l, k) => `<text x="565" y="${110 + k * 62}" text-anchor="middle" font-family="Playfair" font-style="italic" font-weight="900" font-size="46" fill="${INK}">${l}</text>`).join('')}`;
+}
+// maleta de cartón (vb 0 0 400 300)
+function maletaInner() {
+  const b = 'M20,70 L380,70 L380,290 L20,290 Z';
+  return `${FIGP(b, '#b07a44', 6, .35)}<path d="M150,70 V40 Q150,20 170,20 L230,20 Q250,20 250,40 V70" fill="none" stroke="${INK}" stroke-width="10"/>
+  <path d="M20,130 H380" stroke="${INK}" stroke-width="5"/><rect x="60" y="110" width="40" height="40" fill="${BRASS}" stroke="${INK}" stroke-width="4"/><rect x="300" y="110" width="40" height="40" fill="${BRASS}" stroke="${INK}" stroke-width="4"/>
+  <rect x="140" y="180" width="140" height="70" rx="8" fill="#FBF6E8" stroke="${INK}" stroke-width="4" transform="rotate(-6 210 215)"/>`;
+}
+// periódico con titular (vb 0 0 600 760)
+function periodicoInner(cab, titular) {
+  return `${FIGP('M20,20 L580,20 L580,740 L20,740 Z', '#F4EEDC', 6, .15)}<text x="300" y="100" text-anchor="middle" font-family="Rye" font-size="62" fill="${INK}">${cab}</text><path d="M40,125 H560 M40,135 H560" stroke="${INK}" stroke-width="4"/>
+  ${titular.map((l, k) => `<text x="300" y="${220 + k * 90}" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="80" fill="${RED}">${l}</text>`).join('')}
+  ${[...Array(8)].map((_, k) => `<path d="M50,${titular.length * 90 + 240 + k * 40} H${k % 3 ? 550 : 300}" stroke="${INK}" stroke-width="5" opacity=".4"/>`).join('')}`;
+}
+// virus (vb 0 0 300 300)
+function virusInner(col = '#9fd3c0') {
+  return `${[...Array(10)].map((_, i) => { const a = i * Math.PI / 5; return `<path d="M${150 + Math.cos(a) * 90},${150 + Math.sin(a) * 90} L${150 + Math.cos(a) * 135},${150 + Math.sin(a) * 135}" stroke="${INK}" stroke-width="10"/><circle cx="${150 + Math.cos(a) * 138}" cy="${150 + Math.sin(a) * 138}" r="14" fill="${RED}" stroke="${INK}" stroke-width="5"/>`; }).join('')}
+  ${FIGP('M150,55 a95,95 0 1,0 0.1,0 Z', col, 7, .4)}<circle cx="120" cy="135" r="12" fill="${INK}"/><circle cx="180" cy="135" r="12" fill="${INK}"/><path d="M115,190 Q150,165 185,190" fill="none" stroke="${INK}" stroke-width="8" stroke-linecap="round"/>`;
+}

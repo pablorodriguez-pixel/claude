@@ -29,7 +29,7 @@ con `grep -n`, nunca enteros. (Antes cada episodio leía ~60 KB de documentos, y
 
 ## CTA de seguir (21/10: SIN prometer el siguiente vídeo)
 Antepenúltima línea, ≤ 6 s, ANTES de la pregunta final. Nunca anunciar el tema del próximo vídeo (el usuario no publica siempre en orden).
-Texto fijo: «Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.» En ep.js: `sigueme(n, 'Como esta…', '¡tengo MUCHAS más!', 'sígueme')`
+Frase que motiva (beneficio para quien sigue): «Sígueme... y en la próxima cena, el que lo cuenta eres tú.» En ep.js: `sigueme(n, 'En la próxima cena…', '¡lo cuentas TÚ!', 'sígueme')`
 — el Vecino señala con flecha y mano el «+» real de TikTok (barra derecha, y≈1040).
 
 ## Puertas que el director comprueba (resumen de RUBRICA.md)
