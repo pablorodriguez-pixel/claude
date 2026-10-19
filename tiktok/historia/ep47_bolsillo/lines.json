@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El bolsillo enano de tus vaqueros no es para monedas!",
+  "s": 0.12,
+  "e": 2.674
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Ni para el mechero. Lleva ahí ciento cincuenta años guardando otra cosa.",
+  "s": 3.024,
+  "e": 7.389
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 7.989,
+  "e": 10.698
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Para qué sirve ese bolsillo diminuto? Te lo cuento en tres pasos.",
+  "s": 11.048,
+  "e": 14.637
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: el problema. Hace ciento cincuenta años, en el Oeste americano, a los mineros se les rompían los pantalones. Sobre todo, los bolsillos.",
+  "s": 14.987,
+  "e": 23.221
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Un sastre, Jacob Davis, tuvo una idea: clavar las costuras con remaches de cobre. Pero no tenía dinero para patentarla... y se lo pidió a su proveedor de tela. Un tal... Levi Strauss.",
+  "s": 23.721,
+  "e": 35.238
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: el bolsillo. En aquellos primeros vaqueros, ¿qué llevaba encima un hombre? Un reloj. De bolsillo, con su cadena.",
+  "s": 35.838,
+  "e": 42.949
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y ese bolsillo enano... era su casa. Por eso tiene justo ese tamaño.",
+  "s": 43.449,
+  "e": 49.006
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Tres: la prueba. Mira tus vaqueros ahora: en las esquinas de ese bolsillo... hay remaches. Ahí siguen.",
+  "s": 49.606,
+  "e": 57.522
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Pero hubo un remache que desapareció: uno que estaba justo... en la entrepierna.",
+  "s": 58.022,
+  "e": 63.608
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: la leyenda dice que el jefe de Levi's se quemó ahí, junto a una hoguera.",
+  "s": 64.208,
+  "e": 69.805
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: llevas un bolsillo para un reloj... que ya no lleva nadie.",
+  "s": 70.155,
+  "e": 73.673
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y cuando coges el teléfono... dices una palabra que eligió Edison. Te lo cuento en el siguiente: sígueme.",
+  "s": 74.173,
+  "e": 83.095
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Y tú qué guardas en ese bolsillo? Os leo.",
+  "s": 83.495,
+  "e": 85.964
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 86.314,
+  "e": 88.788
+ }
+]

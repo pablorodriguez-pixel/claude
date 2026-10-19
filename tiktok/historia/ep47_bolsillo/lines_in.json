@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El bolsillo enano de tus vaqueros no es para monedas!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Ni para el mechero. Lleva ahí ciento cincuenta años guardando otra cosa.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Para qué sirve ese bolsillo diminuto? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el problema. Hace ciento cincuenta años, en el Oeste americano, a los mineros se les rompían los pantalones. Sobre todo, los bolsillos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Un sastre, Jacob Davis, tuvo una idea: clavar las costuras con remaches de cobre. Pero no tenía dinero para patentarla... y se lo pidió a su proveedor de tela. Un tal... Levi Strauss.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el bolsillo. En aquellos primeros vaqueros, ¿qué llevaba encima un hombre? Un reloj. De bolsillo, con su cadena.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y ese bolsillo enano... era su casa. Por eso tiene justo ese tamaño.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: la prueba. Mira tus vaqueros ahora: en las esquinas de ese bolsillo... hay remaches. Ahí siguen.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] Pero hubo un remache que desapareció: uno que estaba justo... en la entrepierna.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: la leyenda dice que el jefe de Levi's se quemó ahí, junto a una hoguera."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: llevas un bolsillo para un reloj... que ya no lleva nadie.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y cuando coges el teléfono... dices una palabra que eligió Edison. Te lo cuento en el siguiente: sígueme.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú qué guardas en ese bolsillo? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
