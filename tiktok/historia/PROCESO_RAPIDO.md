@@ -27,10 +27,10 @@ con `grep -n`, nunca enteros. (Antes cada episodio leía ~60 KB de documentos, y
 6. `bash ../engine/hacer.sh epNN_tema video` en segundo plano → entregar `final.mp4` con SendUserFile (portada = fotograma 0).
 7. Commit y push a esta rama (sin vídeos de más de 95 MB).
 
-## CTA de seguir (20/10, cuenta con pocos seguidores)
-Antepenúltima línea, ≤ 6 s, ANTES de la pregunta final: cliffhanger del próximo episodio + «sígueme» (p. ej. «Y lo de Pepe… es todavía más raro.
-Te lo cuento en el siguiente: sígueme, que no te lo cuenten mal»). En ep.js: `sigueme(n, 'En el próximo:', '¿Por qué PEPE?', 'sígueme')` — el Vecino
-señala con flecha y mano el «+» real de TikTok (barra derecha, y≈1040). Lo prometido se produce SIEMPRE como siguiente episodio.
+## CTA de seguir (21/10: SIN prometer el siguiente vídeo)
+Antepenúltima línea, ≤ 6 s, ANTES de la pregunta final. Nunca anunciar el tema del próximo vídeo (el usuario no publica siempre en orden).
+Texto fijo: «Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.» En ep.js: `sigueme(n, 'Como esta…', '¡tengo MUCHAS más!', 'sígueme')`
+— el Vecino señala con flecha y mano el «+» real de TikTok (barra derecha, y≈1040).
 
 ## Puertas que el director comprueba (resumen de RUBRICA.md)
 P1 no es un mito quemado · P2 toca su vida, le dice que se equivoca, lo comprueba ya, vale para España y Latinoamérica, da debate (≥ 4/5)
