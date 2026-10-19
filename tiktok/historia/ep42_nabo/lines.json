@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La calabaza de Halloween era un nabo!",
+  "s": 0.12,
+  "e": 2.243
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y te aseguro que daba muchísimo más miedo.",
+  "s": 2.593,
+  "e": 5.069
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 5.669,
+  "e": 8.701
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Por qué un nabo con cara, y por qué hoy es una calabaza? En tres pasos.",
+  "s": 9.051,
+  "e": 12.886
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: en Irlanda, en la noche de difuntos, tallaban caras horribles en nabos, les metían una vela dentro... y los ponían en las ventanas.",
+  "s": 13.236,
+  "e": 21.147
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: la cara es por un tipo de una leyenda, Jack el Tacaño. Jack engañó al diablo. Y no una vez: dos.",
+  "s": 21.647,
+  "e": 30.126
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "La primera, le convenció para que se convirtiera en una moneda... y se la guardó en el bolsillo, junto a una cruz, para que no pudiera escapar.",
+  "s": 30.626,
+  "e": 38.379
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y la segunda, le hizo subirse a un árbol, y talló una cruz en el tronco para que no pudiera bajar.",
+  "s": 38.729,
+  "e": 43.442
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Cuando Jack murió, en el cielo no le quisieron, por tramposo. Y en el infierno... el diablo tampoco.",
+  "s": 43.942,
+  "e": 49.85
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que le echó con una brasa para alumbrarse. Jack la metió en un nabo... y desde entonces vaga con ella. Por eso le llaman Jack el de la linterna.",
+  "s": 50.45,
+  "e": 58.685
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y tres: millones de irlandeses emigraron a Estados Unidos, y allí encontraron algo mucho más fácil de tallar: la calabaza.",
+  "s": 59.185,
+  "e": 66.774
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: la leyenda cambia según quién la cuente.",
+  "s": 67.274,
+  "e": 70.625
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: cada calabaza que ves el treinta y uno es la linterna de un tipo... al que no quiso ni el diablo.",
+  "s": 70.975,
+  "e": 76.97
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Y en tu casa qué se celebra: Halloween, Todos los Santos, o el Día de Muertos? Os leo.",
+  "s": 77.47,
+  "e": 83.302
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 83.652,
+  "e": 85.97
+ }
+]

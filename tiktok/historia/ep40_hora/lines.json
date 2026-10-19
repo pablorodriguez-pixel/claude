@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El cambio de hora es culpa de un señor que cazaba bichos!",
+  "s": 0.12,
+  "e": 2.722
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y por su culpa, este domingo vas a dormir una hora más.",
+  "s": 3.072,
+  "e": 6.347
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 6.947,
+  "e": 9.741
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Cómo acaba un cazador de bichos cambiando la hora de medio mundo? En tres pasos.",
+  "s": 10.091,
+  "e": 15.607
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: te habrán dicho que lo inventó Benjamin Franklin. Pero lo de Franklin era una broma: proponía despertar a París a cañonazos.",
+  "s": 15.957,
+  "e": 23.312
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: el de verdad fue George Hudson, un señor de Nueva Zelanda que trabajaba en Correos. Y quería tener luz por la tarde para salir a cazar insectos.",
+  "s": 23.912,
+  "e": 32.064
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Así que en mil ochocientos noventa y cinco propuso adelantar los relojes... y se rieron de él.",
+  "s": 32.414,
+  "e": 38.248
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y tres: lo que no consiguió un cazador de bichos, lo consiguió una guerra. En mil novecientos dieciséis, Alemania adelantó la hora para ahorrar carbón... y en pocas semanas, media Europa la copió.",
+  "s": 38.848,
+  "e": 49.725
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: en casi todo México ya no se cambia la hora. Lo quitaron en dos mil veintidós.",
+  "s": 50.325,
+  "e": 56.154
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y Europa votó quitarlo en dos mil diecinueve... pero todavía no se han puesto de acuerdo.",
+  "s": 56.504,
+  "e": 61.218
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: el domingo, cuando duermas una hora más, dale las gracias a un señor que quería cazar bichos.",
+  "s": 61.718,
+  "e": 67.073
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Y tú con qué hora te quedarías para siempre: la de verano, o la de invierno? Os leo.",
+  "s": 67.573,
+  "e": 72.45
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 72.8,
+  "e": 74.637
+ }
+]
