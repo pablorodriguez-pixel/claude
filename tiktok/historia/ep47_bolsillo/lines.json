@@ -86,22 +86,22 @@
  {
   "line": 12,
   "who": "VECINO",
-  "text": "Y como esta, tengo muchas más. Sígueme, que no te las cuenten mal.",
+  "text": "Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
   "s": 74.173,
-  "e": 78.291
+  "e": 78.46
  },
  {
   "line": 13,
   "who": "VECINO",
   "text": "¿Y tú qué guardas en ese bolsillo? Os leo.",
-  "s": 78.691,
-  "e": 81.16
+  "s": 78.86,
+  "e": 81.329
  },
  {
   "line": 14,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 81.51,
-  "e": 83.984
+  "s": 81.679,
+  "e": 84.154
  }
 ]
