@@ -31,5 +31,8 @@ if [[ $P == video || $P == todo ]]; then
   MB=$(du -m "$D/final.mp4" | cut -f1)
   ok "final.mp4 · ${MB} MB · $(ffprobe -v error -show_entries format=duration -of csv=p=0 "$D/final.mp4" | cut -c1-5) s · portada = fotograma 0"
   [ "$MB" -gt 95 ] && echo "! pesa más de 95 MB: re-encodifica a crf 20 antes de subirlo"
+  # sube el episodio entero (fuentes + vídeo) sin pasos manuales: menos turnos = menos tokens
+  ( cd "$D/../.." && EP=historia/$(basename "$D") && git add --sparse -f $EP/final.mp4 $EP/sfx.json $EP/mix_report.json $EP/ep.js $EP/index.html $EP/base.css $EP/lines_in.json $EP/lines.json $EP/words.js $EP/words.json $EP/words_table.txt $EP/fonts $EP/kit 2>/dev/null
+    git -c user.name="Claude" -c user.email="noreply@anthropic.com" commit -q -m "Historia: $(basename "$D") (fuentes y vídeo final)" >/dev/null 2>&1 && git push -q 2>/dev/null && echo "✓ subido a $(git rev-parse --abbrev-ref HEAD)" )
 fi
 exit 0
