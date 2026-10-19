@@ -25,9 +25,9 @@ const OLLA = (c, x, y, w, o = {}) => figura(c, x, y, w, w * 380 / 400, ollaInner
 plano(-1, L(1) - 0.1, { background: '#3b2414' }, c => {
   rays(c, -160, 420, 1400, 24, 'rgba(108,172,228,.22)', 'rgba(0,0,0,0)', 0);
   texto(c, 290, 'El dulce de leche…', { size: 84, color: '#fff' });
-  const t2 = texto(c, 400, 'NO es ' + hlSpan('argentino', 'phl') + ' 🇦🇷', { size: 112, italic: true, color: '#fff', shadow: OUTL(INK, 7) });
-  const j = TARRO(c, 280, 610, 520);
-  const x = box(c, 380, 780, 330, 330, { zIndex: 25 }, XSVG);
+  const t2 = texto(c, 400, 'NO lo inventó<br>' + hlSpan('Argentina', 'phl') + ' 🇦🇷', { size: 104, italic: true, color: '#fff', shadow: OUTL(INK, 7) });
+  const j = TARRO(c, 300, 690, 480);
+  const x = box(c, 390, 860, 300, 300, { zIndex: 25 }, XSVG);
   sfx('swoosh_up', 0.05, 0.6);
   return t => { set(t2, { r: -3 + wobble(t, 0.5, 1.5), s: 1 + 0.03 * Math.sin(t * 3) }); paint(c.querySelector('.phl'), t, 0.25, 0.4); set(j, { r: Math.sin(t * 2.5) * 4 }); set(x, { s: 1 + 0.05 * Math.sin(t * 6), o: 0.9 }); };
 }, { sfx: false });
