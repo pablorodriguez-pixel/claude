@@ -84,3 +84,12 @@ Referencias de nota (para no inflar): RECHAZADOS por el usuario aunque el direct
 - Tutea y se mete un poco contigo, con cariño («te lo han colado», «no es culpa tuya»).
 - Cada vídeo deja una frase para repetir en el bar.
 - Nunca es borde, nunca es político ni toma partido en temas de identidad o patria (ojo con Himno).
+
+## Recalibración (20/10, datos del perfil)
+Ñ 32 mil · Hora 24,3 mil · Semana 17,7 mil · Einstein 17,3 mil · Toro 16,1 mil · «$» 5,6 mil (recién subido) · SOS 5,5 mil · Cleopatra 4,4 mil · @ 4,2 mil
+· Colón 3,9 mil · Chao 3,6 mil · Vikingos 2,6 mil · Cumpleaños 2,1 mil · Septiembre 1,3 mil · Muralla 1,1 mil · Emú 479.
+- El director FALLÓ: Ñ (58) y Toro (63) están entre los mejores. La nota castigaba temas sin «te lo han colado».
+- Lo que de verdad comparten los ganadores: la portada es un «¿POR QUÉ…?» sobre algo que el espectador VE a diario y nunca se preguntó
+  (el sombrero de la Ñ, el rojo del torero, la hora en España, los 7 días). No hace falta que sea desconocido: hace falta que nunca se lo hayan preguntado.
+- Los vídeos siguen creciendo semanas después (Hora 11→24 mil, SOS <750→5,5 mil, Colón 699→3,9 mil): no juzgar a las 48 h.
+- Fuente de temas con demanda real: `python3 -I ../engine/temas.py` → `director/TEMAS_GOOGLE.txt` (≈2.500 preguntas que la gente busca en Google).
