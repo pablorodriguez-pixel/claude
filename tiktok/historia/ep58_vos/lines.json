@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Si dices «vos», hablas como en tiempos del Quijote!",
+  "s": 0.12,
+  "e": 2.799
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y los que dicen «tú»... son los modernos.",
+  "s": 3.149,
+  "e": 6.308
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "En la España del siglo dieciséis, «vos» se usaba con confianza, entre iguales.",
+  "s": 6.608,
+  "e": 11.962
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y la prueba está en el verbo: «vos tenés» viene de «vos tenéis». Solo se perdió una letra.",
+  "s": 12.262,
+  "e": 19.539
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero espera: en España, el «vos» empezó a sonar a poca cosa... y se cambió por «tú».",
+  "s": 19.839,
+  "e": 24.366
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 24.666,
+  "e": 27.273
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "¿Y en América? En las cortes de los virreyes, Lima y México, copiaron la moda de Madrid: «tú».",
+  "s": 27.573,
+  "e": 33.803
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Pero en el Río de la Plata, lejos de todo, nadie se enteró. Y el «vos» se quedó.",
+  "s": 34.103,
+  "e": 39.22
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y no solo allí: Paraguay y casi toda Centroamérica también dicen «vos».",
+  "s": 39.52,
+  "e": 44.394
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: en Chile, Colombia o Venezuela también hay «vos», pero a su manera.",
+  "s": 44.694,
+  "e": 48.849
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: el «vos» no es argentino... es castellano antiguo que España perdió.",
+  "s": 49.199,
+  "e": 54.637
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Y tú, cómo hablas: tú, vos o usted? Os leo.",
+  "s": 54.937,
+  "e": 59.492
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 59.842,
+  "e": 62.796
+ }
+]
