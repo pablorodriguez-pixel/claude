@@ -53,6 +53,8 @@ Curvas de retención medidas (OK y Semana): el 40 % se va en 5 s; la marca en el
   ENTREGADOS los 6 (19/10), todos con director independiente y arreglos: Garbo, «$», Jessop, Siesta, «¿», Petrov. ESPECIAL 1.000 = ep33_garbo_1000 (Garbo con sello «★ ESPECIAL 1.000» en portada y «¡Mil gracias, vecinos!» en el cierre; sustituye al Garbo normal). Orden de subida propuesto: Garbo → «$» → Jessop → Siesta (14–15 h) → «¿» → Petrov (tarde-noche).
   Curiosidades fáciles tipo Ñ/OK, alternando con las historias: ep29 «¿» solo en español, ep30 el «$» es español, CH/LL ya no son letras, siesta = «sexta» (reserva).
 - Lección del especial: el usuario prefiere UNA historia muy top bien explicada a varios datos medianos; el gancho con lo más universal (Aladino/Disney).
+- 19/10 TANDA SIGUIENTE PROPUESTA (pendiente del «sí» del usuario y del director): Apellidos -ez → Primer sueño → Ratón Pérez. Fichas, diagnóstico y fuentes en
+  `director/FICHAS_19-10.md`. Diagnóstico: Garbo/Jessop/Petrov eran «historia de otros» (rompen la regla 1) y «¿»/«$»/Siesta no generan debate.
 - Aparcado: «el punto de la i» (idea aprobada por mí, falta el director).
   Medir a 48 h: retención en s 3, 5 y 8 (éxito Pulgar: ≥ 66 % en s 5; pérdida en 20,6–24,8 s ≤ 0,5 pts/s) y comentarios por cada mil visualizaciones.
 - Fallos sistemáticos de la plantilla v3 (corregir en TODOS los guiones nuevos): el gancho da la respuesta y no dice «tú»; sello/veredicto antes de que se forme la pregunta;
