@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Las zanahorias no te hacen ver mejor!",
+  "s": 0.12,
+  "e": 2.036
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Ese bulo lo inventó un ejército... para esconder un arma secreta.",
+  "s": 2.386,
+  "e": 6.594
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Segunda Guerra Mundial. Los aviones alemanes bombardean Londres de noche, y la ciudad apaga todas las luces.",
+  "s": 6.894,
+  "e": 13.366
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero los pilotos británicos empiezan a derribarlos a oscuras. Uno de ellos, John Cunningham, tumba a decenas.",
+  "s": 13.666,
+  "e": 20.773
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "¿Su secreto? Un radar nuevo, montado en el avión. Y eso el enemigo no podía saberlo.",
+  "s": 21.073,
+  "e": 28.006
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Así que el gobierno cuenta otra cosa: que sus pilotos comen muchísimas zanahorias.",
+  "s": 28.306,
+  "e": 34.299
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 34.599,
+  "e": 37.206
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y se lo creen hasta en casa. Carteles, recetas... y hasta un personaje: el «Doctor Zanahoria».",
+  "s": 37.506,
+  "e": 43.661
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Las madres repetían: cómete la zanahoria, que verás en la oscuridad.",
+  "s": 43.961,
+  "e": 47.957
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y de ahí, a tu abuela. Y de tu abuela... a ti.",
+  "s": 48.257,
+  "e": 52.523
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "La verdad: la zanahoria tiene vitamina A, y ayuda si te falta. Pero no te da ojos de búho.",
+  "s": 52.823,
+  "e": 59.14
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: no está claro si el bulo engañó a los alemanes.",
+  "s": 59.44,
+  "e": 62.472
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: lo que te decían de pequeño... era propaganda de guerra.",
+  "s": 62.772,
+  "e": 67.565
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Qué te decían en casa que luego resultó ser mentira? Os leo.",
+  "s": 67.865,
+  "e": 71.856
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 72.206,
+  "e": 75.161
+ }
+]

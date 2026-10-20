@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El cinturón de castidad medieval es casi seguro un bulo!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y los que ves en los museos esconden un secreto bastante vergonzoso.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La historia que te cuentan: el caballero se va a las Cruzadas... y le pone un candado a su mujer.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero en las crónicas de las Cruzadas no aparece ni uno.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] La primera mención es de mil cuatrocientos cinco: un dibujo en un libro de inventos militares... seguramente de broma.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Era como un meme de la época: chistes y sátiras sobre maridos celosos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y los de los museos? Muchos se fabricaron en los siglos dieciocho y diecinueve... para coleccionistas con gustos peculiares.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] El Museo Británico ya dice en su ficha que el suyo es, probablemente, de esa época. Y otros museos los han retirado.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Además, llevar hierro día y noche habría causado heridas e infecciones graves.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que esa Edad Media oscura y salvaje... en parte se inventó mucho después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: algún caso aislado pudo existir. Pero no como costumbre.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el cinturón de castidad medieval... es más bien un invento moderno.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué otra cosa de la Edad Media crees que es mentira? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

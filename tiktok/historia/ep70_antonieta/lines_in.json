@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡María Antonieta nunca dijo «que coman pasteles»!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y el que sí lo escribió... era un filósofo bastante famoso.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La frase sale en las memorias de Rousseau: una gran princesa, al oír que el pueblo no tenía pan, dice «que coman brioche».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Rousseau lo escribe hacia mil setecientos sesenta y cinco. María Antonieta tenía nueve años... y vivía en Austria.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Ni siquiera había pisado Francia. No se casaría hasta cinco años después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el cuento ya circulaba antes, con otras princesas de protagonista.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Entonces, ¿por qué se la cuelgan a ella? Porque en la Revolución era la reina más odiada. Había que hacerla villana.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Panfletos, caricaturas, rumores... todo valía. Y la frase le cayó a ella.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Lo irónico: en sus cartas se preocupa por el pueblo hambriento.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y encima lo de «pasteles» es mala traducción: la frase original habla de brioche, un pan dulce.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: Rousseau no dice quién era la princesa. Pudo ser inventada.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la frase más famosa de María Antonieta... se escribió cuando ella era una niña.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué frase famosa crees que tampoco dijo nadie? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

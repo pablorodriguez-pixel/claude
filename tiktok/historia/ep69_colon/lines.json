@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Colón no descubrió que la Tierra era redonda!",
+  "s": 0.12,
+  "e": 2.354
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Eso ya se sabía. Y lo que pasó de verdad es mucho más gracioso: Colón se equivocó.",
+  "s": 2.704,
+  "e": 9.147
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Más de mil setecientos años antes, un griego, Eratóstenes, midió la Tierra... con un palo y una sombra.",
+  "s": 9.447,
+  "e": 15.846
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y acertó casi de lleno: unos cuarenta mil kilómetros de vuelta.",
+  "s": 16.146,
+  "e": 19.259
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que cuando Colón presenta su viaje, los sabios no le dicen que se caerá por el borde.",
+  "s": 19.559,
+  "e": 24.111
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Le dicen que no le llega la comida: que la Tierra es enorme, y Asia está lejísimos.",
+  "s": 24.411,
+  "e": 29.576
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 29.876,
+  "e": 32.483
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Colón hace sus cuentas... y le sale una Tierra mucho más pequeña. Asia, a la vuelta de la esquina.",
+  "s": 32.783,
+  "e": 40.461
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Los sabios tenían razón. Si no llega a haber un continente en medio, se mueren todos de hambre.",
+  "s": 40.761,
+  "e": 46.114
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Y quién se inventó lo de la Tierra plana? Un escritor americano, en mil ochocientos veintiocho.",
+  "s": 46.414,
+  "e": 52.628
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Washington Irving escribe una biografía de Colón, la adorna... y el bulo acaba en los libros de texto.",
+  "s": 52.928,
+  "e": 59.08
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: algún sabio medieval sí dudaba. Pero eran rarísimos.",
+  "s": 59.38,
+  "e": 64.493
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: Colón no tenía razón. Tuvo suerte.",
+  "s": 64.793,
+  "e": 68.626
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Qué te enseñaron en el cole que luego resultó ser falso? Os leo.",
+  "s": 68.926,
+  "e": 73.081
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 73.431,
+  "e": 76.386
+ }
+]

@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Cantar «Cumpleaños feliz» costaba dinero!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y durante años, una empresa cobró millones... por una canción que no era suya.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La melodía la crean dos hermanas, maestras de Kentucky, en mil ochocientos noventa y tres. Para dar los buenos días en clase.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Se llamaba «Buenos días a todos». Los niños le cambiaron la letra... y nació la del cumpleaños.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] En mil novecientos treinta y cinco, una editorial registra los derechos. Y empieza a cobrar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Cada película, cada serie, cada anuncio que la cantaba... tenía que pagar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Por eso en tantas películas nunca la cantan entera. O se inventan otra canción de cumpleaños.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] En mil novecientos ochenta y ocho la compra Warner. Y llega a sacar unos dos millones de dólares al año.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Hasta que en dos mil trece, una directora que hacía un documental sobre la canción... se niega a pagar. Y los demanda.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] En dos mil quince, un juez decide que Warner nunca tuvo los derechos de la letra. Hoy es libre.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: en algunos países la protección duró algo más.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la canción que cantas en cada cumpleaños... era de pago.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Te parece justo cobrar por cantar una canción? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

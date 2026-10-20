@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Las pirámides no las construyeron esclavos!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Lo sabemos porque han aparecido sus tumbas... y hasta el diario de uno de ellos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Junto a las pirámides de Guiza se encontró un pueblo de obreros: casas, panaderías... y cervecerías.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Cada trabajador cobraba en comida: pan, y unos cuatro litros de cerveza al día.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y los enterraban al lado del faraón, con honores. A un esclavo no lo entierras junto al rey.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Además, tenían médicos: hay esqueletos con huesos rotos que se curaron, con férulas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y en dos mil trece aparecen los papiros más antiguos de Egipto: el diario de un capataz, Merer.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Cuenta cómo él y sus hombres llevaban bloques de piedra en barca... para la Gran Pirámide.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Entonces, ¿de dónde sale lo de los esclavos? De un historiador griego que escribió dos mil años después. Y de Hollywood.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Hasta hay pintadas de las cuadrillas, con nombres como «los amigos de Keops».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: la cifra de cerveza cambia según el estudio.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: las pirámides las hicieron currantes... pagados en pan y cerveza.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú trabajarías por pan y cerveza? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

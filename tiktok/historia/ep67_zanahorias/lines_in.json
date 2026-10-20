@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Las zanahorias no te hacen ver mejor!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Ese bulo lo inventó un ejército... para esconder un arma secreta.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Segunda Guerra Mundial. Los aviones alemanes bombardean Londres de noche, y la ciudad apaga todas las luces.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero los pilotos británicos empiezan a derribarlos a oscuras. Uno de ellos, John Cunningham, tumba a decenas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] ¿Su secreto? Un radar nuevo, montado en el avión. Y eso el enemigo no podía saberlo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que el gobierno cuenta otra cosa: que sus pilotos comen muchísimas zanahorias.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y se lo creen hasta en casa. Carteles, recetas... y hasta un personaje: el «Doctor Zanahoria».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Las madres repetían: cómete la zanahoria, que verás en la oscuridad.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y de ahí, a tu abuela. Y de tu abuela... a ti.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La verdad: la zanahoria tiene vitamina A, y ayuda si te falta. Pero no te da ojos de búho.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: no está claro si el bulo engañó a los alemanes.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: lo que te decían de pequeño... era propaganda de guerra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué te decían en casa que luego resultó ser mentira? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
