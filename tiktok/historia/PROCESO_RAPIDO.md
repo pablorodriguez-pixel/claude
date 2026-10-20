@@ -40,3 +40,7 @@ Nada de «historia de otros» (Garbo/Jessop/Petrov no funcionaron), ni votacione
 
 ## Audio del motor
 Resuelto el 19/10: 25 efectos en `engine/el_sfx/` (19 de `canal-lata-de-la-abuela` + 6 regenerados) y `engine/el_music/ragtime.wav` (30 s, en bucle). Ojo: .gitignore los ignora; para subirlos hace falta `git add -f`.
+
+## Portada (20/10: el amarillo es la seña del canal)
+Por defecto: fondo `PAPEL` + `rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0)` y texto INK.
+Otro color solo de vez en cuando (máx. 1 de cada 5) para que el feed no se vea distinto.
