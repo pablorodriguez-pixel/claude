@@ -1,0 +1,74 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡A Einstein le robaron el cerebro!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo más raro... te lo guardo para el final.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Abril de mil novecientos cincuenta y cinco. Einstein muere y pide que lo incineren.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero el patólogo, Thomas Harvey, le saca el cerebro... y se lo queda.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Sin permiso. El hospital se lo reclama, se niega... y lo despiden.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo corta en unos doscientos cuarenta trozos, los mete en tarros... y los guarda en una caja de sidra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y no lo devuelve hasta mil novecientos noventa y ocho. Cuarenta y tres años después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Lo más raro? Sus ojos. Se los dio a su oculista... y siguen en una caja fuerte de Nueva York.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: luego el hijo de Einstein le dio permiso. A toro pasado."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el hombre más listo del mundo pidió desaparecer... y acabó en tarros.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué parte te parece más rara? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
