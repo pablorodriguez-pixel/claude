@@ -53,7 +53,7 @@ def sfx2(name):
         hiss = hp(noise(d), 3000) * np.clip((t - 3.0) / .05, 0, 1) * np.exp(-np.maximum(0, t - 3.0) / .5) * .3
         return rum + clk * swell + scr + hiss
     if name == 'doors':
-        d = 1.4; t = t_(d); hiss = hp(noise(d), 2500) * np.exp(-t / .35) * .35
+        d = 1.4; t = t_(d); hiss = lp(hp(noise(d), 400), 2200) * np.exp(-t / .3) * .12
         thunk = 0.7 * sweep(120, 50, .25) * env(.25, .002, .06); out = hiss.copy(); s = int(.55 * SR); out[s:s + len(thunk)] += thunk; return out
     if name == 'chime':
         d = 2.6; o = np.zeros(int(d * SR))
@@ -83,6 +83,9 @@ def sfx2(name):
         for i in range(4):
             n_ = sine(1000, .11) * env(.11, .002, .05) * .3; s = int(i * .78 * SR); o[s:s + len(n_)] += n_
         return o
+    if name == 'riser':  # subida tonal en vez de barrido de ruido blanco
+        d = 1.3; t = t_(d); e = (t / d) ** 2
+        return 0.06 * lp(noise(d), 900, 2) * e + 0.3 * (sweep(200, 900, d) + .5 * sweep(100, 450, d)) * e
     if name == 'flat':
         d = 2.6; t = t_(d); return sine(1000, d) * .16 * np.minimum(1, t / .02) * np.minimum(1, (d - t) / .6)
     return A.sfx(name)
@@ -92,7 +95,8 @@ def amb2(name, d):
     if name == 'car':  # motor + rodadura + lluvia + limpiaparabrisas
         eng = (sine(46, d) + .5 * sine(92, d) + .25 * sine(138, d)) * (.8 + .2 * np.sin(2 * np.pi * .3 * t)) * .05
         road = lp(n, 260, 3) * .16 + bp(n, 600, 1800) * .03
-        rain = hp(n, 3500) * (A.RNG.random(len(n)) > .992) * .5 + hp(n, 5000) * .015
+        # lluvia apagada sobre el techo: sin chasquidos agudos, que en altavoz de móvil cansan
+        rain = lp(hp(n, 300), 1400, 2) * .025 * (.8 + .2 * np.sin(2 * np.pi * .17 * t))
         wip = np.zeros(len(t))
         for k in np.arange(1.2, d, 2.6):
             s = int(k * SR); w_ = bp(noise(.5), 500, 3000) * np.sin(np.pi * np.linspace(0, 1, int(.5 * SR))) * .06; wip[s:s + len(w_)] += w_[:len(wip) - s]
