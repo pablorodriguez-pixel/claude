@@ -46,3 +46,15 @@ Resuelto el 19/10: 25 efectos en `engine/el_sfx/` (19 de `canal-lata-de-la-abuel
 ## Portada (20/10: el amarillo es la seña del canal)
 Por defecto: fondo `PAPEL` + `rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0)` y texto INK.
 Otro color solo de vez en cuando (máx. 1 de cada 5) para que el feed no se vea distinto.
+
+## Ahorrar SIN bajar calidad (20/10) — se ahorra en voz y en piezas, NUNCA en edición
+**Voz (lo único que cuesta créditos):**
+- Clips reutilizables ya grabados: CTA «Sígueme, que esto en clase no te lo cuentan» = `ep55_azteca/clips/05.*`; cierre «Y esto… no venía en el libro» = `ep55_azteca/clips/11.*`. Copiar `.json/.mp3/.wav` al índice de línea que toque.
+- Regenerar solo las líneas que fallen el QA, nunca el episodio entero.
+- Para reeditar un vídeo ya publicado: misma voz, solo `ep.js` + `hacer.sh <ep> video` (0 créditos).
+
+**Piezas (ahorran tokens de código):**
+- `engine/story.js`: Vecino fijo que reacciona (`vecino:{risa,sorpresa,golpes}`) + `textura:true`.
+- `engine/escenario.js`: botica (`ESTANTE`, `TARRO`), mar (`OLAS`, `GAVIOTA`), China (`LINTERNA`), noticia que entra girando (`PERIODICO` + `giraPeriodico`), `BOCADILLO`, `lagrima`, `sudor`, `ESTRELLA`, caras para cualquier objeto (`caraF`, plantillas `CARAS`/`CARAC`), `sp(t)` para sfx. Añadir `<script src="../../engine/escenario.js"></script>` tras story.js y no redefinir esos nombres en ep.js.
+- Personajes ya hechos: botella con cara (ep64 `botellaInner`/`botFace`), tomate (ep64 `tomateInner`/`tomFace`), sacos y conejo con cara (ep65), Einstein (ep63 `ein_lib.js`), bustos `mkBust` + `face`.
+- Cada escenario o personaje nuevo que se cree, pasarlo a `engine/escenario.js` para el siguiente vídeo.
