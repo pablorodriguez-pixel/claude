@@ -13,6 +13,8 @@ con `grep -n`, nunca enteros. (Antes cada episodio leía ~60 KB de documentos, y
 | Versiones v1→v4 por fallos de reglas | `engine/qa.py` comprueba las reglas en texto ANTES de renderizar |
 | Leer transcripciones de otras sesiones | El traspaso es este archivo + la sección «Estado» de CONTEXTO.md |
 
+## Edición (20/10): OBLIGATORIO leer `director/EDICION_NAPOLEON.md` antes de escribir ep.js. La plantilla rápida de chips + emojis queda prohibida.
+
 ## Pasos (por episodio)
 1. **Ficha de 4 líneas + CURVA de 4 escalones** (gancho, portada, pregunta de bar, remate; ver `director/referencias/resuelta_grefg/NOTAS.md`) → «sí» del usuario. Fichas actuales: `director/FICHAS_19-10.md`.
 2. **Guion** (`lines_in.json`) con la plantilla de `director/GUIONES_V3.md`. Director en texto, una pasada, con las puertas de abajo.
