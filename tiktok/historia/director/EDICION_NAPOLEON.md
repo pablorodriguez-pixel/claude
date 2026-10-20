@@ -28,3 +28,12 @@ Regla del usuario (20/10): «Todo es interesante si se cuenta bien. Edita bien.�
 - [ ] ¿Hay algún emoji? → sustituir por figura.
 - [ ] ¿Cada escena dura ≤ 3 s o tiene dentro un cambio cada ≤ 2 s?
 - [ ] ¿Hay una transformación o un objeto-metáfora por dato?
+
+## Lo que tenía el OK (ep07) y se perdió con la plantilla rápida — OBLIGATORIO desde el ep64
+1. **El Vecino en su óvalo todo el vídeo**, hablando con la voz y reaccionando: `Story.run({ ovalo:[[a,b]], vecino:{ risa:[[a,b]], sorpresa:[[a,b]], golpes:[t,…] } })`. Óvalo abajo a la izquierda (x<300, y 1040–1360): no poner nada importante ahí.
+2. **Textura de papel + viñeta + borde quemado** encima de todo: `Story.run({ textura: true })`.
+3. **Portada con movimiento**: fotograma 0 completo (título + escena), y desde ahí todo se mueve: el personaje habla con la voz (`talkW`), guiña, los objetos del fondo bailan, los rayos giran, «¡ja!» y sello en la palabra clave.
+4. **Escenarios que llenan la pantalla** (botica con estanterías, mar con olas y gaviotas, cocina con azulejos, cementerio de noche), nunca un objeto suelto sobre fondo liso.
+5. **Objetos con cara** que actúan (botella `botFace`, tomate `tomFace`) y gente que reacciona (clientes, marinero, boticario).
+6. **Cero segundos muertos**: si una escena dura >2 s, algo cambia (puerta que se abre, candado, periódico que entra girando).
+7. **Sonido denso**: un sfx en cada aparición (helper `sp(t, 'pop')`) y un temblor en cada remate.

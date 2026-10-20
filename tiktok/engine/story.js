@@ -89,14 +89,38 @@ const vecO = mkVec(ovIn, [-48, -18, 396, 490]);
   <ellipse cx="${cx}" cy="${cy}" rx="${rx + 2}" ry="${ry + 2}" fill="none" stroke="${BRASS}" stroke-width="17"/>${beads}
   <g transform="translate(${cx},${OV.h + 60})"><rect x="-104" y="-26" width="208" height="46" rx="10" fill="${INK}" stroke="${BRASS}" stroke-width="4"/><text x="0" y="8" text-anchor="middle" font-family="Rye" font-size="25" fill="${YEL}">EL VECINO</text></g></svg>`;
 }
-let OV_VIS = [];
+let OV_VIS = [], OV_CFG = {};
+/* Vecino fijo (estilo ep07 OK): Story.run({ ovalo:[[a,b]], vecino:{ risa:[[a,b]], sorpresa:[[a,b]], golpes:[t,…] } })
+   risa = se parte (ojos cerrados, tiembla) · sorpresa = cejas arriba · golpes = el óvalo crece y salta en el remate */
 function updOval(t) {
   let st = null;
   for (const [a, b] of OV_VIS) if (t >= a && t < b) st = { s: 0.75 * pop(t, a, 0.4), x: -41 - p(t, b - 0.14, 0.14, E.inCubic) * 300 };
   if (!st) { ovalW.style.visibility = 'hidden'; return; }
   ovalW.style.visibility = 'visible';
-  set(ovalW, { x: st.x, y: 45 + wobble(t, 0.5, 2), s: st.s });
-  vecFace(vecO, t, { jaw: talkW(t, 'VECINO'), look: [5, -2], bL: 0, bR: 0, fan: wobble(t, 0.8, 5), seed: 1.3 });
+  const C = OV_CFG, inR = (C.risa || []).find(r => t >= r[0] && t < r[1]), inS = (C.sorpresa || []).find(r => t >= r[0] && t < r[1]);
+  let g = 0; (C.golpes || []).forEach(t0 => { if (t >= t0 && t < t0 + 0.8) g = Math.max(g, Math.sin(p(t, t0, 0.8) * Math.PI)); });
+  const shk = inR ? Math.sin(t * 40) * 5 : 0;
+  set(ovalW, { x: st.x + g * 50, y: 45 + shk + wobble(t, 0.5, 2) - g * 70, s: st.s * (1 + 0.3 * g), r: (inR ? Math.sin(t * 20) * 2.5 : 0) - g * 5 });
+  const o = { jaw: talkW(t, 'VECINO'), look: [5, -2], bL: 0, bR: 0, fan: wobble(t, 0.8, 5), seed: 1.3 };
+  if (inS || g > 0.15) { o.look = [0, 0]; o.bL = 14; o.bR = 14; o.jaw = Math.max(o.jaw, 0.5); o.fan = Math.sin(t * 22) * 16; }
+  if (inR) { o.hm = true; o.closed = true; o.bL = 10; o.bR = 10; o.jaw = 0.3; }
+  vecFace(vecO, t, o);
+}
+/* Papel con fibras + viñeta + borde quemado por encima de todas las escenas (como el ep07) */
+function textura() {
+  const r = rng(1932), d = box(world, 0, 0, 1080, 1920, { zIndex: 800, pointerEvents: 'none' });
+  let fb = ''; for (let k = 0; k < 500; k++) fb += `M${f1(r() * 1080)},${f1(r() * 1920)}l${f1(r() * 14 - 7)},${f1(r() * 6 - 3)}`;
+  let dots = ''; for (let k = 0; k < 300; k++) dots += `M${f1(r() * 1080)},${f1(r() * 1920)}h1.6`;
+  const edge = (depth, seed) => { const q = rng(seed); const pts = []; const st = 24;
+    for (let x = 0; x <= 1080; x += st) pts.push([x, depth * (0.3 + q())]);
+    for (let y = st; y <= 1920; y += st) pts.push([1080 - depth * (0.3 + q()), y]);
+    for (let x = 1080 - st; x >= 0; x -= st) pts.push([x, 1920 - depth * (0.3 + q())]);
+    for (let y = 1920 - st; y > 0; y -= st) pts.push([depth * (0.3 + q()), y]);
+    return 'M-20,-20H1100V1940H-20Z M' + pts.map(p => f1(p[0]) + ',' + f1(p[1])).join('L') + 'Z'; };
+  d.innerHTML = `<svg width="1080" height="1920" viewBox="0 0 1080 1920"><defs><radialGradient id="vigT" cx="50%" cy="50%" r="75%"><stop offset=".55" stop-color="#5a3510" stop-opacity="0"/><stop offset="1" stop-color="#5a3510" stop-opacity=".5"/></radialGradient></defs>
+  <path d="${fb}" stroke="rgba(43,33,24,.10)" stroke-width="1.2"/><path d="${dots}" stroke="rgba(43,33,24,.18)" stroke-width="1.6"/><rect width="1080" height="1920" fill="url(#vigT)"/>
+  <path d="${edge(46, 3)}" fill="#7a4a1c" fill-rule="evenodd" opacity=".35"/><path d="${edge(26, 4)}" fill="#3a2210" fill-rule="evenodd" opacity=".85"/></svg>`;
+  return d;
 }
 
 /* ---------- MARCA: el Vecino en su balcón («Soy tu vecino, y esto no venía en el libro.») ---------- */
@@ -206,7 +230,7 @@ let LOOP = 0;
 const Story = {
   prepara() { LOOP = LE(NL - 1) + 0.2; window.LOOP = LOOP; },
   run(o = {}) {
-    OV_VIS = o.ovalo || [];
+    OV_VIS = o.ovalo || []; OV_CFG = o.vecino || {}; if (o.textura) textura();
     window.frame = t => {
       if (t >= LOOP) { window.frame0(0); const k = p(t, LOOP, 0.22, E.outCubic); set(world, { x: (1 - k) * 1080 }); return; }
       window.frame0(t);
