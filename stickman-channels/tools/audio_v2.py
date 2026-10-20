@@ -35,6 +35,10 @@ def voice_fx(a, fx):
     if fx == 'whisper':
         b = hp(a, 180) * 1.6; d = np.zeros(len(b) + int(.037 * SR)); d[:len(b)] += b; d[int(.037 * SR):] += b * .35
         return reverb(d, 2.8, .45, 5000)
+    if fx == 'car':  # altavoz del coche: banda estrecha, algo de saturación, cabina pequeña
+        b = bp(a, 320, 5200, 2); b = np.tanh(b * 1.6) / 1.3
+        return reverb(b, .35, .12, 6000)
+    if fx == 'near': return reverb(hp(a, 90), .6, .1)
     return a
 
 def sfx2(name):
@@ -65,12 +69,61 @@ def sfx2(name):
             s = int(A.RNG.random() * (d - .08) * SR); L = int((.02 + A.RNG.random() * .06) * SR)
             seg = np.sign(np.sin(2 * np.pi * (200 + A.RNG.random() * 1800) * np.arange(L) / SR)) * .25 + A.RNG.standard_normal(L) * .2; o[s:s + L] += seg
         return o
+    if name == 'gps':  # carillón de navegación
+        d = 1.0; o = np.zeros(int(d * SR))
+        for f, at in ((880, 0), (1318.5, .12)):
+            n_ = (sine(f, .6) + .3 * sine(f * 2, .6)) * env(.6, .002, .12) * .18; s = int(at * SR); o[s:s + len(n_)] += n_
+        return o
+    if name == 'breath':
+        d = 4.2; t = t_(d); e = np.maximum(0, np.sin(2 * np.pi * t / 2.1)) ** 2
+        return .32 * bp(noise(d), 300, 2200) * e
+    if name == 'ecg':
+        d = 3.2; o = np.zeros(int(d * SR))
+        for i in range(4):
+            n_ = sine(1000, .11) * env(.11, .002, .05) * .3; s = int(i * .78 * SR); o[s:s + len(n_)] += n_
+        return o
+    if name == 'flat':
+        d = 2.6; t = t_(d); return sine(1000, d) * .16 * np.minimum(1, t / .02) * np.minimum(1, (d - t) / .6)
     return A.sfx(name)
+
+def amb2(name, d):
+    t = t_(d); n = noise(d)
+    if name == 'car':  # motor + rodadura + lluvia + limpiaparabrisas
+        eng = (sine(46, d) + .5 * sine(92, d) + .25 * sine(138, d)) * (.8 + .2 * np.sin(2 * np.pi * .3 * t)) * .05
+        road = lp(n, 260, 3) * .16 + bp(n, 600, 1800) * .03
+        rain = hp(n, 3500) * (A.RNG.random(len(n)) > .992) * .5 + hp(n, 5000) * .015
+        wip = np.zeros(len(t))
+        for k in np.arange(1.2, d, 2.6):
+            s = int(k * SR); w_ = bp(noise(.5), 500, 3000) * np.sin(np.pi * np.linspace(0, 1, int(.5 * SR))) * .06; wip[s:s + len(w_)] += w_[:len(wip) - s]
+        return eng + road + rain + wip
+    if name == 'monitor':
+        o = A.ambience('tunnel', d) * .5
+        for k in np.arange(.3, d, .8):
+            n_ = sine(1000, .1) * env(.1, .002, .05) * .2; s = int(k * SR); o[s:s + len(n_)] += n_[:len(o) - s]
+        return o
+    if name == 'siren':
+        f = 650 + 350 * np.sin(2 * np.pi * .35 * t); ph = np.cumsum(f) / SR
+        sir = lp(np.sin(2 * np.pi * ph), 1800) * .06
+        o = sir + lp(n, 200, 3) * .14
+        for k in np.arange(.2, d, .75):
+            n_ = sine(1000, .1) * env(.1, .002, .05) * .16; s = int(k * SR); o[s:s + len(n_)] += n_[:len(o) - s]
+        return o
+    return A.ambience(name, d)
 
 def piano(f, d=3.0):
     t = t_(d); x = sum(np.sin(2 * np.pi * f * k * t) / k ** 1.6 for k in range(1, 7)); return x * np.exp(-t / 1.1) * np.minimum(1, t / .004)
 
 def music2(ch, d):
+    if ch == 'ruta':
+        t = t_(d); lfo = .6 + .4 * np.sin(2 * np.pi * .06 * t)
+        pad = (sine(55, d) + .6 * sine(82.4, d) + .3 * sine(110, d) + .2 * sine(130.8, d)) * lfo * .07
+        out = np.zeros(len(t)); chords = [[220, 261.6, 329.6], [174.6, 220, 261.6], [196, 246.9, 293.7], [164.8, 207.7, 246.9]]
+        k, i = 3.0, 0
+        while k < d - 3:
+            for f in chords[i % 4]:
+                n_ = piano(f) * .045; s = int(k * SR); out[s:s + len(n_)] += n_[:len(out) - s]
+            k += 4.2; i += 1
+        return pad + reverb(out, 3.2, .55)[:len(t)]
     base = A.music(ch, d)
     if ch != 'regla0': return base
     out = np.zeros(len(base)); motif = [146.8, 174.6, 220, 277.2, 220, 174.6]; k, i = 2.0, 0
@@ -138,13 +191,18 @@ def build(path, edge=False):
         if b.get('ov', {}).get('t') == 'rule':
             x = sfx2('hit') * .45; s = int(b['start'] * SR); fx[s:s + len(x)] += x[:N - s]
         if b.get('amb'):
-            L = b['end'] - b['start'] + .4; x = A.ambience(b['amb'], L); fade = np.minimum(1, np.minimum(t_(L) / .3, (L - t_(L)) / .3))
+            L = b['end'] - b['start'] + .4; x = amb2(b['amb'], L); fade = np.minimum(1, np.minimum(t_(L) / .3, (L - t_(L)) / .3))
             s = int(b['start'] * SR); amb[s:s + len(x)] += (x * fade)[:N - s]
-    bed = A.ambience('tunnel', N / SR)[:N] * .8
+    bed = A.ambience('tunnel', N / SR)[:N] * (.8 if spec['ch'] == 'regla0' else .35)
     fx = reverb(fx, 1.4, .22)[:N]
     mus = np.pad(music2(spec['ch'], N / SR), (0, N))[:N]
     envv = np.convolve(np.abs(voice), np.ones(4800) / 4800, 'same')[:N]; duck = 1 - .5 * np.clip(envv * 12, 0, 1)
-    mix = voice + fx * .75 + (amb + bed) * duck + mus * duck * .9
+    # voz a nivel constante y efectos sin picos de subgraves que roben margen
+    vr = np.sqrt(np.mean(voice[np.abs(voice) > .01] ** 2)) if np.any(np.abs(voice) > .01) else 1
+    voice = voice * (.16 / vr)
+    fx = hp(fx, 45, 2); fx = np.tanh(fx * 1.4) / 1.4
+    mix = voice + fx * .55 + (amb + bed) * duck + mus * duck * .9
+    mix = hp(mix, 30, 2)
     mix = mix[:int(total * SR)]; pk = np.max(np.abs(mix)); mix = mix / pk * .89 if pk > .89 else mix
     pcm = (np.clip(mix, -1, 1) * 32767).astype('<i2')
     subprocess.run(['ffmpeg', '-y', '-v', 'error', '-f', 's16le', '-ar', str(SR), '-ac', '1', '-i', '-', os.path.join(d, 'mix.wav')], input=pcm.tobytes(), check=True)

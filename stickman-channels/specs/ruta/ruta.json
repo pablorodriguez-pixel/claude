@@ -1,0 +1,818 @@
+{
+ "id": "ruta",
+ "ch": "ruta",
+ "series": "NO MIRES ATRÁS",
+ "ep": "RUTA ALTERNATIVA",
+ "day": "CONDUCIENDO",
+ "voices": {
+  "n": {
+   "eleven": "I0RpMYnjlWe6hUgHLXrb",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "fx": "room"
+  },
+  "g": {
+   "eleven": "AxFLn9byyiDbMn5fmyqu",
+   "edge": "es-ES-ElviraNeural",
+   "rate": "-4%",
+   "pitch": "+0Hz",
+   "fx": "car"
+  },
+  "p": {
+   "eleven": "AxFLn9byyiDbMn5fmyqu",
+   "edge": "es-ES-ElviraNeural",
+   "rate": "+4%",
+   "pitch": "+0Hz",
+   "fx": "near"
+  }
+ },
+ "cover": {
+  "top": "NO MIRES ATRÁS",
+  "title": "EL GPS SABÍA ALGO",
+  "scene": "car_pov",
+  "t": 3,
+  "p": {
+   "figure": 0.9
+  }
+ },
+ "beats": [
+  {
+   "who": "n",
+   "say": "Imagina que vuelves a casa a las dos y catorce de la madrugada.",
+   "scene": "aerial",
+   "cam": {
+    "f": [
+     360,
+     640,
+     1
+    ],
+    "t": [
+     331,
+     742,
+     2.6
+    ],
+    "e": "inout"
+   },
+   "hud": {
+    "time": "02:14",
+    "place": "CARRETERA COMARCAL"
+   },
+   "amb": "car",
+   "pause": 0.15
+  },
+  {
+   "who": "g",
+   "say": "En trescientos metros, gire a la izquierda.",
+   "scene": "car_pov",
+   "speaker": "GPS",
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.12
+    ],
+    "t": [
+     380,
+     690,
+     1.0
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "gps",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Normal. Hasta que añade algo más.",
+   "scene": "car_pov",
+   "cam": {
+    "f": [
+     380,
+     690,
+     1.0
+    ],
+    "t": [
+     520,
+     840,
+     1.6
+    ]
+   },
+   "amb": "car",
+   "pause": 0.2
+  },
+  {
+   "who": "g",
+   "say": "Y no mire al asiento de atrás.",
+   "scene": "gps",
+   "speaker": "GPS",
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.0
+    ],
+    "t": [
+     360,
+     640,
+     1.12
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "hit",
+     1.5
+    ]
+   ],
+   "pause": 0.9
+  },
+  {
+   "who": "n",
+   "say": "Te ríes. Pero la ruta acaba de cambiar sola.",
+   "scene": "gps",
+   "p": {
+    "recalc": 1.4
+   },
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.12
+    ],
+    "t": [
+     360,
+     600,
+     1.0
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "glitch",
+     1.4
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Nuevo destino: Hospital San Rafael. Catorce minutos.",
+   "scene": "gps",
+   "p": {
+    "recalc": -1,
+    "dest": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     800,
+     1.15
+    ],
+    "t": [
+     360,
+     860,
+     1.4
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "gps",
+     0.1
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Tú no has pedido ir a ningún hospital.",
+   "scene": "car_pov",
+   "p": {
+    "grip": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     760,
+     1.3
+    ],
+    "t": [
+     360,
+     720,
+     1.1
+    ]
+   },
+   "amb": "car",
+   "pause": 0.4
+  },
+  {
+   "who": "g",
+   "say": "Mantenga la velocidad por encima de ochenta.",
+   "scene": "car_pov",
+   "speaker": "GPS",
+   "ov": {
+    "t": "instr",
+    "n": 1,
+    "icon": "speed",
+    "text": "MANTÉN MÁS DE 80"
+   },
+   "cam": {
+    "f": [
+     360,
+     720,
+     1.0
+    ],
+    "t": [
+     300,
+     860,
+     1.35
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "gps",
+     0
+    ]
+   ],
+   "hud": {
+    "time": "02:17"
+   }
+  },
+  {
+   "who": "n",
+   "say": "La aguja sube sola. Ochenta y dos. Ochenta y cinco.",
+   "scene": "car_pov",
+   "p": {
+    "speed": 1
+   },
+   "cam": {
+    "f": [
+     250,
+     930,
+     2.2
+    ],
+    "t": [
+     250,
+     930,
+     2.5
+    ]
+   },
+   "amb": "car"
+  },
+  {
+   "who": "n",
+   "say": "Los árboles se cierran sobre la carretera.",
+   "scene": "car_pov",
+   "p": {
+    "speed": 1,
+    "forest": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     560,
+     1.0
+    ],
+    "t": [
+     360,
+     520,
+     1.15
+    ]
+   },
+   "amb": "car"
+  },
+  {
+   "who": "n",
+   "say": "Y en el arcén, alguien te hace señas con una linterna.",
+   "scene": "car_pov",
+   "p": {
+    "speed": 1,
+    "forest": 1,
+    "figure": 0.2
+   },
+   "cam": {
+    "f": [
+     360,
+     560,
+     1.0
+    ],
+    "t": [
+     430,
+     520,
+     1.4
+    ]
+   },
+   "amb": "car",
+   "hud": {
+    "time": "02:21"
+   }
+  },
+  {
+   "who": "g",
+   "say": "Si alguien le hace señas, no frene.",
+   "scene": "car_pov",
+   "speaker": "GPS",
+   "p": {
+    "speed": 1,
+    "forest": 1,
+    "figure": 0.62
+   },
+   "ov": {
+    "t": "instr",
+    "n": 2,
+    "icon": "nostop",
+    "text": "SI TE HACEN SEÑAS, NO FRENES"
+   },
+   "cam": {
+    "f": [
+     430,
+     520,
+     1.4
+    ],
+    "t": [
+     470,
+     520,
+     1.6
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "gps",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Pasas a su lado.",
+   "scene": "window",
+   "p": {
+    "pass": 1
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "whoosh",
+     0.3
+    ]
+   ],
+   "pause": 0.3
+  },
+  {
+   "who": "n",
+   "say": "Es tu abuelo. Murió hace seis años.",
+   "scene": "window",
+   "p": {
+    "hold": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     600,
+     1.1
+    ],
+    "t": [
+     380,
+     560,
+     1.45
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "hit",
+     0.05
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "Y te dice adiós con la mano… como cuando eras pequeño.",
+   "scene": "mirror",
+   "p": {
+    "grandpa": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     600,
+     1.0
+    ],
+    "t": [
+     360,
+     600,
+     1.2
+    ]
+   },
+   "amb": "car",
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "Entonces lo oyes. Detrás de ti. Una respiración muy lenta.",
+   "scene": "mirror",
+   "p": {
+    "breath": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     600,
+     1.1
+    ],
+    "t": [
+     360,
+     640,
+     1.5
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "breath",
+     1.6
+    ]
+   ]
+  },
+  {
+   "who": "g",
+   "say": "No mire al asiento de atrás.",
+   "scene": "mirror",
+   "speaker": "GPS",
+   "p": {
+    "breath": 1,
+    "eyes": 1
+   },
+   "ov": {
+    "t": "instr",
+    "n": 3,
+    "icon": "eye",
+    "text": "NO MIRES AL ASIENTO DE ATRÁS"
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "gps",
+     0
+    ]
+   ],
+   "hud": {
+    "time": "02:26"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Quedan dos minutos.",
+   "scene": "gps",
+   "p": {
+    "dest": 1,
+    "eta": 2
+   },
+   "cam": {
+    "f": [
+     360,
+     860,
+     1.4
+    ],
+    "t": [
+     360,
+     860,
+     1.6
+    ]
+   },
+   "amb": "car"
+  },
+  {
+   "who": "g",
+   "say": "Quédese conmigo. Ya casi estamos.",
+   "scene": "gps",
+   "speaker": "GPS",
+   "p": {
+    "dest": 1,
+    "eta": 2,
+    "glitch": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.0
+    ],
+    "t": [
+     360,
+     640,
+     1.1
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "glitch",
+     0.2
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "Un GPS no dice eso.",
+   "scene": "mirror",
+   "p": {
+    "eyes": 1,
+    "breath": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     520,
+     1.5
+    ],
+    "t": [
+     360,
+     500,
+     1.8
+    ]
+   },
+   "amb": "car",
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "[whispers] Miras.",
+   "scene": "mirror",
+   "p": {
+    "look": 1
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "hit",
+     0.1
+    ]
+   ],
+   "big": 1,
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "En el asiento de atrás estás tú. Tumbado. Con los ojos cerrados.",
+   "scene": "backseat",
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.0
+    ],
+    "t": [
+     360,
+     700,
+     1.3
+    ]
+   },
+   "amb": "car",
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "Y la línea azul de la ruta… empieza a pitar.",
+   "scene": "gps",
+   "p": {
+    "ecg": 1,
+    "dest": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.0
+    ],
+    "t": [
+     360,
+     640,
+     1.0
+    ]
+   },
+   "sfx": [
+    [
+     "ecg",
+     0.8
+    ]
+   ],
+   "amb": "monitor",
+   "unpin": true
+  },
+  {
+   "who": "p",
+   "say": "[shouting] ¡Vuelve! [urgently] Quédate conmigo, ¿me oyes? No mires atrás.",
+   "scene": "ambulance",
+   "speaker": "PARAMÉDICA",
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.25
+    ],
+    "t": [
+     360,
+     680,
+     1.05
+    ]
+   },
+   "amb": "siren",
+   "shake": 1,
+   "sfx": [
+    [
+     "hit",
+     0
+    ]
+   ],
+   "hud": {
+    "time": "02:28",
+    "place": "AMBULANCIA · SVA 112"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Nunca fue un GPS. Era su voz. Hablándote desde fuera.",
+   "scene": "ambulance",
+   "cam": {
+    "f": [
+     300,
+     600,
+     1.2
+    ],
+    "t": [
+     260,
+     560,
+     1.5
+    ]
+   },
+   "amb": "siren"
+  },
+  {
+   "who": "n",
+   "say": "Por encima de ochenta… eran tus pulsaciones.",
+   "scene": "ambulance",
+   "p": {
+    "hr": 1
+   },
+   "cam": {
+    "f": [
+     560,
+     520,
+     1.8
+    ],
+    "t": [
+     560,
+     520,
+     2.2
+    ]
+   },
+   "amb": "siren"
+  },
+  {
+   "who": "n",
+   "say": "Y catorce minutos… es lo que llevas sin despertar.",
+   "scene": "ambulance",
+   "p": {
+    "hr": 1,
+    "timer": 1
+   },
+   "cam": {
+    "f": [
+     560,
+     520,
+     2.2
+    ],
+    "t": [
+     400,
+     640,
+     1.2
+    ]
+   },
+   "amb": "siren",
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "Tu abuelo te hacía señas para que pararas. Para que te quedaras con él.",
+   "scene": "car_pov",
+   "p": {
+    "speed": 0.4,
+    "forest": 1,
+    "figure": 0.45,
+    "ghost": 1
+   },
+   "cam": {
+    "f": [
+     400,
+     520,
+     1.3
+    ],
+    "t": [
+     440,
+     520,
+     1.6
+    ]
+   },
+   "amb": "car",
+   "hud": {
+    "time": "02:28",
+    "place": "CARRETERA COMARCAL"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Sigue ahí, en el arcén. Esperándote.",
+   "scene": "car_pov",
+   "p": {
+    "speed": 0.4,
+    "forest": 1,
+    "figure": 0.5,
+    "ghost": 1
+   },
+   "cam": {
+    "f": [
+     440,
+     520,
+     1.6
+    ],
+    "t": [
+     450,
+     520,
+     1.9
+    ]
+   },
+   "amb": "car",
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "¿Frenas… o sigues conduciendo?",
+   "scene": "car_pov",
+   "p": {
+    "speed": 0.4,
+    "forest": 1,
+    "figure": 0.5,
+    "ghost": 1
+   },
+   "ov": {
+    "t": "choice",
+    "q": "¿FRENAS O SIGUES?",
+    "a": "FRENO",
+    "b": "SIGO",
+    "foot": "COMENTA ABAJO"
+   },
+   "hold": 2.8,
+   "amb": "car",
+   "sfx": [
+    [
+     "riser",
+     0
+    ],
+    [
+     "ding",
+     1.0
+    ],
+    [
+     "ecg",
+     0.4
+    ]
+   ]
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "end",
+    "big": "NO MIRES ATRÁS",
+    "time": "RUTA ALTERNATIVA",
+    "cta": "SÍGUENOS PARA LA SIGUIENTE RUTA",
+    "next": "",
+    "ntime": ""
+   },
+   "hold": 3.6,
+   "sfx": [
+    [
+     "ecg",
+     0.2
+    ],
+    [
+     "ecg",
+     1.2
+    ],
+    [
+     "flat",
+     2.4
+    ]
+   ]
+  }
+ ],
+ "pin": true
+}
