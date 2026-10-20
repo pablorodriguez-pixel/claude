@@ -33,6 +33,13 @@
    "rate": "-10%",
    "pitch": "-8Hz",
    "fx": "night"
+  },
+  "c": {
+   "eleven": "W5JElH3dK1UYYAiHH7uh",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "fx": "room"
   }
  },
  "cover": {
@@ -223,13 +230,13 @@
    "cam": {
     "f": [
      360,
-     800,
+     960,
      1.15
     ],
     "t": [
      360,
-     860,
-     1.45
+     1000,
+     1.28
     ]
    },
    "amb": "car",
@@ -680,13 +687,13 @@
    "cam": {
     "f": [
      360,
-     600,
-     1.1
+     680,
+     1.05
     ],
     "t": [
      360,
-     580,
-     1.4
+     690,
+     1.12
     ]
    },
    "amb": "car"
@@ -702,13 +709,13 @@
    "cam": {
     "f": [
      360,
-     580,
-     1.4
+     690,
+     1.12
     ],
     "t": [
      360,
-     580,
-     1.6
+     700,
+     1.16
     ]
    },
    "amb": "car",
@@ -1095,10 +1102,9 @@
     "q": "¿FRENAS O SIGUES?",
     "a": "FRENO Y LO ESCUCHO",
     "b": "SIGO Y DESPIERTO",
-    "foot": "COMENTA ABAJO",
-    "next": "MAÑANA: LO QUE DECÍA LA NOTA"
+    "foot": "TÚ DECIDES"
    },
-   "hold": 2.8,
+   "hold": 0.8,
    "amb": "car",
    "sfx": [
     [
@@ -1116,15 +1122,88 @@
    ]
   },
   {
+   "who": "c",
+   "say": "Tú decides. Escribe FRENO o SIGO en los comentarios.",
+   "scene": "vote",
+   "p": {
+    "phase": "type"
+   },
+   "amb": "monitor",
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ],
+    [
+     "type",
+     0.5
+    ],
+    [
+     "type",
+     2.1
+    ],
+    [
+     "pop",
+     3.4
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "who": "c",
+   "say": "Lo que diga la mayoría… es lo que pasará. Y aquí no hay vuelta atrás.",
+   "scene": "vote",
+   "p": {
+    "phase": "feed"
+   },
+   "amb": "monitor",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     0.7
+    ],
+    [
+     "pop",
+     1.1
+    ],
+    [
+     "pop",
+     1.5
+    ],
+    [
+     "pop",
+     1.9
+    ],
+    [
+     "pop",
+     2.3
+    ],
+    [
+     "pop",
+     2.7
+    ],
+    [
+     "ecg",
+     3.2
+    ]
+   ],
+   "pause": 0.6
+  },
+  {
    "say": "",
    "scene": "black",
    "ov": {
     "t": "end",
     "big": "PARTE 1",
     "time": "NO MIRES ATRÁS",
-    "cta": "SÍGUENOS PARA LA PARTE 2",
+    "cta": "COMENTA: FRENO O SIGO",
     "next": "PARTE 2",
-    "ntime": "LO QUE DECÍA LA NOTA"
+    "ntime": "LA DECIDES TÚ",
+    "keep": true
    },
    "hold": 3.8,
    "sfx": [

@@ -83,7 +83,7 @@ function dashboard(t, p, gt) {
   fillRR(130, 820, 240, 210, 40, '#0b0c10');
   for (const vx2 of [420, 470]) fillRR(vx2, 1010, 36, 16, 6, '#0d0e12');
   // velocímetro
-  const v = p.stopped ? 0 : p.brake ? lerp(80, 0, E.out(cl(t / 2.2))) : p.day ? 62 + Math.sin(gt) : p.speed ? lerp(78, 86, E.inout(cl(t / 4))) : 80 + Math.sin(gt) * 1.5;
+  const v = p.stopped ? 0 : p.brake ? lerp(80, 0, E.out(cl(t / 2.2))) : p.day ? 62 + Math.sin(gt) : p.speed ? 82 + 3 * E.inout(cl((t - 1.1) / .5)) + 2 * cl((t - 2) / 6) + Math.sin(gt * 2) * .3 : 80 + Math.sin(gt) * 1.5;
   ctx.save(); ctx.translate(250, 930); circle(0, 0, 104, '#06070a'); ctx.strokeStyle = 'rgba(255,190,90,.25)'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(0, 0, 96, PI * .75, PI * 2.25); ctx.stroke();
   for (let i = 0; i <= 20; i++) { const a = PI * .75 + i / 20 * PI * 1.5; seg([[Math.cos(a) * 84, Math.sin(a) * 84], [Math.cos(a) * (i % 2 ? 92 : 96), Math.sin(a) * (i % 2 ? 92 : 96)]], i % 2 ? 2 : 3, i >= 8 && i <= 9 ? '#ff5a3c' : 'rgba(255,200,120,.8)'); if (i % 4 === 0) text(String(i * 10), Math.cos(a) * 66, Math.sin(a) * 66, { size: 13, w: 700, color: 'rgba(255,210,140,.75)' }); }
   const na = PI * .75 + v / 200 * PI * 1.5; ctx.shadowColor = '#ff5a3c'; ctx.shadowBlur = 10; seg([[0, 0], [Math.cos(na) * 88, Math.sin(na) * 88]], 4, '#ff5a3c'); ctx.shadowBlur = 0; circle(0, 0, 8, '#222');
@@ -251,12 +251,12 @@ SCENES.ambulance = (t, p, b, gt) => {
   for (let i = 0; i < 4; i++) fillRR(30 + i * 170, 120, 150, 120, 8, '#e4eaed');
   fillRR(40, 300, 200, 200, 16, '#16202c'); ctx.save(); rr(40, 300, 200, 200, 16); ctx.clip(); ctx.fillStyle = fl ? 'rgba(60,120,255,.8)' : 'rgba(255,50,50,.6)'; ctx.fillRect(40, 300, 200, 200); ctx.restore();
   // monitor
-  const hr = p.back ? Math.round(lerp(55, 82, E.out(cl(t / 1.6)))) : p.hr ? Math.round(lerp(52, 81, E.inout(cl(t / 3)))) : 47 + Math.round(Math.sin(gt) * 2);
+  const hr = p.back ? Math.round(lerp(55, 82, E.out(cl(t / 1.6)))) : p.hr ? 48 + Math.round(Math.sin(gt * 1.3) * 1.5) : 47 + Math.round(Math.sin(gt) * 2);
   fillRR(430, 380, 260, 220, 14, '#1b1f24'); fillRR(444, 394, 232, 192, 8, '#020604');
   ctx.save(); rr(444, 394, 232, 192, 8); ctx.clip(); ctx.strokeStyle = '#3dff8a'; ctx.lineWidth = 3; ctx.beginPath(); const sp = gt * 140; for (let x = 0; x <= 232; x += 2) { const ph = ((x + sp) % 90 + 90) % 90; let y = 470; if (ph > 40 && ph < 44) y -= 40; else if (ph >= 44 && ph < 48) y += 22; x === 0 ? ctx.moveTo(444 + x, y) : ctx.lineTo(444 + x, y); } ctx.stroke(); ctx.restore();
   const low = hr < 80; text('FC', 460, 540, { size: 18, w: 900, color: '#3dff8a', align: 'left' }); text(String(hr), 500, 545, { size: 44, fam: 'Oswald', w: 700, color: low ? (fl ? '#ff3b30' : '#ff8a80') : '#3dff8a', align: 'left' });
   if (p.hr) text('> 80', 600, 545, { size: 22, w: 900, color: '#ffc24d', align: 'left' });
-  if (p.timer) { fillRR(444, 610, 232, 60, 10, '#020604'); text('SIN RESPUESTA  14:00', 560, 641, { size: 18, w: 900, color: '#ff5a3c', ls: 1 }); }
+  if (p.timer) { fillRR(456, 314, 208, 52, 10, '#020604'); text('SIN RESPUESTA  14:00', 560, 341, { size: 15, w: 900, color: '#ff5a3c', ls: 1 }); }
   const push = Math.max(0, Math.sin(gt * TAU * 1.8)) * 6;
   stick({ x: 140, y: 1010 + push * .5, s: 2.4, pose: 'stand', t: gt, face: 1, acc: ['raincoat', 'bun'], coat: '#2f6b4f', nohood: true, body: '#f1ece6', hair: '#3b2416', expr: 'worried', over: { tor: .42 + push * .006, la1: .95, la2: .25, ra1: 1.05, ra2: .2, head: .25 } });
   // camilla y tú
@@ -372,4 +372,84 @@ SCENES.phone_home = (t, p, b, gt) => {
   fillRR(-70, 410, 140, 6, 3, 'rgba(255,255,255,.7)');
   ctx.restore(); ctx.restore();
   vignette(.6);
+};
+
+// ---------- votación: el espectador decide la Parte 2 en comentarios ----------
+const VOTES = [['lucia.mtz', 'FRENO. Necesito oír esa nota'], ['dani_rv', 'SIGO, despierta ya'], ['marta.o', 'freno… es su abuelo'], ['j0rge', 'SIGO SIGO SIGO'],
+  ['noelia.g', 'FRENO, pase lo que pase'], ['pablo_22', 'sigo, la nota es una trampa'], ['ire.sz', 'FRENOOO'], ['alex.v', 'SIGO. No te fíes del GPS'],
+  ['carla.b', 'freno, se lo debe'], ['hugo.m', 'sigo, él querría que vivieras'], ['sara.l', 'FRENO 100%'], ['mario_k', 'SIGO, ni lo pienses']];
+const AVC = ['#e57373', '#64b5f6', '#81c784', '#ffb74d', '#ba68c8', '#4db6ac', '#f06292', '#90a4ae'];
+function optTile(x, y, w, h, kind, on, gt) {
+  const amber = kind === 'FRENO', col = amber ? '#ffb02e' : '#3ddc84';
+  ctx.save(); ctx.translate(x + w / 2, y + h / 2); const s = 1 + on * .06; ctx.scale(s, s);
+  if (on > 0) { ctx.shadowColor = col; ctx.shadowBlur = 50 * on; }
+  fillRR(-w / 2, -h / 2, w, h, 28, on > 0 ? `rgba(${amber ? '255,176,46' : '61,220,132'},${.16 + on * .2})` : 'rgba(255,255,255,.05)'); ctx.shadowBlur = 0;
+  ctx.lineWidth = 3 + on * 2; ctx.strokeStyle = on > 0 ? col : 'rgba(255,255,255,.18)'; rr(-w / 2, -h / 2, w, h, 28); ctx.stroke();
+  // icono: farol del abuelo / latido
+  ctx.save(); ctx.translate(0, -34);
+  if (amber) { glow(0, 0, 70, `rgba(255,190,90,${.25 + on * .35})`); fillRR(-18, -26, 36, 50, 8, col); seg([[-12, -34], [0, -46], [12, -34]], 5, col); fillRR(-10, -16, 20, 30, 5, '#fff6d8'); }
+  else { ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(-60, 0); ctx.lineTo(-22, 0); ctx.lineTo(-10, -30); ctx.lineTo(4, 28); ctx.lineTo(16, 0); ctx.lineTo(60, 0); ctx.stroke(); }
+  ctx.restore();
+  text(kind, 0, 46, { size: 64, fam: 'Anton', w: 400, color: on > 0 ? '#fff' : 'rgba(255,255,255,.8)', ls: 3 });
+  ctx.restore();
+}
+SCENES.vote = (t, p, b, gt) => {
+  ctx.save(); ctx.globalAlpha = .28; SCENES.split(t, { side: 'both' }, { ov: 1 }, gt); ctx.restore();
+  ctx.fillStyle = 'rgba(4,5,8,.62)'; ctx.fillRect(0, 0, W, H);
+  const dur = b.end - b.start, feed = p.phase === 'feed';
+  // recuento en directo: FRENO contra SIGO, empatado y oscilando
+  const fr = 50 + Math.sin(gt * 1.7) * 4 + Math.sin(gt * 4.3) * 1.5, ba = E.out(cl(t / .5));
+  ctx.save(); ctx.globalAlpha = ba;
+  text(feed ? 'VOTACIÓN EN DIRECTO' : 'LA PARTE 2 LA DECIDES TÚ', W / 2, 196, { size: 22, w: 900, ls: 5, color: '#ffc24d' });
+  if (feed) { circle(W / 2 - measure('VOTACIÓN EN DIRECTO', 22, 'Montserrat', 900, 5) / 2 - 22, 196, 7, Math.sin(gt * 6) > 0 ? '#ff3b30' : 'rgba(255,59,48,.35)'); }
+  fillRR(50, 228, 620, 46, 23, 'rgba(255,255,255,.08)');
+  ctx.save(); rr(50, 228, 620, 46, 23); ctx.clip(); fillRR(50, 228, 620 * fr / 100, 46, 0, '#c9811e'); ctx.fillStyle = '#1f9a62'; ctx.fillRect(50 + 620 * fr / 100, 228, 620, 46); ctx.restore();
+  text('FRENO ' + Math.round(fr) + '%', 74, 252, { size: 22, w: 900, align: 'left' }); text(Math.round(100 - fr) + '% SIGO', 646, 252, { size: 22, w: 900, align: 'right' });
+  ctx.restore();
+  // tarjeta de comentarios
+  const ca = E.back(cl((t - .1) / .45)); ctx.save(); ctx.translate(W / 2, 520); ctx.scale(.9 + .1 * ca, .9 + .1 * ca); ctx.globalAlpha = cl(ca * 1.5); ctx.translate(-W / 2, -520);
+  ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 50; fillRR(40, 300, 640, 470, 36, 'rgba(22,24,32,.97)'); ctx.shadowBlur = 0;
+  // cabecera
+  ctx.strokeStyle = '#fff'; ctx.lineWidth = 4; rr(70, 326, 38, 30, 10); ctx.stroke(); ctx.beginPath(); ctx.moveTo(80, 356); ctx.lineTo(76, 368); ctx.lineTo(92, 356); ctx.stroke();
+  const n = 12408 + Math.floor((feed ? gt * 37 : gt * 9) % 4000);
+  text('Comentarios', 122, 342, { size: 28, w: 900, align: 'left' }); text(n.toLocaleString('es-ES'), 650, 342, { size: 24, w: 700, align: 'right', color: 'rgba(255,255,255,.55)' });
+  seg([[40, 384], [680, 384]], 2, 'rgba(255,255,255,.08)');
+  if (!feed) {
+    // escribes, dudas, borras… las dos opciones se encienden según lo que tecleas
+    const seq = [[.5, 'FRENO'], [1.7, ''], [2.1, 'SIGO'], [3.0, '']]; let typed = '', who = '';
+    for (const [at, word] of seq) { if (t < at) break; if (word) { typed = word.slice(0, Math.floor((t - at) / .09) + 1); who = word; } else { const prev = typed; typed = prev.slice(0, Math.max(0, prev.length - Math.floor((t - at) / .06))); } }
+    const onF = who === 'FRENO' && typed ? 1 : 0, onS = who === 'SIGO' && typed ? 1 : 0;
+    optTile(66, 404, 285, 250, 'FRENO', onF ? 1 : .0, gt); optTile(369, 404, 285, 250, 'SIGO', onS ? 1 : 0, gt);
+    if (!typed && t > 3.2) { const k = Math.sin(gt * 5) > 0; optTile(66, 404, 285, 250, 'FRENO', k ? .5 : 0, gt); optTile(369, 404, 285, 250, 'SIGO', k ? 0 : .5, gt); }
+    fillRR(66, 674, 588, 72, 36, 'rgba(255,255,255,.08)'); circle(104, 710, 22, '#ffc24d'); text('TÚ', 104, 711, { size: 16, w: 900, color: '#111' });
+    const cur = Math.floor(gt * 2.4) % 2 ? '|' : '';
+    if (typed) text(typed + cur, 140, 711, { size: 32, w: 900, align: 'left', color: who === 'FRENO' ? '#ffb02e' : '#3ddc84' });
+    else text('Escribe FRENO o SIGO…' + cur, 140, 711, { size: 26, w: 600, align: 'left', color: 'rgba(255,255,255,.45)' });
+    fillRR(584, 686, 58, 48, 24, typed ? '#3d8bff' : 'rgba(61,139,255,.3)'); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(600, 698); ctx.lineTo(628, 710); ctx.lineTo(600, 722); ctx.lineTo(604, 710); ctx.closePath(); ctx.fill();
+  } else {
+    // comentarios entrando en directo
+    ctx.save(); rr(40, 386, 640, 384, 36); ctx.clip();
+    const rate = 2.6, k0 = t * rate;
+    for (let j = Math.floor(k0) - 5; j <= Math.floor(k0); j++) {
+      if (j < 0) continue; const [u, msg] = VOTES[j % VOTES.length]; const age = k0 - j; const y = 730 - age * 74 - (1 - E.out(cl(age * 3))) * -30;
+      if (y < 390) continue; const a = cl(age * 4) * cl((y - 390) / 60);
+      ctx.save(); ctx.globalAlpha = a; circle(92, y, 24, AVC[j % AVC.length]); text(u[0].toUpperCase(), 92, y + 1, { size: 22, w: 900 });
+      text('@' + u, 130, y - 16, { size: 18, w: 700, align: 'left', color: 'rgba(255,255,255,.5)' });
+      const freno = /^fren/i.test(msg); text(msg, 130, y + 14, { size: 26, w: 800, align: 'left', color: freno ? '#ffc56b' : '#7ef0b0' });
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+  ctx.restore();
+  // llamada a la acción con flecha hacia los comentarios
+  const pu = 1 + Math.sin(gt * 6) * .035, aa = E.out(cl((t - .6) / .4));
+  ctx.save(); ctx.globalAlpha = aa; ctx.translate(W / 2, 1040); ctx.scale(pu, pu);
+  const cta = feed ? 'LA MAYORÍA DECIDE' : 'COMENTA AHORA'; const cw = measure(cta, 30, 'Anton', 400, 3) + 70;
+  fillRR(-cw / 2, -34, cw, 68, 34, '#ff3b30'); text(cta, 0, 2, { size: 30, fam: 'Anton', w: 400, ls: 3 }); ctx.restore();
+  ctx.save(); ctx.globalAlpha = aa; ctx.translate(W / 2, 1122 + Math.sin(gt * 7) * 8); ctx.strokeStyle = '#fff'; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(0, -22); ctx.lineTo(0, 18); ctx.moveTo(-16, 4); ctx.lineTo(0, 20); ctx.lineTo(16, 4); ctx.stroke(); ctx.restore();
+  // latido de fondo: cada vez más rápido mientras decides
+  ctx.save(); ctx.strokeStyle = 'rgba(61,255,138,.55)'; ctx.lineWidth = 3; ctx.shadowColor = '#3dff8a'; ctx.shadowBlur = 10; ctx.beginPath();
+  const sp = gt * (feed ? 420 : 300); for (let x = 0; x <= W; x += 3) { const ph = ((x - sp) % 240 + 240) % 240; let y = 1210; if (ph > 100 && ph < 108) y -= (ph - 100) * 6; else if (ph >= 108 && ph < 118) y = 1162 + (ph - 108) * 9; else if (ph >= 118 && ph < 124) y = 1252 - (ph - 118) * 7; x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y); } ctx.stroke(); ctx.restore();
+  vignette(.5, .35);
 };

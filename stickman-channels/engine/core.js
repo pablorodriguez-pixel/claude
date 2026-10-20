@@ -349,7 +349,7 @@ function renderAt(gt) {
   ctx.restore();
   // flash de corte
   if (t < .08 && i > 0) { ctx.fillStyle = `rgba(0,0,0,${1 - t / .08})`; ctx.fillRect(0, 0, W, H); }
-  const closeUp = TL.ch === 'ruta' && b.scene === 'gps';
+  const closeUp = TL.ch === 'ruta' && (b.scene === 'gps' || b.scene === 'vote');
   if ((b.scene !== 'black' || !b.ov || b.ov.t !== 'end') && !closeUp) hud(b, t, gt);
   if (!closeUp) pinned(b, t); overlay(b, t, gt); speaker(b, t); captions(b, gt);
   // grano
@@ -402,7 +402,8 @@ const OVX = {
     ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = lin(0, 160, 0, 520, [[0, 'rgba(0,0,0,.55)'], [1, 'rgba(0,0,0,0)']]); ctx.fillRect(0, 160, W, 360);
     text(o.top, W / 2, 262, { size: 30, w: 900, ls: 10, color: 'rgba(255,255,255,.85)' });
     const g = E.out(cl((t - .15) / .6)); ctx.translate(W / 2, 352); ctx.scale(.9 + .1 * g, .9 + .1 * g);
-    text(o.big, 0, 0, { size: 128, fam: S.head, w: 400, color: '#fff', shadow: S.accent, blur: 30, ls: 3 }); ctx.restore();
+    let bz = 128; while (measure(o.big, bz, S.head, 400, 3) > W - 70) bz -= 4;
+    text(o.big, 0, 0, { size: bz, fam: S.head, w: 400, color: '#fff', shadow: S.accent, blur: 30, ls: 3 }); ctx.restore();
   },
   end(b, t, o) {
     const gl = 2.4, after = t > gl + .25, g = t > gl && t < gl + .25;
@@ -418,7 +419,7 @@ const OVX = {
     text(big, W / 2 + jx, 590, { size: bz, fam: S.head, w: 400, color: col, shadow: col, blur: after ? 40 : 18, ls: 4 });
     text(tm, W / 2, 690, { size: 26, w: 800, ls: 6, color: 'rgba(255,255,255,.7)' });
     if (!o.next) { const fl = cl((t - gl) / .2); ctx.strokeStyle = '#3dff8a'; ctx.lineWidth = 3; ctx.shadowColor = '#3dff8a'; ctx.shadowBlur = 12; ctx.beginPath(); for (let x = 60; x <= W - 60; x += 4) { const ph = ((x - 60) / 40 - t * 3) % 8; const pk = fl > 0 ? 0 : (ph > 0 && ph < 1 ? Math.sin(ph * PI) * -60 : 0); x === 60 ? ctx.moveTo(x, 860 + pk) : ctx.lineTo(x, 860 + pk); } ctx.stroke(); ctx.shadowBlur = 0; }
-    if (!after || !o.next) { const cw = measure(o.cta, 17, 'Montserrat', 900, 2) + 40; const pu = 1 + Math.sin(t * 6) * .03; ctx.save(); ctx.translate(W / 2, 760); ctx.scale(pu, pu); fillRR(-cw / 2, -20, cw, 40, 20, 'rgba(255,255,255,.12)'); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.stroke(); text(o.cta, 0, 1, { size: 17, w: 900, ls: 2 }); ctx.restore(); }
+    if (!after || !o.next || o.keep) { const cz = o.cta.length > 22 ? 17 : 24, ch = cz * 2.4; const cw = measure(o.cta, cz, 'Montserrat', 900, 2) + 48; const pu = 1 + Math.sin(t * 6) * .03; ctx.save(); ctx.translate(W / 2, 770); ctx.scale(pu, pu); fillRR(-cw / 2, -ch / 2, cw, ch, ch / 2, 'rgba(255,255,255,.12)'); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.stroke(); text(o.cta, 0, 1, { size: cz, w: 900, ls: 2 }); ctx.restore(); }
     ctx.restore();
     if (g) { for (let i = 0; i < 8; i++) { ctx.fillStyle = `rgba(255,255,255,${hash(i + t * 90) * .15})`; ctx.fillRect(0, hash(i * 7 + Math.floor(t * 60)) * H, W, 4 + hash(i) * 30); } }
   },
