@@ -55,7 +55,8 @@ function ledPanel(x, y, w, h, msg, col, gt, flick = 0) {
 
 SCENES.platform = (t, p, b, gt) => {
   ctx.save();
-  if (p.view === 'clock') { const k = E.inout((t - 1.6) / 2.4); focus(lerp(560, 360, k), lerp(420, 720, k), lerp(2.7, 1, k)); }
+  if (b.cam) { }
+  else if (p.view === 'clock') { const k = E.inout((t - 1.6) / 2.4); focus(lerp(560, 360, k), lerp(420, 720, k), lerp(2.7, 1, k)); }
   else if (p.view === 'sign') focus(360, 420, 1.35);
   platformBase(t, p, gt, { clockMin: p.view === 'sign' ? 59 : 58 });
   const flipped = p.flip === 0 || (p.flip && t > p.flip + .5);
@@ -112,8 +113,8 @@ SCENES.note = (t, p, b, gt) => {
   ctx.save(); ctx.translate(360, 820 + Math.sin(gt * 1.3) * 2); ctx.rotate(-.04);
   ctx.shadowColor = 'rgba(0,0,0,.4)'; ctx.shadowBlur = 30; ctx.fillStyle = p.dark ? '#5d5848' : '#f5efdc'; ctx.fillRect(-210, -260, 420, 520); ctx.shadowBlur = 0;
   ctx.fillStyle = 'rgba(230,220,160,.7)'; ctx.save(); ctx.rotate(-.3); ctx.fillRect(-230, -230, 90, 30); ctx.restore(); ctx.save(); ctx.translate(200, -250); ctx.rotate(.4); ctx.fillRect(-45, -15, 90, 30); ctx.restore();
-  text('REGLAS', 0, -205, { size: 44, fam: 'Anton', w: 400, color: '#1b1b1b', ls: 6 });
-  const R = ['1. NO TE SIENTES EN EL ÚLTIMO VAGÓN', '2. SI LAS LUCES PARPADEAN, NO MIRES', '3. SI DICEN TU NOMBRE, NO CONTESTES', '4. NO BAJES HASTA QUE ARRANQUE', '5. CIERRA LOS OJOS Y CUENTA HASTA 0'];
+  text(p.title || 'REGLAS', 0, -205, { size: 44, fam: 'Anton', w: 400, color: '#1b1b1b', ls: 6 });
+  const R = p.rules || ['1. NO TE SIENTES EN EL ÚLTIMO VAGÓN', '2. SI LAS LUCES PARPADEAN, NO MIRES', '3. SI DICEN TU NOMBRE, NO CONTESTES', '4. NO BAJES HASTA QUE ARRANQUE', '5. CIERRA LOS OJOS Y CUENTA HASTA 0'];
   const n = p.line || 1;
   R.forEach((r, i) => {
     const y = -130 + i * 78; const vis = i < n - (p.line === 5 ? 1 : 0) || i === n - 1;
@@ -142,7 +143,7 @@ function interior(t, p, gt, outside = 'tunnel') {
     ctx.save(); rr(x, y, w, h, 24); ctx.clip();
     if (outside === 'tunnel') {
       ctx.fillStyle = '#020203'; ctx.fillRect(x, y, w, h);
-      for (let k = 0; k < 4; k++) { const lx = ((hash(k * 7) * 900 - gt * 1800) % 900 + 900) % 900 - 100; ctx.fillStyle = 'rgba(255,200,120,.8)'; ctx.fillRect(lx, y + 60 + k * 50, 160, 3); }
+      const spd = p.speed ? 1800 + 2600 * cl(t / 3) : 1800; for (let k = 0; k < (p.speed ? 7 : 4); k++) { const lx = ((hash(k * 7) * 900 - gt * spd) % 900 + 900) % 900 - 100; ctx.fillStyle = 'rgba(255,200,120,.8)'; ctx.fillRect(lx, y + 60 + k * 50, 160, 3); }
     } else stationOutside(x, y, w, h, gt, p._off || 0);
     ctx.fillStyle = 'rgba(255,255,255,.06)'; ctx.beginPath(); ctx.moveTo(x + 30, y); ctx.lineTo(x + 90, y); ctx.lineTo(x + 20, y + h); ctx.lineTo(x - 40, y + h); ctx.fill();
     ctx.restore();
@@ -167,7 +168,9 @@ function stationOutside(x, y, w, h, gt, off) {
 SCENES.train_interior = (t, p, b, gt) => {
   const on = interior(t, p, gt);
   const pose = p.down ? 'sitdown' : 'sit';
-  you({ x: 360, y: 875, s: 2.3, pose, t: gt, expr: p.down ? 'worried' : 'neutral', look: p.down ? .3 : 1, over: p.dark ? {} : {} });
+  if (p.enter && t < 2.0) { const k = E.inout(t / 2.0); you({ x: lerp(700, 360, k), y: 875 + 60, s: 2.3, pose: 'walk', t: gt, face: -1, expr: 'worried' }); }
+  else you({ x: 360, y: 875, s: 2.3, pose, t: gt, expr: p.down ? 'worried' : 'neutral', look: p.down ? .3 : 1 });
+  if (p.enter) { const k = E.inout(cl((t - 2.2) / .6)); fillRR(W - 40 - (1 - k) * 0, 300, 60, 600, 4, '#4a5160'); }
   if (on < .5 || p.dark) { ctx.fillStyle = 'rgba(0,4,20,.55)'; ctx.fillRect(0, 0, W, H); }
   vignette(.65);
 };
@@ -209,10 +212,13 @@ SCENES.car_end = (t, p, b, gt) => {
     if (p.eyes) { circle(-8, -64, 3, '#fff'); circle(8, -64, 3, '#fff'); }
     ctx.restore();
   }
+  if (p.hand) { const hx = vx + 6, hy = wy + 70; ctx.save(); ctx.globalAlpha = .85; ctx.fillStyle = '#d9dde3'; ctx.beginPath(); ctx.ellipse(hx, hy, 15, 19, 0, 0, TAU); ctx.fill(); for (let i = 0; i < 4; i++) { ctx.beginPath(); ctx.ellipse(hx - 13 + i * 9, hy - 26, 3.6, 10, (i - 1.5) * .12, 0, TAU); ctx.fill(); } ctx.beginPath(); ctx.ellipse(hx + 17, hy - 2, 3.5, 9, .8, 0, TAU); ctx.fill(); ctx.restore(); ctx.save(); ctx.globalAlpha = .25 + .15 * Math.sin(gt * 2); glow(hx, hy + 10, 60, 'rgba(230,240,255,.6)'); ctx.restore(); }
   ctx.restore();
   ctx.lineWidth = 4; ctx.strokeStyle = '#2b2f37'; rr(wx, wy, ww, wh, 8); ctx.stroke();
+  if (p.open) { const k = E.inout(cl(t / 3)); ctx.fillStyle = '#020203'; ctx.fillRect(dx, dy, dw * k * .9, dh); ctx.save(); ctx.globalAlpha = k; ctx.fillStyle = '#0d0d12'; ctx.beginPath(); ctx.ellipse(vx - 20, dy + 100, 26 + k * 6, 30 + k * 6, 0, 0, TAU); ctx.fill(); ctx.fillRect(vx - 60, dy + 130, 80, 200); circle(vx - 28, dy + 98, 3.5, '#fff'); circle(vx - 10, dy + 98, 3.5, '#fff'); ctx.restore(); }
   if (dk < .5) { ctx.save(); ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = rad(vx, vy, 40, 700, [[0, '#9aa'], [1, '#000']]); ctx.fillRect(0, 0, W, H); ctx.restore(); }
   vignette(.8, .2);
+  if (p.peep) { ctx.save(); ctx.fillStyle = rad(vx, 540, 150, 330, [[0, 'rgba(0,0,0,0)'], [.75, 'rgba(0,0,0,.85)'], [1, '#000']]); ctx.fillRect(-W, -H, W * 3, H * 3); ctx.restore(); }
 };
 function station0Out(x, y, w, h, gt, t, p) {
   const off = p.leave ? Math.pow(Math.max(0, t - .6), 2) * 260 : 0;

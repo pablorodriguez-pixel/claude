@@ -1,0 +1,621 @@
+{
+ "id": "regla0-v2-n1",
+ "ch": "regla0",
+ "series": "LÍNEA 0",
+ "ep": "NOCHE 1",
+ "day": "NOCHE 1",
+ "voices": {
+  "n": {
+   "eleven": "K3TeN3ZVK8WnOeJ0NYqZ",
+   "edge": "es-MX-JorgeNeural",
+   "rate": "-4%",
+   "pitch": "-6Hz",
+   "fx": "room"
+  },
+  "pa": {
+   "eleven": "AxFLn9byyiDbMn5fmyqu",
+   "edge": "es-ES-ElviraNeural",
+   "rate": "-8%",
+   "pitch": "+0Hz",
+   "fx": "radio"
+  },
+  "w": {
+   "eleven": "K3TeN3ZVK8WnOeJ0NYqZ",
+   "edge": "es-MX-JorgeNeural",
+   "rate": "-12%",
+   "pitch": "-2Hz",
+   "fx": "whisper"
+  }
+ },
+ "cover": {
+  "top": "LÍNEA 0 · NOCHE 1",
+  "title": "40 METROS BAJO TIERRA",
+  "scene": "station_section",
+  "t": 6
+ },
+ "beats": [
+  {
+   "who": "n",
+   "say": "Imagina que pierdes el último metro…",
+   "scene": "station_section",
+   "cam": {
+    "f": [
+     400,
+     1096,
+     4.2
+    ],
+    "t": [
+     400,
+     1060,
+     2.6
+    ],
+    "e": "inout"
+   },
+   "hud": {
+    "time": "23:58",
+    "place": "ANDÉN 0"
+   },
+   "amb": "tunnel",
+   "pause": 0.15
+  },
+  {
+   "who": "n",
+   "say": "a cuarenta metros bajo tierra.",
+   "scene": "station_section",
+   "cam": {
+    "f": [
+     400,
+     1060,
+     2.6
+    ],
+    "t": [
+     360,
+     700,
+     1
+    ],
+    "e": "inout"
+   },
+   "sfx": [
+    [
+     "boom",
+     0.3
+    ]
+   ],
+   "pause": 0.1
+  },
+  {
+   "who": "n",
+   "say": "Y estás completamente solo.",
+   "scene": "station_section",
+   "p": {
+    "pin": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     700,
+     1
+    ],
+    "t": [
+     360,
+     690,
+     1.04
+    ]
+   },
+   "ov": {
+    "t": "title",
+    "top": "LÍNEA 0",
+    "big": "NOCHE 1"
+   },
+   "pause": 0.9,
+   "sfx": [
+    [
+     "hit",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "El móvil dice que el servicio ha terminado. Te queda un cuatro por ciento de batería.",
+   "scene": "phone_lock",
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.08
+    ],
+    "t": [
+     360,
+     620,
+     1.0
+    ]
+   },
+   "sfx": [
+    [
+     "buzz",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Entonces el panel se apaga…",
+   "scene": "platform",
+   "p": {
+    "view": "sign",
+    "flip": 1.1
+   },
+   "cam": {
+    "f": [
+     360,
+     520,
+     1.1
+    ],
+    "t": [
+     360,
+     340,
+     1.7
+    ]
+   },
+   "sfx": [
+    [
+     "flicker",
+     1.0
+    ]
+   ],
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "y vuelve con un tren que no aparece en ningún mapa.",
+   "scene": "platform",
+   "p": {
+    "view": "sign",
+    "flip": 0
+   },
+   "cam": {
+    "f": [
+     360,
+     340,
+     1.7
+    ],
+    "t": [
+     360,
+     320,
+     2.3
+    ]
+   },
+   "sfx": [
+    [
+     "hit",
+     0.1
+    ]
+   ]
+  },
+  {
+   "who": "pa",
+   "say": "Próximo tren: línea cero. Por favor, lea las normas antes de subir.",
+   "scene": "pa_speaker",
+   "speaker": "MEGAFONÍA",
+   "cam": {
+    "f": [
+     360,
+     560,
+     1.0
+    ],
+    "t": [
+     360,
+     560,
+     1.15
+    ]
+   },
+   "sfx": [
+    [
+     "chime",
+     0
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "Llega sin hacer ruido. Las puertas se abren.",
+   "scene": "train_arrive",
+   "cam": {
+    "f": [
+     360,
+     800,
+     1.0
+    ],
+    "t": [
+     420,
+     760,
+     1.12
+    ]
+   },
+   "sfx": [
+    [
+     "train",
+     0
+    ],
+    [
+     "doors",
+     2.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Dentro, pegado al cristal, hay un papel escrito a mano.",
+   "scene": "note",
+   "cam": {
+    "f": [
+     360,
+     900,
+     1.0
+    ],
+    "t": [
+     360,
+     820,
+     1.25
+    ]
+   },
+   "sfx": [
+    [
+     "paper",
+     0.4
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Regla uno: no te sientes en el último vagón.",
+   "scene": "note",
+   "p": {
+    "line": 1
+   },
+   "ov": {
+    "t": "rule",
+    "n": 1,
+    "text": "NO TE SIENTES EN EL ÚLTIMO VAGÓN"
+   },
+   "cam": {
+    "f": [
+     360,
+     770,
+     1.3
+    ],
+    "t": [
+     360,
+     780,
+     1.4
+    ]
+   }
+  },
+  {
+   "who": "n",
+   "say": "Regla dos: si las luces parpadean, no mires por la ventana.",
+   "scene": "note",
+   "p": {
+    "line": 2
+   },
+   "ov": {
+    "t": "rule",
+    "n": 2,
+    "text": "SI LAS LUCES PARPADEAN, NO MIRES POR LA VENTANA"
+   },
+   "cam": {
+    "f": [
+     360,
+     810,
+     1.4
+    ],
+    "t": [
+     360,
+     830,
+     1.5
+    ]
+   }
+  },
+  {
+   "who": "n",
+   "say": "Regla tres: si alguien dice tu nombre… no contestes.",
+   "scene": "note",
+   "p": {
+    "line": 3
+   },
+   "ov": {
+    "t": "rule",
+    "n": 3,
+    "text": "SI ALGUIEN DICE TU NOMBRE, NO CONTESTES"
+   },
+   "cam": {
+    "f": [
+     360,
+     850,
+     1.5
+    ],
+    "t": [
+     360,
+     870,
+     1.75
+    ]
+   },
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "Subes. Te sientas lo más lejos posible del último vagón.",
+   "scene": "train_interior",
+   "p": {
+    "enter": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.15
+    ],
+    "t": [
+     360,
+     700,
+     1.0
+    ]
+   },
+   "amb": "rumble",
+   "sfx": [
+    [
+     "doors",
+     2.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Una estación. Dos. Tres. El tren no para en ninguna.",
+   "scene": "train_interior",
+   "p": {
+    "speed": 1
+   },
+   "hud": {
+    "time": "00:03"
+   },
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.0
+    ],
+    "t": [
+     360,
+     690,
+     1.08
+    ]
+   },
+   "amb": "rumble",
+   "sfx": [
+    [
+     "whoosh",
+     0.6
+    ],
+    [
+     "whoosh",
+     1.6
+    ],
+    [
+     "whoosh",
+     2.5
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Las luces parpadean.",
+   "scene": "train_interior",
+   "p": {
+    "flicker": 0.2
+   },
+   "amb": "rumble",
+   "sfx": [
+    [
+     "flicker",
+     0.2
+    ]
+   ],
+   "pause": 0.6
+  },
+  {
+   "who": "n",
+   "say": "Clavas la vista en el suelo… pero de reojo ves algo pegado al cristal. Por fuera.",
+   "scene": "train_interior",
+   "p": {
+    "down": 1,
+    "face": 2.4,
+    "flicker": 0
+   },
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.0
+    ],
+    "t": [
+     300,
+     560,
+     1.3
+    ]
+   },
+   "amb": "rumble",
+   "sfx": [
+    [
+     "whoosh",
+     2.5
+    ],
+    [
+     "hit",
+     2.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Y entonces, desde el último vagón, alguien dice tu nombre.",
+   "scene": "car_end",
+   "p": {
+    "figure": 1
+   },
+   "hud": {
+    "time": "00:04"
+   },
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.0
+    ],
+    "t": [
+     360,
+     520,
+     1.6
+    ]
+   },
+   "amb": "rumble"
+  },
+  {
+   "who": "n",
+   "say": "Con tu misma voz.",
+   "scene": "car_end",
+   "p": {
+    "figure": 1,
+    "eyes": 1,
+    "peep": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     520,
+     1.7
+    ],
+    "t": [
+     360,
+     515,
+     2.2
+    ]
+   },
+   "amb": "rumble",
+   "sfx": [
+    [
+     "hit",
+     0.1
+    ]
+   ],
+   "pause": 0.4
+  },
+  {
+   "who": "w",
+   "say": "[whispers] Por favor… contéstame. Sé que estás ahí.",
+   "scene": "car_end",
+   "p": {
+    "figure": 1,
+    "eyes": 1,
+    "peep": 1,
+    "hand": 1
+   },
+   "speaker": "TÚ · DESDE EL ÚLTIMO VAGÓN",
+   "cam": {
+    "f": [
+     360,
+     515,
+     2.2
+    ],
+    "t": [
+     360,
+     512,
+     2.5
+    ]
+   },
+   "amb": "rumble",
+   "pause": 0.5
+  },
+  {
+   "who": "n",
+   "say": "La puerta del fondo empieza a abrirse.",
+   "scene": "car_end",
+   "p": {
+    "figure": 1,
+    "eyes": 1,
+    "open": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     560,
+     1.3
+    ],
+    "t": [
+     360,
+     540,
+     1.5
+    ]
+   },
+   "amb": "rumble",
+   "sfx": [
+    [
+     "creak",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "¿Contestas?",
+   "scene": "train_interior",
+   "p": {
+    "dark": 1,
+    "down": 1
+   },
+   "ov": {
+    "t": "choice",
+    "q": "¿CONTESTAS?",
+    "a": "CONTESTO",
+    "b": "ME CALLO",
+    "foot": "COMENTA ABAJO"
+   },
+   "hold": 2.6,
+   "sfx": [
+    [
+     "riser",
+     0
+    ],
+    [
+     "ding",
+     0.9
+    ]
+   ]
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "end",
+    "big": "NOCHE 1",
+    "time": "00:04",
+    "cta": "SÍGUENOS PARA LA NOCHE 2",
+    "next": "NOCHE 2",
+    "ntime": "00:05"
+   },
+   "hold": 4.0,
+   "sfx": [
+    [
+     "glitch",
+     2.4
+    ],
+    [
+     "hit",
+     2.5
+    ]
+   ]
+  }
+ ]
+}

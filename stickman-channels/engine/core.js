@@ -125,6 +125,7 @@ function stick(o) {
   if (acc.includes('bun')) { circle(hc[0] - 14, hc[1] - 10, 10, line); circle(hc[0] - 14, hc[1] - 10, 7, o.hair || '#4a2c1d'); }
   circle(hc[0], hc[1], L.hr + 2.5, line); circle(hc[0], hc[1], L.hr, o.faceless ? (o.headCol || '#0c0c10') : body);
   if (acc.includes('hair')) { ctx.save(); ctx.beginPath(); ctx.arc(hc[0], hc[1], L.hr, PI * 1.05, PI * 1.95); ctx.lineTo(hc[0], hc[1] - 4); ctx.closePath(); ctx.fillStyle = o.hair || '#4a2c1d'; ctx.fill(); ctx.restore(); }
+  if (acc.includes('cap')) { ctx.save(); ctx.beginPath(); ctx.arc(hc[0], hc[1] - 2, L.hr + 1, PI * 1.02, PI * 1.98); ctx.closePath(); ctx.fillStyle = o.capCol || '#b8262b'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = line; ctx.stroke(); fillRR(hc[0] + 4, hc[1] - 6, 22, 6, 3, o.capCol || '#b8262b'); ctx.restore(); }
   if (acc.includes('pillow')) { ctx.save(); ctx.translate(hc[0], hc[1] - L.hr - 4); ctx.rotate(-.1); fillRR(-24, -10, 48, 18, 9, '#f4efe2'); ctx.lineWidth = 2.5; ctx.strokeStyle = line; ctx.stroke(); seg([[-3, 6], [-6, 22]], 3, '#a1846a'); seg([[3, 6], [6, 22]], 3, '#a1846a'); ctx.restore(); }
   if (!o.faceless) face(hc, o.expr || 'neutral', o.look ?? 1, t, line, acc);
   else if (o.eyes) { circle(hc[0] + 5, hc[1] - 2, 2.2, '#fff'); circle(hc[0] - 3, hc[1] - 2, 2.2, '#fff'); }
@@ -235,8 +236,10 @@ function captions(b, gt) {
 // ---------- overlays ----------
 function overlay(b, t, gt) {
   const o = b.ov; if (!o) return;
+  if (OVX[o.t]) return OVX[o.t](b, t, o);
+  if (o.t === 'rule' && TL.pinRules && t > 1.9) return;
   if (o.t === 'rule') {
-    const a = E.back(cl(t / .3)), a2 = E.out(cl((t - .12) / .35));
+    const a = E.back(cl(t / .3)), a2 = E.out(cl((t - .12) / .35)) * (TL.pinRules ? 1 - E.inout(cl((t - 1.5) / .4)) : 1);
     ctx.save(); ctx.fillStyle = lin(0, 220, 0, 640, [[0, 'rgba(0,0,0,.55)'], [1, 'rgba(0,0,0,0)']]); ctx.globalAlpha = a2; ctx.fillRect(0, 220, W, 420); ctx.restore();
     const lab = (TL.ch === 'historia' ? 'REGLA ' : 'REGLA #') + o.n; const lw = measure(lab, 26, 'Montserrat', 900, 3) + 40;
     ctx.save(); ctx.translate(W / 2, 300); ctx.scale(a, a); fillRR(-lw / 2, -24, lw, 48, TL.ch === 'lunes' ? 24 : 6, S.accent2); text(lab, 0, 1, { size: 26, w: 900, ls: 3 }); ctx.restore();
@@ -317,7 +320,9 @@ const SCENES = {};
 function setup(tl) {
   TL = tl; S = CH[tl.ch];
   let hudState = {};
-  tl.beats.forEach(b => { hudState = Object.assign({}, hudState, b.hud || {}); b._hud = hudState; b.p = b.p || {}; });
+  let pin = null; TL.pinRules = !!tl.voices || /v2/.test(tl.id);
+  tl.beats.forEach(b => { hudState = Object.assign({}, hudState, b.hud || {}); b._hud = hudState; b.p = b.p || {};
+    if (b.ov && b.ov.t === 'rule') pin = { n: b.ov.n, text: b.ov.text }; if (b.ov && (b.ov.t === 'choice' || b.ov.t === 'end')) pin = null; b._pin = pin; });
 }
 function renderAt(gt) {
   const i = Math.max(0, TL.beats.findIndex(b => gt < b.end)); const b = i < 0 ? TL.beats[TL.beats.length - 1] : TL.beats[i];
@@ -325,16 +330,19 @@ function renderAt(gt) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   ctx.save();
   // cámara: zoom lento + sacudida en impactos
-  const z = (b.p.zoom || 1) * (1 + .05 * E.inout(t / Math.max(1, b.end - b.start)));
+  const bd = Math.max(.5, b.end - b.start);
+  let cx = W / 2, cy = H / 2, z = (b.p.zoom || 1) * (1 + .05 * E.inout(t / Math.max(1, bd)));
+  if (b.cam) { const k = (E[b.cam.e || 'inout'] || E.inout)(t / (bd * (b.cam.d || 1))); const f = b.cam.f, to = b.cam.t || f; cx = lerp(f[0], to[0], k); cy = lerp(f[1], to[1], k); z = lerp(f[2], to[2], k); }
   let shx = 0, shy = 0; const hits = (b.sfx || []).filter(([n]) => ['hit', 'boom', 'thud', 'crack'].includes(n));
   hits.forEach(([n, at]) => { const k = t - at; if (k > 0 && k < .5) { const m = (1 - k / .5) * (n === 'boom' ? 18 : 10); shx += Math.sin(k * 90) * m; shy += Math.cos(k * 70) * m; } });
   if (b.p.shake) { shx += Math.sin(gt * 47) * 7; shy += Math.cos(gt * 39) * 7; }
-  ctx.translate(W / 2 + shx, H / 2 + shy); ctx.scale(z, z); ctx.translate(-W / 2, -H / 2);
+  ctx.translate(W / 2 + shx, H / 2 + shy); ctx.scale(z, z); ctx.translate(-cx, -cy);
   (SCENES[b.scene] || SCENES.black)(t, b.p, b, gt);
   ctx.restore();
   // flash de corte
   if (t < .08 && i > 0) { ctx.fillStyle = `rgba(0,0,0,${1 - t / .08})`; ctx.fillRect(0, 0, W, H); }
-  hud(b, t, gt); overlay(b, t, gt); captions(b, gt);
+  if (b.scene !== 'black' || !b.ov || b.ov.t !== 'end') hud(b, t, gt);
+  pinned(b, t); overlay(b, t, gt); speaker(b, t); captions(b, gt);
   // grano
   ctx.save(); ctx.globalCompositeOperation = 'overlay'; ctx.globalAlpha = TL.ch === 'lunes' ? .06 : .12; ctx.drawImage(GRAIN, -100, -100); ctx.restore();
 }
@@ -358,3 +366,47 @@ function coverFrame(c) {
   ctx.save(); ctx.globalCompositeOperation = 'overlay'; ctx.globalAlpha = .25; ctx.drawImage(GRAIN, 0, 0); ctx.restore();
   return cv.toDataURL('image/jpeg', .9);
 }
+
+// ---------- v2: regla fijada, quién habla, título y cierre ----------
+function pinned(b, t) {
+  if (!TL.pinRules || !b._pin) return;
+  const r = b._pin, own = b.ov && b.ov.t === 'rule';
+  const a = own ? E.out(cl((t - 1.6) / .35)) : 1; if (a <= 0) return;
+  ctx.save(); ctx.globalAlpha = a;
+  const lab = 'REGLA #' + r.n, lw = measure(lab, 14, 'Montserrat', 900, 2) + 20;
+  fillRR(W / 2 - lw / 2, 214, lw, 24, 4, S.accent2); text(lab, W / 2, 227, { size: 14, w: 900, ls: 2 });
+  let fz = 34; while (measure(r.text, fz, S.head, 400, 1) > W - 80) fz -= 1;
+  text(r.text, W / 2, 266, { size: fz, fam: S.head, w: 400, color: '#fff', stroke: 'rgba(0,0,0,.75)', sw: 6, ls: 1 });
+  fillRR(W / 2 - 40, 288, 80, 3, 2, S.accent2);
+  ctx.restore();
+}
+function speaker(b, t) {
+  if (!b.speaker) return; const y = H * (S.capY || .69) - 50; const a = E.out(cl(t / .3));
+  const w = measure(b.speaker, 14, 'Montserrat', 900, 2) + 26;
+  ctx.save(); ctx.globalAlpha = a; fillRR(W / 2 - w / 2, y - 14, w, 28, 14, 'rgba(0,0,0,.65)'); ctx.lineWidth = 1.5; ctx.strokeStyle = '#ff9f43'; ctx.stroke();
+  text(b.speaker, W / 2, y + 1, { size: 14, w: 900, color: '#ff9f43', ls: 2 }); ctx.restore();
+}
+const OVX = {
+  title(b, t, o) {
+    const a = E.out(cl(t / .5)) * (1 - E.inout(cl((t - (b.end - b.start) + .5) / .5)));
+    ctx.save(); ctx.globalAlpha = a; ctx.fillStyle = lin(0, 160, 0, 520, [[0, 'rgba(0,0,0,.55)'], [1, 'rgba(0,0,0,0)']]); ctx.fillRect(0, 160, W, 360);
+    text(o.top, W / 2, 262, { size: 30, w: 900, ls: 10, color: 'rgba(255,255,255,.85)' });
+    const g = E.out(cl((t - .15) / .6)); ctx.translate(W / 2, 352); ctx.scale(.9 + .1 * g, .9 + .1 * g);
+    text(o.big, 0, 0, { size: 128, fam: S.head, w: 400, color: '#fff', shadow: S.accent, blur: 30, ls: 3 }); ctx.restore();
+  },
+  end(b, t, o) {
+    const gl = 2.4, after = t > gl + .25, g = t > gl && t < gl + .25;
+    ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
+    glow(W / 2, 1180, 420, 'rgba(255,200,120,.12)');
+    const a = E.out(cl(t / .5)); ctx.save(); ctx.globalAlpha = a;
+    const jx = g ? (hash(Math.floor(t * 60)) - .5) * 40 : 0;
+    const big = after ? o.next : o.big, col = after ? '#ff3b30' : '#fff', tm = after ? o.ntime : o.time;
+    text(TL.series, W / 2 + jx, 470, { size: 40, fam: S.head, w: 400, ls: 6, color: 'rgba(255,255,255,.85)' });
+    if (g) { text(big, W / 2 + jx + 8, 590, { size: 150, fam: S.head, w: 400, color: 'rgba(255,0,60,.7)' }); text(big, W / 2 + jx - 8, 590, { size: 150, fam: S.head, w: 400, color: 'rgba(0,220,255,.7)' }); }
+    text(big, W / 2 + jx, 590, { size: 150, fam: S.head, w: 400, color: col, shadow: col, blur: after ? 40 : 18, ls: 4 });
+    text(tm, W / 2, 690, { size: 26, w: 800, ls: 6, color: 'rgba(255,255,255,.7)' });
+    if (!after) { const cw = measure(o.cta, 17, 'Montserrat', 900, 2) + 40; const pu = 1 + Math.sin(t * 6) * .03; ctx.save(); ctx.translate(W / 2, 760); ctx.scale(pu, pu); fillRR(-cw / 2, -20, cw, 40, 20, 'rgba(255,255,255,.12)'); ctx.lineWidth = 1.5; ctx.strokeStyle = 'rgba(255,255,255,.5)'; ctx.stroke(); text(o.cta, 0, 1, { size: 17, w: 900, ls: 2 }); ctx.restore(); }
+    ctx.restore();
+    if (g) { for (let i = 0; i < 8; i++) { ctx.fillStyle = `rgba(255,255,255,${hash(i + t * 90) * .15})`; ctx.fillRect(0, hash(i * 7 + Math.floor(t * 60)) * H, W, 4 + hash(i) * 30); } }
+  },
+};

@@ -198,7 +198,14 @@ def music(ch, d):
 
 # ---------- build ----------
 def build(spec_path, eleven=False):
-    spec = json.load(open(spec_path)); vid = spec['id']
+    spec = json.load(open(spec_path))
+    if 'branches' in spec:  # episodio con dos aperturas: una por cada resultado del voto
+        for k, pre in spec['branches'].items():
+            build_spec({**{x: y for x, y in spec.items() if x != 'branches'}, 'id': spec['id'] + k, 'beats': pre + spec['beats']}, eleven)
+    else: build_spec(spec, eleven)
+
+def build_spec(spec, eleven=False):
+    vid = spec['id']
     d = os.path.join(BUILD, vid); os.makedirs(d, exist_ok=True)
     beats, cursor, voice_tracks = [], 0.35, []
     for i, b in enumerate(spec['beats']):
