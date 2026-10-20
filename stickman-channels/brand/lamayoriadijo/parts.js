@@ -40,22 +40,26 @@ const wordmark = (w = 1600, h = 520, tag = true, col = '#fff') => `<svg xmlns="h
 <path d="M185 362 H822 L800 392 H185 A15 15 0 0 1 185 362Z" fill="${C.amber}"/>
 ${tag ? `<text x="800" y="470" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="40" letter-spacing="10" fill="${col}" opacity=".75">TÚ DECIDES CÓMO SIGUE LA HISTORIA</text>` : ''}
 </svg>`;
-// foto de perfil: un bocadillo de comentario con algo asomando dentro
+// foto de perfil: el monigote asomándose por encima de un bocadillo de comentario
 const bubble = (ring = true) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
-<defs><radialGradient id="bbg" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#1c2232"/><stop offset="1" stop-color="#040508"/></radialGradient>
-<linearGradient id="bin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232a3e"/><stop offset="1" stop-color="#0b0e15"/></linearGradient>
-<clipPath id="bcl"><rect x="196" y="262" width="632" height="420" rx="130"/></clipPath></defs>
+<defs><radialGradient id="bbg" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#1c2232"/><stop offset="1" stop-color="#040508"/></radialGradient></defs>
 <circle cx="512" cy="512" r="512" fill="url(#bbg)"/>
-<path d="M330 680 L300 830 L470 690Z" fill="${C.amber}"/>
-<rect x="176" y="242" width="672" height="460" rx="150" fill="${C.amber}"/>
-<rect x="196" y="262" width="632" height="420" rx="130" fill="url(#bin)"/>
-<g clip-path="url(#bcl)">
- <ellipse cx="512" cy="790" rx="250" ry="200" fill="${C.bone}"/>
- <ellipse cx="426" cy="642" rx="62" ry="43" fill="#fff" stroke="#111" stroke-width="10"/>
- <ellipse cx="598" cy="642" rx="62" ry="43" fill="#fff" stroke="#111" stroke-width="10"/>
- <circle cx="444" cy="648" r="20" fill="#111"/><circle cx="616" cy="648" r="20" fill="#111"/>
- <circle cx="390" cy="380" r="16" fill="${C.amber}" opacity=".9"/><circle cx="512" cy="380" r="16" fill="${C.amber}" opacity=".6"/><circle cx="634" cy="380" r="16" fill="${C.amber}" opacity=".3"/>
+<!-- cabeza: asoma por detrás del bocadillo -->
+<circle cx="512" cy="410" r="200" fill="${C.bone}" stroke="#111" stroke-width="16"/>
+<ellipse cx="436" cy="378" rx="62" ry="50" fill="#fff" stroke="#111" stroke-width="12"/>
+<ellipse cx="588" cy="378" rx="62" ry="50" fill="#fff" stroke="#111" stroke-width="12"/>
+<circle cx="452" cy="392" r="23" fill="#111"/><circle cx="604" cy="392" r="23" fill="#111"/>
+<path d="M400 312 Q436 292 470 306 M554 306 Q588 292 624 312" fill="none" stroke="#111" stroke-width="12" stroke-linecap="round"/>
+<!-- bocadillo -->
+<path d="M330 790 L300 900 L450 790Z" fill="${C.amber}"/>
+<rect x="166" y="500" width="692" height="300" rx="110" fill="${C.amber}"/>
+<rect x="196" y="530" width="632" height="240" rx="86" fill="#141823"/>
+<circle cx="392" cy="650" r="28" fill="${C.amber}"/><circle cx="512" cy="650" r="28" fill="${C.amber}" opacity=".7"/><circle cx="632" cy="650" r="28" fill="${C.amber}" opacity=".4"/>
+<!-- manos agarrando el borde -->
+<g fill="${C.bone}" stroke="#111" stroke-width="12">
+ <rect x="300" y="470" width="96" height="70" rx="35"/><rect x="628" y="470" width="96" height="70" rx="35"/>
 </g>
+<path d="M330 476 V510 M362 476 V510 M658 476 V510 M690 476 V510" stroke="#111" stroke-width="8" stroke-linecap="round"/>
 ${ring ? `<circle cx="512" cy="512" r="494" fill="none" stroke="${C.amber}" stroke-width="12" opacity=".5"/>` : ''}
 </svg>`;
 module.exports = { C, avatar, bubble, wordmark, mirror };

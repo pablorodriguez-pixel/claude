@@ -29,7 +29,7 @@
 «LA MAYORÍA DIJO» en Anton, con la Í en ámbar. Debajo, la barra de votos (ámbar contra verde), siempre casi empatada: es la firma del canal.
 
 ## Foto de perfil
-Un bocadillo de comentario ámbar con unos ojos asomando dentro. Junta la votación y el terror, y se reconoce en tamaño pequeño.
+El monigote asomándose por encima de un bocadillo de comentario, agarrado al borde: el protagonista esperando a ver qué decís. Se reconoce en tamaño pequeño y no depende de ninguna historia.
 `serie-no-mires-atras.png` (el retrovisor) queda como portada de la serie.
 
 ## Paleta
