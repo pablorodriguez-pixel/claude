@@ -1,0 +1,79 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[laughs] ¡Yolanda Díaz lo ha dicho ella solita!"
+  },
+  {
+   "who": "VECINO",
+   "text": "«Desde que he llegado al Gobierno, el principal problema de los españoles es la vivienda.»",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y técnicamente... es verdad.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Llegó en enero de dos mil veinte. Y en diciembre de dos mil veinticuatro, por primera vez, la vivienda fue el problema número uno en el CIS.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] ¿Entonces la culpa es suya? Espera, que vienen los datos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Dato uno: en dos mil seis se terminaron más de quinientas mil viviendas. En dos mil veinticuatro, unas cien mil. Cinco veces menos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Dato dos: vivienda social. En Europa, de media, es el nueve por ciento. En España, apenas el dos y medio.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Dato tres: según los portales, el alquiler medio casi se ha doblado en diez años. Los sueldos, ni de lejos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y aquí viene lo incómodo: esto viene de gobiernos de todos los colores. Y la vivienda la gestionan sobre todo comunidades y ayuntamientos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: las cifras oficiales del alquiler suben menos que las de los portales."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: ella no lo causó... pero tampoco lo ha arreglado. Ni ella, ni nadie en veinte años.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cuánto de tu sueldo se va en el piso? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

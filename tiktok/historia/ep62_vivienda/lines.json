@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Yolanda Díaz lo ha dicho ella solita!",
+  "s": 0.12,
+  "e": 2.356
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "«Desde que he llegado al Gobierno, el principal problema de los españoles es la vivienda.»",
+  "s": 2.706,
+  "e": 7.018
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Y técnicamente... es verdad.",
+  "s": 7.318,
+  "e": 9.763
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Llegó en enero de dos mil veinte. Y en diciembre de dos mil veinticuatro, por primera vez, la vivienda fue el problema número uno en el CIS.",
+  "s": 10.063,
+  "e": 17.498
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "¿Entonces la culpa es suya? Espera, que vienen los datos.",
+  "s": 17.798,
+  "e": 21.175
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 21.475,
+  "e": 24.081
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dato uno: en dos mil seis se terminaron más de quinientas mil viviendas. En dos mil veinticuatro, unas cien mil. Cinco veces menos.",
+  "s": 24.381,
+  "e": 32.459
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Dato dos: vivienda social. En Europa, de media, es el nueve por ciento. En España, apenas el dos y medio.",
+  "s": 32.759,
+  "e": 39.713
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Dato tres: según los portales, el alquiler medio casi se ha doblado en diez años. Los sueldos, ni de lejos.",
+  "s": 40.013,
+  "e": 47.049
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y aquí viene lo incómodo: esto viene de gobiernos de todos los colores. Y la vivienda la gestionan sobre todo comunidades y ayuntamientos.",
+  "s": 47.349,
+  "e": 56.066
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: las cifras oficiales del alquiler suben menos que las de los portales.",
+  "s": 56.366,
+  "e": 60.514
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: ella no lo causó... pero tampoco lo ha arreglado. Ni ella, ni nadie en veinte años.",
+  "s": 60.864,
+  "e": 68.379
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Cuánto de tu sueldo se va en el piso? Os leo.",
+  "s": 68.679,
+  "e": 71.712
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 72.062,
+  "e": 75.017
+ }
+]
