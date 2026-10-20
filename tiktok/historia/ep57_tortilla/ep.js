@@ -22,10 +22,10 @@ const MAIZ = (c, x, y, w, o = {}) => figura(c, x, y, w, w, maizInner(), '0 0 400
 const MONTES = (c, x, y, w) => { const b = box(c, x, y, w, w / 2, { zIndex: 5 }); b.innerHTML = `<svg viewBox="0 0 600 300" width="100%" height="100%" style="overflow:visible">${FIGP('M0,300 L150,70 L250,180 L360,20 L470,150 L600,300 Z', '#8fa07a', 6, .3)}<path d="M330,62 L360,20 L392,64 L372,54 L350,70 Z" fill="#fff" stroke="${INK}" stroke-width="4"/></svg>`; return b; };
 
 /* L0 · PORTADA: tortilla partida, mitad 🇪🇸 mitad 🇵🇪 */
-plano(-1, L(1) - 0.1, { background: '#7a1f1f' }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.18)', 'rgba(0,0,0,0)', 0);
-  texto(c, 290, 'La tortilla de patatas…', { size: 80, color: '#fff' });
-  const t2 = texto(c, 400, 'NO es 100 % ' + hlSpan('española', 'phl'), { size: 104, italic: true, color: '#fff', shadow: OUTL(INK, 7) });
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  texto(c, 290, 'La tortilla de patatas…', { size: 80 });
+  const t2 = texto(c, 400, 'NO es 100 % ' + hlSpan('española', 'phl'), { size: 104, italic: true });
   const tl = TORTILLA(c, 140, 640, 800, { partida: true });
   texto(c, 1240, '🇪🇸 + 🇵🇪', { size: 120 });
   sfx('swoosh_up', 0.05, 0.6);
