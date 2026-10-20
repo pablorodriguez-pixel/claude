@@ -1,0 +1,84 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El kétchup se vendía en la farmacia!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Como medicina. Y el final de esta historia... lo tienes en tu nevera.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero empieza en China: el «ke-chiap» era una salsa de pescado fermentado. Sin un solo tomate.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Los marineros ingleses la copian... con lo que pillan: champiñones, nueces, anchoas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Hasta que en mil ochocientos treinta y cuatro, un médico americano anuncia que el tomate lo cura todo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La diarrea, la indigestión... ¡hasta el cólera! Y receta... kétchup.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y alguien huele el negocio: pastillas de tomate. Se venden como churros.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Hasta que salen copias por todas partes... y algunas, en vez de tomate, llevaban laxante.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Hacia mil ochocientos cincuenta, la moda muere. Y el kétchup vuelve a la cocina... para quedarse.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ahora, lo de tu nevera: Heinz dice que, si no sale, des un golpecito... justo en el cincuenta y siete del cuello.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: las fechas de las pastillas cambian según la fuente."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: lo que hoy echas a las patatas... antes se vendía como medicina.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A qué le echas tú kétchup que nadie entiende? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

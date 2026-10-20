@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El kétchup se vendía en la farmacia!",
+  "s": 0.12,
+  "e": 2.163
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Como medicina. Y el final de esta historia... lo tienes en tu nevera.",
+  "s": 2.513,
+  "e": 7.79
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Pero empieza en China: el «ke-chiap» era una salsa de pescado fermentado. Sin un solo tomate.",
+  "s": 8.09,
+  "e": 14.248
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Los marineros ingleses la copian... con lo que pillan: champiñones, nueces, anchoas.",
+  "s": 14.548,
+  "e": 19.824
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Hasta que en mil ochocientos treinta y cuatro, un médico americano anuncia que el tomate lo cura todo.",
+  "s": 20.124,
+  "e": 25.049
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La diarrea, la indigestión... ¡hasta el cólera! Y receta... kétchup.",
+  "s": 25.349,
+  "e": 31.742
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 32.042,
+  "e": 34.649
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y alguien huele el negocio: pastillas de tomate. Se venden como churros.",
+  "s": 34.949,
+  "e": 39.585
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Hasta que salen copias por todas partes... y algunas, en vez de tomate, llevaban laxante.",
+  "s": 39.885,
+  "e": 45.403
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Hacia mil ochocientos cincuenta, la moda muere. Y el kétchup vuelve a la cocina... para quedarse.",
+  "s": 45.703,
+  "e": 51.453
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y ahora, lo de tu nevera: Heinz dice que, si no sale, des un golpecito... justo en el cincuenta y siete del cuello.",
+  "s": 51.753,
+  "e": 59.585
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: las fechas de las pastillas cambian según la fuente.",
+  "s": 59.885,
+  "e": 63.56
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: lo que hoy echas a las patatas... antes se vendía como medicina.",
+  "s": 63.91,
+  "e": 68.624
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿A qué le echas tú kétchup que nadie entiende? Os leo.",
+  "s": 68.924,
+  "e": 71.875
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 72.225,
+  "e": 75.18
+ }
+]
