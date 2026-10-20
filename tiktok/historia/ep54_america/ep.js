@@ -30,10 +30,10 @@ const BANDERA = (c, x, y, w) => { const h = w * 0.62, b = box(c, x, y, w, h, { z
 const PAL = (c, y, html, o = {}) => texto(c, y, html, Object.assign({ size: 140, color: INK }, o));
 
 /* L0 · PORTADA: «Estados Unidos se quedó un nombre que no era suyo» */
-plano(-1, L(1) - 0.1, { background: AZUL }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.18)', 'rgba(0,0,0,0)', 0);
-  texto(c, 300, '🇺🇸 Estados Unidos se quedó…', { size: 62, color: '#fff' });
-  const t2 = texto(c, 390, hlSpan('un nombre que', 'phl') + '<br>no era suyo', { size: 104, italic: true, color: '#fff', shadow: OUTL(INK, 6) });
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  texto(c, 300, '🇺🇸 Estados Unidos se quedó…', { size: 62 });
+  const t2 = texto(c, 390, hlSpan('un nombre que', 'phl') + '<br>no era suyo', { size: 104, italic: true });
   const tag = figura(c, 190, 720, 700, 420, nameTagInner('AMÉRICA'), '0 0 700 420', { z: 7, origin: '50% 50%' });
   sello(c, 1180, '¡NO ERA SUYO!', T.suyo0, { size: 110, r: -7, bg: 'rgba(255,255,255,.85)' });
   sfx('swoosh_up', 0.05, 0.6);
