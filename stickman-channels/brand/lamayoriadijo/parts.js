@@ -1,4 +1,4 @@
-// Piezas SVG de la identidad «No mires atrás»
+// Piezas SVG de la identidad «La mayoría dijo»
 const C = { night: '#07090e', asphalt: '#1a1d26', amber: '#ffc24d', red: '#e5383b', ecg: '#3dff8a', gps: '#3d8bff', bone: '#ecebe6' };
 // retrovisor con algo asomando: el plano firma de la serie
 const mirror = (id) => `
@@ -33,11 +33,29 @@ const avatar = (ring = true) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox
 ${mirror('a').replace('<g transform="rotate', '<circle cx="512" cy="512" r="512" fill="url(#abg)"/><circle cx="512" cy="512" r="512" fill="url(#ahl)"/><g transform="translate(512 540) scale(1.16) translate(-512 -480)"><g transform="rotate')}</g>
 ${ring ? `<circle cx="512" cy="512" r="494" fill="none" stroke="${C.amber}" stroke-width="12" opacity=".85"/>` : ''}
 </svg>`;
-// logotipo: el acento de la Á es la luz del farol
+// logotipo: la Í en el ámbar del farol y debajo el recuento de votos, siempre ajustado
 const wordmark = (w = 1600, h = 520, tag = true, col = '#fff') => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" width="${w}" height="${h}">
-<defs><filter id="wg" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="10"/></filter></defs>
-<text x="800" y="300" text-anchor="middle" font-family="Anton" font-size="230" letter-spacing="6" textLength="1440" lengthAdjust="spacingAndGlyphs" fill="${col}">NO MIRES ATR<tspan fill="${C.amber}">Á</tspan>S</text>
-<path d="M170 380 L640 380 L668 340 L700 408 L732 330 L758 380 L1430 380" fill="none" stroke="${C.amber}" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
-${tag ? `<text x="800" y="470" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="40" letter-spacing="10" fill="${col}" opacity=".75">HISTORIAS DONDE TÚ ERES EL PROTAGONISTA</text>` : ''}
+<text x="800" y="300" text-anchor="middle" font-family="Anton" font-size="230" letter-spacing="6" textLength="1440" lengthAdjust="spacingAndGlyphs" fill="${col}">LA MAYOR<tspan fill="${C.amber}">Í</tspan>A DIJO</text>
+<rect x="170" y="362" width="1260" height="30" rx="15" fill="${C.ecg}"/>
+<path d="M185 362 H822 L800 392 H185 A15 15 0 0 1 185 362Z" fill="${C.amber}"/>
+${tag ? `<text x="800" y="470" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="40" letter-spacing="10" fill="${col}" opacity=".75">TÚ DECIDES CÓMO SIGUE LA HISTORIA</text>` : ''}
 </svg>`;
-module.exports = { C, avatar, wordmark, mirror };
+// foto de perfil: un bocadillo de comentario con algo asomando dentro
+const bubble = (ring = true) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<defs><radialGradient id="bbg" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#1c2232"/><stop offset="1" stop-color="#040508"/></radialGradient>
+<linearGradient id="bin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232a3e"/><stop offset="1" stop-color="#0b0e15"/></linearGradient>
+<clipPath id="bcl"><rect x="196" y="262" width="632" height="420" rx="130"/></clipPath></defs>
+<circle cx="512" cy="512" r="512" fill="url(#bbg)"/>
+<path d="M330 680 L300 830 L470 690Z" fill="${C.amber}"/>
+<rect x="176" y="242" width="672" height="460" rx="150" fill="${C.amber}"/>
+<rect x="196" y="262" width="632" height="420" rx="130" fill="url(#bin)"/>
+<g clip-path="url(#bcl)">
+ <ellipse cx="512" cy="790" rx="250" ry="200" fill="${C.bone}"/>
+ <ellipse cx="426" cy="642" rx="62" ry="43" fill="#fff" stroke="#111" stroke-width="10"/>
+ <ellipse cx="598" cy="642" rx="62" ry="43" fill="#fff" stroke="#111" stroke-width="10"/>
+ <circle cx="444" cy="648" r="20" fill="#111"/><circle cx="616" cy="648" r="20" fill="#111"/>
+ <circle cx="390" cy="380" r="16" fill="${C.amber}" opacity=".9"/><circle cx="512" cy="380" r="16" fill="${C.amber}" opacity=".6"/><circle cx="634" cy="380" r="16" fill="${C.amber}" opacity=".3"/>
+</g>
+${ring ? `<circle cx="512" cy="512" r="494" fill="none" stroke="${C.amber}" stroke-width="12" opacity=".5"/>` : ''}
+</svg>`;
+module.exports = { C, avatar, bubble, wordmark, mirror };

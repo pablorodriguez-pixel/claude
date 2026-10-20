@@ -3,19 +3,16 @@ const { chromium } = require('playwright'); const fs = require('fs'); const path
 const P = require('./parts'); const { C } = P; const F = '../../engine/fonts';
 const css = `<style>@font-face{font-family:Anton;src:url(${F}/anton-latin-400-normal.woff2)}@font-face{font-family:Montserrat;font-weight:800;src:url(${F}/montserrat-latin-800-normal.woff2)}@font-face{font-family:Montserrat;font-weight:900;src:url(${F}/montserrat-latin-900-normal.woff2)}html,body{margin:0;background:transparent}svg{display:block}</style>`;
 const pieces = {
-  'avatar': [1024, 1024, P.avatar(true)],
-  'avatar-sin-aro': [1024, 1024, P.avatar(false)],
+  'avatar': [1024, 1024, P.bubble(true)],
+  'avatar-sin-aro': [1024, 1024, P.bubble(false)],
+  'serie-no-mires-atras': [1024, 1024, P.avatar(true)],
   'logo': [1600, 520, P.wordmark()],
   'logo-negro': [1600, 520, P.wordmark(1600, 520, true, '#111115')],
   'banner-youtube': [2560, 1440, `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2560 1440" width="2560" height="1440">
     <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0f1a"/><stop offset="1" stop-color="#030406"/></linearGradient>
     <radialGradient id="lg" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff3c4"/><stop offset=".2" stop-color="${C.amber}" stop-opacity=".8"/><stop offset="1" stop-color="${C.amber}" stop-opacity="0"/></radialGradient></defs>
     <rect width="2560" height="1440" fill="url(#sky)"/>
-    <path d="M0 860 L2560 860 L2560 1440 L0 1440Z" fill="#07080c"/>
-    <path d="M1100 1440 L1262 860 L1298 860 L1460 1440Z" fill="#12141b"/>
-    ${[0,1,2,3,4].map(i => `<path d="M${1275-i*4} ${880+i*i*28+i*40} l${8+i*8} 0 l${2+i*3} ${18+i*14} l${-(12+i*14)} 0z" fill="${C.amber}" opacity=".55"/>`).join('')}
-    ${Array.from({length: 26}, (_, i) => { const x = i < 13 ? i * 92 : 1500 + (i - 13) * 85; const h = 120 + ((i * 53) % 110); return `<path d="M${x} 862 L${x + 46} ${862 - h} L${x + 92} 862Z" fill="#030406"/>`; }).join('')}
-    <circle cx="2180" cy="850" r="95" fill="url(#lg)"/><circle cx="2180" cy="850" r="9" fill="#fff6d8"/>
+    ${Array.from({length: 22}, (_, i) => { const x = 120 + (i * 557) % 2320, y = 140 + (i * 331) % 1160, s = .5 + ((i * 7) % 5) * .12, o = .05 + ((i * 3) % 4) * .025; if (x > 450 && x < 2110 && y > 430 && y < 1110) return ''; return `<g transform="translate(${x} ${y}) scale(${s})" opacity="${o * 2}"><rect x="-120" y="-80" width="240" height="160" rx="56" fill="none" stroke="${C.amber}" stroke-width="10"/><path d="M-70 78 L-84 130 L-20 80" fill="${C.amber}"/><circle cx="-50" r="12" fill="${C.amber}"/><circle r="12" fill="${C.amber}"/><circle cx="50" r="12" fill="${C.amber}"/></g>`; }).join('')}
     <g transform="translate(507 520) scale(.97)">${P.wordmark(1600, 520).replace(/<svg[^>]*>/, '').replace('</svg>', '')}</g>
     <text x="1280" y="1060" text-anchor="middle" font-family="Montserrat" font-weight="900" font-size="38" letter-spacing="8" fill="#fff" opacity=".85">NUEVA PARTE · LUN · MIÉ · VIE · 21:00</text>
     </svg>`],

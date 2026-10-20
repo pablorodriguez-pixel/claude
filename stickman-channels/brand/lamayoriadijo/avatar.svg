@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+<defs><radialGradient id="bbg" cx="50%" cy="40%" r="65%"><stop offset="0" stop-color="#1c2232"/><stop offset="1" stop-color="#040508"/></radialGradient>
+<linearGradient id="bin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232a3e"/><stop offset="1" stop-color="#0b0e15"/></linearGradient>
+<clipPath id="bcl"><rect x="196" y="262" width="632" height="420" rx="130"/></clipPath></defs>
+<circle cx="512" cy="512" r="512" fill="url(#bbg)"/>
+<path d="M330 680 L300 830 L470 690Z" fill="#ffc24d"/>
+<rect x="176" y="242" width="672" height="460" rx="150" fill="#ffc24d"/>
+<rect x="196" y="262" width="632" height="420" rx="130" fill="url(#bin)"/>
+<g clip-path="url(#bcl)">
+ <ellipse cx="512" cy="790" rx="250" ry="200" fill="#ecebe6"/>
+ <ellipse cx="426" cy="642" rx="62" ry="43" fill="#fff" stroke="#111" stroke-width="10"/>
+ <ellipse cx="598" cy="642" rx="62" ry="43" fill="#fff" stroke="#111" stroke-width="10"/>
+ <circle cx="444" cy="648" r="20" fill="#111"/><circle cx="616" cy="648" r="20" fill="#111"/>
+ <circle cx="390" cy="380" r="16" fill="#ffc24d" opacity=".9"/><circle cx="512" cy="380" r="16" fill="#ffc24d" opacity=".6"/><circle cx="634" cy="380" r="16" fill="#ffc24d" opacity=".3"/>
+</g>
+<circle cx="512" cy="512" r="494" fill="none" stroke="#ffc24d" stroke-width="12" opacity=".5"/>
+</svg>

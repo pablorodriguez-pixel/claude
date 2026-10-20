@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 520" width="1600" height="520">
+<text x="800" y="300" text-anchor="middle" font-family="Anton" font-size="230" letter-spacing="6" textLength="1440" lengthAdjust="spacingAndGlyphs" fill="#111115">LA MAYOR<tspan fill="#ffc24d">Í</tspan>A DIJO</text>
+<rect x="170" y="362" width="1260" height="30" rx="15" fill="#3dff8a"/>
+<path d="M185 362 H822 L800 392 H185 A15 15 0 0 1 185 362Z" fill="#ffc24d"/>
+<text x="800" y="470" text-anchor="middle" font-family="Montserrat" font-weight="800" font-size="40" letter-spacing="10" fill="#111115" opacity=".75">TÚ DECIDES CÓMO SIGUE LA HISTORIA</text>
+</svg>
