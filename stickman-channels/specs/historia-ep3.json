@@ -1,0 +1,17 @@
+{"id":"historia-ep3","ch":"historia","series":"¿SOBREVIVIRÍAS?","ep":"VIAJE 3","day":"1 NOV 1755",
+ "voice":"es-ES-AlvaroNeural","rate":"-2%","pitch":"-2Hz","eleven":"Yqxik8v3XlyYOTWnDIVu",
+ "cover":{"top":"VIAJE 3","title":"LISBOA","sub":"1755","scene":"plaza","t":2,"p":{"recede":1}},
+ "beats":[
+  {"say":"Lisboa, 1 de noviembre de 1755. Día de Todos los Santos. Son las nueve y cuarenta de la mañana.","scene":"title","p":{"title":"LISBOA","sub":"1 DE NOVIEMBRE DE 1755","motif":"dust"},"hud":{"time":"09:40","place":"LISBOA"},"sfx":[["bell",0]]},
+  {"say":"Estás en misa. La iglesia está llena de velas encendidas.","scene":"church","amb":"choir"},
+  {"say":"Entonces la tierra tiembla. No unos segundos: varios minutos.","scene":"church","p":{"shake":1},"amb":"quake","sfx":[["boom",0.3]]},
+  {"say":"Regla uno: sal de los edificios. Las iglesias se derrumban y las velas provocan incendios.","scene":"collapse","ov":{"t":"rule","n":1,"text":"SAL DE LOS EDIFICIOS"},"amb":"quake","sfx":[["crack",1.2]]},
+  {"say":"Miles de personas corren a la gran plaza junto al río. El sitio más abierto.","scene":"plaza","hud":{"time":"10:00"},"amb":"crowd"},
+  {"say":"Y ven algo increíble: el agua se retira. El fondo del puerto queda al descubierto.","scene":"plaza","p":{"recede":1},"amb":"crowd"},
+  {"say":"Regla dos: si el mar se retira, corre a lo alto.","scene":"plaza","p":{"recede":1,"already":1},"ov":{"t":"rule","n":2,"text":"SI EL MAR SE RETIRA, CORRE A LO ALTO"}},
+  {"say":"¿Bajas a mirar… o subes a las colinas?","scene":"plaza","p":{"recede":1,"already":1},"ov":{"t":"choice","mid":1,"q":"¿BAJAS O SUBES?","a":"BAJO A MIRAR","b":"SUBO A LAS COLINAS"},"hold":1.8,"hud":{"time":"10:15"},"sfx":[["ding",0.1]]},
+  {"say":"Unos cuarenta minutos después del terremoto llega el tsunami. Las olas arrasan la orilla.","scene":"plaza","p":{"wave":1},"hud":{"time":"10:20"},"amb":"sea","sfx":[["wave",0.5]]},
+  {"say":"Regla tres: no vuelvas a por tus cosas. Los incendios duran cinco días.","scene":"fire","ov":{"t":"rule","n":3,"text":"NO VUELVAS A POR TUS COSAS"},"hud":{"time":"DÍA 5"},"amb":"fire"},
+  {"say":"Mueren decenas de miles de personas. Pero de las ruinas nace una de las primeras ciudades pensadas para resistir terremotos.","scene":"rebuild","hud":{"time":"1758"}},
+  {"say":"¿Tú habrías subido a las colinas?","scene":"plaza","p":{"recede":1,"already":1,"hills":1},"ov":{"t":"choice","q":"¿HABRÍAS SUBIDO?","a":"SÍ, LO PRIMERO","b":"HABRÍA MIRADO","foot":"COMENTA","next":"PRÓXIMO VIAJE: TÚ ELIGES"},"hold":3.2,"sfx":[["ding",0.1]]}
+ ]}

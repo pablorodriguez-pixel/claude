@@ -1,0 +1,20 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Anton;src:url(fonts/anton-latin-400-normal.woff2)}
+@font-face{font-family:'Bebas Neue';src:url(fonts/bebas-neue-latin-400-normal.woff2)}
+@font-face{font-family:Oswald;font-weight:500;src:url(fonts/oswald-latin-500-normal.woff2)}
+@font-face{font-family:Oswald;font-weight:700;src:url(fonts/oswald-latin-700-normal.woff2)}
+@font-face{font-family:Cinzel;font-weight:700;src:url(fonts/cinzel-latin-700-normal.woff2)}
+@font-face{font-family:Cinzel;font-weight:900;src:url(fonts/cinzel-latin-900-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:600;src:url(fonts/montserrat-latin-600-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:700;src:url(fonts/montserrat-latin-700-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:800;src:url(fonts/montserrat-latin-800-normal.woff2)}
+@font-face{font-family:Montserrat;font-weight:900;src:url(fonts/montserrat-latin-900-normal.woff2)}
+html,body{margin:0;background:#000}
+</style></head><body><canvas id="c" width="720" height="1280"></canvas>
+<script src="core.js"></script><script src="scenes_regla0.js"></script><script src="scenes_lunes.js"></script><script src="scenes_historia.js"></script>
+<script>
+window.ready=(async()=>{const fams=['Anton','Bebas Neue','Oswald','Cinzel','Montserrat'];
+ for(const f of ['400 10px Anton','400 10px "Bebas Neue"','500 10px Oswald','700 10px Oswald','700 10px Cinzel','900 10px Cinzel','600 10px Montserrat','700 10px Montserrat','800 10px Montserrat','900 10px Montserrat']) await document.fonts.load(f);
+ return true})();
+window.frame=(t,q)=>{renderAt(t);return cv.toDataURL('image/jpeg',q||.9)};
+</script></body></html>

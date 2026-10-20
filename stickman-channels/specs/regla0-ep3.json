@@ -1,0 +1,17 @@
+{"id":"regla0-ep3","ch":"regla0","series":"LÍNEA 0","ep":"FINAL","day":"NOCHE 3",
+ "voice":"es-MX-JorgeNeural","rate":"-4%","pitch":"-6Hz","eleven":"K3TeN3ZVK8WnOeJ0NYqZ",
+ "cover":{"top":"LÍNEA 0 · FINAL","title":"REGLA 0","scene":"phone_final","t":3},
+ "beats":[
+  {"say":"Por muy poco, la mayoría dijo: me quedo.","scene":"doors_closing","p":{"start":0.9},"hud":{"time":"00:08","place":"ESTACIÓN 0"},"ov":{"t":"major","label":"LA MAYORÍA DIJO","word":"ME QUEDO","pct":54},"sfx":[["riser",0]]},
+  {"say":"Las puertas se cierran. La figura se queda mirando cómo te vas.","scene":"station0_window","p":{"leave":1},"sfx":[["train",0.4]]},
+  {"say":"El tren entra en un túnel sin luz. Y empiezas a oír pasos.","scene":"tunnel_dark","hud":{"time":"00:09","place":"TÚNEL"},"amb":"rumble","sfx":[["steps",2.6]]},
+  {"say":"Vienen del último vagón. Cada vez más cerca.","scene":"car_end","p":{"figure":1,"dark":1,"approach":1},"amb":"rumble","sfx":[["steps",0.2]]},
+  {"say":"En el papel aparece una última regla.","scene":"note","p":{"line":5,"dark":1},"amb":"rumble"},
+  {"say":"Regla cinco: cierra los ojos y cuenta hasta cero.","scene":"note","p":{"line":5,"dark":1},"ov":{"t":"rule","n":5,"text":"CIERRA LOS OJOS Y CUENTA HASTA CERO"},"amb":"rumble"},
+  {"say":"Tres. Dos. Uno.","scene":"eyes_closed","amb":"rumble","sfx":[["heart",0]],"big":1},
+  {"say":"Cero.","scene":"black","sfx":[["hit",0]],"big":1},
+  {"say":"Abres los ojos. Estás en tu cama. Son las doce menos dos.","scene":"bedroom","hud":{"time":"23:58","place":"TU CASA"}},
+  {"say":"Pero tu chubasquero está empapado.","scene":"bedroom","p":{"coat":1},"sfx":[["drip",0]]},
+  {"say":"Y en el móvil, un mensaje tuyo: Regla cero. Nunca te bajaste.","scene":"phone","p":{"from":"YO","msgs":[["Regla 0:",2.2],["Nunca te bajaste.",3.1]]},"sfx":[["buzz",0],["hit",3.1]]},
+  {"say":"Fin de la temporada uno. ¿Quién estaba en el andén?","scene":"station0_window","p":{"dark":1},"ov":{"t":"choice","q":"¿QUIÉN ESTABA EN EL ANDÉN?","a":"ERA YO","b":"OTRA COSA","foot":"COMENTA TU TEORÍA","next":"TEMPORADA 2: TURNO DE NOCHE"},"hold":3.4,"sfx":[["ding",1.6]]}
+ ]}

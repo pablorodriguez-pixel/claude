@@ -1,0 +1,14 @@
+{"id":"lunes-ep1","ch":"lunes","series":"SOBREVIVE AL LUNES","ep":"EP. 1","day":"LUNES",
+ "voice":"es-ES-ElviraNeural","rate":"+6%","pitch":"+0Hz","eleven":"h2cd3gvcqTp3m65Dysk7",
+ "cover":{"top":"EP. 1","title":"EL INFORME DE LAS 12","scene":"office","t":3,"p":{"boss":1,"bubble":"Lo quiero a las 12."}},
+ "beats":[
+  {"say":"Lunes. Nueve y dos de la mañana. Llegas con el café en la mano.","scene":"office","p":{"enter":1},"hud":{"time":"09:02","place":"PLANTA 3","cafe":40},"amb":"office"},
+  {"say":"Tu jefa aparece sin saludar.","scene":"office","p":{"sit":1,"boss":1,"bossIn":1},"amb":"office","sfx":[["pop",0.6]]},
+  {"say":"Necesito el informe del trimestre. A las doce.","scene":"office","p":{"sit":1,"boss":1,"bubble":"Informe del trimestre. A las 12."},"amb":"office","sfx":[["pop",0.1]]},
+  {"say":"Tienes cuarenta páginas sin leer, tres Excel… y medio café.","scene":"docs","hud":{"cafe":25},"amb":"office","sfx":[["paper",0.2]]},
+  {"say":"Regla uno: nunca digas imposible antes del segundo café.","scene":"docs","p":{"calm":1},"ov":{"t":"rule","n":1,"text":"NUNCA DIGAS «IMPOSIBLE» ANTES DEL SEGUNDO CAFÉ"},"amb":"office"},
+  {"say":"Regla dos: si tu jefa dice rapidito, son tres horas.","scene":"office","p":{"sit":1,"boss":1,"bubble":"Es rapidito, ¿eh?"},"ov":{"t":"rule","n":2,"text":"SI TU JEFA DICE «RAPIDITO», SON TRES HORAS"},"amb":"office"},
+  {"say":"Miras el reloj. Ya son las nueve y cuarto.","scene":"clock","p":{"from":"09:02","to":"09:15"},"hud":{"time":"09:15","cafe":20},"sfx":[["tick",0]]},
+  {"say":"Tienes dos caminos.","scene":"split","p":{"mode":"intro"},"sfx":[["whoosh",0]]},
+  {"say":"¿Cómo lo haces?","scene":"split","p":{"mode":"intro"},"ov":{"t":"choice","q":"¿CÓMO LO HACES?","a":"A MANO","b":"CON IA","foot":"VOTA EN COMENTARIOS","next":"MAÑANA: QUÉ PASA CON CADA UNA"},"hold":3.2,"sfx":[["ding",0.1]]}
+ ]}

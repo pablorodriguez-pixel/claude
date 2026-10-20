@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs><radialGradient id="g" cx="50%" cy="58%" r="45%"><stop offset="0" stop-color="#2a0f0f"/><stop offset="1" stop-color="#0b0b10"/></radialGradient></defs>
+  <circle cx="256" cy="256" r="256" fill="url(#g)"/>
+  <!-- el 0 como boca de túnel -->
+  <ellipse cx="256" cy="262" rx="112" ry="160" fill="#050507"/>
+  <ellipse cx="256" cy="262" rx="112" ry="160" fill="none" stroke="#ffc83d" stroke-width="40"/>
+  <!-- vías hacia dentro -->
+  <path d="M214 418 L244 318 M298 418 L268 318" stroke="#2b2e36" stroke-width="8" stroke-linecap="round"/>
+  <!-- ojos en la oscuridad -->
+  <circle cx="234" cy="236" r="10" fill="#fff"/><circle cx="278" cy="236" r="10" fill="#fff"/>
+  <!-- etiqueta REGLA -->
+  <rect x="166" y="64" width="180" height="50" rx="8" fill="#e5383b"/>
+  <text x="256" y="100" text-anchor="middle" font-family="Montserrat, Arial Black, sans-serif" font-weight="900" font-size="32" letter-spacing="6" fill="#fff">REGLA</text>
+</svg>

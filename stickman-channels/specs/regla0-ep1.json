@@ -1,0 +1,18 @@
+{"id":"regla0-ep1","ch":"regla0","series":"LÍNEA 0","ep":"NOCHE 1","day":"NOCHE 1",
+ "voice":"es-MX-JorgeNeural","rate":"-4%","pitch":"-6Hz","eleven":"K3TeN3ZVK8WnOeJ0NYqZ",
+ "cover":{"top":"LÍNEA 0 · NOCHE 1","title":"EL ÚLTIMO METRO","scene":"train_arrive","t":2.6},
+ "beats":[
+  {"say":"Son las doce menos dos. Acabas de perder el último metro.","scene":"platform","p":{"view":"clock"},"hud":{"time":"23:58","place":"ESTACIÓN CENTRAL"},"amb":"tunnel"},
+  {"say":"Pero el panel se apaga… y vuelve con un tren que no existe.","scene":"platform","p":{"view":"sign","flip":1.6},"hud":{"time":"23:59"},"sfx":[["flicker",1.4]]},
+  {"say":"Línea cero.","scene":"platform","p":{"view":"sign","flip":0,"zoom":1.25},"sfx":[["hit",0]]},
+  {"say":"Las puertas se abren. Dentro no hay nadie. Solo un papel pegado en el cristal.","scene":"train_arrive","hud":{"time":"00:00"},"sfx":[["train",0],["doors",2.4]]},
+  {"say":"Regla uno: no te sientes en el último vagón.","scene":"note","ov":{"t":"rule","n":1,"text":"NO TE SIENTES EN EL ÚLTIMO VAGÓN"}},
+  {"say":"Regla dos: si las luces parpadean, no mires por la ventana.","scene":"note","p":{"line":2},"ov":{"t":"rule","n":2,"text":"SI LAS LUCES PARPADEAN, NO MIRES POR LA VENTANA"}},
+  {"say":"Regla tres: si alguien dice tu nombre… no contestes.","scene":"note","p":{"line":3},"ov":{"t":"rule","n":3,"text":"SI ALGUIEN DICE TU NOMBRE, NO CONTESTES"}},
+  {"say":"Subes. Las puertas se cierran. El tren arranca.","scene":"train_interior","hud":{"time":"00:01"},"amb":"rumble","sfx":[["doors",0.2]]},
+  {"say":"A los dos minutos, las luces parpadean.","scene":"train_interior","p":{"flicker":0.8},"hud":{"time":"00:03"},"amb":"rumble","sfx":[["flicker",0.8]]},
+  {"say":"No miras. Pero por el rabillo del ojo ves algo pasar por fuera.","scene":"train_interior","p":{"flicker":0,"down":1,"face":1.2},"amb":"rumble","sfx":[["whoosh",1.3]]},
+  {"say":"Y entonces, desde el último vagón, alguien dice tu nombre.","scene":"car_end","p":{"figure":1},"hud":{"time":"00:04"},"amb":"rumble","sfx":[["whisper",2.2]]},
+  {"say":"Con tu misma voz.","scene":"car_end","p":{"figure":1,"zoom":1.5,"eyes":1},"amb":"rumble","sfx":[["hit",0.1]]},
+  {"say":"¿Contestas?","scene":"train_interior","p":{"dark":1,"down":1},"ov":{"t":"choice","q":"¿CONTESTAS?","a":"CONTESTO","b":"ME CALLO","foot":"VOTA EN COMENTARIOS","next":"NOCHE 2 · MAÑANA"},"hold":3.2,"sfx":[["ding",0.2]]}
+ ]}

@@ -1,0 +1,17 @@
+{"id":"historia-ep1","ch":"historia","series":"¿SOBREVIVIRÍAS?","ep":"VIAJE 1","day":"79 d.C.",
+ "voice":"es-ES-AlvaroNeural","rate":"-2%","pitch":"-2Hz","eleven":"Yqxik8v3XlyYOTWnDIVu",
+ "cover":{"top":"VIAJE 1","title":"POMPEYA","sub":"79 d.C.","scene":"vesuvius","t":3},
+ "beats":[
+  {"say":"Pompeya, año 79. Es la una del mediodía.","scene":"title","p":{"title":"POMPEYA","sub":"AÑO 79 d.C.","motif":"ember"},"hud":{"time":"13:00","place":"POMPEYA"},"sfx":[["bell",0]]},
+  {"say":"El Vesubio acaba de explotar. Una columna de humo sube más de treinta kilómetros.","scene":"vesuvius","sfx":[["boom",0.2]],"amb":"wind"},
+  {"say":"Empieza a llover piedra pómez. Ligera, como granizo caliente.","scene":"pumice","hud":{"time":"14:30"},"amb":"hail"},
+  {"say":"Regla uno: no te quedes bajo techo. La piedra se acumula y los tejados se hunden.","scene":"roof","ov":{"t":"rule","n":1,"text":"NO TE QUEDES BAJO TECHO"},"amb":"hail","sfx":[["crack",3.2]]},
+  {"say":"Regla dos: átate una almohada a la cabeza. Lo hicieron de verdad: lo cuenta Plinio el Joven.","scene":"pumice","p":{"pillow":1,"accum":0.4},"ov":{"t":"rule","n":2,"text":"ÁTATE UNA ALMOHADA A LA CABEZA"},"hud":{"time":"17:00"},"amb":"hail"},
+  {"say":"Regla tres: no esperes a mañana. Por la mañana llega lo peor.","scene":"pumice","p":{"pillow":1,"accum":0.7,"dark":1},"ov":{"t":"rule","n":3,"text":"NO ESPERES A MAÑANA"},"hud":{"time":"19:00"},"amb":"hail"},
+  {"say":"Ahora tienes que elegir: huir a pie, a oscuras… o bajar al puerto y esperar un barco.","scene":"crossroads","hud":{"time":"20:00"},"amb":"wind"},
+  {"say":"¿Qué haces?","scene":"crossroads","ov":{"t":"choice","mid":1,"q":"¿QUÉ HACES?","a":"HUIR A PIE","b":"ESPERAR EL BARCO"},"hold":1.8,"sfx":[["ding",0.1]],"amb":"wind"},
+  {"say":"En Herculano, muy cerca, unas trescientas personas esperaron barcos junto al mar.","scene":"boathouses","hud":{"time":"01:00","place":"HERCULANO"},"amb":"sea"},
+  {"say":"Los barcos nunca llegaron. Las encontraron allí mismo casi dos mil años después.","scene":"boathouses","p":{"cloud":1},"amb":"sea","sfx":[["boom",1.0]]},
+  {"say":"Se cree que la mayoría de los habitantes de Pompeya logró huir. Los que no esperaron.","scene":"road","hud":{"time":"07:00","place":"POMPEYA"}},
+  {"say":"¿Tú habrías sobrevivido?","scene":"vesuvius","p":{"late":1},"ov":{"t":"choice","q":"¿HABRÍAS SOBREVIVIDO?","a":"SÍ","b":"NI DE BROMA","foot":"COMENTA","next":"PRÓXIMO VIAJE: TITANIC, 1912"},"hold":3.2,"sfx":[["ding",0.1]]}
+ ]}

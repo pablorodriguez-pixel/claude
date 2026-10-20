@@ -1,0 +1,16 @@
+{"id":"regla0-ep2","ch":"regla0","series":"LÍNEA 0","ep":"NOCHE 2","day":"NOCHE 2",
+ "voice":"es-MX-JorgeNeural","rate":"-4%","pitch":"-6Hz","eleven":"K3TeN3ZVK8WnOeJ0NYqZ",
+ "cover":{"top":"LÍNEA 0 · NOCHE 2","title":"ESTACIÓN 0","scene":"station0_window","t":1.5},
+ "beats":[
+  {"say":"La mayoría dijo: me callo.","scene":"train_interior","p":{"down":1},"hud":{"time":"00:04","place":"VAGÓN 3"},"ov":{"t":"major","label":"LA MAYORÍA DIJO","word":"ME CALLO","pct":68},"amb":"rumble","sfx":[["riser",0]]},
+  {"say":"No contestas. La voz repite tu nombre tres veces… y se calla.","scene":"car_end","p":{"figure":1},"amb":"rumble","sfx":[["whisper",1.6]]},
+  {"say":"El tren frena en una estación que no sale en ningún mapa.","scene":"station0_arrive","hud":{"time":"00:07","place":"ESTACIÓN 0"},"sfx":[["brake",0.3]]},
+  {"say":"En el andén hay alguien. Lleva un chubasquero amarillo. Como el tuyo.","scene":"station0_window","sfx":[["hit",2.6]]},
+  {"say":"En el cristal, alguien ha escrito una regla nueva.","scene":"station0_window","p":{"scrawl":1}},
+  {"say":"Regla cuatro: no bajes hasta que el tren arranque.","scene":"station0_window","p":{"scrawl":1},"ov":{"t":"rule","n":4,"text":"NO BAJES HASTA QUE EL TREN ARRANQUE"}},
+  {"say":"La figura levanta la mano. Y te saluda.","scene":"station0_window","p":{"wave":0.6,"close":1}},
+  {"say":"Tu móvil vibra. Un mensaje de un número que conoces muy bien: el tuyo.","scene":"phone","p":{"from":"YO","msgs":[["Baja.",2.8]]},"sfx":[["buzz",0]]},
+  {"say":"Dice: baja. Ese tren no vuelve.","scene":"phone","p":{"from":"YO","msgs":[["Baja.",-1],["Ese tren no vuelve.",0.9]]},"sfx":[["pop",0.9]]},
+  {"say":"Las puertas empiezan a cerrarse.","scene":"doors_closing","sfx":[["beep",0]]},
+  {"say":"¿Te quedas… o bajas?","scene":"doors_closing","p":{"start":0.5},"ov":{"t":"choice","q":"¿TE QUEDAS O BAJAS?","a":"ME QUEDO","b":"BAJO","foot":"VOTA EN COMENTARIOS","next":"NOCHE 3 · FINAL · MAÑANA"},"hold":3.2,"sfx":[["ding",0.2]]}
+ ]}

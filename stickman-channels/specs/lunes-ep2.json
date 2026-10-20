@@ -1,0 +1,14 @@
+{"id":"lunes-ep2","ch":"lunes","series":"SOBREVIVE AL LUNES","ep":"EP. 2","day":"LUNES",
+ "voice":"es-ES-ElviraNeural","rate":"+6%","pitch":"+0Hz","eleven":"h2cd3gvcqTp3m65Dysk7",
+ "cover":{"top":"EP. 2","title":"A MANO VS CON IA","scene":"split","t":3,"p":{"mode":"result"}},
+ "beats":[
+  {"say":"La mayoría eligió: con IA. Veamos qué pasa en los dos casos.","scene":"split","p":{"mode":"intro"},"hud":{"time":"09:15","place":"PLANTA 3","cafe":20},"ov":{"t":"major","label":"LA MAYORÍA ELIGIÓ","word":"CON IA","pct":81},"sfx":[["riser",0]]},
+  {"say":"A mano: lees, subrayas, copias cifras… y a las doce y cuarenta sigues en la página treinta.","scene":"split","p":{"mode":"manual"},"amb":"office","sfx":[["tick",0.5]]},
+  {"say":"Con IA. Paso uno: subes los documentos y pides las cinco cifras clave.","scene":"laptop","p":{"step":1},"hud":{"time":"09:20","cafe":30},"amb":"office","sfx":[["type",0.3]]},
+  {"say":"Paso dos: le pides que busque lo raro. Picos, caídas y datos que no cuadran.","scene":"laptop","p":{"step":2},"hud":{"time":"09:35","cafe":45},"amb":"office","sfx":[["type",0.3]]},
+  {"say":"Paso tres: lo revisas tú. La IA redacta. Tú decides.","scene":"laptop","p":{"step":3},"hud":{"time":"09:50","cafe":60},"amb":"office","sfx":[["pop",0.4]]},
+  {"say":"Este es el prompt. Haz captura.","scene":"laptop","p":{"step":3,"blur":1},"ov":{"t":"prompt","title":"EL PROMPT","text":"Actúa como analista. Resume estos documentos en 5 cifras clave y 3 riesgos. Marca cualquier dato que no cuadre y dime de dónde sale."},"hold":2.6,"amb":"office","sfx":[["pop",0]]},
+  {"say":"A las diez y cinco lo tienes. Te sobran casi dos horas.","scene":"office","p":{"sit":1,"relax":1},"hud":{"time":"10:05","cafe":90},"amb":"office","sfx":[["ding",0.3]]},
+  {"say":"Pero a las doce menos cinco tu jefa vuelve. Y señala una cifra.","scene":"office","p":{"sit":1,"boss":1,"point":1,"bubble":"¿Y este dato de dónde sale?"},"hud":{"time":"11:55","cafe":70},"amb":"office","sfx":[["pop",2.4]]},
+  {"say":"¿Qué le dices?","scene":"office","p":{"sit":1,"boss":1,"point":1},"ov":{"t":"choice","q":"¿QUÉ LE DICES?","a":"«LO DIJO LA IA»","b":"«LO HE COMPROBADO»","foot":"VOTA EN COMENTARIOS","next":"MAÑANA: LA RESPUESTA QUE TE SALVA"},"hold":3.2,"sfx":[["ding",0.1]]}
+ ]}

@@ -1,0 +1,15 @@
+{"id":"lunes-ep3","ch":"lunes","series":"SOBREVIVE AL LUNES","ep":"EP. 3","day":"LUNES",
+ "voice":"es-ES-ElviraNeural","rate":"+6%","pitch":"+0Hz","eleven":"h2cd3gvcqTp3m65Dysk7",
+ "cover":{"top":"EP. 3","title":"LA REUNIÓN DE LAS 9","scene":"meeting","t":2},
+ "beats":[
+  {"say":"Reunión de las nueve. Treinta minutos. Doce personas. Nadie sabe para qué.","scene":"meeting","hud":{"time":"09:00","place":"VIDEOLLAMADA","cafe":35},"sfx":[["pop",0]]},
+  {"say":"Regla uno: si alguien dice esto podría ser un mail, tiene razón.","scene":"meeting","p":{"speak":4},"ov":{"t":"rule","n":1,"text":"SI ALGUIEN DICE «ESTO PODRÍA SER UN MAIL», TIENE RAZÓN"},"hud":{"time":"09:07"}},
+  {"say":"Regla dos: cámara apagada no es invisibilidad.","scene":"meeting","p":{"camoff":1},"ov":{"t":"rule","n":2,"text":"CÁMARA APAGADA NO ES INVISIBILIDAD"},"hud":{"time":"09:12"}},
+  {"say":"Tu micro sigue abierto.","scene":"meeting","p":{"camoff":1,"mic":1},"sfx":[["crunch",0.2]]},
+  {"say":"Regla tres: quien comparte pantalla, manda.","scene":"meeting","p":{"share":1},"ov":{"t":"rule","n":3,"text":"QUIEN COMPARTE PANTALLA, MANDA"},"hud":{"time":"09:18"}},
+  {"say":"Regla cuatro: nunca preguntes alguna duda a las nueve y veintinueve.","scene":"meeting","p":{"groan":1},"ov":{"t":"rule","n":4,"text":"NUNCA PREGUNTES «¿ALGUNA DUDA?» A Y VEINTINUEVE"},"hud":{"time":"09:29"}},
+  {"say":"Y el truco que nadie te cuenta: graba la reunión y pide a la IA tres cosas.","scene":"laptop","p":{"step":0,"rec":1},"hud":{"time":"09:30"},"sfx":[["whoosh",0]]},
+  {"say":"Decisiones. Responsables. Fechas.","scene":"laptop","p":{"step":0,"rec":1,"blur":1},"ov":{"t":"list","items":["DECISIONES","RESPONSABLES","FECHAS"]},"sfx":[["pop",0.1],["pop",0.9],["pop",1.7]]},
+  {"say":"Lo mandas antes de que acabe. Y de repente eres la persona más organizada de la empresa.","scene":"office","p":{"sit":1,"relax":1,"boss":1,"thumbs":1},"hud":{"time":"09:31","cafe":95},"sfx":[["ding",1]]},
+  {"say":"¿Y tú qué haces en las reuniones?","scene":"meeting","ov":{"t":"choice","q":"¿QUÉ HACES EN LAS REUNIONES?","a":"TOMO NOTAS","b":"SOBREVIVO","foot":"COMENTA LA REGLA QUE FALTA","next":"MAÑANA: EL MAIL DEL VIERNES A LAS 18:00"},"hold":3.2,"sfx":[["ding",0.1]]}
+ ]}
