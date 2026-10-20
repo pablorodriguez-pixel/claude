@@ -22,10 +22,10 @@ const ollaInner = () => `${FIGP('M40,120 L360,120 L340,330 C330,360 70,360 60,33
 const OLLA = (c, x, y, w, o = {}) => figura(c, x, y, w, w * 380 / 400, ollaInner(), '0 0 400 380', Object.assign({ z: 6, origin: '50% 100%' }, o));
 
 /* L0 · PORTADA */
-plano(-1, L(1) - 0.1, { background: '#3b2414' }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(108,172,228,.22)', 'rgba(0,0,0,0)', 0);
-  texto(c, 290, 'El dulce de leche…', { size: 84, color: '#fff' });
-  const t2 = texto(c, 400, 'NO lo inventó<br>' + hlSpan('Argentina', 'phl') + ' 🇦🇷', { size: 104, italic: true, color: '#fff', shadow: OUTL(INK, 7) });
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  texto(c, 290, 'El dulce de leche…', { size: 84 });
+  const t2 = texto(c, 400, 'NO lo inventó<br>' + hlSpan('Argentina', 'phl') + ' 🇦🇷', { size: 104, italic: true });
   const j = TARRO(c, 300, 690, 480);
   const x = box(c, 390, 860, 300, 300, { zIndex: 25 }, XSVG);
   sfx('swoosh_up', 0.05, 0.6);
