@@ -16,10 +16,10 @@ const PAL = (c, y, html, o = {}) => texto(c, y, html, Object.assign({ size: 160,
 const PIN = (c, lo, la, col) => { const [x, y] = laPj(lo, la).map(Number); return box(c, x - 30, y - 80, 60, 80, { zIndex: 12, transformOrigin: '50% 100%' }, pinSvg(col)); };
 
 /* L0 · PORTADA */
-plano(-1, L(1) - 0.1, { background: CELESTE }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,255,255,.3)', 'rgba(0,0,0,0)', 0);
-  texto(c, 290, 'Si dices «vos»…', { size: 96, color: '#fff', shadow: OUTL(INK, 6) });
-  const t2 = texto(c, 410, 'hablas como<br>en el ' + hlSpan('Quijote', 'phl'), { size: 110, italic: true, color: '#fff', shadow: OUTL(INK, 7) });
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  texto(c, 290, 'Si dices «vos»…', { size: 96 });
+  const t2 = texto(c, 410, 'hablas como<br>en el ' + hlSpan('Quijote', 'phl'), { size: 110, italic: true });
   const q = figura(c, 350, 660, 380, 486, bustInner({ beard: true, moustache: true, seed: 33 }), '0 0 360 460', { z: 6 });
   const b = PAL(c, 1150, '«VOS»', { color: RED, size: 130, shadow: OUTL('#fff', 6) });
   sfx('swoosh_up', 0.05, 0.6);
