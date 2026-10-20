@@ -1,0 +1,554 @@
+{
+ "id": "ruta2a",
+ "ch": "ruta",
+ "series": "NO MIRES ATRÁS",
+ "ep": "PARTE 2 · FINAL A",
+ "day": "CONDUCIENDO",
+ "pin": true,
+ "voices": {
+  "n": {
+   "eleven": "I0RpMYnjlWe6hUgHLXrb",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "fx": "room"
+  },
+  "p": {
+   "eleven": "AxFLn9byyiDbMn5fmyqu",
+   "edge": "es-ES-ElviraNeural",
+   "rate": "+4%",
+   "pitch": "+0Hz",
+   "fx": "near"
+  },
+  "a": {
+   "eleven": "orF2qy9215xjwqqxqsWW",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-10%",
+   "pitch": "-8Hz",
+   "fx": "night"
+  },
+  "m": {
+   "eleven": "orF2qy9215xjwqqxqsWW",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-10%",
+   "pitch": "-8Hz",
+   "fx": "radio"
+  }
+ },
+ "cover": {
+  "top": "PARTE 2 · FINAL A",
+  "title": "LO QUE DECÍA LA NOTA",
+  "scene": "passenger",
+  "t": 2
+ },
+ "beats": [
+  {
+   "who": "n",
+   "say": "La mayoría dijo: freno.",
+   "scene": "car_pov",
+   "p": {
+    "stopped": 1,
+    "forest": 1,
+    "figure": 0.93,
+    "figX": 0,
+    "raise": 1,
+    "dest": 1
+   },
+   "ov": {
+    "t": "major",
+    "label": "LA MAYORÍA DIJO",
+    "word": "FRENO",
+    "pct": 58
+   },
+   "hud": {
+    "time": "02:28",
+    "place": "CARRETERA COMARCAL",
+    "label": "CONDUCIENDO"
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "riser",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Pisas el freno. El coche se detiene a un metro de tu abuelo.",
+   "scene": "car_pov",
+   "p": {
+    "brake": 1,
+    "forest": 1,
+    "figure": 0.93,
+    "figX": 0,
+    "raise": 1,
+    "dest": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     600,
+     1.0
+    ],
+    "t": [
+     360,
+     520,
+     1.35
+    ]
+   },
+   "amb": "car",
+   "sfx": [
+    [
+     "brake",
+     0.2
+    ],
+    [
+     "thud",
+     2.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "El GPS se apaga. Solo queda un pitido. Cada vez más lento.",
+   "scene": "gps",
+   "p": {
+    "ecg": 1,
+    "dest": 1,
+    "slow": 1
+   },
+   "sfx": [
+    [
+     "ecg",
+     0.4
+    ]
+   ],
+   "amb": "monitor"
+  },
+  {
+   "who": "n",
+   "say": "Tu abuelo abre la puerta… y se sienta a tu lado.",
+   "scene": "passenger",
+   "p": {
+    "enter": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.1
+    ],
+    "t": [
+     400,
+     620,
+     1.25
+    ]
+   },
+   "sfx": [
+    [
+     "doors",
+     0.6
+    ]
+   ]
+  },
+  {
+   "who": "a",
+   "say": "Hola, cariño. Cuánto has crecido.",
+   "scene": "passenger",
+   "speaker": "ABUELO",
+   "cam": {
+    "f": [
+     470,
+     560,
+     1.4
+    ],
+    "t": [
+     480,
+     540,
+     1.6
+    ]
+   },
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "Saca su viejo móvil. Y le da al play.",
+   "scene": "gps",
+   "p": {
+    "dest": 1,
+    "voicenote": -1,
+    "play": 0.8
+   },
+   "cam": {
+    "f": [
+     360,
+     580,
+     1.3
+    ],
+    "t": [
+     360,
+     580,
+     1.5
+    ]
+   },
+   "sfx": [
+    [
+     "pop",
+     0.8
+    ]
+   ]
+  },
+  {
+   "who": "m",
+   "say": "Cariño, voy por la comarcal y llueve mucho. Si no llego, no te culpes por no cogerlo. Te quiero.",
+   "scene": "gps",
+   "speaker": "NOTA DE VOZ · HACE 6 AÑOS",
+   "p": {
+    "dest": 1,
+    "voicenote": -1,
+    "play": -1
+   },
+   "cam": {
+    "f": [
+     360,
+     580,
+     1.5
+    ],
+    "t": [
+     360,
+     560,
+     1.8
+    ]
+   },
+   "pause": 0.6
+  },
+  {
+   "who": "n",
+   "say": "Esa noche te llamó. Y tú no contestaste.",
+   "scene": "passenger",
+   "p": {
+    "down": 1
+   },
+   "cam": {
+    "f": [
+     300,
+     600,
+     1.3
+    ],
+    "t": [
+     280,
+     600,
+     1.5
+    ]
+   },
+   "pause": 0.3
+  },
+  {
+   "who": "n",
+   "say": "Murió en el kilómetro doce. En esta misma carretera.",
+   "scene": "car_pov",
+   "p": {
+    "stopped": 1,
+    "forest": 1,
+    "km": "12",
+    "kmStill": 1,
+    "flowers": 1,
+    "dest": 1
+   },
+   "cam": {
+    "f": [
+     480,
+     520,
+     1.4
+    ],
+    "t": [
+     500,
+     500,
+     1.8
+    ]
+   },
+   "sfx": [
+    [
+     "hit",
+     0.2
+    ]
+   ],
+   "pause": 0.3
+  },
+  {
+   "who": "a",
+   "say": "No he venido a llevarte. He venido a que lo escucharas.",
+   "scene": "passenger",
+   "speaker": "ABUELO",
+   "cam": {
+    "f": [
+     470,
+     560,
+     1.4
+    ],
+    "t": [
+     470,
+     540,
+     1.7
+    ]
+   }
+  },
+  {
+   "who": "a",
+   "say": "Ahora vuelve. Te queda mucho camino.",
+   "scene": "passenger",
+   "speaker": "ABUELO",
+   "p": {
+    "point": 1
+   },
+   "cam": {
+    "f": [
+     400,
+     600,
+     1.2
+    ],
+    "t": [
+     380,
+     600,
+     1.05
+    ]
+   },
+   "pause": 0.3
+  },
+  {
+   "who": "n",
+   "say": "Te da un golpecito en el hombro. Como cuando te enseñó a conducir.",
+   "scene": "passenger",
+   "p": {
+    "pat": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     620,
+     1.05
+    ],
+    "t": [
+     360,
+     620,
+     1.15
+    ]
+   },
+   "sfx": [
+    [
+     "thud",
+     1.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Y todo se vuelve blanco.",
+   "scene": "white",
+   "sfx": [
+    [
+     "riser",
+     0
+    ],
+    [
+     "hit",
+     1.0
+    ]
+   ],
+   "pause": 0.3
+  },
+  {
+   "who": "p",
+   "say": "[relieved] ¡Ha vuelto! Tenemos pulso.",
+   "scene": "ambulance",
+   "speaker": "PARAMÉDICA",
+   "p": {
+    "back": 1
+   },
+   "hud": {
+    "time": "02:31",
+    "place": "AMBULANCIA · SVA 112",
+    "label": "REANIMACIÓN"
+   },
+   "amb": "siren",
+   "sfx": [
+    [
+     "ecg",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Abres los ojos. Ochenta y dos pulsaciones.",
+   "scene": "hospital",
+   "p": {
+    "awake": 1
+   },
+   "hud": {
+    "time": "09:14",
+    "place": "HOSPITAL SAN RAFAEL",
+    "label": "DESPIERTO"
+   },
+   "cam": {
+    "f": [
+     360,
+     700,
+     1.2
+    ],
+    "t": [
+     360,
+     680,
+     1.0
+    ]
+   },
+   "amb": "monitor"
+  },
+  {
+   "who": "n",
+   "say": "En tu móvil, la nota de voz ya pone: escuchada.",
+   "scene": "phone_home",
+   "p": {
+    "time": "09:15",
+    "notes": [
+     [
+      "Abuelo",
+      "Nota de voz · 0:14 · Escuchada ✓",
+      "#6b5a44",
+      -1
+     ]
+    ]
+   },
+   "sfx": [
+    [
+     "pop",
+     0.6
+    ]
+   ],
+   "hud": {
+    "label": "DESPIERTO"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Y debajo, un mensaje nuevo. Enviado a las dos y veintiocho.",
+   "scene": "phone_home",
+   "p": {
+    "time": "09:15",
+    "notes": [
+     [
+      "Abuelo",
+      "Nota de voz · 0:14 · Escuchada ✓",
+      "#6b5a44",
+      -1
+     ],
+     [
+      "Abuelo · 02:28",
+      "Buen viaje.",
+      "#3d8bff",
+      0.9
+     ]
+    ]
+   },
+   "sfx": [
+    [
+     "buzz",
+     0.9
+    ]
+   ],
+   "hud": {
+    "label": "DESPIERTO"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Solo dos palabras: buen viaje.",
+   "scene": "phone_home",
+   "p": {
+    "time": "09:15",
+    "zoom2": 1,
+    "notes": [
+     [
+      "Abuelo",
+      "Nota de voz · 0:14 · Escuchada ✓",
+      "#6b5a44",
+      -1
+     ],
+     [
+      "Abuelo · 02:28",
+      "Buen viaje.",
+      "#3d8bff",
+      -1
+     ]
+    ]
+   },
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.0
+    ],
+    "t": [
+     360,
+     700,
+     1.35
+    ]
+   },
+   "pause": 0.6,
+   "hud": {
+    "label": "DESPIERTO"
+   }
+  },
+  {
+   "who": "n",
+   "say": "¿Y tú qué le habrías dicho?",
+   "scene": "hospital",
+   "p": {
+    "awake": 1,
+    "window": 1
+   },
+   "ov": {
+    "t": "choice",
+    "q": "¿QUÉ LE HABRÍAS DICHO?",
+    "a": "GRACIAS",
+    "b": "PERDÓN",
+    "foot": "COMENTA ABAJO"
+   },
+   "hold": 2.8,
+   "sfx": [
+    [
+     "ding",
+     0.6
+    ]
+   ]
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "end",
+    "big": "FINAL A",
+    "time": "NO MIRES ATRÁS",
+    "cta": "¿HAS VISTO EL FINAL B?",
+    "next": "",
+    "ntime": ""
+   },
+   "hold": 3.4,
+   "sfx": [
+    [
+     "ecg",
+     0.2
+    ],
+    [
+     "ecg",
+     1.0
+    ],
+    [
+     "ecg",
+     1.8
+    ]
+   ]
+  }
+ ]
+}

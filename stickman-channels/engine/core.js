@@ -177,7 +177,7 @@ function you(o) { return stick(Object.assign({}, S.you, o, { acc: [...(S.you.acc
 function hud(b, t, gt) {
   const h = b._hud;
   if (TL.ch === 'regla0' || TL.ch === 'ruta') {
-    text('● ' + TL.day, 46, 112, { size: 17, w: 800, color: '#ff4b4b', align: 'left', ls: 2 });
+    text('● ' + (h.label || TL.day), 46, 112, { size: 17, w: 800, color: '#ff4b4b', align: 'left', ls: 2 });
     text(h.time, 44, 152, { size: 52, fam: 'Anton', w: 400, color: '#fff', align: 'left', ls: 1, shadow: 'rgba(0,0,0,.6)' });
     text(h.place || '', 46, 192, { size: 15, w: 700, color: 'rgba(255,255,255,.6)', align: 'left', ls: 3 });
   } else if (TL.ch === 'lunes') {
