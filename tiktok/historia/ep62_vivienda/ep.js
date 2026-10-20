@@ -48,7 +48,7 @@ plano(-1, L(1) - 0.1, PAPEL, c => {
   const t2 = texto(c, 390, '…el problema es<br>la ' + hlSpan('vivienda', 'phl') + '»', { size: 104, italic: true });
   const k = CASA(c, 330, 690, 420);
   const tag = chip(c, 640, 760, '💶 €€€', { size: 70, bg: RED });
-  const st = stamp(c, 110, 1170, '¿ELLA TIENE LA CULPA?', { size: 74, bg: 'rgba(255,255,255,.85)', blend: 'normal' });
+  const st = stamp(c, 120, 1170, '¿ELLA TIENE LA CULPA?', { size: 58, bg: 'rgba(255,255,255,.85)', blend: 'normal' });
   sfx('swoosh_up', 0.05, 0.6);
   return t => { set(t2, { r: -2 + wobble(t, 0.5, 1) }); paint(c.querySelector('.phl'), t, 0.25, 0.4); set(k, { r: Math.sin(t * 2) * 2 }); set(tag, { r: 8 + Math.sin(t * 5) * 6, y: -Math.abs(Math.sin(t * 4)) * 20 }); set(st, { r: -6, s: 1 + 0.04 * Math.sin(t * 6) }); };
 }, { sfx: false });
@@ -117,8 +117,8 @@ plano(L(8) - 0.1, L(9) - 0.1, PAPEL, c => {
    <polyline class="la" points="${pAlq}" fill="none" stroke="${RED}" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="0 1"/>
    <polyline class="ls" points="${pSue}" fill="none" stroke="${AZ}" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="0 1"/></svg>`;
   const la = g.querySelector('.la'), ls = g.querySelector('.ls');
-  const ca = chip(c, 470, 470, '🏠 alquiler ≈ +93 %', { size: 46, bg: RED }), cs = chip(c, 470, 990, '💼 sueldos ≈ +21 % (hasta 2023)', { size: 46, bg: AZ });
-  aparece(chip(c, 180, 1240, 'alquiler: Fotocasa · sueldos: INE', { size: 40, bg: '#fff', color: INK }), T.lejos, { sfx: false });
+  const ca = chip(c, 470, 470, '🏠 alquiler ≈ +93 %', { size: 46, bg: RED }), cs = chip(c, 470, 990, '💼 sueldos ≈ +21 %', { size: 46, bg: AZ });
+  aparece(chip(c, 180, 1240, 'alquiler: Fotocasa · sueldos: INE 2015–23', { size: 40, bg: '#fff', color: INK }), T.lejos, { sfx: false });
   return t => { la.setAttribute('stroke-dasharray', `${f1(p(t, T.portales, 1.6, E.inOutCubic) * 1000) / 1000} 1`); ls.setAttribute('stroke-dasharray', `${f1(p(t, T.sueldos, 1.2, E.inOutCubic) * 1000) / 1000} 1`); popA(ca, t, T.doblado, { r: -3 }); popA(cs, t, T.lejos, { r: 3 }); };
 });
 
