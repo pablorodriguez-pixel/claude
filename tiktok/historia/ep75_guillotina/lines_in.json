@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El doctor Guillotin no inventó la guillotina!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo más curioso: estaba en contra de la pena de muerte.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Francia, mil setecientos ochenta y nueve. Si eres noble, te ejecutan con espada. Si eres pobre, te ahorcan... o algo peor.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Guillotin, médico y diputado, propone algo revolucionario: que todos mueran igual. Y sin sufrir.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Él, en realidad, quería acabar con la pena de muerte. Pero mientras existiera, que al menos fuera rápida.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La máquina la diseña otro médico, Antoine Louis. Y la construye... un fabricante de clavicordios.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y encima ya había máquinas parecidas desde hacía siglos: en Escocia, en Inglaterra, en Italia.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Al principio la llamaban «la Luisita». Pero los periódicos se burlan... y le cuelgan el nombre de Guillotin.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Su familia pasó años pidiendo que le cambiaran el nombre a la máquina. Al final, se lo cambiaron ellos: a su apellido.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y no, no murió guillotinado. Murió en su cama, de una infección en el hombro.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo de «sin sufrir» ya se discutía entonces.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el hombre que dio nombre a la guillotina... quería que no hiciera falta.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué invento crees que lleva el nombre de alguien que no lo inventó? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

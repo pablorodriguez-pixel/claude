@@ -58,3 +58,6 @@ Otro color solo de vez en cuando (máx. 1 de cada 5) para que el feed no se vea 
 - `engine/escenario.js`: botica (`ESTANTE`, `TARRO`), mar (`OLAS`, `GAVIOTA`), China (`LINTERNA`), noticia que entra girando (`PERIODICO` + `giraPeriodico`), `BOCADILLO`, `lagrima`, `sudor`, `ESTRELLA`, caras para cualquier objeto (`caraF`, plantillas `CARAS`/`CARAC`), `sp(t)` para sfx. Añadir `<script src="../../engine/escenario.js"></script>` tras story.js y no redefinir esos nombres en ep.js.
 - Personajes ya hechos: botella con cara (ep64 `botellaInner`/`botFace`), tomate (ep64 `tomateInner`/`tomFace`), sacos y conejo con cara (ep65), Einstein (ep63 `ein_lib.js`), bustos `mkBust` + `face`.
 - Cada escenario o personaje nuevo que se cree, pasarlo a `engine/escenario.js` para el siguiente vídeo.
+
+## Temas repetidos (20/10: repetí vikingos=ep05, Colón=ep02 y cumpleaños=ep20/21)
+ANTES de proponer o escribir un tema: `ls historia/` y, ante la duda, `head -3 epXX_*/lines_in.json`. Si el tema ya existe, se descarta aunque el enfoque sea otro.
