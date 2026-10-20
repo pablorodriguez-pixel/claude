@@ -26,12 +26,12 @@ function tarjeta(t0, t1, bg, emo, es, nah, tNah, extra) {
 }
 
 /* L0 · PORTADA */
-plano(-1, L(1) - 0.1, { background: VERDE }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.2)', 'rgba(0,0,0,0)', 0);
-  texto(c, 300, '🇪🇸 Si eres español…', { size: 80, color: '#fff' });
-  const t2 = texto(c, 410, 'hablas ' + hlSpan('AZTECA', 'phl'), { size: 130, italic: true, color: '#fff', shadow: OUTL(INK, 7) });
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  texto(c, 300, '🇪🇸 Si eres español…', { size: 80 });
+  const t2 = texto(c, 410, 'hablas ' + hlSpan('AZTECA', 'phl'), { size: 130, italic: true });
   const es = ['🍅', '🥑', '🥜'].map((e, i) => EMO(c, 60 + i * 330, 700, e, 250));
-  const d = texto(c, 1040, 'todos los días', { size: 84, color: YEL, shadow: OUTL(INK, 6) });
+  const d = texto(c, 1040, 'todos los días', { size: 84, color: RED });
   sfx('swoosh_up', 0.05, 0.6);
   return t => { set(t2, { r: -3 + wobble(t, 0.5, 1.5), s: 1 + 0.03 * Math.sin(t * 3) }); paint(c.querySelector('.phl'), t, 0.25, 0.4); es.forEach((e, i) => set(e, { y: -Math.abs(Math.sin(t * 4 + i)) * 40, r: Math.sin(t * 3 + i) * 8 })); set(d, { r: 2 }); };
 }, { sfx: false });
