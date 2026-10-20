@@ -133,6 +133,7 @@ function stick(o) {
   if (acc.includes('cap')) { ctx.save(); ctx.beginPath(); ctx.arc(hc[0], hc[1] - 2, L.hr + 1, PI * 1.02, PI * 1.98); ctx.closePath(); ctx.fillStyle = o.capCol || '#b8262b'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = line; ctx.stroke(); fillRR(hc[0] + 4, hc[1] - 6, 22, 6, 3, o.capCol || '#b8262b'); ctx.restore(); }
   if (acc.includes('pillow')) { ctx.save(); ctx.translate(hc[0], hc[1] - L.hr - 4); ctx.rotate(-.1); fillRR(-24, -10, 48, 18, 9, '#f4efe2'); ctx.lineWidth = 2.5; ctx.strokeStyle = line; ctx.stroke(); seg([[-3, 6], [-6, 22]], 3, '#a1846a'); seg([[3, 6], [6, 22]], 3, '#a1846a'); ctx.restore(); }
   if (!o.faceless) face(hc, o.expr || 'neutral', o.look ?? 1, t, line, acc);
+  if (o.mouth > 0.05 && !o.faceless) { ctx.save(); ctx.beginPath(); ctx.ellipse(hc[0] + 5, hc[1] + 10, 4, 1 + o.mouth * 4.5, 0, 0, TAU); ctx.fillStyle = '#3a1414'; ctx.fill(); ctx.restore(); }
   else if (o.eyes) { circle(hc[0] + 5, hc[1] - 2, 2.2, '#fff'); circle(hc[0] - 3, hc[1] - 2, 2.2, '#fff'); }
   ctx.restore();
   return { hand: RA[2], head: hc, neck };

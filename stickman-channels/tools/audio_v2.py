@@ -39,6 +39,7 @@ def voice_fx(a, fx):
         b = bp(a, 320, 5200, 2); b = np.tanh(b * 1.6) / 1.3
         return reverb(b, .35, .12, 6000)
     if fx == 'near': return reverb(hp(a, 90), .6, .1)
+    if fx == 'night': return reverb(lp(hp(a, 90), 7000), 2.2, .28, 3500)
     return a
 
 def sfx2(name):

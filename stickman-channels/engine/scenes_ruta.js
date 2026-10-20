@@ -54,9 +54,12 @@ function drawOutside(t, p, gt) {
   for (let i = 0; i < 10; i++) { const side = i % 2 ? 1 : -1; const z = ((i * 4 - travel) % 40 + 40) % 40 + .6; const [x, y] = project(side * 4.4, z); const s = 1 / z; fillRR(x - 3 * s * 6, y - 60 * s * 4, 6 * s * 6, 60 * s * 4, 2, 'rgba(220,220,220,.7)'); circle(x, y - 54 * s * 4, 5 * s * 5, 'rgba(255,140,40,.9)'); }
   // figura en el arcén
   if (p.figure != null) {
-    const k = p.figure + t * (p.ghost ? .012 : .045); const z = lerp(30, .9, Math.min(1, k)); if (k < 1.05) { const [x, y] = project(5.0, z); const s = 3.2 / z;
-      ctx.save(); if (p.ghost) ctx.globalAlpha = .55 + .15 * Math.sin(gt * 2); glow(x, y - 60 * s, 160 * s, 'rgba(255,200,110,.25)');
-      stick(Object.assign({}, GRANDPA, { x, y, s: Math.min(s, 6), pose: 'stand', t: gt, face: -1, expr: 'happy', over: gpOver(gt) })); ctx.restore(); } }
+    const k = p.figure + t * (p.ghost ? .006 : .045); const z = lerp(30, .9, Math.min(1, k)); if (k < 1.05) { const [x, y] = project(p.figX ?? 5.0, z); const s = 3.2 / z;
+      ctx.save(); if (p.ghost) ctx.globalAlpha = .62 + .15 * Math.sin(gt * 2); glow(x, y - 60 * s, 160 * s, 'rgba(255,200,110,.25)');
+      if (p.figX === 0) glow(x, y - 60 * s, 260 * s, 'rgba(255,245,220,.25)');
+      const ov = p.raise ? { ra1: 2.85, ra2: .2, la1: .15, la2: .2 } : gpOver(gt);
+      stick(Object.assign({}, GRANDPA, { x, y, s: Math.min(s, 6), pose: 'stand', t: gt, face: -1, expr: p.figX < 3 ? 'neutral' : 'happy', over: ov })); ctx.restore(); } }
+  if (p.km) { const z = lerp(16, .7, cl(t / 2.4)); const [x, y] = project(4.6, z); const s = 3 / z; if (z > .75) { seg([[x, y], [x, y - 70 * s]], Math.max(2, 4 * s), '#9aa0a8'); fillRR(x - 34 * s, y - 104 * s, 68 * s, 40 * s, 4 * s, '#0b7a46'); ctx.lineWidth = Math.max(1, 1.5 * s); ctx.strokeStyle = '#fff'; rr(x - 32 * s, y - 102 * s, 64 * s, 36 * s, 3 * s); ctx.stroke(); text('KM ' + p.km, x, y - 84 * s, { size: Math.max(6, 16 * s), fam: 'Oswald', w: 700, color: '#fff' }); } }
   // niebla en el horizonte
   ctx.fillStyle = lin(0, VY - 60, 0, VY + 80, [[0, 'rgba(120,140,160,0)'], [.5, `rgba(120,140,160,${p.forest ? .22 : .12})`], [1, 'rgba(120,140,160,0)']]); ctx.fillRect(0, VY - 60, W, 140);
 }
@@ -130,6 +133,16 @@ function gpsScreen(t, p, gt, mini) {
   else { pts.forEach(([x, y], i) => i ? ctx.lineTo(x, y) : ctx.moveTo(x, y)); }
   ctx.stroke(); ctx.shadowBlur = 0;
   if (ecg >= 1) { text('♥ 80', 470, 380, { size: 64, fam: 'Oswald', w: 700, color: '#3dff8a', shadow: '#3dff8a', blur: 20 }); return; }
+  if (p.voicenote != null && (p.voicenote < 0 || t > p.voicenote)) {
+    const a = p.voicenote < 0 ? 1 : E.back(cl((t - p.voicenote) / .35)); ctx.save(); ctx.translate(300, 560); ctx.scale(a, a);
+    ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 40; fillRR(-270, -170, 540, 340, 36, 'rgba(28,32,44,.97)'); ctx.shadowBlur = 0;
+    circle(-196, -96, 44, '#6b5a44'); text('A', -196, -94, { size: 40, w: 900 });
+    text('Abuelo', -130, -116, { size: 40, w: 900, align: 'left' }); text('Nota de voz · 0:14', -130, -72, { size: 26, w: 600, align: 'left', color: 'rgba(255,255,255,.7)' });
+    circle(-200, 40, 40, '#3d8bff'); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(-212, 18); ctx.lineTo(-212, 62); ctx.lineTo(-178, 40); ctx.fill();
+    for (let i = 0; i < 26; i++) { const h = 10 + Math.abs(Math.sin(i * 1.7)) * 46 * hash(i + 2); fillRR(-140 + i * 15, 40 - h / 2, 8, h, 4, 'rgba(255,255,255,.75)'); }
+    circle(-236, 128, 7, '#ff3b30'); text('Enviada hace 6 años · No escuchada', -220, 129, { size: 24, w: 700, align: 'left', color: '#ff8a80' });
+    ctx.restore();
+  }
   // flecha de posición
   ctx.save(); ctx.translate(300, 900); circle(0, 0, 46, 'rgba(61,139,255,.25)'); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(0, -30); ctx.lineTo(22, 22); ctx.lineTo(0, 10); ctx.lineTo(-22, 22); ctx.closePath(); ctx.fill(); ctx.restore();
   // barra superior
@@ -244,5 +257,53 @@ SCENES.ambulance = (t, p, b, gt) => {
   you({ x: 520, y: 822, s: 2.3, pose: 'lie', t: gt * .2, rot: -PI / 2, expr: 'closed', acc: ['mask', 'bandage'] });
   // baño de luz de emergencia
   ctx.fillStyle = fl ? 'rgba(60,120,255,.14)' : 'rgba(255,50,50,.10)'; ctx.fillRect(0, 0, W, H);
+  vignette(.5, .4);
+};
+
+// ---------- pedal ----------
+SCENES.pedal = (t, p, b, gt) => {
+  ctx.fillStyle = lin(0, 0, 0, H, [[0, '#0d0e12'], [1, '#050507']]); ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = 'rgba(255,170,80,.08)'; ctx.fillRect(0, 0, W, 220);
+  fillRR(40, 980, 640, 260, 30, '#101116'); for (let i = 0; i < 9; i++) seg([[80 + i * 70, 1000], [60 + i * 72, 1220]], 3, 'rgba(255,255,255,.03)');
+  const k = E.inout(cl((t - .3) / 1.6)); const vib = Math.sin(gt * 40) * 1.2;
+  // freno
+  ctx.save(); ctx.translate(250, 760); fillRR(-60, 0, 120, 90, 14, '#1d1e24'); seg([[0, 0], [0, -260]], 14, '#16171c'); ctx.restore();
+  // acelerador que se hunde
+  ctx.save(); ctx.translate(470, 700); ctx.rotate(k * .35); seg([[0, -300], [0, 0]], 12, '#16171c'); fillRR(-46, 0, 92, 220, 16, '#24262d'); for (let i = 0; i < 6; i++) seg([[-30, 30 + i * 32], [30, 30 + i * 32]], 4, '#15161a'); ctx.restore();
+  // pierna y zapatilla
+  const fx = 470 + k * 60, fy = 820 + k * 70 + vib;
+  seg([[260, -40], [380, 420], [fx - 10, fy - 40]], 64, '#15151b'); seg([[260, -40], [380, 420], [fx - 10, fy - 40]], 50, '#2e3a55');
+  ctx.save(); ctx.translate(fx, fy); ctx.rotate(.95 + k * .3); fillRR(-60, -36, 190, 80, 36, '#e8e8ee'); fillRR(-60, 22, 190, 22, 11, '#b9bcc7'); ctx.lineWidth = 5; ctx.strokeStyle = '#15151b'; rr(-60, -36, 190, 80, 36); ctx.stroke(); ctx.restore();
+  // líneas de tensión
+  ctx.save(); ctx.globalAlpha = k * .6; for (let i = 0; i < 4; i++) seg([[600 + i * 14, 640 + i * 40], [650 + i * 14, 610 + i * 40]], 4, '#ffc24d'); ctx.restore();
+  glow(470, 760, 260, 'rgba(255,170,80,.10)');
+  vignette(.65, .3);
+};
+// ---------- el abuelo en mitad de la carretera, hablando ----------
+SCENES.grandpa_close = (t, p, b, gt) => {
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, H); ctx.clip(); drawOutside(t, { speed: .3, forest: 1 }, gt); ctx.restore();
+  ctx.fillStyle = lin(0, 600, 0, H, [[0, 'rgba(0,0,0,0)'], [1, 'rgba(0,0,0,.6)']]); ctx.fillRect(0, 600, W, H);
+  glow(360, 620, 520, 'rgba(255,245,220,.28)');
+  const talking = b.words.some(w => gt >= w.s - .02 && gt <= w.e + .02); const mouth = talking ? .5 + .5 * Math.abs(Math.sin(gt * 19)) : 0;
+  stick(Object.assign({}, GRANDPA, { x: 360, y: 1270, s: 5.4, pose: 'stand', t: gt, face: -1, expr: 'worried', mouth, over: { ra1: 2.35, ra2: .3, la1: .5, la2: 1.2, head: .05 } }));
+  particles(50, 6, (x, y, r) => circle((x * W + gt * 20 * r) % W, (y * H + gt * 60 * (r + .3)) % H, 1 + r * 2, 'rgba(220,230,255,.35)'));
+  rainGlass(gt, 0, 0, W, H, true);
+  vignette(.6, .35);
+};
+// ---------- elección en pantalla partida ----------
+SCENES.split = (t, p, b, gt) => {
+  const side = p.side; const la = side === 'b' ? .35 : 1, ra = side === 'a' ? .35 : 1;
+  // izquierda: el abuelo (cálido)
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, 360, H); ctx.clip(); ctx.translate(-180, 0);
+  drawOutside(t, { speed: .2, forest: 1 }, gt); glow(360, 700, 420, 'rgba(255,190,100,.35)');
+  stick(Object.assign({}, GRANDPA, { x: 360, y: 1080, s: 3.6, pose: 'stand', t: gt, face: -1, expr: 'happy', over: { ra1: 2.85, ra2: .2, la1: .2, la2: .2 } }));
+  ctx.restore(); ctx.fillStyle = `rgba(0,0,0,${1 - la})`; ctx.fillRect(0, 0, 360, H);
+  // derecha: la ambulancia (fría)
+  ctx.save(); ctx.beginPath(); ctx.rect(360, 0, 360, H); ctx.clip(); ctx.translate(60, 0);
+  SCENES.ambulance(t, { hr: 0 }, b, gt); ctx.restore(); ctx.fillStyle = `rgba(0,0,0,${1 - ra})`; ctx.fillRect(360, 0, 360, H);
+  ctx.fillStyle = 'rgba(40,90,160,.18)'; ctx.fillRect(360, 0, 360, H);
+  seg([[360, 0], [360, H]], 4, 'rgba(255,255,255,.7)'); glow(360, 640, 200, 'rgba(255,255,255,.12)');
+  const pill = (txt, x, c, a) => { ctx.save(); ctx.globalAlpha = a; const w = measure(txt, 26, 'Anton', 400, 2) + 40; fillRR(x - w / 2, 300, w, 50, 25, c); text(txt, x, 326, { size: 26, fam: 'Anton', w: 400, ls: 2 }); ctx.restore(); };
+  if (!b.ov) { pill('FRENAR', 180, '#c97a1e', la); pill('SEGUIR', 540, '#1f7a52', ra); }
   vignette(.5, .4);
 };
