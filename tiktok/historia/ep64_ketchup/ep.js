@@ -18,11 +18,21 @@ const ROJO = '#c8102e', VERDE = '#2e7a4a', CREMA = '#FBF6EA';
 const CAM = c => box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 960px' });
 const zoom = (cam, t, t0, d, a = 0.06) => set(cam, { s: 1.02 + a * p(t, t0, d, E.linear) });
 /* ---------- figuras ---------- */
+/* cara de la botella (en la etiqueta): botFace(b, t, { jaw, look, closed, ceja, feliz }) */
+const CARAB = `<g class="bc"><path d="M58,314 q16,-10 32,0 M110,314 q16,-10 32,0" stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"/></g><g class="be"><ellipse cx="76" cy="336" rx="15" ry="17" fill="#fff" stroke="${INK}" stroke-width="4"/><ellipse cx="124" cy="336" rx="15" ry="17" fill="#fff" stroke="${INK}" stroke-width="4"/></g><g class="bp"><circle cx="78" cy="339" r="7" fill="${INK}"/><circle cx="126" cy="339" r="7" fill="${INK}"/></g><path class="bm" d="" fill="#7a1020" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`;
+const botFace = (b, t, o = {}) => {
+  const q = s => b.querySelector(s); if (!q('.bm')) return;
+  const j = o.jaw || 0, f = o.feliz ? 10 : 0;
+  q('.bm').setAttribute('d', `M82,362 Q100,${f1(366 + f + j * 22)} 118,362 Q100,${f1(364 + j * 6)} 82,362 Z`);
+  q('.bp').setAttribute('transform', `translate(${f1((o.look || [0, 0])[0])} ${f1((o.look || [0, 0])[1])})`);
+  const cl = o.closed || (t % 2.9) < 0.12; q('.be').setAttribute('transform', cl ? 'translate(0 336) scale(1 0.1) translate(0 -336)' : ''); q('.bp').style.opacity = cl ? 0 : 1;
+  q('.bc').setAttribute('transform', `translate(0 ${f1(-(o.ceja || 0))})`);
+};
 const BOT = 'M80,20 L120,20 L122,150 C122,190 172,210 172,262 L172,490 C172,505 160,512 146,512 L54,512 C40,512 28,505 28,490 L28,262 C28,210 78,190 78,150 Z';
 const botellaInner = (o = {}) => `${cut(P(BOT), 7, 9)}<path d="${BOT}" fill="${ROJO}" stroke="${INK}" stroke-width="6"/><path d="${BOT}" fill="url(#hA)" opacity=".35"/>
   <path d="M60,250 C50,320 50,420 58,480" stroke="#fff" stroke-width="12" opacity=".45" fill="none" stroke-linecap="round"/>
   <rect x="72" y="0" width="56" height="30" rx="6" fill="#f3efe6" stroke="${INK}" stroke-width="5"/>
-  <rect x="40" y="300" width="120" height="120" rx="12" fill="${CREMA}" stroke="${INK}" stroke-width="4"/><circle cx="100" cy="340" r="20" fill="${ROJO}" stroke="${INK}" stroke-width="3"/><path d="M92,322 q8,-10 16,0" stroke="${VERDE}" stroke-width="5" fill="none"/>
+  <rect x="40" y="300" width="120" height="120" rx="12" fill="${CREMA}" stroke="${INK}" stroke-width="4"/>${o.cara ? CARAB : `<circle cx="100" cy="340" r="20" fill="${ROJO}" stroke="${INK}" stroke-width="3"/><path d="M92,322 q8,-10 16,0" stroke="${VERDE}" stroke-width="5" fill="none"/>`}
   <text x="100" y="398" text-anchor="middle" font-family="Rye" font-size="22" fill="${INK}">${o.label || 'KETCHUP'}</text>
   ${o.cruz ? `<rect x="66" y="210" width="68" height="68" rx="10" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M100,220 V268 M76,244 H124" stroke="${VERDE}" stroke-width="14"/>` : ''}
   <g class="n57" style="opacity:${o.n57 ? 1 : 0}"><rect x="76" y="110" width="48" height="34" rx="6" fill="${CREMA}" stroke="${INK}" stroke-width="3"/><text x="100" y="136" text-anchor="middle" font-family="Bricolage" font-weight="800" font-size="24" fill="${INK}">57</text></g>`;
@@ -53,168 +63,344 @@ const BARCO = (c, x, y, w) => figura(c, x, y, w, w * 520 / 600, galeonInner(ROJO
 const MANO = (c, x, y, rot = -40, s = 1.3) => { const h = box(c, x, y, 180, 180, { zIndex: 30 }); h.innerHTML = `<svg viewBox="-60 -70 120 120" width="180" height="180" style="overflow:visible">${gloveHand(0, 0, rot, s)}</svg>`; return h; };
 const burbujas = (c, x, y) => [0, 1, 2, 3, 4].map(i => box(c, x + i * 40, y, 30, 30, { zIndex: 12, borderRadius: '50%', border: `5px solid ${INK}`, background: '#fff' }));
 
-/* L0 · PORTADA + gancho: la botella de kétchup en la estantería de la farmacia */
+/* ---------- piezas de escenario (estilo ep07: pantallas llenas, nada suelto sobre fondo liso) ---------- */
+const ESTRELLA = (c, sz, col) => box(c, 0, 0, sz, sz, { zIndex: 12 }, `<svg viewBox="-50 -50 100 100" width="${sz}" height="${sz}"><path d="M0,-48 L12,-12 L48,0 L12,12 L0,48 L-12,12 L-48,0 L-12,-12 Z" fill="${col}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/></svg>`);
+const sp = (t0, n = 'pop', g = 0.45) => sfx(n, t0, g);
+const TARRO = (c, x, y, w, col, lab) => figura(c, x, y, w, w * 1.25, `${FIGP('M14,40 L146,40 L150,196 L10,196 Z', 'rgba(205,228,235,.85)', 5, .2)}<rect x="22" y="12" width="116" height="34" rx="8" fill="${col}" stroke="${INK}" stroke-width="5"/><rect x="30" y="90" width="100" height="62" rx="6" fill="${CREMA}" stroke="${INK}" stroke-width="3"/><text x="80" y="130" text-anchor="middle" font-family="Rye" font-size="20" fill="${INK}">${lab}</text>`, '0 0 160 200', { z: 5 });
+const ESTANTE = (c, y, z = 4) => box(c, 40, y, 1000, 30, { zIndex: z, background: WOOD, border: `6px solid ${INK}`, borderRadius: '8px', boxShadow: `8px 8px 0 ${INK}` });
+const LINTERNA = (c, x, y, w) => { const d = figura(c, x, y, w, w * 1.6, `<path d="M${w / 2 * 200 / w},-600 V20" stroke="${INK}" stroke-width="5"/><rect x="70" y="10" width="60" height="22" rx="4" fill="${GOLD}" stroke="${INK}" stroke-width="4"/><ellipse cx="100" cy="150" rx="90" ry="118" fill="#d9262a" stroke="${INK}" stroke-width="6"/><path d="M40,70 Q100,150 40,230 M160,70 Q100,150 160,230 M100,32 V268" stroke="${INK}" stroke-width="3" fill="none" opacity=".5"/><ellipse cx="70" cy="110" rx="18" ry="34" fill="#fff" opacity=".35"/><rect x="70" y="262" width="60" height="22" rx="4" fill="${GOLD}" stroke="${INK}" stroke-width="4"/><path d="M90,284 V330 M100,284 V340 M110,284 V330" stroke="${GOLD}" stroke-width="6"/>`, '0 0 200 330', { z: 6, origin: '50% 0%' }); return d; };
+const OLAS = (c, y, col, z) => { const d = box(c, -200, y, 1480, 140, { zIndex: z }); d.innerHTML = `<svg width="1480" height="140" style="overflow:visible"><path d="M0,40 ${[...Array(19)].map((_, i) => `q40,-40 80,0`).join(' ')} V900 H0 Z" fill="${col}" stroke="${INK}" stroke-width="6"/></svg>`; return d; };
+const GAVIOTA = (c, x, y) => box(c, x, y, 120, 60, { zIndex: 6 }, `<svg viewBox="0 0 120 60" width="120" height="60"><path class="ala" d="M5,30 Q30,0 60,30 Q90,0 115,30" stroke="${INK}" stroke-width="7" fill="none" stroke-linecap="round"/></svg>`);
+const BOCADILLO = (c, x, y, html, o = {}) => el('div', c, { left: px(x), top: px(y), zIndex: o.z || 30, background: '#fff', border: `6px solid ${INK}`, borderRadius: '40px', padding: '14px 30px', fontFamily: 'Rye', fontSize: px(o.size || 50), color: INK, boxShadow: `8px 8px 0 ${INK}`, whiteSpace: 'nowrap' }, html);
+const PERIODICO = (c, x, y, l1, l2) => box(c, x, y, 760, 560, { zIndex: 30, background: '#f4efe2', border: `7px solid ${INK}`, boxShadow: `14px 14px 0 ${INK}` }, `<div style="font-family:Rye;font-size:58px;text-align:center;border-bottom:6px double ${INK};padding:14px 0 8px;color:${INK}">THE DAILY HERALD</div><div style="font-family:SpecialElite;font-size:26px;text-align:center;color:${INK};padding:6px">Ohio · 1834</div><div style="font-family:Playfair;font-weight:900;font-size:82px;line-height:1;text-align:center;color:${INK};padding:14px 20px">${l1}</div><div style="font-family:Playfair;font-style:italic;font-weight:800;font-size:54px;text-align:center;color:${ROJO}">${l2}</div><div style="margin:18px 40px;height:90px;background:repeating-linear-gradient(0deg,rgba(43,33,24,.35) 0 4px,transparent 4px 18px)"></div>`);
+const giraPeriodico = (e, t, t0) => { const k = p(t, t0, 0.55, E.outCubic); set(e, { o: t > t0 ? 1 : 0, s: lerp(0.05, 1, k), r: lerp(720, -4, k) }); };
+const lagrima = (c, x, y) => box(c, x, y, 26, 36, { zIndex: 12, background: '#7cc4ea', border: `4px solid ${INK}`, borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%' });
+
+/* L0 · PORTADA (fotograma 0 = portada completa) — la farmacia llena; la botella habla con la voz, guiña, los tarros bailan */
 plano(-1, L(1) - 0.1, PAPEL, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
-  texto(c, 270, 'El kétchup se vendía…', { size: 84 });
-  const t2 = texto(c, 370, 'en la ' + hlSpan('FARMACIA', 'phl'), { size: 124, italic: true });
-  const est = box(c, 80, 1160, 920, 34, { zIndex: 6, background: WOOD, border: `6px solid ${INK}`, borderRadius: '8px', boxShadow: `8px 8px 0 ${INK}` });
-  const fr = [0, 1].map(i => figura(c, i ? 760 : 120, 840, 190, 259, `${FIGP('M30,60 L170,60 L180,250 L20,250 Z', '#cfe3e8', 6, .2)}<rect x="40" y="20" width="120" height="44" rx="8" fill="${GOLD}" stroke="${INK}" stroke-width="5"/><rect x="40" y="130" width="120" height="70" rx="6" fill="${CREMA}" stroke="${INK}" stroke-width="3"/><path d="M100,140 V190 M76,165 H124" stroke="${VERDE}" stroke-width="10"/>`, '0 0 200 270', { z: 7 }));
-  const b = BOTELLA(c, 410, 560, 260, { cruz: true, label: 'KETCHUP' });
-  const cruz = box(c, 860, 520, 150, 150, { zIndex: 5 }, `<svg viewBox="0 0 150 150" width="150" height="150"><path d="M50,0 H100 V50 H150 V100 H100 V150 H50 V100 H0 V50 H50 Z" fill="${VERDE}" stroke="${INK}" stroke-width="6"/></svg>`);
-  sfx('swoosh_up', 0.05, 0.6);
-  return t => { set(t2, { r: -2 + wobble(t, 0.5, 1) }); paint(c.querySelector('.phl'), t, 0.25, 0.4); set(b, { r: Math.sin(t * 3) * 3, sy: 1 + 0.02 * Math.sin(t * 6) }); set(cruz, { s: 1 + 0.08 * Math.sin(t * 5), r: 8 }); fr.forEach((f, i) => set(f, { r: wobble(t, 0.5, 1.5, i) })); };
+  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.34)', 'rgba(0,0,0,0)', 0);
+  texto(c, 250, 'El kétchup se vendía…', { size: 84 });
+  const t2 = texto(c, 350, 'en la ' + hlSpan('FARMACIA', 'phl'), { size: 116, italic: true });
+  ESTANTE(c, 900); ESTANTE(c, 1210, 6);
+  const jt = [[60, 690, VERDE, 'SAL'], [200, 720, '#2b4a8c', 'ÁRNICA'], [790, 720, ROJO, 'JARABE'], [920, 690, GOLD, 'TÓNICO']].map(([x, y, col, l]) => TARRO(c, x, y - 70, 120, col, l));
+  const jb = [[50, 950, '#2b4a8c', 'OPIO'], [800, 950, VERDE, 'LECHE'], [930, 980, ROJO, 'POLVOS']].map(([x, y, col, l]) => TARRO(c, x, y, 150, col, l));
+  const b = BOTELLA(c, 400, 560, 270, { cruz: true, cara: true });
+  const cruz = box(c, 860, 520, 150, 150, { zIndex: 21 }, `<svg viewBox="0 0 150 150" width="170" height="170"><path d="M50,0 H100 V50 H150 V100 H100 V150 H50 V100 H0 V50 H50 Z" fill="${VERDE}" stroke="${INK}" stroke-width="6"/></svg>`);
+  const pl = box(c, 0, 0, 1080, 1920, { zIndex: 9 }); pl.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${[0, 1, 2, 3, 4].map(i => `<g class="pl">${pildora(0, 0, i * 40)}</g>`).join('')}</svg>`; const pls = [...pl.querySelectorAll('.pl')];
+  const ja = ['¡ja!', '¡ja!'].map((s, i) => texto(c, 600 + i * 120, s, { size: 70, italic: true, color: ROJO, x: i ? 680 : 170, w: 240, z: 25 }));
+  sello(c, 1290, '¡CON RECETA!', T.farmacia0 + 0.35, { size: 96, r: -7 });
+  sfx('swoosh_up', 0.05, 0.6); sp(T.farmacia0, 'ding', 0.6);
+  return t => {
+    set(ry, { r: t * 6 }); set(t2, { r: -2 + wobble(t, 0.5, 1) }); paint(c.querySelector('.phl'), t, 0.25, 0.4);
+    const hop = Math.abs(Math.sin(t * 5)); set(b, { y: -hop * 26, sy: 1 - 0.05 * (1 - hop), r: Math.sin(t * 2.5) * 4 });
+    botFace(b, t, { jaw: talkW(t, 'VECINO'), look: [Math.sin(t * 2) * 4, -2], ceja: t > T.farmacia0 ? 10 : 0, closed: t > T.farmacia0 + 0.2 && t < T.farmacia0 + 0.6 });
+    [...jt, ...jb].forEach((j, i) => set(j, { y: -Math.abs(Math.sin(t * 5 + i * 1.3)) * 18, r: Math.sin(t * 5 + i) * 5 }));
+    set(cruz, { s: 1 + 0.1 * Math.abs(Math.sin(t * 5)), r: 8 + t * 20 });
+    pls.forEach((g, i) => { const a = t * 2.2 + i * 1.26; g.setAttribute('transform', `translate(${f1(540 + Math.cos(a) * 280)} ${f1(900 + Math.sin(a) * 120)}) rotate(${f1(a * 60)})`); });
+    ja.forEach((e, i) => set(e, { o: t > T.farmacia0 + 0.15 * i ? 1 : 0, s: pop(t, T.farmacia0 + 0.15 * i, 0.3), r: i ? 10 : -10, y: Math.sin(t * 14 + i) * 6 }));
+  };
 }, { sfx: false });
 
-/* L1a · «como medicina»: la botella se pone bata (cruz) y una receta la envuelve */
+/* L1a · «como medicina»: mostrador de la botica; el boticario le extiende la receta a la botella */
 headline(L(1) - 0.1, T.final1 - 0.1, 'Como *medicina*', { size: 92, hlT: T.medicina1 + 0.2 });
-plano(L(1) - 0.1, T.final1 - 0.1, { background: '#d9ecef' }, c => {
+plano(L(1) - 0.1, T.final1 - 0.1, { background: '#d9ecef', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 90px)' }, c => {
   const cam = CAM(c);
-  const b = BOTELLA(cam, 420, 560, 240, { cruz: true });
-  const rec = figura(cam, 600, 760, 360, 440, `${FIGP('M0,0 L360,0 L360,440 L0,440 Z', CREMA, 6, .12)}<text x="40" y="90" font-family="Playfair" font-style="italic" font-weight="900" font-size="80" fill="${INK}">Rp/</text>${[...Array(5)].map((_, k) => `<path d="M40,${150 + k * 50} H320" stroke="${INK}" stroke-width="4" opacity=".35"/>`).join('')}<text x="180" y="400" text-anchor="middle" font-family="Rye" font-size="34" fill="${ROJO}">KETCHUP</text>`, '0 0 360 440', { z: 9, origin: '0% 100%' });
-  return t => { zoom(cam, t, L(1), 3); set(b, { s: pop(t, L(1), 0.4), r: Math.sin(t * 4) * 4 }); set(rec, { r: lerp(-60, -8, p(t, T.medicina1, 0.5, E.outBack)), o: t > T.medicina1 - 0.05 ? 1 : 0 }); };
+  ESTANTE(cam, 560, 2); [120, 300, 720, 880].forEach((x, i) => TARRO(cam, x, 400, 110, [VERDE, ROJO, GOLD, '#2b4a8c'][i], ['ÉTER', 'YODO', 'MIEL', 'AZUFRE'][i]));
+  const bot = mkBust(cam, [40, 560, 470, 601], { hat: 'brodie', moustache: true, seed: 18 });
+  const mos = box(cam, 0, 1050, 1080, 870, { zIndex: 9, background: WOOD, borderTop: `8px solid ${INK}`, backgroundImage: 'repeating-linear-gradient(90deg, rgba(0,0,0,.12) 0 4px, transparent 4px 120px)' });
+  const b = BOTELLA(cam, 640, 1050 - 572, 220, { cruz: true, cara: true });
+  const rec = figura(cam, 330, 700, 300, 370, `${FIGP('M0,0 L300,0 L300,370 L0,370 Z', CREMA, 6, .12)}<text x="30" y="80" font-family="Playfair" font-style="italic" font-weight="900" font-size="70" fill="${INK}">Rp/</text>${[...Array(4)].map((_, k) => `<path d="M30,${130 + k * 44} H270" stroke="${INK}" stroke-width="4" opacity=".35"/>`).join('')}<text x="150" y="340" text-anchor="middle" font-family="Rye" font-size="30" fill="${ROJO}">KETCHUP</text>`, '0 0 300 370', { z: 12, origin: '0% 100%' });
+  sp(T.medicina1, 'paper', 0.7); sp(T.medicina1 + 0.5, 'ding', 0.6);
+  return t => {
+    zoom(cam, t, L(1), 2.5, 0.08);
+    face(bot, t, { look: [8, 0], jaw: t > T.medicina1 && t < T.medicina1 + 0.6 ? 0.4 : 0, bL: t > T.medicina1 ? 6 : 0, bR: 6, seed: 0.3 });
+    set(rec, { r: lerp(-70, -6, p(t, T.medicina1, 0.5, E.outBack)), x: 120 * p(t, T.medicina1, 0.5, E.outCubic), o: t > T.medicina1 - 0.05 ? 1 : 0 });
+    set(b, { s: pop(t, L(1), 0.4), r: Math.sin(t * 4) * 3 }); botFace(b, t, { look: [-6, 2], ceja: t > T.medicina1 + 0.4 ? 12 : 0, jaw: t > T.medicina1 + 0.4 ? 0.8 : 0 });
+  };
 });
-/* L1b · «el final… lo tienes en tu nevera»: la nevera se cierra con un candado de intriga */
-plano(T.final1 - 0.1, L(2) - 0.1, { background: '#C9D3E6' }, c => {
-  const f = box(c, 290, 420, 500, 900, { zIndex: 6, background: '#f4f7fb', border: `8px solid ${INK}`, borderRadius: '40px', boxShadow: `14px 14px 0 ${INK}`, transformOrigin: '0 50%' });
-  box(f, 0, 300, 484, 8, { background: INK }); box(f, 410, 120, 20, 120, { background: INK, borderRadius: '10px' }); box(f, 410, 380, 20, 160, { background: INK, borderRadius: '10px' });
-  const q = texto(c, 760, '?', { size: 300, color: ROJO, x: 290, w: 500, z: 8 });
-  const tag = chip(c, 330, 1340 - 60, 'el final está aquí', { size: 56, bg: YEL, color: INK });
-  return t => { set(f, { sx: 1 - 0.15 * Math.abs(Math.sin(Math.min(t - T.nevera1, 0.6) * 10)) * (t > T.nevera1 ? 1 : 0) }); set(q, { s: pop(t, T.nevera1, 0.4), o: t > T.nevera1 ? 1 : 0, r: Math.sin(t * 5) * 8 }); popA(tag, t, T.nevera1 + 0.4, { r: -3 }); };
+/* L1b · «el final… lo tienes en tu nevera»: la nevera se entreabre (luz, silueta con ojos), y se cierra de golpe con candado */
+plano(T.final1 - 0.1, L(2) - 0.1, { background: '#C9D3E6', backgroundImage: 'linear-gradient(90deg, rgba(255,255,255,.35) 0 50%, transparent 50%), repeating-linear-gradient(0deg, rgba(43,33,24,.12) 0 4px, transparent 4px 120px)' }, c => {
+  const cam = CAM(c);
+  box(cam, 0, 1330, 1080, 600, { zIndex: 2, background: '#b98c5a', borderTop: `8px solid ${INK}`, backgroundImage: 'repeating-linear-gradient(90deg, rgba(0,0,0,.15) 0 5px, transparent 5px 180px)' });
+  const luz = rays(cam, -160, 260, 1400, 20, 'rgba(255,240,150,.7)', 'rgba(0,0,0,0)', 3);
+  const cuerpo = box(cam, 290, 420, 500, 920, { zIndex: 5, background: '#fff6c8', border: `8px solid ${INK}`, borderRadius: '40px', boxShadow: `14px 14px 0 ${INK}` });
+  [300, 560].forEach(y => box(cuerpo, 20, y, 444, 10, { background: '#c9d3e6', border: `3px solid ${INK}` }));
+  const sil = BOTELLA(cuerpo, 160, 70, 150, { cara: true }); sil.style.filter = 'brightness(0)';
+  const ojos = box(cuerpo, 196, 270, 80, 40, { zIndex: 9 }, `<svg viewBox="0 0 80 40" width="80" height="40"><ellipse cx="18" cy="20" rx="13" ry="15" fill="#fff"/><ellipse cx="62" cy="20" rx="13" ry="15" fill="#fff"/></svg>`);
+  const puerta = box(cam, 290, 420, 500, 920, { zIndex: 7, background: '#f4f7fb', border: `8px solid ${INK}`, borderRadius: '40px', transformOrigin: '0% 50%' });
+  box(puerta, 0, 300, 484, 8, { background: INK }); box(puerta, 410, 120, 20, 120, { background: INK, borderRadius: '10px' }); box(puerta, 410, 380, 20, 160, { background: INK, borderRadius: '10px' });
+  const cad = box(cam, 230, 760, 620, 240, { zIndex: 12 }, `<svg viewBox="0 0 620 240" width="620" height="240" style="overflow:visible"><path d="M0,40 L620,200 M0,200 L620,40" stroke="#7d8790" stroke-width="26" stroke-dasharray="40 10"/><path d="M0,40 L620,200 M0,200 L620,40" stroke="${INK}" stroke-width="4" fill="none"/><path d="M270,110 V70 a40,40 0 0 1 80,0 V110" stroke="${INK}" stroke-width="16" fill="none"/><rect x="250" y="105" width="120" height="100" rx="14" fill="${GOLD}" stroke="${INK}" stroke-width="6"/><circle cx="310" cy="150" r="12" fill="${INK}"/></svg>`);
+  const q = texto(cam, 1380, '¿QUÉ HAY DENTRO?', { size: 76, color: ROJO, z: 20 });
+  const tOpen = T.final1 + 0.2, tShut = T.nevera1 - 0.05;
+  sp(tOpen, 'scratch', 0.7); sp(tOpen + 0.3, 'sparkle', 0.7); sp(tShut, 'thud', 1.1); sp(tShut + 0.3, 'stamp', 0.9); shakeAt(tShut, 0.35, 18);
+  return t => {
+    const open = p(t, tOpen, 0.5, E.outBack) * (1 - p(t, tShut - 0.12, 0.12, E.inCubic));
+    set(puerta, { sx: 1 - 0.62 * open, x: t > tShut ? Math.sin(t * 50) * 4 * (1 - p(t, tShut, 0.6)) : Math.sin(t * 40) * 1.5 });
+    set(luz, { o: open, r: t * 10 });
+    set(ojos, { o: open > 0.5 && (t % 1.6) > 0.15 ? 1 : 0, x: Math.sin(t * 3) * 8 });
+    set(cad, { o: t > tShut + 0.3 ? 1 : 0, s: lerp(1.6, 1, p(t, tShut + 0.3, 0.25, E.outCubic)) });
+    set(q, { o: t > tShut + 0.5 ? 1 : 0, s: pop(t, tShut + 0.5, 0.35), r: Math.sin(t * 6) * 3 });
+    zoom(cam, t, T.final1, 3.5, 0.1);
+  };
 });
 
-/* L2 · China: pez → tarro que fermenta → cuenco de «kê-tsiap»; tomate tachado */
+/* L2 · China: farolillos, los peces saltan al tarro → cuenco que burbujea «kê-tsiap»; el tomate se asoma… y lo tachan */
 headline(L(2) - 0.1, L(3) - 0.1, 'Empieza en *China*', { size: 90, hlT: T.china + 0.1 });
-plano(L(2) - 0.1, T.ferm - 0.05, { background: '#efe1c6' }, c => {
+const farolillos = c => [[60, 300, 150], [860, 280, 170], [700, 350, 110], [230, 360, 100]].map(([x, y, w]) => LINTERNA(c, x, y, w));
+const meceFar = (fs, t) => fs.forEach((f, i) => set(f, { r: Math.sin(t * 2 + i * 1.7) * 7 }));
+plano(L(2) - 0.1, T.ferm - 0.05, { background: '#f2dcb4', backgroundImage: 'repeating-linear-gradient(0deg, rgba(160,40,30,.08) 0 6px, transparent 6px 70px)' }, c => {
   const cam = CAM(c);
-  const pz = [0, 1, 2].map(i => PEZ(cam, -320, 520 + i * 170, 300));
-  const tarro = figura(cam, 600, 640, 320, 450, `${FIGP('M30,80 L290,80 L280,430 L40,430 Z', 'rgba(190,225,235,.6)', 6, .15)}<rect x="20" y="40" width="280" height="50" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="6"/><rect class="liq" x="44" y="200" width="232" height="226" fill="#7a5a32" opacity=".75"/>`, '0 0 320 450', { z: 8 });
-  return t => { zoom(cam, t, L(2), 4); pz.forEach((f, i) => { const k = p(t, T.salsa - 0.4 + i * 0.2, 0.7, E.inOutCubic); set(f, { x: k * 900, y: -Math.sin(k * Math.PI) * 140 + k * 120, r: k * 160, s: 1 - 0.6 * k, o: k < 0.98 ? 1 : 0 }); }); set(tarro, { r: t > T.pescado ? Math.sin(t * 20) * 2 : 0 }); };
+  const fs = farolillos(cam);
+  box(cam, 0, 1250, 1080, 700, { zIndex: 3, background: '#a0522d', borderTop: `8px solid ${INK}`, backgroundImage: 'repeating-linear-gradient(90deg, rgba(0,0,0,.15) 0 5px, transparent 5px 150px)' });
+  const pz = [0, 1, 2].map(i => PEZ(cam, -320, 640 + i * 150, 280));
+  const tarro = figura(cam, 600, 720, 320, 450, `${FIGP('M30,80 L290,80 L280,430 L40,430 Z', 'rgba(190,225,235,.6)', 6, .15)}<rect x="20" y="40" width="280" height="50" rx="10" fill="${WOOD}" stroke="${INK}" stroke-width="6"/><rect class="liq" x="44" y="200" width="232" height="226" fill="#7a5a32" opacity=".75"/>`, '0 0 320 450', { z: 8 });
+  const sal = [0, 1, 2].map(i => texto(cam, 600, '¡plof!', { size: 56, italic: true, color: '#2b4a8c', x: 560 + i * 60, w: 240, z: 20 }));
+  [0, 1, 2].forEach(i => sp(T.salsa - 0.4 + i * 0.2 + 0.7, 'pop2', 0.5));
+  return t => {
+    zoom(cam, t, L(2), 4); meceFar(fs, t);
+    pz.forEach((f, i) => { const t0 = T.salsa - 0.4 + i * 0.2, k = p(t, t0, 0.7, E.inOutCubic); set(f, { x: k * 900, y: -Math.sin(k * Math.PI) * 220 + k * 80, r: k * 160 + Math.sin(t * 12) * 6, s: 1 - 0.6 * k, o: k < 0.98 ? 1 : 0 }); set(sal[i], { o: t > t0 + 0.7 && t < t0 + 1.2 ? 1 : 0, y: -60 * p(t, t0 + 0.7, 0.5) }); });
+    set(tarro, { r: t > T.pescado ? Math.sin(t * 20) * 2 : 0, sy: 1 + (t > T.pescado ? 0.03 * Math.sin(t * 14) : 0) });
+  };
 });
-plano(T.ferm - 0.05, L(3) - 0.1, { background: '#efe1c6' }, c => {
+plano(T.ferm - 0.05, L(3) - 0.1, { background: '#f2dcb4', backgroundImage: 'repeating-linear-gradient(0deg, rgba(160,40,30,.08) 0 6px, transparent 6px 70px)' }, c => {
   const cam = CAM(c);
-  const cu = CUENCO(cam, 240, 700, 600);
-  const bb = burbujas(cam, 420, 640);
-  const nom = texto(cam, 1130, '«kê-tsiap»', { size: 120, italic: true, color: '#6b4a2a' });
-  const tm = TOMATE(cam, 760, 400, 220);
-  const x = box(cam, 740, 390, 260, 260, { zIndex: 20 }, XSVG);
-  return t => { zoom(cam, t, T.ferm, 2.5); bb.forEach((b, i) => set(b, { y: -((t * 120 + i * 50) % 200), o: 0.9, s: 0.6 + 0.4 * Math.sin(t * 4 + i) })); set(nom, { s: pop(t, T.ferm + 0.1, 0.4), o: t > T.ferm + 0.1 ? 1 : 0 }); set(tm, { o: t > T.sinTom - 0.3 ? 1 : 0, s: pop(t, T.sinTom - 0.3, 0.35) }); tomFace(tm, t, [-6, 4]); set(x, { o: t > T.sinTom + 0.4 ? 1 : 0, s: pop(t, T.sinTom + 0.4, 0.3) }); };
+  const fs = farolillos(cam);
+  box(cam, 0, 1250, 1080, 700, { zIndex: 3, background: '#a0522d', borderTop: `8px solid ${INK}` });
+  const cu = CUENCO(cam, 240, 870, 600);
+  const bb = burbujas(cam, 420, 830);
+  const hum = [0, 1, 2].map(i => box(cam, 380 + i * 110, 700, 40, 160, { zIndex: 7, borderLeft: `8px solid rgba(43,33,24,.35)`, borderRadius: '50%' }));
+  const nom = texto(cam, 390, '«kê-tsiap»', { size: 110, italic: true, color: '#fff', shadow: `5px 5px 0 ${INK}` });
+  const tm = TOMATE(cam, 760, 560, 230);
+  const x = box(cam, 745, 545, 260, 260, { zIndex: 20 }, XSVG);
+  const lg = lagrima(cam, 820, 740);
+  sp(T.ferm + 0.1, 'pop', 0.6); sp(T.sinTom - 0.3, 'boing', 0.6); sp(T.sinTom + 0.4, 'stamp', 0.9); sp(T.sinTom + 0.6, 'sad', 0.7);
+  return t => {
+    zoom(cam, t, T.ferm, 2.5); meceFar(fs, t);
+    bb.forEach((b, i) => set(b, { y: -((t * 120 + i * 50) % 200), o: 0.9, s: 0.6 + 0.4 * Math.sin(t * 4 + i) }));
+    hum.forEach((h, i) => set(h, { y: -((t * 80 + i * 60) % 120), o: 0.8, x: Math.sin(t * 3 + i) * 12 }));
+    set(nom, { s: pop(t, T.ferm + 0.1, 0.4), o: t > T.ferm + 0.1 ? 1 : 0, r: -3 });
+    const kin = p(t, T.sinTom - 0.3, 0.4, E.outBack); set(tm, { o: t > T.sinTom - 0.3 ? 1 : 0, y: (1 - kin) * 300 + (t > T.sinTom + 0.4 ? 0 : -Math.abs(Math.sin(t * 7)) * 20) });
+    tomFace(tm, t, t > T.sinTom + 0.4 ? [0, 6] : [-8, -4]); tm.querySelector('.boca').setAttribute('d', t > T.sinTom + 0.4 ? 'M118,226 Q150,200 182,226' : 'M110,205 Q150,250 190,205');
+    set(x, { o: t > T.sinTom + 0.4 ? 1 : 0, s: pop(t, T.sinTom + 0.4, 0.3) }); set(lg, { o: t > T.sinTom + 0.6 ? 1 : 0, y: ((t - T.sinTom) * 140) % 120 });
+  };
 });
+shakeAt(T.sinTom + 0.4, 0.25, 10);
 
-/* L3 · los marineros ingleses la copian con lo que pillan: champiñones, nueces, anchoas → a la olla */
+/* L3 · los marineros ingleses la copian: barco en alta mar con gaviotas → el marinero echa a la olla lo que pilla */
 headline(L(3) - 0.1, L(4) - 0.1, 'Copia *inglesa*', { size: 90, hlT: T.copian });
-plano(L(3) - 0.1, T.champi - 0.15, { background: '#C9D3E6' }, c => {
-  const mar = box(c, 0, 1100, 1080, 820, { zIndex: 4, background: '#5c87b5', borderTop: `8px solid ${INK}` });
-  const br = BARCO(c, -560, 620, 560);
-  return t => { set(br, { x: lerp(300, 1500, p(t, L(3), T.champi - L(3) + 0.3, E.inOutCubic)), y: Math.sin(t * 3) * 14, r: Math.sin(t * 2.4) * 4 }); };
+plano(L(3) - 0.1, T.champi - 0.15, { background: '#bcd3ea' }, c => {
+  const sol = box(c, 780, 360, 200, 200, { zIndex: 2, background: GOLD, border: `7px solid ${INK}`, borderRadius: '50%' });
+  const nubes = [[80, 420], [560, 520]].map(([x, y]) => box(c, x, y, 260, 90, { zIndex: 3, background: '#fff', border: `6px solid ${INK}`, borderRadius: '60px' }));
+  const gs = [[200, 600], [380, 540], [700, 640]].map(([x, y]) => GAVIOTA(c, x, y));
+  const o1 = OLAS(c, 1060, '#5c87b5', 4), o2 = OLAS(c, 1180, '#3f6d9e', 9);
+  box(c, 0, 1300, 1080, 700, { zIndex: 9, background: '#3f6d9e' });
+  const br = BARCO(c, -560, 560, 600);
+  const mar = mkBust(c, [-400, 690, 220, 281], { hat: 'cap', moustache: true, seed: 61 }); mar.d.style.zIndex = 6;
+  const bo = BOCADILLO(c, 380, 1500, '¡A copiarla!', { size: 54 });
+  sp(T.copian, 'pop', 0.6); sp(L(3), 'whoosh', 0.6);
+  return t => {
+    const k = p(t, L(3), T.champi - L(3) + 0.3, E.inOutCubic), bx = lerp(-520, 1100, k), by = Math.sin(t * 3) * 14;
+    set(br, { x: bx + 560, y: by, r: Math.sin(t * 2.4) * 4 }); set(mar.d, { x: bx + 760, y: by, r: Math.sin(t * 2.4) * 4 }); face(mar, t, { look: [6, 0], jaw: t > T.copian && t < T.pillan ? 0.5 : 0, seed: 0.7 });
+    set(o1, { x: (t * 90) % 80 }); set(o2, { x: -((t * 130) % 80) });
+    gs.forEach((g, i) => { set(g, { x: Math.sin(t + i) * 60, y: Math.cos(t * 1.3 + i) * 20 }); g.querySelector('.ala').setAttribute('d', `M5,30 Q30,${f1(10 + 18 * Math.sin(t * 12 + i))} 60,30 Q90,${f1(10 + 18 * Math.sin(t * 12 + i))} 115,30`); });
+    nubes.forEach((n, i) => set(n, { x: ((t * 30 + i * 300) % 1400) - 300 })); set(sol, { r: t * 20, s: 1 + 0.04 * Math.sin(t * 4) });
+    popA(bo, t, T.copian, { r: -3 });
+  };
 });
-plano(T.champi - 0.15, L(4) - 0.1, PAPEL, c => {
+plano(T.champi - 0.15, L(4) - 0.1, { background: '#d8c3a0', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.12) 0 6px, transparent 6px 110px)' }, c => {
   const cam = CAM(c);
-  const o = OLLA(cam, 300, 960, 480);
-  const ings = [['seta', T.champi, 160], ['nuez', T.nueces, 440], ['anchoa', T.anchoas, 720]].map(([k, t0, x]) => [ING(cam, x, 480, 220, k), t0, x]);
-  const lbs = [['champiñones', T.champi, 110], ['nueces', T.nueces, 420], ['anchoas', T.anchoas, 700]].map(([s, t0, x]) => [chip(cam, x, 760, s, { size: 46, bg: '#fff', color: INK }), t0]);
-  return t => { zoom(cam, t, T.champi, 3); ings.forEach(([e, t0, x]) => { const kin = p(t, t0 - 0.1, 0.35, E.outBack), kfall = p(t, t0 + 0.9, 0.4, E.inCubic); set(e, { s: kin * (1 - 0.5 * kfall), o: t > t0 - 0.1 && kfall < 1 ? 1 : 0, x: (540 - 110 - x) * kfall, y: 520 * kfall, r: kfall * 200 }); }); lbs.forEach(([e, t0]) => popA(e, t, t0, { r: -3, o: 1 - p(t, t0 + 0.9, 0.2) })); set(o, { r: Math.sin(t * 18) * (t > T.champi + 0.9 ? 1.5 : 0) }); };
+  box(cam, 0, 1330, 1080, 600, { zIndex: 2, background: '#8a5a32', borderTop: `8px solid ${INK}` });
+  const mar = mkBust(cam, [660, 620, 400, 512], { hat: 'cap', moustache: true, seed: 61 });
+  const o = OLLA(cam, 250, 960, 480);
+  const fuego = [0, 1, 2, 3].map(i => box(cam, 330 + i * 90, 1400, 70, 110, { zIndex: 6, background: i % 2 ? '#f28c28' : GOLD, border: `5px solid ${INK}`, borderRadius: '50% 50% 40% 40% / 70% 70% 30% 30%' }));
+  const hum = [0, 1, 2].map(i => box(cam, 360 + i * 120, 820, 40, 160, { zIndex: 6, borderLeft: `8px solid rgba(255,255,255,.7)`, borderRadius: '50%' }));
+  const ings = [['seta', T.champi, 120], ['nuez', T.nueces, 380], ['anchoa', T.anchoas, 640]].map(([k, t0, x]) => [ING(cam, x, 470, 220, k), t0, x]);
+  const lbs = [['champiñones', T.champi, 80], ['nueces', T.nueces, 380], ['anchoas', T.anchoas, 620]].map(([s, t0, x]) => [chip(cam, x, 720, s, { size: 46, bg: '#fff', color: INK }), t0]);
+  const puaj = BOCADILLO(cam, 640, 470, '¿anchoas?', { size: 46 });
+  ings.forEach(([e, t0]) => { sp(t0, 'pop', 0.5); sp(t0 + 1.2, 'gulp', 0.6); });
+  return t => {
+    zoom(cam, t, T.champi, 3);
+    ings.forEach(([e, t0, x]) => { const kin = p(t, t0 - 0.1, 0.35, E.outBack), kfall = p(t, t0 + 0.9, 0.4, E.inCubic); set(e, { s: kin * (1 - 0.5 * kfall), o: t > t0 - 0.1 && kfall < 1 ? 1 : 0, x: (490 - 110 - x) * kfall, y: 520 * kfall, r: kfall * 200 + Math.sin(t * 6) * 6 }); });
+    lbs.forEach(([e, t0]) => popA(e, t, t0, { r: -3, o: 1 - p(t, t0 + 0.9, 0.2) }));
+    set(o, { r: Math.sin(t * 18) * (t > T.champi + 0.9 ? 1.5 : 0) });
+    fuego.forEach((f, i) => set(f, { sy: 1 + 0.25 * Math.sin(t * 14 + i * 2), y: -Math.abs(Math.sin(t * 9 + i)) * 10 }));
+    hum.forEach((h, i) => set(h, { y: -((t * 90 + i * 60) % 150), x: Math.sin(t * 3 + i) * 14, o: 0.9 }));
+    const lk = t > T.anchoas ? [-10, 4] : t > T.nueces ? [-8, -2] : [-10, -4];
+    face(mar, t, { look: lk, bL: t > T.anchoas ? 14 : 0, bR: t > T.anchoas ? 14 : 4, jaw: t > T.anchoas && t < T.anchoas + 0.8 ? 0.6 : 0, seed: 0.7 });
+    popA(puaj, t, T.anchoas + 0.2, { r: 4, o: 1 - p(t, T.anchoas + 1.3, 0.2) });
+  };
 });
 
-/* L4 · 1834: un médico americano anuncia que el tomate lo cura todo */
+/* L4 · 1834: el médico lo anuncia y el periódico entra girando: «¡EL TOMATE LO CURA TODO!» */
 headline(L(4) - 0.1, L(5) - 0.1, '*1834*: el tomate milagro', { size: 84, hlT: T.m1834 });
-plano(L(4) - 0.1, L(5) - 0.1, { background: '#E9D7B0' }, c => {
+plano(L(4) - 0.1, L(5) - 0.1, { background: '#E9D7B0', backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.10) 0 3px, transparent 3px 58px)' }, c => {
   const cam = CAM(c);
-  const doc = mkBust(cam, [80, 600, 420, 537], { hat: 'brodie', moustache: true, beard: true, seed: 34 });
-  aparece(chip(cam, 90, 1150, 'médico americano', { size: 50, bg: '#fff', color: INK }), T.medico);
-  const bs = rays(cam, 300, 360, 900, 16, 'rgba(255,230,0,.55)', 'rgba(0,0,0,0)', 4);
+  const bs = rays(cam, 300, 360, 900, 16, 'rgba(255,230,0,.55)', 'rgba(0,0,0,0)', 1);
+  const doc = mkBust(cam, [60, 640, 440, 563], { hat: 'brodie', moustache: true, beard: true, seed: 34 });
+  aparece(chip(cam, 300, 1220, 'un médico americano', { size: 50, bg: '#fff', color: INK }), T.medico);
   const tm = TOMATE(cam, 560, 560, 400);
-  const cr = sello(c, 1180, '¡LO CURA TODO!', T.cura, { size: 100, r: -6 });
-  return t => { zoom(cam, t, L(4), 5); face(doc, t, { look: t > T.tomate4 ? [8, -2] : [0, 0], bL: t > T.cura ? 10 : 0, bR: t > T.cura ? 10 : 0, jaw: talkW(t, 'VECINO') * 0.6, seed: 0.2 }); set(tm, { o: t > T.tomate4 - 0.2 ? 1 : 0, s: pop(t, T.tomate4 - 0.2, 0.5) * (1 + 0.04 * Math.sin(t * 6)), y: -Math.abs(Math.sin(t * 3)) * 20 }); tomFace(tm, t, [-8, -2]); const sp = tm.querySelector('.boca'); sp.setAttribute('d', t > T.cura ? 'M110,205 Q150,250 190,205' : 'M118,210 Q150,238 182,210'); };
+  const brillos = [0, 1, 2, 3, 4, 5].map(i => ESTRELLA(cam, 64, GOLD));
+  const per = PERIODICO(c, 160, 560, '¡EL TOMATE<br>LO CURA TODO!', 'según un médico');
+  sp(T.tomate4 - 0.2, 'sparkle', 0.8); sp(T.cura - 0.1, 'whoosh', 0.8); sp(T.cura + 0.45, 'stamp', 1);
+  return t => {
+    zoom(cam, t, L(4), 5); set(bs, { r: t * 8 });
+    face(doc, t, { look: t > T.tomate4 ? [8, -2] : [0, 0], bL: t > T.tomate4 ? 10 : 0, bR: t > T.tomate4 ? 10 : 0, jaw: talkW(t, 'VECINO') * 0.6, seed: 0.2 });
+    set(tm, { o: t > T.tomate4 - 0.2 ? 1 : 0, s: pop(t, T.tomate4 - 0.2, 0.5) * (1 + 0.04 * Math.sin(t * 6)), y: -Math.abs(Math.sin(t * 3)) * 20 }); tomFace(tm, t, [-8, -2]); tm.querySelector('.boca').setAttribute('d', 'M110,205 Q150,250 190,205');
+    brillos.forEach((b, i) => { const a = t * 1.5 + i * 1.05; set(b, { x: 720 + Math.cos(a) * 260, y: 720 + Math.sin(a) * 240, o: t > T.tomate4 ? 1 : 0, s: 0.7 + 0.4 * Math.sin(t * 8 + i) }); });
+    giraPeriodico(per, t, T.cura - 0.1);
+  };
 });
+shakeAt(T.cura + 0.45, 0.35, 16);
 
-/* L5 · la diarrea, la indigestión… ¡hasta el cólera! Y receta… kétchup */
+/* L5 · cura la diarrea, la indigestión… ¡el cólera! (el tomate-doctor va sellando) → y receta… kétchup */
 headline(L(5) - 0.1, L(6) - 0.1, 'Según él, cura…', { size: 84 });
 plano(L(5) - 0.1, T.receta - 0.1, PAPEL, c => {
   const items = [['la diarrea', T.diarrea], ['la indigestión', T.indig], ['¡el cólera!', T.colera]].map(([s, t0], i) => {
-    const row = box(c, 140, 520 + i * 230, 800, 170, { zIndex: 8, background: CREMA, border: `6px solid ${INK}`, borderRadius: '20px', boxShadow: `10px 10px 0 ${INK}` });
-    el('div', row, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '84px', color: INK }, s);
-    const ck = box(c, 820, 520 + i * 230 - 10, 170, 170, { zIndex: 9 }, CHECK); return [row, ck, t0];
+    const row = box(c, 60, 470 + i * 230, 760, 170, { zIndex: 8, background: CREMA, border: `6px solid ${INK}`, borderRadius: '20px', boxShadow: `10px 10px 0 ${INK}` });
+    el('div', row, { left: '40px', top: '30px', fontFamily: 'Playfair', fontWeight: 900, fontStyle: 'italic', fontSize: '80px', color: INK }, s);
+    const ck = box(c, 690, 470 + i * 230 - 10, 170, 170, { zIndex: 9 }, CHECK); sp(t0 - 0.15, 'whoosh', 0.5); sp(t0 + 0.35, 'stamp', 0.8); return [row, ck, t0];
   });
-  return t => items.forEach(([r, ck, t0], i) => { set(r, { x: (1 - p(t, t0 - 0.15, 0.35, E.outBack)) * -1100, r: i % 2 ? 1.5 : -1.5 }); stampA(ck, t, t0 + 0.35, -8); });
+  const tm = TOMATE(c, 820, 420, 220);
+  return t => {
+    let ty = 420; items.forEach(([r, ck, t0], i) => { set(r, { x: (1 - p(t, t0 - 0.15, 0.35, E.outBack)) * -1100, r: i % 2 ? 1.5 : -1.5 }); stampA(ck, t, t0 + 0.35, -8); if (t > t0) ty = 420 + i * 230; });
+    const hop = Math.abs(Math.sin(t * 7)); set(tm, { y: ty - 420 - hop * 40, r: Math.sin(t * 7) * 8 }); tomFace(tm, t, [-8, 4]); tm.querySelector('.boca').setAttribute('d', 'M110,205 Q150,250 190,205');
+  };
 });
 plano(T.receta - 0.1, L(6) - 0.1, { background: YEL }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,255,255,.35)', 'rgba(0,0,0,0)', 0);
-  const rec = figura(c, 220, 420, 640, 780, `${FIGP('M0,0 L640,0 L640,780 L0,780 Z', CREMA, 7, .12)}<text x="60" y="140" font-family="Playfair" font-style="italic" font-weight="900" font-size="130" fill="${INK}">Rp/</text>${[...Array(4)].map((_, k) => `<path d="M60,${240 + k * 70} H580" stroke="${INK}" stroke-width="5" opacity=".3"/>`).join('')}`, '0 0 640 780', { z: 6, origin: '50% 50%' });
-  const b = BOTELLA(c, 430, 700, 220);
-  return t => { set(rec, { s: pop(t, T.receta - 0.1, 0.4), r: -3 }); set(b, { o: t > T.ket5 - 0.1 ? 1 : 0, y: (1 - p(t, T.ket5 - 0.1, 0.45, E.outBack)) * -900, r: Math.sin(t * 5) * 3 }); };
+  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,255,255,.35)', 'rgba(0,0,0,0)', 0);
+  const rec = figura(c, 220, 420, 640, 780, `${FIGP('M0,0 L640,0 L640,780 L0,780 Z', CREMA, 7, .12)}<text x="60" y="140" font-family="Playfair" font-style="italic" font-weight="900" font-size="130" fill="${INK}">Rp/</text>${[...Array(4)].map((_, k) => `<path d="M60,${240 + k * 70} H580" stroke="${INK}" stroke-width="5" opacity=".3"/>`).join('')}<text x="320" y="740" text-anchor="middle" font-family="SpecialElite" font-size="40" fill="${INK}">3 cucharadas al día</text>`, '0 0 640 780', { z: 6, origin: '50% 50%' });
+  const b = BOTELLA(c, 430, 640, 220, { cara: true });
+  sp(T.receta, 'paper', 0.7); sp(T.ket5 + 0.3, 'boing', 0.8);
+  return t => { set(ry, { r: t * 8 }); set(rec, { s: pop(t, T.receta - 0.1, 0.4), r: -3 }); set(b, { o: t > T.ket5 - 0.1 ? 1 : 0, y: (1 - p(t, T.ket5 - 0.1, 0.45, E.outBack)) * -900, r: Math.sin(t * 5) * 3 }); botFace(b, t, { feliz: true, jaw: 0.6, look: [0, -3], ceja: 8, closed: t > T.ket5 + 0.6 && t < T.ket5 + 0.9 }); };
 });
+shakeAt(T.ket5 + 0.3, 0.3, 12);
 
 /* L6 · CTA (clip reutilizado del ep55) */
 sigueme(6, 'En clase…', '¡no te lo cuentan!', 'sígueme');
 
-/* L7 · alguien huele el negocio: píldoras de tomate que se venden como churros */
+/* L7 · alguien huele el negocio: píldoras de tomate → cola de clientes «¡DEME DOS!» */
 headline(L(7) - 0.1, L(8) - 0.1, 'Píldoras de *tomate*', { size: 90, hlT: T.pastillas });
-plano(L(7) - 0.1, L(8) - 0.1, { background: '#E9C6BE' }, c => {
+plano(L(7) - 0.1, L(8) - 0.1, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 40px, transparent 40px 80px)' }, c => {
   const cam = CAM(c);
-  const nariz = box(cam, 400, 420, 280, 200, { zIndex: 9 }, `<svg viewBox="0 0 280 200" width="280" height="200" style="overflow:visible"><path d="M40,120 C80,40 200,40 240,120" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"/><text x="140" y="190" text-anchor="middle" font-family="Rye" font-size="60" fill="${VERDE}">$ $ $</text></svg>`);
-  const cj = CAJAP(cam, 330, 620, 420, 'Dr. Miles', ROJO);
-  const pil = box(cam, 0, 0, 1080, 1920, { zIndex: 11 }); let s = ''; const R = rng(7); for (let i = 0; i < 40; i++) s += `<g class="pl">${pildora(f1(80 + R() * 920), f1(1000 + R() * 300), f1(R() * 180))}</g>`; pil.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${s}</svg>`; const pls = [...pil.querySelectorAll('.pl')];
-  const stack = [...Array(8)].map((_, i) => CAJAP(cam, 60 + (i % 4) * 250, 1140 - Math.floor(i / 4) * 150, 220, '', i % 2 ? '#2b4a8c' : ROJO));
-  return t => { zoom(cam, t, L(7), 5); set(nariz, { o: t < T.pastillas ? 1 : 0, y: Math.sin(t * 8) * 8 }); set(cj, { s: pop(t, T.pastillas, 0.45), o: t > T.pastillas ? 1 : 0, r: Math.sin(t * 3) * 2 }); pls.forEach((g, i) => g.style.opacity = t > T.pastillas + 0.3 + i * 0.03 && t < T.churros ? 1 : 0); stack.forEach((e, i) => set(e, { o: t > T.churros + i * 0.08 ? 1 : 0, y: (1 - p(t, T.churros + i * 0.08, 0.3, E.outBack)) * -500 })); };
+  const ven = mkBust(cam, [40, 480, 360, 461], { hat: 'brodie', moustache: true, seed: 77 });
+  const nariz = box(cam, 420, 420, 280, 200, { zIndex: 9 }, `<svg viewBox="0 0 280 200" width="280" height="200" style="overflow:visible"><path d="M40,120 C80,40 200,40 240,120" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"/><text x="140" y="190" text-anchor="middle" font-family="Rye" font-size="60" fill="${VERDE}">$ $ $</text></svg>`);
+  const cj = CAJAP(cam, 420, 600, 420, 'Dr. Miles', ROJO);
+  const pil = box(cam, 0, 0, 1080, 1920, { zIndex: 11 }); let s = ''; const R = rng(7); for (let i = 0; i < 30; i++) s += `<g class="pl">${pildora(f1(380 + R() * 640), f1(900 + R() * 120), f1(R() * 180))}</g>`; pil.innerHTML = `<svg width="1080" height="1920" style="overflow:visible">${s}</svg>`; const pls = [...pil.querySelectorAll('.pl')];
+  const cli = [[330, 0], [580, 1], [830, 2]].map(([x, i]) => mkBust(cam, [x, 1020, 250, 320], { hat: ['cap', 'slouch', 'brodie'][i], moustache: i !== 1, seed: 90 + i }));
+  const bub = BOCADILLO(cam, 380, 960, '¡DEME DOS!', { size: 52 });
+  const mon = [0, 1, 2, 3].map(i => texto(cam, 0, '$', { size: 90, color: VERDE, x: 0, w: 90, z: 14, shadow: `3px 3px 0 ${INK}` }));
+  sp(T.huele, 'sparkle', 0.6); sp(T.pastillas, 'pop2', 0.7); sp(T.churros, 'cash', 0.9); sp(T.churros + 0.5, 'cash', 0.6);
+  return t => {
+    zoom(cam, t, L(7), 5);
+    face(ven, t, { look: [8, -2], closed: t < T.pastillas, bL: t > T.churros ? 12 : 4, bR: t > T.churros ? 12 : 4, jaw: t > T.churros ? 0.5 : 0, seed: 0.4 });
+    set(nariz, { o: t < T.pastillas ? 1 : 0, y: Math.sin(t * 8) * 8 });
+    set(cj, { s: pop(t, T.pastillas, 0.45), o: t > T.pastillas ? 1 : 0, r: Math.sin(t * 3) * 2 });
+    pls.forEach((g, i) => g.style.opacity = t > T.pastillas + 0.3 + i * 0.03 && t < T.churros ? 1 : 0);
+    cli.forEach((b, i) => { set(b.d, { o: t > T.churros + i * 0.12 ? 1 : 0, y: (1 - p(t, T.churros + i * 0.12, 0.35, E.outBack)) * 400 - Math.abs(Math.sin(t * 8 + i)) * 14 }); face(b, t, { look: [-8, -4], jaw: Math.abs(Math.sin(t * 9 + i)) * 0.5, bL: 8, bR: 8, seed: i }); });
+    popA(bub, t, T.churros + 0.3, { r: -4 });
+    mon.forEach((m, i) => { const k = ((t - T.churros) * 0.9 + i * 0.25) % 1; set(m, { o: t > T.churros ? 1 - k : 0, x: 600 + i * 90 - k * 400, y: 1000 - k * 300 }); });
+  };
 });
 
-/* L8 · salen copias por todas partes… y algunas llevaban LAXANTE */
+/* L8 · copias por todas partes (los «doctores» brotan) → y algunas… llevaban LAXANTE (carrera al WC) */
 headline(L(8) - 0.1, T.vez - 0.1, 'Copias por *todas partes*', { size: 82, hlT: T.partes });
 plano(L(8) - 0.1, T.vez - 0.1, PAPEL, c => {
   const nombres = ['Dr. Miles', 'Dr. Phelps', 'Dr. Holcombe', 'Dr. Nadie', '¿Dr.?', 'Dr. Prisas'];
-  const cs = nombres.map((n, i) => CAJAP(c, 60 + (i % 3) * 330, 520 + Math.floor(i / 3) * 330, 300, n, ['#2b4a8c', ROJO, VERDE][i % 3]));
-  return t => cs.forEach((e, i) => set(e, { s: pop(t, T.copias + i * 0.18, 0.35), o: t > T.copias + i * 0.18 ? 1 : 0, r: Math.sin(t * 4 + i) * 4 }));
+  const cs = nombres.map((n, i) => { const t0 = T.copias + i * 0.18; sp(t0, 'pop', 0.45); return [CAJAP(c, 60 + (i % 3) * 330, 480 + Math.floor(i / 3) * 330, 300, n, ['#2b4a8c', ROJO, VERDE][i % 3]), t0]; });
+  const cnt = texto(c, 1180, '', { size: 110, color: ROJO, x: 360, w: 680 });
+  const ori = stamp(c, 440, 1020, '¿ORIGINAL?', { size: 72, z: 30 });
+  return t => { let n = 0; cs.forEach(([e, t0], i) => { if (t > t0) n++; set(e, { s: pop(t, t0, 0.35), o: t > t0 ? 1 : 0, r: Math.sin(t * 4 + i) * 4, y: -Math.abs(Math.sin(t * 6 + i)) * 10 }); }); cnt.innerHTML = n ? `×${n * 7}` : ''; stampA(ori, t, T.partes + 0.4, -8); };
 });
-plano(T.vez - 0.1, L(9) - 0.1, { background: '#E9D7B0' }, c => {
-  const cj = CAJAP(c, 330, 420, 420, 'Dr. Prisas', ROJO);
-  const lx = stamp(c, 300, 600, 'LAXANTE', { size: 110, z: 40, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
-  const hombre = mkBust(c, [80, 800, 380, 486], { hat: 'cap', moustache: true, seed: 52 });
-  const grr = texto(c, 1130, 'grrrr…', { size: 90, italic: true, x: 40, w: 440, color: '#6b4a2a' });
-  const wc = figura(c, 620, 760, 340, 560, `${FIGP('M20,20 L320,20 L320,560 L20,560 Z', WOOD, 7, .3)}<rect x="90" y="70" width="160" height="90" rx="10" fill="${CREMA}" stroke="${INK}" stroke-width="5"/><text x="170" y="135" text-anchor="middle" font-family="Rye" font-size="56" fill="${INK}">WC</text><circle cx="270" cy="320" r="16" fill="${GOLD}" stroke="${INK}" stroke-width="4"/>`, '0 0 340 580', { z: 7, origin: '0% 50%' });
-  return t => { stampA(lx, t, T.laxante, -10); face(hombre, t, { look: t > T.laxante + 0.3 ? [10, 0] : [0, 0], bL: t > T.laxante ? 12 : 0, bR: t > T.laxante ? 12 : 0, seed: 0.5 }); set(hombre.d, { x: t > T.laxante + 0.9 ? p(t, T.laxante + 0.9, 0.4, E.inCubic) * 700 : Math.sin(t * 30) * (t > T.laxante ? 4 : 0), o: t > T.laxante + 1.25 ? 0 : 1 }); set(grr, { o: t > T.laxante + 0.2 && t < T.laxante + 1.0 ? 1 : 0, x: Math.sin(t * 40) * 6 }); set(wc, { sx: t > T.laxante + 1.25 ? 1 : 1 - 0.5 * p(t, T.laxante + 0.8, 0.3) }); };
+plano(T.vez - 0.1, L(9) - 0.1, { background: '#E9D7B0', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.10) 0 4px, transparent 4px 100px)' }, c => {
+  box(c, 0, 1330, 1080, 600, { zIndex: 2, background: '#b98c5a', borderTop: `8px solid ${INK}` });
+  const cj = CAJAP(c, 330, 380, 420, 'Dr. Prisas', ROJO);
+  const lx = stamp(c, 300, 560, 'LAXANTE', { size: 110, z: 40, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  const hombre = mkBust(c, [300, 800, 380, 486], { hat: 'cap', moustache: true, seed: 52 });
+  const grr = texto(c, 760, 'grrrr…', { size: 90, italic: true, x: 260, w: 460, color: '#6b4a2a' });
+  const wc = figura(c, 690, 760, 340, 580, `${FIGP('M20,20 L320,20 L320,560 L20,560 Z', WOOD, 7, .3)}<rect x="90" y="70" width="160" height="90" rx="10" fill="${CREMA}" stroke="${INK}" stroke-width="5"/><text x="170" y="135" text-anchor="middle" font-family="Rye" font-size="56" fill="${INK}">WC</text><circle cx="270" cy="320" r="16" fill="${GOLD}" stroke="${INK}" stroke-width="4"/>`, '0 0 340 580', { z: 7, origin: '0% 50%' });
+  const pol = [0, 1, 2, 3].map(i => box(c, 300, 1250, 60, 40, { zIndex: 6, background: '#d8c3a0', border: `4px solid ${INK}`, borderRadius: '50%' }));
+  sp(T.laxante, 'stamp', 1); sp(T.laxante + 0.2, 'glitch', 0.6); sp(T.laxante + 0.9, 'whoosh', 0.9);
+  return t => {
+    stampA(lx, t, T.laxante, -10);
+    face(hombre, t, { look: t > T.laxante + 0.3 ? [10, 0] : [0, 0], bL: t > T.laxante ? 14 : 0, bR: t > T.laxante ? 14 : 0, jaw: t > T.laxante ? 0.5 : 0, seed: 0.5 });
+    const run = p(t, T.laxante + 0.9, 0.4, E.inCubic);
+    set(hombre.d, { x: t > T.laxante + 0.9 ? run * 450 : Math.sin(t * 30) * (t > T.laxante ? 5 : 0), o: t > T.laxante + 1.25 ? 0 : 1 });
+    pol.forEach((d, i) => set(d, { o: t > T.laxante + 0.9 + i * 0.08 && t < T.laxante + 2 ? 1 - p(t, T.laxante + 1.4, 0.6) : 0, x: run * 450 * (i / 4), s: 0.6 + i * 0.2 }));
+    set(grr, { o: t > T.laxante + 0.2 && t < T.laxante + 1.0 ? 1 : 0, x: Math.sin(t * 40) * 6 });
+    set(wc, { sx: t > T.laxante + 1.25 ? 1 : 1 - 0.5 * p(t, T.laxante + 0.8, 0.3), x: t > T.laxante + 1.25 ? Math.sin(t * 40) * 3 : 0 });
+  };
 });
 shakeAt(T.laxante + 1.25, 0.3, 14); sfx('thud', T.laxante + 1.25, 1.0);
-emu(L(9) - 1.0);
 
-/* L9 · hacia 1850 la moda muere (lápida) y el kétchup vuelve a la cocina para quedarse */
+/* L9 · hacia 1850 la moda muere (entierro nocturno, el tomate llora) → el kétchup vuelve a la cocina para quedarse */
 headline(L(9) - 0.1, L(10) - 0.1, 'Hacia *1850*', { size: 92, hlT: T.m1850 });
-plano(L(9) - 0.1, T.cocina - 0.1, { background: '#C9D3E6' }, c => {
-  const suelo = box(c, 0, 1160, 1080, 760, { zIndex: 3, background: '#7a9a52', borderTop: `8px solid ${INK}` });
+plano(L(9) - 0.1, T.cocina - 0.1, { background: '#2f3d5c' }, c => {
+  const luna = box(c, 760, 380, 200, 200, { zIndex: 2, background: '#f4efe2', border: `7px solid ${INK}`, borderRadius: '50%', boxShadow: '0 0 80px rgba(255,255,220,.6)' });
+  const est = [...Array(12)].map((_, i) => (() => { const e = ESTRELLA(c, 34, '#f4efe2'); e.style.left = px(60 + (i * 173) % 900); e.style.top = px(330 + (i * 97) % 450); e.style.zIndex = 2; return e; })());
+  box(c, 0, 1160, 1080, 760, { zIndex: 3, background: '#4a6a3a', borderTop: `8px solid ${INK}` });
   const tb = figura(c, 340, 1240, 400, 480, tumbaInner(), '0 0 300 360', { z: 6, origin: '50% 100%' });
-  return t => set(tb, { y: -480 * p(t, T.muere - 0.2, 0.5, E.outBack), r: -2 });
+  const cajas = [0, 1, 2].map(i => CAJAP(c, 380 + i * 60, 1000, 200, '', ROJO));
+  const tm = TOMATE(c, 780, 980, 220); const lg = [lagrima(c, 840, 1080), lagrima(c, 900, 1080)];
+  sp(T.muere - 0.2, 'thud', 0.9); sp(T.muere + 0.3, 'sad', 0.8);
+  return t => {
+    set(luna, { s: 1 + 0.03 * Math.sin(t * 2) }); est.forEach((e, i) => set(e, { o: 0.5 + 0.5 * Math.sin(t * 4 + i) }));
+    cajas.forEach((e, i) => { const k = p(t, L(9) + 0.3 + i * 0.35, 0.5, E.inCubic); set(e, { y: k * 400, r: k * 90 * (i - 1), o: k < 0.95 ? 1 : 0 }); });
+    set(tb, { y: -480 * p(t, T.muere - 0.2, 0.5, E.outBack), r: -2 });
+    set(tm, { o: t > T.muere ? 1 : 0, s: pop(t, T.muere, 0.4), r: Math.sin(t * 9) * 3 }); tomFace(tm, t, [-6, 6], false); tm.querySelector('.boca').setAttribute('d', 'M118,226 Q150,200 182,226');
+    lg.forEach((l, i) => set(l, { o: t > T.muere + 0.3 ? 1 : 0, y: ((t * 160 + i * 60) % 140) }));
+  };
 });
-plano(T.cocina - 0.1, L(10) - 0.1, { background: YEL }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,255,255,.35)', 'rgba(0,0,0,0)', 0);
-  const b = BOTELLA(c, 230, 520, 230);
-  const pt = PATATAS(c, 540, 820, 420);
-  sello(c, 1220 - 40, 'PARA QUEDARSE', T.quedarse, { size: 96, r: -5 });
-  return t => { set(b, { s: pop(t, T.cocina, 0.4), r: lerp(0, 110, p(t, T.cocina + 0.5, 0.5, E.inOutCubic)), x: 140 * p(t, T.cocina + 0.5, 0.5) }); set(pt, { s: pop(t, T.cocina + 0.2, 0.4) }); };
+plano(T.cocina - 0.1, L(10) - 0.1, { background: '#f4efe2', backgroundImage: `linear-gradient(45deg, rgba(200,16,46,.18) 25%, transparent 25%, transparent 75%, rgba(200,16,46,.18) 75%), linear-gradient(45deg, rgba(200,16,46,.18) 25%, transparent 25%, transparent 75%, rgba(200,16,46,.18) 75%)`, backgroundSize: '120px 120px', backgroundPosition: '0 0, 60px 60px' }, c => {
+  box(c, 0, 1200, 1080, 720, { zIndex: 2, background: WOOD, borderTop: `8px solid ${INK}` });
+  const b = BOTELLA(c, 405, 341, 230, { cara: true, origin: '50% 50%' });
+  const pt = PATATAS(c, 540, 900, 420);
+  const chorro = box(c, 700, 830, 34, 10, { zIndex: 7, background: ROJO, border: `5px solid ${INK}`, borderRadius: '20px' });
+  sello(c, 1290, 'PARA QUEDARSE', T.quedarse, { size: 96, r: -5 });
+  sp(T.cocina, 'swoosh_up', 0.7); sp(T.cocina + 0.6, 'gulp', 0.7); sp(T.quedarse - 0.2, 'tada', 0.7);
+  return t => {
+    const kt = p(t, T.cocina + 0.5, 0.5, E.inOutCubic);
+    set(b, { s: pop(t, T.cocina, 0.4), r: lerp(0, 135, kt) + Math.sin(t * 6) * 3 * kt }); botFace(b, t, { feliz: true, jaw: talkW(t, 'VECINO') * 0.7, ceja: 6 });
+    set(pt, { s: pop(t, T.cocina + 0.2, 0.4), r: Math.sin(t * 5) * 2 });
+    const kc = p(t, T.cocina + 0.9, 0.5, E.outCubic); chorro.style.height = px(10 + 120 * kc); set(chorro, { o: kc > 0 ? 1 : 0 });
+  };
 });
 
-/* L10 · PAGO DEL GANCHO: lo de tu nevera — golpecito en el 57 del cuello */
-headline(L(10) - 0.1, T.n57 - 0.3, 'El truco del *57*', { size: 92, hlT: T.n57 });
-plano(L(10) - 0.1, L(11) - 0.1, { background: '#d9ecef' }, c => {
+/* L10 · PAGO DEL GANCHO: lo de tu nevera — la nevera se abre de verdad, botella del revés, golpecito en el 57 */
+headline(L(10) - 0.1, T.noSale - 0.25, 'El truco del *57*', { size: 92, hlT: T.n57 });
+plano(L(10) - 0.1, T.noSale - 0.25, { background: '#C9D3E6' }, c => {
+  const luz = rays(c, -160, 260, 1400, 20, 'rgba(255,240,150,.7)', 'rgba(0,0,0,0)', 3);
+  const cuerpo = box(c, 290, 420, 500, 920, { zIndex: 5, background: '#fff6c8', border: `8px solid ${INK}`, borderRadius: '40px', boxShadow: `14px 14px 0 ${INK}` });
+  [300, 560].forEach(y => box(cuerpo, 20, y, 444, 10, { background: '#c9d3e6', border: `3px solid ${INK}` }));
+  const b = BOTELLA(cuerpo, 160, 70, 150, { cara: true, n57: true });
+  const puerta = box(c, 290, 420, 500, 920, { zIndex: 7, background: '#f4f7fb', border: `8px solid ${INK}`, borderRadius: '40px', transformOrigin: '0% 50%' });
+  const cad = box(c, 230, 760, 620, 240, { zIndex: 12 }, `<svg viewBox="0 0 620 240" width="620" height="240" style="overflow:visible"><path d="M0,40 L620,200 M0,200 L620,40" stroke="#7d8790" stroke-width="26" stroke-dasharray="40 10"/><rect x="250" y="105" width="120" height="100" rx="14" fill="${GOLD}" stroke="${INK}" stroke-width="6"/></svg>`);
+  sp(L(10), 'click', 0.8); sp(L(10) + 0.3, 'sparkle', 0.8); sp(T.heinz, 'ding', 0.6);
+  return t => { const k = p(t, L(10) + 0.25, 0.5, E.outBack); set(cad, { o: 1 - p(t, L(10), 0.25), y: p(t, L(10), 0.25) * 300 }); set(puerta, { sx: 1 - 0.85 * k }); set(luz, { o: k, r: t * 10 }); botFace(b, t, { feliz: true, jaw: 0.4, ceja: 8 }); set(b, { y: -Math.abs(Math.sin(t * 6)) * 14 }); };
+});
+plano(T.noSale - 0.25, L(11) - 0.1, { background: '#d9ecef' }, c => {
   const cam = CAM(c); cam.style.transformOrigin = '540px 807px';
-  const b = BOTELLA(cam, 410, 300, 260, { n57: true, origin: '50% 50%' });
+  const b = BOTELLA(cam, 410, 300, 260, { n57: true, cara: true, origin: '50% 50%' });
   const ring = box(cam, 485, 752, 110, 110, { zIndex: 12, borderRadius: '50%', border: `10px solid ${PINK}` });
   const h = MANO(cam, 600, 700, -150, 1.2);
   const chorro = box(cam, 520, 976, 40, 10, { zIndex: 7, background: ROJO, border: `5px solid ${INK}`, borderRadius: '20px' });
   const pt = PATATAS(cam, 350, 1060, 380);
+  const toc = texto(cam, 640, '¡toc!', { size: 70, italic: true, color: ROJO, x: 640, w: 300, z: 30 });
   return t => {
     set(b, { r: 180 * p(t, T.noSale - 0.2, 0.6, E.inOutCubic), x: Math.sin(t * 30) * (t > T.golpe ? 3 : 0) });
+    botFace(b, t, { closed: t < T.cuello + 0.3, jaw: t > T.cuello + 0.3 ? 0.8 : 0.1, feliz: t > T.cuello + 0.3, ceja: t > T.cuello + 0.3 ? 12 : -4 });
     const kz = p(t, T.n57 - 0.3, 0.5, E.inOutCubic) * (1 - p(t, T.cuello + 0.6, 0.5, E.inOutCubic)); set(cam, { s: 1 + 0.5 * kz });
     set(ring, { o: t > T.n57 ? 1 : 0, s: 1 + 0.1 * Math.sin(t * 9) });
     const tap = t > T.golpe ? Math.abs(Math.sin((t - T.golpe) * 14)) : 0; set(h, { o: t > T.golpe - 0.2 ? 1 : 0, x: -tap * 30, y: tap * 24 });
+    set(toc, { o: t > T.golpe && t < T.cuello + 0.3 && tap > 0.6 ? 1 : 0, r: -8 });
     const kc = p(t, T.cuello + 0.3, 0.6, E.outCubic); chorro.style.height = px(10 + 110 * kc); set(chorro, { o: kc > 0 ? 1 : 0 });
   };
 });
-sfx('pop2', T.golpe, 0.6); sfx('pop2', T.golpe + 0.22, 0.6); sfx('boing', T.cuello + 0.3, 0.6);
+sfx('pop2', T.golpe, 0.6); sfx('pop2', T.golpe + 0.22, 0.6); sfx('boing', T.cuello + 0.3, 0.6); sfx('tada', T.cuello + 0.5, 0.6);
 
 /* L11 · OJO: las fechas cambian según la fuente */
 plano(L(11) - 0.1, L(12) - 0.1, PAPEL, c => {
   sello(c, 300, '¡OJO!', T.ojo, { size: 140 });
-  const hojas = ['1835', '1837', '1840'].map((y, i) => { const h = box(c, 360 + i * 30, 540 + i * 30, 420, 320, { zIndex: 6 + i, background: CREMA, border: `6px solid ${INK}`, borderRadius: '16px', boxShadow: `8px 8px 0 ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '130px', textAlign: 'center', lineHeight: '320px', color: INK }, y); return h; });
+  const hojas = ['1835', '1837', '1840'].map((y, i) => { sp(T.fechas + i * 0.3, 'paper', 0.6); return box(c, 360 + i * 30, 540 + i * 30, 420, 320, { zIndex: 6 + i, background: CREMA, border: `6px solid ${INK}`, borderRadius: '16px', boxShadow: `8px 8px 0 ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '130px', textAlign: 'center', lineHeight: '320px', color: INK }, y); });
   aparece(chip(c, 400, 1000, 'según la fuente', { size: 56, bg: YEL, color: INK }), T.fuente);
   return t => hojas.forEach((h, i) => set(h, { r: Math.sin(t * 3 + i) * 6 + (i - 1) * 6, y: t > T.fechas + i * 0.3 ? 0 : -900 }));
 });
@@ -223,16 +409,20 @@ plano(L(11) - 0.1, L(12) - 0.1, PAPEL, c => {
 colorHit(L(12) - 0.1, L(13) - 0.1, YEL, c => {
   const a = texto(c, 300, 'Hoy, a las patatas…', { size: 104 });
   const b = texto(c, 440, '…antes, medicina', { size: 104, italic: true, color: ROJO });
-  const bo = BOTELLA(c, 260, 640, 230), bo2 = BOTELLA(c, 600, 640, 230, { cruz: true });
-  const pt = PATATAS(c, 140, 1060, 300);
-  return t => { set(a, { s: pop(t, L(12), 0.35) }); set(b, { o: t > T.medicina12 - 0.2 ? 1 : 0, s: pop(t, T.medicina12 - 0.2, 0.35) }); set(bo, { r: Math.sin(t * 4) * 4 }); set(bo2, { o: t > T.medicina12 - 0.2 ? 1 : 0, s: pop(t, T.medicina12 - 0.2, 0.4), r: -Math.sin(t * 4) * 4 }); };
+  const bo = BOTELLA(c, 300, 560, 230, { cara: true }), bo2 = BOTELLA(c, 600, 560, 230, { cruz: true, cara: true });
+  const pt = PATATAS(c, 420, 1160, 240);
+  return t => { set(a, { s: pop(t, L(12), 0.35) }); set(b, { o: t > T.medicina12 - 0.2 ? 1 : 0, s: pop(t, T.medicina12 - 0.2, 0.35) }); set(bo, { r: Math.sin(t * 4) * 4 }); botFace(bo, t, { feliz: true, jaw: 0.3, look: [4, 0] }); set(bo2, { o: t > T.medicina12 - 0.2 ? 1 : 0, s: pop(t, T.medicina12 - 0.2, 0.4), r: -Math.sin(t * 4) * 4 }); botFace(bo2, t, { look: [-6, 0], ceja: 10 }); };
 });
-sfx('swoosh_up', L(12), 0.6); shakeAt(L(12) + 0.05, 0.3, 14);
+sfx('swoosh_up', L(12), 0.6); shakeAt(L(12) + 0.05, 0.3, 14); sp(T.medicina12 - 0.2, 'stamp', 0.8);
 
 /* L13 · pregunta final */
-preguntaFinal('¿A qué le echas kétchup', 'que nadie entiende?', { size: 82, draw: c => [['a la tortilla', YEL], ['a la paella', PINK], ['¿y tú?', '#9fd3c0']].map(([s, col], i) => aparece(chip(c, 160 + i * 60, 620 + i * 160, s, { size: 62, bg: col, color: INK }), L(13) + 0.5 + i * 0.4, { sfx: 'pop' })) });
+preguntaFinal('¿A qué le echas kétchup', 'que nadie entiende?', { size: 82, draw: c => [['a la tortilla', YEL], ['a la paella', PINK], ['¿y tú?', '#9fd3c0']].map(([s, col], i) => aparece(chip(c, 360 + i * 40, 620 + i * 160, s, { size: 62, bg: col, color: INK }), L(13) + 0.5 + i * 0.4, { sfx: 'pop' })) });
 
 /* L14 · cierre (clip reutilizado del ep55) */
 cierre(64, 'El kétchup', ['KETCHUP', 'farmacia']);
 
-Story.run({ ovalo: [[L(11), L(12) - 0.15]] });
+Story.run({
+  textura: true,
+  ovalo: [[L(1) - 0.05, L(6) - 0.15], [L(7), L(13) - 0.15]],
+  vecino: { risa: [[T.laxante + 0.9, T.laxante + 1.9], [T.copias + 0.6, T.copias + 1.3]], sorpresa: [[T.colera, T.colera + 0.8], [T.cuello + 0.3, T.cuello + 1.1]], golpes: [T.nevera1, T.sinTom + 0.4, T.cura + 0.45, T.ket5 + 0.3, T.laxante, T.n57] },
+});
