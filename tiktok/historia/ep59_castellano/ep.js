@@ -17,11 +17,11 @@ const DICC = (c, x, y, w, l2) => figura(c, x, y, w, w * 480 / 760, libroViejoInn
 const PIN = (c, lo, la, col) => { const [x, y] = laPj(lo, la).map(Number); return box(c, x - 30, y - 80, 60, 80, { zIndex: 12, transformOrigin: '50% 100%' }, pinSvg(col)); };
 
 /* L0 · PORTADA */
-plano(-1, L(1) - 0.1, { background: VI }, c => {
-  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.18)', 'rgba(0,0,0,0)', 0);
-  const a = PAL(c, 330, '¿ESPAÑOL', { size: 140, color: '#fff', shadow: OUTL(INK, 7) });
-  const o = texto(c, 500, 'o', { size: 100, italic: true, color: YEL, shadow: OUTL(INK, 6) });
-  const b = PAL(c, 620, 'CASTELLANO?', { size: 130, color: '#fff', shadow: OUTL(INK, 7) });
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  const a = PAL(c, 330, '¿ESPAÑOL', { size: 140 });
+  const o = texto(c, 500, 'o', { size: 100, italic: true, color: RED });
+  const b = PAL(c, 620, 'CASTELLANO?', { size: 130 });
   sello(c, 860, '¡HAY TRAMPA!', T.trampa, { size: 120, r: -7, bg: 'rgba(255,255,255,.9)' });
   const d = DICC(c, 280, 1040, 520, '¿…?');
   sfx('swoosh_up', 0.05, 0.6);
