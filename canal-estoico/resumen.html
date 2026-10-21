@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ciudadela — En 1 minuto</title>
+<style>
+:root{--ink:#14161a;--stone:#ece8de;--paper:#f7f5ef;--bronze:#b8864b;--teal:#2f4a4f;--mute:#5b5f66;--line:#d9d4c6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.55 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:720px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.1;margin:0 0 .4em}
+h1{font-size:clamp(2.4rem,9vw,4rem)}
+h2{font-size:clamp(1.7rem,5vw,2.2rem)}
+.hero{background:var(--ink);color:var(--stone);padding:56px 0 48px}
+.hero p{color:#c9c5b8;margin:0 0 24px}
+.btn{display:inline-block;background:var(--bronze);color:var(--ink);font-weight:700;border-radius:100rem;padding:14px 26px;text-decoration:none;min-height:44px}
+section{padding:48px 0;border-top:1px solid var(--line)}
+.vs{display:grid;gap:12px}
+@media(min-width:640px){.vs{grid-template-columns:1fr 1fr}}
+.vs div{border-radius:20px;padding:20px}
+.antes{background:#fff;border:1px solid var(--line)}
+.despues{background:var(--teal);color:#fff}
+.vs b{display:block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;opacity:.8}
+.vs ul{margin:0;padding-left:1.1em}.vs li{margin:.4em 0}
+.n{display:grid;gap:12px}
+.n div{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 20px}
+.n strong{font-size:1.6rem;font-family:Georgia,serif;color:var(--bronze)}
+.n p{margin:.2em 0 0}
+.days{counter-reset:d;list-style:none;padding:0;margin:0}
+.days li{counter-increment:d;display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.days li::before{content:counter(d);flex:none;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--stone);display:grid;place-items:center;font-weight:700;font-size:.95rem}
+small{color:var(--mute)}
+.cta{background:var(--ink);color:var(--stone);text-align:center}
+</style>
+</head>
+<body>
+<header class="hero"><div class="w">
+  <h1>Endurece tu carácter.<br>Una semana a la vez.</h1>
+  <p>Ciudadela: un ejercicio estoico por vídeo. 5 minutos. Sin teoría vacía.</p>
+  <a class="btn" href="#reto">Empieza el reto de 7 días</a>
+</div></header>
+
+<section><div class="w">
+  <h2>Qué cambia si la sigues</h2>
+  <div class="vs">
+    <div class="antes"><b>Antes</b><ul>
+      <li>Lo dejas para mañana</li>
+      <li>Te afecta lo que piensan de ti</li>
+      <li>Un imprevisto te hunde el día</li>
+      <li>Empiezas con ganas y abandonas</li></ul></div>
+    <div class="despues"><b>Después</b><ul>
+      <li>Actúas aunque no te apetezca</li>
+      <li>Te centras en lo que sí controlas</li>
+      <li>Respondes con calma, no con pánico</li>
+      <li>Mantienes la disciplina sin motivación</li></ul></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Cómo funciona</h2>
+  <div class="n">
+    <div><strong>1 vídeo</strong><p>Una idea estoica explicada claro y con un caso real.</p></div>
+    <div><strong>1 ejercicio</strong><p>Una acción de 5 minutos para hacer hoy.</p></div>
+    <div><strong>7 días</strong><p>Repites hasta que se vuelve hábito. Ahí se endurece el carácter.</p></div>
+  </div>
+</div></section>
+
+<section id="reto"><div class="w">
+  <h2>Reto de 7 días</h2>
+  <ol class="days">
+    <li><span>Apunta qué depende de ti y qué no. Suelta lo segundo.</span></li>
+    <li><span>Imagina lo peor que podría pasar hoy y cómo responderías.</span></li>
+    <li><span>Haz algo incómodo a propósito (ducha fría, ayuno ligero).</span></li>
+    <li><span>Empieza ya la tarea que llevas días aplazando. Solo 10 minutos.</span></li>
+    <li><span>Ante una crítica, respira y pregunta: ¿es cierta? Si no, ignórala.</span></li>
+    <li><span>Mírate desde arriba: ¿importará esto en un año?</span></li>
+    <li><span>Escribe qué aprendiste y por qué estás agradecido.</span></li>
+  </ol>
+  <p><small>Basado en prácticas de Marco Aurelio, Séneca y Epicteto.</small></p>
+</div></section>
+
+<section class="cta"><div class="w">
+  <h2>Menos ruido. Más carácter.</h2>
+  <p>Suscríbete y recibe el ejercicio de cada semana.</p>
+  <a class="btn" href="#">Suscríbete</a>
+</div></section>
+</body>
+</html>
