@@ -43,15 +43,12 @@
   }
  },
  "cover": {
-  "top": "NO MIRES ATRÁS · PARTE 1",
-  "title": "LA NOTA QUE NUNCA ESCUCHASTE",
-  "scene": "car_pov",
-  "t": 3,
-  "p": {
-   "figure": 0.9,
-   "figX": 0,
-   "raise": 1
-  }
+  "part": 1,
+  "q": "¿FRENAS O SIGUES?",
+  "brand": "LA MAYORÍA DIJO",
+  "scene": "grandpa_close",
+  "t": 2,
+  "p": {}
  },
  "beats": [
   {

@@ -364,6 +364,21 @@ function coverFrame(c) {
   const b = { scene: c.scene, p: Object.assign({}, c.p || {}), _hud: TL.beats[0]._hud, sfx: [], start: 0, end: 12, words: [] };
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
   ctx.save(); (SCENES[b.scene] || SCENES.black)(c.t || 2, b.p, b, c.t || 2); ctx.restore();
+  if (c.part) {
+    // portada de parte: «PARTE N» arriba y el plano firma debajo, todo dentro del recorte 3:4 del perfil
+    ctx.fillStyle = lin(0, 0, 0, 640, [[0, 'rgba(3,4,8,.92)'], [.75, 'rgba(3,4,8,.55)'], [1, 'rgba(3,4,8,0)']]); ctx.fillRect(0, 0, W, 640);
+    ctx.fillStyle = lin(0, 900, 0, H, [[0, 'rgba(3,4,8,0)'], [1, 'rgba(3,4,8,.85)']]); ctx.fillRect(0, 900, W, H - 900);
+    let tz = 50; while (measure(TL.series, tz, S.head, 400, 6) > W - 120) tz -= 2;
+    text(TL.series, W / 2, 215, { size: tz, fam: S.head, w: 400, ls: 6, color: '#fff', stroke: '#0d0d10', sw: 10 });
+    const pt = 'PARTE ', nm = String(c.part); let pz = 190; while (measure(pt + nm, pz, S.head, 400, 4) > W - 60) pz -= 4;
+    const pw = measure(pt, pz, S.head, 400, 4), nw = measure(nm, pz, S.head, 400, 4), x0 = W / 2 - (pw + nw) / 2;
+    text(pt, x0, 360, { size: pz, fam: S.head, w: 400, ls: 4, color: '#fff', stroke: '#0d0d10', sw: 14, align: 'left' });
+    text(nm, x0 + pw, 360, { size: pz, fam: S.head, w: 400, ls: 4, color: S.accent, shadow: S.accent, blur: 50, stroke: '#0d0d10', sw: 14, align: 'left' });
+    const q = c.q || ''; if (q) { let qz = 46; while (measure(q, qz, 'Montserrat', 900, 2) > W - 140) qz -= 2; const qw = measure(q, qz, 'Montserrat', 900, 2) + 60; fillRR(W / 2 - qw / 2, 990, qw, qz * 1.9, qz, S.accent2); text(q, W / 2, 990 + qz * .95, { size: qz, w: 900, ls: 2 }); }
+    if (c.brand) text(c.brand, W / 2, 1120, { size: 24, w: 900, ls: 6, color: 'rgba(255,255,255,.75)' });
+    ctx.save(); ctx.globalCompositeOperation = 'overlay'; ctx.globalAlpha = .25; ctx.drawImage(GRAIN, 0, 0); ctx.restore();
+    return cv.toDataURL('image/jpeg', .95);
+  }
   ctx.fillStyle = lin(0, 300, 0, 900, [[0, 'rgba(0,0,0,.65)'], [.6, 'rgba(0,0,0,.35)'], [1, 'rgba(0,0,0,0)']]); ctx.fillRect(0, 0, W, 900);
   const lab = c.top; const lw = measure(lab, 22, 'Montserrat', 900, 3) + 40; fillRR(W / 2 - lw / 2, 300, lw, 44, 22, S.accent2); text(lab, W / 2, 323, { size: 22, w: 900, ls: 3 });
   const fam = TL.ch === 'historia' ? 'Cinzel' : S.head, fw = TL.ch === 'historia' ? 900 : 400;
