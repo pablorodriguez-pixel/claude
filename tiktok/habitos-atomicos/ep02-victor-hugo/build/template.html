@@ -1,0 +1,341 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Archivo;src:url(archivo.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--lime:#D4FF3A;--ora:#FF7A2F;--red:#FF3B5C;--ink:#0E0F12;--paper:#F1E9D8}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--ink)}
+body{font-family:Archivo,sans-serif;color:#F4F1EA;-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--ink)}
+#cam{position:absolute;inset:0;transform-origin:540px 800px}
+.grid{position:absolute;inset:-200px;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px}
+.glow{position:absolute;width:900px;height:900px;border-radius:50%;filter:blur(130px);opacity:.26;left:90px;top:200px}
+.scene{position:absolute;inset:0;opacity:0;display:none;will-change:transform,opacity,filter}
+.abs{position:absolute}
+.hl{font-stretch:72%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.92}
+.tag{position:absolute;left:70px;top:230px;font-weight:800;font-size:32px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;border-radius:8px;background:var(--lime);color:var(--ink)}
+.tag.red{background:var(--red);color:#fff}
+.photo{position:absolute;inset:-40px;background-size:cover;background-position:center;will-change:transform;filter:grayscale(1) sepia(.4) contrast(1.2) brightness(.75)}
+.shade{position:absolute;inset:0}
+.card{position:absolute;background:#191A1F;border:2px solid rgba(255,255,255,.09);border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+.stamp{position:absolute;border:12px solid var(--lime);color:var(--lime);font-stretch:72%;font-weight:900;text-transform:uppercase;padding:10px 34px;border-radius:18px;background:rgba(14,15,18,.6);line-height:1;white-space:nowrap}
+.chip{position:absolute;display:flex;align-items:center;gap:22px;padding:22px 40px;border-radius:100px;font-weight:900;font-stretch:80%;font-size:58px;text-transform:uppercase;background:#23242A;border:3px solid rgba(255,255,255,.22)}
+.chip i{font-style:normal;font-size:64px}
+.w{display:inline-block;will-change:transform,opacity}
+#subs{position:absolute;left:0;right:0;top:1235px;text-align:center;font-stretch:72%;font-weight:900;font-size:108px;line-height:1;text-transform:uppercase;paint-order:stroke fill;-webkit-text-stroke:15px #0b0b0d;letter-spacing:.005em;padding:0 40px}
+#subs span{display:inline-block;margin:0 14px}
+#top{position:absolute;left:0;right:0;top:0;height:8px;background:rgba(255,255,255,.12)}
+#bar{height:100%;background:var(--lime);width:0}
+#brand{position:absolute;left:70px;top:120px;font-weight:800;font-size:30px;letter-spacing:.2em;color:rgba(244,241,234,.75)}
+#brand b{color:var(--lime)}
+#vign{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 50%,rgba(0,0,0,.6));pointer-events:none}
+#grain{position:absolute;inset:-100px;background-size:300px 300px;opacity:.1;mix-blend-mode:overlay;pointer-events:none}
+#leak{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:.0}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.paper{position:absolute;background:var(--paper);border-radius:10px;box-shadow:0 24px 60px rgba(0,0,0,.55);color:#2a2118}
+.lines{position:absolute;left:44px;right:44px;background-image:repeating-linear-gradient(transparent 0 58px,rgba(42,33,24,.22) 58px 60px)}
+svg{overflow:visible}
+</style></head>
+<body><div id="stage"><div id="cam">
+<div class="grid" id="grid"></div>
+<div class="glow" id="glow" style="background:var(--lime)"></div>
+
+<!-- S1 HOOK -->
+<div class="scene" id="s1">
+  <div class="photo" id="p1" style="inset:600px -40px -100px -40px;background-image:url(../img/hugo.jpg);background-position:50% 6%"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(14,15,18,1) 0%,rgba(14,15,18,1) 30%,rgba(14,15,18,.55) 42%,rgba(14,15,18,.05) 62%,rgba(14,15,18,.9) 88%)"></div>
+  <div class="tag" id="s1tag">Ep. 2 · Hábitos atómicos</div>
+  <div class="abs hl kin" id="s1a" style="left:60px;right:40px;top:300px;font-size:150px;white-space:nowrap">Así dejas<br>de <span style="color:var(--lime)">distraerte</span></div>
+  <div class="abs" id="s1b" style="left:64px;top:600px;font-weight:800;font-size:56px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.7)">sin fuerza de voluntad</div>
+  <div class="abs" id="s1n" style="left:64px;top:1050px"><div style="font-weight:800;font-size:30px;letter-spacing:.2em;color:var(--lime)">AUTOR DE «EL JOROBADO DE NOTRE DAME»</div><div class="hl" style="font-size:96px;margin-top:10px">Víctor Hugo</div><div id="s1u" style="height:8px;background:var(--lime);margin-top:12px;width:0;border-radius:4px"></div></div>
+  <div class="stamp" id="s1s" style="left:520px;top:900px;font-size:112px;border-color:var(--red);color:var(--red)">Sin ropa</div>
+</div>
+
+<!-- S2 UN AÑO EN BLANCO -->
+<div class="scene" id="s2">
+  <div class="tag">1830</div>
+  <div class="paper" id="s2p" style="left:110px;top:330px;width:860px;height:640px"><div class="lines" style="top:40px;height:560px"></div>
+    <div class="abs hl" style="left:44px;top:50px;font-size:44px;color:#8a7a62">Capítulo 1</div>
+    <div id="s2c" class="abs" style="left:44px;top:112px;width:6px;height:46px;background:#2a2118"></div></div>
+  <div class="abs hl" id="s2n" style="left:70px;top:1000px;font-size:150px;color:var(--red)">0 páginas</div>
+  <div class="abs" id="s2t" style="left:70px;top:1145px;font-weight:800;font-size:46px;color:rgba(244,241,234,.8)">un año después de prometer el libro</div>
+</div>
+
+<!-- S3 DISTRACCIONES -->
+<div class="scene" id="s3">
+  <div class="abs hl" id="s3h" style="left:70px;top:230px;font-size:82px;color:rgba(244,241,234,.7)">Todo menos…</div>
+  <div class="chip" id="d1" style="left:70px;top:400px"><i>🎉</i>Fiestas</div>
+  <div class="chip" id="d2" style="left:190px;top:580px"><i>🥂</i>Invitados</div>
+  <div class="chip" id="d3" style="left:90px;top:760px"><i>📚</i>Otros proyectos</div>
+  <div class="chip" id="d4" style="left:170px;top:960px;border-color:var(--lime);color:var(--lime);background:#14170b"><i>✍️</i>Escribir</div>
+</div>
+
+<!-- S4 CALENDARIO -->
+<div class="scene" id="s4">
+  <div class="tag red">Última fecha</div>
+  <div class="paper" id="s4p" style="left:110px;top:320px;width:860px;height:760px;background:#F6F2E7">
+    <div id="s4hd" class="abs hl" style="left:0;right:0;top:0;height:150px;background:#C8242F;color:#fff;border-radius:10px 10px 0 0;font-size:90px;display:flex;align-items:center;justify-content:center;letter-spacing:.02em">Febrero 1831</div>
+    <div id="s4g" class="abs" style="left:50px;top:190px;width:760px;height:520px"></div>
+  </div>
+  <svg class="abs" style="left:0;top:0" width="1080" height="1920"><ellipse id="s4o" cx="540" cy="395" rx="440" ry="100" fill="none" stroke="#FF3B5C" stroke-width="14" stroke-linecap="round" stroke-dasharray="2400" stroke-dashoffset="2400" transform="rotate(-3 540 395)"/></svg>
+</div>
+
+<!-- S5 ABSURDO -->
+<div class="scene" id="s5">
+  <div class="abs hl" id="s5a" style="left:0;right:0;top:420px;text-align:center;font-size:260px;color:var(--lime)">Algo<br>absurdo</div>
+  <div class="abs" style="left:0;right:0;top:960px;text-align:center;font-size:150px" id="s5e">🤯</div>
+</div>
+
+<!-- S6 BAUL -->
+<div class="scene" id="s6">
+  <div class="tag">Bajo llave</div>
+  <svg class="abs" id="chest" style="left:180px;top:620px" width="720" height="460" viewBox="0 0 720 460">
+    <rect x="40" y="170" width="640" height="260" rx="22" fill="#7a4a24"/>
+    <rect x="40" y="170" width="640" height="46" fill="#5d3718"/>
+    <rect x="130" y="170" width="38" height="260" fill="#C9A24B"/><rect x="552" y="170" width="38" height="260" fill="#C9A24B"/>
+    <rect x="40" y="395" width="640" height="35" rx="12" fill="#5d3718"/>
+    <g id="lid" style="transform-origin:40px 170px"><path d="M40 170 Q40 40 200 40 L520 40 Q680 40 680 170 Z" fill="#8d5a2d"/><rect x="130" y="40" width="38" height="130" fill="#C9A24B"/><rect x="552" y="40" width="38" height="130" fill="#C9A24B"/></g>
+    <g id="lock" opacity="0"><rect x="320" y="150" width="80" height="90" rx="14" fill="#D4FF3A"/><path d="M335 150 V120 a25 25 0 0 1 50 0 V150" fill="none" stroke="#D4FF3A" stroke-width="14"/><circle cx="360" cy="192" r="12" fill="#0E0F12"/></g>
+  </svg>
+  <div id="s6c"></div>
+  <div class="abs hl" id="s6t" style="left:0;right:0;top:300px;text-align:center;font-size:120px">Toda su ropa</div>
+</div>
+
+<!-- S7 CHAL -->
+<div class="scene" id="s7">
+  <div class="tag">Lo único que le quedó</div>
+  <svg class="abs" id="shawl" style="left:190px;top:400px" width="700" height="520" viewBox="0 0 700 520">
+    <path d="M20 40 Q350 0 680 40 L350 500 Z" fill="#D4FF3A"/><path d="M20 40 Q350 0 680 40 L640 110 Q350 70 60 110Z" fill="#B9E021"/>
+    <path d="M110 160 Q350 130 590 160 L560 215 Q350 185 140 215Z" fill="#B9E021"/><path d="M200 280 Q350 260 500 280 L470 330 Q350 310 230 330Z" fill="#B9E021"/>
+    <g id="fringe" stroke="#D4FF3A" stroke-width="8" stroke-linecap="round"></g>
+  </svg>
+  <div class="abs hl" id="s7n" style="left:0;right:0;top:1010px;text-align:center;font-size:170px">1 chal</div>
+</div>
+
+<!-- S8 PUERTA -->
+<div class="scene" id="s8">
+  <div class="tag red">Sin ropa = sin salir</div>
+  <div class="abs" id="door" style="left:300px;top:330px;width:480px;height:760px;background:linear-gradient(135deg,#6b4423,#4a2e16);border-radius:240px 240px 12px 12px;border:10px solid #2d1c0d;box-shadow:0 30px 80px rgba(0,0,0,.6)">
+    <div class="abs" style="left:60px;top:90px;width:150px;height:260px;border:8px solid rgba(0,0,0,.3);border-radius:75px 75px 8px 8px"></div>
+    <div class="abs" style="left:250px;top:90px;width:150px;height:260px;border:8px solid rgba(0,0,0,.3);border-radius:75px 75px 8px 8px"></div>
+    <div class="abs" style="left:60px;top:400px;width:340px;height:260px;border:8px solid rgba(0,0,0,.3);border-radius:10px"></div>
+    <div class="abs" style="left:380px;top:420px;width:36px;height:36px;border-radius:50%;background:#C9A24B"></div>
+  </div>
+  <svg class="abs" id="dx" style="left:240px;top:330px" width="600" height="760" viewBox="0 0 600 760"><path d="M90 160 L510 600 M510 160 L90 600" stroke="#FF3B5C" stroke-width="46" stroke-linecap="round" stroke-dasharray="700" stroke-dashoffset="700" fill="none"/></svg>
+</div>
+
+<!-- S8b ESCRIBIR -->
+<div class="scene" id="s8b">
+  <div class="tag">Todo el otoño · todo el invierno</div>
+  <div id="stack" class="abs" style="left:0;top:0;width:1080px;height:1100px"></div>
+  <svg class="abs" id="quill" style="left:0;top:0" width="260" height="260" viewBox="0 0 260 260"><path d="M250 10 Q150 40 90 150 L60 220 L80 190 Q110 195 150 160 Q230 100 250 10Z" fill="#F4F1EA"/><path d="M60 220 L40 255 L75 232Z" fill="#D4FF3A"/><path d="M250 10 Q160 100 80 200" stroke="#9b9a93" stroke-width="5" fill="none"/></svg>
+  <div class="abs hl" id="s8s" style="left:70px;top:1040px;font-size:80px;color:var(--lime)"></div>
+</div>
+
+<!-- S9 ENTREGA -->
+<div class="scene" id="s9">
+  <div class="photo" id="p9" style="background-image:url(../img/notre.jpg);background-position:50% 35%"></div>
+  <div class="shade" style="background:linear-gradient(180deg,rgba(14,15,18,.9),rgba(14,15,18,.35) 40%,rgba(14,15,18,.9) 80%)"></div>
+  <div class="tag">Enero 1831</div>
+  <div class="abs hl" id="s9a" style="left:70px;right:70px;top:330px;font-size:118px">El jorobado<br>de <span style="color:var(--lime)">Notre Dame</span></div>
+  <div class="stamp" id="s9s" style="left:90px;top:760px;font-size:120px">Entregado</div>
+  <div class="abs hl" id="s9b" style="left:70px;top:990px;font-size:92px;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.7)">2 semanas <span style="color:var(--lime)">antes</span> del plazo</div>
+</div>
+
+<!-- S10 MECANISMO -->
+<div class="scene" id="s10">
+  <div class="tag">Mecanismo de compromiso</div>
+  <div class="card" id="m1" style="left:70px;top:330px;width:940px;height:260px;padding:44px 56px"><div style="font-weight:800;font-size:32px;letter-spacing:.14em;color:rgba(244,241,234,.55)">UNA DECISIÓN QUE TOMAS</div><div class="hl" id="mh" style="font-size:150px;margin-top:10px">HOY</div></div>
+  <div class="abs hl" id="mA" style="left:0;right:0;top:600px;text-align:center;font-size:130px;color:var(--lime)">↓</div>
+  <div class="card" id="m2" style="left:70px;top:760px;width:940px;height:260px;padding:44px 56px;border:4px solid var(--lime)"><div style="font-weight:800;font-size:32px;letter-spacing:.14em;color:var(--lime)">PARA CONTROLAR LO QUE HARÁS</div><div class="hl" id="mm" style="font-size:150px;margin-top:10px;color:var(--lime)">MAÑANA</div></div>
+</div>
+
+<!-- S11 TIPS -->
+<div class="scene" id="s11">
+  <div class="tag">Hazlo hoy</div>
+  <div class="card" id="k1" style="left:70px;top:330px;width:940px;height:360px;padding:54px 56px"><div style="font-size:110px;line-height:1">📵</div><div class="hl" style="font-size:84px;margin-top:20px">Móvil en <span style="color:var(--lime)">otra habitación</span></div></div>
+  <div class="card" id="k2" style="left:70px;top:730px;width:940px;height:360px;padding:54px 56px"><div style="font-size:110px;line-height:1">🍫</div><div class="hl" style="font-size:84px;margin-top:20px">Dulces en <span style="color:var(--lime)">bolsitas pequeñas</span></div></div>
+</div>
+
+<!-- S12 PREGUNTA -->
+<div class="scene" id="s12">
+  <div class="abs hl kin" id="s12h" style="left:70px;right:70px;top:290px;font-size:116px">¿Qué harías<br>para que <span style="color:var(--lime)">distraerte</span><br>fuera <span id="imp" style="color:var(--red)">imposible</span>?</div>
+  <div class="card" id="s12c" style="left:70px;top:900px;width:940px;height:150px;border-radius:75px;display:flex;align-items:center;padding:0 50px;font-weight:800;font-size:46px;color:rgba(244,241,234,.6)">💬 Cuéntamelo en comentarios…</div>
+</div>
+
+<!-- S13 LOOP -->
+<div class="scene" id="s13"><div class="abs" style="inset:0;background:var(--ink)"></div><div class="photo" style="inset:600px -40px -100px -40px;background-image:url(../img/hugo.jpg);background-position:50% 6%;transform:scale(1.3)"></div><div class="shade" style="background:linear-gradient(180deg,rgba(14,15,18,1) 0%,rgba(14,15,18,1) 30%,rgba(14,15,18,.55) 42%,rgba(14,15,18,.05) 62%,rgba(14,15,18,.9) 88%)"></div>
+  <div class="abs hl" style="left:60px;right:40px;top:300px;font-size:150px;white-space:nowrap">Así dejas<br>de <span style="color:var(--lime)">distraerte</span></div></div>
+
+</div>
+<div id="leak"></div>
+<div id="vign"></div>
+<div id="grain"></div>
+<div id="subs"></div>
+<div id="brand">SÉ IMPARABLE <b>●</b> HÁBITOS</div>
+<div id="top"><div id="bar"></div></div>
+<div id="flash"></div>
+</div>
+<script>
+const SUBS=__SUBS__; const T=__T__; const DUR=T.end;
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-cl(x),3);
+const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const eback=x=>{x=cl(x);const c=1.9;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const ebounce=x=>{x=cl(x);const n=7.5625,d=2.75;if(x<1/d)return n*x*x;if(x<2/d)return n*(x-=1.5/d)*x+.75;if(x<2.5/d)return n*(x-=2.25/d)*x+.9375;return n*(x-=2.625/d)*x+.984375};
+const p=(t,a,d=.35)=>cl((t-a)/d);
+const hash=n=>{const s=Math.sin(n*127.1+311.7)*43758.5453;return s-Math.floor(s)};
+// ---- scene order + transition into each scene
+const ORDER=['s1','s2','s3','s4','s5','s6','s7','s8','s8b','s9','s10','s11','s12','s13'];
+T.s13=DUR-0.95;
+const TIN={s2:'zoom',s3:'whip',s4:'wipe',s5:'glitch',s6:'zoom',s7:'whip',s8:'whip',s8b:'wipe',s9:'zoom',s10:'glitch',s11:'whip',s12:'wipe',s13:'fade'};
+const SC=ORDER.map((id,i)=>[id,T[id],i+1<ORDER.length?T[ORDER[i+1]]:999]);
+const TD=.34;
+function applyIn(el,type,k){ // k 0..1
+  const e=eo(k);
+  if(type==='whip'){el.style.opacity=k;el.style.transform=`translateX(${(1-e)*320}px)`;el.style.filter=`blur(${(1-e)*18}px)`;}
+  else if(type==='zoom'){el.style.opacity=e;el.style.transform=`scale(${1.5-.5*e})`;el.style.filter=`blur(${(1-e)*10}px)`;}
+  else if(type==='wipe'){el.style.opacity=1;el.style.transform='none';el.style.filter='none';el.style.clipPath=`inset(0 ${(1-e)*100}% 0 0)`;}
+  else if(type==='glitch'){const j=hash(Math.floor(k*14));el.style.opacity=k>.1?1:0;el.style.transform=`translate(${(j-.5)*70*(1-k)}px,${(hash(j*9)-.5)*30*(1-k)}px) skewX(${(j-.5)*10*(1-k)}deg)`;el.style.filter=`hue-rotate(${(1-k)*160}deg) saturate(${1+(1-k)*3}) contrast(${1+(1-k)*.5})`;}
+  else {el.style.opacity=e;}
+}
+function applyOut(el,type,k){
+  const e=eo(k);
+  if(type==='whip'){el.style.opacity=1-k;el.style.transform=`translateX(${-e*320}px)`;el.style.filter=`blur(${e*18}px)`;}
+  else if(type==='zoom'){el.style.opacity=1-e;el.style.transform=`scale(${1-.25*e})`;el.style.filter=`blur(${e*10}px)`;}
+  else if(type==='wipe'){el.style.opacity=1-k*.6;el.style.transform='none';el.style.filter='none';}
+  else if(type==='glitch'){const j=hash(Math.floor(k*14)+40);el.style.opacity=k<.9?1:0;el.style.transform=`translate(${(j-.5)*70*k}px,0) skewX(${(j-.5)*10*k}deg)`;el.style.filter=`hue-rotate(${k*160}deg) saturate(${1+k*3})`;}
+  else {el.style.opacity=1-e;}
+}
+// ---- build helpers
+(function(){
+  // wrap words of .kin
+  function wrap(node){[...node.childNodes].forEach(n=>{
+    if(n.nodeType===3){const f=document.createDocumentFragment();n.textContent.split(/(\s+)/).forEach(s=>{if(!s)return;if(/^\s+$/.test(s)){f.appendChild(document.createTextNode(s));return}const sp=document.createElement('span');sp.className='w';sp.textContent=s;f.appendChild(sp)});n.replaceWith(f)}
+    else if(n.nodeType===1&&n.tagName!=='BR'){wrap(n)}})}
+  document.querySelectorAll('.kin').forEach(wrap);
+  // noise tile
+  const c=document.createElement('canvas');c.width=c.height=200;const x=c.getContext('2d');const id=x.createImageData(200,200);for(let i=0;i<id.data.length;i+=4){const v=Math.random()*255;id.data[i]=id.data[i+1]=id.data[i+2]=v;id.data[i+3]=255}x.putImageData(id,0,0);$('grain').style.backgroundImage=`url(${c.toDataURL()})`;
+  // calendar grid
+  const g=$('s4g');const days=['L','M','X','J','V','S','D'];days.forEach((d,i)=>{const e=document.createElement('div');e.style.cssText=`position:absolute;left:${i*108}px;top:0;width:100px;text-align:center;font-weight:800;font-size:34px;color:#8a7a62`;e.textContent=d;g.appendChild(e)});
+  for(let n=1;n<=28;n++){const pos=n+0; const col=(n+0)%7, row=Math.floor((n+0)/7);const e=document.createElement('div');e.style.cssText=`position:absolute;left:${col*108}px;top:${60+row*100}px;width:100px;text-align:center;font-stretch:80%;font-weight:900;font-size:56px;color:#2a2118`;e.textContent=n;g.appendChild(e)}
+  // fringe on shawl
+  const fr=$('fringe');let fh='';for(let i=0;i<=12;i++){const f=i/12;[[20+330*f,40+460*f,-1],[680-330*f,40+460*f,1]].forEach(([x,y,dr])=>{fh+=`<line x1="${x}" y1="${y}" x2="${x+dr*26}" y2="${y+18}"/>`})}fr.innerHTML=fh;
+  // clothes for chest
+  const sc=$('s6c');const cols=['#D4FF3A','#F4F1EA','#FF7A2F','#8fb7ff','#FF3B5C','#F4F1EA'];
+  const shapes=['<svg width="170" height="150" viewBox="0 0 170 150"><path d="M50 10 L10 40 L30 70 L50 55 L50 140 L120 140 L120 55 L140 70 L160 40 L120 10 Q85 40 50 10Z" fill="COL"/></svg>',
+   '<svg width="120" height="190" viewBox="0 0 120 190"><path d="M15 10 H105 L112 180 H66 L60 70 L54 180 H8Z" fill="COL"/></svg>',
+   '<svg width="130" height="130" viewBox="0 0 130 130"><path d="M40 10 H90 V60 L120 100 Q125 120 105 122 H35 Q10 120 20 95 L40 60Z" fill="COL"/></svg>'];
+  for(let i=0;i<6;i++){const d=document.createElement('div');d.className='abs';d.id='cl'+i;d.innerHTML=shapes[i%3].replace('COL',cols[i]);sc.appendChild(d)}
+  // manuscript stack
+  const st=$('stack');for(let i=0;i<12;i++){const d=document.createElement('div');d.className='paper';d.id='pg'+i;d.style.cssText=`left:${190+((i*37)%60)}px;top:${520-i*14}px;width:700px;height:500px;transform:rotate(${((i*53)%9)-4}deg)`;d.innerHTML='<div class="lines" style="top:36px;height:440px"></div>';st.appendChild(d)}
+})();
+function kin(id,t,a,step=.07,rise=60){const el=$(id);[...el.querySelectorAll('.w')].forEach((w,i)=>{const k=eback(p(t,a+i*step,.32));w.style.opacity=cl(k*1.6);w.style.transform=`translateY(${(1-k)*rise}px) scale(${.7+.3*k})`})}
+function pop(el,t,a,dur=.35,from=.6){const k=p(t,a,dur);el.style.opacity=cl(k*2);el.style.transform=`scale(${from+(1-from)*eback(k)})`}
+function rise(el,t,a,dur=.4,dist=80){const k=eo(p(t,a,dur));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*dist}px)`}
+function stamp(el,t,a,rot=-8){const k=p(t,a,.2);el.style.opacity=k>0?1:0;const s=k<1?2.8-1.8*eo(k):1;el.style.transform=`rotate(${rot}deg) scale(${s})`}
+function kb(el,t,a,b,z0,z1,dx=0,dy=0){const k=eio((t-a)/(b-a));el.style.transform=`scale(${z0+(z1-z0)*k}) translate(${dx*k}px,${dy*k}px)`}
+const SHAKES=[];function shake(t,a,dur=.28,amp=16){if(t>a&&t<a+dur){const k=1-(t-a)/dur;return[Math.sin(t*140)*amp*k,Math.cos(t*115)*amp*.7*k]}return[0,0]}
+
+window.render=function(t){
+  $('bar').style.width=(100*cl(t/DUR))+'%';
+  let cam=1,sx=0,sy=0,flash=0,leak=0;
+  // scenes + transitions
+  SC.forEach(([id,a,b],idx)=>{
+    const el=$(id);const on=t>=a-0.02&&t<b+TD;el.style.display=on?'block':'none';if(!on){el.style.clipPath='';return}
+    el.style.clipPath='';
+    const typeIn=TIN[id],nextId=ORDER[idx+1],typeOut=nextId?TIN[nextId]:null;
+    el.style.opacity=1;el.style.transform='none';el.style.filter='none';
+    el.style.zIndex=10+idx;
+    if(idx>0&&t<a+TD){applyIn(el,typeIn,(t-a)/TD)}
+    if(typeOut&&t>b){el.style.zIndex=5+idx;applyOut(el,typeOut,(t-b)/TD)}
+    if(idx>0&&t>=a&&t<a+.32){const k=(t-a)/.32;cam=1+.07*(1-eo(k));}
+    if(idx>0&&t>=a-.02&&t<a+.2){leak=Math.max(leak,1-(t-a)/.2)}
+  });
+  $('grid').style.transform=`translate(${(t*10)%60}px,${(t*16)%60}px)`;
+  const g=$('glow');g.style.transform=`translate(${Math.sin(t*.5)*120}px,${Math.cos(t*.4)*180+250}px)`;
+  g.style.background=(t>=T.s4&&t<T.s6)||(t>=T.s8&&t<T.s8b)?'#FF3B5C':(t>=T.s9&&t<T.s10?'#FF7A2F':'#D4FF3A');
+  $('grain').style.transform=`translate(${Math.floor(hash(Math.floor(t*24))*100)}px,${Math.floor(hash(Math.floor(t*24)+7)*100)}px)`;
+  $('leak').style.opacity=leak*.55;$('leak').style.background=`radial-gradient(ellipse at ${20+hash(Math.floor(t*3))*60}% 20%,rgba(255,170,60,.9),transparent 60%)`;
+
+  // S1 hook
+  {kb($('p1'),t,0,T.s2+.4,1.12,1.3,0,-30);kin('s1a',t,.15,.12,80);
+   rise($('s1b'),t,1.5,.45,40);
+   const rn=$('s1n');rise(rn,t,T.c_victor-.35,.4,60);$('s1u').style.width=(100*eo(p(t,T.c_victor,.5)))+'%';
+   if(t<T.c_victor-.35)rn.style.opacity=0;
+   stamp($('s1s'),t,T.c_ropa0-.1,-9);const s=shake(t,T.c_ropa0-.1);sx+=s[0];sy+=s[1];if(t>T.c_ropa0-.1&&t<T.c_ropa0+.1)flash=.35;
+   if(t>T.s2-.1)$('s1s').style.opacity=1-p(t,T.s2-.1,.2)}
+  // S2
+  {const a=T.s2;const el=$('s2p');const k=eo(p(t,a+.05,.45));el.style.transform=`translateY(${(1-k)*160}px) rotate(${(1-k)*-6+Math.sin(t*1.1)*.8}deg)`;
+   $('s2c').style.opacity=Math.floor(t*2.2)%2?0:1;
+   const k2=p(t,T.c_un_ano-.2,.4);pop($('s2n'),t,a+1.4,.35,.6);rise($('s2t'),t,a+1.9);
+   if(t>T.c_un_ano-.1&&t<T.c_un_ano+.25){const q=(t-T.c_un_ano)/.25;$('s2n').style.transform=`scale(${1+.18*Math.sin(q*Math.PI)})`;}
+   const sh=shake(t,T.c_un_ano-.1,.22,10);sx+=sh[0];sy+=sh[1]}
+  // S3
+  {const a=T.s3;[['d1',a+.1],['d2',T.c_invitados-.2],['d3',T.c_proyectos-.2]].forEach(([id,s])=>{const el=$(id);const k=p(t,s,.55);const y=(1-ebounce(k))*-420;el.style.opacity=cl(k*4);el.style.transform=`translateY(${y}px) rotate(${(1-k)*-14}deg)`});
+   rise($('s3h'),t,a+.05,.3,40);
+   // escribir chip appears, others dim
+   const ke=eo(p(t,T.c_escribir-.2,.4));const d4=$('d4');d4.style.opacity=ke;d4.style.transform=`scale(${.6+.4*eback(p(t,T.c_escribir-.2,.4))})`;
+   ['d1','d2','d3'].forEach(id=>{$(id).style.filter=`grayscale(${ke}) brightness(${1-.4*ke})`})}
+  // S4
+  {const a=T.s4;const el=$('s4p');const k=eo(p(t,a+.05,.5));el.style.transform=`translateY(${(1-k)*-200}px) rotate(${(1-k)*8}deg) scale(${.9+.1*k})`;el.style.opacity=k;
+   const days=$('s4g').children;[...days].forEach((d,i)=>{if(i>=7){d.style.opacity=cl((t-a-.4-(i-7)*.025)/.2)}});
+   $('s4o').style.strokeDashoffset=2400*(1-eo(p(t,T.c_febrero-.15,.5)));
+   const sh=shake(t,T.c_febrero-.1,.25,14);sx+=sh[0];sy+=sh[1];
+   if(t>T.c_febrero-.1&&t<T.c_febrero+.08)flash=.25}
+  // S5
+  {const a=T.s5;const k=p(t,a+.05,.3);$('s5a').style.opacity=k;$('s5a').style.transform=`scale(${1.7-.7*eo(k)}) rotate(${Math.sin(t*38)*(1-k)*4}deg)`;
+   pop($('s5e'),t,a+.5,.3,.2);const sh=shake(t,a+.05,.4,22);sx+=sh[0];sy+=sh[1]; if(t>a&&t<a+.1)flash=.45}
+  // S6 chest
+  {const a=T.s6;const lid=$('lid');const open=1-eo(p(t,T.c_llave-.45,.28));lid.style.transform=`rotate(${-62*open}deg)`;
+   const chest=$('chest');const ck=eo(p(t,a+.05,.4));chest.style.opacity=ck;
+   rise($('s6t'),t,a+.05,.3,40);
+   for(let i=0;i<6;i++){const el=$('cl'+i);const s=a+.15+i*.2,k=p(t,s,.55);const sxn=[-200,1120,-220,1140,300,780][i],syn=[300,260,700,640,170,180][i];
+     const ex=420+((i%3)-1)*70,ey=640;const x=sxn+(ex-sxn)*eio(k),y=syn+(ey-syn)*k-Math.sin(k*Math.PI)*220;
+     el.style.left=x+'px';el.style.top=y+'px';el.style.opacity=k>0&&k<.98?1:0;el.style.transform=`rotate(${(1-k)*(i%2?240:-240)}deg) scale(${1-.45*k})`}
+   const ll=$('lock');ll.setAttribute('opacity',cl((t-T.c_llave+.2)/.15));
+   if(t>T.c_llave-.2&&t<T.c_llave-.0){}
+   const sh=shake(t,T.c_llave-.2,.3,18);sx+=sh[0];sy+=sh[1];if(t>T.c_llave-.2&&t<T.c_llave-.05)flash=.3;
+   if(t>T.c_llave){$('s6t').textContent='Bajo llave';}}
+  // S7
+  {const a=T.s7;const el=$('shawl');const k=eo(p(t,a+.1,.55));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*-300}px) rotate(${(1-k)*20+Math.sin(t*2)*1.5}deg) scale(${.7+.3*k})`;
+   pop($('s7n'),t,a+.75,.35,.5);const sh=shake(t,a+.12,.3,12);sx+=sh[0];sy+=sh[1]}
+  // S8
+  {const a=T.s8;const el=$('door');const k=eo(p(t,a+.05,.4));el.style.opacity=k;el.style.transform=`scale(${.85+.15*k})`;
+   const dx=$('dx').firstElementChild;dx.style.strokeDashoffset=700*(1-eo(p(t,T.c_salir-.35,.35)));
+   const sh=shake(t,T.c_salir-.35,.3,22);sx+=sh[0];sy+=sh[1];if(t>T.c_salir-.35&&t<T.c_salir-.2)flash=.35}
+  // S8b
+  {const a=T.s8b;const prog=eo(p(t,a+.1,T.s9-a-.5));const n=Math.round(prog*12);
+   for(let i=0;i<12;i++){const el=$('pg'+i);const k=eo(p(t,a+.1+i*(T.s9-a-.8)/12,.28));el.style.opacity=k;el.style.transform=`rotate(${((i*53)%9)-4}deg) translateY(${(1-k)*-260}px)`}
+   const q=$('quill');const qt=t*6;q.style.left=(300+Math.sin(qt)*150)+'px';q.style.top=(560-n*14+Math.cos(qt*2.1)*40)+'px';q.style.transform=`rotate(${Math.sin(qt)*8}deg)`;
+   const s8s=$('s8s');const lbl=t>=T.c_invierno-.1?'INVIERNO':(t>=T.c_otono-.1?'OTOÑO':'');s8s.textContent=lbl;
+   if(lbl){const ks=p(t,(lbl==='INVIERNO'?T.c_invierno:T.c_otono)-.1,.3);s8s.style.opacity=ks;s8s.style.transform=`scale(${.7+.3*eback(ks)})`;s8s.style.color=lbl==='INVIERNO'?'#8fd1ff':'#FF9a3E'}else s8s.style.opacity=0}
+  // S9
+  {const a=T.s9;kb($('p9'),t,a,T.s10+.3,1.1,1.3,-30,0);kin('s9a',t,a+.1,.1,50);
+   stamp($('s9s'),t,a+1.6,-6);const sh=shake(t,a+1.6,.3,18);sx+=sh[0];sy+=sh[1];if(t>a+1.6&&t<a+1.72)flash=.35;
+   rise($('s9b'),t,T.c_semanas-.5,.4,50)}
+  // S10
+  {const a=T.s10;pop($('m1'),t,a+.1,.4,.8);rise($('mA'),t,T.c_hoy+.5,.3,-40);pop($('m2'),t,T.c_hoy+1.1,.4,.8);
+   const hh=$('mh');const hk=p(t,T.c_hoy-.2,.3);hh.style.color=hk>0?'#D4FF3A':'';hh.style.transform=`scale(${1+.1*Math.sin(hk*Math.PI)})`;hh.style.transformOrigin='left center';
+   const mm=$('mm');const mk=p(t,T.c_manana-.2,.3);mm.style.transform=`scale(${1+.12*Math.sin(mk*Math.PI)})`;mm.style.transformOrigin='left center'}
+  // S11
+  {['k1','k2'].forEach((id,i)=>{const cue=i?T.c_dulces:T.c_movil;const el=$(id);const k=eo(p(t,cue-.5,.4));el.style.opacity=k;el.style.transform=`translateX(${(1-k)*500}px) rotate(${(1-k)*6}deg)`;
+     if(t>cue-.1&&t<cue+.3){const q=(t-cue+.1)/.4;el.style.borderColor='#D4FF3A';el.style.transform+=` scale(${1+.04*Math.sin(q*Math.PI)})`}else el.style.borderColor=''})}
+  // S12
+  {const a=T.s12;kin('s12h',t,a+.05,.1,60);rise($('s12c'),t,a+2.4,.4,60);
+   if(t>T.c_imposible-.1){const q=p(t,T.c_imposible-.1,.3);$('imp').style.transform=`scale(${1+.12*Math.sin(q*Math.PI)})`;$('imp').style.display='inline-block';const sh=shake(t,T.c_imposible-.1,.3,12);sx+=sh[0];sy+=sh[1]}}
+
+  $('flash').style.opacity=flash;
+  $('cam').style.transform=`scale(${cam}) translate(${sx}px,${sy}px)`;
+  // subtitles
+  const sub=$('subs');let html='';
+  for(const c of SUBS){if(t>=c.s-0.02&&t<c.e){const k=p(t,c.s-0.02,.12);
+    html=c.w.map(w=>{const act=t>=w.s-0.03;const num=/\d/.test(w.t)||/^(UN|DOS|MIL|CERO|NOVECIENTOS|TREINTA)$/.test(w.t);
+      const hot=act&&(t<w.e+.05);const col=hot?(num?'#FF7A2F':'#D4FF3A'):'#F4F1EA';const sc=hot?1.08:1;
+      return `<span style="color:${col};opacity:${act?1:0};transform:scale(${sc})">${w.t}</span>`}).join('');
+    sub.style.transform=`scale(${.85+.15*eback(k)})`;break}}
+  sub.innerHTML=html;
+};
+window.ready=document.fonts.ready.then(()=>true);
+</script></body></html>
