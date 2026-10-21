@@ -63,6 +63,14 @@ const POSES = {
   shield: t => { const p = POSES.walk(t * .7); return { ...p, la1: 2.6, la2: 2.2, ra1: 2.7, ra2: 2.2, tor: .15 }; },
   look: t => ({ lt: -.07, rt: .07, la1: -.1, la2: .1, ra1: .1, ra2: .1, head: -.25 }),
   lie: t => ({ lt: .05, rt: -.05, la1: .1, la2: 0, ra1: .2, ra2: .2, bob: Math.sin(t * 1.5) * .4 }),
+  crawl: t => { const p = t * 5, k = Math.sin(p); return { hipH: 30, tor: 1.25, lt: -.25 + k * .2, ls: 1.35, rt: -.25 - k * .2, rs: 1.35, la1: -1.25 + k * .3, la2: .1, ra1: -1.25 - k * .3, ra2: .1, head: -.5 }; },
+  crouchrun: t => { const p = POSES.run(t); return { ...p, tor: .75, hipH: 50, head: -.3 }; },
+  carry: t => ({ lt: -.07, rt: .07, la1: 1.15, la2: .95, ra1: 1.25, ra2: .9, bob: Math.sin(t * 2) * .6 }),
+  carryrun: t => { const p = POSES.run(t); return { ...p, la1: 1.15, la2: .95, ra1: 1.25, ra2: .9, tor: .2 }; },
+  kneel: t => ({ hipH: 34, lt: 1.5, ls: 1.5, rt: .2, rs: 1.5, la1: .7, la2: .2, ra1: 1.3, ra2: .1, tor: .5, head: .2 }),
+  jump: t => ({ lt: .9, ls: 1.4, rt: .5, rs: 1.6, la1: 1.2, la2: .9, ra1: 1.3, ra2: .85, tor: .35 }),
+  swim: t => { const p = t * 4, k = Math.sin(p); return { lt: -.2 + k * .35, ls: .3, rt: -.2 - k * .35, rs: .3, la1: 2.6 + k * .5, la2: .2, ra1: 2.6 - k * .5, ra2: .2, tor: 0 }; },
+  push: t => ({ lt: -.2, rt: .3, la1: 1.5, la2: .1, ra1: 1.45, ra2: .1, tor: .25 + Math.sin(t * 20) * .02 }),
   huddle: t => ({ hipH: 26, lt: 2.2, ls: 2.6, rt: 2.3, rs: 2.7, la1: 1.6, la2: 1.6, ra1: 1.7, ra2: 1.6, tor: .5, head: .4 }),
 };
 const dir = a => [Math.sin(a), Math.cos(a)];
@@ -167,6 +175,7 @@ function shade(hex, a) {
 const CH = {
   regla0: { accent: '#ffc83d', accent2: '#e5383b', capFam: 'Montserrat', capW: 900, head: 'Anton', handle: '@regla0', you: { acc: ['raincoat'], body: '#e6e6ea' }, hudBg: null, hudInk: '#fff', pillBg: 'rgba(10,10,14,.75)' },
   lunes: { accent: '#ff7a1a', accent2: '#e2483d', capFam: 'Montserrat', capW: 900, head: 'Bebas Neue', capY: .835, handle: '@sobrevivealunes', you: { acc: ['lanyard', 'tie'], body: '#f4f4f6' }, hudBg: 'rgba(255,255,255,.92)', hudInk: '#1a191d', pillBg: '#1a191d' },
+  sticky: { accent: '#ffd400', accent2: '#ff3b5c', capFam: 'Montserrat', capW: 900, head: 'Anton', capY: .74, handle: '@elstickyman', you: { acc: ['cap', 'scarf'], body: '#ffffff' }, hudBg: null, hudInk: '#111', pillBg: 'rgba(10,12,18,.8)' },
   ruta: { accent: '#ffc24d', accent2: '#e5383b', capFam: 'Montserrat', capW: 900, head: 'Anton', handle: '', you: { acc: [], body: '#e9e9ee' }, hudBg: null, hudInk: '#fff', pillBg: 'rgba(10,12,18,.75)' },
   historia: { accent: '#ff9b42', accent2: '#c8392b', capFam: 'Montserrat', capW: 900, head: 'Cinzel', handle: '@sobrevivirias', you: { acc: ['scarf'], body: '#efe6d6' }, hudBg: 'rgba(30,20,12,.72)', hudInk: '#f3e6cc', pillBg: 'rgba(30,20,12,.8)' },
 };
@@ -180,6 +189,12 @@ function hud(b, t, gt) {
     text('● ' + (h.label || TL.day), 46, 112, { size: 17, w: 800, color: '#ff4b4b', align: 'left', ls: 2 });
     text(h.time, 44, 152, { size: 52, fam: 'Anton', w: 400, color: '#fff', align: 'left', ls: 1, shadow: 'rgba(0,0,0,.6)' });
     text(h.place || '', 46, 192, { size: 15, w: 700, color: 'rgba(255,255,255,.6)', align: 'left', ls: 3 });
+  } else if (TL.ch === 'sticky') {
+    if (h.off) return;
+    if (h.topic) text(h.topic, 40, 128, { size: 46, fam: 'Anton', w: 400, align: 'left', ls: 1, color: '#fff', stroke: '#111', sw: 8 });
+    if (h.t0 != null) { const left = Math.max(0, Math.ceil(h.t0 - (gt - h.at) * (h.rate || 1))); const red = left <= 15; const tw = 150;
+      ctx.save(); if (red) { ctx.shadowColor = '#ff3b5c'; ctx.shadowBlur = 20 + Math.sin(gt * 10) * 10; } fillRR(W - tw - 36, 92, tw, 76, 20, red ? '#ff3b5c' : '#111'); ctx.restore();
+      text(Math.floor(left / 60) + ':' + String(left % 60).padStart(2, '0'), W - tw / 2 - 36, 132, { size: 46, fam: 'Anton', w: 400, color: '#fff', ls: 2 }); }
   } else if (TL.ch === 'lunes') {
     ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.15)'; ctx.shadowBlur = 18; fillRR(30, 92, 230, 122, 22, S.hudBg); ctx.restore();
     fillRR(48, 106, 86, 26, 13, S.accent); text(TL.day, 91, 120, { size: 15, w: 900, color: '#fff', ls: 2 });
@@ -328,7 +343,7 @@ function setup(tl) {
   TL = tl; S = CH[tl.ch];
   let hudState = {};
   let pin = null; TL.pinRules = !!tl.pin || /v2/.test(tl.id);
-  tl.beats.forEach(b => { hudState = Object.assign({}, hudState, b.hud || {}); b._hud = hudState; b.p = b.p || {};
+  tl.beats.forEach(b => { hudState = Object.assign({}, hudState, b.hud || {}); if (b.hud && b.hud.t0 != null) hudState.at = b.start; b._hud = hudState; b.p = b.p || {};
     if (b.ov && (b.ov.t === 'rule' || b.ov.t === 'instr')) pin = { n: b.ov.n, text: b.ov.text, kind: b.ov.t, icon: b.ov.icon }; if (b.unpin || (b.ov && (b.ov.t === 'choice' || b.ov.t === 'end'))) pin = null; b._pin = pin; });
 }
 function renderAt(gt) {
@@ -363,7 +378,7 @@ SCENES.black = () => { ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H); };
 function coverFrame(c) {
   const b = { scene: c.scene, p: Object.assign({}, c.p || {}), _hud: TL.beats[0]._hud, sfx: [], start: 0, end: 12, words: [] };
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.fillStyle = '#000'; ctx.fillRect(0, 0, W, H);
-  ctx.save(); (SCENES[b.scene] || SCENES.black)(c.t || 2, b.p, b, c.t || 2); ctx.restore();
+  ctx.save(); if (c.cam) { ctx.translate(W / 2, H / 2); ctx.scale(c.cam[2], c.cam[2]); ctx.translate(-c.cam[0], -c.cam[1]); } (SCENES[b.scene] || SCENES.black)(c.t || 2, b.p, b, c.t || 2); ctx.restore();
   if (c.part) {
     // portada de parte: «PARTE N» arriba y el plano firma debajo, todo dentro del recorte 3:4 del perfil
     ctx.fillStyle = lin(0, 0, 0, 640, [[0, 'rgba(3,4,8,.92)'], [.75, 'rgba(3,4,8,.55)'], [1, 'rgba(3,4,8,0)']]); ctx.fillRect(0, 0, W, 640);

@@ -1,0 +1,402 @@
+{
+ "id": "sticky1",
+ "ch": "sticky",
+ "music": "sticky",
+ "bed": 0,
+ "series": "STICKY MAN",
+ "ep": "QUÉ HACER SI…",
+ "day": "",
+ "voices": {
+  "k": {
+   "eleven": "Nh2zY9kknu6z4pZy6FhD",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "+4%",
+   "pitch": "+0Hz",
+   "fx": "near"
+  }
+ },
+ "beats": [
+  {
+   "who": "k",
+   "say": "¡Mi coche acaba de caer al río!",
+   "scene": "bridge",
+   "hud": {
+    "topic": "TU COCHE CAE AL AGUA"
+   },
+   "sfx": [
+    [
+     "brake",
+     0
+    ],
+    [
+     "splash",
+     1.1
+    ]
+   ],
+   "cam": {
+    "f": [
+     400,
+     600,
+     1.25
+    ],
+    "t": [
+     460,
+     760,
+     1.05
+    ]
+   },
+   "amb": "river"
+  },
+  {
+   "who": "k",
+   "say": "Tienes menos de un minuto antes de que se hunda.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.15,
+    "w1": 0.3
+   },
+   "hud": {
+    "t0": 60,
+    "rate": 1
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "bubbles",
+     0.5
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Lo que hace casi todo el mundo: llamar por teléfono.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.3,
+    "w1": 0.42,
+    "phone": 1,
+    "stamp": "x",
+    "label": "LLAMAR"
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "wrong",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "O intentar abrir la puerta. Imposible: el agua empuja con cientos de kilos.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.42,
+    "w1": 0.6,
+    "door": 1,
+    "stamp": "x",
+    "label": "ABRIR LA PUERTA"
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "wrong",
+     0.2
+    ],
+    [
+     "thud",
+     1.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Y así… se acaba la historia.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.6,
+    "w1": 0.98,
+    "dark": 1
+   },
+   "amb": "water",
+   "sfx": [
+    [
+     "bubbles",
+     0.2
+    ],
+    [
+     "bubbles",
+     1.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¡Rebobina! Ahora, bien hecho.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.15,
+    "w1": 0.98,
+    "rewind": 1
+   },
+   "hud": {
+    "t0": 60,
+    "rate": 1
+   },
+   "sfx": [
+    [
+     "rewind",
+     0
+    ],
+    [
+     "pop",
+     1.0
+    ]
+   ],
+   "amb": "river"
+  },
+  {
+   "who": "k",
+   "say": "Uno: quítate el cinturón.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.15,
+    "w1": 0.22,
+    "belt": 1,
+    "calm": 1,
+    "stamp": "ok",
+    "label": "1 · CINTURÓN"
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Dos: baja la ventanilla ya, mientras todavía funciona.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.22,
+    "w1": 0.32,
+    "win": 1,
+    "nobelt": 1,
+    "calm": 1,
+    "stamp": "ok",
+    "label": "2 · VENTANILLA"
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¿No baja? Rómpela por una esquina con un rompecristales.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.32,
+    "w1": 0.38,
+    "brk": 1,
+    "nobelt": 1,
+    "calm": 1
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "crack",
+     0.9
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Tres: si vas con niños, que salgan ellos primero.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.38,
+    "w1": 0.46,
+    "kid": 1,
+    "broken": 1,
+    "nobelt": 1,
+    "calm": 1,
+    "stamp": "ok",
+    "label": "3 · NIÑOS PRIMERO"
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ],
+    [
+     "splash",
+     1.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Y cuatro: sal por la ventana y nada hacia arriba.",
+   "scene": "carin",
+   "p": {
+    "w0": 0.46,
+    "w1": 0.55,
+    "exit": 1,
+    "broken": 1,
+    "nobelt": 1,
+    "calm": 1,
+    "stamp": "ok",
+    "label": "4 · FUERA"
+   },
+   "amb": "river",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ],
+    [
+     "bubbles",
+     0.9
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Arriba, arriba…",
+   "scene": "swimup",
+   "p": {},
+   "hud": {
+    "t0": null
+   },
+   "amb": "water",
+   "sfx": [
+    [
+     "bubbles",
+     0
+    ],
+    [
+     "bubbles",
+     0.8
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¡Vivo!",
+   "scene": "swimup",
+   "p": {
+    "surface": 1
+   },
+   "sfx": [
+    [
+     "splash",
+     0
+    ],
+    [
+     "right",
+     0.3
+    ]
+   ],
+   "amb": "river",
+   "pause": 0.5
+  },
+  {
+   "who": "k",
+   "say": "Cinturón, ventanilla, niños, fuera. Guárdalo: un día te puede salvar.",
+   "scene": "recap",
+   "p": {
+    "steps": [
+     "CINTURÓN",
+     "VENTANILLA",
+     "NIÑOS",
+     "FUERA"
+    ]
+   },
+   "hud": {
+    "off": true
+   },
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     1.0
+    ],
+    [
+     "pop",
+     1.6
+    ],
+    [
+     "pop",
+     2.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¿Qué hago mañana? ¿Ascensor atascado, terremoto o perro que ataca? Comenta.",
+   "scene": "nextpick",
+   "p": {
+    "opts": [
+     "¿ASCENSOR?",
+     "¿TERREMOTO?",
+     "¿PERRO?"
+    ]
+   },
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     0.65
+    ],
+    [
+     "pop",
+     1.0
+    ]
+   ],
+   "pause": 0.4
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "sticky_end",
+    "cta": "MAÑANA, EL QUE MÁS PIDÁIS"
+   },
+   "hold": 2.6,
+   "hud": {
+    "off": true
+   },
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ]
+   ]
+  }
+ ],
+ "cover": {
+  "top": "QUÉ HACER SI…",
+  "title": "TU COCHE CAE AL AGUA",
+  "scene": "bridge",
+  "t": 0.75,
+  "p": {},
+  "cam": [
+   440,
+   470,
+   1.15
+  ]
+ }
+}

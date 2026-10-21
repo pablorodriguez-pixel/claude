@@ -1,0 +1,592 @@
+{
+ "id": "fuego1",
+ "ch": "ruta",
+ "music": "fuego",
+ "series": "FUEGO EN EL 5ºB",
+ "ep": "PARTE 1",
+ "day": "INCENDIO",
+ "pin": true,
+ "voices": {
+  "n": {
+   "eleven": "W5JElH3dK1UYYAiHH7uh",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-4%",
+   "pitch": "-2Hz",
+   "fx": "room"
+  }
+ },
+ "beats": [
+  {
+   "who": "n",
+   "say": "Tu edificio está ardiendo… y Toby sigue ahí arriba.",
+   "scene": "street",
+   "p": {
+    "bark": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     262,
+     2.1
+    ],
+    "t": [
+     360,
+     520,
+     1.05
+    ]
+   },
+   "hud": {
+    "label": "INCENDIO",
+    "time": "03:12",
+    "place": "C/ OLMO 14 · 5ºB"
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "alarm",
+     0
+    ],
+    [
+     "bark",
+     0.4
+    ],
+    [
+     "bark",
+     1.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Los bomberos tardan ocho minutos.",
+   "scene": "street",
+   "p": {
+    "bark": 1
+   },
+   "cam": {
+    "f": [
+     360,
+     330,
+     1.9
+    ],
+    "t": [
+     360,
+     300,
+     2.2
+    ]
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "bark",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Toby no tiene ocho minutos.",
+   "scene": "street",
+   "p": {
+    "run": 1
+   },
+   "cam": {
+    "f": [
+     400,
+     900,
+     1.2
+    ],
+    "t": [
+     380,
+     980,
+     1.35
+    ]
+   },
+   "amb": "fire",
+   "ov": {
+    "t": "chip",
+    "text": "AL FINAL, DECIDES TÚ",
+    "at": 0.2,
+    "dur": 2.4,
+    "y": 330
+   },
+   "sfx": [
+    [
+     "whoosh",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Entras corriendo.",
+   "scene": "stairs",
+   "p": {
+    "floor": 1,
+    "smoke": 0.1
+   },
+   "hud": {
+    "place": "ESCALERA · PLANTA 1",
+    "time": "03:13"
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "steps",
+     0
+    ],
+    [
+     "whoosh",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Regla uno: agáchate. El humo mata antes que el fuego.",
+   "scene": "stairs",
+   "p": {
+    "floor": 3,
+    "smoke": 0.5,
+    "low": 1
+   },
+   "hud": {
+    "place": "ESCALERA · PLANTA 3"
+   },
+   "ov": {
+    "t": "rule",
+    "n": 1,
+    "text": "AGÁCHATE: EL HUMO MATA ANTES QUE EL FUEGO"
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "hit",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Quinto piso. Ya casi no ves nada.",
+   "scene": "stairs",
+   "p": {
+    "floor": 5,
+    "smoke": 0.78,
+    "crawl": 1
+   },
+   "hud": {
+    "place": "ESCALERA · PLANTA 5"
+   },
+   "amb": "fire"
+  },
+  {
+   "who": "n",
+   "say": "Regla dos: antes de abrir, toca la puerta.",
+   "scene": "door",
+   "p": {},
+   "ov": {
+    "t": "rule",
+    "n": 2,
+    "text": "TOCA LA PUERTA ANTES DE ABRIR"
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "hit",
+     0
+    ]
+   ],
+   "hud": {
+    "time": "03:14"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Fría. Puedes abrir.",
+   "scene": "door",
+   "p": {
+    "cold": 1
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "ding",
+     0.8
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Toby está debajo de la cama. Temblando.",
+   "scene": "room",
+   "p": {
+    "eyes": 1
+   },
+   "cam": {
+    "f": [
+     400,
+     900,
+     1.2
+    ],
+    "t": [
+     480,
+     1000,
+     1.6
+    ]
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "creak",
+     0
+    ],
+    [
+     "whimper",
+     1.2
+    ]
+   ],
+   "unpin": true,
+   "hud": {
+    "time": "03:15",
+    "place": "5ºB · DORMITORIO"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Le silbas, como cuando era cachorro…",
+   "scene": "room",
+   "p": {
+    "eyes": 1,
+    "call": 1
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "whimper",
+     0.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "…y sale corriendo hacia ti.",
+   "scene": "room",
+   "p": {
+    "come": 1
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "bark",
+     1.4
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Lo tienes.",
+   "scene": "room",
+   "p": {
+    "hug": 1
+   },
+   "cam": {
+    "f": [
+     330,
+     900,
+     1.3
+    ],
+    "t": [
+     330,
+     880,
+     1.45
+    ]
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Pero al salir… la escalera se viene abajo.",
+   "scene": "stairfall",
+   "p": {},
+   "amb": "fire",
+   "sfx": [
+    [
+     "crash",
+     0.6
+    ],
+    [
+     "boom",
+     0.7
+    ]
+   ],
+   "shake": true,
+   "hud": {
+    "time": "03:16"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Solo te queda la ventana. El balcón del vecino está a dos metros.",
+   "scene": "ledge",
+   "p": {
+    "gap": 1
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "whoosh",
+     0.3
+    ]
+   ],
+   "hud": {
+    "place": "5ºB · VENTANA"
+   }
+  },
+  {
+   "who": "n",
+   "say": "El humo ya entra por debajo de la puerta. Toby no deja de temblar.",
+   "scene": "ledge",
+   "p": {
+    "gap": 1,
+    "smoke": 1
+   },
+   "cam": {
+    "f": [
+     300,
+     800,
+     1.1
+    ],
+    "t": [
+     240,
+     900,
+     1.35
+    ]
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "whimper",
+     1.0
+    ]
+   ],
+   "hud": {
+    "time": "03:17"
+   }
+  },
+  {
+   "who": "n",
+   "say": "¿Saltas con Toby en brazos… o esperas a los bomberos con una toalla mojada en la puerta?",
+   "scene": "fsplit",
+   "p": {
+    "side": "both"
+   },
+   "amb": "fire",
+   "pause": 0.3
+  },
+  {
+   "who": "n",
+   "say": "¿Saltas o esperas?",
+   "scene": "fsplit",
+   "p": {
+    "side": "both"
+   },
+   "ov": {
+    "t": "choice",
+    "q": "¿SALTAS O ESPERAS?",
+    "a": "SALTO",
+    "b": "ESPERO",
+    "foot": "TÚ DECIDES"
+   },
+   "hold": 0.8,
+   "amb": "fire",
+   "sfx": [
+    [
+     "riser",
+     0
+    ],
+    [
+     "ding",
+     0.7
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Tú decides. Escribe SALTO o ESPERO en los comentarios.",
+   "scene": "vote",
+   "p": {
+    "phase": "type",
+    "a": "SALTO",
+    "b": "ESPERO",
+    "ia": "jump",
+    "ib": "wait",
+    "bg": "fsplit"
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "whoosh",
+     0
+    ],
+    [
+     "type",
+     0.5
+    ],
+    [
+     "type",
+     2.0
+    ],
+    [
+     "pop",
+     3.4
+    ]
+   ],
+   "pause": 0.4
+  },
+  {
+   "who": "n",
+   "say": "Lo que diga la mayoría… es lo que pasará. Toby cuenta contigo.",
+   "scene": "vote",
+   "p": {
+    "phase": "feed",
+    "a": "SALTO",
+    "b": "ESPERO",
+    "ia": "jump",
+    "ib": "wait",
+    "bg": "fsplit",
+    "votes": [
+     [
+      "lucia.mtz",
+      "SALTO, son dos metros"
+     ],
+     [
+      "dani_rv",
+      "ESPERO, no arriesgues a Toby"
+     ],
+     [
+      "marta.o",
+      "salto!!! ya"
+     ],
+     [
+      "j0rge",
+      "ESPERO con la toalla"
+     ],
+     [
+      "noelia.g",
+      "SALTO, el humo te mata antes"
+     ],
+     [
+      "pablo_22",
+      "espero, los bomberos llegan"
+     ],
+     [
+      "ire.sz",
+      "SALTOOO"
+     ],
+     [
+      "alex.v",
+      "ESPERO. Regla uno, agáchate"
+     ],
+     [
+      "carla.b",
+      "salto por Toby"
+     ],
+     [
+      "hugo.m",
+      "espero, 5 pisos no"
+     ],
+     [
+      "sara.l",
+      "SALTO 100%"
+     ],
+     [
+      "mario_k",
+      "ESPERO, ni lo pienses"
+     ]
+    ]
+   },
+   "amb": "fire",
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     0.7
+    ],
+    [
+     "pop",
+     1.1
+    ],
+    [
+     "pop",
+     1.5
+    ],
+    [
+     "pop",
+     1.9
+    ],
+    [
+     "pop",
+     2.3
+    ],
+    [
+     "pop",
+     2.7
+    ],
+    [
+     "bark",
+     3.0
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "end",
+    "big": "PARTE 1",
+    "time": "LA MAYORÍA DIJO",
+    "cta": "COMENTA: SALTO O ESPERO",
+    "next": "PARTE 2",
+    "ntime": "LA DECIDES TÚ",
+    "keep": true
+   },
+   "hold": 3.6,
+   "sfx": [
+    [
+     "hit",
+     2.5
+    ],
+    [
+     "glitch",
+     2.4
+    ]
+   ]
+  }
+ ],
+ "cover": {
+  "part": 1,
+  "q": "¿SALTAS O ESPERAS?",
+  "brand": "LA MAYORÍA DIJO",
+  "scene": "street",
+  "t": 2.3,
+  "p": {
+   "bark": 1
+  },
+  "cam": [
+   360,
+   190,
+   1.55
+  ]
+ }
+}

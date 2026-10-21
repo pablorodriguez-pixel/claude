@@ -379,22 +379,27 @@ const VOTES = [['lucia.mtz', 'FRENO. Necesito oír esa nota'], ['dani_rv', 'SIGO
   ['noelia.g', 'FRENO, pase lo que pase'], ['pablo_22', 'sigo, la nota es una trampa'], ['ire.sz', 'FRENOOO'], ['alex.v', 'SIGO. No te fíes del GPS'],
   ['carla.b', 'freno, se lo debe'], ['hugo.m', 'sigo, él querría que vivieras'], ['sara.l', 'FRENO 100%'], ['mario_k', 'SIGO, ni lo pienses']];
 const AVC = ['#e57373', '#64b5f6', '#81c784', '#ffb74d', '#ba68c8', '#4db6ac', '#f06292', '#90a4ae'];
-function optTile(x, y, w, h, kind, on, gt) {
-  const amber = kind === 'FRENO', col = amber ? '#ffb02e' : '#3ddc84';
+function optTile(x, y, w, h, kind, on, gt, A = 'FRENO', icon) {
+  const amber = kind === A, col = amber ? '#ffb02e' : '#3ddc84';
+  icon = icon || (amber ? 'lantern' : 'ecg');
   ctx.save(); ctx.translate(x + w / 2, y + h / 2); const s = 1 + on * .06; ctx.scale(s, s);
   if (on > 0) { ctx.shadowColor = col; ctx.shadowBlur = 50 * on; }
   fillRR(-w / 2, -h / 2, w, h, 28, on > 0 ? `rgba(${amber ? '255,176,46' : '61,220,132'},${.16 + on * .2})` : 'rgba(255,255,255,.05)'); ctx.shadowBlur = 0;
   ctx.lineWidth = 3 + on * 2; ctx.strokeStyle = on > 0 ? col : 'rgba(255,255,255,.18)'; rr(-w / 2, -h / 2, w, h, 28); ctx.stroke();
-  // icono: farol del abuelo / latido
-  ctx.save(); ctx.translate(0, -34);
-  if (amber) { glow(0, 0, 70, `rgba(255,190,90,${.25 + on * .35})`); fillRR(-18, -26, 36, 50, 8, col); seg([[-12, -34], [0, -46], [12, -34]], 5, col); fillRR(-10, -16, 20, 30, 5, '#fff6d8'); }
-  else { ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(-60, 0); ctx.lineTo(-22, 0); ctx.lineTo(-10, -30); ctx.lineTo(4, 28); ctx.lineTo(16, 0); ctx.lineTo(60, 0); ctx.stroke(); }
+  // icono de cada opción
+  ctx.save(); ctx.translate(0, -34); ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (icon === 'lantern') { glow(0, 0, 70, `rgba(255,190,90,${.25 + on * .35})`); fillRR(-18, -26, 36, 50, 8, col); seg([[-12, -34], [0, -46], [12, -34]], 5, col); fillRR(-10, -16, 20, 30, 5, '#fff6d8'); }
+  else if (icon === 'ecg') { ctx.lineWidth = 6; ctx.beginPath(); ctx.moveTo(-60, 0); ctx.lineTo(-22, 0); ctx.lineTo(-10, -30); ctx.lineTo(4, 28); ctx.lineTo(16, 0); ctx.lineTo(60, 0); ctx.stroke(); }
+  else if (icon === 'jump') { ctx.beginPath(); ctx.moveTo(-50, 26); ctx.quadraticCurveTo(0, -60, 46, 10); ctx.stroke(); ctx.beginPath(); ctx.moveTo(46, 10); ctx.lineTo(22, 4); ctx.moveTo(46, 10); ctx.lineTo(44, -14); ctx.stroke(); }
+  else if (icon === 'wait') { ctx.beginPath(); ctx.moveTo(-24, -36); ctx.lineTo(24, -36); ctx.lineTo(-24, 36); ctx.lineTo(24, 36); ctx.closePath(); ctx.stroke(); }
   ctx.restore();
-  text(kind, 0, 46, { size: 64, fam: 'Anton', w: 400, color: on > 0 ? '#fff' : 'rgba(255,255,255,.8)', ls: 3 });
+  let fz = 64; while (measure(kind, fz, 'Anton', 400, 3) > w - 40) fz -= 4;
+  text(kind, 0, 46, { size: fz, fam: 'Anton', w: 400, color: on > 0 ? '#fff' : 'rgba(255,255,255,.8)', ls: 3 });
   ctx.restore();
 }
 SCENES.vote = (t, p, b, gt) => {
-  ctx.save(); ctx.globalAlpha = .28; SCENES.split(t, { side: 'both' }, { ov: 1 }, gt); ctx.restore();
+  const A = p.a || 'FRENO', B = p.b || 'SIGO', VV = p.votes || VOTES;
+  ctx.save(); ctx.globalAlpha = .28; SCENES[p.bg || 'split'](t, p.bgp || { side: 'both' }, { ov: 1 }, gt); ctx.restore();
   ctx.fillStyle = 'rgba(4,5,8,.62)'; ctx.fillRect(0, 0, W, H);
   const dur = b.end - b.start, feed = p.phase === 'feed';
   // recuento en directo: FRENO contra SIGO, empatado y oscilando
@@ -404,7 +409,7 @@ SCENES.vote = (t, p, b, gt) => {
   if (feed) { circle(W / 2 - measure('VOTACIÓN EN DIRECTO', 22, 'Montserrat', 900, 5) / 2 - 22, 196, 7, Math.sin(gt * 6) > 0 ? '#ff3b30' : 'rgba(255,59,48,.35)'); }
   fillRR(50, 228, 620, 46, 23, 'rgba(255,255,255,.08)');
   ctx.save(); rr(50, 228, 620, 46, 23); ctx.clip(); fillRR(50, 228, 620 * fr / 100, 46, 0, '#c9811e'); ctx.fillStyle = '#1f9a62'; ctx.fillRect(50 + 620 * fr / 100, 228, 620, 46); ctx.restore();
-  text('FRENO ' + Math.round(fr) + '%', 74, 252, { size: 22, w: 900, align: 'left' }); text(Math.round(100 - fr) + '% SIGO', 646, 252, { size: 22, w: 900, align: 'right' });
+  text(A + ' ' + Math.round(fr) + '%', 74, 252, { size: 22, w: 900, align: 'left' }); text(Math.round(100 - fr) + '% ' + B, 646, 252, { size: 22, w: 900, align: 'right' });
   ctx.restore();
   // tarjeta de comentarios
   const ca = E.back(cl((t - .1) / .45)); ctx.save(); ctx.translate(W / 2, 520); ctx.scale(.9 + .1 * ca, .9 + .1 * ca); ctx.globalAlpha = cl(ca * 1.5); ctx.translate(-W / 2, -520);
@@ -416,26 +421,26 @@ SCENES.vote = (t, p, b, gt) => {
   seg([[40, 384], [680, 384]], 2, 'rgba(255,255,255,.08)');
   if (!feed) {
     // escribes, dudas, borras… las dos opciones se encienden según lo que tecleas
-    const seq = [[.5, 'FRENO'], [1.7, ''], [2.1, 'SIGO'], [3.0, '']]; let typed = '', who = '';
+    const seq = [[.5, A], [.5 + A.length * .09 + .7, ''], [2.1, B], [2.1 + B.length * .09 + .5, '']]; let typed = '', who = '';
     for (const [at, word] of seq) { if (t < at) break; if (word) { typed = word.slice(0, Math.floor((t - at) / .09) + 1); who = word; } else { const prev = typed; typed = prev.slice(0, Math.max(0, prev.length - Math.floor((t - at) / .06))); } }
-    const onF = who === 'FRENO' && typed ? 1 : 0, onS = who === 'SIGO' && typed ? 1 : 0;
-    optTile(66, 404, 285, 250, 'FRENO', onF ? 1 : .0, gt); optTile(369, 404, 285, 250, 'SIGO', onS ? 1 : 0, gt);
-    if (!typed && t > 3.2) { const k = Math.sin(gt * 5) > 0; optTile(66, 404, 285, 250, 'FRENO', k ? .5 : 0, gt); optTile(369, 404, 285, 250, 'SIGO', k ? 0 : .5, gt); }
+    const onF = who === A && typed ? 1 : 0, onS = who === B && typed ? 1 : 0;
+    optTile(66, 404, 285, 250, A, onF ? 1 : .0, gt, A, p.ia); optTile(369, 404, 285, 250, B, onS ? 1 : 0, gt, A, p.ib);
+    if (!typed && t > 3.2) { const k = Math.sin(gt * 5) > 0; optTile(66, 404, 285, 250, A, k ? .5 : 0, gt, A, p.ia); optTile(369, 404, 285, 250, B, k ? 0 : .5, gt, A, p.ib); }
     fillRR(66, 674, 588, 72, 36, 'rgba(255,255,255,.08)'); circle(104, 710, 22, '#ffc24d'); text('TÚ', 104, 711, { size: 16, w: 900, color: '#111' });
     const cur = Math.floor(gt * 2.4) % 2 ? '|' : '';
-    if (typed) text(typed + cur, 140, 711, { size: 32, w: 900, align: 'left', color: who === 'FRENO' ? '#ffb02e' : '#3ddc84' });
-    else text('Escribe FRENO o SIGO…' + cur, 140, 711, { size: 26, w: 600, align: 'left', color: 'rgba(255,255,255,.45)' });
+    if (typed) text(typed + cur, 140, 711, { size: 32, w: 900, align: 'left', color: who === A ? '#ffb02e' : '#3ddc84' });
+    else text('Escribe ' + A + ' o ' + B + '…' + cur, 140, 711, { size: 26, w: 600, align: 'left', color: 'rgba(255,255,255,.45)' });
     fillRR(584, 686, 58, 48, 24, typed ? '#3d8bff' : 'rgba(61,139,255,.3)'); ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.moveTo(600, 698); ctx.lineTo(628, 710); ctx.lineTo(600, 722); ctx.lineTo(604, 710); ctx.closePath(); ctx.fill();
   } else {
     // comentarios entrando en directo
     ctx.save(); rr(40, 386, 640, 384, 36); ctx.clip();
     const rate = 2.6, k0 = t * rate;
     for (let j = Math.floor(k0) - 5; j <= Math.floor(k0); j++) {
-      if (j < 0) continue; const [u, msg] = VOTES[j % VOTES.length]; const age = k0 - j; const y = 730 - age * 74 - (1 - E.out(cl(age * 3))) * -30;
+      if (j < 0) continue; const [u, msg] = VV[j % VV.length]; const age = k0 - j; const y = 730 - age * 74 - (1 - E.out(cl(age * 3))) * -30;
       if (y < 390) continue; const a = cl(age * 4) * cl((y - 390) / 60);
       ctx.save(); ctx.globalAlpha = a; circle(92, y, 24, AVC[j % AVC.length]); text(u[0].toUpperCase(), 92, y + 1, { size: 22, w: 900 });
       text('@' + u, 130, y - 16, { size: 18, w: 700, align: 'left', color: 'rgba(255,255,255,.5)' });
-      const freno = /^fren/i.test(msg); text(msg, 130, y + 14, { size: 26, w: 800, align: 'left', color: freno ? '#ffc56b' : '#7ef0b0' });
+      const freno = msg.toLowerCase().startsWith(A.toLowerCase().slice(0, 3)); text(msg, 130, y + 14, { size: 26, w: 800, align: 'left', color: freno ? '#ffc56b' : '#7ef0b0' });
       ctx.restore();
     }
     ctx.restore();

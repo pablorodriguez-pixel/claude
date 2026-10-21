@@ -43,6 +43,30 @@ def voice_fx(a, fx):
     return a
 
 def sfx2(name):
+    if name == 'splash':  # golpe contra el agua + chapoteo grave
+        d = 2.2; t = t_(d); return 0.9 * lp(noise(d), 900, 3) * np.exp(-t / .35) * np.minimum(1, t / .01) + 0.5 * sweep(90, 40, d) * np.exp(-t / .5)
+    if name == 'bubbles':
+        d = 1.6; o = np.zeros(int(d * SR))
+        for k in range(9):
+            f = 380 + A.RNG.random() * 500; b_ = sweep(f, f * 1.6, .07) * env(.07, .002, .03) * .12; s = int(A.RNG.random() * (d - .1) * SR); o[s:s + len(b_)] += b_
+        return lp(o, 2500)
+    if name == 'bark':  # ladrido corto sintetizado
+        d = .5; o = np.zeros(int(d * SR))
+        for at in (0, .2):
+            b_ = (sweep(620, 380, .13) + .5 * sweep(1240, 760, .13)) * env(.13, .004, .05); b_ = np.tanh(lp(b_, 2600) * 2.2) * .22; s = int(at * SR); o[s:s + len(b_)] += b_
+        return o
+    if name == 'whimper':
+        d = .9; t = t_(d); f = 900 + 160 * np.sin(2 * np.pi * 3 * t); ph = np.cumsum(f) / SR; return lp(np.sin(2 * np.pi * ph), 2000) * env(d, .08, .3) * .08
+    if name == 'rewind':
+        d = .9; t = t_(d); f = 1200 * np.exp(-t * 2.2) + 200; ph = np.cumsum(f) / SR; return lp(np.sign(np.sin(2 * np.pi * ph)) * .06, 1800) + lp(noise(d), 1500) * .03
+    if name == 'alarm':  # alarma de incendio, suave y redonda
+        d = 2.0; t = t_(d); g = ((t % .5) < .32).astype(float); return lp(sine(880, d) + .3 * sine(1760, d), 2200) * g * .09
+    if name == 'crash':
+        d = 2.4; t = t_(d); return 0.8 * lp(noise(d), 700, 3) * np.exp(-t / .5) + 0.4 * bp(noise(d), 900, 2200) * (A.RNG.random(int(d * SR)) > .97) * np.exp(-t / .6)
+    if name == 'wrong':
+        d = .55; return (np.sign(sine(160, d)) * .5 + sine(110, d)) * env(d, .005, .2) * .12
+    if name == 'right':
+        d = 1.0; o = sine(1046.5, d) * env(d, .003, .3) * .14; s = int(.09 * SR); o[s:] += (sine(1568, d) * env(d, .003, .35) * .12)[:len(o) - s]; return o
     if name == 'train':
         d = 5.0; t = t_(d); swell = np.minimum(1, t / 1.4) * np.exp(-np.maximum(0, t - 2.2) / 1.1)
         rum = 0.9 * lp(noise(d), 110, 4) * swell
@@ -101,6 +125,14 @@ def amb2(name, d):
         for k in np.arange(1.2, d, 2.6):
             s = int(k * SR); w_ = bp(noise(.5), 500, 3000) * np.sin(np.pi * np.linspace(0, 1, int(.5 * SR))) * .06; wip[s:s + len(w_)] += w_[:len(wip) - s]
         return eng + road + rain + wip
+    if name == 'fire':  # rugido grave y chisporroteo apagado: sin clics agudos
+        roar = lp(n, 320, 3) * .14 * (.8 + .2 * np.sin(2 * np.pi * .4 * t))
+        cr = lp(hp(n, 300), 1600, 2) * (A.RNG.random(len(n)) > .996) * .5
+        return roar + lp(cr, 1400)
+    if name == 'water':  # bajo el agua: todo amortiguado
+        return lp(n, 220, 3) * .16 * (.85 + .15 * np.sin(2 * np.pi * .25 * t))
+    if name == 'river':
+        return lp(hp(n, 120), 900, 2) * .05 + lp(n, 200) * .04
     if name == 'monitor':
         o = A.ambience('tunnel', d) * .5
         for k in np.arange(.3, d, .8):
@@ -119,6 +151,22 @@ def piano(f, d=3.0):
     t = t_(d); x = sum(np.sin(2 * np.pi * f * k * t) / k ** 1.6 for k in range(1, 7)); return x * np.exp(-t / 1.1) * np.minimum(1, t / .004)
 
 def music2(ch, d):
+    if ch == 'sticky':  # loop ligero y con pulso: bajo + palmas suaves + campanita pentatónica
+        bpm = 118; bt = 60 / bpm; out = np.zeros(int(d * SR)); i = 0; k = 0.0
+        bass = [98, 98, 130.8, 116.5]; mel = [784, 880, 1046.5, 880, 784, 659.3, 784, 587.3]
+        while k < d:
+            s = int(k * SR)
+            if i % 2 == 0: b_ = lp(sine(bass[(i // 8) % 4], .4) + .3 * sine(bass[(i // 8) % 4] * 2, .4), 400) * env(.4, .005, .14) * .16; out[s:s + len(b_)] += b_[:len(out) - s]
+            if i % 4 == 2: c_ = lp(hp(noise(.08), 900), 3500) * env(.08, .001, .03) * .08; out[s:s + len(c_)] += c_[:len(out) - s]
+            if i % 2 == 1: m_ = sine(mel[(i // 2) % 8], .3) * env(.3, .002, .1) * .035; out[s:s + len(m_)] += m_[:len(out) - s]
+            i += 1; k += bt / 2
+        return out
+    if ch == 'fuego':  # pulso de tensión que empuja hacia delante
+        t = t_(d); out = np.zeros(len(t)); bt = 60 / 132; k = 0.0; i = 0
+        while k < d:
+            s = int(k * SR); b_ = lp(sine(55, .35) + .4 * sine(110, .35), 300) * env(.35, .004, .12) * (.2 if i % 4 == 0 else .12); out[s:s + len(b_)] += b_[:len(out) - s]; k += bt / 2; i += 1
+        pad = (sine(110, d) + .5 * sine(164.8, d) + .3 * sine(130.8, d)) * .03 * (.6 + .4 * np.sin(2 * np.pi * .1 * t))
+        return out + pad
     if ch == 'ruta':
         t = t_(d); lfo = .6 + .4 * np.sin(2 * np.pi * .06 * t)
         pad = (sine(55, d) + .6 * sine(82.4, d) + .3 * sine(110, d) + .2 * sine(130.8, d)) * lfo * .07
@@ -198,9 +246,9 @@ def build(path, edge=False):
         if b.get('amb'):
             L = b['end'] - b['start'] + .4; x = amb2(b['amb'], L); fade = np.minimum(1, np.minimum(t_(L) / .3, (L - t_(L)) / .3))
             s = int(b['start'] * SR); amb[s:s + len(x)] += (x * fade)[:N - s]
-    bed = A.ambience('tunnel', N / SR)[:N] * (.8 if spec['ch'] == 'regla0' else .35)
+    bed = A.ambience('tunnel', N / SR)[:N] * spec.get('bed', .8 if spec['ch'] == 'regla0' else .35)
     fx = reverb(fx, 1.4, .22)[:N]
-    mus = np.pad(music2(spec['ch'], N / SR), (0, N))[:N]
+    mus = np.pad(music2(spec.get('music', spec['ch']), N / SR), (0, N))[:N]
     envv = np.convolve(np.abs(voice), np.ones(4800) / 4800, 'same')[:N]; duck = 1 - .5 * np.clip(envv * 12, 0, 1)
     # voz a nivel constante y efectos sin picos de subgraves que roben margen
     vr = np.sqrt(np.mean(voice[np.abs(voice) > .01] ** 2)) if np.any(np.abs(voice) > .01) else 1
