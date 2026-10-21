@@ -23,3 +23,15 @@ exports.scenes=(at,dur)=>[
  {type:'cta',start:at('Asi que dime'),title:'¿Cuántos minutos valen tu vida?',hs:112,a:at('Asi que dime'),typeA:at('Te leo'),typeD:1.3,text:'Ninguno. ¿Y tú?',subA:at('comentarios'),sub:'↓ Te leo en comentarios',by:820,sfx:[[at('Te leo'),'pop',.7]]},
  {type:'race',start:at('Porque ir'),t0:at('Porque ir')+.2,dist:30,dur:[2.4,2.0],gapAt:at('tres minutos',2),gapText:'+3 MIN',lanes:[{v:100,color:'#F4F1EA'},{v:120,color:'#FFE14D'}],tag:'Cuenta #01',sfx:[[at('tres minutos',2),'hit',.9]]}
 ];
+
+// --- Capa visual: fondos animados + palabras-impacto (retención) ---
+{const base=exports.scenes;
+ const X=[{bgfx:'road'},{bgfx:'bokeh',fx:'rgba(229,9,20,.12)'},{bgfx:'road'},{bgfx:'road',fx:'rgba(255,45,85,.14)'},{bgfx:'dots'},{bgfx:'rays'},{bgfx:'dots'},{bgfx:'rays',fx:'rgba(255,45,85,.12)'},{bgfx:'rays'},{bgfx:'bokeh'},{bgfx:'road'}];
+ exports.scenes=(at,dur)=>{const sc=base(at,dur);sc.forEach((s,i)=>Object.assign(s,X[i]||{}));return sc};
+ exports.inserts=at=>[
+  {a:at('Netflix'),d:.75,t:'NETFLIX',c:'#E50914',s:210,emoji:'🍿'},
+  {a:at('algo'),d:.7,t:'¿¿QUÉ??',c:'#FFE14D',s:200,man:'shock'},
+  {a:at('frenais'),d:.6,t:'¡FRENA!',c:'#FF2D55',s:240,emoji:'🛑'},
+  {a:at('le pega'),d:.8,t:'¡PUM!',c:'#FF2D55',s:330,emoji:'💥'},
+  {a:at('septimo piso'),d:.85,t:'7º PISO',c:'#FF2D55',s:220,emoji:'🏢'},
+  {a:at('vida'),d:.8,t:'TU VIDA',c:'#FFE14D',s:200,emoji:'⏳'}]}

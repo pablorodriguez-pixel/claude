@@ -30,3 +30,12 @@ exports.scenes=(at,dur)=>[
    {t:'−50 %',a:at('Porque si'),s:230,c:R},{t:'+50 %',a:at('suben',1),s:230,c:G},{t:'¿Vuelves al precio<br>de antes?',a:at('suben',1)+.5,s:100,css:'margin-top:20px'}],
   stamp:{t:'No',x:400,y:960,s:230,a:at('vuelves',1),r:-8},sfx:[[at('vuelves',1),'hit',.9]]}
 ];
+
+{const base=exports.scenes;
+ const X=[{bgfx:'rays'},{bgfx:'dots'},{bgfx:'bokeh',fx:'rgba(255,45,85,.12)'},{bgfx:'dots'},{bgfx:'dots'},{bgfx:'rays'},{bgfx:'bokeh',fx:'rgba(255,45,85,.12)'},{bgfx:'bokeh'},{bgfx:'rays'}];
+ exports.scenes=(at,dur)=>{const sc=base(at,dur);sc.forEach((s,i)=>Object.assign(s,X[i]||{}));return sc};
+ exports.inserts=at=>[
+  {a:at('Has perdido'),d:.8,t:'−250 €',c:'#FF2D55',s:300,emoji:'💸'},
+  {a:at('nadie'),d:.8,t:'ROBO: 0',c:'#7BE38B',s:230,emoji:'🤷'},
+  {a:at('Pruebalo'),d:.7,t:'¡PRUÉBALO!',c:'#FFE14D',s:170,man:'smile'},
+  {a:at('quiero ver'),d:.95,t:'¿QUÉ<br>PUSISTE?',c:'#FFE14D',s:180,man:'sweat'}]}

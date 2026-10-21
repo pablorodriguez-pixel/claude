@@ -66,14 +66,21 @@ const slam=(e,t,a,rot=0,s0=2.2)=>{const k=p(t,a,.22);e.style.opacity=k>0?1:0;e.s
 function chrome(S,root){if(S.tag)mk(root,'tag'+(S.red?' red':''),'',S.tag);if(S.src)mk(root,'src','',S.src)}
 function stick(parent,css,color=C.paper,w=9){
   const d=mk(parent,'abs',css+';width:130px;height:270px;transform-origin:65px 160px');
+  const E=(x)=>`<circle cx="${x}" cy="38" r="4.5"/>`;
   d.innerHTML=`<svg viewBox="0 0 130 270" width="130" height="270" style="overflow:visible"><g stroke="${color}" stroke-width="${w}" stroke-linecap="round" fill="none">
   <line class="t" x1="65" y1="76" x2="65" y2="160"/><line class="al" x1="65" y1="100"/><line class="ar" x1="65" y1="100"/><line class="ll" x1="65" y1="160"/><line class="lr" x1="65" y1="160"/>
-  <circle cx="65" cy="42" r="32" fill="${C.ink}"/><g class="fn" fill="${color}" stroke="none"><circle cx="53" cy="38" r="4.5"/><circle cx="77" cy="38" r="4.5"/></g><path class="fn" d="M54 56 Q65 62 76 56"/>
-  <g class="fo" style="display:none" fill="${color}" stroke="none"><circle cx="53" cy="36" r="8" fill="#fff"/><circle cx="77" cy="36" r="8" fill="#fff"/><circle cx="53" cy="36" r="3" fill="${C.ink}"/><circle cx="77" cy="36" r="3" fill="${C.ink}"/><ellipse cx="65" cy="58" rx="7" ry="9" fill="${C.ink}" stroke="${color}" stroke-width="4"/></g></g></svg>`;
+  <circle cx="65" cy="42" r="32" fill="${C.ink}"/>
+  <g class="f n" fill="${color}" stroke="none">${E(53)}${E(77)}</g><path class="f n" d="M54 56 Q65 61 76 56" stroke-width="5"/>
+  <g class="f smile" style="display:none"><g fill="${color}" stroke="none">${E(53)}${E(77)}</g><path d="M46 52 Q65 76 84 52" stroke-width="5" fill="${color}"/></g>
+  <g class="f shock" style="display:none" fill="${color}" stroke="none"><circle cx="53" cy="36" r="8" fill="#fff"/><circle cx="77" cy="36" r="8" fill="#fff"/><circle cx="53" cy="36" r="3" fill="${C.ink}"/><circle cx="77" cy="36" r="3" fill="${C.ink}"/><ellipse cx="65" cy="58" rx="7" ry="9" fill="${C.ink}" stroke="${color}" stroke-width="4"/></g>
+  <g class="f dead" style="display:none" stroke-width="5"><path d="M46 30 L60 44 M60 30 L46 44 M70 30 L84 44 M84 30 L70 44"/><path d="M52 60 Q65 52 78 60"/></g>
+  <g class="f angry" style="display:none"><g fill="${color}" stroke="none">${E(53)}${E(77)}</g><path d="M42 24 L60 33 M88 24 L70 33" stroke-width="6"/><path d="M52 60 Q65 52 78 60" stroke-width="5"/></g>
+  <g class="f sweat" style="display:none"><g fill="${color}" stroke="none"><circle cx="53" cy="38" r="5"/><circle cx="77" cy="38" r="5"/></g><path d="M54 58 Q60 54 65 58 Q70 62 76 58" stroke-width="5"/><path d="M100 18 Q108 34 100 40 Q92 34 100 18Z" fill="#7BD0FF" stroke="none"/></g>
+  </g></svg>`;
   const q=s=>d.querySelector(s),L=(e,x,y,a,l)=>{e.setAttribute('x2',x+l*Math.sin(a*Math.PI/180));e.setAttribute('y2',y+l*Math.cos(a*Math.PI/180))};
-  const al=q('.al'),ar=q('.ar'),ll=q('.ll'),lr=q('.lr'),fo=q('.fo'),fn=d.querySelectorAll('.fn');
+  const al=q('.al'),ar=q('.ar'),ll=q('.ll'),lr=q('.lr'),fs=[...d.querySelectorAll('.f')];let last='';
   return {el:d,pose(o){L(al,65,100,o.aL??25,54);L(ar,65,100,o.aR??-25,54);L(ll,65,160,o.lL??12,86);L(lr,65,160,o.lR??-12,86);
-    const sh=!!o.shock;fo.style.display=sh?'':'none';fn.forEach(e=>e.style.display=sh?'none':'');
+    const face=o.face||(o.shock?'shock':'n');if(face!==last){fs.forEach(e=>e.style.display=e.classList.contains(face)?'':'none');last=face}
     d.style.transform=`translate(${o.x||0}px,${o.y||0}px) rotate(${o.rot||0}deg) scale(${o.sc||1})`;d.style.opacity=o.op??1}};
 }
 const B={};
@@ -319,28 +326,63 @@ B.whatsapp=(S,root)=>{chrome(S,root);
   return t=>{ms.forEach((e,i)=>{const k=eo(p(t,S.msgs[i].a,.3));e.style.opacity=k;e.style.transform=`translateY(${(1-k)*40}px)`});
     slam(q,t,S.qA,-3,1.6);shake(t,S.qA,.25,12)}};
 
+/* ---------- FONDOS ANIMADOS (bgfx) ---------- */
+function bgfx(S,root){const kind=S.bgfx;if(!kind)return null;const w=mk(root,'abs','inset:0;overflow:hidden');const col=S.fx||'rgba(255,225,77,.22)';
+  if(kind==='rays'){const r=mk(w,'abs',`left:-700px;top:-540px;width:2480px;height:2480px;background:repeating-conic-gradient(from 0deg,${col} 0 5deg,transparent 5deg 10deg);-webkit-mask:radial-gradient(circle at 50% 50%,#000 0,transparent 52%)`);return t=>{r.style.transform=`rotate(${t*7}deg)`}}
+  if(kind==='bokeh'){const cs=[...Array(14)].map((_,i)=>{const z=120+(i*53)%220;return{e:mk(w,'abs',`width:${z}px;height:${z}px;border-radius:50%;background:radial-gradient(circle,${i%3?col:'rgba(255,45,85,.28)'},transparent 68%)`),x:(i*197)%1000,y:(i*331)%1300,z,i}});
+    return t=>cs.forEach(c=>{c.e.style.left=(c.x+Math.sin(t*.4+c.i)*60)+'px';c.e.style.top=((c.y-t*(18+c.i*3))%1500+1500)%1500-100+'px'})}
+  if(kind==='road'){const f=mk(w,'abs','left:0;right:0;top:980px;height:760px;perspective:520px;overflow:hidden');
+    const g=mk(f,'abs',`inset:0;transform:rotateX(64deg);transform-origin:50% 0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.32) 0 5px,transparent 5px 90px),repeating-linear-gradient(90deg,rgba(255,255,255,.28) 0 5px,transparent 5px 130px)`);
+    mk(w,'abs',`left:0;right:0;top:940px;height:90px;background:linear-gradient(180deg,transparent,${col},transparent)`);return t=>{g.style.backgroundPosition=`0 ${t*260%90}px,0 0`}}
+  if(kind==='dots'){const r=mk(w,'abs',`inset:0;background:radial-gradient(rgba(255,255,255,.16) 3px,transparent 3.5px) 0 0/30px 30px;-webkit-mask:radial-gradient(ellipse 80% 55% at 50% 40%,#000,transparent)`);return t=>{r.style.backgroundPosition=`${t*10%30}px ${t*14%30}px`}}
+  return null}
+/* ---------- CAMEO de Palitos (reacción) ---------- */
+function cameo(S,root){if(!S.cameo)return null;const c=S.cameo;const m=stick(root,`left:${c.x??770}px;top:${c.y??930}px`,C.paper,9);
+  return t=>{const k=eb(p(t,c.a,.35));const on=t>=c.a&&t<(c.a+(c.d||2.5));const bob=Math.sin(t*9)*5;const f=c.face||'smile';
+    const out=1-p(t,c.a+(c.d||2.5)-.25,.25);
+    m.pose({x:0,y:(1-k)*400+bob,sc:(c.sc||1.15)*(on?1:0),face:f,aL:f==='smile'?-100+Math.sin(t*14)*35:25+Math.sin(t*6)*6,aR:f==='smile'?100-Math.sin(t*14)*35:-25,lL:10,lR:-10,rot:Math.sin(t*5)*3,op:on?out:0})}}
 /* ---------- SETUP ---------- */
 const ROOT=$('scenes');
-const SC=DATA.scenes.map(S=>{const root=mk(ROOT,'scene','');return{S,root,upd:B[S.type](S,root)}});
-const SUBS=DATA.subs;
+const GR=['#1c1850','#35154a','#10294a','#2b2110'];
+const SC=DATA.scenes.map((S,i)=>{const root=mk(ROOT,'scene','');
+  const gs=JSON.stringify(S.glow||'');const g=S.red||gs.includes('255,45,85')?'#4a0c1c':gs.includes('123,227,139')?'#0e3a26':GR[i%4];root.style.background=`linear-gradient(180deg,${g} 0%,rgba(11,12,16,.0) 62%)`;const bg=bgfx(S,root);const upd=B[S.type](S,root);const cam=cameo(S,root);return{S,root,upd,bg,cam}});
+const SUBS=DATA.subs,INS=DATA.ins||[];
+const insEl=mk($('cam'),'abs','inset:0;display:none;background:rgba(11,12,16,.7)');
+const insT=mk(insEl,'abs cond','left:0;right:100px;top:360px;text-align:center;line-height:.9');
+const insE=mk(insEl,'abs','left:0;right:100px;top:300px;text-align:center;font-size:260px;line-height:1');
+const insM=stick(insEl,'left:430px;top:400px');
+$('cam').insertBefore(insEl,$('subs'));
+const PARTS=[...Array(26)].map((_,i)=>mk($('cam'),'abs',`width:${4+i%4*2}px;height:${4+i%4*2}px;border-radius:50%;background:${i%5?'rgba(255,225,77,.5)':'rgba(244,241,234,.45)'};left:${(i*167)%1000}px`));
 window.render=t=>{
   SH={x:0,y:0};
-  let cur=null;
-  SC.forEach(o=>{const on=t>=o.S.start&&t<o.S.end;o.root.style.display=on?'block':'none';if(on){cur=o;o.upd(t)}});
+  let cur=null,ci=0;
+  SC.forEach((o,i)=>{const on=t>=o.S.start&&t<o.S.end;o.root.style.display=on?'block':'none';if(on){cur=o;ci=i;o.upd(t);o.bg&&o.bg(t);o.cam&&o.cam(t)}});
   $('glow').style.setProperty('--g',cur&&cur.S.glow||'rgba(255,225,77,.10)');
-  const st=cur?cur.S.start:0;
-  const punch=1+.04*(1-eo(p(t,st,.28)));
-  $('flash').style.opacity=.55*(1-p(t,st,.14))*(st>0?1:0);
-  $('cam').style.transform=`scale(${punch+0.012*Math.sin(t*.9)}) translate(${SH.x}px,${SH.y}px)`;
+  const st=cur?cur.S.start:0,k=t-st;
+  const tr=p(t,st,.2);const punch=1+.07*(1-eo(tr));
+  const drift=1+.035*Math.min(k,5)/5;const rot=(ci%2?1:-1)*.5*Math.sin(Math.min(k,4)*.8)*(1-tr*0)*.8;
+  $('flash').style.background=ci%2?'#FFE14D':'#fff';$('flash').style.opacity=.5*(1-p(t,st,.16))*(st>0?1:0);
+  $('cam').style.transform=`rotate(${rot}deg) scale(${punch*drift}) translate(${SH.x}px,${SH.y}px)`;
+  $('cam').style.filter=(st>0&&tr<1)?`blur(${((1-tr)*9).toFixed(1)}px)`:'none';
   $('grid').style.transform=`translateY(${(t*14)%60}px)`;
+  PARTS.forEach((e,i)=>{e.style.top=(((1700-(t*(30+i*7)+i*113))%1700)+1700)%1700-60+'px';e.style.opacity=.35+.35*Math.sin(t*3+i)});
   $('grain').style.transform=`translate(${Math.floor(t*30)%7*9}px,${Math.floor(t*30)%5*9}px)`;
-  $('bar').style.width=(t/DATA.dur*100)+'%';
-  $('ep').textContent=DATA.ep;
+  $('bar').style.width=(t/DATA.dur*100)+'%';$('ep').textContent=DATA.ep;
+  // inserts (palabra-impacto a pantalla completa)
+  let act=null;for(const x of INS){if(t>=x.a&&t<x.a+x.d){act=x;break}}
+  if(act){const q=p(t,act.a,.16),out=1-p(t,act.a+act.d-.12,.12);insEl.style.display='block';insEl.style.opacity=out;
+    insEl.style.background=`rgba(11,12,16,${act.dim??.72})`;
+    insT.innerHTML=act.t||'';insT.style.fontSize=(act.s||260)+'px';insT.style.color=act.c||C.y;insT.style.top=(act.top||(act.man?700:520))+'px';
+    insT.style.transform=`scale(${lerp(2,1,eo(q))}) rotate(${(act.r||-3)}deg)`;insT.style.textShadow='0 0 60px rgba(0,0,0,.8)';
+    insE.innerHTML=act.emoji||'';insE.style.top=(act.etop||270)+'px';insE.style.transform=`scale(${lerp(.3,1,eb(q))}) rotate(${Math.sin(t*14)*6}deg)`;
+    if(act.man){insM.pose({x:0,y:lerp(500,0,eo(q))+Math.sin(t*12)*4,sc:1.6,face:act.man,aL:-120+Math.sin(t*16)*20,aR:120-Math.sin(t*16)*20});insM.el.style.display='block'}else insM.el.style.display='none';
+    if(t-act.a<.22){SH.x+=Math.sin(t*140)*16*(1-(t-act.a)/.22);SH.y+=Math.cos(t*110)*12*(1-(t-act.a)/.22);$('cam').style.transform=`rotate(${rot}deg) scale(${punch*drift}) translate(${SH.x}px,${SH.y}px)`}
+  }else insEl.style.display='none';
   let html='';
-  for(const c of SUBS){if(t>=c.s-.02&&t<c.e+.08){const k=p(t,c.s-.02,.12);
+  for(const c of SUBS){if(t>=c.s-.02&&t<c.e+.08){const kk=p(t,c.s-.02,.12);
     html=c.w.map(w=>{const act=t>=w.s-.03;const on=act&&t<w.e+.06;const num=/\d|%|€/.test(w.t);
-      return `<span style="color:${on?(num?C.o:C.y):C.paper};opacity:${act?1:0}">${w.t}</span>`}).join('');
-    $('subs').style.transform=`scale(${.88+.12*eb(k)})`;break}}
+      return `<span style="color:${on?(num?C.o:C.y):C.paper};opacity:${act?1:0};display:inline-block;transform:scale(${on?1.12:1})">${w.t}</span>`}).join('');
+    $('subs').style.transform=`scale(${.88+.12*eb(kk)})`;break}}
   $('subs').innerHTML=html;
 };
 window.ready=document.fonts.ready.then(()=>true);

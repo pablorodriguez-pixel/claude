@@ -19,3 +19,13 @@ exports.scenes=(at,dur)=>[
  {type:'cta',start:at('Compruebalo'),title:'Compruébalo y cuéntame',hs:118,a:at('Compruebalo'),typeA:at('cuantos erais')-.2,typeD:1.3,text:'Éramos 31. Coincidían 2',subA:at('erais'),sub:'↓ ¿Cuántos erais?',by:800,sfx:[[at('cuantos erais'),'pop',.7]]},
  {type:'field',start:at('veintitres',3),title:'23 personas.<br><span style="color:#FFE14D">¿Sí o no?</span>',pA:at('veintitres',3),pD:.02,rA:at('veintitres',3)+.5,glow:'rgba(123,227,139,.08)',tag:'Cuenta #03'}
 ];
+
+{const base=exports.scenes;
+ const X=[{bgfx:'bokeh',fx:'rgba(123,227,139,.12)'},{bgfx:'rays'},{bgfx:'dots'},{bgfx:'bokeh'},{bgfx:'rays',fx:'rgba(123,227,139,.11)'},{bgfx:'bokeh'},{bgfx:'bokeh'},{bgfx:'bokeh',fx:'rgba(123,227,139,.12)'}];
+ exports.scenes=(at,dur)=>{const sc=base(at,dur);sc.forEach((s,i)=>Object.assign(s,X[i]||{}));return sc};
+ exports.inserts=at=>[
+  {a:at('futbol'),d:.7,t:'FÚTBOL',c:'#7BE38B',s:210,emoji:'⚽'},
+  {a:at('arbitro'),d:.8,t:'+ UN ÁRBITRO',c:'#FF2D55',s:150,emoji:'🟥'},
+  {a:at('todos con todos'),d:.95,t:'TODOS<br>CON TODOS',c:'#FFE14D',s:190},
+  {a:at('whatsapp'),d:.8,t:'WHATSAPP',c:'#25D366',s:190,emoji:'💬'},
+  {a:at('Compruebalo'),d:.85,t:'¡COMPRUÉBALO!',c:'#FFE14D',s:140,man:'smile'}]}

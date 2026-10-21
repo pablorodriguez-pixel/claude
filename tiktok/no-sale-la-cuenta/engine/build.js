@@ -12,7 +12,8 @@ const scenes=meta.scenes(at,dur);scenes.forEach((s,i)=>{s.end=i<scenes.length-1?
 const subs=[];let cur=[];const flush=()=>{if(cur.length){subs.push({s:cur[0].s,e:cur[cur.length-1].e,w:cur.map(w=>({t:w.t.replace(/[.,;:¿¡"…]/g,'').toUpperCase(),s:w.s,e:w.e}))});cur=[]}};
 W.forEach((w,i)=>{cur.push(w);const end=/[.,;:?!…]$/.test(w.t);if(cur.length>=3||cur.map(x=>x.t).join(' ').length>16||end)flush()});flush();
 subs.forEach((c,i)=>{const n=subs[i+1];if(n&&n.s-c.e<.35)c.e=n.s});
-const data={dur,ep:meta.ep,scenes,subs};
+const ins=(meta.inserts?meta.inserts(at):[]).sort((x,y)=>x.a-y.a);
+const data={dur,ep:meta.ep,scenes,subs,ins};
 let html=fs.readFileSync(__dirname+'/player.html','utf8').replace('/*DATA*/null',JSON.stringify(data));
 const HF=__dirname+'/video_'+path.basename(dir)+'.html';fs.writeFileSync(HF,html);
 (async()=>{
@@ -30,7 +31,7 @@ const HF=__dirname+'/video_'+path.basename(dir)+'.html';fs.writeFileSync(HF,html
      if(!ff.stdin.write(buf))await new Promise(r=>ff.stdin.once('drain',r));if(i%150===0)console.log(i,'/',N)}
    ff.stdin.end();await new Promise(r=>ff.on('close',r));
    // mezcla de audio: voz + música (ducking) + SFX
-   const sx=[];scenes.forEach((s,i)=>{if(i>0)sx.push([s.start-.05,'whoosh',.55]);(s.sfx||[]).forEach(x=>sx.push(x))});
+   const sx=[];scenes.forEach((s,i)=>{if(i>0)sx.push([s.start-.05,'whoosh',.55]);(s.sfx||[]).forEach(x=>sx.push(x))});ins.forEach((x,i)=>sx.push([x.a,x.sfx||(i%2?'pop':'hit'),.75]));
    const sd=__dirname+'/sfx/';const ins=['-i',dir+'/voice.mp3','-i',sd+'music.mp3'];sx.forEach(x=>ins.push('-i',sd+x[1]+'.mp3'));
    let fc=`[0:a]asplit=2[v][vs];[1:a]atrim=0:${dur},volume=0.42,afade=t=in:d=.8,afade=t=out:st=${dur-1.2}:d=1.2[m];[m][vs]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=350[md];`;
    sx.forEach((x,i)=>{const ms=Math.max(0,Math.round(x[0]*1000));fc+=`[${i+2}:a]adelay=${ms}|${ms},volume=${x[2]}[s${i}];`});
