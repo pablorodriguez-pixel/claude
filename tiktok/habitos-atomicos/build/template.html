@@ -1,0 +1,244 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Archivo;src:url(archivo.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0E0F12}
+body{font-family:Archivo,sans-serif;color:#F4F1EA;-webkit-font-smoothing:antialiased}
+:root{--lime:#D4FF3A;--ora:#FF7A2F;--red:#FF3B5C;--ink:#0E0F12}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--ink)}
+#cam{position:absolute;inset:0;transform-origin:540px 800px}
+.grid{position:absolute;inset:-200px;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:60px 60px}
+.glow{position:absolute;width:900px;height:900px;border-radius:50%;filter:blur(120px);opacity:.28}
+.scene{position:absolute;inset:0;opacity:0;display:none}
+.abs{position:absolute}
+.cond{font-stretch:72%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9}
+.tag{position:absolute;left:70px;top:250px;font-weight:800;font-size:34px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;border-radius:8px;background:var(--lime);color:var(--ink)}
+.tag.red{background:var(--red);color:#fff}
+.src{position:absolute;left:70px;right:70px;top:1130px;font-size:26px;color:rgba(244,241,234,.6);font-weight:500;letter-spacing:.02em}
+.card{position:absolute;background:#191A1F;border:2px solid rgba(255,255,255,.09);border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.stamp{position:absolute;border:12px solid var(--lime);color:var(--lime);font-stretch:72%;font-weight:900;text-transform:uppercase;padding:10px 34px;border-radius:18px;background:rgba(14,15,18,.55);line-height:1}
+#subs{position:absolute;left:0;right:0;top:1235px;text-align:center;font-stretch:72%;font-weight:900;font-size:104px;line-height:1;text-transform:uppercase;paint-order:stroke fill;-webkit-text-stroke:14px #0b0b0d;letter-spacing:.005em;padding:0 50px}
+#subs span{display:inline-block;margin:0 14px}
+#top{position:absolute;left:0;right:0;top:0;height:8px;background:rgba(255,255,255,.12)}
+#bar{height:100%;background:var(--lime);width:0}
+#brand{position:absolute;left:70px;top:120px;font-weight:800;font-size:30px;letter-spacing:.2em;color:rgba(244,241,234,.75)}
+#brand b{color:var(--lime)}
+#vign{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(0,0,0,.55));pointer-events:none}
+.law{position:absolute;left:70px;right:70px;height:190px;border-radius:30px;display:flex;align-items:center;gap:36px;padding:0 44px;background:#191A1F;border:3px solid rgba(255,255,255,.1)}
+.law .n{width:110px;height:110px;border-radius:50%;background:var(--lime);color:var(--ink);font-stretch:72%;font-weight:900;font-size:78px;display:flex;align-items:center;justify-content:center;flex:none}
+.law .l{font-size:34px;font-weight:800;letter-spacing:.14em;color:rgba(244,241,234,.55)}
+.law .v{white-space:nowrap;font-stretch:72%;font-weight:900;font-size:74px;text-transform:uppercase;line-height:.95}
+.chip{position:absolute;padding:20px 38px;border-radius:100px;font-weight:800;font-size:46px;background:#23242A;border:3px solid rgba(255,255,255,.2)}
+.orb{position:absolute;border:5px solid rgba(212,255,58,.55);border-radius:50%}
+.dot{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--lime);box-shadow:0 0 30px var(--lime)}
+</style></head>
+<body><div id="stage"><div id="cam">
+<div class="grid" id="grid"></div>
+<div class="glow" id="glow" style="left:90px;top:200px;background:var(--lime)"></div>
+
+<!-- S1 HOOK -->
+<div class="scene" id="s1">
+  <div class="tag">Hábitos atómicos</div>
+  <div class="abs cond" id="s1n" style="left:0;right:0;top:360px;text-align:center;font-size:520px;color:var(--lime)">+1%</div>
+  <div class="abs cond" id="s1t" style="left:0;right:0;top:880px;text-align:center;font-size:110px">cada día</div>
+  <div class="abs" id="s1q" style="left:0;right:0;top:1030px;text-align:center;font-weight:800;font-size:54px;color:rgba(244,241,234,.7)">¿suena a nada?</div>
+</div>
+
+<!-- S2 CURVA SUBE -->
+<div class="scene" id="s2">
+  <svg class="abs" style="left:70px;top:330px" width="940" height="560" viewBox="0 0 940 560"><line x1="0" y1="540" x2="940" y2="540" stroke="rgba(255,255,255,.3)" stroke-width="4"/><path id="up" d="" fill="none" stroke="#D4FF3A" stroke-width="14" stroke-linecap="round"/><circle id="upd" r="20" fill="#D4FF3A"/></svg>
+  <div class="abs cond" id="s2n" style="left:70px;top:880px;font-size:200px;color:var(--lime)">1,0x</div>
+  <div class="abs cond" id="s2t" style="left:70px;top:1085px;font-size:50px;color:rgba(244,241,234,.8)">en 365 días</div>
+</div>
+
+<!-- S3 CURVA BAJA -->
+<div class="scene" id="s3">
+  <svg class="abs" style="left:70px;top:330px" width="940" height="560" viewBox="0 0 940 560"><line x1="0" y1="540" x2="940" y2="540" stroke="rgba(255,255,255,.3)" stroke-width="4"/><path id="dn" d="" fill="none" stroke="#FF3B5C" stroke-width="14" stroke-linecap="round"/><circle id="dnd" r="20" fill="#FF3B5C"/></svg>
+  <div class="abs cond" id="s3m" style="left:70px;top:240px;font-size:90px;color:var(--red)">−1% al día</div>
+  <div class="abs cond" id="s3n" style="left:70px;top:880px;font-size:200px;color:var(--red)">1,00x</div>
+  <div class="abs cond" id="s3t" style="left:70px;top:1085px;font-size:50px;color:rgba(244,241,234,.8)">casi cero</div>
+</div>
+
+<!-- S4 TITULO -->
+<div class="scene" id="s4">
+  <div class="orb" style="left:540px;top:260px;width:460px;height:460px;transform:rotate(25deg) scaleY(.38)"></div>
+  <div class="orb" style="left:540px;top:260px;width:460px;height:460px;transform:rotate(-35deg) scaleY(.38)"></div>
+  <div class="orb" style="left:540px;top:260px;width:460px;height:460px;transform:rotate(90deg) scaleY(.38)"></div>
+  <div class="dot" style="left:753px;top:473px;width:60px;height:60px"></div>
+  <div class="dot" id="e1" style="left:0;top:0"></div><div class="dot" id="e2" style="left:0;top:0"></div><div class="dot" id="e3" style="left:0;top:0"></div>
+  <div class="abs cond" id="s4a" style="left:70px;top:800px;font-size:190px">Hábitos</div>
+  <div class="abs cond" id="s4b" style="left:70px;top:970px;font-size:190px;color:var(--lime)">atómicos</div>
+  <div class="abs" id="s4c" style="left:70px;top:1150px;font-weight:800;font-size:46px;letter-spacing:.12em;color:rgba(244,241,234,.75)">JAMES CLEAR</div>
+</div>
+
+<!-- S5 METAS TACHADAS -->
+<div class="scene" id="s5">
+  <div class="abs cond" id="s5a" style="left:0;right:0;top:360px;text-align:center;font-size:230px;color:rgba(244,241,234,.55);position:absolute">METAS<div id="s5x" style="position:absolute;left:30%;top:46%;height:20px;background:var(--red);border-radius:10px;width:0;transform:rotate(-6deg)"></div></div>
+  <div class="abs cond" id="s5b" style="left:0;right:0;top:680px;text-align:center;font-size:230px;color:var(--lime)">SISTEMAS</div>
+  <div class="abs" id="s5c" style="left:0;right:0;top:960px;text-align:center;font-weight:800;font-size:52px;color:rgba(244,241,234,.75)">Lo que manda</div>
+</div>
+
+<!-- S6 META VS SISTEMA -->
+<div class="scene" id="s6">
+  <div class="card" id="c1" style="left:70px;top:280px;width:940px;height:300px;padding:44px 56px">
+    <div style="font-weight:800;font-size:34px;letter-spacing:.14em;color:rgba(244,241,234,.55)">META</div>
+    <div class="cond" style="font-size:100px;margin-top:20px">Ganar el maratón</div>
+  </div>
+  <div class="card" id="c2" style="left:70px;top:630px;width:940px;height:300px;padding:44px 56px;border:4px solid var(--lime)">
+    <div style="font-weight:800;font-size:34px;letter-spacing:.14em;color:var(--lime)">SISTEMA</div>
+    <div class="cond" style="font-size:100px;margin-top:20px;color:var(--lime)">Correr cada mañana ↻</div>
+  </div>
+</div>
+
+<!-- S7 IDENTIDAD -->
+<div class="scene" id="s7">
+  <div class="tag">Segundo</div>
+  <div class="abs cond" id="s7a" style="left:70px;top:360px;font-size:120px;color:rgba(244,241,234,.5)">Lo que haces</div>
+  <div class="abs cond" id="s7ar" style="left:70px;top:520px;font-size:130px;color:var(--lime)">↓</div>
+  <div class="abs cond" id="i7b" style="left:70px;top:680px;font-size:190px;color:var(--lime)">Quién<br>eres</div>
+</div>
+
+<!-- S7b QUIERO VS SOY -->
+<div class="scene" id="s7b">
+  <div class="card" id="q1" style="left:70px;top:280px;width:940px;height:300px;padding:44px 56px;border-color:rgba(255,59,92,.6)">
+    <div style="color:var(--red);font-weight:900;font-size:60px">✗</div>
+    <div class="cond" style="font-size:96px;margin-top:10px;color:rgba(244,241,234,.6)">“Quiero leer más”</div>
+  </div>
+  <div class="card" id="q2" style="left:70px;top:630px;width:940px;height:300px;padding:44px 56px;border:4px solid var(--lime)">
+    <div style="color:var(--lime);font-weight:900;font-size:60px">✓</div>
+    <div class="cond" style="font-size:130px;margin-top:10px;color:var(--lime)">“Soy lector”</div>
+  </div>
+</div>
+
+<!-- S8 CUATRO LEYES -->
+<div class="scene" id="s8">
+  <div class="abs cond" id="s8h" style="left:70px;top:210px;font-size:96px">Las 4 leyes</div>
+  <div class="law" id="L1" style="top:330px"><div class="n">1</div><div><div class="l">PRIMERA LEY</div><div class="v">Hazlo obvio</div></div></div>
+  <div class="law" id="L2" style="top:550px"><div class="n">2</div><div><div class="l">SEGUNDA LEY</div><div class="v">Hazlo atractivo</div></div></div>
+  <div class="law" id="L3" style="top:770px"><div class="n">3</div><div><div class="l">TERCERA LEY</div><div class="v">Hazlo fácil</div></div></div>
+  <div class="law" id="L4" style="top:990px"><div class="n">4</div><div><div class="l">CUARTA LEY</div><div class="v">Hazlo satisfactorio</div></div></div>
+</div>
+
+<!-- S9 DOS MINUTOS -->
+<div class="scene" id="s9">
+  <div class="tag">El truco</div>
+  <div class="abs cond" id="s9n" style="left:0;right:0;top:370px;text-align:center;font-size:400px;color:var(--lime)">2:00</div>
+  <div class="abs cond" id="s9t" style="left:0;right:0;top:780px;text-align:center;font-size:96px">Regla de los<br>dos minutos</div>
+  <div class="stamp" id="s9s" style="left:130px;top:1020px;font-size:86px">Imposible fallar</div>
+</div>
+
+<!-- S9b EJEMPLOS -->
+<div class="scene" id="s9b">
+  <div class="abs cond" style="left:70px;top:250px;font-size:80px;color:rgba(244,241,234,.7)">Empieza tan pequeño…</div>
+  <div class="chip" id="k1" style="left:90px;top:440px">1 página</div>
+  <div class="chip" id="k2" style="left:220px;top:620px">zapatillas puestas</div>
+  <div class="chip" id="k3" style="left:130px;top:800px">1 flexión</div>
+</div>
+
+<!-- S10 APILAR -->
+<div class="scene" id="s10">
+  <div class="tag">Apila hábitos</div>
+  <div class="card" id="st1" style="left:70px;top:330px;width:940px;height:230px;padding:40px 56px"><div style="font-weight:800;font-size:34px;letter-spacing:.14em;color:rgba(244,241,234,.55)">DESPUÉS DE…</div><div class="cond" style="font-size:96px;margin-top:14px">mi café ☕</div></div>
+  <div class="abs cond" id="stA" style="left:0;right:0;top:590px;text-align:center;font-size:110px;color:var(--lime)">↓</div>
+  <div class="card" id="st2" style="left:70px;top:760px;width:940px;height:300px;padding:40px 56px;border:4px solid var(--lime)"><div style="font-weight:800;font-size:34px;letter-spacing:.14em;color:var(--lime)">ESCRIBO…</div><div class="cond" style="font-size:96px;margin-top:14px;color:var(--lime)">mi tarea más importante</div></div>
+</div>
+
+<!-- S11 PREGUNTA -->
+<div class="scene" id="s11">
+  <div class="abs cond" id="s11h" style="left:70px;right:70px;top:300px;font-size:150px">¿Qué hábito<br><span style="color:var(--lime)">empiezas hoy?</span></div>
+  <div class="card" id="s11c" style="left:70px;top:790px;width:940px;height:150px;border-radius:75px;display:flex;align-items:center;padding:0 50px;font-weight:800;font-size:46px;color:rgba(244,241,234,.6)">💬 Escríbelo en comentarios…</div>
+</div>
+
+<!-- S12 GUARDA + LOOP -->
+<div class="scene" id="s12">
+  <div class="abs cond" id="s12h" style="left:70px;right:70px;top:330px;font-size:130px">Guárdalo<br>para no<br><span style="color:var(--lime)">olvidarlo</span></div>
+  <div class="abs" id="s12i" style="left:70px;top:860px;width:180px;height:180px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:100px;font-weight:900;display:flex;align-items:center;justify-content:center">🔖</div>
+  <div class="abs cond" id="s12l" style="left:0;right:0;top:360px;text-align:center;font-size:520px;color:var(--lime);opacity:0">+1%</div>
+</div>
+
+</div>
+<div id="vign"></div>
+<div id="subs"></div>
+<div id="brand">SÉ IMPARABLE <b>●</b> HÁBITOS</div>
+<div id="top"><div id="bar"></div></div>
+</div>
+<script>
+const SUBS=__SUBS__; const T=__T__; const DUR=T.end;
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-cl(x),3);
+const eback=x=>{x=cl(x);const c=1.9;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const p=(t,a,d=.35)=>cl((t-a)/d);
+const ORDER=['s1','s2','s3','s4','s5','s6','s7','s7b','s8','s9','s9b','s10','s11','s12'];
+const SC=ORDER.map((id,i)=>[id,T[id],i+1<ORDER.length?T[ORDER[i+1]]:99]);
+function pop(el,t,a,dur=.35,from=.6){const k=p(t,a,dur);el.style.opacity=cl(k*2);el.style.transform=`scale(${from+(1-from)*eback(k)})`}
+function rise(el,t,a,dur=.4,dist=80){const k=eo(p(t,a,dur));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*dist}px)`}
+function stamp(el,t,a,rot=-8){const k=p(t,a,.22);el.style.opacity=k>0?1:0;const s=k<1?2.6-1.6*eo(k):1;el.style.transform=`rotate(${rot}deg) scale(${s})`}
+const fx=n=>n.toFixed(1).replace('.',',');
+// curve paths: y = log scale so both curves read well
+function curve(pathEl,dotEl,k,fn){let d='';const N=60;let lx=0,ly=0;for(let i=0;i<=Math.round(N*k);i++){const x=i/N;const y=fn(x);lx=x*940;ly=540-y*500;d+=(i?'L':'M')+lx.toFixed(1)+' '+ly.toFixed(1)+' '}pathEl.setAttribute('d',d);dotEl.setAttribute('cx',lx);dotEl.setAttribute('cy',ly)}
+window.render=function(t){
+  $('bar').style.width=(100*cl(t/DUR))+'%';
+  let cam=1,shakeX=0,shakeY=0;
+  for(const [id,a,b] of SC){
+    const el=$(id); const on=t>=a-0.18&&t<b+0.18;
+    el.style.display=on?'block':'none'; if(!on) continue;
+    const ki=cl((t-(a-0.18))/0.36), ko=cl((t-(b-0.18))/0.36);
+    let x=0,o=1;
+    if(t<a+0.18&&a>0){x=(1-eo(ki))*260;o=ki}
+    if(t>b-0.18&&b<90){x=-eo(ko)*260;o=1-ko}
+    el.style.opacity=o; el.style.transform=`translateX(${x}px)`;
+    el.style.filter=(o<1)?`blur(${(1-o)*14}px)`:'none';
+    const dcut=t-a; if(dcut>=0&&dcut<.3&&a>0) cam=1.06-0.06*eo(dcut/.3);
+  }
+  $('grid').style.transform=`translate(${(t*12)%60}px,${(t*18)%60}px)`;
+  $('glow').style.transform=`translate(${Math.sin(t*.5)*120}px,${Math.cos(t*.4)*200+300}px)`;
+  const g=$('glow'); g.style.background=(t>T.s3&&t<T.s4)?'#FF3B5C':(t>T.s9&&t<T.s10?'#FF7A2F':'#D4FF3A');
+  // S1
+  {pop($('s1n'),t,0.1,.4,.4);$('s1n').style.transform+=` scale(${1+.03*Math.sin(t*4)})`;rise($('s1t'),t,0.9);rise($('s1q'),t,1.7)}
+  // S2
+  {const a=T.s2,k=eo(p(t,a+.1,2.4));curve($('up'),$('upd'),k,x=>(Math.pow(1.01,x*365)-1)/36.8*0.98+0.02);
+   $('s2n').textContent=fx(Math.pow(1.01,365*k))+'x';pop($('s2n'),t,a+.1,.3);rise($('s2t'),t,a+.5)}
+  // S3
+  {const a=T.s3,k=eo(p(t,a+.2,2.4));curve($('dn'),$('dnd'),k,x=>Math.pow(.99,x*365)*0.96+0.02);
+   $('s3n').textContent=(Math.pow(.99,365*k)).toFixed(2).replace('.',',')+'x';rise($('s3m'),t,a+.05);pop($('s3n'),t,a+.2,.3);rise($('s3t'),t,a+2.3)}
+  // S4
+  {const a=T.s4;[['e1',0,25],['e2',2.1,-35],['e3',4.2,90]].forEach(([id,ph,rot])=>{const th=t*3.2+ph;const rx=230,ry=87;const r=rot*Math.PI/180;const X=rx*Math.cos(th),Y=ry*Math.sin(th);
+     $(id).style.left=(770+X*Math.cos(r)-Y*Math.sin(r)-17)+'px';$(id).style.top=(490+X*Math.sin(r)+Y*Math.cos(r)-17)+'px'});
+   pop($('s4a'),t,a+.15,.3,.5);pop($('s4b'),t,a+.5,.3,.5);rise($('s4c'),t,a+1.1)}
+  // S5
+  {const a=T.s5;rise($('s5a'),t,a+.1,.3);$('s5x').style.width=(40*eo(p(t,a+.9,.25)))+'%';pop($('s5b'),t,a+1.7,.35,.5);rise($('s5c'),t,a+2.4)}
+  // S6
+  {const a=T.s6;pop($('c1'),t,a+.1,.35,.7);pop($('c2'),t,a+2.7,.35,.7)}
+  // S7
+  {const a=T.s7;rise($('s7a'),t,a+.1);$('s7a').style.textDecoration=t>a+.9?'line-through':'none';rise($('s7ar'),t,a+1.3,.3);pop($('i7b'),t,a+1.9,.35,.5)}
+  // S7b
+  {const a=T.s7b;pop($('q1'),t,a+.1,.35,.7);pop($('q2'),t,a+1.55,.35,.7)}
+  // S8
+  {rise($('s8h'),t,T.s8+.1,.35,40);['l1','l2','l3','l4'].forEach((k,i)=>{const el=$('L'+(i+1));const kk=eo(p(t,T[k]-.15,.35));el.style.opacity=kk;el.style.transform=`translateX(${(1-kk)*500}px)`})
+   $('s8h').style.opacity=t>T.l1-.1?0.5:1}
+  // S9
+  {const a=T.s9;const k=cl((t-a-.2)/1.6);const sec=Math.max(0,120-Math.round(120*eo(k)));$('s9n').textContent=Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0');pop($('s9n'),t,a+.1,.4,.4);rise($('s9t'),t,a+.5);stamp($('s9s'),t,a+3.0,-6);
+   if(t>a+3&&t<a+3.25){shakeX=Math.sin(t*130)*14;shakeY=Math.cos(t*90)*10}}
+  // S9b
+  {const a=T.s9b;pop($('k1'),t,a+.1,.3,.5);pop($('k2'),t,a+1.0,.3,.5);pop($('k3'),t,a+1.9,.3,.5)}
+  // S10
+  {const a=T.s10;pop($('st1'),t,a+.1,.35,.7);rise($('stA'),t,a+1.9,.3,-30);pop($('st2'),t,a+2.5,.35,.7)}
+  // S11
+  {const a=T.s11;pop($('s11h'),t,a+.05,.35,.8);rise($('s11c'),t,a+1.2)}
+  // S12 share -> loop to hook
+  {const a=T.s12;rise($('s12h'),t,a+.05);pop($('s12i'),t,a+.8,.35,.3);
+   const kl=eo(p(t,DUR-0.9,.6));$('s12h').style.opacity=1-kl;$('s12i').style.opacity=(t>a+.8?1:0)*(1-kl);$('s12l').style.opacity=kl;$('s12l').style.transform=`scale(${.9+.1*kl})`}
+  $('cam').style.transform=`scale(${cam}) translate(${shakeX}px,${shakeY}px)`;
+  // subtitles
+  const sub=$('subs'); let html='';
+  for(const c of SUBS){ if(t>=c.s-0.02&&t<c.e){ const k=p(t,c.s-0.02,.12);
+      html=c.w.map(w=>{const act=t>=w.s-0.03; const num=/\d|%/.test(w.t)||/^(UNO|DOS|TRES|CUATRO|CERO|TREINTA|SIETE|MINUTOS)$/.test(w.t);
+        const col=act&&(t<w.e+.05)?(num?'#FF7A2F':'#D4FF3A'):'#F4F1EA';
+        return `<span style="color:${col};opacity:${act?1:0}">${w.t}</span>`}).join('');
+      sub.style.transform=`scale(${.85+.15*eback(k)})`; break; } }
+  sub.innerHTML=html;
+};
+window.ready=document.fonts.ready.then(()=>true);
+</script></body></html>
