@@ -167,6 +167,19 @@ def sfx2(name):
             for k, dl in ((0, 1), (.15, .65)):
                 s = int((i * .5 + k) * SR); st = dl * 0.9 * sweep(62, 40, .18) * env(.18, .002, .06); out[s:s + len(st)] += st[:len(out) - s]
         return out
+    if name == 'horn':  # bocina de tren: acorde grave y sostenido
+        d = 1.8; t = t_(d); ch = sum(np.tanh(1.8 * sine(f, d)) for f in (220, 277.2, 329.6))
+        return 0.17 * lp(ch, 1800, 2) * np.minimum(1, t / .05) * np.minimum(1, (d - t) / .15)
+    if name == 'crank':  # motor que no arranca
+        d = 1.6; t = t_(d); g = (np.sin(2 * np.pi * 7 * t) > 0).astype(float)
+        return 0.35 * lp(noise(d), 300, 2) * g * np.minimum(1, (d - t) / .2) + 0.12 * lp(np.sign(sine(45, d)), 300) * g
+    if name == 'trainhit':  # impacto tren contra coche
+        d = 3.0; t = t_(d); return 1.0 * lp(noise(d), 500, 3) * np.exp(-t / .45) * np.minimum(1, t / .005) + 0.6 * sweep(80, 30, d) * np.exp(-t / .5) + 0.3 * bp(noise(d), 900, 2600) * (A.RNG.random(int(d * SR)) > .96) * np.exp(-t / .8)
+    if name == 'womp':  # trombón triste
+        o = np.zeros(int(2.2 * SR))
+        for i, f in enumerate((233, 220, 207.7, 196)):
+            dd = .9 if i == 3 else .4; n_ = lp(np.tanh(2 * sine(f, dd)) * (1 + .15 * np.sin(2 * np.pi * 6 * t_(dd))), 1400) * env(dd, .02, .15) * .12; s = int(i * .42 * SR); o[s:s + len(n_)] += n_[:len(o) - s]
+        return o
     if name == 'flat':
         d = 2.6; t = t_(d); return sine(1000, d) * .16 * np.minimum(1, t / .02) * np.minimum(1, (d - t) / .6)
     return A.sfx(name)
@@ -188,6 +201,11 @@ def amb2(name, d):
         return roar + lp(cr, 1400)
     if name == 'water':  # bajo el agua: todo amortiguado
         return lp(n, 220, 3) * .16 * (.85 + .15 * np.sin(2 * np.pi * .25 * t))
+    if name == 'xing':  # campanas del paso a nivel + rumor del tren acercándose
+        o = np.zeros(len(t))
+        for k in np.arange(0, d, .5):
+            n_ = (sine(1250, .35) + .4 * sine(2500, .35)) * env(.35, .002, .1) * .06; s_ = int(k * SR); o[s_:s_ + len(n_)] += n_[:len(o) - s_]
+        return lp(o, 3000) + lp(n, 120, 3) * .18
     if name == 'kfire':  # cocina en llamas: rugido grave y crepitar apagado
         roar = lp(n, 280, 3) * .16 * (.75 + .25 * np.sin(2 * np.pi * .7 * t))
         cr = lp(hp(n, 300), 1500, 2) * (A.RNG.random(len(n)) > .995) * .45

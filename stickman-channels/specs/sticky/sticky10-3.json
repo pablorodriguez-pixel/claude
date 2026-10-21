@@ -1,0 +1,423 @@
+{
+ "id": "sticky10-3",
+ "ch": "sticky",
+ "music": "tension",
+ "bed": 0,
+ "series": "STICKY MAN",
+ "ep": "TIENE 10 SEGUNDOS",
+ "day": "",
+ "voices": {
+  "k": {
+   "eleven": "Nh2zY9kknu6z4pZy6FhD",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "+4%",
+   "pitch": "+0Hz",
+   "fx": "near"
+  },
+  "n": {
+   "eleven": "W5JElH3dK1UYYAiHH7uh",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "fx": "room"
+  }
+ },
+ "beats": [
+  {
+   "who": "k",
+   "say": "[panicked] ¡No arranca! ¡No arranca!",
+   "scene": "xing",
+   "p": {
+    "inside": 1,
+    "crank": 1,
+    "tx0": 660,
+    "tx1": 620,
+    "danger": 0.6
+   },
+   "hud": {
+    "topic": "ATRAPADO EN LA VÍA",
+    "t0": 10,
+    "rate": 0.77
+   },
+   "amb": "xing",
+   "sfx": [
+    [
+     "crank",
+     0
+    ],
+    [
+     "horn",
+     0.6
+    ]
+   ],
+   "cam": {
+    "f": [
+     440,
+     640,
+     1.15
+    ],
+    "t": [
+     380,
+     640,
+     1.02
+    ]
+   },
+   "shake": 1
+  },
+  {
+   "who": "n",
+   "say": "Viene un tren. Tienes diez segundos. ¿Hacia dónde corres?",
+   "scene": "xing",
+   "p": {
+    "inside": 1,
+    "choice": 1,
+    "tx0": 620,
+    "tx1": 585,
+    "danger": 0.6
+   },
+   "amb": "xing",
+   "sfx": [
+    [
+     "swish",
+     0
+    ],
+    [
+     "pop",
+     0.25
+    ],
+    [
+     "pop",
+     0.55
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Casi todo el mundo elige la A. Y es justo lo que te mata.",
+   "scene": "xing",
+   "p": {
+    "inside": 1,
+    "choice": 1,
+    "badA": 1,
+    "tx0": 585,
+    "tx1": 555,
+    "danger": 0.8
+   },
+   "amb": "xing",
+   "sfx": [
+    [
+     "wrong",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[panicked] ¡Lejos del tren!",
+   "scene": "xing",
+   "p": {
+    "runA": 1,
+    "tx0": 555,
+    "tx1": 494,
+    "danger": 1
+   },
+   "amb": "xing",
+   "sfx": [
+    [
+     "swish",
+     0
+    ],
+    [
+     "horn",
+     0.1
+    ]
+   ],
+   "mus": "tension"
+  },
+  {
+   "say": "",
+   "scene": "xing",
+   "p": {
+    "hit": 1,
+    "runner": "A",
+    "cut": 0.34
+   },
+   "hold": 1.5,
+   "mute": 1,
+   "sfx": [
+    [
+     "trainhit",
+     0
+    ],
+    [
+     "thud",
+     0
+    ],
+    [
+     "sting",
+     0.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "El tren lanza el coche hacia delante. Justo hacia donde corrías.",
+   "scene": "railmap",
+   "p": {
+    "mode": "bad",
+    "stamp": "x",
+    "label": "LEJOS DEL TREN"
+   },
+   "hud": {
+    "t0": 0,
+    "rate": 0.0001
+   },
+   "sfx": [
+    [
+     "swish",
+     0
+    ],
+    [
+     "wrong",
+     1.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Y no pierdas tiempo arrancando: un tren puede necesitar un kilómetro para frenar.",
+   "scene": "xing",
+   "p": {
+    "inside": 1,
+    "crank": 1,
+    "tx": 640,
+    "stamp": "x",
+    "label": "ARRANCAR"
+   },
+   "amb": "xing",
+   "sfx": [
+    [
+     "crank",
+     0
+    ],
+    [
+     "wrong",
+     0.2
+    ],
+    [
+     "crank",
+     2.4
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Rebobina. Así se sale vivo.",
+   "scene": "xing",
+   "p": {
+    "inside": 1,
+    "tx": 2600,
+    "rewind": 1
+   },
+   "hud": {
+    "t0": 10,
+    "rate": 0.6
+   },
+   "mute": 1,
+   "sfx": [
+    [
+     "rewind",
+     0
+    ],
+    [
+     "pop",
+     1.1
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Uno: sal del coche. Ya.",
+   "scene": "xing",
+   "p": {
+    "exit": 1,
+    "tx0": 720,
+    "tx1": 610,
+    "stamp": "ok",
+    "label": "1 · SAL YA",
+    "danger": 0.6
+   },
+   "amb": "xing",
+   "mus": "tension",
+   "sfx": [
+    [
+     "slam",
+     0.15
+    ],
+    [
+     "right",
+     0.3
+    ],
+    [
+     "horn",
+     1.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Dos: corre hacia el tren, en diagonal, alejándote de la vía.",
+   "scene": "railmap",
+   "p": {
+    "mode": "good",
+    "stamp": "ok",
+    "label": "2 · HACIA EL TREN"
+   },
+   "mus": "tension",
+   "sfx": [
+    [
+     "swish",
+     0
+    ],
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¡Los trozos salen disparados hacia el otro lado!",
+   "scene": "xing",
+   "p": {
+    "hit": 1,
+    "runner": "B"
+   },
+   "hud": {
+    "t0": 3,
+    "rate": 0.0001
+   },
+   "pause": 0.6,
+   "mute": 1,
+   "sfx": [
+    [
+     "trainhit",
+     0
+    ],
+    [
+     "thud",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Tres: llama al uno, uno, dos. Puede venir otro tren.",
+   "scene": "xing",
+   "p": {
+    "after": 1,
+    "wreck": 1,
+    "stamp": "ok",
+    "label": "3 · LLAMA AL 112"
+   },
+   "amb": "xing",
+   "mus": "comic",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[sighs] Me quedaban doce letras del coche…",
+   "scene": "xing",
+   "p": {
+    "after": 1,
+    "sad": 1,
+    "wreck": 1
+   },
+   "hud": {
+    "off": true,
+    "t0": null
+   },
+   "mute": 1,
+   "sfx": [
+    [
+     "womp",
+     0.5
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "who": "k",
+   "say": "¿Y tú? ¿A o B? Sé sincero. Comenta.",
+   "scene": "abask",
+   "p": {},
+   "mus": "comic",
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ],
+    [
+     "pop",
+     0.7
+    ],
+    [
+     "pop",
+     0.85
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "sticky_end",
+    "sub": "TIENE 10 SEGUNDOS",
+    "cta": "MAÑANA, OTRA SITUACIÓN"
+   },
+   "hold": 2.2,
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ]
+   ]
+  }
+ ],
+ "ticks": [
+  [
+   0,
+   3,
+   2.0,
+   999
+  ],
+  [
+   7,
+   9,
+   2.0,
+   999
+  ]
+ ],
+ "cover": {
+  "top": "STICKY TIENE 10 SEGUNDOS",
+  "title": "¿HACIA DÓNDE CORRES?",
+  "scene": "xing",
+  "t": 2,
+  "p": {
+   "inside": 1,
+   "tx": 600,
+   "danger": 0.6
+  },
+  "cam": [
+   360,
+   560,
+   1.0
+  ]
+ }
+}
