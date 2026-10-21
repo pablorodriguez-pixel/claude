@@ -34,7 +34,7 @@ exports.scenes=(at,dur)=>{
   return {type:'diorama',start:at('Es como'),ground:1130,glow:'rgba(255,45,85,.12)',red:true,bgfx:'dots',tag:'Equivale a…',src:'73 km/h ≈ caída libre desde 21 m',
    props:[{html:`<div style="width:360px">${rows}</div>`,x:bx,y:1130-fl*fh/2,a:at('Es como'),z:2},
     {html:cond('7',420,Y),x:790,y:560,a:at('septimo'),k:'slam'},{html:cond('pisos',90,P),x:790,y:760,a:at('septimo')+.1,k:'rise'},
-    {html:`<div class="stamp" style="position:static;font-size:120px">Game over</div>`,x:540,y:1010,a:at('ganar tres'),k:'slam',z:7}],
+    {html:`<div class="stamp" style="position:static;font-size:92px">Game over</div>`,x:770,y:960,a:at('ganar tres'),k:'slam',z:7}],
    actors:[actor('verde',[bx,1130-fl*fh-125*1.15],[{a:at('Es como'),b:'shrug',face:'sweat'},{a:at('tirarte')+.05,b:'fall',d:1.0,from:[bx,1130-fl*fh-145],to:[bx,1130-145],mv:'acc',spin:360},{a:at('tirarte')+1.05,b:'lie',from:[bx+30,1100],to:[bx+30,1100],face:'dead'}],{sc:1.15})],
    sfx:[[at('tirarte')+.05,'scream',.8],[at('tirarte')+1.1,'hit',.9]]}})();
  return [
