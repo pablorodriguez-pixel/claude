@@ -30,7 +30,7 @@ const candadoInner = (o = {}) => `${cut('<path d="M30,150 L270,150 L270,330 L30,
 const CANDADO = (c, x, y, w, o = {}) => figura(c, x, y, w, w * 1.2, candadoInner(o), '0 0 300 360', Object.assign({ z: 10, origin: '50% 0%' }, o));
 const canFace = (f, t, o = {}) => { caraF(f, t, o, 212, [150, 256, 22, '.km', '.kp', '.ke', '.kc']); f.querySelector('.mej').style.opacity = o.mej ? 1 : 0; f.querySelector('.ox').style.opacity = o.ox || 0; };
 /* caballero: yelmo abierto con cara, penacho y sobreveste con cruz (vb 0 0 300 460) */
-const caballeroInner = () => `${FIGP('M40,300 L260,300 L280,460 L20,460 Z', '#f4efe2', 6, .2)}<path d="M150,310 V450 M90,370 H210" stroke="${ROJO}" stroke-width="26"/>
+const caballeroInner = () => `${FIGP('M40,300 L260,300 L280,460 L20,460 Z', '#f4efe2', 6, .2)}<path d="M150,310 V450 M90,370 H210" stroke="${ROJO}" stroke-width="26"/><path d="M112,302 L150,352 L188,302" stroke="${INK}" stroke-width="4" fill="none"/><circle cx="150" cy="366" r="17" fill="none" stroke="${INK}" stroke-width="12"/><circle cx="150" cy="366" r="17" fill="none" stroke="${GOLD}" stroke-width="6"/><path d="M150,384 V430 M150,414 H170 M150,400 H166" stroke="${INK}" stroke-width="12"/><path d="M150,384 V430 M150,414 H170 M150,400 H166" stroke="${GOLD}" stroke-width="6"/>
   ${FIGP('M60,200 C50,80 250,80 240,200 L240,300 L60,300 Z', HIERRO, 7, .35)}<path class="pen" d="M150,90 C120,20 200,0 230,40 C200,40 180,60 170,90 Z" fill="${ROJO}" stroke="${INK}" stroke-width="5"/>
   <path d="M95,140 C95,120 205,120 205,140 L205,250 C205,280 95,280 95,250 Z" fill="#f2c9a0" stroke="${INK}" stroke-width="5"/>
   <g class="yc"><path d="M108,160 q16,-9 32,0 M160,160 q16,-9 32,0" stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"/></g><g class="ye"><ellipse cx="124" cy="182" rx="13" ry="15" fill="#fff" stroke="${INK}" stroke-width="4"/><ellipse cx="176" cy="182" rx="13" ry="15" fill="#fff" stroke="${INK}" stroke-width="4"/></g><g class="yp"><circle cx="125" cy="185" r="6" fill="${INK}"/><circle cx="177" cy="185" r="6" fill="${INK}"/></g>
@@ -38,6 +38,27 @@ const caballeroInner = () => `${FIGP('M40,300 L260,300 L280,460 L20,460 Z', '#f4
   <path class="brazo" d="M250,330 L300,250" stroke="${HIERRO}" stroke-width="30" stroke-linecap="round"/><circle class="mano" cx="300" cy="245" r="22" fill="${HIERRO}" stroke="${INK}" stroke-width="5"/>`;
 const CABALLERO = (c, x, y, w) => figura(c, x, y, w, w * 460 / 300, caballeroInner(), '0 0 300 460', { z: 9, origin: '50% 100%' });
 const cabFace = (f, t, o = {}) => caraF(f, t, o, 182, [150, 244, 18, '.ym', '.yp', '.ye', '.yc']);
+/* Sir Godofredo: el protagonista. godo(f, t, modo): 'mira' | 'cejas' | 'sudor' | 'rasca' | 'pasmo' | 'sonrie' | 'triste' */
+const GODO = (c, x, y, w) => { const f = CABALLERO(c, x, y, w); f.gota = box(f, w * 0.72, w * 0.36, w * 0.09, w * 0.13, { zIndex: 5, background: '#7cc4ea', border: `3px solid ${INK}`, borderRadius: '50% 50% 50% 50% / 60% 60% 40% 40%', opacity: 0 }); return f; };
+const godo = (f, t, m = 'mira', lk = [-6, -2]) => {
+  const o = { look: lk, feliz: 0.6, ceja: 0, jaw: 0 };
+  if (m === 'cejas') { o.ceja = 12; o.feliz = 0; }
+  if (m === 'sudor') { o.ceja = 14; o.feliz = -0.6; o.jaw = 0.2; }
+  if (m === 'rasca') { o.ceja = 8; o.feliz = -0.2; o.look = [0, -8]; }
+  if (m === 'pasmo') { o.ceja = 18; o.feliz = 0; o.jaw = 0.9; o.look = [0, 4]; }
+  if (m === 'sonrie') { o.feliz = 1; o.jaw = 0.3; o.ceja = 6; }
+  if (m === 'triste') { o.feliz = -1; o.ceja = -4; o.look = [0, 6]; }
+  cabFace(f, t, o);
+  const a = m === 'rasca' ? -150 + Math.sin(t * 16) * 12 : 0; ['.brazo', '.mano'].forEach(k => f.querySelector(k).setAttribute('transform', `rotate(${f1(a)} 250 330)`));
+  f.gota.style.opacity = m === 'sudor' || m === 'pasmo' ? 1 : 0; set(f.gota, { y: ((t * 90) % 50) });
+  set(f, { x: m === 'pasmo' ? Math.sin(t * 40) * 3 : 0, y: m === 'sonrie' ? -Math.abs(Math.sin(t * 6)) * 12 : 0 });
+};
+/* expediente: tablero de corcho, pestaña de carpeta, chinchetas e hilo rojo */
+const CORCHO = { background: '#c49a6c', backgroundImage: 'radial-gradient(rgba(90,60,30,.35) 2px, transparent 3px)', backgroundSize: '26px 26px' };
+const EXPED = c => box(c, 60, 372, 960, 70, { zIndex: 4, background: '#e8d39a', border: `6px solid ${INK}`, borderRadius: '14px 14px 0 0', fontFamily: 'SpecialElite', fontSize: '44px', textAlign: 'center', lineHeight: '62px', color: INK }, 'EXPEDIENTE: «EL CANDADO»');
+const CHINCHETAS = (c, pts) => pts.map(([x, y]) => box(c, x - 16, y - 16, 32, 32, { zIndex: 25, background: ROJO, border: `4px solid ${INK}`, borderRadius: '50%', boxShadow: 'inset -5px -5px 0 rgba(0,0,0,.25)' }));
+const HILO = (c, pts) => { const d = box(c, 0, 0, 1080, 1920, { zIndex: 24 }); d.innerHTML = `<svg width="1080" height="1920" style="overflow:visible"><path class="h" d="M${pts.map(q => q.join(',')).join(' L')}" stroke="${ROJO}" stroke-width="6" fill="none" stroke-dasharray="3000" stroke-dashoffset="3000"/></svg>`; const h = d.querySelector('.h'); return k => h.setAttribute('stroke-dashoffset', f1(3000 * (1 - clamp(k)))); };
+const PISTA = (c, x, y, n) => stamp(c, x, y, 'PISTA ' + n, { size: 64, z: 30, col: '#2b4a8c', bg: 'rgba(255,255,255,.9)', blend: 'normal' });
 const saluda = (f, t, on) => { const a = on ? Math.sin(t * 12) * 18 : 0; f.querySelector('.brazo').setAttribute('transform', `rotate(${f1(a)} 250 330)`); f.querySelector('.mano').setAttribute('transform', `rotate(${f1(a)} 250 330)`); };
 /* castillo (vb 0 0 900 700) */
 const castilloSvg = () => `${FIGP('M100,700 L100,260 L800,260 L800,700 Z', '#c9b48a', 7, .3)}${[100, 260, 420, 580, 740].map(x => `<rect x="${x}" y="220" width="60" height="50" fill="#c9b48a" stroke="${INK}" stroke-width="6"/>`).join('')}
@@ -103,9 +124,11 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: '#bcd3ea' }, c => {
   CASTILLO(cam, 90, 560, 900);
   box(cam, 0, 1250, 1080, 700, { zIndex: 4, background: '#7a9a52', borderTop: `8px solid ${INK}` });
   const dama = mk(cam, [118, 640, 120, 149], vecinaInner({ seed: 4 }), '0 0 420 520', 'vec'); dama.d.style.zIndex = 4;
-  const cab = CABALLERO(cam, 520, 820, 300);
+  const cab = GODO(cam, 520, 820, 300);
+  const nom = chip(cam, 480, 1290, 'SIR GODOFREDO', { size: 48, bg: '#fff', color: INK });
+  const cofre = box(cam, 300, 1110, 240, 160, { zIndex: 11, background: WOOD, border: `7px solid ${INK}`, borderRadius: '30px 30px 8px 8px', boxShadow: `8px 8px 0 ${INK}`, backgroundImage: `linear-gradient(transparent 50px, ${GOLD} 50px 64px, transparent 64px)` });
   const band = box(cam, 0, 0, 120, 300, { zIndex: 8 }, `<svg viewBox="0 0 120 300" width="120" height="300"><path d="M10,0 V300" stroke="${INK}" stroke-width="10"/><path d="M14,10 L110,40 L14,80 Z" fill="#fff" stroke="${INK}" stroke-width="5"/><path d="M40,30 V62 M26,46 H58" stroke="${ROJO}" stroke-width="8"/></svg>`);
-  const k = CANDADO(cam, 380, 1000, 200); k.style.zIndex = 12;
+  const k = CANDADO(cam, 345, 980, 150); k.style.zIndex = 12;
   const clic = texto(cam, 980, '¡CLIC!', { size: 90, color: ROJO, x: 590, w: 400, z: 30 });
   const hm = BOCADILLO(cam, 260, 540, '¿perdona?', { size: 46 });
   sp(T.caballero, 'pop', 0.6); sp(T.cruzadas2, 'whoosh', 0.8); sp(T.candado2 + 0.35, 'click', 1); sp(T.candado2 + 0.4, 'stamp', 0.7); sp(T.mujer + 0.3, 'boing', 0.6);
@@ -113,6 +136,7 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: '#bcd3ea' }, c => {
     zoom(cam, t, L(2), 5, 0.05); set(sol, { r: t * 15 }); nubes.forEach((n, i) => set(n, { x: ((t * 25 + i * 400) % 1300) - 260 }));
     const vete = p(t, T.cruzadas2, 1.2, E.inCubic) * (1 - (t > T.candado2 - 0.3 ? 1 : 0)), back = t > T.candado2 - 0.3;
     set(cab, { s: pop(t, T.caballero - 0.1, 0.4), x: back ? 0 : vete * 600, y: -Math.abs(Math.sin(t * 8)) * (t > T.cruzadas2 && !back ? 20 : 6) }); cabFace(cab, t, { look: [-6, -2], feliz: 1, jaw: t > T.candado2 && t < T.candado2 + 0.7 ? 0.6 : 0, ceja: back ? 8 : 0 }); saluda(cab, t, t > T.historia2 && t < T.cruzadas2 + 0.6);
+    popA(nom, t, T.caballero + 0.2, { r: -3 });
     set(band, { x: 780 + (back ? 0 : vete * 600), y: 600 + Math.sin(t * 6) * 6, o: t > T.caballero ? 1 : 0 });
     const kk = p(t, T.candado2 - 0.1, 0.45, E.outBack); set(k, { o: t > T.candado2 - 0.1 ? 1 : 0, y: (1 - kk) * -400, s: kk, r: Math.sin(t * 3) * 5 }); canFace(k, t, { look: [0, -4], feliz: t > T.candado2 + 0.4 ? 1 : 0, ceja: 8 });
     set(clic, { o: t > T.candado2 + 0.35 && t < T.candado2 + 1.3 ? 1 : 0, s: pop(t, T.candado2 + 0.35, 0.25), r: -8 });
@@ -121,33 +145,39 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: '#bcd3ea' }, c => {
 });
 shakeAt(T.candado2 + 0.35, 0.3, 14);
 
-/* L3 · pero en las crónicas de las Cruzadas… lupa: «0» — ni uno */
-headline(L(3) - 0.1, L(4) - 0.1, 'Las *crónicas*', { size: 92, hlT: T.cronicas });
-plano(L(3) - 0.1, L(4) - 0.1, { background: '#efe1c6', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 5px, transparent 5px 140px)' }, c => {
+/* L3 · EXPEDIENTE — PISTA 1: las crónicas de las Cruzadas con lupa → candados: 0. Godofredo suda */
+headline(L(3) - 0.1, L(4) - 0.1, 'Pista 1: *las crónicas*', { size: 90, hlT: T.cronicas });
+plano(L(3) - 0.1, L(4) - 0.1, CORCHO, c => {
   const cam = CAM(c);
-  ESTANTE(cam, 700, 2); ESTANTE(cam, 1000, 2);
-  const lom = [...Array(14)].map((_, i) => box(cam, 70 + (i % 7) * 135, i < 7 ? 470 : 770, 110, 230, { zIndex: 3, background: [ROJO, '#2b4a8c', VERDE, '#6b4a2a', GOLD][i % 5], border: `5px solid ${INK}`, borderRadius: '6px', backgroundImage: 'linear-gradient(transparent 30px, rgba(255,255,255,.35) 30px 40px, transparent 40px 180px, rgba(255,255,255,.35) 180px 190px, transparent 190px)' }));
-  const lib = figura(cam, 160, 620, 760, 490, libroViejoInner('CRÓNICAS', ['Cruzadas', '1096–1291']), '0 0 760 490', { z: 8, origin: '50% 50%' });
+  EXPED(cam);
+  const lib = figura(cam, 120, 520, 760, 490, libroViejoInner('CRÓNICAS', ['Cruzadas', '1096–1291']), '0 0 760 490', { z: 8, origin: '50% 50%' });
+  CHINCHETAS(cam, [[150, 540], [850, 540]]);
+  const hilo = HILO(cam, [[850, 540], [900, 760], [880, 1010]]);
   const lupa = box(cam, 0, 0, 300, 380, { zIndex: 14 }, `<svg viewBox="0 0 300 380" width="300" height="380"><path d="M200,230 L280,360" stroke="#8a5a32" stroke-width="34" stroke-linecap="round"/><circle cx="130" cy="140" r="115" fill="rgba(200,235,250,.45)" stroke="${INK}" stroke-width="14"/><circle cx="130" cy="140" r="115" fill="none" stroke="${GOLD}" stroke-width="7"/></svg>`);
-  const cero = texto(cam, 1130, 'candados: 0', { size: 110, color: ROJO, x: 300, w: 760 });
-  const nu = stamp(cam, 380, 880, 'NI UNO', { size: 110, z: 30 });
-  sp(T.cronicas, 'paper', 0.8); sp(T.cronicas + 0.6, 'tick', 0.5); sp(T.cronicas + 1.1, 'tick', 0.5); sp(T.ninguno, 'stamp', 1);
+  const cero = texto(cam, 1060, '0 candados', { size: 78, color: ROJO, x: 300, w: 500, z: 20, shadow: `3px 3px 0 #fff` });
+  const nu = stamp(cam, 300, 760, 'NI UNO', { size: 110, z: 30 });
+  const p1 = PISTA(cam, 80, 470, 1);
+  const g = GODO(cam, 800, 1000, 230); g.style.zIndex = 22;
+  sp(T.cronicas, 'paper', 0.8); sp(T.cronicas + 0.1, 'stamp', 0.7); sp(T.cronicas + 0.6, 'tick', 0.5); sp(T.cronicas + 1.1, 'tick', 0.5); sp(T.ninguno, 'stamp', 1);
   return t => {
-    zoom(cam, t, L(3), 3.5, 0.08);
-    lom.forEach((l, i) => set(l, { y: t > L(3) + 0.1 + i * 0.03 ? 0 : -60, o: 1 }));
-    const kl = p(t, T.cronicas - 0.2, 0.45, E.outBack); set(lib, { s: kl, o: t > T.cronicas - 0.2 ? 1 : 0, r: -2 });
-    set(lupa, { x: 300 + Math.sin(t * 3) * 230, y: 600 + Math.cos(t * 2.3) * 110, o: t > T.cronicas + 0.3 ? 1 : 0, r: Math.sin(t * 2) * 8 });
+    zoom(cam, t, L(3), 3.5, 0.06);
+    const kl = p(t, L(3), 0.45, E.outBack); set(lib, { s: kl, r: -2 });
+    stampA(p1, t, T.cronicas + 0.1, -8); hilo(p(t, T.cronicas + 0.4, 0.8));
+    set(lupa, { x: 260 + Math.sin(t * 3) * 230, y: 560 + Math.cos(t * 2.3) * 110, o: t > T.cronicas + 0.3 ? 1 : 0, r: Math.sin(t * 2) * 8 });
     set(cero, { o: t > T.ninguno - 0.4 ? 1 : 0, s: pop(t, T.ninguno - 0.4, 0.35) }); stampA(nu, t, T.ninguno, -8);
+    set(g, { s: pop(t, L(3) + 0.2, 0.4) }); godo(g, t, t > T.ninguno - 0.2 ? 'sudor' : 'mira', [-8, -6]);
   };
 });
 shakeAt(T.ninguno, 0.3, 14);
 
 /* L4 · 1405: primera mención — el libro de inventos militares Bellifortis; el dibujo… seguramente de broma */
-headline(L(4) - 0.1, L(5) - 0.1, 'La primera *mención*', { size: 88, hlT: T.primera + 0.3 });
-plano(L(4) - 0.1, L(5) - 0.1, { background: '#d8c3a0', backgroundImage: 'radial-gradient(circle at 50% 45%, rgba(255,240,180,.7), transparent 60%)' }, c => {
+headline(L(4) - 0.1, L(5) - 0.1, 'Pista 2: *1405*', { size: 92, hlT: T.m1405 });
+plano(L(4) - 0.1, L(5) - 0.1, CORCHO, c => {
   const cam = CAM(c);
-  sello(c, 380, '1405', T.m1405, { size: 130, r: -4, col: INK });
-  const kon = mkBust(cam, [700, 820, 340, 435], { hat: 'slouch', beard: true, moustache: true, seed: 14 });
+  EXPED(cam); CHINCHETAS(cam, [[100, 580], [800, 580]]); const p2 = PISTA(cam, 520, 470, 2); sp(T.primera + 0.2, 'stamp', 0.7);
+  const hilo = HILO(cam, [[800, 580], [880, 700], [900, 840]]);
+    const kon = GODO(cam, 780, 830, 260); kon.style.zIndex = 22;
+  const anio = texto(cam, 1080, '1405', { size: 120, color: INK, x: 320, w: 420, z: 20 });
   const lib = figura(cam, 70, 560, 760, 490, libroViejoInner('BELLIFORTIS', []), '0 0 760 490', { z: 8, origin: '50% 50%' });
   const dib = [
     figura(cam, 470, 640, 300, 200, `<path d="M20,180 L280,180 M60,180 L150,60 L240,180 M150,60 L90,20" stroke="${INK}" stroke-width="8" fill="none" stroke-linecap="round"/><circle cx="90" cy="20" r="16" fill="${INK}"/>`, '0 0 300 200', { z: 9, origin: '50% 50%' }),
@@ -162,7 +192,7 @@ plano(L(4) - 0.1, L(5) - 0.1, { background: '#d8c3a0', backgroundImage: 'radial-
     const kl = p(t, T.primera - 0.2, 0.5, E.outBack); set(lib, { s: kl, o: t > T.primera - 0.2 ? 1 : 0, r: -2 });
     dib.forEach((d, i) => set(d, { o: t > T.libro + i * 0.3 ? 1 : 0, s: pop(t, T.libro + i * 0.3, 0.35), r: i ? 4 : -3 }));
     set(kd, { o: t > T.dibujo ? 1 : 0, s: pop(t, T.dibujo, 0.4), r: Math.sin(t * 3) * 4 }); canFace(kd, t, { look: [-6, 0], feliz: t > T.broma ? 1 : 0, jaw: t > T.broma ? 0.7 : 0, closed: t > T.broma && t < T.broma + 1 });
-    face(kon, t, { look: [-10, 0], jaw: t > T.broma ? Math.abs(Math.sin(t * 14)) * 0.6 : 0, closed: t > T.broma, bL: 8, bR: 8, seed: 0.4 }); set(kon.d, { o: t > T.libro - 0.3 ? 1 : 0, y: t > T.broma ? Math.sin(t * 30) * 4 : 0 });
+    set(kon, { s: pop(t, L(4) + 0.2, 0.4) }); godo(kon, t, t > T.broma + 0.6 ? 'sonrie' : t > T.dibujo ? 'rasca' : 'cejas', [-10, -2]); stampA(p2, t, T.primera + 0.2, -6); hilo(p(t, T.primera + 0.5, 0.8)); set(anio, { o: t > T.m1405 ? 1 : 0, s: pop(t, T.m1405, 0.35), r: -4 });
     ja.forEach((e, i) => set(e, { o: t > T.broma + i * 0.15 ? 1 : 0, s: pop(t, T.broma + i * 0.15, 0.3), r: [-12, 10, -4][i], y: Math.sin(t * 12 + i) * 8 }));
     stampA(br, t, T.broma + 0.5, -8);
   };
@@ -171,8 +201,9 @@ shakeAt(T.broma + 0.5, 0.3, 14);
 
 /* L5 · un meme de la época: grabado satírico del marido celoso con llave gigante; el pueblo se ríe */
 headline(L(5) - 0.1, L(6) - 0.1, 'Un *meme* medieval', { size: 92, hlT: T.meme });
-plano(L(5) - 0.1, L(6) - 0.1, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 40px, transparent 40px 80px)' }, c => {
+plano(L(5) - 0.1, L(6) - 0.1, CORCHO, c => {
   const cam = CAM(c);
+  EXPED(cam); CHINCHETAS(cam, [[200, 410], [880, 410]]);
   const mar = box(cam, 180, 390, 720, 620, { zIndex: 5, background: '#f4efe2', border: `16px solid ${WOOD}`, boxShadow: `0 0 0 6px ${INK}, 14px 14px 0 6px ${INK}` });
   const mc = mkBust(mar, [190, 120, 300, 384], { hat: 'brodie', moustache: true, seed: 81 }); mc.d.style.filter = 'sepia(.9)';
   const llave = box(mar, 450, 160, 220, 300, { zIndex: 5 }, `<svg viewBox="0 0 220 300" width="220" height="300"><circle cx="110" cy="60" r="50" fill="none" stroke="${INK}" stroke-width="22"/><circle cx="110" cy="60" r="50" fill="none" stroke="${GOLD}" stroke-width="12"/><path d="M110,110 V290 M110,250 H160 M110,210 H150" stroke="${INK}" stroke-width="22"/><path d="M110,110 V290 M110,250 H160 M110,210 H150" stroke="${GOLD}" stroke-width="12"/></svg>`);
@@ -205,8 +236,11 @@ plano(L(7) - 0.1, L(8) - 0.1, { background: '#c9a882', backgroundImage: 'repeati
   const mart = box(cam, 640, 600, 260, 260, { zIndex: 9, transformOrigin: '90% 90%' }, `<svg viewBox="0 0 260 260" width="260" height="260"><path d="M230,230 L90,90" stroke="#8a5a32" stroke-width="26" stroke-linecap="round"/><rect x="20" y="40" width="130" height="70" rx="10" transform="rotate(45 85 75)" fill="#4a4f55" stroke="${INK}" stroke-width="7"/></svg>`);
   const chis = [...Array(8)].map(() => ESTRELLA(cam, 40, GOLD));
   const cal = box(cam, 380, 380, 320, 200, { zIndex: 8, background: CREMA, border: `7px solid ${INK}`, borderRadius: '14px', boxShadow: `10px 10px 0 ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '110px', textAlign: 'center', lineHeight: '190px', color: INK }, '1405');
-  const col = mk(cam, [700, 860, 340, 435], bustInner({ moustache: true, seed: 66 }) + TOPHAT(), '0 0 360 460', 'bust'); col.d.style.zIndex = 5;
-  const pr = chip(cam, 640, 780, '¡lo quiero!', { size: 50, bg: '#fff', color: INK });
+  const col = mk(cam, [730, 400, 250, 320], bustInner({ moustache: true, seed: 66 }) + TOPHAT(), '0 0 360 460', 'bust'); col.d.style.zIndex = 5;
+  const pr = chip(cam, 700, 730, '¡lo quiero!', { size: 46, bg: '#fff', color: INK });
+  const g = GODO(cam, 780, 860, 280); g.style.zIndex = 9;
+  const eti = box(cam, 470, 1110, 300, 120, { zIndex: 13, background: CREMA, border: `6px solid ${INK}`, borderRadius: '10px', boxShadow: `6px 6px 0 ${INK}`, fontFamily: 'SpecialElite', fontSize: '34px', textAlign: 'center', padding: '10px', boxSizing: 'border-box', color: INK, transformOrigin: '50% 0%' }, 'FABRICADO<br><b style="font-size:46px;color:#c8102e">EN 1850</b>');
+  const tEti = T.siglos + 1.0; sp(tEti, 'paper', 0.7); sp(tEti + 0.3, 'boing', 0.9); sp(tEti + 0.35, 'glitch', 0.6);
   sp(T.fabricaron, 'thud', 0.8); sp(T.fabricaron + 0.45, 'thud', 0.8); sp(T.siglos, 'whoosh', 0.7); sp(T.colecc, 'cash', 0.8); sp(T.peculiares, 'boing', 0.8);
   return t => {
     zoom(cam, t, L(7), 7, 0.05);
@@ -216,16 +250,18 @@ plano(L(7) - 0.1, L(8) - 0.1, { background: '#c9a882', backgroundImage: 'repeati
     chis.forEach((s, i) => { const a = i / 8 * Math.PI * 2, kk = hit ? (ph * 3) % 1 : 0; set(s, { x: 610 + Math.cos(a) * 160 * kk, y: 860 + Math.sin(a) * 120 * kk, o: hit && kk < 0.8 ? 1 : 0, s: 1 - kk * 0.6 }); });
     canFace(k, t, { closed: hit && Math.sin(ph * Math.PI) < 0.3, feliz: t > T.colecc ? 1 : -0.4, ceja: t > T.colecc ? 10 : 0 }); set(k, { y: hit ? Math.abs(Math.sin(ph * Math.PI)) * -6 : 0 });
     const yr = t < T.siglos ? 1405 : Math.round(lerp(1405, 1850, p(t, T.siglos, 1.0, E.inOutCubic))); cal.textContent = String(yr); set(cal, { r: Math.sin(t * 20) * (t > T.siglos && t < T.siglos + 1 ? 3 : 0), s: pop(t, L(7), 0.4) });
-    set(col.d, { o: t > T.colecc - 0.2 ? 1 : 0, x: (1 - p(t, T.colecc - 0.2, 0.45, E.outBack)) * 500 }); face(col, t, { look: [-10, 2], bL: t > T.peculiares ? 4 : 0, bR: t > T.peculiares ? 18 : 0, jaw: t > T.peculiares && t < T.peculiares + 0.6 ? 0.5 : 0, seed: 0.5 });
+    set(col.d, { o: t > T.colecc - 0.2 ? 1 : 0, y: (1 - p(t, T.colecc - 0.2, 0.45, E.outBack)) * -500 });
+    set(eti, { o: t > tEti ? 1 : 0, r: Math.sin(t * 4) * 6, s: pop(t, tEti, 0.35) }); set(g, { x: (1 - p(t, T.siglos, 0.5, E.outBack)) * 400 }); godo(g, t, t > tEti + 0.3 ? 'pasmo' : 'mira', [-10, 6]); face(col, t, { look: [-10, 2], bL: t > T.peculiares ? 4 : 0, bR: t > T.peculiares ? 18 : 0, jaw: t > T.peculiares && t < T.peculiares + 0.6 ? 0.5 : 0, seed: 0.5 });
     popA(pr, t, T.colecc + 0.4, { r: 4 });
   };
 });
 emu(T.peculiares + 0.4);
 
 /* L8 · Museo Británico: la ficha se reescribe en vivo «medieval» → «probablemente s. XVIII–XIX»; otros museos lo retiran (operario con caja) */
-headline(L(8) - 0.1, L(9) - 0.1, 'El *Museo Británico*', { size: 90, hlT: T.britanico });
-plano(L(8) - 0.1, T.otros - 0.1, { background: '#e6dcc6' }, c => {
+headline(L(8) - 0.1, L(9) - 0.1, 'Pista 3: *la ficha*', { size: 92, hlT: T.ficha });
+plano(L(8) - 0.1, T.otros - 0.1, CORCHO, c => {
   const cam = CAM(c);
+  const p3 = PISTA(cam, 600, 690, 3); CHINCHETAS(cam, [[780, 770]]); const g = GODO(cam, 820, 1060, 190); g.style.zIndex = 22; sp(T.ficha, 'stamp', 0.7);
   const fach = box(cam, 90, 380, 900, 300, { zIndex: 3 }, `<svg viewBox="0 0 900 300" width="900" height="300"><path d="M20,140 L450,10 L880,140 Z" fill="#ece4d2" stroke="${INK}" stroke-width="7"/><rect x="40" y="140" width="820" height="40" fill="#d9cfb8" stroke="${INK}" stroke-width="6"/><text x="450" y="172" text-anchor="middle" font-family="Rye" font-size="34" fill="${INK}">BRITISH MUSEUM</text>${[...Array(8)].map((_, i) => `<rect x="${70 + i * 105}" y="180" width="50" height="120" fill="#ece4d2" stroke="${INK}" stroke-width="5"/>`).join('')}</svg>`);
   const v = VITRINA(cam, 140, 720, 380, 460, 5);
   const k = CANDADO(cam, 210, 780, 240); k.style.zIndex = 7;
@@ -236,6 +272,7 @@ plano(L(8) - 0.1, T.otros - 0.1, { background: '#e6dcc6' }, c => {
     const a = 'Cinturón de castidad', b1 = '<s style="color:#c8102e">Medieval</s>', b2 = 'probablemente<br><b>s. XVIII–XIX</b>';
     const n = Math.round(clamp(p(t, T.probable - 0.1, 1.2)) * 30); fi.innerHTML = `${a}<br>${t > T.probable - 0.2 ? b1 : 'Medieval'}<br>${t > T.probable - 0.1 ? b2.slice(0, Math.max(0, n * 2)).replace(/<[^>]*$/, '') : ''}`;
     set(fi, { s: pop(t, T.ficha - 0.1, 0.35), o: t > T.ficha - 0.1 ? 1 : 0, r: 2 });
+    stampA(p3, t, T.ficha, -6); set(g, { s: pop(t, L(8) + 0.2, 0.4) }); godo(g, t, t > T.probable + 0.4 ? 'sudor' : 'cejas', [-8, -8]);
     canFace(k, t, { look: [10, 0], feliz: t > T.epoca ? -1 : 0.5, ceja: t > T.probable ? 14 : 0, mej: t > T.epoca, jaw: t > T.epoca ? 0.3 : 0 }); set(k, { r: Math.sin(t * 2.6) * 5 });
   };
 });
@@ -247,13 +284,14 @@ plano(T.otros - 0.1, L(9) - 0.1, { background: '#e6dcc6', backgroundImage: 'repe
   const op = mkBust(cam, [380, 900, 320, 410], { hat: 'cap', moustache: true, seed: 52 });
   const caja = box(cam, 0, 0, 280, 200, { zIndex: 12, background: '#c9a86a', border: `7px solid ${INK}`, borderRadius: '6px', boxShadow: `8px 8px 0 ${INK}`, fontFamily: 'Rye', fontSize: '40px', textAlign: 'center', lineHeight: '190px', color: INK }, 'ALMACÉN');
   const k = CANDADO(cam, 0, 0, 160); k.style.zIndex = 11;
+  const g = GODO(cam, 800, 470, 220); const lg = lagrima(cam, 880, 560);
   sp(T.otros, 'whoosh', 0.6); sp(T.retirado, 'thud', 0.9); sp(T.retirado + 0.3, 'stamp', 0.8); sp(T.retirado + 0.5, 'sad', 0.6);
   return t => {
     const kk = p(t, T.otros, 1.0, E.inOutCubic), go = p(t, T.retirado + 0.2, 0.6, E.inCubic);
     set(op.d, { x: lerp(780, 280, kk) + go * 700, y: -Math.abs(Math.sin(t * 9)) * 14 }); face(op, t, { look: [-8, 0], jaw: t > T.retirado ? 0.4 : 0, seed: 0.3 });
     set(caja, { x: 380 + lerp(780, 280, kk) + go * 700, y: 1100 - Math.abs(Math.sin(t * 9)) * 14, r: -3 });
     set(k, { x: 440 + lerp(780, 280, kk) + go * 700, y: 970 - Math.abs(Math.sin(t * 9)) * 14, r: Math.sin(t * 6) * 8 }); canFace(k, t, { look: [-10, -6], feliz: -1, ceja: 14, jaw: 0.4 });
-    stampA(vacia, t, T.retirado + 0.3, -6);
+    stampA(vacia, t, T.retirado + 0.3, -6); godo(g, t, 'triste', [-8, 6]); saluda(g, t, t > T.retirado); set(lg, { o: t > T.retirado ? 1 : 0, y: ((t * 140) % 120) });
   };
 });
 shakeAt(T.retirado, 0.3, 12);
@@ -291,13 +329,14 @@ plano(L(10) - 0.1, L(11) - 0.1, { background: '#bcd3ea' }, c => {
   const os = texto(cam, 820, 'OSCURA', { size: 100, color: '#fff', x: 140, w: 800, z: 8, shadow: `5px 5px 0 ${INK}` });
   const inv = stamp(cam, 260, 1100, 'INVENTO DEL S. XIX', { size: 64, z: 30, col: VERDE, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
   const ra = [...nube.querySelectorAll('.rayo')];
+  const g = GODO(cam, 740, 900, 260);
   sp(T.edad10, 'thud', 0.9); sp(T.salvaje, 'glitch', 0.8); sp(T.invento10, 'whoosh', 0.9); sp(T.despues, 'stamp', 1); sp(T.despues + 0.3, 'sparkle', 0.7);
   return t => {
     zoom(cam, t, L(10), 5, 0.06); set(sol, { r: t * 15 });
     const di = p(t, T.invento10, 1.0, E.inCubic); set(nube, { o: 1 - di, s: 1 + di * 0.5, y: -di * 200, x: t < T.invento10 ? Math.sin(t * 20) * 4 : 0 });
     ra.forEach((r, i) => r.style.opacity = t > T.salvaje && t < T.invento10 && Math.sin(t * 17 + i * 3) > 0.3 ? 1 : 0);
     set(os, { o: (t > T.edad10 + 0.3 ? 1 : 0) * (1 - di), s: pop(t, T.edad10 + 0.3, 0.35), r: -3 });
-    stampA(inv, t, T.despues, -6);
+    stampA(inv, t, T.despues, -6); godo(g, t, t > T.invento10 + 0.3 ? 'sonrie' : t > T.salvaje ? 'sudor' : 'cejas', [-4, -8]);
   };
 });
 shakeAt(T.salvaje, 0.4, 16);
@@ -324,7 +363,7 @@ colorHit(L(12) - 0.1, L(13) - 0.1, YEL, c => {
 sfx('swoosh_up', L(12), 0.6); shakeAt(L(12) + 0.05, 0.3, 14); sp(T.moderno, 'stamp', 0.8);
 
 /* L13 · pregunta final */
-preguntaFinal('¿Qué más de la Edad Media', 'crees que es mentira?', { size: 80, draw: c => [['que no se bañaban', YEL], ['la Tierra plana', PINK], ['¿y tú?', '#9fd3c0']].map(([s, col], i) => aparece(chip(c, 330 + i * 40, 620 + i * 160, s, { size: 60, bg: col, color: INK }), L(13) + 0.5 + i * 0.4, { sfx: 'pop' })) });
+preguntaFinal('¿Qué más de la Edad Media', 'crees que es mentira?', { size: 70, draw: c => { const g = GODO(c, 760, 880, 260); g.style.zIndex = 30; FX.fns.push(t => { godo(g, t, 'sonrie', [-8, -6]); saluda(g, t, true); }); return [['que no se bañaban', YEL], ['la Tierra plana', PINK], ['¿y tú?', '#9fd3c0']].map(([s, col], i) => aparece(chip(c, 330 + i * 40, 620 + i * 160, s, { size: 60, bg: col, color: INK }), L(13) + 0.5 + i * 0.4, { sfx: 'pop' })); } });
 
 /* L14 · cierre */
 cierre(72, 'El cinturón de castidad', ['CASTIDAD', 'bulo']);
