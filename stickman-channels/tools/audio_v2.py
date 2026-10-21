@@ -115,6 +115,58 @@ def sfx2(name):
         for at in (0, .22):
             n_ = (sine(1800, .6) + .4 * sine(2700, .6)) * env(.6, .002, .25) * .14; s = int(at * SR); o[s:s + len(n_)] += n_
         return lp(o, 4000)
+    if name == 'swish':  # paso de plano: barrido suave, sin agudos
+        d = .45; t = t_(d); e = np.sin(np.pi * t / d) ** 3; return 0.5 * lp(hp(noise(d), 180), 1600, 2) * e
+    if name == 'fireball':  # bola de fuego: golpe grave + rugido que se abre
+        d = 3.2; t = t_(d); e = np.minimum(1, t / .03) * np.exp(-t / .9)
+        return 1.1 * lp(noise(d), 260, 3) * e + 0.7 * sweep(70, 30, d) * np.exp(-t / .6) + 0.25 * lp(hp(noise(d), 300), 1500) * np.minimum(1, t / .08) * np.exp(-t / 1.4)
+    if name == 'ignite':  # «¡fum!» del aceite al prender
+        d = 1.2; t = t_(d); e = np.minimum(1, t / .06) * np.exp(-t / .35)
+        return 0.6 * lp(noise(d), 500, 2) * e + 0.35 * sweep(90, 55, d) * e
+    if name == 'sizzle':  # fritura suave
+        d = 3.0; t = t_(d); g = (A.RNG.random(len(t)) > .992).astype(float)
+        return 0.05 * lp(hp(noise(d), 500), 2600, 2) + lp(g, 2200) * .25
+    if name == 'scratch':  # disco rayado de «error»
+        d = .5; t = t_(d); f = 900 - 700 * np.sin(np.pi * t / d); ph = np.cumsum(f) / SR
+        return 0.22 * lp(np.tanh(3 * np.sin(2 * np.pi * ph)), 2400) * env(d, .005, .12)
+    if name == 'sting':  # golpe de orquesta grave
+        d = 1.8; t = t_(d); ch = sum(np.tanh(2 * sine(f, d)) for f in (55, 65.4, 82.4, 110, 130.8))
+        return 0.16 * lp(ch, 1100, 2) * np.minimum(1, t / .01) * np.exp(-t / .5) + 0.6 * sweep(60, 35, d) * np.exp(-t / .3)
+    if name == 'tk':  # tic del reloj
+        d = .12; t = t_(d); return 0.35 * bp(noise(d), 900, 2400, 2) * np.exp(-t / .012) + 0.12 * sine(1400, d) * np.exp(-t / .02)
+    if name == 'tkr':  # tic más grave para los últimos segundos
+        d = .14; t = t_(d); return 0.4 * bp(noise(d), 500, 1500, 2) * np.exp(-t / .015) + 0.18 * sine(800, d) * np.exp(-t / .03)
+    if name == 'doorbell':
+        o = np.zeros(int(1.6 * SR))
+        for at, f in ((0, 784), (.45, 622.3)):
+            n_ = (sine(f, 1.0) + .3 * sine(f * 2, 1.0)) * env(1.0, .003, .4) * .2; s = int(at * SR); o[s:s + len(n_)] += n_
+        return o
+    if name == 'lid':  # tapa metálica
+        d = 1.0; t = t_(d); return (0.12 * (sine(1180, d) + .7 * sine(1630, d) + .5 * sine(2410, d)) * np.exp(-t / .25) + 0.4 * lp(noise(d), 1200) * np.exp(-t / .02))
+    if name == 'knob':
+        d = .15; t = t_(d); return 0.3 * bp(noise(d), 700, 2500) * np.exp(-t / .01)
+    if name == 'puff':  # el fuego se ahoga
+        d = .9; t = t_(d); return 0.35 * lp(noise(d), 600, 2) * np.sin(np.pi * t / d) ** 2
+    if name == 'blow':
+        d = 1.0; t = t_(d); return 0.3 * bp(noise(d), 250, 1400) * np.sin(np.pi * t / d)
+    if name == 'cough':
+        o = np.zeros(int(1.0 * SR))
+        for at in (0, .32):
+            n_ = bp(noise(.22), 250, 1500) * env(.22, .005, .08) * .5; s = int(at * SR); o[s:s + len(n_)] += n_
+        return o
+    if name == 'slam':
+        d = .8; t = t_(d); return 0.8 * sweep(80, 45, d) * np.exp(-t / .12) + 0.3 * lp(noise(d), 700) * np.exp(-t / .05)
+    if name == 'laugh':  # risita tonal
+        o = np.zeros(int(1.1 * SR))
+        for i in range(5):
+            f = 520 - i * 25; n_ = (sine(f, .14) + .4 * sine(f * 2, .14)) * env(.14, .01, .05) * .07; s = int(i * .17 * SR); o[s:s + len(n_)] += n_
+        return lp(o, 2500)
+    if name == 'heartfast':
+        out = np.zeros(int(3.0 * SR))
+        for i in range(6):
+            for k, dl in ((0, 1), (.15, .65)):
+                s = int((i * .5 + k) * SR); st = dl * 0.9 * sweep(62, 40, .18) * env(.18, .002, .06); out[s:s + len(st)] += st[:len(out) - s]
+        return out
     if name == 'flat':
         d = 2.6; t = t_(d); return sine(1000, d) * .16 * np.minimum(1, t / .02) * np.minimum(1, (d - t) / .6)
     return A.sfx(name)
@@ -136,6 +188,12 @@ def amb2(name, d):
         return roar + lp(cr, 1400)
     if name == 'water':  # bajo el agua: todo amortiguado
         return lp(n, 220, 3) * .16 * (.85 + .15 * np.sin(2 * np.pi * .25 * t))
+    if name == 'kfire':  # cocina en llamas: rugido grave y crepitar apagado
+        roar = lp(n, 280, 3) * .16 * (.75 + .25 * np.sin(2 * np.pi * .7 * t))
+        cr = lp(hp(n, 300), 1500, 2) * (A.RNG.random(len(n)) > .995) * .45
+        return roar + lp(cr, 1300)
+    if name == 'fry':
+        g = (A.RNG.random(len(t)) > .994).astype(float); return 0.035 * lp(hp(n, 500), 2400, 2) + lp(g, 2000) * .18
     if name == 'sea':  # oleaje grave y lento, sin siseo
         sw = (.55 + .45 * np.sin(2 * np.pi * t / 5.5)) ** 2
         return lp(n, 380, 3) * .13 * sw + lp(n, 150) * .05
@@ -167,6 +225,24 @@ def music2(ch, d):
             if i % 2 == 0: b_ = lp(sine(bass[(i // 8) % 4], .4) + .3 * sine(bass[(i // 8) % 4] * 2, .4), 400) * env(.4, .005, .14) * .16; out[s:s + len(b_)] += b_[:len(out) - s]
             if i % 4 == 2: c_ = lp(hp(noise(.08), 900), 3500) * env(.08, .001, .03) * .08; out[s:s + len(c_)] += c_[:len(out) - s]
             if i % 2 == 1: m_ = sine(mel[(i // 2) % 8], .3) * env(.3, .002, .1) * .035; out[s:s + len(m_)] += m_[:len(out) - s]
+            i += 1; k += bt / 2
+        return out
+    if ch == 'tension':  # ostinato a 150 bpm que empuja: bombo, bajo en corcheas y pad que sube
+        t = t_(d); out = np.zeros(len(t)); bt = 60 / 150; k = 0.0; i = 0; notes = [55, 55, 65.4, 55, 58.3, 55, 65.4, 73.4]
+        while k < d:
+            s = int(k * SR)
+            if i % 2 == 0: kk = sweep(110, 42, .28) * env(.28, .002, .09) * .45; out[s:s + len(kk)] += kk[:len(out) - s]
+            f = notes[i % 8]; b_ = lp(np.tanh(2.2 * sine(f, .2)) + .5 * sine(f * 2, .2), 520) * env(.2, .004, .08) * .14; out[s:s + len(b_)] += b_[:len(out) - s]
+            k += bt / 2; i += 1
+        rise = 1 + .5 * (t / max(d, 1)); pad = (np.tanh(1.5 * sine(110, d)) + .6 * sine(110 * 1.189 * rise / rise, d) + .4 * sine(164.8, d)) * .035 * (.6 + .4 * np.sin(2 * np.pi * .25 * t))
+        return (out + lp(pad, 1500)) * .5
+    if ch == 'comic':  # tema ligero para los momentos de calma
+        bpm = 112; bt = 60 / bpm; out = np.zeros(int(d * SR)); i = 0; k = 0.0
+        bass = [130.8, 98, 110, 98]; mel = [523.3, 659.3, 784, 659.3, 587.3, 523.3, 440, 523.3]
+        while k < d:
+            s = int(k * SR)
+            if i % 2 == 0: b_ = lp(sine(bass[(i // 4) % 4], .3) + .3 * sine(bass[(i // 4) % 4] * 2, .3), 450) * env(.3, .004, .1) * .17; out[s:s + len(b_)] += b_[:len(out) - s]
+            if i % 2 == 1: m_ = (sine(mel[(i // 2) % 8], .22) + .2 * sine(mel[(i // 2) % 8] * 3, .22)) * env(.22, .003, .07) * .04; out[s:s + len(m_)] += m_[:len(out) - s]
             i += 1; k += bt / 2
         return out
     if ch == 'fuego':  # pulso de tensión que empuja hacia delante
@@ -256,7 +332,20 @@ def build(path, edge=False):
             s = int(b['start'] * SR); amb[s:s + len(x)] += (x * fade)[:N - s]
     bed = A.ambience('tunnel', N / SR)[:N] * spec.get('bed', .8 if spec['ch'] == 'regla0' else .35)
     fx = reverb(fx, 1.4, .22)[:N]
-    mus = np.pad(music2(spec.get('music', spec['ch']), N / SR), (0, N))[:N]
+    # música por tramos: cada beat puede elegir pista («mus») o silenciarla («mute»), con fundidos cortos
+    names = {spec.get('music', spec['ch'])} | {b['mus'] for b in tl_beats if b.get('mus')}
+    mus = np.zeros(N)
+    for nm in names:
+        g = np.zeros(N)
+        for b in tl_beats:
+            if (b.get('mus') or spec.get('music', spec['ch'])) == nm and not b.get('mute'): g[int(b['start'] * SR):int(b['end'] * SR)] = 1
+        g = np.convolve(g, np.ones(2400) / 2400, 'same')
+        if g.any(): mus += np.pad(music2(nm, N / SR), (0, N))[:N] * g
+    # tic-tac del reloj: un tic por segundo de cuenta atrás
+    for b0, b1, rate, left in spec.get('ticks', []):
+        t0, t1 = tl_beats[b0]['start'], tl_beats[b1]['end']; k = 0
+        while t0 + k / rate < t1 and left - k > 0:
+            x = sfx2('tkr' if left - k <= 3 else 'tk'); s_ = int((t0 + k / rate) * SR); fx[s_:s_ + len(x)] += x[:N - s_] * 1.8; k += 1
     envv = np.convolve(np.abs(voice), np.ones(4800) / 4800, 'same')[:N]; duck = 1 - .5 * np.clip(envv * 12, 0, 1)
     # voz a nivel constante y efectos sin picos de subgraves que roben margen
     vr = np.sqrt(np.mean(voice[np.abs(voice) > .01] ** 2)) if np.any(np.abs(voice) > .01) else 1

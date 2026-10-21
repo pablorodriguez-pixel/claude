@@ -1,0 +1,660 @@
+{
+ "id": "sticky10-2",
+ "ch": "sticky",
+ "music": "tension",
+ "bed": 0,
+ "series": "STICKY MAN",
+ "ep": "TIENE 10 SEGUNDOS",
+ "day": "",
+ "voices": {
+  "k": {
+   "eleven": "Nh2zY9kknu6z4pZy6FhD",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "+4%",
+   "pitch": "+0Hz",
+   "fx": "near"
+  },
+  "n": {
+   "eleven": "W5JElH3dK1UYYAiHH7uh",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "fx": "room"
+  }
+ },
+ "beats": [
+  {
+   "who": "n",
+   "say": "Si le echas agua a una sartén ardiendo…",
+   "scene": "kitchen",
+   "p": {
+    "throw": 1,
+    "freeze": 1,
+    "fire": 0.55
+   },
+   "hud": {
+    "topic": "SARTÉN EN LLAMAS"
+   },
+   "mute": 1,
+   "cam": {
+    "f": [
+     420,
+     560,
+     1.05
+    ],
+    "t": [
+     470,
+     600,
+     1.3
+    ]
+   },
+   "sfx": [
+    [
+     "heartfast",
+     0
+    ],
+    [
+     "swish",
+     0
+    ]
+   ],
+   "amb": "kfire"
+  },
+  {
+   "say": "",
+   "scene": "kitchen",
+   "p": {
+    "fireball": 1,
+    "fire": 0.8
+   },
+   "hold": 1.5,
+   "mute": 1,
+   "sfx": [
+    [
+     "fireball",
+     0
+    ],
+    [
+     "thud",
+     0
+    ],
+    [
+     "sting",
+     0.02
+    ]
+   ],
+   "cam": {
+    "f": [
+     360,
+     560,
+     1.3
+    ],
+    "t": [
+     360,
+     640,
+     1.0
+    ],
+    "e": "out",
+    "d": 0.25
+   },
+   "amb": "kfire"
+  },
+  {
+   "who": "n",
+   "say": "…pasa esto.",
+   "scene": "kitchen",
+   "p": {
+    "after": 1,
+    "scorch": 1,
+    "cab": 0.6,
+    "fire": 0.7
+   },
+   "amb": "kfire",
+   "mus": "tension",
+   "sfx": [
+    [
+     "swish",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[coughs] Vale. Eso no.",
+   "scene": "kitchen",
+   "p": {
+    "after": 1,
+    "scorch": 1,
+    "cab": 0.6,
+    "fire": 0.7,
+    "cough": 1
+   },
+   "amb": "kfire",
+   "mute": 1,
+   "sfx": [
+    [
+     "cough",
+     0.45
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Diez minutos antes.",
+   "scene": "kitchen",
+   "p": {
+    "rewind": 1,
+    "fries": 1,
+    "rlabel": "10 MIN ANTES"
+   },
+   "sfx": [
+    [
+     "rewind",
+     0
+    ],
+    [
+     "swish",
+     1.0
+    ]
+   ],
+   "mute": 1
+  },
+  {
+   "who": "k",
+   "say": "[excited] ¡Patatas fritas para mi cita! Qué romántico…",
+   "scene": "kitchen",
+   "p": {
+    "fry": 1,
+    "fries": 1
+   },
+   "mus": "comic",
+   "amb": "fry",
+   "sfx": [
+    [
+     "sizzle",
+     0
+    ],
+    [
+     "sizzle",
+     2.8
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Pero se va a mirar el pelo un momento.",
+   "scene": "kitchen",
+   "p": {
+    "mirror": 1
+   },
+   "mus": "comic",
+   "amb": "fry",
+   "sfx": [
+    [
+     "swish",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¿Huele a quemado?",
+   "scene": "kitchen",
+   "p": {
+    "mirror": 1,
+    "ignite": 1,
+    "igAt": 1.0
+   },
+   "pause": 0.9,
+   "mute": 1,
+   "amb": "fry",
+   "sfx": [
+    [
+     "ignite",
+     1.0
+    ],
+    [
+     "sting",
+     1.0
+    ]
+   ],
+   "cam": {
+    "f": [
+     360,
+     640,
+     1.0
+    ],
+    "t": [
+     430,
+     620,
+     1.2
+    ],
+    "e": "out"
+   }
+  },
+  {
+   "who": "k",
+   "say": "[panicked] ¡Fuego! ¡Fuego!",
+   "scene": "kitchen",
+   "p": {
+    "panic": 1,
+    "f0": 0.5,
+    "f1": 0.6,
+    "danger": 0.8
+   },
+   "hud": {
+    "t0": 10,
+    "rate": 0.49
+   },
+   "mus": "tension",
+   "amb": "kfire",
+   "sfx": [
+    [
+     "heartfast",
+     0
+    ]
+   ],
+   "shake": 1
+  },
+  {
+   "who": "n",
+   "say": "Tiene diez segundos antes de que prendan los muebles.",
+   "scene": "kitchen",
+   "p": {
+    "panic": 1,
+    "f0": 0.6,
+    "f1": 0.7,
+    "danger": 0.8
+   },
+   "mus": "tension",
+   "amb": "kfire"
+  },
+  {
+   "who": "k",
+   "say": "¡Lo soplo!",
+   "scene": "kitchen",
+   "p": {
+    "blow": 1,
+    "f0": 0.7,
+    "f1": 1,
+    "danger": 0.9
+   },
+   "mus": "tension",
+   "amb": "kfire",
+   "sfx": [
+    [
+     "blow",
+     0.3
+    ],
+    [
+     "ignite",
+     0.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Error: le das más aire.",
+   "scene": "kitchen",
+   "p": {
+    "blow": 1,
+    "fire": 1,
+    "cab": 0.4,
+    "danger": 0.9,
+    "stamp": "x",
+    "label": "SOPLAR"
+   },
+   "mute": 1,
+   "amb": "kfire",
+   "sfx": [
+    [
+     "scratch",
+     0
+    ],
+    [
+     "wrong",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¡Al fregadero!",
+   "scene": "kitchen",
+   "p": {
+    "carry": 1,
+    "danger": 0.9
+   },
+   "mus": "tension",
+   "amb": "kfire",
+   "sfx": [
+    [
+     "swish",
+     0
+    ],
+    [
+     "steps",
+     0
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Error: te echas el aceite encima.",
+   "scene": "kitchen",
+   "p": {
+    "spill": 1,
+    "danger": 0.9,
+    "stamp": "x",
+    "label": "CORRER CON ELLA"
+   },
+   "mute": 1,
+   "amb": "kfire",
+   "sfx": [
+    [
+     "scratch",
+     0
+    ],
+    [
+     "wrong",
+     0.2
+    ],
+    [
+     "ignite",
+     0.1
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[panicked] ¡Agua!",
+   "scene": "kitchen",
+   "p": {
+    "throw": 1,
+    "fire": 0.8,
+    "danger": 1
+   },
+   "mus": "tension",
+   "amb": "kfire",
+   "sfx": [
+    [
+     "swish",
+     0
+    ]
+   ],
+   "cam": {
+    "f": [
+     400,
+     600,
+     1.0
+    ],
+    "t": [
+     480,
+     620,
+     1.25
+    ],
+    "e": "out"
+   }
+  },
+  {
+   "who": "n",
+   "say": "Y el peor error: el agua baja al fondo, se convierte en vapor de golpe y lanza el aceite ardiendo.",
+   "scene": "steam",
+   "p": {},
+   "mus": "tension",
+   "sfx": [
+    [
+     "bubbles",
+     0.6
+    ],
+    [
+     "fireball",
+     2.6
+    ]
+   ]
+  },
+  {
+   "say": "",
+   "scene": "kitchen",
+   "p": {
+    "fireball": 1,
+    "fire": 0.8,
+    "stamp": "x",
+    "label": "AGUA"
+   },
+   "hold": 1.4,
+   "mute": 1,
+   "sfx": [
+    [
+     "fireball",
+     0
+    ],
+    [
+     "thud",
+     0
+    ],
+    [
+     "wrong",
+     0.4
+    ]
+   ],
+   "cam": {
+    "f": [
+     360,
+     560,
+     1.3
+    ],
+    "t": [
+     360,
+     640,
+     1.0
+    ],
+    "e": "out",
+    "d": 0.25
+   },
+   "amb": "kfire"
+  },
+  {
+   "who": "n",
+   "say": "Así se hace bien.",
+   "scene": "kitchen",
+   "p": {
+    "rewind": 1,
+    "fire": 0.55
+   },
+   "hud": {
+    "t0": 10,
+    "rate": 1
+   },
+   "mute": 1,
+   "sfx": [
+    [
+     "rewind",
+     0
+    ],
+    [
+     "pop",
+     1.0
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Uno: apaga el fuego.",
+   "scene": "kitchen",
+   "p": {
+    "knob": 1,
+    "fire": 0.55,
+    "stamp": "ok",
+    "label": "1 · APAGA EL FUEGO"
+   },
+   "mus": "comic",
+   "amb": "kfire",
+   "sfx": [
+    [
+     "knob",
+     0.5
+    ],
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Dos: tápala. Sin aire, el fuego se ahoga.",
+   "scene": "kitchen",
+   "p": {
+    "lid": 1,
+    "fire": 0.55,
+    "stamp": "ok",
+    "label": "2 · TÁPALA"
+   },
+   "hud": {
+    "t0": 6,
+    "rate": 0.0001
+   },
+   "mus": "comic",
+   "sfx": [
+    [
+     "lid",
+     1.05
+    ],
+    [
+     "puff",
+     1.1
+    ],
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Tres: no la muevas hasta que se enfríe.",
+   "scene": "kitchen",
+   "p": {
+    "wait": 1,
+    "lidOn": 1,
+    "stamp": "ok",
+    "label": "3 · NO LA MUEVAS"
+   },
+   "mus": "comic",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¿Y si ya ha prendido algo más? Sal, cierra la puerta y llama al uno, uno, dos.",
+   "scene": "kitchen",
+   "p": {
+    "exit": 1,
+    "cab": 0.5,
+    "fire": 0.7,
+    "stamp": "ok",
+    "label": "4 · SAL Y LLAMA"
+   },
+   "mus": "comic",
+   "amb": "kfire",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ],
+    [
+     "slam",
+     3.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[cheerful] ¿Pedimos una pizza?",
+   "scene": "date",
+   "p": {},
+   "hud": {
+    "off": true,
+    "t0": null
+   },
+   "mus": "comic",
+   "sfx": [
+    [
+     "doorbell",
+     0
+    ],
+    [
+     "laugh",
+     1.5
+    ]
+   ],
+   "pause": 0.6
+  },
+  {
+   "who": "k",
+   "say": "Sé sincero: ¿tú le habrías echado agua? Comenta.",
+   "scene": "sincero",
+   "p": {},
+   "mus": "comic",
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ],
+    [
+     "pop",
+     0.7
+    ],
+    [
+     "pop",
+     0.85
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "sticky_end",
+    "sub": "TIENE 10 SEGUNDOS",
+    "cta": "MAÑANA, OTRA SITUACIÓN"
+   },
+   "hold": 2.2,
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ]
+   ]
+  }
+ ],
+ "ticks": [
+  [
+   8,
+   15,
+   2.0,
+   999
+  ]
+ ],
+ "cover": {
+  "top": "STICKY TIENE 10 SEGUNDOS",
+  "title": "NUNCA LE ECHES AGUA",
+  "scene": "kitchen",
+  "t": 0.3,
+  "p": {
+   "fireball": 1,
+   "fire": 0.8
+  },
+  "cam": [
+   360,
+   520,
+   1.0
+  ]
+ }
+}
