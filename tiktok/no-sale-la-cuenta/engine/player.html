@@ -246,7 +246,7 @@ B.quiz=(S,root)=>{chrome(S,root);
     q.style.opacity=t>=S.ansAt?.0:1;
     slam(ans,t,S.ansAt,-3,1.9);if(t<S.ansAt)ans.style.opacity=0;else shake(t,S.ansAt,.3,18);
     rise(ex,t,S.ansAt+.5);
-    if(S.wrongAt){wr.style.opacity=t>=S.wrongAt?1:0;wr.style.transform=`scale(${lerp(1.5,1,eo(p(t,S.wrongAt,.2)))}) rotate(-4deg)`;wr.style.top=(260)+'px';q.style.opacity=0}}};
+    if(S.wrongAt){wr.style.opacity=t>=S.wrongAt?1:0;wr.style.transform=`scale(${lerp(1.5,1,eo(p(t,S.wrongAt,.2)))}) rotate(-4deg)`;wr.style.top=(340)+'px';if(t>=S.wrongAt)q.style.opacity=0}}};
 
 /* ---------- TABLE ---------- */
 B.table=(S,root)=>{chrome(S,root);

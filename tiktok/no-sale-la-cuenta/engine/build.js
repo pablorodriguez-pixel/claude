@@ -35,14 +35,16 @@ const HF=__dirname+'/video_'+path.basename(dir)+'.html';fs.writeFileSync(HF,html
  if(mode==='sheet'){fs.mkdirSync(dir+'/shots',{recursive:true});
    for(const t of process.argv.slice(4).map(Number)){await pg.evaluate(t=>render(t),t);await pg.screenshot({path:`${dir}/shots/s_${t.toFixed(2)}.jpg`,type:'jpeg',quality:80});}
  }else{
+   if(mode!=='mix'){
    const FPS=30,N=Math.ceil(dur*FPS);
    const ff=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-framerate','30','-c:v','mjpeg','-i','-','-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p',dir+'/video_noaudio.mp4'],{stdio:['pipe','inherit','inherit']});
    for(let i=0;i<N;i++){await pg.evaluate(t=>render(t),i/FPS);const buf=await pg.screenshot({type:'jpeg',quality:92});
      if(!ff.stdin.write(buf))await new Promise(r=>ff.stdin.once('drain',r));if(i%150===0)console.log(i,'/',N)}
    ff.stdin.end();await new Promise(r=>ff.on('close',r));
+   }
    // mezcla de audio: voz + música (ducking) + SFX
    const sd=__dirname+'/sfx/';const ins=['-i',dir+'/voice.mp3','-i',sd+'music.mp3'];sx.forEach(x=>ins.push('-i',sd+x[1]+'.mp3'));
-   let fc=`[0:a]asplit=2[v][vs];[1:a]atrim=0:${dur},volume=0.42,afade=t=in:d=.8,afade=t=out:st=${dur-1.2}:d=1.2[m];[m][vs]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=350[md];`;
+   let fc=`[0:a]asplit=2[v][vs];[1:a]atrim=0:${dur},volume=0.42,afade=t=in:d=0.8,afade=t=out:st=${dur-1.2}:d=1.2[m];[m][vs]sidechaincompress=threshold=0.02:ratio=10:attack=15:release=350[md];`;
    sx.forEach((x,i)=>{const ms=Math.max(0,Math.round(x[0]*1000));fc+=`[${i+2}:a]adelay=${ms}|${ms},volume=${x[2]}[s${i}];`});
    fc+=`[v][md]${sx.map((_,i)=>`[s${i}]`).join('')}amix=inputs=${2+sx.length}:normalize=0:duration=longest,atrim=0:${dur},alimiter=limit=0.95[a]`;
    execSync(['ffmpeg','-y','-loglevel','error',...ins.map(x=>`"${x}"`),'-filter_complex',`"${fc}"`,'-map','"[a]"','-c:a','aac','-b:a','192k',`"${dir}/mix.m4a"`].join(' '),{stdio:'inherit'});
