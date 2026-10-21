@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carácter Estoico — Guía de producción</title>
+<style>
+:root{--ink:#14161a;--stone:#ece8de;--paper:#f7f5ef;--bronze:#b8864b;--bronze-d:#8a5f2c;--teal:#2f4a4f;--mute:#5b5f66;--line:#d9d4c6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:900px;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.1;margin:0 0 .4em}
+h1{font-size:clamp(2.3rem,8vw,3.8rem)}h2{font-size:clamp(1.7rem,5vw,2.3rem)}h3{font-size:1.25rem}
+.hero{background:var(--ink);color:var(--stone);padding:56px 0 44px}.hero p{color:#c9c5b8;margin:0}
+section{padding:48px 0;border-top:1px solid var(--line)}
+.tag{font:600 .75rem/1 system-ui;letter-spacing:.16em;text-transform:uppercase;color:var(--bronze-d);display:block;margin-bottom:10px}
+.box{background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px 20px;margin:12px 0}
+.dark{background:var(--teal);color:#fff;border:0}
+.g{display:grid;gap:12px}@media(min-width:700px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+.g .box{margin:0}
+ul,ol{margin:.3em 0 0;padding-left:1.2em}li{margin:.3em 0}
+code,.prompt{font:.88rem/1.5 ui-monospace,Menlo,Consolas,monospace}
+.prompt{background:var(--ink);color:var(--stone);border-radius:14px;padding:14px 16px;white-space:pre-wrap;margin:10px 0}
+table{width:100%;border-collapse:collapse;font-size:.94rem}
+td,th{text-align:left;padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--bronze-d)}
+.scroll{overflow-x:auto}
+.note{background:var(--stone);border-radius:16px;padding:14px 18px;font-size:.92rem;color:var(--mute);margin:12px 0}
+.shot{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.shot b{color:var(--bronze)}
+</style>
+</head>
+<body>
+<header class="hero"><div class="w">
+  <h1>Guía de producción</h1>
+  <p>Cómo hacer que Carácter Estoico suene épico, se vea cinematográfico y enganche cada día.</p>
+</div></header>
+
+<section><div class="w">
+  <span class="tag">0 · Visión</span>
+  <h2>Qué sensación debe dejar</h2>
+  <div class="box dark"><b>Un tráiler épico de 90 segundos que te deja más fuerte.</b> Historia dramática con ilustraciones oscuras en movimiento, una voz grave y pausada, música que crece, y una frase final que te llevas puesta. No es una clase. Es una escena de película con enseñanza.</div>
+  <p class="note">Referencia de estilo: canales de historia ilustrada como "Esto no sale en los libros" (narración dramática, ilustración en movimiento, ritmo cinematográfico). Tomo la idea de <i>género</i>, no sus contenidos ni su identidad. Carácter Estoico debe tener look, voz y frase propios, para no parecer una copia. No puedo ver vídeos, así que me baso en lo que describes. Pásame 2–3 enlaces y te digo qué replicar y qué cambiar.</p>
+</div></section>
+
+<section><div class="w">
+  <span class="tag">1 · Aspecto visual</span>
+  <h2>Ilustración épica con alma estoica</h2>
+  <div class="g g2">
+    <div class="box"><h3>Estilo</h3><ul>
+      <li>Ilustración tipo <b>grabado clásico / óleo oscuro</b>: mármol, columnas, togas, tormentas, mar, soldados, estatuas.</li>
+      <li>Fondo casi negro, luz dorada dramática (bronce <code>#B8864B</code>) y toques verdes <code>#2F4A4F</code>.</li>
+      <li>Siempre una figura central pequeña ante algo enorme: la persona frente a la adversidad.</li>
+    </ul></div>
+    <div class="box"><h3>Movimiento (2.5D)</h3><ul>
+      <li>Separa capas (primer plano, personaje, fondo) y mueve con <b>parallax</b> y zoom lento.</li>
+      <li>Polvo, humo, niebla, brasas y grano de película por encima.</li>
+      <li>Texto cinético: la <b>frase ancla</b> aparece palabra a palabra, en serif, color piedra.</li>
+      <li>Cambio de plano cada 3–5 segundos.</li>
+    </ul></div>
+  </div>
+  <h3 style="margin-top:20px">Prompt base de imagen (Midjourney u otro generador)</h3>
+  <div class="prompt">Dramatic dark oil painting in classical engraving style, [ESCENA: e.g. a lone Roman philosopher standing before a storm over the sea], marble columns, cinematic low-key lighting, warm bronze golden light against deep charcoal shadows, teal accents, epic scale, small human figure against vast landscape, subtle film grain, no text --ar 9:16 --style raw</div>
+  <ul>
+    <li><b>Consistencia:</b> guarda un prompt base fijo y reutiliza la misma referencia de estilo (<code>--sref</code> en Midjourney) en todas las imágenes.</li>
+    <li><b>Formato:</b> genera en 9:16 para Shorts y 16:9 para el largo semanal.</li>
+    <li><b>Personajes:</b> Zenón, Epicteto, Séneca y Marco Aurelio se repiten siempre con el mismo rostro y vestuario. Crea una hoja de personaje de cada uno al principio.</li>
+    <li><b>Derechos:</b> revisa las condiciones comerciales de la herramienta que uses antes de monetizar.</li>
+  </ul>
+</div></section>
+
+<section><div class="w">
+  <span class="tag">2 · Voz y sonido</span>
+  <h2>La voz de ElevenLabs lo es todo</h2>
+  <div class="g g2">
+    <div class="box"><h3>Elegir la voz</h3><ul>
+      <li>Voz masculina o femenina, <b>grave, cálida y pausada</b>, con español neutro. Prueba la misma frase con 5–8 voces de la biblioteca y elige la que te dé "escalofrío".</li>
+      <li>Una sola voz, siempre la misma. La voz es la marca.</li>
+      <li>Usa solo voces con licencia comercial. No clones la voz de una persona real sin su permiso.</li>
+    </ul></div>
+    <div class="box"><h3>Ajustes de partida</h3><ul>
+      <li><b>Estabilidad:</b> media-baja (35–45 %) para más emoción.</li>
+      <li><b>Similitud:</b> alta (75 %+).</li>
+      <li><b>Exageración de estilo:</b> baja-media (15–30 %).</li>
+      <li>Genera frase a frase y elige la mejor toma. Ajusta tras probar.</li>
+    </ul></div>
+  </div>
+  <h3 style="margin-top:20px">Cómo escribir el guion para que suene épico</h3>
+  <ul>
+    <li><b>Frases cortas.</b> Una idea por frase. Puntos, no comas largas.</li>
+    <li><b>Pausas con puntos suspensivos y saltos de línea</b> antes de la frase clave.</li>
+    <li><b>Ritmo 3 – 1:</b> tres frases cortas, una larga que se abre. Luego silencio.</li>
+    <li><b>Frase ancla</b> dicha más lenta y más baja. Se repite dos veces.</li>
+    <li>Escribe los números y nombres como se dicen ("Marco Aurelio", "Epicteto").</li>
+    <li>Si usas el modelo de ElevenLabs que lo permite, añade etiquetas de emoción (susurro, pausa, etc.) y comprueba cómo suenan.</li>
+  </ul>
+  <h3 style="margin-top:20px">Música y sonido</h3>
+  <div class="scroll"><table>
+    <tr><th>Capa</th><th>Qué hacer</th></tr>
+    <tr><td>Música</td><td>Cinematográfica sobria: cuerdas graves y percusión suave que <b>crece</b> hacia la frase ancla y corta en seco. Usa una biblioteca con licencia (Artlist, Epidemic Sound, etc.). Evita temas "famosos" de películas.</td></tr>
+    <tr><td>Efectos</td><td>Viento, pasos, espada lejana, truenos, latido. Un "whoosh" suave en cada cambio de plano.</td></tr>
+    <tr><td>Mezcla</td><td>Voz siempre por encima. Música baja a -18 dB bajo la voz. Silencio de 0,5 s antes de la frase ancla.</td></tr>
+    <tr><td>Sello sonoro</td><td>Un sonido propio de 2 s al inicio (golpe grave + nota) y otro al cierre. Será tu firma.</td></tr>
+  </table></div>
+</div></section>
+
+<section><div class="w">
+  <span class="tag">3 · Storytelling y hábito</span>
+  <h2>Cómo hacer que quieran volver cada día</h2>
+  <div class="g g3">
+    <div class="box"><h3>1. Cada lección es una escena</h3><p>Una historia con tensión antes de la idea. La gente se queda por la historia y se lleva la enseñanza.</p></div>
+    <div class="box"><h3>2. Un mundo con niveles</h3><p>Una ruta que sube: <b>Aprendiz → Discípulo → Estoico → Maestro</b>. Cada bloque de 7 lecciones sube de nivel. Da sensación de avance sin deberes.</p></div>
+    <div class="box"><h3>3. Bucle abierto</h3><p>Cada lección acaba con una pregunta que responde la siguiente: "Mañana sabrás por qué Marco Aurelio dormía en el suelo."</p></div>
+  </div>
+  <h3 style="margin-top:24px">La estructura de cada lección (60–90 s)</h3>
+  <div class="box">
+    <div class="shot"><b>0–3 s</b><span><b style="color:inherit">Golpe.</b> Una frase que choca: "Fue esclavo. Y era más libre que el emperador." Sello sonoro.</span></div>
+    <div class="shot"><b>3–25 s</b><span><b style="color:inherit">Escena.</b> La historia con ilustración y música creciendo. Tensión.</span></div>
+    <div class="shot"><b>25–55 s</b><span><b style="color:inherit">Giro.</b> La idea estoica que lo cambia todo, dicha con claridad.</span></div>
+    <div class="shot"><b>55–70 s</b><span><b style="color:inherit">Frase ancla.</b> En pantalla y en voz, dos veces. Corte de música.</span></div>
+    <div class="shot"><b>70–85 s</b><span><b style="color:inherit">Siguiente.</b> "Mañana: Lección 9." Bucle abierto y llamada a seguir.</span></div>
+  </div>
+  <h3 style="margin-top:24px">Palancas para que sigan la cuenta</h3>
+  <ul>
+    <li><b>Número y nivel visibles:</b> "Lección 9 · Nivel Discípulo". El cerebro quiere completar la serie.</li>
+    <li><b>Referencias a lecciones previas:</b> "Recuerdas la lección 3…". Premia al que lleva tiempo y empuja a ver las anteriores.</li>
+    <li><b>Los Cuatro Maestros como "personajes"</b> con arco propio: Zenón (el náufrago), Epicteto (el esclavo), Séneca (el exiliado), Marco Aurelio (el emperador). La gente quiere saber más de ellos.</li>
+    <li><b>Un largo semanal de "historia completa"</b> (8–10 min) que profundiza al personaje de la semana y deja a los Shorts como avance.</li>
+    <li><b>Ritual:</b> misma hora, mismo sello de entrada, misma frase de cierre: "Esto es Carácter Estoico. Fortalécete."</li>
+    <li><b>Comunidad:</b> pregunta diaria en comentarios y respuesta del canal en vídeo cada semana.</li>
+  </ul>
+  <p class="note"><b>Verdad ante todo.</b> El género épico tienta a inventar. No lo hagas: usa anécdotas reales o marcadas como tradición ("según cuenta la tradición…"). Es el tipo de confianza que hace que te sigan años.</p>
+</div></section>
+
+<section><div class="w">
+  <span class="tag">4 · Ejemplo</span>
+  <h2>Lección 1, versión épica con plano a plano</h2>
+  <div class="box">
+    <div class="shot"><b>0:00</b><span><b style="color:inherit">Voz:</b> "Fue esclavo… y fue más libre que el emperador."<br><i>Visual:</i> negro, golpe grave, aparece un rostro en sombra con luz bronce. Sello sonoro.</span></div>
+    <div class="shot"><b>0:05</b><span><b style="color:inherit">Voz:</b> "Roma. Siglo primero. Epicteto no elegía qué comía, ni dónde dormía, ni cuándo se movía. Según la tradición, su propio amo le rompió la pierna. Y Epicteto dijo, con calma: 'Te dije que se rompería'."<br><i>Visual:</i> ilustración de patio de mármol, esclavo de rodillas, parallax lento; cuerdas graves entran.</span></div>
+    <div class="shot"><b>0:30</b><span><b style="color:inherit">Voz:</b> "No era resignación. Era una idea. Hay cosas que dependen de ti… y cosas que no. Tu cuerpo, tu fortuna, lo que otros hacen: no. Tu mente, tu decisión, tu respuesta: sí."<br><i>Visual:</i> dos columnas de luz en pantalla; la de la derecha brilla. Percusión sube.</span></div>
+    <div class="shot"><b>0:55</b><span><b style="color:inherit">Voz (más lenta):</b> "Mi poder… está en mi respuesta."<br><i>Visual:</i> texto cinético en piedra sobre negro, palabra a palabra. Música corta en seco. Silencio.</span></div>
+    <div class="shot"><b>1:05</b><span><b style="color:inherit">Voz:</b> "Mañana, Lección 2: por qué nada de lo que te pasa es bueno ni malo. Esto es Carácter Estoico. Fortalécete."<br><i>Visual:</i> logo y siguiente miniatura.</span></div>
+  </div>
+  <p class="note">La anécdota de la pierna rota la cuentan Orígenes y otras fuentes antiguas, pero su veracidad es discutida. Por eso el guion la marca como "según la tradición". Verifica cada anécdota antes de grabarla.</p>
+</div></section>
+
+<section><div class="w">
+  <span class="tag">5 · Flujo de trabajo</span>
+  <h2>Cómo producirlo cada día sin quemarte</h2>
+  <ol>
+    <li><b>Guion</b> (yo lo escribo con marcas de pausa y plano a plano).</li>
+    <li><b>Voz</b> en ElevenLabs, frase a frase.</li>
+    <li><b>Imágenes</b> en el generador, usando el prompt base (6–10 por lección).</li>
+    <li><b>Montaje</b> en CapCut, Premiere o DaVinci con una plantilla fija: parallax, grano, texto cinético, música y sellos sonoros.</li>
+    <li><b>Publicación</b> programada. <b>Graba por lotes</b>: 7 lecciones por sesión semanal.</li>
+  </ol>
+  <p><b>Meta realista:</b> 7 lecciones listas antes de publicar la primera, y una plantilla de montaje que reduzca cada vídeo a 30–45 minutos.</p>
+</div></section>
+</body>
+</html>
