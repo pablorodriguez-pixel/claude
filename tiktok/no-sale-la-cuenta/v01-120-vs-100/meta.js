@@ -35,3 +35,6 @@ exports.scenes=(at,dur)=>[
   {a:at('le pega'),d:.8,t:'¡PUM!',c:'#FF2D55',s:330,emoji:'💥'},
   {a:at('septimo piso'),d:.85,t:'7º PISO',c:'#FF2D55',s:220,emoji:'🏢'},
   {a:at('vida'),d:.8,t:'TU VIDA',c:'#FFE14D',s:200,emoji:'⏳'}]}
+
+{const b2=exports.scenes;exports.scenes=(at,dur)=>{const sc=b2(at,dur);
+ sc[0].macro=[{a:at('tres minutos'),d:1.3,fx:540,fy:1130}];sc[3].macro=[{a:18.7,d:1.5,fx:540,fy:1100}];sc[10].macro=[{a:at('tres minutos',2),d:1.2,fx:540,fy:1130}];return sc}}

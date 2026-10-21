@@ -29,3 +29,6 @@ exports.scenes=(at,dur)=>[
   {a:at('todos con todos'),d:.95,t:'TODOS<br>CON TODOS',c:'#FFE14D',s:190},
   {a:at('whatsapp'),d:.8,t:'WHATSAPP',c:'#25D366',s:190,emoji:'💬'},
   {a:at('Compruebalo'),d:.85,t:'¡COMPRUÉBALO!',c:'#FFE14D',s:140,man:'smile'}]}
+
+{const b2=exports.scenes;exports.scenes=(at,dur)=>{const sc=b2(at,dur);
+ sc[1].macro=[{a:at('Y es mas probable')+.8,d:1.6,fx:540,fy:800}];sc[3].macro=[{a:at('doscientas cincuenta y tres',0)-.2,d:1.5,fx:540,fy:700}];return sc}}
