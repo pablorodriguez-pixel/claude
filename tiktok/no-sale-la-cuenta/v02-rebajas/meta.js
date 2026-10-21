@@ -42,3 +42,33 @@ exports.scenes=(at,dur)=>[
 
 {const b2=exports.scenes;exports.scenes=(at,dur)=>{const sc=b2(at,dur);
  sc[1].macro=[{a:at('doscientos cincuenta',0),d:1.4,fx:780,fy:640}];sc[5].macro=[{a:at('Veinticinco'),d:1.4,fx:540,fy:760}];return sc}}
+
+{const {host,actor}=require('../engine/cast');const b3=exports.scenes;exports.scenes=(at,dur)=>{const sc=b3(at,dur);
+ const Y='#FFE14D',R='#FF2D55',G='#7BE38B',P='#F4F1EA';
+ const cond=(t,s,c,css='')=>`<div class="cond" style="font-size:${s}px;color:${c};text-align:center;${css}">${t}</div>`;
+ const st=sc[1].start,en=sc[1].end,tg=at('rebajado'),ts=at('Subido');
+ // 0 · gancho: Palitos presenta
+ sc[0].scale=.85;sc[0].actors=[host([{a:.05,b:'present',d:2.2},{a:2.3,b:'shock',d:1.5},{a:at('Vuelves'),b:'think',d:1.7},{a:at('No'),b:'shrug',face:'sweat'}],{x:200,sc:1.75,y:1000})];
+ // 1 · tienda: cliente (lila) y tendero (calma)
+ sc[1]={type:'diorama',start:st,end:en,ground:1150,bgfx:'dots',tag:'Black Friday',glow:'rgba(255,45,85,.08)',
+  props:[{e:'📱',size:330,x:540,y:760,a:st,k:'pop'},
+   {html:cond('1.000 €',200,P),x:540,y:470,a:st,k:'pop',texts:[{a:tg+.3,html:cond('500 €',200,R)},{a:ts+.6,html:cond('750 €',200,G)}]},
+   {html:cond('−50 %',120,'#fff','background:#FF2D55;padding:0 26px;border-radius:20px'),x:250,y:620,a:tg,out:ts,k:'slam',r:-8},
+   {html:cond('+50 %',120,'#0B0C10','background:#7BE38B;padding:0 26px;border-radius:20px'),x:830,y:620,a:ts,k:'slam',r:7},
+   {html:cond('−250 €',190,R,'text-shadow:0 8px 40px #000'),x:540,y:1010,a:at('doscientos cincuenta',0),k:'slam',z:7},
+   {e:'💸',size:200,x:540,y:760,a:at('doscientos cincuenta',0),out:at('porque el cincuenta'),k:'pop',tracks:[{a:at('doscientos cincuenta',0),d:1.2,x:930,y:430,r:25}],z:6},
+   {html:`<div class="stamp" style="position:static;font-size:100px;border-color:${G};color:${G}">Robo: 0 €</div>`,x:540,y:640,a:at('nadie te ha robado'),k:'slam',z:7}],
+  actors:[actor('lila',[190,964],[{a:st,b:'idle',face:'smile'},{a:tg,b:'celebrate'},{a:ts,b:'shock',d:1.4},{a:ts+1.6,b:'facepalm'},{a:at('Has perdido'),b:'angry'},{a:at('nadie te ha robado'),b:'shrug',face:'sweat'}],{sc:1.5}),
+          actor('calma',[890,964],[{a:st,b:'present',face:'smile'},{a:ts,b:'celebrate'},{a:at('nadie te ha robado'),b:'wave'}],{sc:1.5,flip:-1})],
+  macro:[{a:at('doscientos cincuenta',0),d:1.3,fx:540,fy:900}],
+  sfx:[[tg,'pop',.8],[ts,'pop',.8],[at('doscientos cincuenta',0),'hit',.8],[at('nadie te ha robado'),'ding',.6]]};
+ // 2..8 · Palitos explica
+ sc[2].scale=.78;sc[2].actors=[host([{a:sc[2].start,b:'point',ang:120},{a:at('de mil',1),b:'shock'}],{x:170,sc:1.45,y:1050})];
+ sc[3].scale=.72;sc[3].actors=[host([{a:sc[3].start,b:'think'},{a:at('subirlo'),b:'point',ang:60,face:'smile'}],{x:170,sc:1.4,y:1050})];
+ sc[4].scale=.72;sc[4].actors=[host([{a:sc[4].start,b:'idle'},{a:at('cae'),b:'shock'},{a:at('ganar un cien'),b:'celebrate'}],{x:170,sc:1.4,y:1050})];
+ sc[5].scale=.8;sc[5].actors=[host([{a:sc[5].start,b:'point',ang:120},{a:at('Piensalo')-.2,b:'think'},{a:at('Veinticinco'),b:'celebrate'},{a:at('no veinte'),b:'point',ang:50,face:'angry'}],{x:190,sc:1.55,y:1030})];
+ sc[6].scale=.72;sc[6].actors=[host([{a:sc[6].start,b:'present'},{a:at('mas caes')+1.9,b:'shock'}],{x:170,sc:1.4,y:1050})];
+ sc[7].scale=.8;sc[7].actors=[host([{a:sc[7].start,b:'point',ang:30},{a:at('quiero ver'),b:'hold',face:'smile'}],{x:190,sc:1.6,y:1015})];
+ sc[8].scale=.85;sc[8].actors=[host([{a:sc[8].start,b:'present',d:2.2},{a:at('suben',1)+.5,b:'think'},{a:at('vuelves',1),b:'shrug',face:'sweat'}],{x:200,sc:1.75,y:1000})];
+ return sc};
+ function C0(){return '#0B0C10'}}

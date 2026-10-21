@@ -39,8 +39,19 @@
 - **Archivo** condensada, peso 900, mayúsculas, interlineado .92 — titulares, números y subtítulos. Cuerpo y fuentes: Archivo 500.
 - Números siempre más grandes que las palabras (regla 3:1).
 
-### Mascota: **Palitos** (el muñeco de palo)
-Personaje de líneas blancas, ojos de susto. Es quien "sufre" las cuentas: se cruza en la carretera, cae de un séptimo piso, mira el grupo de WhatsApp. Da humor sin voz, sirve de meme recurrente ("Palitos otra vez") y evita fotos con derechos de autor.
+### Reparto: los muñecos de palo (estilo *Sticky Man*)
+Todos los vídeos están **protagonizados por personajes** con articulaciones (brazos y piernas de dos tramos), cara expresiva (neutra, sonrisa, susto, enfado, sudor, pensativo, KO), accesorios y animaciones propias (andar, correr, señalar, celebrar, caer, salir volando, sentarse, teclear…).
+
+| Personaje | Color / rasgos | Papel |
+|---|---|---|
+| **Palitos** | Blanco, gorra amarilla | Presentador fijo del canal: explica, señala los datos y reacciona. Mueve la boca con la voz. |
+| **Prisa** | Amarillo, gafas de sol, pelo de punta | El que siempre corre / quiere ir más rápido. |
+| **Calma** | Azul, gafas | El prudente; el contrapunto de Prisa. |
+| **Paco** | Verde, gorro naranja | El "sufridor": se cruza en la carretera, se tira del séptimo piso, no sabe qué ver en Netflix. |
+| **Lila** | Violeta, pelo de punta | La clienta / la que cae en la trampa del porcentaje. |
+| **Gente** | Equipos amarillo y azul + árbitro rojo | La multitud (23 personas del campo de fútbol, grupo de WhatsApp). |
+
+Regla: **cada escena tiene al menos un personaje actuando**; los datos (cifras, barras, anillos) son *atrezo* que los personajes señalan o sufren.
 
 ### Sonido
 - **Voz:** ElevenLabs, modelo `eleven_v3`, voz `David Martin 2` (`y6WtESLj18d0diFRruBs`, masculina, castellano peninsular, tono seguro) con etiquetas `[urgent]`, `[serious]`, `[intrigued]`; velocidad ×1,08 y normalizada a −14 LUFS.
@@ -168,7 +179,7 @@ node engine/build.js v01-120-vs-100 sheet 1 5 12   # fotogramas de prueba en sho
 node engine/build.js v01-120-vs-100 video          # render completo + mezcla de audio
 ```
 - Cada vídeo es `script.txt` + `meta.js` (lista de escenas ancladas a **palabras del guion**: `at('tres minutos')`). Si cambias el guion, la edición se re-sincroniza sola.
-- Tipos de escena disponibles: `title`, `race`, `netflix`, `brake` (simulación física), `tower`, `bars`, `levels`, `compare`, `quiz`, `table`, `cta`, `field`, `gauge`, `pairs`, `whatsapp`.
+- Tipos de escena: `diorama` (personajes + props animados por pistas, JSON), `title`, `bars`, `levels`, `compare`, `quiz`, `table`, `cta`, `field` (con gente), `gauge`, `pairs`, `whatsapp`, `netflix`. Cualquier escena admite `actors` (personajes con comportamientos: `walk`, `run`, `point`, `present`, `shock`, `shrug`, `celebrate`, `sit`, `hold`, `think`, `facepalm`, `angry`, `fall`, `fly`, `lie`, `drive`, `wave`…) definidos en `engine/actor.js` y `engine/cast.js`.
 - Variable necesaria: `API_KEY_ELEVENLABS`.
 
 ---

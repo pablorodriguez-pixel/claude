@@ -32,3 +32,14 @@ exports.scenes=(at,dur)=>[
 
 {const b2=exports.scenes;exports.scenes=(at,dur)=>{const sc=b2(at,dur);
  sc[1].macro=[{a:at('Y es mas probable')+.8,d:1.6,fx:540,fy:800}];sc[3].macro=[{a:at('doscientas cincuenta y tres',0)-.2,d:1.5,fx:540,fy:700}];return sc}}
+
+{const {host,actor}=require('../engine/cast');const b3=exports.scenes;exports.scenes=(at,dur)=>{const sc=b3(at,dur);
+ sc[0].people=true;sc[0].dd=7;sc[0].scale=1;
+ sc[1].scale=.78;sc[1].actors=[host([{a:sc[1].start,b:'point',ang:110},{a:at('Y es mas probable')+1.2,b:'shock'}],{x:170,sc:1.45,y:1050})];
+ sc[2].scale=.85;sc[2].actors=[host([{a:sc[2].start,b:'think'},{a:at('Imposible'),b:'shrug',face:'sweat'}],{x:200,sc:1.75,y:1000})];
+ sc[3].scale=1;sc[3].actors=[host([{a:sc[3].start,b:'present'},{a:at('se compara'),b:'point',ang:60},{a:at('doscientas cincuenta y tres',0),b:'shock'}],{x:890,sc:1.0,y:1100})];
+ sc[4].scale=.78;sc[4].actors=[host([{a:sc[4].start,b:'idle'},{a:at('Con cincuenta y siete'),b:'point',ang:110},{a:at('noventa y nueve'),b:'celebrate'}],{x:170,sc:1.45,y:1050})];
+ sc[5].scale=.85;sc[5].actors=[host([{a:sc[5].start,b:'hold',face:'smile'},{a:at('coinciden'),b:'shock'}],{x:190,sc:1.6,y:1015})];
+ sc[6].scale=.8;sc[6].actors=[host([{a:sc[6].start,b:'point',ang:30},{a:at('cuantos erais'),b:'hold',face:'smile'}],{x:190,sc:1.6,y:1015})];
+ sc[7].people=true;sc[7].dd=6;
+ return sc}}

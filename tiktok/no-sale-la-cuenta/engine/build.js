@@ -24,7 +24,8 @@ shots.forEach(h=>{if(!scenes.some(s=>Math.abs(s.start-h.a)<.05))sx.push([h.a-.03
 const bursts=sx.filter(x=>/hit|crash|ding/.test(x[1])).map(x=>({a:x[0],x:540,y:640,kind:x[1]==='ding'?'confetti':'spark'}));
 const data={dur,ep:meta.ep,scenes,subs,ins,shots,bursts};
 
-let html=fs.readFileSync(__dirname+'/player.html','utf8').replace('/*DATA*/null',JSON.stringify(data));
+data.words=W.map(w=>({s:w.s,e:w.e}));
+let html=fs.readFileSync(__dirname+'/player.html','utf8').replace('/*ACTOR*/',()=>fs.readFileSync(__dirname+'/actor.js','utf8')).replace('/*DIORAMA*/',()=>fs.readFileSync(__dirname+'/diorama.js','utf8')).replace('/*DATA*/null',()=>JSON.stringify(data));
 const HF=__dirname+'/video_'+path.basename(dir)+'.html';fs.writeFileSync(HF,html);
 (async()=>{
  const {chromium}=require('playwright');
