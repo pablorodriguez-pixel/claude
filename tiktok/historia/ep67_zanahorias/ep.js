@@ -1,19 +1,20 @@
 /* Ep. 67 · Las zanahorias no te hacen ver mejor (propaganda del radar) — edición estilo ep07 OK / ep64 kétchup */
 Story.prepara();
 const T = {
-  zana0: Q('zanahorias'), mejor0: Q('ver mejor'),
-  bulo1: Q('ese bulo'), ejercito: Q('un ejército'), esconder: Q('para esconder'), arma: Q('arma secreta'),
-  guerra2: Q('segunda guerra mundial'), aviones: Q('los aviones alemanes'), bomb: Q('bombardean londres'), noche2: Q('de noche'), apaga: Q('apaga todas las luces'),
-  pilotos3: Q('los pilotos británicos'), derribar: Q('derribarlos'), oscuras: Q('a oscuras'), uno: Q('uno de ellos'), john: Q('john cunningham'), tumba: Q('tumba a decenas'),
-  secreto: Q('su secreto'), radar: Q('un radar nuevo'), montado: Q('montado en el avión'), enemigo: Q('el enemigo'), saberlo: Q('saberlo'),
-  gobierno: Q('el gobierno'), otra: Q('otra cosa'), comen: Q('comen'), muchisimas: Q('muchísimas zanahorias'),
-  creen: Q('se lo creen'), casa7: Q('en casa'), carteles: Q('carteles'), recetas: Q('recetas'), personaje: Q('un personaje'), doctor: Q('doctor zanahoria'),
-  madres: Q('las madres'), comete: Q('cómete la zanahoria'), veras: Q('verás en la oscuridad'),
-  ahi9: Q('de ahí'), abuela1: Q('a tu abuela'), abuela2: Q('de tu abuela'), ati: Q('a ti'),
-  verdad: Q('la verdad'), vitA: Q('vitamina a'), ayuda: Q('ayuda si te falta'), pero10: Q('pero no te da'), buho: Q('ojos de búho'),
+  abuela0: Q('tu abuela'), mintio: Q('te mintió'), zana0: Q('zanahorias'),
+  ejercito: Q('no fue culpa suya'), esconder: Q('la engañó'), arma: Q('servicio secreto'),
+  guerra2: Q('mil novecientos cuarenta'), noche2: Q('cada noche'), aviones: Q('llegan los'), bomb: Q('bombarderos alemanes'), apaga: Q('apaga todas las luces'),
+  pilotos3: Q('un piloto inglés'), derribar: Q('derribarlos'), oscuras: Q('a oscuras'), uno: Q('se llama'), john: Q('john cunningham'),
+  u1: Q('uno'), u2: Q('dos'), u5: Q('cinco'), veinte: Q('veinte'), periodicos: Q('los periódicos'), mote: Q('un mote'), gato: Q('ojos de gato'),
+  como5: Q('cómo puede'), gobierno: Q('el gobierno'), otra: Q('la explicación'), comen: Q('come'), muchisimas: Q('muchísimas zanahorias'),
+  creen: Q('el país entero'), casa7: Q('a por zanahorias'), carteles: Q('carteles'), recetas: Q('recetas'), personaje: Q('un personaje'), doctor: Q('doctor zanahoria'),
+  secreto: Q('el secreto de verdad'), montado: Q('en el avión'), radar: Q('un radar diminuto'), enemigo: Q('veía en la oscuridad'), saberlo: Q('por él'),
+  alemanes9: Q('si los alemanes'), copiaban: Q('lo copiaban'), dar: Q('había que darles'), naranja: Q('naranja'),
+  ahi9: Q('el bulo funcionó'), abuela1: Q('ochenta años'), abuela2: Q('te lo seguía'), ati: Q('diciendo tu abuela'),
   ojo: Q('ojo'), engano: Q('engañó a los alemanes'),
-  osea: Q('o sea'), pequeno: Q('de pequeño'), propaganda: Q('propaganda de guerra'),
+  osea: Q('o sea'), pequeno: Q('para ver mejor'), propaganda: Q('propaganda de guerra'),
 };
+T.mejor0 = T.mintio; T.tumba = T.u1;
 const NARANJA = '#f28c28', VERDE = '#4c8a3a', CREMA = '#FBF6EA', NOCHE = '#1f2a44', RAF = '#6b7a4a', LUFT = '#7d8790', HIERRO = '#9aa4ad';
 const CAM = c => box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 960px' });
 const zoom = (cam, t, t0, d, a = 0.06) => set(cam, { s: 1.02 + a * p(t, t0, d, E.linear) });
@@ -29,6 +30,16 @@ const zanaInner = (o = {}) => `<path d="M100,72 C80,30 50,20 30,26 C60,40 80,56 
   <path class="zm" d="" fill="#7a2a20" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>
   ${o.chistera ? `<g><rect x="50" y="-40" width="100" height="90" rx="6" fill="${INK}"/><rect x="30" y="44" width="140" height="18" rx="8" fill="${INK}"/><rect x="50" y="20" width="100" height="14" fill="${PINK}"/></g>` : ''}
   ${o.gafas ? `<path d="M52,140 a26,26 0 1 0 52,0 a26,26 0 1 0 -52,0 M96,140 a26,26 0 1 0 52,0 a26,26 0 1 0 -52,0" stroke="${INK}" stroke-width="5" fill="none"/>` : ''}`;
+/* abuela con moño y gafas (caraF: ojos .ae, pupilas .ap, boca .am, cejas .ac) */
+const ABUELA = (c, x, y, w) => figura(c, x, y, w, w * 1.2, `<path d="M40,360 C40,280 90,250 150,250 C210,250 260,280 260,360 Z" fill="#c86a8a" stroke="${INK}" stroke-width="7"/><path d="M110,262 L150,320 L190,262" fill="#f4efe2" stroke="${INK}" stroke-width="5"/>
+  <circle cx="150" cy="58" r="42" fill="#d9d9d9" stroke="${INK}" stroke-width="6"/><circle cx="150" cy="170" r="100" fill="#f2c9a0" stroke="${INK}" stroke-width="7"/>
+  <path d="M52,160 C50,90 100,64 150,64 C200,64 250,90 248,160 C230,120 190,104 150,104 C110,104 70,120 52,160 Z" fill="#d9d9d9" stroke="${INK}" stroke-width="6"/>
+  <circle cx="92" cy="200" r="16" fill="#f29a9a" opacity=".6"/><circle cx="208" cy="200" r="16" fill="#f29a9a" opacity=".6"/>
+  <g class="ac"><path d="M96,132 q18,-10 36,0 M168,132 q18,-10 36,0" stroke="${INK}" stroke-width="5" fill="none" stroke-linecap="round"/></g>
+  <g class="ae"><ellipse cx="114" cy="162" rx="14" ry="16" fill="#fff" stroke="${INK}" stroke-width="4"/><ellipse cx="186" cy="162" rx="14" ry="16" fill="#fff" stroke="${INK}" stroke-width="4"/></g><g class="ap"><circle cx="116" cy="165" r="7" fill="${INK}"/><circle cx="188" cy="165" r="7" fill="${INK}"/></g>
+  <path d="M84,162 a30,30 0 1 0 60,0 a30,30 0 1 0 -60,0 M156,162 a30,30 0 1 0 60,0 a30,30 0 1 0 -60,0 M144,160 H156" stroke="${INK}" stroke-width="5" fill="rgba(255,255,255,.15)"/>
+  <path class="am" d="" fill="#7a2a20" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`, '0 0 300 360', { z: 8, origin: '50% 100%' });
+const abFace = (f, t, o = {}) => caraF(f, t, o, 162, [150, 222, 22, '.am', '.ap', '.ae', '.ac']);
 const ZANA = (c, x, y, w, o = {}) => figura(c, x, y, w, w * 2.1, zanaInner(o), '0 -40 200 460', Object.assign({ z: 9, origin: '50% 60%' }, o));
 const zFace = (f, t, o = {}) => caraF(f, t, o, 140, [100, 178, 18, '.zm', '.zp', '.ze', '.zc']);
 /* avión de perfil (mira a la derecha); cruz = alemán */
@@ -51,17 +62,18 @@ const mueveOndas = (os, t, x, y, on) => os.forEach((o, i) => { const k = ((t * 1
 /* L0 · PORTADA (fotograma 0 completo): zanahoria con cara y gafas de culo de vaso que habla con la voz; ¡FALSO! */
 plano(-1, L(1) - 0.1, PAPEL, c => {
   const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.34)', 'rgba(0,0,0,0)', 0);
-  texto(c, 250, '¿Las zanahorias te hacen…', { size: 72 });
-  const t2 = texto(c, 345, '…' + hlSpan('VER MEJOR?', 'phl'), { size: 116, italic: true });
-  const z = ZANA(c, 380, 520, 320, { gafas: true });
-  const hs = [[60, 820, 0], [820, 840, 1], [130, 1100, 2], [800, 1120, 3]].map(([x, y, i]) => ZANA(c, x, y, 150, {}));
-  const cartel = box(c, 60, 560, 260, 120, { zIndex: 12, background: CREMA, border: `6px solid ${INK}`, borderRadius: '14px', boxShadow: `8px 8px 0 ${INK}`, fontFamily: 'Rye', fontSize: '46px', textAlign: 'center', lineHeight: '108px', color: INK }, 'E F P T');
-  const fal = stamp(c, 330, 1130, '¡FALSO!', { size: 120, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  texto(c, 250, 'Tu abuela te mintió…', { size: 84 });
+  const t2 = texto(c, 345, 'con las ' + hlSpan('ZANAHORIAS', 'phl'), { size: 88, italic: true });
+  const ab = ABUELA(c, 40, 540, 470);
+  const z = ZANA(c, 520, 560, 260, { gafas: true });
+  const hs = [[820, 900, 0], [900, 1140, 1], [500, 1150, 2], [730, 1190, 3]].map(([x, y, i]) => ZANA(c, x, y, 150, {}));
+  const cartel = box(c, 780, 560, 260, 120, { zIndex: 12, background: CREMA, border: `6px solid ${INK}`, borderRadius: '14px', boxShadow: `8px 8px 0 ${INK}`, fontFamily: 'Rye', fontSize: '46px', textAlign: 'center', lineHeight: '108px', color: INK }, 'E F P T');
+  const fal = stamp(c, 330, 1060, '¡BULO!', { size: 120, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
   sfx('swoosh_up', 0.05, 0.6); sp(T.mejor0 + 0.3, 'stamp', 1);
   return t => {
     set(ry, { r: t * 6 }); set(t2, { r: -2 + wobble(t, 0.5, 1) }); paint(c.querySelector('.phl'), t, 0.25, 0.4);
     const hop = Math.abs(Math.sin(t * 5)); set(z, { y: -hop * 26, sy: 1 - 0.05 * (1 - hop), r: Math.sin(t * 2.5) * 4 });
-    zFace(z, t, { jaw: talkW(t, 'VECINO'), look: [Math.sin(t * 2) * 4, -2], feliz: 1, ceja: t > T.mejor0 ? 10 : 0 });
+    zFace(z, t, { jaw: 0.2, look: [-8, -2], feliz: t > T.mejor0 ? -1 : 1, ceja: t > T.mejor0 ? 14 : 0 }); abFace(ab, t, { jaw: talkW(t, 'VECINO'), look: [6, -2], feliz: 1, closed: t > T.mejor0 + 0.3 && t < T.mejor0 + 0.6 }); set(ab, { r: Math.sin(t * 2) * 2, y: -Math.abs(Math.sin(t * 3)) * 8 });
     hs.forEach((h, i) => { set(h, { y: -Math.abs(Math.sin(t * 5 + i * 1.3)) * 22, r: Math.sin(t * 4 + i) * 8 }); zFace(h, t, { feliz: 1, look: [i % 2 ? -6 : 6, -4], jaw: 0.3 + 0.3 * Math.sin(t * 8 + i), seed: i }); });
     set(cartel, { r: -6 + Math.sin(t * 2) * 2 });
     stampA(fal, t, T.mejor0 + 0.3, -8);
@@ -70,7 +82,7 @@ plano(-1, L(1) - 0.1, PAPEL, c => {
 shakeAt(T.mejor0 + 0.3, 0.3, 12);
 
 /* L1 · «ese bulo lo inventó un ejército… para esconder un arma secreta»: archivador TOP SECRET que se cierra con candado */
-headline(L(1) - 0.1, L(2) - 0.1, 'Un *bulo* de guerra', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 96, hlT: T.bulo1 + 0.1 });
+headline(L(1) - 0.1, L(2) - 0.1, 'Un *engaño* de espías', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 96, hlT: T.esconder + 0.1 });
 plano(L(1) - 0.1, L(2) - 0.1, { background: '#6b7a4a', backgroundImage: 'repeating-linear-gradient(45deg, rgba(0,0,0,.10) 0 30px, transparent 30px 60px)' }, c => {
   const cam = CAM(c);
   const gen = mkBust(cam, [60, 560, 420, 537], { hat: 'cap', uniform: 'officer', moustache: true, seed: 3 });
@@ -117,7 +129,7 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: NOCHE }, c => {
 shakeAt(T.bomb + 0.75, 0.3, 10); shakeAt(T.apaga + 0.4, 0.3, 12);
 
 /* L3 · los cazas británicos los derriban a oscuras → John Cunningham, con marcador de derribos */
-headline(L(3) - 0.1, L(4) - 0.1, 'Cazas *a oscuras*', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 96, hlT: T.oscuras });
+headline(L(3) - 0.1, L(4) - 0.1, 'Derribos *a oscuras*', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 96, hlT: T.oscuras });
 plano(L(3) - 0.1, T.uno - 0.1, { background: NOCHE }, c => {
   const cam = CAM(c);
   const ci = ciudad(cam, 3); ci.wins.forEach(w => w.style.opacity = 0.05);
@@ -132,27 +144,51 @@ plano(L(3) - 0.1, T.uno - 0.1, { background: NOCHE }, c => {
     enem.forEach((e, i) => { const tb = (i ? T.oscuras : T.derribar) + 0.3, kf = p(t, tb, 0.8, E.inCubic); set(e, { x: -kf * 100, y: kf * 600 + Math.sin(t * 2 + i) * 8, r: kf * 50, o: kf < 0.98 ? 1 : 0, sx: -1 }); gira(e, t); set(bum[i], { o: t > tb && t < tb + 0.35 ? 1 : 0, s: pop(t, tb, 0.2), x: 640 - i * 380, y: 420 + i * 230 }); set(humo[i], { o: t > tb ? 1 - p(t, tb + 0.4, 0.8) : 0, x: 720 - i * 380 - kf * 100, y: 500 + i * 230 + kf * 500, s: 1 + kf }); });
   };
 });
-plano(T.uno - 0.1, L(4) - 0.1, { background: '#2b3550', backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 60px, transparent 60px 120px)' }, c => {
+plano(T.uno - 0.1, T.periodicos - 0.1, { background: '#2b3550', backgroundImage: 'repeating-linear-gradient(90deg, rgba(255,255,255,.04) 0 60px, transparent 60px 120px)' }, c => {
   const cam = CAM(c);
   const pil = mkBust(cam, [80, 520, 480, 614], { hat: 'cap', uniform: 'officer', moustache: true, seed: 7 });
-  const nom = chip(cam, 300, 1170, 'John Cunningham', { size: 58, bg: '#fff', color: INK });
+  const nom = chip(cam, 300, 1230, 'John Cunningham', { size: 58, bg: '#fff', color: INK });
   const pan = box(cam, 620, 520, 380, 520, { zIndex: 8, background: '#5a4632', border: `8px solid ${INK}`, boxShadow: `12px 12px 0 ${INK}`, borderRadius: '12px' });
   el('div', pan, { left: 0, top: '20px', width: '364px', textAlign: 'center', fontFamily: 'Rye', fontSize: '40px', color: '#fff' }, 'DERRIBOS');
   const marcas = [...Array(20)].map((_, i) => box(pan, 30 + (i % 4) * 82, 100 + Math.floor(i / 4) * 78, 60, 50, { background: 'transparent' }, `<svg viewBox="0 0 60 50" width="60" height="50"><path d="M20,25 H40 M30,15 V35" stroke="#fff" stroke-width="10"/><path d="M20,25 H40 M30,15 V35" stroke="${INK}" stroke-width="4"/></svg>`));
   const cnt = texto(cam, 1080, '', { size: 120, color: GOLD, x: 620, w: 380, z: 20, shadow: `5px 5px 0 ${INK}` });
-  sp(T.john, 'ding', 0.7); [...Array(10)].forEach((_, i) => sp(T.tumba + i * 0.1, 'tick', 0.4)); sp(T.tumba + 1.0, 'tada', 0.7);
+  sp(T.john, 'ding', 0.7); [T.u1, T.u2, T.u5].forEach(x => sp(x, 'tick', 0.7)); [...Array(15)].forEach((_, i) => sp(T.veinte + i * 0.04, 'tick', 0.3)); sp(T.veinte + 0.7, 'tada', 0.8);
   return t => {
     zoom(cam, t, T.uno, 3, 0.08);
     face(pil, t, { look: [8, -2], jaw: t > T.tumba ? 0.4 : 0, bL: t > T.tumba ? 12 : 4, bR: 12, seed: 0.6 }); set(pil.d, { s: pop(t, T.uno - 0.1, 0.4) });
     popA(nom, t, T.john, { r: -3 });
-    let n = 0; marcas.forEach((m, i) => { const ti = T.tumba + i * 0.05; set(m, { o: t > ti ? 1 : 0, s: pop(t, ti, 0.2) }); if (t > ti) n++; }); cnt.textContent = n ? `×${n}` : '';
+    let n = 0; marcas.forEach((m, i) => { const ti = i < 1 ? T.u1 : i < 2 ? T.u2 : i < 5 ? T.u5 + (i - 2) * 0.08 : T.veinte + (i - 5) * 0.04; set(m, { o: t > ti ? 1 : 0, s: pop(t, ti, 0.2) }); if (t > ti) n++; }); cnt.textContent = n ? `×${n}` : '';
   };
 });
 shakeAt(T.derribar + 0.2, 0.3, 14);
 
-/* L4 · ¿su secreto? un RADAR montado en el avión (ondas + pantalla verde) · y el enemigo no podía saberlo */
-headline(L(4) - 0.1, L(5) - 0.1, 'El *secreto*', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 100, hlT: T.secreto + 0.1 });
-plano(L(4) - 0.1, L(5) - 0.1, { background: NOCHE }, c => {
+/* L4 · uno, dos, cinco… ¡veinte! y los periódicos le ponen mote: «OJOS DE GATO» (ojos de gato gigantes en la noche) */
+const BL = { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}` };
+headline(L(4) - 0.1, T.periodicos - 0.1, 'Uno, dos… *¡veinte!*', Object.assign({ size: 96, hlT: T.veinte }, BL));
+headline(T.periodicos - 0.1, L(5) - 0.1, '«Ojos de *Gato*»', Object.assign({ size: 100, hlT: T.gato }, BL));
+plano(T.periodicos - 0.1, L(5) - 0.1, { background: NOCHE }, c => {
+  const cam = CAM(c);
+  const ci = ciudad(cam, 3); ci.wins.forEach(w => w.style.opacity = 0.05);
+  const luna = box(cam, 780, 380, 160, 160, { zIndex: 2, background: '#f4efe2', border: `7px solid ${INK}`, borderRadius: '50%' });
+  const per = PERIODICO(c, 160, 470, '«OJOS DE GATO»', '¡el as de la noche!'); per.querySelector('div:nth-child(2)').textContent = 'Londres · 1941';
+  const ojos = box(cam, 140, 620, 800, 300, { zIndex: 9 }, `<svg viewBox="0 0 800 300" width="800" height="300"><g class="og">${[200, 600].map(x => `<path d="M${x - 170},150 Q${x},0 ${x + 170},150 Q${x},300 ${x - 170},150 Z" fill="#ffd400" stroke="${INK}" stroke-width="10"/><path class="pu" d="M${x},60 Q${x + 34},150 ${x},240 Q${x - 34},150 ${x},60 Z" fill="${INK}"/><circle cx="${x - 50}" cy="110" r="16" fill="#fff"/>`).join('')}</g></svg>`);
+  const pil = mkBust(cam, [380, 980, 320, 410], { hat: 'cap', uniform: 'officer', moustache: true, seed: 7 });
+  const miau = BOCADILLO(cam, 640, 980, '¡miau!', { size: 66 });
+  sp(T.periodicos - 0.1, 'whoosh', 0.8); sp(T.periodicos + 0.45, 'stamp', 0.9); sp(T.gato, 'sparkle', 0.9); sp(T.gato + 0.5, 'boing', 0.7);
+  return t => {
+    zoom(cam, t, T.periodicos, 3, 0.08);
+    giraPeriodico(per, t, T.periodicos - 0.1); set(per, { o: t > T.periodicos - 0.1 && t < T.gato - 0.05 ? 1 : 0 });
+    const ko = p(t, T.gato - 0.05, 0.35, E.outBack); set(ojos, { o: t > T.gato - 0.05 ? 1 : 0, s: ko, sy: ((t * 0.7) % 1) < 0.08 ? 0.1 : 1 });
+    ojos.querySelectorAll('.pu').forEach((q, i) => q.setAttribute('transform', `translate(${f1(Math.sin(t * 2) * 60)} 0)`));
+    set(pil.d, { o: t > T.gato + 0.2 ? 1 : 0, s: pop(t, T.gato + 0.2, 0.35) }); face(pil, t, { look: [Math.sin(t * 2) * 8, -2], bL: 12, bR: 12, jaw: 0.3, seed: 0.6 });
+    popA(miau, t, T.gato + 0.5, { r: 5 });
+  };
+});
+shakeAt(T.gato, 0.3, 12);
+
+/* L8 · ¿su secreto? un RADAR montado en el avión (ondas + pantalla verde) · y el enemigo no podía saberlo */
+headline(L(8) - 0.1, L(9) - 0.1, 'El *secreto* de verdad', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 100, hlT: T.secreto + 0.1 });
+plano(L(8) - 0.1, L(9) - 0.1, { background: NOCHE }, c => {
   const cam = CAM(c);
   const caza = AVION(cam, 40, 560, 520, RAF, false, true);
   const os = ondas(cam, 0, 0);
@@ -166,8 +202,8 @@ plano(L(4) - 0.1, L(5) - 0.1, { background: NOCHE }, c => {
   const ojos = box(cam, 300, 1130, 240, 90, { zIndex: 12 }, `<svg viewBox="0 0 240 90" width="240" height="90"><circle cx="60" cy="45" r="34" fill="#fff" stroke="${INK}" stroke-width="5"/><circle cx="180" cy="45" r="34" fill="#fff" stroke="${INK}" stroke-width="5"/><circle class="pq" cx="64" cy="48" r="12" fill="${INK}"/><circle class="pq" cx="184" cy="48" r="12" fill="${INK}"/></svg>`);
   sp(T.secreto, 'boing', 0.6); sp(T.radar, 'sparkle', 0.8); sp(T.radar + 0.3, 'msg_in', 0.7); sp(T.radar + 1.3, 'msg_in', 0.7); sp(T.montado, 'click', 0.6); sp(T.saberlo, 'stamp', 0.9);
   return t => {
-    zoom(cam, t, L(4), 6, 0.07);
-    set(caza, { y: Math.sin(t * 3) * 14, s: pop(t, L(4), 0.4) }); gira(caza, t);
+    zoom(cam, t, L(8), 6, 0.07);
+    set(caza, { y: Math.sin(t * 3) * 14, s: pop(t, L(8), 0.4) }); gira(caza, t);
     mueveOndas(os, t, 560, 610 + Math.sin(t * 3) * 14, t > T.radar);
     set(pant, { s: pop(t, T.radar + 0.2, 0.4), o: t > T.radar + 0.2 ? 1 : 0 }); set(barr, { r: t * 180 }); set(blip, { o: ((t * 0.5) % 1) < 0.3 ? 1 : 0.2 });
     popA(lb, t, T.radar, { r: -4 });
@@ -186,11 +222,12 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#C9D3E6', backgroundImage: 'repeati
   const mont = [...Array(12)].map((_, i) => ZANA(cam, 330 + (i % 6) * 70 - Math.floor(i / 6) * 30, 1180 - Math.floor(i / 6) * 70, 90, {}));
   const bocado = ZANA(cam, 470, 860, 120, {});
   const nam = BOCADILLO(cam, 620, 520, '¡ÑAM!', { size: 76 });
+  const como = BOCADILLO(cam, 420, 500, '¿cómo ve de noche?', { size: 50 });
   sp(T.gobierno, 'whoosh', 0.8); sp(T.otra, 'stamp', 0.6); [0, 1, 2].forEach(i => sp(T.comen + i * 0.35, 'gulp', 0.7)); mont.forEach((_, i) => sp(T.muchisimas + i * 0.06, 'pop', 0.3));
   return t => {
     zoom(cam, t, L(5), 5, 0.06);
     giraPeriodico(per, t, T.gobierno - 0.1); set(per, { o: t > T.gobierno - 0.1 && t < T.comen - 0.1 ? 1 : 0 });
-    set(pil.d, { o: t > T.comen - 0.2 ? 1 : 0, s: pop(t, T.comen - 0.2, 0.35) });
+    set(pil.d, { o: 1, s: pop(t, L(5) - 0.1, 0.35) }); popA(como, t, L(5) + 0.1, { r: -4, o: t < T.gobierno ? 1 : 0 });
     const chew = t > T.comen ? Math.abs(Math.sin(t * 12)) : 0; face(pil, t, { jaw: chew * 0.8, look: [0, 4], closed: chew > 0.6, bL: 6, bR: 6, seed: 0.2 });
     const kb = ((t - T.comen) * 1.2) % 1; set(bocado, { o: t > T.comen ? 1 - kb : 0, y: -kb * 160, s: 1 - kb * 0.6, r: -40 });
     mont.forEach((m, i) => { const t0 = T.muchisimas + i * 0.06; set(m, { o: t > t0 ? 1 : 0, s: pop(t, t0, 0.3), r: (i % 3 - 1) * 20 }); zFace(m, t, { feliz: 1, look: [0, -6], seed: i }); });
@@ -203,15 +240,15 @@ shakeAt(T.muchisimas + 0.5, 0.35, 14);
 sigueme(6, 'En clase…', '¡no te lo cuentan!', 'sígueme');
 
 /* L7 · se lo creen en casa: carteles, recetas… y el «DOCTOR ZANAHORIA» con chistera */
-headline(L(7) - 0.1, L(8) - 0.1, 'Hasta *en casa*', { size: 100, hlT: T.casa7 });
+headline(L(7) - 0.1, L(8) - 0.1, 'Todo el *país*', { size: 100, hlT: T.creen + 0.2 });
 plano(L(7) - 0.1, T.personaje - 0.1, { background: '#d8c3a0', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.12) 0 6px, transparent 6px 110px)' }, c => {
   const cam = CAM(c);
   const cart = [0, 1, 2].map(i => { const d = box(cam, 70 + i * 320, 470 + (i % 2) * 70, 300, 420, { zIndex: 6 + i, background: ['#f4efe2', YEL, '#9fd3c0'][i], border: `7px solid ${INK}`, boxShadow: `10px 10px 0 ${INK}`, fontFamily: 'Rye', fontSize: '40px', textAlign: 'center', color: INK, paddingTop: '20px' }, ['¡COME<br>ZANAHORIA!', 'VE EN EL<br>APAGÓN', 'SANA<br>Y FUERTE'][i]); const z = ZANA(d, 95, 150, 110, {}); d.z = z; return d; });
   const rec = box(cam, 300, 960, 480, 330, { zIndex: 10, background: CREMA, border: `7px solid ${INK}`, boxShadow: `10px 10px 0 ${INK}`, transformOrigin: '50% 100%' });
   el('div', rec, { left: '30px', top: '20px', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '56px', color: INK }, 'Receta:');
   el('div', rec, { left: '30px', top: '100px', width: '420px', fontFamily: 'SpecialElite', fontSize: '34px', lineHeight: 1.3, color: INK }, 'mermelada de zanahoria<br>tarta de zanahoria<br>zanahoria con zanahoria');
-  sp(T.carteles - 1.0, 'paper', 0.7); sp(T.carteles - 0.5, 'paper', 0.6); sp(T.carteles, 'paper', 0.6); sp(T.recetas, 'pop2', 0.7);
-  return t => { zoom(cam, t, L(7), 4, 0.06); cart.forEach((d, i) => { const tc = T.carteles - 1.0 + i * 0.5; set(d, { s: pop(t, tc, 0.35), o: t > tc ? 1 : 0, r: (i - 1) * 5 + Math.sin(t * 2 + i) }); zFace(d.z, t, { feliz: 1, jaw: 0.3, look: [0, -4], seed: i }); }); set(rec, { o: t > T.recetas - 0.1 ? 1 : 0, s: pop(t, T.recetas - 0.1, 0.35), r: -3 }); };
+  sp(L(7) + 0.2, 'paper', 0.7); sp(L(7) + 0.8, 'paper', 0.6); sp(L(7) + 1.4, 'paper', 0.6); sp(T.recetas, 'pop2', 0.7);
+  return t => { zoom(cam, t, L(7), 4, 0.06); cart.forEach((d, i) => { const tc = L(7) + 0.2 + i * 0.6; set(d, { s: pop(t, tc, 0.35), o: t > tc ? 1 : 0, r: (i - 1) * 5 + Math.sin(t * 2 + i) }); zFace(d.z, t, { feliz: 1, jaw: 0.3, look: [0, -4], seed: i }); }); set(rec, { o: t > T.recetas - 0.1 ? 1 : 0, s: pop(t, T.recetas - 0.1, 0.35), r: -3 }); };
 });
 plano(T.personaje - 0.1, L(8) - 0.1, PAPEL, c => {
   const cam = CAM(c);
@@ -226,70 +263,50 @@ plano(T.personaje - 0.1, L(8) - 0.1, PAPEL, c => {
 });
 shakeAt(T.doctor + 0.2, 0.3, 12);
 
-/* L8 · las madres repetían «cómete la zanahoria…»: cocina, cuchara voladora, el niño con cara de asco */
-headline(L(8) - 0.1, L(9) - 0.1, 'Cómete la *zanahoria*', { size: 90, hlT: T.comete });
-plano(L(8) - 0.1, L(9) - 0.1, { background: '#f4efe2', backgroundImage: `linear-gradient(45deg, rgba(43,74,140,.16) 25%, transparent 25%, transparent 75%, rgba(43,74,140,.16) 75%), linear-gradient(45deg, rgba(43,74,140,.16) 25%, transparent 25%, transparent 75%, rgba(43,74,140,.16) 75%)`, backgroundSize: '120px 120px', backgroundPosition: '0 0, 60px 60px' }, c => {
+/* L9 · si los alemanes se enteraban, lo copiaban → había que darles otra explicación… NARANJA (zanahoria gigante tapa el plano) */
+headline(L(9) - 0.1, L(10) - 0.1, 'Una tapadera *naranja*', { size: 90, hlT: T.naranja });
+plano(L(9) - 0.1, L(10) - 0.1, { background: '#d8c3a0', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.12) 0 6px, transparent 6px 110px)' }, c => {
   const cam = CAM(c);
-  box(cam, 0, 1160, 1080, 760, { zIndex: 2, background: WOOD, borderTop: `8px solid ${INK}` });
-  const nino = mkBust(cam, [380, 640, 400, 511], { seed: 81 }); nino.d.style.zIndex = 4;
-  const plato = box(cam, 300, 1110, 520, 90, { zIndex: 6, background: '#fff', border: `7px solid ${INK}`, borderRadius: '50%' });
-  const pz = [0, 1, 2, 3, 4].map(i => box(cam, 400 + i * 60, 1120, 46, 46, { zIndex: 7, background: NARANJA, border: `5px solid ${INK}`, borderRadius: '50%' }));
-  const cuch = box(cam, 0, 0, 380, 120, { zIndex: 12, transformOrigin: '100% 50%' }, `<svg viewBox="0 0 380 120" width="380" height="120"><path d="M380,60 H120" stroke="${HIERRO}" stroke-width="20" stroke-linecap="round"/><path d="M380,60 H120" stroke="${INK}" stroke-width="4"/><ellipse cx="80" cy="60" rx="70" ry="44" fill="${HIERRO}" stroke="${INK}" stroke-width="6"/><circle cx="80" cy="56" r="24" fill="${NARANJA}" stroke="${INK}" stroke-width="5"/></svg>`);
-  const bb = BOCADILLO(cam, 90, 470, '¡CÓMETELA!', { size: 70 });
-  const lu = box(cam, 0, 0, 1080, 1920, { zIndex: 15, background: 'radial-gradient(circle at 580px 820px, rgba(255,255,255,0) 160px, rgba(10,14,30,.85) 260px)' });
-  const bv = BOCADILLO(cam, 560, 1260 - 40, '¡veo! ¿veo?', { size: 54, z: 20 });
-  sp(T.madres, 'pop', 0.6); sp(T.comete, 'whoosh', 0.8); sp(T.comete + 0.5, 'gulp', 0.8); sp(T.veras, 'click', 0.8); sp(T.veras + 0.5, 'boing', 0.6);
+  const pl = box(cam, 420, 470, 600, 440, { zIndex: 6, background: '#2b4a8c', border: `8px solid ${INK}`, boxShadow: `12px 12px 0 ${INK}`, backgroundImage: 'linear-gradient(rgba(255,255,255,.18) 2px, transparent 2px), linear-gradient(90deg, rgba(255,255,255,.18) 2px, transparent 2px)', backgroundSize: '40px 40px' });
+  el('div', pl, { left: '20px', top: '14px', fontFamily: 'SpecialElite', fontSize: '34px', color: '#fff' }, 'PLANO · RADAR');
+  const av = AVION(pl, 60, 120, 460, RAF, false, true); av.style.filter = 'brightness(0) invert(1)';
+  const ts = stamp(cam, 520, 820, 'TOP SECRET', { size: 70, z: 20 });
+  const esp = mkBust(cam, [40, 640, 400, 512], { hat: 'slouch', moustache: true, seed: 66 });
+  const gem = box(cam, 120, 820, 240, 90, { zIndex: 12 }, `<svg viewBox="0 0 240 90" width="240" height="90"><rect x="10" y="10" width="90" height="70" rx="20" fill="${INK}"/><rect x="140" y="10" width="90" height="70" rx="20" fill="${INK}"/><rect x="95" y="30" width="50" height="24" fill="${INK}"/><circle cx="55" cy="45" r="24" fill="#7fb8e0"/><circle cx="185" cy="45" r="24" fill="#7fb8e0"/></svg>`);
+  const cp = BOCADILLO(cam, 90, 470, '¡a copiarlo!', { size: 54 });
+  const zg = ZANA(cam, 560, 300, 330, {});
+  const nar = stamp(cam, 480, 1120, 'TAPADERA', { size: 80, col: NARANJA, z: 30, bg: 'rgba(255,255,255,.9)', blend: 'normal' });
+  sp(T.alemanes9, 'whoosh', 0.6); sp(T.copiaban, 'typing', 0.7); sp(T.dar + 0.2, 'whoosh', 0.9); sp(T.dar + 0.7, 'thud', 1.0); sp(T.naranja, 'stamp', 1); sp(T.naranja + 0.3, 'boing', 0.7);
   return t => {
-    zoom(cam, t, L(8), 3.5, 0.08);
-    popA(bb, t, T.madres + 0.2, { r: -5 });
-    const k = p(t, T.comete - 0.3, 0.6, E.inOutCubic); set(cuch, { x: lerp(1100, 380, k) + Math.sin(t * 20) * (k < 1 ? 0 : 6), y: 760 + Math.sin(k * Math.PI) * -80 });
-    face(nino, t, t < T.comete + 0.3 ? { look: [10, 0], bL: 14, bR: 14, jaw: 0, seed: 0.1 } : t < T.veras ? { closed: true, jaw: Math.abs(Math.sin(t * 12)) * 0.6, bL: -4, bR: -4 } : { look: [Math.sin(t * 6) * 10, -4], bL: 16, bR: 16, jaw: 0.5 });
-    pz.forEach((q, i) => set(q, { y: -Math.abs(Math.sin(t * 6 + i)) * 8 }));
-    set(lu, { o: t > T.veras ? clamp((t - T.veras) * 4) : 0 }); set(bv, { o: t > T.veras + 0.5 ? 1 : 0, s: pop(t, T.veras + 0.5, 0.3), r: 4 });
+    zoom(cam, t, L(9), 4, 0.07);
+    set(pl, { s: pop(t, L(9) - 0.1, 0.4), r: -2 }); stampA(ts, t, L(9) + 0.3, -8);
+    const tapa = t > T.dar + 0.7;
+    set(esp.d, { s: pop(t, T.alemanes9 - 0.1, 0.4), x: Math.sin(t * 2) * 10 }); face(esp, t, { look: tapa ? [10, -6] : [10, -2], bL: tapa ? 16 : 4, bR: tapa ? 16 : 10, jaw: t > T.copiaban && t < T.copiaban + 0.6 ? 0.5 : tapa ? 0.6 : 0, seed: 0.4 });
+    set(gem, { o: t > T.alemanes9 && !tapa ? 1 : 0, y: Math.sin(t * 3) * 6 });
+    popA(cp, t, T.copiaban, { r: -4, o: tapa ? 0 : 1 });
+    const kz = p(t, T.dar + 0.2, 0.5, E.inCubic); set(zg, { o: t > T.dar + 0.2 ? 1 : 0, y: (1 - kz) * -900, r: tapa ? Math.sin(t * 6) * 3 + 70 : 70 * kz, sx: tapa ? 1 + 0.06 * Math.sin(t * 9) : 1 }); zFace(zg, t, { feliz: 1, jaw: 0.3, look: [-8, 0], ceja: 8 });
+    stampA(nar, t, T.naranja, -8);
   };
 });
+shakeAt(T.dar + 0.7, 0.35, 16);
 
-/* L9 · de ahí a tu abuela… y de tu abuela, a ti: la zanahoria pasa de mano en mano (relevo de generaciones) */
-headline(L(9) - 0.1, L(10) - 0.1, 'De generación *en generación*', { size: 78, hlT: T.abuela2 });
-plano(L(9) - 0.1, L(10) - 0.1, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 40px, transparent 40px 80px)' }, c => {
+/* L10 · de ahí a tu abuela… y de tu abuela, a ti: la zanahoria pasa de mano en mano (relevo de generaciones) */
+headline(L(10) - 0.1, L(11) - 0.1, '80 años *después*', { size: 92, hlT: T.abuela1 + 0.3 });
+plano(L(10) - 0.1, L(11) - 0.1, { background: '#E9C6BE', backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.08) 0 40px, transparent 40px 80px)' }, c => {
   const cam = CAM(c);
   const gens = [[50, '1940', 'brodie', true, 0], [375, 'tu abuela', 'slouch', false, 1], [700, 'tú', null, false, 2]].map(([x, s, hat, mo, i]) => { const fr = box(cam, x, 560, 290, 420, { zIndex: 5, background: CREMA, border: `14px solid ${GOLD}`, outline: `5px solid ${INK}`, boxShadow: `10px 10px 0 ${INK}` }); const b = mkBust(fr, [8, 30, 260, 333], { hat, moustache: mo, seed: 90 + i }); const lb = chip(cam, x + 40, 470, s, { size: 50, bg: '#fff', color: INK }); if (i === 0) fr.style.filter = 'sepia(.8)'; return { fr, b, lb, i }; });
   const z = ZANA(cam, 0, 0, 120, {});
   const yo = BOCADILLO(cam, 380, 1100, '¡a mí me lo decían!', { size: 48 });
   sp(T.ahi9, 'pop', 0.6); sp(T.abuela1, 'whoosh', 0.7); sp(T.abuela2, 'pop', 0.6); sp(T.ati, 'whoosh', 0.7); sp(T.ati + 0.3, 'ding', 0.8);
   return t => {
-    zoom(cam, t, L(9), 4, 0.07);
-    const ts = [L(9), T.abuela1, T.ati];
+    zoom(cam, t, L(10), 4, 0.07);
+    const ts = [L(10), T.abuela1, T.ati];
     gens.forEach(({ fr, b, lb, i }) => { set(fr, { s: pop(t, ts[i] - 0.1, 0.4), o: t > ts[i] - 0.1 ? 1 : 0, r: (i - 1) * 3 }); popA(lb, t, ts[i] + 0.1, { r: -2 }); face(b, t, { look: [i === 2 ? -6 : 6, 0], jaw: t > ts[i] && t < ts[i] + 0.7 ? 0.5 : 0, bL: i === 2 && t > T.ati ? 14 : 4, bR: 8, seed: i }); });
     const seg = t < T.abuela1 ? 0 : t < T.ati ? 1 : 2, t0 = ts[seg], k = p(t, t0, 0.5, E.inOutCubic), xa = 60 + Math.max(0, seg - 1) * 320 + 100, xb = 60 + seg * 320 + 100;
     set(z, { x: seg ? lerp(xa, xb, k) : xb, y: 900 - Math.sin(k * Math.PI) * 300, r: k * 360 }); zFace(z, t, { feliz: 1, look: [6, -4] });
     popA(yo, t, T.ati + 0.3, { r: 4 });
   };
 });
-
-/* L10 · la verdad: vitamina A ayuda si te falta… pero NO te da ojos de búho */
-headline(L(10) - 0.1, L(11) - 0.1, 'La *verdad*', { color: '#f4efe2', shadow: `5px 5px 0 ${INK}, -2px -2px 0 ${INK}, 2px -2px 0 ${INK}, -2px 2px 0 ${INK}`, size: 100, hlT: T.verdad + 0.1 });
-plano(L(10) - 0.1, T.pero10 - 0.1, { background: '#d9ecef', backgroundImage: 'linear-gradient(rgba(43,33,24,.10) 3px, transparent 3px), linear-gradient(90deg, rgba(43,33,24,.10) 3px, transparent 3px)', backgroundSize: '90px 90px' }, c => {
-  const cam = CAM(c);
-  const z = ZANA(cam, 160, 520, 260, {});
-  const va = box(cam, 520, 560, 420, 420, { zIndex: 9, borderRadius: '50%', background: GOLD, border: `10px solid ${INK}`, boxShadow: `12px 12px 0 ${INK}`, fontFamily: 'Playfair', fontWeight: 900, fontSize: '170px', textAlign: 'center', lineHeight: '400px', color: INK }, 'A');
-  const ok = box(cam, 700, 940, 200, 200, { zIndex: 11 }, CHECK);
-  const nota = chip(cam, 360, 1180, 'solo si te falta', { size: 60, bg: '#fff', color: INK });
-  sp(T.vitA, 'sparkle', 0.8); sp(T.ayuda, 'ding', 0.7); sp(T.ayuda + 0.4, 'stamp', 0.7);
-  return t => { zoom(cam, t, L(10), 4, 0.06); set(z, { y: -Math.abs(Math.sin(t * 4)) * 20, r: Math.sin(t * 3) * 5 }); zFace(z, t, { feliz: 1, jaw: talkW(t, 'VECINO') * 0.7, look: [8, -2] }); set(va, { o: t > T.vitA - 0.1 ? 1 : 0, s: pop(t, T.vitA - 0.1, 0.4) * (1 + 0.04 * Math.sin(t * 6)), r: Math.sin(t * 3) * 6 }); stampA(ok, t, T.ayuda + 0.4, -8); popA(nota, t, T.ayuda + 0.2, { r: -3 }); };
-});
-plano(T.pero10 - 0.1, L(11) - 0.1, { background: NOCHE }, c => {
-  const cam = CAM(c);
-  const luna = box(cam, 760, 380, 180, 180, { zIndex: 2, background: '#f4efe2', border: `7px solid ${INK}`, borderRadius: '50%' });
-  const rama = box(cam, 0, 1000, 1080, 50, { zIndex: 3, background: '#5a3a1e', border: `6px solid ${INK}`, borderRadius: '30px' });
-  const bu = BUHO(cam, 120, 600, 360);
-  const z = ZANA(cam, 620, 560, 220, { buho: true });
-  const x = box(cam, 560, 520, 340, 340, { zIndex: 20 }, XSVG);
-  const neg = BOCADILLO(cam, 100, 470, 'ni de broma', { size: 56 });
-  sp(T.pero10, 'whoosh', 0.6); sp(T.buho, 'boing', 0.8); sp(T.buho + 0.3, 'stamp', 0.9);
-  return t => { zoom(cam, t, T.pero10, 2, 0.08); set(bu, { r: Math.sin(t * 2) * 4 }); bu.querySelector('.bp').setAttribute('transform', `translate(${f1(Math.sin(t * 3) * 6)} 0)`); set(z, { s: pop(t, T.buho - 0.2, 0.4), o: t > T.buho - 0.2 ? 1 : 0 }); zFace(z, t, { feliz: -1, ceja: 14, look: [-8, 0] }); set(x, { o: t > T.buho + 0.3 ? 1 : 0, s: pop(t, T.buho + 0.3, 0.3) }); popA(neg, t, T.buho + 0.4, { r: -4 }); };
-});
-shakeAt(T.buho + 0.3, 0.3, 12);
 
 /* L11 · OJO: no está claro si el bulo engañó a los alemanes (espía alemán dudando) */
 plano(L(11) - 0.1, L(12) - 0.1, PAPEL, c => {
@@ -304,7 +321,7 @@ plano(L(11) - 0.1, L(12) - 0.1, PAPEL, c => {
 
 /* L12 · O sea: lo que te decían de pequeño… era PROPAGANDA DE GUERRA */
 colorHit(L(12) - 0.1, L(13) - 0.1, YEL, c => {
-  const a = texto(c, 280, 'Lo que te decían de pequeño…', { size: 84 });
+  const a = texto(c, 280, 'Cada zanahoria «para ver mejor»…', { size: 76 });
   const b = texto(c, 480, '…era propaganda', { size: 104, italic: true, color: RED });
   const z = ZANA(c, 400, 620, 260, { chistera: true });
   const meg = box(c, 650, 640, 300, 240, { zIndex: 12 }, `<svg viewBox="0 0 300 240" width="300" height="240"><path d="M40,90 L180,30 V210 L40,150 Z" fill="${RED}" stroke="${INK}" stroke-width="7"/><rect x="10" y="80" width="40" height="80" fill="${HIERRO}" stroke="${INK}" stroke-width="6"/><path d="M220,80 q30,40 0,80 M250,60 q46,60 0,120" stroke="${INK}" stroke-width="8" fill="none"/></svg>`);
@@ -321,5 +338,5 @@ cierre(67, 'Las zanahorias', ['ZANAHORIAS', 'y el radar']);
 Story.run({
   textura: true,
   ovalo: [[L(1) - 0.05, L(6) - 0.15], [L(7), L(13) - 0.15]],
-  vecino: { risa: [[T.comen + 0.2, T.comen + 1.2], [T.veras + 0.5, T.veras + 1.4], [T.ati + 0.3, T.ati + 1.1]], sorpresa: [[T.radar, T.radar + 0.8], [T.tumba, T.tumba + 0.8], [T.buho, T.buho + 0.8]], golpes: [T.arma, T.apaga + 0.4, T.derribar + 0.2, T.saberlo, T.muchisimas + 0.5, T.doctor + 0.2, T.buho + 0.3] },
+  vecino: { risa: [[T.comen + 0.2, T.comen + 1.2], [T.naranja + 0.3, T.naranja + 1.3], [T.ati + 0.3, T.ati + 1.1]], sorpresa: [[T.radar, T.radar + 0.8], [T.veinte, T.veinte + 0.8], [T.gato, T.gato + 0.8]], golpes: [T.arma, T.apaga + 0.4, T.derribar + 0.2, T.veinte + 0.7, T.gato, T.muchisimas + 0.5, T.doctor + 0.2, T.saberlo, T.naranja] },
 });

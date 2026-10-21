@@ -11,31 +11,31 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¡Las zanahorias no te hacen ver mejor!"
+   "text": "[excited] Tu abuela te mintió con las zanahorias."
   },
   {
    "who": "VECINO",
-   "text": "[mischievously] Ese bulo lo inventó un ejército... para esconder un arma secreta.",
+   "text": "[mischievously] Y no fue culpa suya. La engañó... el servicio secreto británico.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "Segunda Guerra Mundial. Los aviones alemanes bombardean Londres de noche, y la ciudad apaga todas las luces.",
+   "text": "Londres, mil novecientos cuarenta. Cada noche llegan los bombarderos alemanes, y la ciudad apaga todas las luces.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "Pero los pilotos británicos empiezan a derribarlos a oscuras. Uno de ellos, John Cunningham, tumba a decenas.",
+   "text": "Pero pasa algo rarísimo: un piloto inglés empieza a derribarlos... a oscuras. Se llama John Cunningham.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "[surprised] ¿Su secreto? Un radar nuevo, montado en el avión. Y eso el enemigo no podía saberlo.",
+   "text": "[surprised] Uno, dos, cinco... acaba con veinte. Y los periódicos le ponen un mote: «Ojos de Gato».",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "Así que el gobierno cuenta otra cosa: que sus pilotos comen muchísimas zanahorias.",
+   "text": "¿Cómo puede ver de noche? El gobierno da la explicación: come muchísimas zanahorias.",
    "gap_after": 0.3
   },
   {
@@ -45,32 +45,32 @@
   },
   {
    "who": "VECINO",
-   "text": "Y se lo creen hasta en casa. Carteles, recetas... y hasta un personaje: el «Doctor Zanahoria».",
+   "text": "Y el país entero se lanza a por zanahorias. Carteles, recetas... hasta sale un personaje: el «Doctor Zanahoria».",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "Las madres repetían: cómete la zanahoria, que verás en la oscuridad.",
+   "text": "[whispers] Pero el secreto de verdad iba en el avión: un radar diminuto, que veía en la oscuridad por él.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "[laughs] Y de ahí, a tu abuela. Y de tu abuela... a ti.",
+   "text": "Si los alemanes se enteraban, lo copiaban. Así que había que darles otra explicación... naranja.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "La verdad: la zanahoria tiene vitamina A, y ayuda si te falta. Pero no te da ojos de búho.",
+   "text": "[laughs] Y el bulo funcionó tan bien que, ochenta años después... te lo seguía diciendo tu abuela.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "Ojo: no está claro si el bulo engañó a los alemanes.",
+   "text": "Ojo: si engañó a los alemanes, no está claro.",
    "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "O sea: lo que te decían de pequeño... era propaganda de guerra.",
+   "text": "O sea: cada zanahoria que te comiste para ver mejor... era propaganda de guerra.",
    "gap_after": 0.3
   },
   {
