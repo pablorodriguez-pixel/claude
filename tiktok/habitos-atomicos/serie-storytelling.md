@@ -25,7 +25,37 @@ Orden recomendado de publicación (de mayor a menor gancho):
 
 ---
 
-## Ganchos v2 — centrados en el espectador (sustituyen a los de la tabla)
+## Ganchos v3 — directos: resultado + sin tu problema (los más actuales)
+
+**Fórmula:** `Así se [resultado que quiere] sin [su problema]` o una orden corta. Primera frase = la solución, no el problema. ≤ 8 palabras.
+Luego: puente de curiosidad (hook v1) → historia como prueba → tip.
+
+| # | Gancho v3 (texto en pantalla + voz) | Prueba |
+|---|---|---|
+| 1 | «Así avanzas aunque sientas que no avanzas.» | Brailsford y el 1 % |
+| 2 | «Así dejas de distraerte, sin fuerza de voluntad.» | Víctor Hugo |
+| 3 | «Así se deja un mal hábito sin recaer.» | Vietnam |
+| 4 | «Así eres constante sin depender de la motivación.» | Clips de Dyrsmid |
+| 5 | «Así empiezas hoy, sin el plan perfecto.» | 100 fotos vs. 1 |
+| 6 | «Así duplicas la probabilidad de cumplir tu hábito.» | 35 % → 91 % |
+| 7 | «Así cambias de hábitos sin esfuerzo: mueve una cosa.» | Cafetería del hospital |
+| 8 | «Así dejas de decir "es que no tengo talento".» | Hermanas Polgar |
+| 9 | «Así no abandonas a las dos semanas.» | Steve Martin |
+| 10 | «Así sigues aunque no tengas ganas.» | Seinfeld |
+| 11 | «Así conviertes tu talento en resultados.» | Lakers |
+| 12 | «Así haces que tu hábito te apetezca.» | Jabón de Karachi |
+
+**Aperturas de narración (Ep. 1–4), directas:**
+- **Ep. 1:** «Así avanzas aunque sientas que no avanzas: mejora un uno por ciento. Durante ciento diez años, ningún británico ganó el Tour…»
+- **Ep. 2:** «Así dejas de distraerte, sin fuerza de voluntad. Víctor Hugo lo hizo quedándose sin ropa. En mil ochocientos treinta…»
+- **Ep. 3:** «Así se deja un mal hábito sin recaer. Y no es con fuerza de voluntad. En mil novecientos setenta y uno…»
+- **Ep. 4:** «Así eres constante sin motivación: dos tazas y ciento veinte clips. Trent Dyrsmid era un novato…»
+
+**Test A/B recomendado:** v1 (curiosidad) vs. v3 (directo) en el Ep. 1 o 3. Los v2 quedan como variante tercera si hace falta.
+
+---
+
+## Ganchos v2 — centrados en el espectador (variante secundaria)
 
 **Fórmula:** `[Tu dolor o deseo, en 2ª persona] + [promesa concreta en ≤ 3 s]` → luego la historia como **prueba** → tip.
 Los ganchos «de curiosidad» de abajo pasan a ser la **2ª frase** (el puente a la historia), no la apertura.
