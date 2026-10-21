@@ -1,0 +1,222 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+@font-face{font-family:Archivo;src:url(archivo.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0E0F12}
+body{font-family:Archivo,sans-serif;color:#F4F1EA;-webkit-font-smoothing:antialiased}
+:root{--lime:#D4FF3A;--ora:#FF7A2F;--red:#FF3B5C;--ink:#0E0F12}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--ink)}
+#cam{position:absolute;inset:0;transform-origin:540px 800px}
+.grid{position:absolute;inset:-200px;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:60px 60px}
+.glow{position:absolute;width:900px;height:900px;border-radius:50%;filter:blur(120px);opacity:.28}
+.scene{position:absolute;inset:0;opacity:0;display:none}
+.abs{position:absolute}
+.cond{font-stretch:72%;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:.9}
+.tag{position:absolute;left:70px;top:250px;font-weight:800;font-size:34px;letter-spacing:.14em;text-transform:uppercase;padding:12px 22px;border-radius:8px;background:var(--lime);color:var(--ink)}
+.tag.red{background:var(--red);color:#fff}
+.src{position:absolute;left:70px;right:70px;top:1130px;font-size:26px;color:rgba(244,241,234,.6);font-weight:500;letter-spacing:.02em}
+.card{position:absolute;background:#191A1F;border:2px solid rgba(255,255,255,.09);border-radius:34px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.stamp{position:absolute;border:12px solid var(--lime);color:var(--lime);font-stretch:72%;font-weight:900;text-transform:uppercase;padding:10px 34px;border-radius:18px;background:rgba(14,15,18,.55);line-height:1}
+#subs{position:absolute;left:0;right:0;top:1235px;text-align:center;font-stretch:72%;font-weight:900;font-size:104px;line-height:1;text-transform:uppercase;paint-order:stroke fill;-webkit-text-stroke:14px #0b0b0d;letter-spacing:.005em;padding:0 50px}
+#subs span{display:inline-block;margin:0 14px}
+#top{position:absolute;left:0;right:0;top:0;height:8px;background:rgba(255,255,255,.12)}
+#bar{height:100%;background:var(--lime);width:0}
+#brand{position:absolute;left:70px;top:120px;font-weight:800;font-size:30px;letter-spacing:.2em;color:rgba(244,241,234,.75)}
+#brand b{color:var(--lime)}
+#vign{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(0,0,0,.55));pointer-events:none}
+.law{position:absolute;left:70px;right:70px;height:190px;border-radius:30px;display:flex;align-items:center;gap:36px;padding:0 44px;background:#191A1F;border:3px solid rgba(255,255,255,.1)}
+.law .n{width:110px;height:110px;border-radius:50%;background:var(--lime);color:var(--ink);font-stretch:72%;font-weight:900;font-size:78px;display:flex;align-items:center;justify-content:center;flex:none}
+.law .l{font-size:34px;font-weight:800;letter-spacing:.14em;color:rgba(244,241,234,.55)}
+.law .v{white-space:nowrap;font-stretch:72%;font-weight:900;font-size:74px;text-transform:uppercase;line-height:.95}
+.chip{position:absolute;padding:20px 38px;border-radius:100px;font-weight:800;font-size:46px;background:#23242A;border:3px solid rgba(255,255,255,.2)}
+.orb{position:absolute;border:5px solid rgba(212,255,58,.55);border-radius:50%}
+.dot{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--lime);box-shadow:0 0 30px var(--lime)}
+
+.person{position:absolute;width:120px;height:200px}
+.person i{position:absolute;left:30px;top:0;width:60px;height:60px;border-radius:50%;background:currentColor}
+.person b{position:absolute;left:10px;top:70px;width:100px;height:130px;border-radius:50px 50px 14px 14px;background:currentColor}
+.sq{position:absolute;width:30px;height:30px;border-radius:6px;background:rgba(255,255,255,.12)}
+.hl{font-stretch:72%;font-weight:900;text-transform:uppercase;line-height:.92;letter-spacing:-.01em}
+</style></head>
+<body><div id="stage"><div id="cam">
+<div class="grid" id="grid"></div>
+<div class="glow" id="glow" style="left:90px;top:200px;background:var(--lime)"></div>
+
+<!-- S1 HOOK (v3) -->
+<div class="scene" id="s1"><div id="hookBox">
+  <div class="tag">Ep. 3 · Hábitos atómicos</div>
+  <div class="abs hl" id="h1a" style="left:60px;right:40px;top:340px;font-size:134px;white-space:nowrap">Así se deja<br>un <span style="color:var(--red)">mal hábito</span></div>
+  <div class="abs hl" id="h1b" style="left:60px;right:40px;top:640px;font-size:200px;color:var(--lime)">sin recaer</div>
+  <div class="abs" id="h1c" style="left:60px;right:40px;top:900px;font-weight:800;font-size:54px;color:rgba(244,241,234,.75)">Y no es con fuerza de voluntad</div>
+</div></div>
+
+<!-- S2 GRID 1 DE 5 -->
+<div class="scene" id="s2">
+  <div class="tag">Vietnam · 1971</div>
+  <div id="s2p" class="abs" style="left:0;top:330px;width:1080px;height:230px"></div>
+  <div class="abs hl" id="s2n" style="left:70px;right:70px;top:620px;font-size:190px;color:var(--red)">1 de cada 5</div>
+  <div class="abs hl" id="s2t" style="left:70px;right:70px;top:810px;font-size:76px">adicto a la heroína</div>
+  <div class="abs hl" id="s2o" style="left:70px;right:70px;top:620px;font-size:150px;color:var(--lime);opacity:0">9 de cada 10<br>lo dejaron</div>
+  <div class="abs hl" id="s2q" style="left:0;right:0;top:980px;text-align:center;font-size:140px;color:var(--lime);opacity:0">¿Cómo?</div>
+</div>
+
+<!-- S3 CATASTROFE -->
+<div class="scene" id="s3">
+  <div class="abs hl" id="s3a" style="left:70px;right:70px;top:300px;font-size:110px;color:rgba(244,241,234,.8)">Volver a casa</div>
+  <div class="stamp" id="s3s" style="left:90px;top:520px;font-size:130px;border-color:var(--red);color:var(--red)">Catástrofe<br>esperada</div>
+</div>
+
+<!-- S4 INVESTIGADOR -->
+<div class="scene" id="s4">
+  <div class="tag">El giro</div>
+  <div class="card" id="s4c" style="left:70px;top:330px;width:940px;height:360px;padding:50px 56px">
+    <div style="font-weight:800;font-size:34px;letter-spacing:.14em;color:rgba(244,241,234,.55)">INVESTIGADOR</div>
+    <div class="hl" style="font-size:150px;margin-top:20px">Lee Robins</div>
+    <div style="font-weight:800;font-size:44px;margin-top:26px;color:var(--lime)">vio algo que lo cambió todo</div>
+  </div>
+</div>
+
+<!-- S5 100 CUADROS -->
+<div class="scene" id="s5">
+  <div class="abs hl" id="s5t" style="left:70px;top:230px;font-size:64px;color:rgba(244,241,234,.8)">100 soldados adictos</div>
+  <div id="s5g" class="abs" style="left:110px;top:330px;width:860px;height:480px"></div>
+  <div class="abs hl" id="s5n" style="left:70px;top:830px;font-size:200px;color:var(--red)">5</div>
+  <div class="abs hl" id="s5l" style="left:300px;top:850px;font-size:62px">recayeron<br>el primer año</div>
+  <div class="abs hl" id="s5r" style="left:70px;top:830px;font-size:150px;color:var(--lime);opacity:0">9 de cada 10<br><span style="font-size:76px;color:var(--ink);background:var(--lime);padding:0 14px;border-radius:10px">lo dejaron</span></div>
+</div>
+
+<!-- S6 RAZON -->
+<div class="scene" id="s6">
+  <div class="abs hl" id="s6a" style="left:70px;top:290px;font-size:84px;color:rgba(244,241,234,.5)">No fue la<br>fuerza de voluntad</div>
+  <div class="abs hl" id="s6b" style="left:70px;top:620px;font-size:230px;color:var(--lime)">El<br>entorno</div>
+</div>
+
+<!-- S7 SEÑALES VIETNAM -->
+<div class="scene" id="s7">
+  <div class="tag red">Vietnam</div>
+  <div class="abs hl" style="left:70px;top:340px;font-size:78px">Todo te empujaba<br>a consumir</div>
+  <div class="chip" id="t1" style="left:70px;top:640px;font-size:50px">Fácil de conseguir</div>
+  <div class="chip" id="t2" style="left:70px;top:790px;font-size:50px">Estrés constante</div>
+  <div class="chip" id="t3" style="left:70px;top:940px;font-size:50px">Amigos que consumían</div>
+</div>
+
+<!-- S7b EN CASA -->
+<div class="scene" id="s7b">
+  <div class="tag">En casa</div>
+  <div class="abs hl" style="left:70px;top:340px;font-size:78px">Las señales<br>desaparecieron</div>
+  <div class="chip" id="u1" style="left:70px;top:640px;font-size:50px;text-decoration:line-through;color:rgba(244,241,234,.5)">Fácil de conseguir</div>
+  <div class="chip" id="u2" style="left:70px;top:790px;font-size:50px;text-decoration:line-through;color:rgba(244,241,234,.5)">Estrés constante</div>
+  <div class="chip" id="u3" style="left:70px;top:940px;font-size:50px;text-decoration:line-through;color:rgba(244,241,234,.5)">Amigos que consumían</div>
+</div>
+
+<!-- S8 NO LO PELEES -->
+<div class="scene" id="s8">
+  <div class="abs hl" id="s8a" style="left:70px;top:330px;font-size:130px;color:rgba(244,241,234,.55)">No lo pelees</div>
+  <div class="abs hl" id="s8b" style="left:70px;top:520px;font-size:150px;color:var(--lime)">Quita lo<br>que lo<br>dispara</div>
+</div>
+
+<!-- S9 TIPS -->
+<div class="scene" id="s9">
+  <div class="tag">Hazlo hoy</div>
+  <div class="card" id="k1" style="left:70px;top:330px;width:940px;height:200px;padding:50px 56px"><div class="hl" style="font-size:80px">📵 Móvil fuera de la vista</div></div>
+  <div class="card" id="k2" style="left:70px;top:570px;width:940px;height:200px;padding:50px 56px"><div class="hl" style="font-size:80px">🍫 Dulces fuera de la vista</div></div>
+  <div class="card" id="k3" style="left:70px;top:810px;width:940px;height:200px;padding:50px 56px"><div class="hl" style="font-size:80px">🛣 Otro camino a casa</div></div>
+</div>
+
+<!-- S10 PREGUNTA -->
+<div class="scene" id="s10">
+  <div class="abs hl" id="s10h" style="left:70px;right:70px;top:300px;font-size:140px">¿Qué te dispara<br><span style="color:var(--lime)">tu peor hábito?</span></div>
+  <div class="card" id="s10c" style="left:70px;top:820px;width:940px;height:150px;border-radius:75px;display:flex;align-items:center;padding:0 50px;font-weight:800;font-size:46px;color:rgba(244,241,234,.6)">💬 Dímelo en comentarios…</div>
+</div>
+
+<!-- S11 LOOP -->
+<div class="scene" id="s11"><div id="loopBox" class="abs" style="inset:0"></div></div>
+
+</div>
+<div id="vign"></div>
+<div id="subs"></div>
+<div id="brand">SÉ IMPARABLE <b>●</b> HÁBITOS</div>
+<div id="top"><div id="bar"></div></div>
+</div>
+<script>
+const SUBS=__SUBS__; const T=__T__; const V='__V__'; const DUR=T.end;
+const $=id=>document.getElementById(id);
+const cl=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eo=x=>1-Math.pow(1-cl(x),3);
+const eback=x=>{x=cl(x);const c=1.9;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const p=(t,a,d=.35)=>cl((t-a)/d);
+T.s11=DUR-1.0;
+const ORDER=['s1','s2','s3','s4','s5','s6','s7','s7b','s8','s9','s10','s11'].filter(k=>T[k]!==undefined);
+const SC=ORDER.map((id,i)=>[id,T[id],i+1<ORDER.length?T[ORDER[i+1]]:99]);
+function pop(el,t,a,dur=.35,from=.6){const k=p(t,a,dur);el.style.opacity=cl(k*2);el.style.transform=`scale(${from+(1-from)*eback(k)})`}
+function rise(el,t,a,dur=.4,dist=80){const k=eo(p(t,a,dur));el.style.opacity=k;el.style.transform=`translateY(${(1-k)*dist}px)`}
+function stamp(el,t,a,rot=-8){const k=p(t,a,.22);el.style.opacity=k>0?1:0;const s=k<1?2.6-1.6*eo(k):1;el.style.transform=`rotate(${rot}deg) scale(${s})`}
+(function(){
+  const pp=$('s2p');for(let i=0;i<5;i++){const d=document.createElement('div');d.className='person';d.innerHTML='<i></i><b></b>';d.style.left=(70+i*190)+'px';d.style.top='0px';d.style.color='rgba(244,241,234,.4)';pp.appendChild(d)}
+  const g=$('s5g');for(let i=0;i<100;i++){const d=document.createElement('div');d.className='sq';d.style.left=(i%20)*43+'px';d.style.top=Math.floor(i/20)*90+'px';d.style.height='70px';d.style.width='34px';g.appendChild(d)}
+  // loop box = copy of hook
+  if(V==='v3'){$('loopBox').innerHTML=$('hookBox').innerHTML}
+  else{$('loopBox').innerHTML='<div class="abs hl" style="left:70px;right:70px;top:420px;font-size:190px;color:var(--red)">1 de cada 5</div><div class="abs hl" style="left:70px;right:70px;top:620px;font-size:76px">adicto a la heroína</div>'}
+})();
+window.render=function(t){
+  $('bar').style.width=(100*cl(t/DUR))+'%';
+  let cam=1,shakeX=0,shakeY=0;
+  for(const [id,a,b] of SC){
+    const el=$(id); const on=t>=a-0.18&&t<b+0.18;
+    el.style.display=on?'block':'none'; if(!on) continue;
+    const ki=cl((t-(a-0.18))/0.36), ko=cl((t-(b-0.18))/0.36);
+    let x=0,o=1;
+    if(t<a+0.18&&a>0){x=(1-eo(ki))*260;o=ki}
+    if(t>b-0.18&&b<90){x=-eo(ko)*260;o=1-ko}
+    el.style.opacity=o; el.style.transform=`translateX(${x}px)`;
+    el.style.filter=(o<1)?`blur(${(1-o)*14}px)`:'none';
+    const dcut=t-a; if(dcut>=0&&dcut<.3&&a>0) cam=1.06-0.06*eo(dcut/.3);
+  }
+  $('grid').style.transform=`translate(${(t*12)%60}px,${(t*18)%60}px)`;
+  $('glow').style.transform=`translate(${Math.sin(t*.5)*120}px,${Math.cos(t*.4)*200+300}px)`;
+  $('glow').style.background=(t>=(T.s2||0)&&t<(T.s5||0))?'#FF3B5C':'#D4FF3A';
+  // S1 (v3)
+  if(T.s1!==undefined){pop($('h1a'),t,.1,.4,.6);pop($('h1b'),t,.9,.35,.5);rise($('h1c'),t,2.6)}
+  // S2
+  {const a=T.s2;const ps=[...$('s2p').children];
+   ps.forEach((d,i)=>{const k=eback(p(t,a+.1+i*.1,.3));d.style.transform=`scale(${k})`;d.style.opacity=cl(k)});
+   const red=ps[2];const hit=t>=T.c5-.1;
+   if(hit){red.style.color=(V==='v1'&&t>=T.n9a-.1)?'#D4FF3A':'#FF3B5C';const q=p(t,T.c5-.1,.25);red.style.transform=`scale(${1+.3*Math.sin(q*Math.PI)+.1})`}
+   pop($('s2n'),t,T.c5-.2,.35,.5);rise($('s2t'),t,T.c5+.3);
+   if(V==='v1'){const k=eo(p(t,T.n9a-.1,.3));$('s2o').style.opacity=k;$('s2n').style.opacity=1-k;$('s2t').style.opacity=1-k;
+     $('s2q').style.opacity=eo(p(t,T.s3-2.3,.3));$('s2q').style.transform=`scale(${.8+.2*eback(p(t,T.s3-2.3,.3))})`}}
+  // S3
+  {const a=T.s3;rise($('s3a'),t,a+.05);stamp($('s3s'),t,a+1.2,-6);if(t>a+1.2&&t<a+1.45){shakeX=Math.sin(t*130)*14;shakeY=Math.cos(t*90)*10}}
+  // S4
+  pop($('s4c'),t,T.s4+.2,.4,.7);
+  // S5
+  {const a=T.s5;const sq=[...$('s5g').children];const kk=p(t,a+.1,.9);
+   sq.forEach((d,i)=>{const on=kk*100>i;const red=i<5;const later=t>=T.s5b;d.style.background=on?(later?(red?'#FF3B5C':'#D4FF3A'):(red?'#FF3B5C':'rgba(255,255,255,.45)')):'rgba(255,255,255,.12)'});
+   const k2=eo(p(t,T.s5b-.1,.35));$('s5n').style.opacity=cl(1-k2)*eo(p(t,T.s5+.5,.3));$('s5l').style.opacity=cl(1-k2)*eo(p(t,T.s5+.7,.3));
+   $('s5r').style.opacity=k2;$('s5r').style.transform=`scale(${.85+.15*eback(p(t,T.s5b-.1,.35))})`}
+  // S6
+  {const a=T.s6;rise($('s6a'),t,a+.1);$('s6a').style.textDecoration=t>a+.9?'line-through':'none';pop($('s6b'),t,a+1.2,.35,.5)}
+  // S7
+  ['t1','t2','t3'].forEach((k,i)=>pop($(k),t,T[k]-.2,.3,.5));
+  // S7b
+  {const a=T.s7b;['u1','u2','u3'].forEach((k,i)=>pop($(k),t,a+.4+i*.35,.3,.7))}
+  // S8
+  {const a=T.s8;rise($('s8a'),t,a+.05);pop($('s8b'),t,a+1.3,.35,.5)}
+  // S9
+  ['k1','k2','k3'].forEach(k=>{const el=$(k);const kk=eo(p(t,T[k]-.2,.35));el.style.opacity=kk;el.style.transform=`translateX(${(1-kk)*400}px)`});
+  // S10
+  {const a=T.s10;pop($('s10h'),t,a+.05,.35,.8);rise($('s10c'),t,a+1.6)}
+  // S11 loop
+  {const a=T.s11;$('loopBox').style.opacity=eo(p(t,a,.5))}
+  $('cam').style.transform=`scale(${cam}) translate(${shakeX}px,${shakeY}px)`;
+  const sub=$('subs'); let html='';
+  for(const c of SUBS){ if(t>=c.s-0.02&&t<c.e){ const k=p(t,c.s-0.02,.12);
+      html=c.w.map(w=>{const act=t>=w.s-0.03; const num=/\d|%/.test(w.t)||/^(UNO|DOS|TRES|CUATRO|CINCO|NUEVE|DIEZ|CIEN|MIL|NOVECIENTOS|SETENTA)$/.test(w.t);
+        const col=act&&(t<w.e+.05)?(num?'#FF7A2F':'#D4FF3A'):'#F4F1EA';
+        return `<span style="color:${col};opacity:${act?1:0}">${w.t}</span>`}).join('');
+      sub.style.transform=`scale(${.85+.15*eback(k)})`; break; } }
+  sub.innerHTML=html;
+};
+window.ready=document.fonts.ready.then(()=>true);
+</script></body></html>
