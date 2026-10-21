@@ -7,7 +7,7 @@
 <style>
 :root{--ink:#14161a;--stone:#ece8de;--paper:#f7f5ef;--bronze:#b8864b;--teal:#2f4a4f;--mute:#5b5f66;--line:#d9d4c6}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.55 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Inter",system-ui,-apple-system,"Segoe UI",sans-serif}
 .w{max-width:860px;margin:0 auto;padding:0 16px}
 h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;line-height:1.1;margin:0 0 .4em}
 h1{font-size:clamp(2.3rem,8vw,3.8rem)}h2{font-size:clamp(1.7rem,5vw,2.3rem)}h3{font-size:1.25rem}
@@ -17,117 +17,145 @@ section{padding:48px 0;border-top:1px solid var(--line)}
 .yes{background:var(--teal);color:#fff;border:0}
 .two{display:grid;gap:12px}@media(min-width:700px){.two{grid-template-columns:1fr 1fr}}
 .two .box{margin:0}
-.two ul,.box ul{margin:.3em 0 0;padding-left:1.2em}
+ul,ol{margin:.3em 0 0;padding-left:1.2em}
 .wk{background:var(--stone);border-radius:14px;padding:10px 16px;margin:28px 0 8px;font-weight:700}
 table{width:100%;border-collapse:collapse;font-size:.95rem}
 td{padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 td:first-child{width:44px;font-weight:700;color:var(--bronze)}
-td span{display:block;color:var(--mute);font-size:.88rem}
+td span{display:block;color:var(--mute);font-size:.88rem;font-style:italic}
+.script{background:#fff;border-left:4px solid var(--bronze);border-radius:0 16px 16px 0;padding:16px 20px;margin:12px 0}
+.script b{color:var(--bronze)}
 .bio{white-space:pre-line;border:1px dashed var(--bronze);border-radius:16px;padding:16px;background:#fff}
+.note{color:var(--mute);font-size:.92rem}
 </style>
 </head>
 <body>
 <header class="hero"><div class="w">
-  <h1>Ciudadela:<br>una lección estoica cada día</h1>
-  <p>Para quien quiere un carácter más fuerte y está dispuesto a entrenarlo a diario.</p>
+  <h1>Ciudadela:<br>escucha. Y piensa más fuerte.</h1>
+  <p>Una lección estoica de 3 minutos al día. Sin libros, sin retos, sin deberes.</p>
 </div></header>
 
 <section><div class="w">
-  <h2>Posicionamiento: lo que debe quedar claro</h2>
-  <div class="box yes"><b>Promesa:</b> "Cada día, una lección de 3 minutos y un ejercicio para fortalecer tu carácter. Si no fallas ni un día, en 30 días notarás menos procrastinación, más calma y más disciplina."</div>
+  <h2>La idea</h2>
+  <div class="box yes">Tú solo escuchas. Cada día una idea estoica, contada con una historia y en palabras sencillas. La cuenta hace el trabajo de repetirte, día tras día, la forma de pensar que endurece el carácter.</div>
   <div class="two">
     <div class="box"><b>Es para ti si…</b><ul>
-      <li>Procrastinas y quieres dejar de hacerlo</li>
-      <li>Te afecta lo que opinan de ti</li>
-      <li>Abandonas a los pocos días</li>
-      <li>Te hunden los imprevistos</li></ul></div>
+      <li>Quieres fortalecer tu carácter sin leer libros</li>
+      <li>Procrastinas o abandonas a los pocos días</li>
+      <li>Te afecta lo que opinan de ti o los imprevistos</li>
+      <li>Prefieres escuchar mientras caminas, conduces o te preparas</li></ul></div>
     <div class="box"><b>No es para ti si…</b><ul>
-      <li>Buscas motivación fácil o frases bonitas</li>
-      <li>Quieres resultados sin incomodidad</li>
-      <li>No vas a practicar los ejercicios</li></ul></div>
+      <li>Buscas resultados mágicos sin ningún esfuerzo</li>
+      <li>Necesitas terapia o ayuda profesional (esto la complementa, no la sustituye)</li></ul></div>
   </div>
-  <p><b>Por qué seguirla:</b> el carácter se entrena como un músculo, con repetición diaria. El canal es el gimnasio: cada día hay una sesión nueva y quien sigue se compromete con una racha.</p>
+  <p><b>Por qué funciona seguirla:</b> el carácter se forma con la forma en que piensas ante lo que pasa. Escuchar la misma manera de pensar cada día, con ejemplos distintos, la va haciendo tuya. Es como recibir cada mañana a un buen mentor al oído.</p>
+  <p class="note">Mantente honesto en el canal: escuchar ayuda a pensar distinto, pero el cambio real se nota cuando aplicas la idea en el momento difícil. Por eso cada lección acaba con una frase corta para llevarte, sin deberes.</p>
 </div></section>
 
 <section><div class="w">
-  <h2>Formato fijo de cada lección (60–90 s)</h2>
+  <h2>Formato de cada lección (2–3 min, solo audio)</h2>
   <div class="box"><ol>
-    <li><b>Gancho (0–5 s):</b> "Si procrastinas, escucha esto." Nombra el problema.</li>
-    <li><b>Idea estoica (5–30 s):</b> un principio, con una frase de Marco Aurelio, Séneca o Epicteto.</li>
-    <li><b>Ejercicio (30–60 s):</b> una acción concreta para hoy, de menos de 5 minutos.</li>
-    <li><b>Cierre (60–75 s):</b> "Mañana, lección 12. Si cumples, comenta 'hecho'." Crea racha y comentarios.</li>
+    <li><b>Gancho (10 s):</b> nombra algo que le pasa a tu oyente. "Hoy vas a aplazar algo. Escucha esto antes."</li>
+    <li><b>Historia (40 s):</b> una escena corta de Marco Aurelio, Séneca o Epicteto, o una situación cotidiana.</li>
+    <li><b>La idea (60 s):</b> el principio en palabras de calle, sin jerga.</li>
+    <li><b>Frase ancla (15 s):</b> una frase corta que repites dos veces. Es lo que el oyente se lleva a la cabeza.</li>
+    <li><b>Cierre (10 s):</b> "Mañana: lección 12. Aquí estaré."</li>
   </ol></div>
-  <p><b>Reglas de ritmo:</b> un Short diario a la misma hora · un vídeo largo (8–10 min) por semana que profundiza la lección más fuerte · la lección lleva número, "Lección 12/30", para que se note el progreso y haya motivo para volver.</p>
+  <p><b>Dónde publicar:</b> YouTube (con imagen fija o vídeo simple), Spotify y Apple Podcasts como podcast, y Shorts/Reels con un fragmento de 30 s. Mismo audio, varios canales. Misma hora cada día para que se vuelva ritual: "mi lección de la mañana".</p>
 </div></section>
 
 <section><div class="w">
   <h2>Plan de 30 lecciones</h2>
-  <p>Cuatro semanas, cada una con un objetivo. Basadas en las ideas de <i>Invicto</i> y <i>Sobre la felicidad</i>, y en los textos originales de los estoicos.</p>
+  <p>Cuatro bloques. En cada una, lo que va debajo es la <i>frase ancla</i>, no un ejercicio.</p>
 
-  <div class="wk">Semana 1 · Control y calma</div>
+  <div class="wk">Bloque 1 · Control y calma</div>
   <table>
-    <tr><td>1</td><td>Lo que depende de ti y lo que no<span>Ejercicio: escribe dos columnas y tacha lo segundo</span></td></tr>
-    <tr><td>2</td><td>Nada externo es bueno o malo, lo es tu respuesta<span>Cambia "esto es horrible" por "esto es un indiferente"</span></td></tr>
-    <tr><td>3</td><td>Cómo no sufrir por el futuro<span>Reflexionar no es preocuparse: 5 minutos, luego suelta</span></td></tr>
-    <tr><td>4</td><td>Observa tus pensamientos como testigo<span>Distanciamiento cognitivo ante un enfado</span></td></tr>
-    <tr><td>5</td><td>La opinión ajena no es tuya<span>Hoy haz algo sin pedir aprobación</span></td></tr>
-    <tr><td>6</td><td>La vista desde arriba<span>Aleja el problema a un año vista</span></td></tr>
-    <tr><td>7</td><td>Repaso y primera racha<span>Escribe qué ha cambiado</span></td></tr>
+    <tr><td>1</td><td>Lo que depende de ti y lo que no<span>"Mi poder está en mi respuesta."</span></td></tr>
+    <tr><td>2</td><td>Nada externo es bueno ni malo<span>"No es el hecho, es lo que decido hacer con él."</span></td></tr>
+    <tr><td>3</td><td>Sufrir por el futuro es sufrir dos veces<span>"Pienso en ello. No me preocupo por ello."</span></td></tr>
+    <tr><td>4</td><td>Observa tus pensamientos como un testigo<span>"Esto es un pensamiento, no un hecho."</span></td></tr>
+    <tr><td>5</td><td>La opinión ajena no es tuya<span>"Su opinión es su asunto."</span></td></tr>
+    <tr><td>6</td><td>La vista desde arriba<span>"¿Importará esto en un año?"</span></td></tr>
+    <tr><td>7</td><td>Resumen del bloque<span>"Controlo lo mío y suelto lo demás."</span></td></tr>
   </table>
 
-  <div class="wk">Semana 2 · Acción y disciplina</div>
+  <div class="wk">Bloque 2 · Acción y disciplina</div>
   <table>
-    <tr><td>8</td><td>La acción vence a la motivación<span>Regla de 10 minutos</span></td></tr>
-    <tr><td>9</td><td>Crea el tiempo<span>Quita una distracción de tu día</span></td></tr>
-    <tr><td>10</td><td>Vence la procrastinación<span>Empieza la tarea más temida primero</span></td></tr>
-    <tr><td>11</td><td>Incomodidad voluntaria<span>Ducha fría o ayuno ligero</span></td></tr>
-    <tr><td>12</td><td>Define el plan, no solo el objetivo<span>Un objetivo, tres pasos, fecha</span></td></tr>
-    <tr><td>13</td><td>Crea tu tribu<span>Cuéntaselo a una persona que te exija</span></td></tr>
-    <tr><td>14</td><td>Descansar también es disciplina<span>Alterna acción y descanso, sin culpa</span></td></tr>
+    <tr><td>8</td><td>La acción vence a la motivación<span>"Empiezo y las ganas llegan."</span></td></tr>
+    <tr><td>9</td><td>El tiempo no se encuentra, se crea<span>"Lo que no cuido, me lo quitan."</span></td></tr>
+    <tr><td>10</td><td>Por qué procrastinamos<span>"Lo difícil, primero."</span></td></tr>
+    <tr><td>11</td><td>Incomodidad voluntaria<span>"Lo incómodo me hace más fuerte."</span></td></tr>
+    <tr><td>12</td><td>Define el plan, no solo el sueño<span>"Un objetivo, tres pasos."</span></td></tr>
+    <tr><td>13</td><td>Rodéate de quien te exige<span>"Me parezco a quienes me rodean."</span></td></tr>
+    <tr><td>14</td><td>Descansar también es disciplina<span>"Descanso para volver más fuerte."</span></td></tr>
   </table>
 
-  <div class="wk">Semana 3 · Resistencia y adversidad</div>
+  <div class="wk">Bloque 3 · Resistencia y adversidad</div>
   <table>
-    <tr><td>15</td><td>Imagina lo peor para prepararte<span>Praemeditatio malorum, 3 minutos</span></td></tr>
-    <tr><td>16</td><td>Memento mori<span>Hoy, ¿en qué gastarías tu tiempo si fuera limitado?</span></td></tr>
-    <tr><td>17</td><td>Cómo recibir una crítica<span>¿Es cierta? Si sí, mejora. Si no, suelta</span></td></tr>
-    <tr><td>18</td><td>Perdona tus errores y sigue<span>Escribe el error, la lección y el siguiente paso</span></td></tr>
-    <tr><td>19</td><td>Supera la adversidad<span>El obstáculo es el camino: busca qué te enseña</span></td></tr>
-    <tr><td>20</td><td>Vence la tentación<span>Pon fricción entre tú y lo que te distrae</span></td></tr>
-    <tr><td>21</td><td>Paciencia<span>Aguanta una espera sin mirar el móvil</span></td></tr>
+    <tr><td>15</td><td>Imaginar lo peor para no temerlo<span>"Nada me pilla por sorpresa."</span></td></tr>
+    <tr><td>16</td><td>Memento mori<span>"Hoy cuenta."</span></td></tr>
+    <tr><td>17</td><td>Cómo recibir una crítica<span>"¿Es cierta? Entonces mejoro."</span></td></tr>
+    <tr><td>18</td><td>Perdona tus errores y sigue<span>"Fallé. Aprendo. Sigo."</span></td></tr>
+    <tr><td>19</td><td>El obstáculo es el camino<span>"Lo que me frena me entrena."</span></td></tr>
+    <tr><td>20</td><td>Cómo resistir la tentación<span>"Lo fácil de hoy es lo caro de mañana."</span></td></tr>
+    <tr><td>21</td><td>Paciencia<span>"Lo bueno lleva su tiempo."</span></td></tr>
   </table>
 
-  <div class="wk">Semana 4 · Carácter y sentido</div>
+  <div class="wk">Bloque 4 · Carácter y sentido</div>
   <table>
-    <tr><td>22</td><td>Qué es una buena vida<span>Escribe tus 3 valores</span></td></tr>
-    <tr><td>23</td><td>Virtud: actuar bien pase lo que pase<span>Una decisión de hoy guiada por un valor</span></td></tr>
-    <tr><td>24</td><td>Placer o virtud (Séneca)<span>Elige hoy lo correcto sobre lo cómodo</span></td></tr>
-    <tr><td>25</td><td>Sencillez y moderación<span>Renuncia a algo innecesario</span></td></tr>
-    <tr><td>26</td><td>Gratitud como entrenamiento<span>Imagina perder lo que tienes</span></td></tr>
-    <tr><td>27</td><td>Atención: dónde pones tu mente<span>Una hora sin pantallas</span></td></tr>
-    <tr><td>28</td><td>Tu diario estoico<span>Plantilla de mañana y noche</span></td></tr>
-    <tr><td>29</td><td>Evalúa tu progreso<span>Compara el día 1 con hoy</span></td></tr>
-    <tr><td>30</td><td>Y ahora, ¿qué?<span>Reinicia con un reto más duro y mantén la racha</span></td></tr>
+    <tr><td>22</td><td>Qué es una buena vida<span>"Vivir bien es actuar bien."</span></td></tr>
+    <tr><td>23</td><td>Virtud: hacer lo correcto pase lo que pase<span>"Hago lo correcto, aunque cueste."</span></td></tr>
+    <tr><td>24</td><td>Placer y virtud (Séneca)<span>"No todo lo agradable es bueno."</span></td></tr>
+    <tr><td>25</td><td>Sencillez y moderación<span>"Con menos soy más libre."</span></td></tr>
+    <tr><td>26</td><td>Gratitud<span>"Nada es mío, todo es prestado."</span></td></tr>
+    <tr><td>27</td><td>Atención: dónde pones tu mente<span>"Mi atención es mi vida."</span></td></tr>
+    <tr><td>28</td><td>Qué hacían los estoicos cada noche<span>"¿Qué hice bien hoy? ¿Qué mejoro?"</span></td></tr>
+    <tr><td>29</td><td>Cómo medir tu progreso<span>"No soy perfecto, soy mejor que ayer."</span></td></tr>
+    <tr><td>30</td><td>Y ahora, ¿qué?<span>"El carácter se entrena cada día."</span></td></tr>
   </table>
+  <p class="note">Después de la 30, el ciclo vuelve a empezar con otras historias y nuevos ángulos. Repetir las ideas es parte del método.</p>
 </div></section>
 
 <section><div class="w">
-  <h2>Configuración del canal (listo para copiar)</h2>
+  <h2>Dos guiones listos para grabar</h2>
+  <p class="note">Cada uno dura unos 2 minutos al ritmo normal de lectura. Están pensados para voz sola y están escritos de forma original, parafraseando ideas estoicas.</p>
+
+  <h3>Lección 1 · Lo que depende de ti</h3>
+  <div class="script">
+    <p><b>Gancho.</b> Seguro que hoy hay algo que te preocupa y que no puedes cambiar. Escucha esto antes de que te robe el día.</p>
+    <p><b>Historia.</b> Epicteto fue esclavo en Roma. No elegía dónde vivía, qué comía ni cuándo se movía. Y aun así, siglos después seguimos leyendo cómo vivió con una calma casi imposible. ¿Su secreto? Una distinción muy simple.</p>
+    <p><b>Idea.</b> Hay cosas que dependen de ti: lo que piensas, lo que decides, cómo respondes. Y hay cosas que no: lo que opinan los demás, el tráfico, el resultado de una entrevista, el pasado. Casi todo nuestro sufrimiento viene de gastar energía en la segunda lista. Epicteto decía que no nos perturban las cosas, sino lo que pensamos sobre ellas. No puedes elegir lo que pasa, pero sí tu respuesta. Y ahí está tu fuerza.</p>
+    <p><b>Frase ancla.</b> "Mi poder está en mi respuesta." Repítela conmigo: mi poder está en mi respuesta.</p>
+    <p><b>Cierre.</b> Mañana, la lección 2: por qué nada de lo que te pasa es bueno ni malo. Aquí estaré.</p>
+  </div>
+
+  <h3>Lección 8 · La acción vence a la motivación</h3>
+  <div class="script">
+    <p><b>Gancho.</b> ¿Estás esperando a tener ganas? Lo siento, no van a llegar.</p>
+    <p><b>Historia.</b> Marco Aurelio era emperador y aun así le costaba levantarse de la cama por las mañanas. En sus notas privadas se habla a sí mismo: "Al amanecer, cuando te cueste levantarte, recuerda que te levantas para hacer el trabajo de un ser humano". No esperó a tener ganas. Se levantó.</p>
+    <p><b>Idea.</b> Casi todos creemos que primero llega la motivación y luego la acción. Funciona al revés. Empiezas, aunque sea cinco minutos, y la energía llega después. Los estoicos lo sabían: la disciplina es hacer lo que toca estando de humor o no. Y cada vez que lo haces, te conviertes en alguien que cumple. Eso es el carácter.</p>
+    <p><b>Frase ancla.</b> "Empiezo y las ganas llegan." Otra vez: empiezo y las ganas llegan.</p>
+    <p><b>Cierre.</b> Mañana, la lección 9: cómo crear tiempo donde no lo hay. Hasta entonces.</p>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <h2>Configuración del canal</h2>
   <h3>Nombre y lema</h3>
-  <p><b>Ciudadela</b> · "Fortalece tu carácter. Cada día."</p>
+  <p><b>Ciudadela</b> · "Escucha. Fortalece tu carácter."</p>
   <h3>Descripción</h3>
-  <div class="bio">Una lección estoica al día para fortalecer tu carácter.
-Cada vídeo: una idea de Marco Aurelio, Séneca o Epicteto y un ejercicio de 5 minutos.
-Menos procrastinación. Más calma. Más disciplina.
-▶ Empieza por la Lección 1 (lista "30 días").
-Este canal es educativo y no sustituye ayuda profesional.</div>
+  <div class="bio">Una lección estoica al día, solo para escuchar.
+3 minutos con Marco Aurelio, Séneca y Epicteto, contados en palabras sencillas.
+Sin libros. Sin retos. Solo dale al play y piensa más fuerte.
+▶ Empieza por la Lección 1 (lista "30 lecciones").
+Contenido educativo; no sustituye ayuda profesional.</div>
   <h3>Para que te sigan</h3>
   <ul>
-    <li>Lista fijada "Reto 30 días" y vídeo de bienvenida de 30 s: "Si quieres un carácter más fuerte, suscríbete y no faltes ningún día".</li>
-    <li>Cada lección termina con el número del día siguiente y una petición de racha en comentarios.</li>
-    <li>Comunidad: pregunta diaria en la pestaña Comunidad ("¿Hecho hoy?").</li>
+    <li>Un vídeo de bienvenida de 30 s: "Una lección estoica cada día, para escuchar. Si quieres un carácter más fuerte, sígueme."</li>
+    <li>Mismo horario cada día. Una lista fijada con las 30 lecciones en orden.</li>
+    <li>Cada lección termina anunciando la siguiente, para crear hábito de volver.</li>
   </ul>
-  <p style="color:var(--mute);font-size:.92rem"><b>Importante:</b> yo no puedo crear ni gestionar la cuenta de YouTube por ti. Esto es todo el material preparado para que lo publiques tú.</p>
+  <p class="note"><b>Importante:</b> no puedo crear ni gestionar tu cuenta de YouTube, Spotify o TikTok. Esto es todo el material para que lo publiques tú. Si quieres, también puedo escribir los guiones del resto de lecciones.</p>
 </div></section>
 </body>
 </html>
