@@ -2,7 +2,7 @@
 // Uso: node render.js sheet t1 t2 ...   |   node render.js video DURACION
 const {chromium}=require('playwright');const {spawn}=require('child_process');const fs=require('fs');
 (async()=>{
- const tpl=fs.readFileSync(__dirname+'/template.html','utf8').replace('/*TIMING*/null',fs.readFileSync(__dirname+'/timing.json','utf8'));
+ const tpl=fs.readFileSync(__dirname+'/'+(process.env.TPL||'template.html'),'utf8').replace('/*TIMING*/null',fs.readFileSync(__dirname+'/'+(process.env.TIM||'timing.json'),'utf8'));
  fs.writeFileSync(__dirname+'/video.html',tpl);
  const mode=process.argv[2];
  const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium-1194/chrome-linux/chrome',args:['--allow-file-access-from-files']});

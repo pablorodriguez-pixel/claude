@@ -2,3 +2,6 @@ musica/*.mp3
 build/sfx.wav
 canal-estoico/video-01/build/chk.jpg
 build/chk.jpg
+build/sheet*.jpg
+build/sfx2.wav
+build/fonts.css.bak
