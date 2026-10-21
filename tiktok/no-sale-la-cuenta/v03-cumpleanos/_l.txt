@@ -1,0 +1,3 @@
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v03-cumpleanos/_head.wav'
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v03-cumpleanos/_gap.wav'
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v03-cumpleanos/_tail.wav'

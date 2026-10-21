@@ -4,7 +4,7 @@ const dir=path.resolve(process.argv[2]),mode=process.argv[3]||'video';
 const meta=require(dir+'/meta.js');
 const stt=JSON.parse(fs.readFileSync(dir+'/stt.json'));
 const W=stt.words.filter(w=>w.type==='word').map(w=>({t:w.text,s:w.start,e:w.end,n:w.text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9]/g,'')}));
-const dur=W[W.length-1].e+.9;
+const dur=W[W.length-1].e+(meta.tail??1.6);
 const at=(phrase,nth=0)=>{const k=phrase.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').split(/\s+/).map(x=>x.replace(/[^a-z0-9]/g,'')).filter(Boolean);let c=0;
   for(let i=0;i<=W.length-k.length;i++){if(k.every((x,j)=>W[i+j].n===x)){if(c++===nth)return W[i].s}}throw new Error('anchor no encontrado: '+phrase+' #'+nth)};
 const scenes=meta.scenes(at,dur);scenes.forEach((s,i)=>{s.end=i<scenes.length-1?scenes[i+1].start:dur});
@@ -16,7 +16,7 @@ const ins=(meta.inserts?meta.inserts(at):[]).sort((x,y)=>x.a-y.a);
 const PRESETS=['push','orbitL','tiltDn','orbitR','dutch','pull','tiltUp'];
 const shots=[];scenes.forEach((s,i)=>{const M=(s.macro||[]).filter(m=>m.a>s.start+.3&&m.a+m.d<s.end).sort((x,y)=>x.a-y.a);
   const segs=[];let c=s.start;M.forEach(m=>{if(m.a>c)segs.push({a:c,b:m.a});segs.push({a:m.a,b:m.a+m.d,m});c=m.a+m.d});if(c<s.end)segs.push({a:c,b:s.end});
-  let j=0;segs.forEach(g=>{if(g.m){shots.push({a:g.a,d:g.b-g.a,k:'macro',fx:g.m.fx,fy:g.m.fy});return}
+  let j=0;segs.forEach(g=>{if(g.m){shots.push({a:g.a,d:g.b-g.a,k:'macro',fx:g.m.fx,fy:g.m.fy,s:g.m.s});return}
     const L=g.b-g.a,n=Math.max(1,Math.round(L/2.9)),len=L/n;for(let q=0;q<n;q++){shots.push({a:g.a+q*len,d:len,k:PRESETS[(i*3+j*2)%PRESETS.length]});j++}})});
 shots.sort((x,y)=>x.a-y.a);
 const sx=[];scenes.forEach((s,i)=>{if(i>0)sx.push([s.start-.05,'whoosh',.55]);(s.sfx||[]).forEach(x=>sx.push(x))});ins.forEach((x,i)=>sx.push([x.a,x.sfx||(i%2?'pop':'hit'),.75]));

@@ -66,7 +66,7 @@ Regla: **cada escena tiene al menos un personaje actuando**; los datos (cifras, 
 5. **Cada dato clave lleva sello** (`stamp`) con *shake* y `hit`. Un sello por vídeo como mínimo en el pico.
 6. **Gráficos que se construyen en pantalla** (barras que suben, anillos que se llenan, simulación física real de la frenada). Nada de imagen estática.
 7. **Zona segura:** nada importante en el borde derecho (botones) ni bajo y≈1260 (descripción de TikTok).
-8. **Loop:** la última frase repite la primera y el último plano es el primero → el vídeo se re-ve solo (sube el tiempo de visionado medio).
+8. **Final épico (siempre igual):** voz *"Sigue la cuenta, y entra en el uno por ciento que controla los números"* + logo `≠` que entra con sello, botón **+ SEGUIR** que se pulsa y pasa a **✓ SIGUIENDO**, anillo que baja de **TOP 100 % a TOP 1 %**, corona 👑, confeti y todo el reparto celebrando. Es la firma del canal: identidad de club ("el 1 % que controla las cuentas") para convertir espectadores en seguidores. No afirma ninguna estadística falsa: es una aspiración, no un dato.
 
 ---
 
@@ -79,7 +79,7 @@ Regla: **cada escena tiene al menos un personaje actuando**; los datos (cifras, 
 | **8–25 s · Mecanismo** | Una sola idea, demostrada visualmente | Simulación de frenada / barra de precio / red de parejas |
 | **Pico (≈60 %)** | El dato que descoloca + sello + golpe de sonido | "73 km/h" · "−250 €" · "253 parejas" |
 | **Último tercio** | Generalización ("no es una excepción, es matemática") | Tabla, barras, regla general |
-| **Cierre** | **Pregunta comentable** + frase-loop | "¿Cuántos minutos valen tu vida?" / "Comenta tu respuesta" / "¿cuántos erais?" |
+| **Cierre (2 pasos)** | 1) **Pregunta comentable**  2) **Final épico de seguimiento** | "¿Cuántos minutos valen tu vida?" / "Comenta tu respuesta" / "¿cuántos erais?" → *"Sigue la cuenta, y entra en el uno por ciento que controla los números."* |
 
 **Palancas de comentario incluidas a propósito**
 - V1: pregunta de valor personal (polarizante, sin respuesta correcta) + comentario tipo escrito en pantalla.

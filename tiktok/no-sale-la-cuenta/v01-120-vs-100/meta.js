@@ -15,7 +15,7 @@ const raceScene=(start,t0,tGap,sfx)=>({type:'diorama',start,ground:1160,tag:'Cue
    {html:cond('+3 MIN',170,Y,'text-shadow:0 0 50px rgba(255,225,77,.5)'),x:540,y:1170,a:tGap,k:'slam',z:6}],
   macro:[{a:tGap,d:1.3,fx:540,fy:1170}],sfx});
 exports.scenes=(at,dur)=>{
- const tg=at('tres minutos'),tg2=at('tres minutos',2),hOpt={x:150};
+ const tg=at('tres minutos');
  const brakeScene=(start,hit)=>{
   const car=hit?{color:Y,label:'120',driver:{look:'prisa',acts:[{a:start,b:'drive',face:'angry'},{a:18.2,b:'drive',face:'shock'}]}}:{color:P,label:'100',driver:{look:'calma',acts:[{a:start,b:'drive',face:'smile'},{a:12.3,b:'drive',face:'shock'},{a:15.9,b:'drive',face:'smile'}]}};
   const tr=hit?[{a:16.9,d:1.0,x:330,e:'lin'},{a:17.9,d:.86,x:679,e:'lin'}]:[{a:10.2,d:3.2,x:432,e:'lin'},{a:13.4,d:2.5,x:670,e:'q'}];
@@ -63,7 +63,13 @@ exports.scenes=(at,dur)=>{
    actors:[host([{a:at('Cada vez'),b:'point',ang:20,face:'smile'},{a:at('arriesgas'),b:'point',ang:160,face:'sweat'}],{x:200,sc:1.75,y:1000})],sfx:[[at('arriesgas'),'pop',.8]]},
   {type:'cta',start:at('Asi que dime'),scale:.8,bgfx:'bokeh',title:'¿Cuántos minutos valen tu vida?',hs:112,a:at('Asi que dime'),typeA:at('Te leo'),typeD:1.3,text:'Ninguno. ¿Y tú?',subA:at('comentarios'),sub:'↓ Te leo en comentarios',by:820,
    actors:[host([{a:at('Asi que dime'),b:'think'},{a:at('Te leo'),b:'hold',face:'smile'}],{x:190,sc:1.6,y:1015})],sfx:[[at('Te leo'),'pop',.7]]},
-  raceScene(at('Porque ir'),at('Porque ir')+.2,tg2,[[tg2,'hit',.9]])
+  {type:'finale',start:at('Estas cuentas'),a0:at('Estas cuentas'),aF:at('Sigue la cuenta'),aT:at('entra en el 1'),pre:'Estas cuentas se te escapan cada día',bgfx:'rays',fx:'rgba(255,225,77,.2)',glow:'rgba(255,225,77,.16)',
+   macro:[{a:at('entra en el 1')+1.45,d:1.5,fx:540,fy:830,s:[1.04,1.2]}],
+   actors:[host([{a:at('Estas cuentas'),b:'shrug',face:'sweat'},{a:at('Sigue la cuenta'),b:'point',ang:70,face:'smile'},{a:at('entra en el 1')+1.5,b:'celebrate'}],{x:90,sc:.95,y:1118}),
+     actor('calma',[185,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el 1')+1.6,b:'celebrate'}],{sc:.95}),
+     actor('lila',[895,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el 1')+1.6,b:'celebrate'}],{sc:.95,flip:-1}),
+     actor('prisa',[990,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el 1')+1.5,b:'celebrate'}],{sc:.95,flip:-1})],
+   sfx:[[at('Sigue la cuenta'),'hit',.9],[at('Sigue la cuenta')+1.15,'ding',.8],[at('entra en el 1')-.4,'riser',.6],[at('entra en el 1')+1.5,'hit',1],[at('entra en el 1')+1.55,'ding',.9]]}
  ];
 };
 exports.inserts=at=>[

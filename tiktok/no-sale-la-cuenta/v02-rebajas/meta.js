@@ -25,10 +25,7 @@ exports.scenes=(at,dur)=>[
  {type:'table',start:at('Cuanto mas caes'),title:'Cuanto más caes,<br><span style="color:#FF2D55">más tienes que subir</span>',
    rows:[{f:10,u:11,a:at('Cuanto mas caes')+.3},{f:20,u:25,a:at('Cuanto mas caes')+.7},{f:50,u:100,a:at('mas caes')+1.1},{f:80,u:400,a:at('mas caes')+1.5},{f:90,u:900,a:at('mas caes')+1.9}],glow:'rgba(255,45,85,.12)',
    sfx:[[at('mas caes')+1.9,'hit',.9]]},
- {type:'cta',start:at('Comenta tu'),title:'Comenta tu respuesta',hs:128,a:at('Comenta tu'),typeA:at('quiero ver'),typeD:1.1,text:'20 %. Fijo.',subA:at('falla'),sub:'↓ ¿Cuánta gente falla?',by:800,sfx:[[at('quiero ver'),'pop',.7]]},
- {type:'title',start:at('Porque si'),top:300,gap:0,lines:[
-   {t:'−50 %',a:at('Porque si'),s:230,c:R},{t:'+50 %',a:at('suben',1),s:230,c:G},{t:'¿Vuelves al precio<br>de antes?',a:at('suben',1)+.5,s:100,css:'margin-top:20px'}],
-  stamp:{t:'No',x:400,y:960,s:230,a:at('vuelves',1),r:-8},sfx:[[at('vuelves',1),'hit',.9]]}
+ {type:'cta',start:at('Comenta tu'),title:'Comenta tu respuesta',hs:128,a:at('Comenta tu'),typeA:at('quiero ver'),typeD:1.1,text:'20 %. Fijo.',subA:at('falla'),sub:'↓ ¿Cuánta gente falla?',by:800,sfx:[[at('quiero ver'),'pop',.7]]}
 ];
 
 {const base=exports.scenes;
@@ -69,6 +66,13 @@ exports.scenes=(at,dur)=>[
  sc[5].scale=.8;sc[5].actors=[host([{a:sc[5].start,b:'point',ang:120},{a:at('Piensalo')-.2,b:'think'},{a:at('Veinticinco'),b:'celebrate'},{a:at('no veinte'),b:'point',ang:50,face:'angry'}],{x:190,sc:1.55,y:1030})];
  sc[6].scale=.72;sc[6].actors=[host([{a:sc[6].start,b:'present'},{a:at('mas caes')+1.9,b:'shock'}],{x:170,sc:1.4,y:1050})];
  sc[7].scale=.8;sc[7].actors=[host([{a:sc[7].start,b:'point',ang:30},{a:at('quiero ver'),b:'hold',face:'smile'}],{x:190,sc:1.6,y:1015})];
- sc[8].scale=.85;sc[8].actors=[host([{a:sc[8].start,b:'present',d:2.2},{a:at('suben',1)+.5,b:'think'},{a:at('vuelves',1),b:'shrug',face:'sweat'}],{x:200,sc:1.75,y:1000})];
+
+ sc[8]={type:'finale',start:at('Casi nadie'),a0:at('Casi nadie'),aF:at('Sigue la cuenta'),aT:at('entra en el 1'),pre:'Casi nadie controla estas cuentas',bgfx:'rays',fx:'rgba(255,225,77,.2)',glow:'rgba(255,225,77,.16)',
+   macro:[{a:at('entra en el 1')+1.45,d:1.5,fx:540,fy:830,s:[1.04,1.2]}],
+   actors:[host([{a:at('Casi nadie'),b:'shrug',face:'sweat'},{a:at('Sigue la cuenta'),b:'point',ang:70,face:'smile'},{a:at('entra en el 1')+1.5,b:'celebrate'}],{x:90,sc:.95,y:1118}),
+     actor('lila',[185,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el 1')+1.6,b:'celebrate'}],{sc:.95}),
+     actor('calma',[895,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el 1')+1.6,b:'celebrate'}],{sc:.95,flip:-1}),
+     actor('verde',[990,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el 1')+1.5,b:'celebrate'}],{sc:.95,flip:-1})],
+   sfx:[[at('Sigue la cuenta'),'hit',.9],[at('Sigue la cuenta')+1.15,'ding',.8],[at('entra en el 1')-.4,'riser',.6],[at('entra en el 1')+1.5,'hit',1],[at('entra en el 1')+1.55,'ding',.9]]};
  return sc};
  function C0(){return '#0B0C10'}}

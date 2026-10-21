@@ -352,6 +352,33 @@ function cameo(S,root){if(!S.cameo)return null;const c=S.cameo;const m=stick(roo
   return t=>{const k=eb(p(t,c.a,.35));const on=t>=c.a&&t<(c.a+(c.d||2.5));const bob=Math.sin(t*9)*5;const f=c.face||'smile';
     const out=1-p(t,c.a+(c.d||2.5)-.25,.25);
     m.pose({x:0,y:(1-k)*400+bob,sc:(c.sc||1.15)*(on?1:0),face:f,aL:f==='smile'?-100+Math.sin(t*14)*35:25+Math.sin(t*6)*6,aR:f==='smile'?100-Math.sin(t*14)*35:-25,lL:10,lR:-10,rot:Math.sin(t*5)*3,op:on?out:0})}}
+/* ---------- FINALE: llamada épica a seguir la cuenta (top 1 %) ---------- */
+B.finale=(S,root)=>{
+  const pre=mk(root,'abs cond',`left:60px;right:60px;top:340px;text-align:center;font-size:108px;line-height:.95;color:${C.paper}`,S.pre);
+  const logo=mk(root,'abs',`left:470px;top:285px;width:140px;height:140px;border-radius:36px;background:${C.y};box-shadow:0 0 90px rgba(255,225,77,.6)`,'<i style="position:absolute;left:28px;top:44px;width:84px;height:15px;border-radius:8px;background:#0B0C10"></i><i style="position:absolute;left:28px;top:80px;width:84px;height:15px;border-radius:8px;background:#0B0C10"></i><i style="position:absolute;left:62px;top:22px;width:15px;height:96px;border-radius:8px;background:#0B0C10;transform:rotate(24deg)"></i>');
+  const sig=mk(root,'abs cond',`left:0;right:0;top:455px;text-align:center;font-size:132px;color:${C.y};text-shadow:0 0 50px rgba(255,225,77,.45)`,'Sigue la cuenta');
+  const R=190,CI=2*Math.PI*R;
+  const ring=mk(root,'abs',`left:350px;top:640px;width:380px;height:380px`,`<svg viewBox="0 0 400 400" width="380" height="380" style="transform:rotate(-90deg);overflow:visible"><circle cx="200" cy="200" r="${R}" stroke="rgba(255,255,255,.12)" stroke-width="26" fill="none"/><circle id="fr" cx="200" cy="200" r="${R}" stroke="${C.y}" stroke-width="26" fill="none" stroke-linecap="round" stroke-dasharray="${CI}" stroke-dashoffset="0" style="filter:drop-shadow(0 0 14px rgba(255,225,77,.7))"/></svg>`);
+  const top=mk(root,'abs cond',`left:350px;width:380px;top:728px;text-align:center;font-size:58px;color:rgba(244,241,234,.8);letter-spacing:.12em`,'TOP');
+  const num=mk(root,'abs cond',`left:350px;width:380px;top:775px;text-align:center;font-size:170px;color:${C.y};line-height:1`,'100%');
+  const crown=mk(root,'abs',`left:0;right:0;top:575px;text-align:center;font-size:170px;line-height:1;opacity:0`,'👑');
+  const btn=mk(root,'abs cond',`left:230px;width:620px;top:1074px;height:112px;border-radius:100px;background:${C.y};color:#0B0C10;font-size:64px;line-height:112px;text-align:center;box-shadow:0 12px 50px rgba(255,225,77,.4);letter-spacing:.04em`,'+ SEGUIR');
+  const fing=mk(root,'abs',`left:520px;top:1120px;font-size:130px;line-height:1;opacity:0`,'👆');
+  const fr=root.querySelector('#fr');
+  return t=>{const k0=p(t,S.aF,.25);pre.style.opacity=t<S.aF?1:1-k0;rise(pre,t,S.a0,.4,60);if(t>=S.aF)pre.style.opacity=1-k0;
+    const on=t>=S.aF;[logo,sig,ring,top,num,btn].forEach(e=>{if(!on)e.style.opacity=0});
+    if(on){slam(logo,t,S.aF,-6,1.8);slam(sig,t,S.aF+.15,0,1.6);const kr=eo(p(t,S.aF+.4,.4));ring.style.opacity=top.style.opacity=num.style.opacity=kr;rise(btn,t,S.aF+.5,.4,90)}
+    shake(t,S.aF,.25,14);
+    const kt=p(t,S.aT,1.5),pct=t<S.aT?100:lerp(100,1,eio(kt));
+    num.textContent=Math.round(pct)+'%';fr.setAttribute('stroke-dashoffset',CI*(1-pct/100)*0.99);
+    const done=t>=S.aT+1.5;fr.setAttribute('stroke',done?'#FFC400':C.y);num.style.color=done?'#FFC400':C.y;top.style.opacity=done?0:top.style.opacity;num.style.fontSize=done?'118px':'170px';if(done)num.textContent='TOP 1%';
+    num.style.transform=done?`scale(${1+.06*Math.sin((t-S.aT)*9)})`:'none';
+    if(done){slam(crown,t,S.aT+1.5,-8,2.2);shake(t,S.aT+1.5,.35,22)}else crown.style.opacity=0;
+    // pulsación del botón "Seguir"
+    const tp=S.aF+1.15;const kf=p(t,tp-.5,.5);
+    fing.style.opacity=on&&t>=tp-.5&&t<tp+.8?1:0;fing.style.transform=`translate(${(1-eo(kf))*60}px,${(1-eo(kf))*140+(t>tp&&t<tp+.15?18:0)}px) scale(${t>tp&&t<tp+.15?.88:1})`;
+    if(t>=tp){btn.textContent='✓ SIGUIENDO';btn.style.background=C.g;btn.style.boxShadow='0 12px 50px rgba(123,227,139,.45)';const q=p(t,tp,.3);btn.style.transform=`scale(${lerp(1.15,1,el(q))})`;if(t<tp+.3)shake(t,tp,.3,8)}else{btn.textContent='+ SEGUIR';btn.style.background=C.y;btn.style.boxShadow='0 12px 50px rgba(255,225,77,.4)'}}};
+
 /* ---------- SETUP ---------- */
 const ROOT=$('scenes');
 /*ACTOR*/
@@ -382,7 +409,7 @@ window.render=t=>{
   $('glow').style.setProperty('--g',cur&&cur.S.glow||'rgba(255,225,77,.10)');
   const st=cur?cur.S.start:0;const tr=p(t,st,.22);
   let sh=SHOTS[0];for(const x of SHOTS){if(t>=x.a)sh=x;else break}
-  const e=eio(p(t,sh.a,sh.d)),pr=PRE[sh.k]||PRE.push,g=(k,d)=>pr[k]?lerp(pr[k][0],pr[k][1],e):d;
+  const e=eio(p(t,sh.a,sh.d)),pr=sh.s?{s:sh.s}:(PRE[sh.k]||PRE.push),g=(k,d)=>pr[k]?lerp(pr[k][0],pr[k][1],e):d;
   const cut=1+.1*(1-eo(p(t,sh.a,.24)));
   let act=null;for(const x of INS){if(t>=x.a&&t<x.a+x.d){act=x;break}}
   if(act){const q=p(t,act.a,.2),out=1-p(t,act.a+act.d-.12,.12);insEl.style.display='block';insEl.style.opacity=out;

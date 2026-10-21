@@ -1,0 +1,3 @@
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v02-rebajas/_head.wav'
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v02-rebajas/_gap.wav'
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v02-rebajas/_tail.wav'

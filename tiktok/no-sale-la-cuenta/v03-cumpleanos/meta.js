@@ -16,8 +16,7 @@ exports.scenes=(at,dur)=>[
  {type:'whatsapp',start:at('Mira ahora'),members:23,qA:at('coinciden'),q:'¿COINCIDEN?',
    msgs:[{who:'Tía Marta',c:'#E26AB6',t:'¡Felicidades, Lucía! 14 de marzo',a:at('grupo de whatsapp')},{who:'Primo Dani',c:'#53BDEB',t:'¡Felicidades, Pedro! 14 de marzo',a:at('de tu familia')},{who:'Tú',me:true,c:'#8696A0',t:'…espera, ¿otra vez?',a:at('A que hay')}],
    sfx:[[at('grupo de whatsapp'),'pop',.7],[at('de tu familia'),'pop',.7],[at('coinciden'),'hit',.8]]},
- {type:'cta',start:at('Compruebalo'),title:'Compruébalo y cuéntame',hs:118,a:at('Compruebalo'),typeA:at('cuantos erais')-.2,typeD:1.3,text:'Éramos 31. Coincidían 2',subA:at('erais'),sub:'↓ ¿Cuántos erais?',by:800,sfx:[[at('cuantos erais'),'pop',.7]]},
- {type:'field',start:at('veintitres',3),title:'23 personas.<br><span style="color:#FFE14D">¿Sí o no?</span>',pA:at('veintitres',3),pD:.02,rA:at('veintitres',3)+.5,glow:'rgba(123,227,139,.08)',tag:'Cuenta #03'}
+ {type:'cta',start:at('Compruebalo'),title:'Compruébalo y cuéntame',hs:118,a:at('Compruebalo'),typeA:at('cuantos erais')-.2,typeD:1.3,text:'Éramos 31. Coincidían 2',subA:at('erais'),sub:'↓ ¿Cuántos erais?',by:800,sfx:[[at('cuantos erais'),'pop',.7]]}
 ];
 
 {const base=exports.scenes;
@@ -41,5 +40,12 @@ exports.scenes=(at,dur)=>[
  sc[4].scale=.78;sc[4].actors=[host([{a:sc[4].start,b:'idle'},{a:at('Con cincuenta y siete'),b:'point',ang:110},{a:at('noventa y nueve'),b:'celebrate'}],{x:170,sc:1.45,y:1050})];
  sc[5].scale=.85;sc[5].actors=[host([{a:sc[5].start,b:'hold',face:'smile'},{a:at('coinciden'),b:'shock'}],{x:190,sc:1.6,y:1015})];
  sc[6].scale=.8;sc[6].actors=[host([{a:sc[6].start,b:'point',ang:30},{a:at('cuantos erais'),b:'hold',face:'smile'}],{x:190,sc:1.6,y:1015})];
- sc[7].people=true;sc[7].dd=6;
+
+ sc[7]={type:'finale',start:at('Tu intuicion'),a0:at('Tu intuicion'),aF:at('Sigue la cuenta'),aT:at('entra en el uno'),pre:'Tu intuición te engaña cada día',bgfx:'rays',fx:'rgba(255,225,77,.2)',glow:'rgba(255,225,77,.16)',
+   macro:[{a:at('entra en el uno')+1.45,d:1.5,fx:540,fy:830,s:[1.04,1.2]}],
+   actors:[host([{a:at('Tu intuicion'),b:'shrug',face:'sweat'},{a:at('Sigue la cuenta'),b:'point',ang:70,face:'smile'},{a:at('entra en el uno')+1.5,b:'celebrate'}],{x:90,sc:.95,y:1118}),
+     actor('prisa',[185,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el uno')+1.6,b:'celebrate'}],{sc:.95}),
+     actor('verde',[895,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el uno')+1.6,b:'celebrate'}],{sc:.95,flip:-1}),
+     actor('lila',[990,1118],[{a:at('Sigue la cuenta')+.3,b:'idle',face:'smile'},{a:at('entra en el uno')+1.5,b:'celebrate'}],{sc:.95,flip:-1})],
+   sfx:[[at('Sigue la cuenta'),'hit',.9],[at('Sigue la cuenta')+1.15,'ding',.8],[at('entra en el uno')-.4,'riser',.6],[at('entra en el uno')+1.5,'hit',1],[at('entra en el uno')+1.55,'ding',.9]]};
  return sc}}

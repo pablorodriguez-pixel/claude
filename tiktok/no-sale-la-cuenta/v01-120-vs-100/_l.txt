@@ -1,0 +1,3 @@
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v01-120-vs-100/_head.wav'
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v01-120-vs-100/_gap.wav'
+file '/home/user/claude/tiktok/no-sale-la-cuenta/v01-120-vs-100/_tail.wav'
