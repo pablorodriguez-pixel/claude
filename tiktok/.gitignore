@@ -6,3 +6,9 @@ music.mp3
 **/build/*.jpg
 **/sheet*.jpg
 voto-correo-tiktok.mp4
+no-sale-la-cuenta/**/shots/
+no-sale-la-cuenta/**/video_noaudio.mp4
+no-sale-la-cuenta/**/mix.m4a
+no-sale-la-cuenta/**/render.log
+no-sale-la-cuenta/engine/video_*.html
+no-sale-la-cuenta/**/voice_raw.mp3
