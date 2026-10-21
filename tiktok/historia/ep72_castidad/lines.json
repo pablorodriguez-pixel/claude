@@ -9,99 +9,99 @@
  {
   "line": 1,
   "who": "VECINO",
-  "text": "Y los que ves en los museos esconden un secreto bastante vergonzoso.",
+  "text": "Y hay museos que han escondido los suyos en el almacén... por vergüenza.",
   "s": 3.876,
-  "e": 8.077
+  "e": 8.497
  },
  {
   "line": 2,
   "who": "VECINO",
-  "text": "La historia que te cuentan: el caballero se va a las Cruzadas... y le pone un candado a su mujer.",
-  "s": 8.377,
-  "e": 13.654
+  "text": "La leyenda: Sir Godofredo se va a las Cruzadas. Y antes de irse, le pone un candado a su mujer... y se lleva la llave.",
+  "s": 8.797,
+  "e": 16.793
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "Pero en las crónicas de las Cruzadas no aparece ni uno.",
-  "s": 13.954,
-  "e": 17.31
+  "text": "Precioso. Pero vamos a investigar. Pista uno: las crónicas de las Cruzadas. Miles de páginas... y ni un solo cinturón.",
+  "s": 17.093,
+  "e": 26.047
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "La primera mención es de mil cuatrocientos cinco: un dibujo en un libro de inventos militares... seguramente de broma.",
-  "s": 17.61,
-  "e": 24.854
+  "text": "Pista dos: el primer dibujo aparece en mil cuatrocientos cinco, en un libro de armas lleno de inventos fantasiosos.",
+  "s": 26.347,
+  "e": 32.682
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "Era como un meme de la época: chistes y sátiras sobre maridos celosos.",
-  "s": 25.154,
-  "e": 29.067
+  "text": "Probablemente era un chiste. Como un meme de la época sobre maridos celosos.",
+  "s": 32.982,
+  "e": 37.139
  },
  {
   "line": 6,
   "who": "VECINO",
   "text": "Sígueme, que esto en clase no te lo cuentan.",
-  "s": 29.367,
-  "e": 31.974
+  "s": 37.439,
+  "e": 40.046
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "¿Y los de los museos? Muchos se fabricaron en los siglos dieciocho y diecinueve... para coleccionistas con gustos peculiares.",
-  "s": 32.274,
-  "e": 39.627
+  "text": "Pista tres, la más fuerte: los cinturones de los museos. Los analizan... y muchos son de los siglos dieciocho y diecinueve.",
+  "s": 40.346,
+  "e": 49.139
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "El Museo Británico ya dice en su ficha que el suyo es, probablemente, de esa época. Y otros museos los han retirado.",
-  "s": 39.927,
-  "e": 46.944
+  "text": "Los fabricaban para coleccionistas que querían cosas medievales raras. Y pagaban muy bien.",
+  "s": 49.439,
+  "e": 54.877
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "Además, llevar hierro día y noche habría causado heridas e infecciones graves.",
-  "s": 47.244,
-  "e": 51.234
+  "text": "Hasta el Museo Británico lo pone en su ficha: probablemente, de esa época. Y otros los han retirado.",
+  "s": 55.177,
+  "e": 61.768
  },
  {
   "line": 10,
   "who": "VECINO",
-  "text": "Así que esa Edad Media oscura y salvaje... en parte se inventó mucho después.",
-  "s": 51.534,
-  "e": 56.808
+  "text": "Así que Godofredo... nunca necesitó llave. Su candado se inventó seiscientos años después.",
+  "s": 62.068,
+  "e": 69.586
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Ojo: algún caso aislado pudo existir. Pero no como costumbre.",
-  "s": 57.108,
-  "e": 61.903
+  "s": 69.886,
+  "e": 74.681
  },
  {
   "line": 12,
   "who": "VECINO",
-  "text": "O sea: el cinturón de castidad medieval... es más bien un invento moderno.",
-  "s": 62.203,
-  "e": 66.916
+  "text": "O sea: el cinturón de castidad medieval... es más bien un souvenir moderno.",
+  "s": 74.981,
+  "e": 80.098
  },
  {
   "line": 13,
   "who": "VECINO",
   "text": "¿Qué otra cosa de la Edad Media crees que es mentira? Os leo.",
-  "s": 67.216,
-  "e": 70.49
+  "s": 80.398,
+  "e": 83.672
  },
  {
   "line": 14,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 70.84,
-  "e": 73.795
+  "s": 84.022,
+  "e": 86.977
  }
 ]
