@@ -110,6 +110,11 @@ def sfx2(name):
     if name == 'riser':  # subida tonal en vez de barrido de ruido blanco
         d = 1.3; t = t_(d); e = (t / d) ** 2
         return 0.06 * lp(noise(d), 900, 2) * e + 0.3 * (sweep(200, 900, d) + .5 * sweep(100, 450, d)) * e
+    if name == 'ding':  # timbre de pedalo
+        o = np.zeros(int(.9 * SR))
+        for at in (0, .22):
+            n_ = (sine(1800, .6) + .4 * sine(2700, .6)) * env(.6, .002, .25) * .14; s = int(at * SR); o[s:s + len(n_)] += n_
+        return lp(o, 4000)
     if name == 'flat':
         d = 2.6; t = t_(d); return sine(1000, d) * .16 * np.minimum(1, t / .02) * np.minimum(1, (d - t) / .6)
     return A.sfx(name)
@@ -131,6 +136,9 @@ def amb2(name, d):
         return roar + lp(cr, 1400)
     if name == 'water':  # bajo el agua: todo amortiguado
         return lp(n, 220, 3) * .16 * (.85 + .15 * np.sin(2 * np.pi * .25 * t))
+    if name == 'sea':  # oleaje grave y lento, sin siseo
+        sw = (.55 + .45 * np.sin(2 * np.pi * t / 5.5)) ** 2
+        return lp(n, 380, 3) * .13 * sw + lp(n, 150) * .05
     if name == 'river':
         return lp(hp(n, 120), 900, 2) * .05 + lp(n, 200) * .04
     if name == 'monitor':

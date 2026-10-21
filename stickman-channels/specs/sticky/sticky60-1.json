@@ -1,0 +1,376 @@
+{
+ "id": "sticky60-1",
+ "ch": "sticky",
+ "music": "sticky",
+ "bed": 0,
+ "series": "STICKY MAN",
+ "ep": "TIENE 60 SEGUNDOS",
+ "day": "",
+ "voices": {
+  "k": {
+   "eleven": "Nh2zY9kknu6z4pZy6FhD",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "+4%",
+   "pitch": "+0Hz",
+   "fx": "near"
+  },
+  "n": {
+   "eleven": "W5JElH3dK1UYYAiHH7uh",
+   "edge": "es-ES-AlvaroNeural",
+   "rate": "-6%",
+   "pitch": "-4Hz",
+   "fx": "room"
+  }
+ },
+ "beats": [
+  {
+   "who": "k",
+   "say": "[panicked] ¡¿Dónde está la playa?!",
+   "scene": "sea",
+   "p": {
+    "wake": 1,
+    "arrows": 1
+   },
+   "hud": {
+    "topic": "EL MAR SE LO LLEVA"
+   },
+   "cam": {
+    "f": [
+     350,
+     660,
+     1.35
+    ],
+    "t": [
+     360,
+     640,
+     1.0
+    ]
+   },
+   "sfx": [
+    [
+     "pop",
+     0.05
+    ]
+   ],
+   "amb": "sea",
+   "ov": {
+    "t": "secs"
+   }
+  },
+  {
+   "who": "n",
+   "say": "La corriente se lo ha llevado mar adentro.",
+   "scene": "sea",
+   "p": {
+    "wake": 1,
+    "arrows": 1
+   },
+   "amb": "sea"
+  },
+  {
+   "who": "n",
+   "say": "Le quedan sesenta segundos de fuerzas.",
+   "scene": "sea",
+   "p": {
+    "wake": 1,
+    "arrows": 1
+   },
+   "hud": {
+    "t0": 60,
+    "rate": 2.75
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "riser",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[determined] ¡Tranquilos, voy nadando!",
+   "scene": "sea",
+   "p": {
+    "swimin": 1,
+    "arrows": 1
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "splash",
+     0.1
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Error uno: nadar contra la corriente. Ni un nadador olímpico puede.",
+   "scene": "sea",
+   "p": {
+    "swimin": 1,
+    "arrows": 1,
+    "stamp": "x",
+    "label": "CONTRA LA CORRIENTE"
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "wrong",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Error dos: soltar lo único que flota.",
+   "scene": "sea",
+   "p": {
+    "letgo": 1,
+    "arrows": 1,
+    "stamp": "x",
+    "label": "SOLTAR EL FLOTADOR"
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "wrong",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[panicked] ¡Socorro! ¡Glu, glu, glu!",
+   "scene": "sea",
+   "p": {
+    "panic": 1
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "splash",
+     0.0
+    ],
+    [
+     "splash",
+     0.6
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Error tres: patalear. Gasta las fuerzas que le quedan.",
+   "scene": "sea",
+   "p": {
+    "panic": 1,
+    "stamp": "x",
+    "label": "PATALEAR"
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "wrong",
+     0.2
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Y en el último segundo… pasa un pedalo de jubilados.",
+   "scene": "sea",
+   "p": {
+    "pedalo": 1
+   },
+   "hud": {
+    "t0": 3,
+    "rate": 0.0001
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "ding",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "[relieved] ¡Gracias, señora!",
+   "scene": "sea",
+   "p": {
+    "pedalo": 1,
+    "aboard": 1
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "right",
+     0.1
+    ]
+   ]
+  },
+  {
+   "who": "n",
+   "say": "Milagro. Pero tú no cuentes con el pedalo. Así se hace:",
+   "scene": "sea",
+   "p": {
+    "rewind": 1,
+    "wake": 1
+   },
+   "hud": {
+    "t0": 60,
+    "rate": 1
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "rewind",
+     0.0
+    ],
+    [
+     "pop",
+     1.2
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Uno: no sueltes el flamenco. Flota por ti.",
+   "scene": "sea",
+   "p": {
+    "hold": 1,
+    "calm": 1,
+    "stamp": "ok",
+    "label": "1 · NO LO SUELTES"
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Dos: no vayas recto. Sal de la corriente nadando en paralelo a la orilla.",
+   "scene": "ripmap",
+   "p": {
+    "ring": 1,
+    "stamp": "ok",
+    "label": "2 · EN PARALELO"
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "Tres: levanta un brazo y grita. Es la señal de ayuda.",
+   "scene": "sea",
+   "p": {
+    "signal": 1,
+    "calm": 1,
+    "far": 0.4,
+    "stamp": "ok",
+    "label": "3 · BRAZO ARRIBA"
+   },
+   "amb": "sea",
+   "sfx": [
+    [
+     "right",
+     0.3
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¿Lo ves desde la orilla? No te tires: avisa al socorrista o llama al uno, uno, dos.",
+   "scene": "recap",
+   "p": {
+    "steps": [
+     "FLOTA",
+     "EN PARALELO",
+     "BRAZO ARRIBA",
+     "¿LO VES? AL 112"
+    ]
+   },
+   "hud": {
+    "off": true,
+    "t0": null
+   },
+   "sfx": [
+    [
+     "pop",
+     0.3
+    ],
+    [
+     "pop",
+     1.2
+    ],
+    [
+     "pop",
+     2.1
+    ],
+    [
+     "pop",
+     3.0
+    ]
+   ]
+  },
+  {
+   "who": "k",
+   "say": "¿Y tú cómo habrías salido? Sin pedalo, ¿eh? Comenta.",
+   "scene": "askyou",
+   "p": {},
+   "amb": "sea",
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ],
+    [
+     "pop",
+     0.8
+    ]
+   ],
+   "pause": 0.5
+  },
+  {
+   "say": "",
+   "scene": "black",
+   "ov": {
+    "t": "sticky_end",
+    "sub": "TIENE 60 SEGUNDOS",
+    "cta": "MAÑANA, OTRA SITUACIÓN"
+   },
+   "hold": 2.4,
+   "sfx": [
+    [
+     "pop",
+     0.1
+    ]
+   ]
+  }
+ ],
+ "cover": {
+  "top": "STICKY TIENE 60 SEGUNDOS",
+  "title": "EL MAR SE LO LLEVA",
+  "scene": "sea",
+  "t": 2,
+  "p": {
+   "wake": 1,
+   "arrows": 1
+  },
+  "cam": [
+   340,
+   470,
+   1.3
+  ]
+ }
+}
