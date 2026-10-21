@@ -41,6 +41,7 @@ hits=boom(0.05,1.2)+boom(11.3,1.4)+boom(19.5,0.9)+boom(37.9,1.5)+boom(41.65,1.2)
 # Riser (ruido que sube) antes de la frase ancla
 riser=lp(rng.standard_normal(N),3000)*np.clip((t-33)/4.6,0,1)**2*(t<37.7)*0.35
 mix=pad+sub+pulse*0.8+wind+hits*0.9+riser
+if len(sys.argv)>2 and sys.argv[2]=='sfx': mix=wind+hits*0.9+riser
 mix/=np.max(np.abs(mix))*1.05
 st=np.stack([mix,np.roll(mix,int(0.012*SR))*0.96],1)  # ligero ensanchado estéreo
 w=wave.open(sys.argv[1],'wb'); w.setnchannels(2); w.setsampwidth(2); w.setframerate(SR)
