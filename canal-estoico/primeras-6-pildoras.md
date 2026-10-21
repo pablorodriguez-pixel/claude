@@ -11,6 +11,20 @@ Fuente: ideas extraídas del libro *Invicto* (capítulos "Principios estoicos" y
 | 5 | Aprendiz | "Un esclavo susurraba esto a los generales." | Según la tradición, en los desfiles de victoria romanos un sirviente le recordaba al general que era mortal ("memento mori"), para que no se creyera un dios. | Recordar que el tiempo es limitado quita el miedo y da urgencia. | "Hoy cuenta." | Distracción, ego, falta de rumbo |
 | 6 | Aprendiz | "Para empezar solo necesitas cinco minutos." | Marco Aurelio: "Comenzar es la mitad del trabajo." Tu mente se paraliza ante lo grande; hazlo tan pequeño que sea imposible decir que no. | Baja el listón: el primer paso pequeño crea inercia. | "Hoy, solo cinco minutos." | Perfeccionismo, bloqueo, hábitos |
 
+## Ganchos v2 (van al grano: qué vas a mejorar)
+Fórmula: **resultado concreto para el espectador + prueba o método en una frase.** Se dice en los primeros 3 segundos y sale en texto grande en pantalla.
+
+| # | Gancho |
+|---|---|
+| 1 | "Así dejas de hundirte cuando pierdes algo. Lo hizo un hombre que lo perdió todo." |
+| 2 | "Así dejas de procrastinar aunque no tengas ganas. Lo hacía un emperador." |
+| 3 | "Deja de sufrir por lo que no puedes controlar. Con la regla del arquero." |
+| 4 | "Así dejas de rabiar por lo que ya no puedes cambiar. Con un perro y una carreta." |
+| 5 | "Así dejas de perder el tiempo en tonterías. Con una frase que los romanos susurraban a sus generales." |
+| 6 | "Así rompes el bloqueo y empiezas hoy. Solo necesitas 5 minutos." |
+
+Los ganchos de la tabla siguiente quedan como segunda opción para pruebas A/B.
+
 ## Por qué este orden
 1. **Pérdida → 2. Pereza → 3. Control → 4. Aceptación → 5. Tiempo → 6. Primer paso.** Va de lo emocional (miedo a perder) a lo práctico (empezar). Las dos primeras atacan los dolores más fuertes de la audiencia: miedo y procrastinación.
 2. La 6 cierra el primer bloque con una acción pequeña, para que quien termina las 6 sienta que ya ha cambiado algo.
