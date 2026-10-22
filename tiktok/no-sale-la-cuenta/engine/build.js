@@ -19,8 +19,7 @@ const shots=[];scenes.forEach((s,i)=>{const M=(s.macro||[]).filter(m=>m.a>s.star
   let j=0;segs.forEach(g=>{if(g.m){shots.push({a:g.a,d:g.b-g.a,k:'macro',fx:g.m.fx,fy:g.m.fy,s:g.m.s});return}
     const L=g.b-g.a,n=Math.max(1,Math.round(L/2.9)),len=L/n;for(let q=0;q<n;q++){shots.push({a:g.a+q*len,d:len,k:PRESETS[(i*3+j*2)%PRESETS.length]});j++}})});
 shots.sort((x,y)=>x.a-y.a);
-const sx=[];scenes.forEach((s,i)=>{if(i>0)sx.push([s.start-.05,'whoosh',.55]);(s.sfx||[]).forEach(x=>sx.push(x))});ins.forEach((x,i)=>sx.push([x.a,x.sfx||(i%2?'pop':'hit'),.75]));
-shots.forEach(h=>{if(!scenes.some(s=>Math.abs(s.start-h.a)<.05))sx.push([h.a-.03,'whoosh',.3])});
+const sx=[];scenes.forEach((s,i)=>{if(i>0)sx.push([s.start-.08,'whoosh',.28]);(s.sfx||[]).forEach(x=>sx.push(x))});ins.forEach((x,i)=>sx.push([x.a,x.sfx||(i%2?'pop':'hit'),.75]));
 const bursts=sx.filter(x=>/hit|crash|ding/.test(x[1])).map(x=>({a:x[0],x:540,y:640,kind:x[1]==='ding'?'confetti':'spark'}));
 const data={dur,ep:meta.ep,scenes,subs,ins,shots,bursts};
 
