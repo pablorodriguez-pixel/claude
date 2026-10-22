@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Formato 2 · Apuntes imparables</title>
+<link rel="stylesheet" href="base.css">
+<style>
+:root{--ink:#1B1B1F;--paper:#F6F2E8;--lime:#D4FF3A;--red:#F2412E;--blue:#2F55D4}
+.f2{background:var(--paper);color:var(--ink);
+  background-image:radial-gradient(circle,rgba(27,27,31,.16) 2.4px,transparent 3px);background-size:54px 54px;background-position:27px 27px}
+.f2::before{content:'';position:absolute;left:0;right:0;top:0;bottom:0;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 40%,transparent 55%,rgba(120,100,60,.13) 100%)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.12;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .25  0 0 0 0 .15  0 0 0 1 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+.head{position:absolute;left:60px;right:60px;top:170px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:4px solid var(--ink);padding-bottom:18px}
+.head .t{font:italic 400 58px/1 ISerif;letter-spacing:.01em}
+.head .t b{font:400 30px/1 Archivo;font-weight:800;letter-spacing:.16em;text-transform:uppercase;font-style:normal;vertical-align:middle;margin-right:14px}
+.head .n{font:400 54px/1 Marker;color:var(--red)}
+.mk{position:absolute;font-family:Marker;line-height:1.02;color:var(--ink)}
+.hi{background:linear-gradient(100deg,transparent 0 1%,rgba(212,255,58,.92) 3% 96%,transparent 99%);padding:0 .12em;margin:0 -.06em;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:.2em .5em .3em .6em}
+.cap{position:absolute;left:60px;right:150px;text-align:center;font:900 82px/1.04 Archivo;font-stretch:82%;text-transform:uppercase;color:var(--ink);letter-spacing:.01em}
+.cap .on{background:var(--lime);padding:0 14px;border-radius:10px;box-shadow:0 0 0 5px var(--ink)}
+.sk path,.sk line,.sk circle,.sk ellipse,.sk polyline{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.sk .r{stroke:var(--red)}
+.sk .fillr{fill:var(--red)}
+.note{position:absolute;font:400 40px/1.1 Marker;color:var(--ink)}
+.tape{position:absolute;height:58px;background:rgba(255,255,255,.6);box-shadow:0 2px 5px rgba(0,0,0,.08);border-left:2px dashed rgba(0,0,0,.08);border-right:2px dashed rgba(0,0,0,.08)}
+</style></head><body>
+
+<!-- rotulador reutilizable -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="pen">
+      <!-- punta en (0,0); cuerpo hacia abajo-derecha -->
+      <path d="M0 0 L14 -6 L30 28 L16 34 Z" fill="var(--pc,#1B1B1F)"/>
+      <path d="M10 22 L42 8 L120 190 L88 204 Z" fill="#F1EEE6" stroke="#1B1B1F" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M58 118 L104 98 L170 252 L124 272 Z" fill="var(--pc,#1B1B1F)" stroke="#1B1B1F" stroke-width="5" stroke-linejoin="round"/>
+      <path d="M30 70 L66 54" stroke="#1B1B1F" stroke-width="5"/>
+      <path d="M66 140 L100 126" stroke="#fff" stroke-opacity=".35" stroke-width="6" stroke-linecap="round"/>
+    </g>
+    <g id="stick">
+      <circle cx="0" cy="-92" r="20"/><path d="M0 -72 L0 -20 M0 -20 L-22 18 M0 -20 L22 18 M-28 -54 L28 -54"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- ============ 1 · GANCHO (0–3 s) ============ -->
+<section class="frame f2">
+  <div class="head"><div class="t"><b>Apuntes</b>imparables</div><div class="n">pág. 03</div></div>
+  <div class="mk" style="left:60px;top:300px;font-size:128px;transform:rotate(-1.5deg)">Así se deja<br>un mal hábito<br><span class="hi">sin recaer.</span></div>
+  <div class="mk" style="left:70px;top:820px;font-size:64px;color:#55545c;transform:rotate(-1deg)">Y no es con…</div>
+  <div class="mk" style="left:96px;top:930px;font-size:96px;transform:rotate(-2deg)">FUERZA DE<br>VOLUNTAD</div>
+  <svg class="sk" width="1080" height="1920" style="left:0;top:0">
+    <path class="r" d="M84 982 C 260 972 480 988 640 978" style="stroke-width:16"/>
+    <path class="r" d="M90 1072 C 260 1060 440 1078 590 1066" style="stroke-width:16"/>
+    <!-- doodle: cerebro con cara cansada -->
+    <g transform="translate(790 1010) rotate(8)">
+      <path d="M-90 10 C -110 -60 -40 -110 0 -86 C 40 -118 120 -70 96 0 C 120 50 70 100 20 84 C -10 110 -90 90 -84 40 C -110 34 -110 16 -90 10 Z"/>
+      <path d="M0 -86 C -10 -40 10 -10 -6 30 M-50 -40 C -30 -30 -40 0 -20 10 M48 -50 C 30 -30 50 -10 34 14"/>
+      <path d="M-34 40 Q -24 50 -14 40 M20 40 Q 30 50 40 40" />
+      <path d="M-10 66 Q 4 58 18 66"/>
+      <path d="M118 -40 q 16 -10 30 0 M128 -64 q 14 -10 26 -2" style="stroke-width:6"/>
+    </g>
+  </svg>
+  <svg width="300" height="300" style="left:588px;top:1064px;--pc:#F2412E" viewBox="0 0 300 300"><use href="#pen"/></svg>
+  <div class="cap" style="top:1420px">No es <span class="on">tu culpa</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ============ 2 · EL PORQUÉ (≈ 20–30 s) ============ -->
+<section class="frame f2">
+  <div class="head"><div class="t"><b>Apuntes</b>imparables</div><div class="n">pág. 03</div></div>
+  <!-- notas ya dibujadas arriba -->
+  <div class="mk" style="left:60px;top:282px;font-size:56px">Vietnam, 1971</div>
+  <svg class="sk" width="1080" height="1920" style="left:0;top:0">
+    <g transform="translate(110 512)" style="stroke:#1B1B1F"><circle cx="0" cy="-92" r="20" style="stroke:#1B1B1F"/><path d="M0 -72 L0 -20 M0 -20 L-22 18 M0 -20 L22 18 M-28 -54 L28 -54" style="stroke:#1B1B1F"/></g>
+    <g transform="translate(190 512)" style="stroke:#1B1B1F"><circle cx="0" cy="-92" r="20" style="stroke:#1B1B1F"/><path d="M0 -72 L0 -20 M0 -20 L-22 18 M0 -20 L22 18 M-28 -54 L28 -54" style="stroke:#1B1B1F"/></g>
+    <g transform="translate(270 512)" style="stroke:#F2412E"><circle cx="0" cy="-92" r="20" style="stroke:#F2412E"/><path d="M0 -72 L0 -20 M0 -20 L-22 18 M0 -20 L22 18 M-28 -54 L28 -54" style="stroke:#F2412E"/></g>
+    <g transform="translate(350 512)" style="stroke:#1B1B1F"><circle cx="0" cy="-92" r="20" style="stroke:#1B1B1F"/><path d="M0 -72 L0 -20 M0 -20 L-22 18 M0 -20 L22 18 M-28 -54 L28 -54" style="stroke:#1B1B1F"/></g>
+    <g transform="translate(430 512)" style="stroke:#1B1B1F"><circle cx="0" cy="-92" r="20" style="stroke:#1B1B1F"/><path d="M0 -72 L0 -20 M0 -20 L-22 18 M0 -20 L22 18 M-28 -54 L28 -54" style="stroke:#1B1B1F"/></g>
+    <path d="M520 450 C 580 440 610 440 650 450 M630 430 L652 450 L628 470"/>
+    <ellipse cx="800" cy="440" rx="130" ry="84" class="r" style="stroke-width:8"/>
+  </svg>
+  <div class="note" style="left:76px;top:548px;font-size:38px"><span style="color:var(--red)">1 de cada 5</span>, adicto</div>
+  <div class="mk" style="left:690px;top:384px;font-size:88px;width:220px;text-align:center">9/10</div>
+  <div class="note" style="left:654px;top:540px;font-size:36px;width:300px;text-align:center">lo dejaron<br>al volver a casa</div>
+
+  <div class="mk" style="left:60px;top:690px;font-size:104px">¿Por qué?</div>
+  <svg class="sk" width="1080" height="1920" style="left:0;top:0"><path class="r" d="M66 808 C 200 800 330 812 440 802" style="stroke-width:10"/></svg>
+
+  <!-- diagrama allí / en casa -->
+  <div class="abs" style="left:60px;top:890px;width:560px;height:420px;border:6px solid var(--ink);border-radius:28px 34px 26px 38px;transform:rotate(-.6deg)"></div>
+  <div class="abs" style="left:650px;top:890px;width:290px;height:420px;border:6px solid var(--ink);border-radius:34px 26px 38px 28px;transform:rotate(.8deg)"></div>
+  <div class="mk" style="left:86px;top:858px;font-size:50px;background:var(--paper);padding:0 14px">ALLÍ</div>
+  <div class="mk" style="left:672px;top:858px;font-size:50px;background:var(--paper);padding:0 14px">EN CASA</div>
+  <div class="note" style="left:92px;top:936px;font-size:40px;line-height:1.5">→ fácil de conseguir<br>→ estrés constante<br>→ amigos que consumían<br>→ lejos de casa</div>
+  <svg class="sk" width="1080" height="1920" style="left:0;top:0">
+    <g transform="translate(795 1040)">
+      <path d="M-80 0 L0 -70 L80 0 M-62 -12 L-62 70 L62 70 L62 -12"/>
+      <path d="M-18 70 L-18 22 L18 22 L18 70"/>
+    </g>
+  </svg>
+  <div class="note" style="left:660px;top:1124px;width:270px;text-align:center;font-size:36px;color:var(--red)">sin señales</div>
+  <div class="mk" style="left:96px;top:1226px;font-size:50px">= hábito <span style="color:var(--red)">ON</span></div>
+  <div class="mk" style="left:672px;top:1226px;font-size:50px">= <span class="hi">OFF</span></div>
+  <svg width="225" height="225" style="left:842px;top:1262px" viewBox="0 0 300 300"><use href="#pen"/></svg>
+  <div class="cap" style="top:1420px">Cambió <span class="on">el entorno</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ============ 3 · CHULETA FINAL (≈ 34–40 s) ============ -->
+<section class="frame f2">
+  <div class="head"><div class="t"><b>Chuleta</b>imparable</div><div class="n">nº 03</div></div>
+  
+  <div class="mk" style="left:60px;right:60px;top:320px;font-size:100px;text-align:center;transform:rotate(-1deg)">Cambia el <span class="hi">entorno</span>,<br>cambia el hábito.</div>
+
+  <div class="abs" style="left:60px;right:60px;top:580px;height:300px;border:6px solid var(--ink);border-radius:30px 40px 28px 36px;background:rgba(255,255,255,.55)"></div>
+  <div class="tape" style="left:740px;top:556px;width:200px;transform:rotate(8deg)"></div>
+  <div class="note" style="left:100px;top:610px;font-size:34px;color:var(--red)">LA PRUEBA · cap. 7</div>
+  <div class="note" style="left:100px;top:666px;font-size:43px;line-height:1.32">Vietnam, 1971: <span style="color:var(--red)">1 de cada 5</span><br>soldados era adicto. Al volver,<br><span class="hi">9 de cada 10</span> lo dejaron.</div>
+  <div class="mk" style="left:60px;top:930px;font-size:62px">Hazlo hoy:</div>
+  <svg class="sk" width="1080" height="1920" style="left:0;top:0">
+    <rect x="72" y="1040" width="58" height="58" rx="8" style="fill:none;stroke:#1B1B1F;stroke-width:7"/>
+    <rect x="72" y="1140" width="58" height="58" rx="8" style="fill:none;stroke:#1B1B1F;stroke-width:7"/>
+    <rect x="72" y="1240" width="58" height="58" rx="8" style="fill:none;stroke:#1B1B1F;stroke-width:7"/>
+    <path class="r" d="M80 1066 L100 1092 L148 1024" style="stroke-width:11"/>
+  </svg>
+  <div class="note" style="left:156px;top:1042px;font-size:46px">Móvil en otra habitación</div>
+  <div class="note" style="left:156px;top:1142px;font-size:46px">Notificaciones en silencio</div>
+  <div class="note" style="left:156px;top:1242px;font-size:46px">Lo que te tienta, fuera de la vista</div>
+
+  <!-- sello guardalo apuntando al boton de guardar -->
+  <div class="abs" style="left:620px;top:1370px;width:270px;height:270px;border-radius:50%;border:8px solid var(--red);color:var(--red);transform:rotate(-12deg);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font:400 46px/1 Marker">guárdala<span style="font:800 22px/1 Archivo;letter-spacing:.18em;margin-top:14px">CHULETA 03 / 12</span></div>
+  <svg class="sk" width="1080" height="1920" style="left:0;top:0"><path class="r" d="M880 1430 C 930 1420 960 1440 972 1470 M950 1450 L974 1474 L986 1442" style="stroke-width:8"/></svg>
+  <div class="cap" style="top:1420px;left:60px;right:520px;text-align:left;font-size:70px">¿Qué te <span class="on">dispara</span> a ti?</div>
+  <div class="grain"></div>
+</section>
+</body></html>

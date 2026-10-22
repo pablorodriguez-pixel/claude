@@ -1,0 +1,13 @@
+/* Base comun de las maquetas de formato (1080x1920) */
+@font-face{font-family:Anton;src:url(../../ep02-victor-hugo/v2/fonts/Anton-Regular.ttf)}
+@font-face{font-family:ISerif;src:url(../../ep02-victor-hugo/v2/fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:ISerif;font-style:italic;src:url(../../ep02-victor-hugo/v2/fonts/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:Marker;src:url(../../ep02-victor-hugo/v2/fonts/PermanentMarker-Regular.ttf)}
+@font-face{font-family:Elite;src:url(../../ep02-victor-hugo/v2/fonts/SpecialElite-Regular.ttf)}
+@font-face{font-family:Archivo;font-weight:100 900;font-stretch:62% 125%;src:url(../../ep02-victor-hugo/build/archivo.woff2) format('woff2')}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#222}
+body{-webkit-font-smoothing:antialiased;font-family:Inter,system-ui,sans-serif}
+.frame{position:relative;width:1080px;height:1920px;overflow:hidden;margin:0 0 40px}
+.abs{position:absolute}
+svg{position:absolute;overflow:visible}

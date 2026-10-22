@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Formato 4 · Misión 1 %</title>
+<link rel="stylesheet" href="base.css">
+<style>
+:root{--lime:#D4FF3A;--bg:#0A0A0B;--w:#F6F6F2;--g:#8A8A90;--g2:#2A2A2F}
+.f4{background:var(--bg);color:var(--w);font-family:Archivo}
+.grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.045) 2px,transparent 2px),linear-gradient(90deg,rgba(255,255,255,.045) 2px,transparent 2px);background-size:90px 90px;background-position:-2px -2px}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(212,255,58,.22),rgba(212,255,58,0) 65%)}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.07;mix-blend-mode:screen;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+.hud{position:absolute;left:60px;right:60px;top:180px}
+.hud .row{display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:0;font:400 44px/1 Anton;letter-spacing:.02em;text-transform:uppercase}
+.logo span{background:var(--lime);color:#0A0A0B;padding:10px 16px 8px;border-radius:10px 0 0 10px}
+.logo em{font-style:normal;border:4px solid var(--lime);color:var(--lime);padding:6px 14px 4px;border-radius:0 10px 10px 0}
+.cnt{font:400 52px/1 Anton;letter-spacing:.02em}.cnt small{color:var(--g);font-size:52px}
+.segs{display:grid;grid-template-columns:repeat(12,1fr);gap:10px;margin-top:28px}
+.segs i{height:18px;border-radius:9px;background:var(--g2)}
+.segs i.d{background:var(--lime)}
+.segs i.n{background:transparent;box-shadow:inset 0 0 0 4px var(--lime)}
+.ring{position:absolute;right:60px;top:300px}
+.tag{display:inline-block;font:800 32px/1 Archivo;font-stretch:90%;letter-spacing:.2em;text-transform:uppercase;color:var(--lime);border:4px solid var(--lime);border-radius:100px;padding:14px 26px 12px}
+.ant{font-family:Anton;text-transform:uppercase;line-height:.88;letter-spacing:.005em}
+.cap{position:absolute;left:50px;right:150px;text-align:center;font:400 104px/1 Anton;text-transform:uppercase;letter-spacing:.01em;color:var(--w);text-shadow:0 6px 0 rgba(0,0,0,.6)}
+.cap .on{color:var(--lime)}
+.st{display:grid;grid-template-columns:290px 1fr;gap:30px;align-items:center;padding:26px 0;border-top:3px solid var(--g2)}
+.st .n{font:400 136px/.9 Anton;color:var(--lime);text-transform:uppercase}
+.st .n small{display:block;font-size:42px;line-height:1;color:var(--w);margin-top:8px;letter-spacing:.06em}
+.st .d{font:600 46px/1.18 Archivo;font-stretch:92%}
+.st .d b{color:var(--lime);font-weight:800}
+</style></head><body>
+
+<!-- ============ 1 · GANCHO (0–2,5 s) ============ -->
+<section class="frame f4">
+  <div class="grid"></div><div class="glow" style="left:-200px;top:300px;width:1100px;height:1100px"></div>
+  <div class="hud">
+    <div class="row"><div class="logo"><span>Reto</span><em>1 %</em></div><div class="cnt">02<small> / 12</small></div></div>
+    <div class="segs"><i class="d"></i><i class="n"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="abs" style="left:64px;top:360px;font:800 44px/1 Archivo;letter-spacing:.3em;color:var(--g)">MISIÓN</div>
+  <div class="abs ant" style="left:44px;top:420px;font-size:500px;line-height:1;color:var(--lime);letter-spacing:-.01em">02</div>
+  <div class="abs" style="left:60px;right:60px;top:940px;font:900 132px/.92 Archivo;font-stretch:76%;text-transform:uppercase;letter-spacing:-.005em">Así dejas de<br>distraerte<div style="color:var(--lime);font-size:84px;margin-top:22px">sin fuerza de voluntad</div></div>
+  <div class="abs" style="left:60px;top:1330px;display:flex;align-items:center;gap:20px;background:var(--w);color:#0A0A0B;border-radius:100px;padding:18px 34px 18px 22px;font:800 40px/1 Archivo;font-stretch:90%">
+    <svg width="54" height="54" viewBox="0 0 54 54" style="position:static"><circle cx="27" cy="30" r="20" fill="none" stroke="#0A0A0B" stroke-width="6"/><path d="M27 30 L27 19 M21 5 H33" stroke="#0A0A0B" stroke-width="6" stroke-linecap="round"/></svg>
+    Tu misión de hoy: 1 minuto</div>
+  <div class="grain"></div>
+</section>
+
+<!-- ============ 2 · LA PRUEBA (≈ 6–18 s) ============ -->
+<section class="frame f4">
+  <div class="grid"></div><div class="glow" style="left:300px;top:-200px;width:1000px;height:1000px"></div>
+  <div class="hud">
+    <div class="row"><div class="logo"><span>Reto</span><em>1 %</em></div><div class="cnt">02<small> / 12</small></div></div>
+    <div class="segs"><i class="d"></i><i class="n"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="abs" style="left:60px;top:400px"><span class="tag">La prueba · 1830</span></div>
+  <div class="abs ant" style="left:60px;top:500px;font-size:176px">Víctor Hugo</div>
+  <div class="abs" style="left:60px;right:60px;top:690px">
+    <div class="st"><div class="n">12<small>meses</small></div><div class="d">sin escribir el libro que había <b>prometido</b>.</div></div>
+    <div class="st"><div class="n">1<small>baúl</small></div><div class="d">con <b>toda su ropa</b> dentro. Se quedó solo con un chal.</div></div>
+    <div class="st" style="border-bottom:3px solid var(--g2)"><div class="n">2<small>semanas</small></div><div class="d">antes del plazo entregó <b>«Nuestra Señora de París»</b>.</div></div>
+  </div>
+  <div class="cap" style="top:1450px">No podía <span class="on">salir</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ============ 3 · LA MISIÓN (≈ 26–40 s) ============ -->
+<section class="frame f4">
+  <div class="grid"></div><div class="glow" style="left:-100px;top:700px;width:1300px;height:1300px"></div>
+  <div class="hud">
+    <div class="row"><div class="logo"><span>Reto</span><em>1 %</em></div><div class="cnt">02<small> / 12</small></div></div>
+    <div class="segs"><i class="d"></i><i class="d"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="abs" style="left:60px;top:400px"><span class="tag" style="background:var(--lime);color:#0A0A0B">Tu misión de hoy</span></div>
+  <div class="abs" style="left:60px;right:60px;top:500px;background:var(--lime);color:#0A0A0B;border-radius:48px;padding:56px 54px 50px;transform:rotate(-1.2deg);box-shadow:0 30px 80px rgba(212,255,58,.18)">
+    <div class="ant" style="font-size:128px;line-height:.98">Deja el móvil en otra habitación</div>
+    <div style="font:700 46px/1.2 Archivo;font-stretch:92%;margin-top:26px">durante tu próxima tarea importante.</div>
+    <div style="height:4px;background:#0A0A0B;opacity:.85;margin:40px 0 30px"></div>
+    <div style="font:500 36px/1.3 Archivo;font-stretch:95%"><b style="font-weight:900;letter-spacing:.06em">MECANISMO DE COMPROMISO:</b> una decisión de hoy que controla lo que harás mañana.</div>
+  </div>
+  <div class="abs" style="left:60px;top:1282px;display:flex;align-items:center;gap:30px">
+    <div style="width:120px;height:120px;border-radius:26px;border:8px solid var(--lime);display:flex;align-items:center;justify-content:center">
+      <svg width="76" height="76" viewBox="0 0 76 76" style="position:static"><path d="M12 40 L30 58 L66 16" fill="none" stroke="#D4FF3A" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div><div class="ant" style="font-size:112px;color:var(--lime)">Hecho</div><div style="font:600 36px/1.2 Archivo;color:var(--g);margin-top:6px">Escríbelo en comentarios</div></div>
+  </div>
+  <div class="abs" style="left:60px;right:150px;top:1468px;display:flex;align-items:center;gap:22px;border-top:3px solid var(--g2);padding-top:32px">
+    <svg width="54" height="62" viewBox="0 0 54 62" style="position:static;flex:none"><rect x="5" y="26" width="44" height="32" rx="8" fill="#8A8A90"/><path d="M14 26 V18 Q14 6 27 6 Q40 6 40 18 V26" fill="none" stroke="#8A8A90" stroke-width="7"/></svg>
+    <div style="font:700 36px/1.2 Archivo;font-stretch:92%;color:var(--g)">MAÑANA · MISIÓN 03<br><span style="color:var(--w)">Así se deja un mal hábito sin recaer</span></div>
+  </div>
+  <div class="grain"></div>
+</section>
+</body></html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Formato 3 · Modo imparable</title>
+<link rel="stylesheet" href="base.css">
+<style>
+:root{--lime:#D4FF3A;--ink:#0E0E12;--txt:#F5F5F7;--mut:rgba(245,245,247,.62);--red:#FF453A}
+.f3{color:var(--txt);font-family:Inter;background:#07070B}
+.wall{position:absolute;inset:0;background:
+  radial-gradient(60% 40% at 20% 30%,rgba(116,72,255,.75),transparent 70%),
+  radial-gradient(55% 35% at 85% 65%,rgba(255,84,120,.55),transparent 70%),
+  radial-gradient(70% 45% at 40% 95%,rgba(40,120,255,.55),transparent 70%),#0B0A1A;filter:saturate(1.1)}
+.status{position:absolute;left:70px;right:70px;top:46px;display:flex;justify-content:space-between;align-items:center;font:600 38px/1 Inter;letter-spacing:.01em}
+.status .ic{display:flex;gap:14px;align-items:center}
+.bars{display:flex;gap:5px;align-items:flex-end}.bars i{display:block;width:9px;background:var(--txt);border-radius:2px}
+.batt{width:62px;height:30px;border:3px solid rgba(245,245,247,.7);border-radius:9px;padding:3px;position:relative}.batt::after{content:'';position:absolute;right:-9px;top:8px;width:4px;height:10px;background:rgba(245,245,247,.7);border-radius:2px}
+.batt i{display:block;height:100%;width:22%;background:var(--red);border-radius:4px}
+.pov{position:absolute;left:60px;top:190px;background:#fff;color:#111;font:800 50px/1.12 Archivo;font-stretch:88%;padding:16px 28px 18px;border-radius:18px;max-width:880px;box-shadow:0 10px 40px rgba(0,0,0,.35)}
+.pov b{background:var(--lime);padding:0 8px;border-radius:6px}
+.notif{position:absolute;left:44px;right:44px;border-radius:44px;padding:30px 34px;display:flex;gap:26px;align-items:flex-start;
+  background:rgba(40,38,58,.58);backdrop-filter:blur(30px) saturate(1.4);-webkit-backdrop-filter:blur(30px) saturate(1.4);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.08)}
+.app{flex:none;width:96px;height:96px;border-radius:24px;display:flex;align-items:center;justify-content:center}
+.notif .bd{flex:1;min-width:0}
+.notif .top{display:flex;justify-content:space-between;font:600 34px/1.2 Inter}
+.notif .top span{font-weight:400;color:var(--mut)}
+.notif .msg{font:400 36px/1.3 Inter;color:rgba(245,245,247,.9);margin-top:6px}
+.cap{position:absolute;left:60px;right:150px;display:flex;justify-content:center}
+.cap div{background:rgba(10,10,14,.82);border-radius:22px;padding:18px 30px 22px;font:700 64px/1.15 Inter;letter-spacing:-.01em;text-align:center}
+.cap .on{color:var(--lime)}
+/* chat */
+.chat{position:absolute;inset:0;background:#0C0C10}
+.chat .bar{position:absolute;left:0;right:0;top:0;height:300px;background:rgba(24,24,30,.96);border-bottom:1.5px solid rgba(255,255,255,.08)}
+.bub{position:absolute;max-width:720px;padding:24px 34px 26px;border-radius:44px;font:400 44px/1.28 Inter}
+.L{left:50px;background:#26262E;border-bottom-left-radius:14px}
+.R{right:150px;background:var(--lime);color:#111;border-bottom-right-radius:14px;font-weight:500}
+.reading{box-shadow:0 0 0 4px var(--lime)}
+/* ajustes */
+.row{display:flex;align-items:center;gap:28px;padding:30px 36px;border-bottom:1.5px solid rgba(255,255,255,.08);font:500 42px/1.2 Inter}
+.row:last-child{border-bottom:0}
+.row .t{flex:1}.row .t small{display:block;font:400 32px/1.3 Inter;color:var(--mut);margin-top:4px}
+.ico{flex:none;width:76px;height:76px;border-radius:20px;display:flex;align-items:center;justify-content:center}
+.tog{flex:none;width:128px;height:76px;border-radius:40px;background:#3A3A44;position:relative}
+.tog::after{content:'';position:absolute;top:6px;left:6px;width:64px;height:64px;border-radius:50%;background:#fff;box-shadow:0 3px 8px rgba(0,0,0,.3)}
+.tog.on{background:var(--lime)}.tog.on::after{left:58px}
+</style></head><body>
+
+<!-- ============ 1 · GANCHO: pantalla de bloqueo (0–3 s) ============ -->
+<section class="frame f3">
+  <div class="wall"></div>
+  <div class="status"><span>23:47</span><span class="ic"><span class="bars"><i style="height:12px"></i><i style="height:18px"></i><i style="height:24px"></i><i style="height:30px;opacity:.35"></i></span><span class="batt"><i></i></span></span></div>
+  <div class="pov">POV: 23:47 y has vuelto <b>a caer</b></div>
+  <div class="abs" style="left:0;right:0;top:400px;text-align:center;font:500 44px/1 Inter;color:rgba(245,245,247,.85)">martes, 22 de octubre</div>
+  <div class="abs" style="left:0;right:0;top:450px;text-align:center;font:200 270px/1 Archivo;font-stretch:100%;letter-spacing:-.02em">23:47</div>
+
+  <!-- notificacion del canal: el gancho -->
+  <div class="notif" style="top:780px;background:rgba(18,18,24,.82);box-shadow:inset 0 0 0 4px var(--lime),0 20px 60px rgba(0,0,0,.45)">
+    <div class="app" style="background:var(--lime)"><svg width="56" height="56" viewBox="0 0 56 56" style="position:static"><path d="M28 46 V12 M12 27 L28 11 L44 27" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="bd"><div class="top">Imparable<span>ahora</span></div><div class="msg" style="font:700 52px/1.15 Inter;color:#fff;margin-top:10px">Así se deja un mal hábito<br>sin recaer.</div></div>
+  </div>
+  <div class="notif" style="top:1080px">
+    <div class="app" style="background:#FF4D6D"><svg width="44" height="44" viewBox="0 0 44 44" style="position:static"><path d="M14 8 L36 22 L14 36 Z" fill="#fff"/></svg></div>
+    <div class="bd"><div class="top">Vídeos<span>2 min</span></div><div class="msg">Tenemos 12 vídeos nuevos para ti</div></div>
+  </div>
+  <div class="notif" style="top:1262px;opacity:.85;transform:scale(.97)">
+    <div class="app" style="background:#3D7BFF"><svg width="50" height="50" viewBox="0 0 50 50" style="position:static"><path d="M8 12 Q8 6 14 6 H36 Q42 6 42 12 V28 Q42 34 36 34 H20 L10 43 V34 Q8 34 8 28 Z" fill="#fff"/></svg></div>
+    <div class="bd"><div class="top">Grupo «Viernes»<span>9 min</span></div><div class="msg">14 mensajes nuevos</div></div>
+  </div>
+  <div class="notif" style="top:1430px;opacity:.55;transform:scale(.93)">
+    <div class="app" style="background:#FF9F0A"><svg width="48" height="48" viewBox="0 0 48 48" style="position:static"><path d="M10 16 H38 L35 42 H13 Z M17 16 Q17 6 24 6 Q31 6 31 16" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg></div>
+    <div class="bd"><div class="top">Tienda<span>1 h</span></div><div class="msg">Tu carrito te espera</div></div>
+  </div>
+</section>
+
+<!-- ============ 2 · HISTORIA en chat (≈ 4–20 s) ============ -->
+<section class="frame f3">
+  <div class="chat"></div>
+  <div class="chat" style="background:radial-gradient(80% 50% at 50% 100%,rgba(212,255,58,.06),transparent 70%)"></div>
+  <div class="bar" style="position:absolute;left:0;right:0;top:0;height:330px;background:rgba(22,22,28,.97);border-bottom:1.5px solid rgba(255,255,255,.08)"></div>
+  <div class="status"><span>23:48</span><span class="ic"><span class="bars"><i style="height:12px"></i><i style="height:18px"></i><i style="height:24px"></i><i style="height:30px;opacity:.35"></i></span><span class="batt"><i></i></span></span></div>
+  <div class="abs" style="left:56px;top:210px;display:flex;align-items:center;gap:26px">
+    <svg width="40" height="60" viewBox="0 0 40 60" style="position:static"><path d="M30 8 L10 30 L30 52" stroke="var(--lime)" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div style="width:92px;height:92px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center"><svg width="52" height="52" viewBox="0 0 56 56" style="position:static"><path d="M28 46 V12 M12 27 L28 11 L44 27" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div><div style="font:700 44px/1.1 Inter">Imparable</div><div style="font:400 32px/1.3 Inter;color:var(--lime)">escribiendo…</div></div>
+  </div>
+
+  <div class="bub L" style="top:400px">Vietnam, 1971.</div>
+  <div class="bub L" style="top:520px">1 de cada 5 soldados era adicto a la heroína.</div>
+  <div class="bub L" style="top:704px">Se creía que esa adicción era para siempre.</div>
+  <div class="bub R" style="top:888px">¿Y qué pasó?</div>
+  <!-- tarjeta de dato -->
+  <div class="abs reading" style="left:50px;top:1020px;width:800px;border-radius:44px;border-bottom-left-radius:14px;background:#1B1B22;overflow:hidden">
+    <div style="padding:34px 40px 10px;font:700 30px/1 Inter;letter-spacing:.14em;color:var(--lime)">LEE ROBINS · AL VOLVER</div>
+    <div style="padding:0 40px;display:flex;align-items:baseline;gap:20px"><span style="font:400 190px/1 Anton;color:#fff">9</span><span style="font:600 50px/1.1 Inter">de cada 10<br><span style="color:var(--mut);font-weight:400;font-size:40px">lo dejaron</span></span></div>
+    <div style="margin:18px 40px 0;display:grid;grid-template-columns:repeat(10,1fr);gap:10px">
+      <i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:var(--lime)"></i><i style="height:26px;border-radius:13px;background:#3A3A44"></i>
+    </div>
+    <div style="padding:22px 40px 34px;font:400 33px/1.3 Inter;color:var(--mut)">Solo 5 de cada 100 recayeron el primer año.</div>
+  </div>
+  <div class="bub R" style="top:1540px">¿¿cómo??</div>
+  <!-- escribiendo -->
+  <div class="abs" style="left:50px;top:1680px;width:150px;height:84px;border-radius:42px;background:#26262E;display:flex;gap:14px;align-items:center;justify-content:center">
+    <i style="width:18px;height:18px;border-radius:50%;background:#fff;opacity:.9"></i><i style="width:18px;height:18px;border-radius:50%;background:#fff;opacity:.6"></i><i style="width:18px;height:18px;border-radius:50%;background:#fff;opacity:.35"></i></div>
+</section>
+
+<!-- ============ 3 · APLICACIÓN: Modo imparable (≈ 27–37 s) ============ -->
+<section class="frame f3">
+  <div class="wall" style="filter:blur(10px) brightness(.45)"></div>
+  <div class="status"><span>23:49</span><span class="ic"><span class="bars"><i style="height:12px"></i><i style="height:18px"></i><i style="height:24px"></i><i style="height:30px;opacity:.35"></i></span><span class="batt"><i></i></span></span></div>
+  <div class="pov" style="top:190px">Tu móvil <b>es</b> tu entorno.</div>
+
+  <div class="abs" style="left:44px;right:44px;top:360px;border-radius:52px;background:rgba(22,22,28,.94);box-shadow:0 30px 80px rgba(0,0,0,.5),inset 0 0 0 1.5px rgba(255,255,255,.08);overflow:hidden">
+    <div style="padding:44px 40px 30px;display:flex;align-items:center;gap:30px">
+      <div style="width:120px;height:120px;border-radius:34px;background:var(--lime);display:flex;align-items:center;justify-content:center;box-shadow:0 0 60px rgba(212,255,58,.45)"><svg width="68" height="68" viewBox="0 0 56 56" style="position:static"><path d="M28 46 V12 M12 27 L28 11 L44 27" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div style="flex:1"><div style="font:800 64px/1 Archivo;font-stretch:90%">Modo imparable</div><div style="font:400 34px/1.3 Inter;color:var(--lime);margin-top:10px">Activado · quita las señales</div></div>
+      <div class="tog on" style="transform:scale(1.15)"></div>
+    </div>
+    <div style="background:rgba(255,255,255,.035)">
+      <div class="row"><div class="ico" style="background:#FF453A"><svg width="44" height="44" viewBox="0 0 44 44" style="position:static"><path d="M22 6 C 14 6 10 12 10 19 V27 L6 32 H38 L34 27 V19 C 34 12 30 6 22 6 Z M17 36 Q22 42 27 36" fill="#fff"/><path d="M6 6 L38 38" stroke="#FF453A" stroke-width="9"/><path d="M6 6 L38 38" stroke="#fff" stroke-width="4"/></svg></div><div class="t">Notificaciones<small>En silencio</small></div><div class="tog on"></div></div>
+      <div class="row"><div class="ico" style="background:#3D7BFF"><svg width="44" height="44" viewBox="0 0 50 50" style="position:static"><path d="M8 12 Q8 6 14 6 H36 Q42 6 42 12 V28 Q42 34 36 34 H20 L10 43 V34 Q8 34 8 28 Z" fill="#fff"/></svg></div><div class="t">Chats de grupo<small>Silenciados</small></div><div class="tog on"></div></div>
+      <div class="row"><div class="ico" style="background:#FF4D6D"><svg width="40" height="40" viewBox="0 0 44 44" style="position:static"><path d="M14 8 L36 22 L14 36 Z" fill="#fff"/></svg></div><div class="t">Vídeos<small>Fuera de la pantalla de inicio</small></div>
+        <div style="flex:none;padding:18px 26px;border-radius:30px;background:rgba(255,69,58,.16);color:#FF6B61;font:600 34px/1 Inter">Eliminar</div></div>
+    </div>
+  </div>
+  <!-- toque -->
+  <div class="abs" style="left:842px;top:884px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.28);box-shadow:0 0 0 18px rgba(255,255,255,.1)"></div>
+
+  <div class="abs" style="left:60px;right:150px;top:1090px;padding-left:34px;border-left:8px solid var(--lime)">
+    <div style="font:italic 400 58px/1.12 ISerif;color:#fff">«Uno de los métodos más prácticos para eliminar un hábito negativo es reducir la exposición a la señal que lo causa.»</div>
+    <div style="font:600 28px/1 Inter;letter-spacing:.14em;color:var(--mut);margin-top:22px">HÁBITOS ATÓMICOS · CAP. 7</div></div>
+  <div class="cap" style="top:1460px"><div>Quita lo que <span class="on">lo dispara</span></div></div>
+</section>
+</body></html>

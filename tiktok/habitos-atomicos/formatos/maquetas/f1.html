@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Formato 1 · Mañana lo hago</title>
+<link rel="stylesheet" href="base.css">
+<script src="char.js"></script>
+<style>
+:root{--ink:#141414;--cream:#F4EDE1;--lime:#D4FF3A;--lilac:#A493FF;--coral:#FF6A4D;--navy:#23285A}
+.f1{background:var(--cream);color:var(--ink);font-family:Archivo}
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.10;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .9 0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>")}
+.series{position:absolute;left:60px;top:196px;display:flex;align-items:center;gap:16px;height:62px;padding:0 26px 0 14px;border-radius:100px;background:var(--ink);color:var(--cream);
+  font:800 30px/1 Archivo;letter-spacing:.08em;text-transform:uppercase;font-stretch:90%}
+.series .dot{width:36px;height:36px;border-radius:50%;background:var(--lilac);border:4px solid var(--cream)}
+.series b{color:var(--lime);font-weight:800}
+.hl{position:absolute;left:60px;right:60px;font-weight:900;font-stretch:78%;text-transform:uppercase;line-height:.9;letter-spacing:-.005em}
+.box{background:var(--lime);padding:0 16px;-webkit-box-decoration-break:clone;box-decoration-break:clone;border-radius:10px;box-shadow:inset 0 0 0 6px var(--ink)}
+.cap{position:absolute;left:50px;right:150px;text-align:center;font:900 92px/1.02 Archivo;font-stretch:80%;text-transform:uppercase;color:#fff;
+  -webkit-text-stroke:18px var(--ink);paint-order:stroke fill;letter-spacing:.01em}
+.cap .on{color:var(--lime)}
+.bubble{position:absolute;background:#fff;border:8px solid var(--ink);border-radius:46px;padding:26px 38px 30px;font:400 60px/1.05 Marker;color:var(--ink);box-shadow:10px 12px 0 var(--ink)}
+.bubble::after{content:'';position:absolute;width:56px;height:56px;background:#fff;border:8px solid var(--ink);border-top:0;border-left:0;transform:rotate(45deg)}
+.tl::after{left:70px;bottom:-34px}
+.tr::after{right:80px;bottom:-34px;transform:rotate(45deg)}
+.lbl{position:absolute;font:800 30px/1 Archivo;letter-spacing:.14em;text-transform:uppercase;font-stretch:90%}
+</style></head><body>
+
+<!-- ============ 1 · GANCHO (0,0–2,5 s) ============ -->
+<section class="frame f1" id="s1">
+  <div class="abs" style="left:0;right:0;top:1250px;bottom:0;background:#E8DCC8"></div>
+  <div class="abs" style="left:0;right:0;top:1244px;height:12px;background:var(--ink)"></div>
+  <!-- glow de lampara -->
+  <div class="abs" style="left:-160px;top:560px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(212,255,58,.55),rgba(212,255,58,0) 65%)"></div>
+  <svg width="1080" height="1920" style="left:0;top:0">
+    <!-- lampara -->
+    <path d="M150 800 L150 1244" stroke="#141414" stroke-width="12"/>
+    <ellipse cx="150" cy="1246" rx="60" ry="14" fill="#141414"/>
+    <path d="M80 800 L220 800 L190 700 L110 700 Z" fill="#D4FF3A" stroke="#141414" stroke-width="8" stroke-linejoin="round"/>
+    <!-- alfombra -->
+    <ellipse cx="560" cy="1420" rx="470" ry="70" fill="#FF6A4D" opacity=".22"/>
+    <!-- sofa (respaldo y brazos) -->
+    <g stroke="#141414" stroke-width="9" stroke-linejoin="round">
+      <rect x="190" y="980" width="740" height="230" rx="70" fill="#FF6A4D"/>
+      <path d="M262 1004 Q300 1000 330 1060" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="14" stroke-linecap="round"/>
+    </g>
+  </svg>
+  <div id="c1"></div>
+  <svg width="1080" height="1920" style="left:0;top:0">
+    <g stroke="#141414" stroke-width="9" stroke-linejoin="round">
+      <rect x="220" y="1150" width="680" height="110" rx="40" fill="#F0553A"/>
+      <rect x="140" y="1060" width="140" height="230" rx="60" fill="#FF6A4D"/>
+      <rect x="840" y="1060" width="140" height="230" rx="60" fill="#FF6A4D"/>
+      <rect x="200" y="1286" width="34" height="56" rx="8" fill="#141414"/>
+      <rect x="886" y="1286" width="34" height="56" rx="8" fill="#141414"/>
+    </g>
+  </svg>
+  <div class="series"><span class="dot"></span>Mañana lo hago <b>· Ep. 02</b></div>
+  <div class="hl" style="top:296px;font-size:142px">Así dejas de<br>distraerte</div>
+  <div class="hl" style="top:572px;font-size:66px;line-height:1.18"><span class="box">sin fuerza de voluntad</span></div>
+  <div class="bubble tl" style="left:640px;top:740px;transform:rotate(4deg)">Mañana<br>lo hago.</div>
+  <div class="cap" style="top:1420px">Tu yo de <span class="on">mañana</span></div>
+  <div class="grain"></div>
+</section>
+
+<!-- ============ 2 · HISTORIA (≈ 11–17 s) ============ -->
+<section class="frame f1" id="s2" style="background:var(--navy);color:var(--cream)">
+  <div class="abs" style="inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.035) 0 46px,transparent 46px 92px)"></div>
+  <!-- ventana con nieve -->
+  <div class="abs" style="left:120px;top:680px;width:230px;height:270px;border-radius:130px 130px 18px 18px;background:#121640;border:12px solid #F4EDE1;overflow:hidden">
+    <div class="abs" style="inset:0;background-image:radial-gradient(circle,#fff 3px,transparent 4px),radial-gradient(circle,rgba(255,255,255,.7) 2px,transparent 3px);background-size:60px 64px,38px 42px;background-position:0 0,18px 22px"></div>
+    <div class="abs" style="left:103px;top:0;width:12px;height:100%;background:#F4EDE1"></div>
+    <div class="abs" style="left:0;top:136px;width:100%;height:12px;background:#F4EDE1"></div>
+  </div>
+  <div class="abs" style="left:0;right:0;top:1250px;bottom:0;background:#6A4130;background-image:repeating-linear-gradient(90deg,rgba(0,0,0,.18) 0 4px,transparent 4px 180px)"></div>
+  <div class="abs" style="left:0;right:0;top:1244px;height:12px;background:var(--ink)"></div>
+  <!-- baul -->
+  <svg width="1080" height="1920" style="left:0;top:0">
+    <g stroke="#141414" stroke-width="9" stroke-linejoin="round">
+      <rect x="90" y="1050" width="430" height="200" rx="18" fill="#9A5532"/>
+      <path d="M90 1050 C 90 960 520 960 520 1050 Z" fill="#B0643C"/>
+      <rect x="140" y="1000" width="34" height="250" fill="#E2AE4A"/>
+      <rect x="436" y="1000" width="34" height="250" fill="#E2AE4A"/>
+      <rect x="84" y="1040" width="442" height="26" rx="8" fill="#E2AE4A"/>
+      <!-- manga asomando por la tapa -->
+      <path d="M360 1046 C 372 1090 368 1130 352 1166 L 400 1178 C 414 1136 414 1092 404 1048 Z" fill="#fff"/>
+      <rect x="342" y="1160" width="68" height="34" rx="10" fill="#D4FF3A" transform="rotate(12 376 1177)"/>
+      <rect x="84" y="1040" width="442" height="26" rx="8" fill="#E2AE4A"/>
+      <!-- candado -->
+      <path d="M278 1062 C 278 1018 332 1018 332 1062" fill="none" stroke-width="14"/>
+      <rect x="262" y="1060" width="86" height="76" rx="14" fill="#E2AE4A"/>
+      <circle cx="305" cy="1092" r="10" fill="#141414" stroke="none"/><rect x="301" y="1094" width="8" height="24" fill="#141414" stroke="none"/>
+    </g>
+  </svg>
+  <div id="c2"></div>
+  <!-- anotacion -->
+  <div class="abs" style="left:520px;top:700px;font:400 46px/1.05 Marker;color:var(--lime);transform:rotate(-4deg)">el «Mañana»<br>de Víctor Hugo</div>
+  <svg width="1080" height="1920" style="left:0;top:0"><path d="M880 760 C 940 790 930 850 880 880" fill="none" stroke="#D4FF3A" stroke-width="8" stroke-linecap="round"/><path d="M904 884 L878 882 L888 858" fill="none" stroke="#D4FF3A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="series" style="background:var(--lime);color:var(--ink)"><span class="dot" style="background:var(--navy);border-color:var(--ink)"></span>Víctor Hugo · 1830</div>
+  <div class="hl" style="top:296px;font-size:118px;color:var(--cream)">Encerró toda<br>su ropa en<br>un <span class="box" style="color:var(--ink)">baúl</span></div>
+  <div class="cap" style="top:1420px">Solo con un <span class="on">chal</span></div>
+  <div class="grain" style="opacity:.16;mix-blend-mode:overlay"></div>
+</section>
+
+<!-- ============ 3 · LECCIÓN + APLICACIÓN (≈ 24–32 s) ============ -->
+<section class="frame f1" id="s3">
+  <!-- marcador recurrente -->
+  <div class="abs" style="left:0;right:0;top:186px;display:flex;justify-content:center;gap:0">
+    <div style="display:flex;align-items:center;border:7px solid var(--ink);border-radius:100px;overflow:hidden;box-shadow:8px 9px 0 var(--ink);font:900 40px/1 Archivo;font-stretch:85%;text-transform:uppercase;letter-spacing:.04em">
+      <span style="background:var(--lime);padding:20px 24px 18px 34px">Hoy</span><span style="background:var(--lime);padding:14px 24px 12px;font-size:56px;border-left:5px solid var(--ink)">2</span>
+      <span style="background:var(--lilac);padding:14px 24px 12px;font-size:56px;border-left:7px solid var(--ink)">0</span><span style="background:var(--lilac);padding:20px 34px 18px 24px">Mañana</span>
+    </div>
+  </div>
+  <div class="abs" style="left:60px;right:60px;top:330px;background:var(--ink);color:var(--cream);border-radius:44px;padding:44px 50px 50px">
+    <div style="display:inline-block;background:var(--lime);color:var(--ink);font:900 32px/1 Archivo;font-stretch:85%;letter-spacing:.1em;text-transform:uppercase;padding:14px 20px;border-radius:12px">Mecanismo de compromiso</div>
+    <div style="margin-top:28px;font:800 80px/1.0 Archivo;font-stretch:82%">Una decisión de <span style="color:var(--lime)">hoy</span> que ata a tu yo de <span style="color:var(--lilac)">mañana</span>.</div>
+  </div>
+  <!-- dos habitaciones -->
+  <div class="abs" style="left:600px;right:0;top:760px;height:490px;background:#DDD4FF"></div>
+  <div class="abs" style="left:0;width:600px;top:760px;height:490px;background:#F4EDE1"></div>
+  <div class="abs" style="left:0;right:0;top:760px;height:10px;background:var(--ink)"></div>
+  <div class="abs" style="left:0;right:0;top:1250px;bottom:0;background:#E8DCC8"></div>
+  <div class="abs" style="left:600px;right:0;top:1250px;bottom:0;background:#CFC4F5"></div>
+  <div class="abs" style="left:0;right:0;top:1244px;height:12px;background:var(--ink)"></div>
+  <div class="abs" style="left:592px;width:44px;top:760px;height:496px;background:#3A3550;border-left:9px solid var(--ink);border-right:9px solid var(--ink)"></div>
+    <div class="lbl" style="left:670px;top:800px;color:rgba(20,20,20,.55)">Otra habitación</div>
+  <!-- movil en taburete -->
+  <svg width="1080" height="1920" style="left:0;top:0">
+    <circle cx="820" cy="1060" r="120" fill="#fff" opacity=".55"/>
+    <g stroke="#141414" stroke-width="9" stroke-linejoin="round">
+      <rect x="730" y="1150" width="180" height="26" rx="10" fill="#FF6A4D"/>
+      <path d="M752 1176 L740 1248 M888 1176 L900 1248" stroke-width="12" stroke-linecap="round"/>
+      <rect x="776" y="1012" width="88" height="140" rx="16" fill="#1C1C24"/>
+      <rect x="786" y="1023" width="68" height="118" rx="9" fill="#B9F0FF" stroke="none"/>
+      <circle cx="864" cy="1012" r="26" fill="#FF6A4D"/>
+    </g>
+    <text x="864" y="1023" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="30" fill="#fff">9</text>
+    <path d="M700 990 l-30 -26 M820 950 l0 -40 M940 990 l30 -26" stroke="#141414" stroke-width="8" stroke-linecap="round"/>
+  </svg>
+  <div id="c3"></div>
+  <div class="bubble tr" style="left:96px;top:810px;font-size:54px;padding:20px 32px 24px;transform:rotate(-3deg)">¿Y mi móvil…?</div>
+  <div class="cap" style="top:1420px">En otra <span class="on">habitación</span></div>
+  <div class="grain"></div>
+</section>
+
+<script>
+document.getElementById('c1').innerHTML = manana({ x: 330, y: 726, w: 420, mood: 'sleepy', pose: 'phone' });
+document.getElementById('c2').innerHTML = manana({ x: 500, y: 816, w: 400, mood: 'angry', pose: 'chal', look: 'right', flip: true });
+document.getElementById('c3').innerHTML = manana({ x: 100, y: 852, w: 360, mood: 'sad', pose: 'reach', look: 'right' });
+</script>
+</body></html>
