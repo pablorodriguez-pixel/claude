@@ -1,0 +1,135 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#151820}
+body{font-family:Inter,system-ui,sans-serif;color:#f4f1ea;-webkit-font-smoothing:antialiased}
+#cam{position:absolute;inset:0;transform-origin:540px 900px}
+svg#scene{position:absolute;left:0;top:0}
+#subs{position:absolute;left:60px;right:60px;top:1470px;text-align:center}
+#who{display:inline-block;font-weight:800;font-size:30px;letter-spacing:.2em;padding:8px 22px;border-radius:100px;margin-bottom:22px}
+#line{font-weight:800;font-size:70px;line-height:1.12;letter-spacing:-1px}
+#line span{opacity:.3}#line span.on{opacity:1}
+#title{position:absolute;left:0;right:0;top:150px;text-align:center;font-family:Cinzel,serif;font-weight:600;font-size:30px;letter-spacing:.3em;color:rgba(244,241,234,.7)}
+#title b{color:#d9a564;font-weight:600}
+#end{position:absolute;inset:0;background:#101217;opacity:0}
+#end .big{position:absolute;left:80px;right:80px;top:640px;text-align:center;font-weight:900;font-size:112px;line-height:1.02;letter-spacing:-2px}
+#end .big em{font-style:normal;color:#d9a564}
+#end .brand{position:absolute;left:0;right:0;bottom:270px;text-align:center;font-family:Cinzel,serif;font-weight:800;font-size:48px;letter-spacing:.12em}
+#end .brand b{color:#b8864b}
+#end .fol{position:absolute;left:0;right:0;bottom:205px;text-align:center;font-size:32px;color:rgba(244,241,234,.6);font-weight:600}
+#bar{position:absolute;left:0;top:0;height:6px;width:0;background:#d9a564}
+</style></head><body>
+<div id="cam">
+<svg id="scene" width="1080" height="1920" viewBox="0 0 1080 1920">
+ <defs>
+  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#232838"/><stop offset="1" stop-color="#171a24"/></linearGradient>
+  <linearGradient id="dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6b56b"/><stop offset=".6" stop-color="#e07c4f"/><stop offset="1" stop-color="#6d4a6e"/></linearGradient>
+  <radialGradient id="aura" cx=".5" cy=".45" r=".5"><stop offset="0" stop-color="#ffd59a" stop-opacity=".55"/><stop offset=".6" stop-color="#d9a564" stop-opacity=".18"/><stop offset="1" stop-color="#d9a564" stop-opacity="0"/></radialGradient>
+  <linearGradient id="marble" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3ede0"/><stop offset="1" stop-color="#c9bda6"/></linearGradient>
+  <radialGradient id="phone" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#9fd0ff" stop-opacity=".55"/><stop offset="1" stop-color="#9fd0ff" stop-opacity="0"/></radialGradient>
+ </defs>
+ <rect width="1080" height="1920" fill="url(#wall)"/>
+ <!-- ventana con amanecer -->
+ <g id="win"><rect x="610" y="300" width="360" height="480" rx="16" fill="url(#dawn)"/><path d="M790 300v480M610 540h360" stroke="#1a1d28" stroke-width="16"/><rect x="600" y="290" width="380" height="500" rx="20" fill="none" stroke="#2c3244" stroke-width="20"/></g>
+ <rect id="dawnlight" x="0" y="0" width="1080" height="1920" fill="#f6b56b" opacity="0"/>
+ <!-- suelo y cama -->
+ <rect y="1330" width="1080" height="590" fill="#12141b"/>
+ <rect x="40" y="1130" width="640" height="200" rx="26" fill="#3b4a6b"/><rect x="40" y="1100" width="640" height="70" rx="26" fill="#d7d2c8"/><rect x="40" y="1060" width="170" height="80" rx="30" fill="#ece8de"/>
+ <rect x="40" y="1300" width="20" height="90" fill="#2a2f3d"/><rect x="660" y="1300" width="20" height="90" fill="#2a2f3d"/>
+ <!-- ÁLEX -->
+ <g id="alex" transform="translate(370,0)">
+  <g id="aBody">
+   <path d="M-150 1150 Q-160 930 0 900 Q160 930 150 1150 Z" fill="#2f6f6a"/>
+   <path d="M-60 905 Q0 960 60 905" fill="none" stroke="#245955" stroke-width="12"/>
+   <rect x="-110" y="1130" width="220" height="60" rx="26" fill="#2b3550"/>
+   <!-- brazo y móvil -->
+   <path d="M90 980 Q150 1060 70 1090" fill="none" stroke="#2f6f6a" stroke-width="54" stroke-linecap="round"/>
+   <ellipse cx="40" cy="1040" rx="120" ry="90" fill="url(#phone)" id="aGlow"/>
+   <rect x="10" y="1015" width="56" height="96" rx="12" fill="#11131a" stroke="#3a4255" stroke-width="5" transform="rotate(-15 38 1063)"/>
+   <rect x="18" y="1025" width="40" height="76" rx="6" fill="#8ec6ff" opacity=".85" transform="rotate(-15 38 1063)"/>
+  </g>
+  <g id="aHead">
+   <rect x="-34" y="840" width="68" height="70" fill="#d9a07a"/>
+   <circle cx="0" cy="770" r="100" fill="#e8b48e"/>
+   <path d="M-104 760 Q-110 640 0 650 Q120 640 104 770 Q90 700 40 705 Q10 690 -20 712 Q-70 700 -104 760Z" fill="#3a2a22"/>
+   <circle cx="-100" cy="790" r="18" fill="#e0a984"/><circle cx="100" cy="790" r="18" fill="#e0a984"/>
+   <g id="aEyes"><ellipse cx="-36" cy="785" rx="10" ry="12" fill="#2a1d18"/><ellipse cx="36" cy="785" rx="10" ry="12" fill="#2a1d18"/></g>
+   <path id="aLids" d="M-50 778h28M22 778h28" stroke="#c48c6a" stroke-width="7" stroke-linecap="round"/>
+   <path d="M-52 760 Q-36 752 -20 760M20 760 Q36 752 52 760" stroke="#3a2a22" stroke-width="7" fill="none" stroke-linecap="round" id="aBrows"/>
+   <ellipse id="aMouth" cx="0" cy="835" rx="22" ry="4" fill="#7a3b33"/>
+  </g>
+ </g>
+ <!-- MARCO AURELIO (estatua viva) -->
+ <g id="marco" transform="translate(800,0)">
+  <ellipse cx="0" cy="900" rx="330" ry="520" fill="url(#aura)" id="mAura"/>
+  <g id="mBody">
+   <path d="M-170 1340 Q-190 980 0 930 Q190 980 170 1340 Z" fill="url(#marble)"/>
+   <path d="M-120 960 Q40 1080 150 1330" fill="none" stroke="#bfb29a" stroke-width="22" stroke-linecap="round"/>
+   <path d="M-60 950 Q60 1120 100 1320" fill="none" stroke="#d9cfbd" stroke-width="12"/>
+   <path d="M-40 1050 Q-10 1200 -30 1330" fill="none" stroke="#c6b9a1" stroke-width="10"/>
+  </g>
+  <g id="mHead">
+   <rect x="-36" y="840" width="72" height="90" fill="#d8cdb8"/>
+   <circle cx="0" cy="760" r="98" fill="url(#marble)"/>
+   <!-- pelo rizado -->
+   <g fill="#d6cab3"><circle cx="-80" cy="700" r="34"/><circle cx="-40" cy="672" r="36"/><circle cx="5" cy="662" r="38"/><circle cx="50" cy="672" r="36"/><circle cx="86" cy="702" r="32"/><circle cx="-96" cy="745" r="26"/><circle cx="98" cy="748" r="26"/></g>
+   <!-- laurel -->
+   <g fill="#c9a55a"><ellipse cx="-70" cy="690" rx="22" ry="9" transform="rotate(-30 -70 690)"/><ellipse cx="-38" cy="672" rx="22" ry="9" transform="rotate(-15 -38 672)"/><ellipse cx="38" cy="672" rx="22" ry="9" transform="rotate(15 38 672)"/><ellipse cx="70" cy="690" rx="22" ry="9" transform="rotate(30 70 690)"/><ellipse cx="-92" cy="718" rx="20" ry="8" transform="rotate(-50 -92 718)"/><ellipse cx="92" cy="718" rx="20" ry="8" transform="rotate(50 92 718)"/></g>
+   <!-- barba -->
+   <path d="M-92 780 Q-96 900 0 905 Q96 900 92 780 Q70 830 0 840 Q-70 830 -92 780Z" fill="#d6cab3"/>
+   <g fill="#c8bba2"><circle cx="-50" cy="860" r="16"/><circle cx="-14" cy="878" r="17"/><circle cx="22" cy="876" r="17"/><circle cx="56" cy="856" r="15"/></g>
+   <g id="mEyes"><ellipse cx="-34" cy="760" rx="9" ry="9" fill="#6b604f"/><ellipse cx="34" cy="760" rx="9" ry="9" fill="#6b604f"/></g>
+   <path d="M-52 738 Q-34 730 -16 738M16 738 Q34 730 52 738" stroke="#9c8f78" stroke-width="7" fill="none" stroke-linecap="round"/>
+   <path d="M-30 815 Q0 805 30 815" stroke="#b3a68d" stroke-width="10" fill="none" stroke-linecap="round"/>
+   <ellipse id="mMouth" cx="0" cy="828" rx="18" ry="3" fill="#7d705c"/>
+  </g>
+ </g>
+</svg>
+<div id="title">Lección 2 · <b>La pereza</b></div>
+</div>
+<div id="subs"><div id="who"></div><div id="line"></div></div>
+<div id="end"><div class="big">Las ganas llegan cuando <em>ya has empezado.</em></div><div class="brand">CARÁCTER <b>ESTOICO</b></div><div class="fol">Una lección al día · Sígueme</div></div>
+<div id="bar"></div>
+<script>
+const T=/*TIMING*/null; const D=23.5;
+const SEG=T.seg;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+window.ready=document.fonts.ready;
+function talk(t,who){const s=SEG.find(s=>s.who===who&&t>=s.s&&t<=s.e);if(!s)return 0;return .25+.75*Math.abs(Math.sin((t-s.s)*15))*(.6+.4*Math.sin(t*5.3));}
+function render(t){
+  $('bar').style.width=(t/D*1080)+'px';
+  const cur=SEG.find(s=>t>=s.s-0.15&&t<=s.e+0.3)||SEG.filter(s=>s.s<=t).pop()||SEG[0];
+  // cámara: se acerca al que habla
+  const tgt=cur.who==='alex'?60:-60; const k=ease(clamp((t-cur.s+0.15)/.5));
+  const prev=SEG[Math.max(0,SEG.indexOf(cur)-1)]; const from=SEG.indexOf(cur)?(prev.who==='alex'?60:-60):0;
+  const x=from+(tgt-from)*k;
+  $('cam').style.transform=`translate(${x}px,0) scale(${1.15+.02*Math.sin(t*.3)})`;
+  // Álex: postura encorvada que se endereza al final
+  const up=clamp((t-17)/2.5);
+  $('aBody').setAttribute('transform',`translate(0,${(1-up)*18}) rotate(${(1-up)*-3} 0 1150)`);
+  $('aHead').setAttribute('transform',`translate(${(1-up)*-6},${(1-up)*30+Math.sin(t*2)*3}) rotate(${(1-up)*-8+Math.sin(t*1.3)*1.5} 0 840)`);
+  const ma=talk(t,'alex'); $('aMouth').setAttribute('ry',4+ma*20); $('aMouth').setAttribute('rx',22-ma*4);
+  const blinkA=(t%3.7)<.12; $('aEyes').style.opacity=blinkA?0:1; $('aLids').style.opacity=blinkA?1:0;
+  $('aGlow').setAttribute('opacity',up<1?1-up:0);
+  // Marco: flota suavemente, aura que respira
+  $('marco').setAttribute('transform',`translate(800,${Math.sin(t*1.1)*8})`);
+  const mm=talk(t,'marco'); $('mMouth').setAttribute('ry',3+mm*14);
+  $('mAura').setAttribute('opacity',.7+.3*Math.sin(t*1.7)+(mm?.2:0));
+  $('mHead').setAttribute('transform',`rotate(${Math.sin(t*.9)*2+(mm?Math.sin(t*4)*1.2:0)} 0 840)`);
+  $('mEyes').style.opacity=((t+1.3)%4.4)<.12?0:1;
+  // luz del amanecer crece
+  $('dawnlight').setAttribute('opacity',.08*clamp((t-10)/10));
+  // subtítulos por personaje
+  const who=$('who'),line=$('line');
+  const words=T.words.filter(w=>w.s>=cur.s-0.2&&w.e<=cur.e+0.3);
+  who.textContent=cur.who==='alex'?'ÁLEX':'MARCO AURELIO';
+  who.style.background=cur.who==='alex'?'#2f6f6a':'#b8864b'; who.style.color=cur.who==='alex'?'#e9f3f1':'#1a1208';
+  line.innerHTML=words.map(w=>`<span class="${t>=w.s-0.03?'on':''}">${w.t}</span>`).join(' ');
+  $('subs').style.opacity=t<20.9?1:clamp(1-(t-20.9)/.3);
+  $('end').style.opacity=clamp((t-21.0)/.35);
+}
+</script></body></html>

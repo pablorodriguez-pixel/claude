@@ -1,0 +1,145 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0d0e11}
+body{font-family:Inter,system-ui,sans-serif;color:#f4f1ea;-webkit-font-smoothing:antialiased}
+#cam{position:absolute;inset:0;transform-origin:540px 900px}
+.sc{position:absolute;inset:0;opacity:0}
+/* pantalla de bloqueo */
+#lock{background:radial-gradient(ellipse at 50% 20%,#2b3440 0%,#12151b 55%,#0b0c10 100%)}
+#lock .date{position:absolute;left:0;right:0;top:250px;text-align:center;font-size:44px;font-weight:600;color:rgba(244,241,234,.75)}
+#lock .clock{position:absolute;left:0;right:0;top:300px;text-align:center;font-size:300px;font-weight:800;letter-spacing:-8px;line-height:1}
+#lock .clock.late{color:#ff5a4e}
+.card{position:absolute;left:70px;right:70px;border-radius:44px;background:rgba(40,44,52,.82);backdrop-filter:blur(20px);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+#alarm{top:720px;padding:40px 46px}
+#alarm .t{font-size:36px;color:rgba(244,241,234,.6);font-weight:600}
+#alarm .h{font-size:76px;font-weight:800;margin-top:6px}
+#alarm .btns{display:flex;gap:26px;margin-top:34px}
+#alarm .b{flex:1;text-align:center;padding:30px 0;border-radius:100px;font-size:44px;font-weight:800;background:rgba(255,255,255,.12)}
+#alarm .b.snooze{background:#f2a63b;color:#1a1308;position:relative}
+#alarm .b.stop{background:rgba(255,255,255,.14)}
+#alarm .x{position:absolute;left:-10px;right:-10px;top:50%;height:10px;margin-top:-5px;background:#ff5a4e;border-radius:6px;transform-origin:left;transform:scaleX(0) rotate(-6deg)}
+.notif{position:absolute;left:70px;right:70px;height:150px;border-radius:38px;background:rgba(44,48,58,.92);display:flex;align-items:center;gap:28px;padding:0 34px;box-shadow:0 14px 40px rgba(0,0,0,.4)}
+.notif i{width:86px;height:86px;border-radius:22px;flex:none}
+.notif b{display:block;font-size:36px;font-weight:800}
+.notif span{display:block;font-size:32px;color:rgba(244,241,234,.65);margin-top:4px}
+/* antigüedad */
+#rome{background:radial-gradient(ellipse at 50% 40%,#3a3127 0%,#14110d 70%)}
+#rome img{position:absolute;left:50%;top:58%;height:1300px;-webkit-mask-image:linear-gradient(180deg,transparent 0%,#000 18%,#000 82%,transparent 100%);transform:translate(-50%,-50%);filter:grayscale(1) sepia(.35) contrast(1.15) brightness(.85)}
+#rome .yr{position:absolute;left:0;right:0;top:150px;text-align:center;font-family:Cinzel,serif;font-weight:800;font-size:96px;letter-spacing:.12em;color:#e8c690;text-shadow:0 8px 40px rgba(0,0,0,.9)}
+#rome .sub{position:absolute;left:0;right:0;top:265px;text-align:center;font-family:Cinzel,serif;font-size:36px;letter-spacing:.35em;color:rgba(244,241,234,.8)}
+#rome .fallback{position:absolute;left:50%;top:50%;width:520px;margin:-260px 0 0 -260px;opacity:.9}
+/* notas */
+#notes{background:#f6f1e6;color:#1d1a15}
+#notes .bar{position:absolute;left:0;right:0;top:0;height:230px;background:#efe7d6;border-bottom:2px solid #e2d8c4}
+#notes .bar span{position:absolute;left:70px;bottom:40px;font-size:42px;font-weight:600;color:#c48a2c}
+#notes .ttl{position:absolute;left:80px;right:80px;top:300px;font-size:70px;font-weight:900}
+#notes .meta{position:absolute;left:80px;top:400px;font-size:34px;color:#8b8172;font-weight:600}
+#notes .txt{position:absolute;left:80px;right:80px;top:500px;font-family:Caveat,cursive;font-size:118px;line-height:1.05;color:#1d1a15}
+#notes .cur{display:inline-block;width:6px;height:100px;background:#c48a2c;vertical-align:-14px;margin-left:6px}
+/* final */
+#fin{background:#0d0e11}
+#fin .big{position:absolute;left:70px;right:70px;top:640px;font-size:132px;font-weight:900;line-height:1;letter-spacing:-3px}
+#fin .big em{font-style:normal;color:#f2a63b}
+#fin .brand{position:absolute;left:0;right:0;bottom:280px;text-align:center;font-family:Cinzel,serif;font-weight:800;font-size:48px;letter-spacing:.12em}
+#fin .brand b{color:#c9965a}
+#fin .fol{position:absolute;left:0;right:0;bottom:210px;text-align:center;font-size:34px;color:rgba(244,241,234,.6);font-weight:600}
+#check{position:absolute;left:50%;top:1150px;width:240px;height:240px;margin-left:-120px;border-radius:50%;background:#39c27a;opacity:0;display:flex;align-items:center;justify-content:center}
+#check svg{width:150px}
+#ftxt{position:absolute;left:0;right:0;top:1440px;text-align:center;font-size:96px;font-weight:900;letter-spacing:-2px;opacity:0}
+/* subtítulos */
+#subs{position:absolute;left:60px;right:60px;top:1600px;text-align:center;font-weight:900;font-size:72px;line-height:1.1;letter-spacing:-1px}
+#subs span{display:inline-block;margin:0 8px;padding:2px 14px;border-radius:14px}
+#subs span.on{background:#f2a63b;color:#16120b}
+#glitch{position:absolute;inset:0;opacity:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.08) 0 3px,transparent 3px 7px);mix-blend-mode:screen}
+#black{position:absolute;inset:0;background:#000;opacity:0}
+#bar{position:absolute;left:0;top:0;height:6px;width:0;background:#f2a63b}
+</style></head><body>
+<div id="cam">
+ <div class="sc" id="lock">
+   <div class="date">Martes, 22 de octubre</div>
+   <div class="clock" id="clock">7:00</div>
+   <div class="card" id="alarm"><div class="t">⏰ Alarma</div><div class="h">Levantarse</div>
+     <div class="btns"><div class="b snooze">Posponer<div class="x" id="x"></div></div><div class="b stop" id="stop">Detener</div></div></div>
+   <div id="notifs"></div>
+   <div id="check"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div id="ftxt">PIES AL SUELO.</div>
+ </div>
+ <div class="sc" id="rome">
+   <img id="bust" src="arte/busto_marco_aurelio.jpg" onerror="this.remove()">
+   <svg class="fallback" id="laurel" viewBox="-60 -50 120 110"><g fill="none" stroke-linecap="round" stroke-width="5"><path d="M-34 44V-6a34 34 0 0 1 68 0v50" stroke="#e8c690"/><path d="M-44 44h88" stroke="#e8c690"/><path d="M0 34V8" stroke="#b8864b"/></g><circle cx="0" cy="-4" r="6" fill="#b8864b"/></svg>
+   <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,17,13,.95) 0%,rgba(20,17,13,0) 22%,rgba(20,17,13,0) 70%,rgba(20,17,13,.9) 100%)"></div><div class="yr">ROMA · 170 d.C.</div><div class="sub">Marco Aurelio, emperador</div>
+ </div>
+ <div class="sc" id="notes">
+   <div class="bar"><span>‹ Notas</span></div>
+   <div class="ttl">Para mañana</div><div class="meta">Meditaciones · Libro V</div>
+   <div class="txt"><span id="typed"></span><span class="cur" id="cur"></span></div>
+ </div>
+ <div class="sc" id="fin">
+   <div class="big">Las ganas llegan <em>después.</em></div>
+   <div class="brand">CARÁCTER <b>ESTOICO</b></div>
+   <div class="fol">Una lección al día · Sígueme</div>
+ </div>
+ <div id="subs"></div>
+</div>
+<div id="glitch"></div><div id="black"></div><div id="bar"></div>
+<script>
+const T=/*TIMING*/null; const D=27;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eout=x=>1-Math.pow(1-x,3);
+const win=(t,a,b,f=.2)=>clamp((t-a)/f)*clamp((b-t)/f);
+const APPS=[['#E1306C','Instagram','A 12 personas les gusta tu foto'],['#25D366','WhatsApp','23 mensajes nuevos'],['#000','TikTok','Mira lo que te has perdido'],['#FF0000','YouTube','Nuevo vídeo para ti'],['#4285F4','Correo','Reunión a las 9:00']];
+const QUOTE='"Me levanto para hacer el trabajo de un ser humano."';
+let nEls=[];
+window.ready=document.fonts.ready.then(()=>{
+  APPS.forEach((a,i)=>{const d=document.createElement('div');d.className='notif';d.innerHTML=`<i style="background:${a[0]}"></i><div><b>${a[1]}</b><span>${a[2]}</span></div>`;$('notifs').appendChild(d);nEls.push(d);});
+  if(document.getElementById('bust')) $('laurel').style.display='none';
+});
+function render(t){
+  $('bar').style.width=(t/D*1080)+'px';
+  // escena 1: alarma (0–9.2) y vuelta (18.6–24.3)
+  const lock=Math.max(win(t,0,9.3,.01),win(t,18.7,24.4,.25));
+  $('lock').style.opacity=lock;
+  const second=t>18;
+  // reloj
+  let clk='7:00';
+  if(!second){ if(t>4.3) clk='7:0'+Math.min(9,Math.floor((t-4.3)*6)); if(t>5.6) clk='7:'+(10+Math.floor((t-5.6)*14)); if(t>7.0) clk='9:42'; }
+  $('clock').textContent=clk; $('clock').className='clock'+(clk==='9:42'?' late':'');
+  // vibración de alarma
+  const vib=(!second&&t<4.1)||(second&&t<20.8)?Math.sin(t*90)*6:0;
+  $('alarm').style.transform=`translateX(${vib}px)`;
+  $('alarm').style.opacity=second?1:(t<5.9?1:clamp(1-(t-5.9)/.3));
+  // posponer pulsado
+  const snz=document.querySelector('.snooze'); snz.style.transform=(!second&&t>4.1&&t<4.5)?'scale(.92)':'scale(1)';
+  // notificaciones: aluvión
+  nEls.forEach((n,i)=>{const a=5.95+i*.32;const k=eout(clamp((t-a)/.3));const on=!second&&t>a;
+    n.style.opacity=on?k:0; n.style.top=(690+i*168+(1-k)*-80)+'px';});
+  // segunda vuelta: tachar posponer, check, pies al suelo
+  $('x').style.transform=`scaleX(${second?eout(clamp((t-20.8)/.35)):0}) rotate(-6deg)`;
+  $('stop').style.background=second&&t>22.0?'#39c27a':'rgba(255,255,255,.14)';
+  const ck=second?eout(clamp((t-22.1)/.3)):0; $('check').style.opacity=ck; $('check').style.transform=`scale(${.6+.4*ck})`;
+  $('ftxt').style.opacity=second?clamp((t-22.3)/.25):0;
+  // glitch y negro en "ya es tarde"
+  $('glitch').style.opacity=win(t,7.6,9.3,.15)*(.5+.5*Math.sin(t*60));
+  $('black').style.opacity=clamp((t-8.9)/.3)*clamp((9.6-t)/.3);
+  // escena 2: Roma
+  $('rome').style.opacity=win(t,9.3,13.4,.3);
+  const b=document.getElementById('bust'); if(b) b.style.transform=`translate(-50%,-50%) scale(${1+.06*clamp((t-9.3)/4)})`;
+  // escena 3: notas con cita escrita a mano
+  $('notes').style.opacity=win(t,13.4,18.7,.25);
+  const n=Math.floor(clamp((t-14.86)/3.1)*QUOTE.length); $('typed').textContent=QUOTE.slice(0,n);
+  $('cur').style.opacity=(Math.floor(t*3)%2)?1:0;
+  // final
+  $('fin').style.opacity=clamp((t-24.35)/.3);
+  // cámara: pequeño empuje
+  $('cam').style.transform=`scale(${1+.015*Math.sin(t*.4)})`;
+  // subtítulos (ocultos en notas y final)
+  const S=$('subs'); const hide=(t>14.8&&t<18.2)||(t>24.35);
+  const c=T.subs.find(s=>t>=s.s-0.05&&t<s.e);
+  S.style.top=(t>18.7&&t<24.4)?'1640px':'1600px';
+  if(!c||hide){S.innerHTML='';}else{S.innerHTML=c.w.map(w=>`<span class="${t>=w.s-0.03&&t<w.e+0.1?'on':''}">${w.t}</span>`).join(' ');}
+}
+</script></body></html>

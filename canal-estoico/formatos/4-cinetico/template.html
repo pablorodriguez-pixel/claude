@@ -1,0 +1,79 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#111216}
+body{font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#bg{position:absolute;inset:0;background:#111216}
+#grid{position:absolute;inset:0;background-image:linear-gradient(rgba(127,127,127,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(127,127,127,.09) 1px,transparent 1px);background-size:90px 90px}
+#num{position:absolute;left:0;right:0;top:20px;text-align:center;font-weight:900;font-size:640px;line-height:1;letter-spacing:-40px;opacity:0}
+#txt{position:absolute;left:70px;right:70px;top:760px;text-align:center;font-weight:900;font-size:120px;line-height:1.02;letter-spacing:-3px}
+#txt span{display:inline-block;margin:0 14px;opacity:0}
+#txt span.k{color:#d9a564}
+#bust{position:absolute;left:50%;top:250px;width:440px;height:440px;margin-left:-220px;border-radius:50%;overflow:hidden;opacity:0;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+#bust img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.1)}
+#dots{position:absolute;left:0;right:0;top:1220px;text-align:center;opacity:0}
+#dots i{display:inline-block;width:46px;height:46px;border-radius:50%;margin:0 22px;background:#d9a564}
+#timer{position:absolute;left:50%;top:1230px;width:300px;height:300px;margin-left:-150px;opacity:0}
+#brand{position:absolute;left:0;right:0;bottom:260px;text-align:center;font-family:Cinzel,serif;font-weight:800;font-size:50px;letter-spacing:.12em;opacity:0}
+#brand b{color:#d9a564}
+#fol{position:absolute;left:0;right:0;bottom:200px;text-align:center;font-size:34px;font-weight:600;opacity:0}
+#bar{position:absolute;left:0;top:0;height:8px;width:0;background:#d9a564}
+#wipe{position:absolute;left:0;right:0;top:0;height:1920px;transform-origin:top;transform:scaleY(0)}
+</style></head><body>
+<div id="bg"></div><div id="grid"></div><div id="wipe"></div>
+<div id="num"></div>
+<div id="bust"><img src="arte/busto_marco_aurelio.jpg"></div>
+<div id="txt"></div>
+<div id="dots"><i></i><i></i><i></i></div>
+<svg id="timer" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(127,127,127,.3)" stroke-width="8"/><circle id="arc" cx="50" cy="50" r="44" fill="none" stroke="#d9a564" stroke-width="8" stroke-linecap="round" stroke-dasharray="276.5" stroke-dashoffset="276.5" transform="rotate(-90 50 50)"/><text x="50" y="58" text-anchor="middle" font-family="Inter" font-weight="900" font-size="24" id="tt">5:00</text></svg>
+<div id="brand">CARÁCTER <b>ESTOICO</b></div><div id="fol">Una lección al día · Sígueme</div>
+<div id="bar"></div>
+<script>
+const T=/*TIMING*/null; const D=25.5;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const eout=x=>1-Math.pow(1-x,3);
+const back=x=>{const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const KEY=/^(GANAS|NUNCA|MARCO|AURELIO|TRES|PASOS|LEVANTAS|PEQUEÑO|CINCO|MINUTOS|EMPIEZA|ACCIÓN|PRIMERO|REVÉS)$/i;
+const W=()=>T.words;
+const at=(re,after=0)=>W().find(w=>w.s>=after&&re.test(w.t)).s;
+let S;
+window.ready=document.fonts.ready.then(()=>{
+  const uno=at(/^uno$/i), dos=at(/^dos$/i,uno), tres=at(/^tres$/i,dos);
+  // secciones: [desde, fondo, color texto, número grande]
+  S=[[0,'#111216','#f4f1ea',''],[4.1,'#ece6d8','#16140f',''],[8.0,'#111216','#f4f1ea',''],[uno-0.15,'#b8864b','#141008','1'],[dos-0.15,'#ece6d8','#16140f','2'],[tres-0.15,'#111216','#f4f1ea','3'],[21.2,'#16140f','#f4f1ea','']];
+});
+function render(t){
+  $('bar').style.width=(t/D*1080)+'px';
+  let i=0; for(let k=0;k<S.length;k++) if(t>=S[k][0]) i=k;
+  const [a,bg,fg,num]=S[i]; const prev=S[Math.max(0,i-1)];
+  // barrido de color al cambiar de sección
+  const wp=clamp((t-a)/.28); $('wipe').style.background=bg; $('wipe').style.transform=`scaleY(${i?eout(wp):1})`;
+  $('bg').style.background=i?prev[1]:bg; document.body.style.color=fg;
+  $('txt').style.color=fg;
+  // número gigante de fondo
+  $('num').textContent=num; $('num').style.opacity=num?.13*eout(clamp((t-a)/.4)):0;
+  $('num').style.transform=`scale(${1.15-.15*eout(clamp((t-a)/.6))})`; $('num').style.color=fg;
+  // texto: trozo actual, palabra a palabra con rebote
+  const c=T.subs.find(s=>t>=s.s-0.08&&t<s.e+0.25)||null;
+  if(c){ $('txt').innerHTML=c.w.map(w=>`<span class="${KEY.test(w.t)?'k':''}">${w.t.toUpperCase()}</span>`).join(' ');
+    [...$('txt').children].forEach((el,j)=>{const k=clamp((t-c.w[j].s+0.05)/.22);el.style.opacity=k?1:0;el.style.transform=`scale(${k?back(k):0.6}) translateY(${(1-eout(k))*30}px)`;
+      if(el.classList.contains('k')) el.style.color=i===3?'#fff':(bg==='#ece6d8'?'#8a5f2c':'#d9a564');});
+  } else $('txt').innerHTML='';
+  // busto en "Marco Aurelio"
+  const bu=clamp((t-4.2)/.35)*clamp((8.0-t)/.25); $('bust').style.opacity=bu; $('bust').style.transform=`scale(${.8+.2*eout(clamp((t-4.2)/.4))})`;
+  // tres puntos
+  const dt=clamp((t-8.1)/.3)*clamp((10.4-t)/.2); $('dots').style.opacity=dt;
+  [...$('dots').children].forEach((d,j)=>{const k=eout(clamp((t-8.6-j*.25)/.25));d.style.transform=`scale(${k})`;});
+  // temporizador de 5 minutos en el paso 2
+  const tm=i===4?clamp((t-16.1)/.3):0; $('timer').style.opacity=tm;
+  const p=clamp((t-16.3)/2.0); $('arc').setAttribute('stroke-dashoffset',276.5*(1-p)); $('tt').setAttribute('fill',fg);
+  // marca final
+  const fb=clamp((t-23.9)/.4); $('brand').style.opacity=fb; $('fol').style.opacity=fb*.7; $('brand').style.color=fg;
+  document.querySelectorAll('#txt span').forEach(s=>{});
+  // ligero zoom continuo
+  $('txt').style.transform=`scale(${1+.03*clamp((t-a)/3)})`;
+}
+</script></body></html>

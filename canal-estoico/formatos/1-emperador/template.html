@@ -1,0 +1,88 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#0a0908}
+body{color:#efe7d6;font-family:"Cormorant Garamond",Georgia,serif;-webkit-font-smoothing:antialiased}
+.sc{position:absolute;inset:0;opacity:0;overflow:hidden}
+.sc img{position:absolute;left:0;top:0;transform-origin:0 0}
+#bustS img{filter:grayscale(1) sepia(.55) contrast(1.25) brightness(.8)}
+#light{position:absolute;inset:0;pointer-events:none;mix-blend-mode:soft-light;background:radial-gradient(ellipse at 30% 40%,rgba(255,170,80,.9) 0%,rgba(255,140,60,.2) 40%,rgba(0,0,0,.85) 80%)}
+#shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(10,9,8,.85) 0%,rgba(10,9,8,0) 25%,rgba(10,9,8,0) 60%,rgba(10,9,8,.95) 100%)}
+#vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,transparent 38%,rgba(0,0,0,.85))}
+#grain{position:absolute;inset:0;opacity:.14;mix-blend-mode:overlay;pointer-events:none}
+.fog{position:absolute;width:1600px;height:2400px;background:url(fog.png);opacity:.12;pointer-events:none}
+#name{position:absolute;left:0;right:0;top:170px;text-align:center;opacity:0}
+#name .k{font-family:Cinzel,serif;font-weight:800;font-size:72px;letter-spacing:.08em}
+#name .d{margin-top:12px;font-family:Cinzel,serif;font-size:30px;letter-spacing:.3em;color:#d9a564}
+#parch{background:radial-gradient(ellipse at 50% 45%,#e9dcbf 0%,#d2bd93 55%,#8e7650 100%)}
+#parch .ttl{position:absolute;left:0;right:0;top:330px;text-align:center;font-family:Cinzel,serif;font-size:34px;letter-spacing:.35em;color:#6d5432}
+#parch .txt{position:absolute;left:110px;right:110px;top:520px;font-family:Caveat,cursive;font-size:124px;line-height:1.05;color:#2a1f12}
+#parch .sig{position:absolute;right:120px;top:1180px;font-family:Caveat,cursive;font-size:72px;color:#5a4426;opacity:0}
+#parch .flick{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 90%,rgba(255,150,60,.35),transparent 60%);mix-blend-mode:multiply}
+#sunS img{filter:sepia(.2) saturate(1.05) contrast(1.1) brightness(.85)}
+#endS{background:#0a0908}
+#endS .big{position:absolute;left:0;right:0;top:700px;text-align:center;font-family:Cinzel,serif;font-weight:800;font-size:180px;letter-spacing:.04em}
+#endS .sm{position:absolute;left:0;right:0;top:920px;text-align:center;font-style:italic;font-size:72px;color:#d9a564;opacity:0}
+#endS .brand{position:absolute;left:0;right:0;bottom:260px;text-align:center;font-family:Cinzel,serif;font-weight:800;font-size:48px;letter-spacing:.12em;opacity:0}
+#endS .brand b{color:#b8864b}
+#subs{position:absolute;left:70px;right:70px;top:1380px;text-align:center;font-style:italic;font-weight:600;font-size:84px;line-height:1.08;text-shadow:0 4px 30px rgba(0,0,0,.95),0 0 6px rgba(0,0,0,.9)}
+#subs span{opacity:.35}
+#subs span.on{opacity:1}
+#bar{position:absolute;left:0;top:0;height:5px;width:0;background:#b8864b}
+</style></head><body>
+<div class="sc" id="bustS"><img id="bust" src="arte/busto_marco_aurelio.jpg"></div>
+<div class="sc" id="parch"><div class="flick" id="flick"></div><div class="ttl">Meditaciones · Libro V</div><div class="txt" id="ptxt"></div><div class="sig" id="sig">— M. A.</div></div>
+<div class="sc" id="sunS"><img id="sun" src="arte/5_noveno_oleaje_aivazovsky.jpg"></div>
+<div id="light"></div><div id="shade"></div>
+<div class="fog" id="fog"></div>
+<div id="name"><div class="k">Marco Aurelio</div><div class="d">Emperador de Roma · 161–180</div></div>
+<div class="sc" id="endS"><div class="big">EMPIEZA.</div><div class="sm" id="esm">Y las ganas llegarán.</div><div class="brand" id="ebr">CARÁCTER <b>ESTOICO</b></div></div>
+<div id="subs"></div>
+<div id="vign"></div>
+<svg id="grain" width="1080" height="1920"><filter id="gf"><feTurbulence id="turb" type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="1"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(#gf)"/></svg>
+<div id="bar"></div>
+<script>
+const T=/*TIMING*/null; const D=28;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eout=x=>1-Math.pow(1-x,3);
+const win=(t,a,b,f=.4)=>clamp((t-a)/f)*clamp((b-t)/f);
+const Q='"Te levantas para hacer el trabajo de un ser humano."';
+let nb,ns;
+window.ready=document.fonts.ready.then(()=>Promise.all([$('bust').decode(),$('sun').decode()])).then(()=>{nb=[$('bust').naturalWidth,$('bust').naturalHeight];ns=[$('sun').naturalWidth,$('sun').naturalHeight];});
+function place(img,nat,fx,fy,z){const H=1920*z,sc=H/nat[1],W=nat[0]*sc;let x=540-fx*W,y=960-fy*H;x=Math.min(0,Math.max(1080-W,x));y=Math.min(0,Math.max(1920-H,y));img.style.transform=`translate(${x}px,${y}px) scale(${sc})`;}
+function render(t){
+  $('bar').style.width=(t/D*1080)+'px';
+  // busto: plano general que se acerca (0–8.6), luego primer plano a los ojos (14.9–20.5)
+  const b1=win(t,0,8.7,.01), b2=win(t,14.8,20.6,.35);
+  $('bustS').style.opacity=Math.max(b1,b2);
+  if(t<11) place($('bust'),nb,.5,.42,1.02+.28*ease(clamp(t/8.6)));
+  else place($('bust'),nb,.48,.33,1.75+.35*ease(clamp((t-14.8)/5.8)));
+  // pergamino con la cita escrita a mano
+  $('parch').style.opacity=win(t,8.6,14.9,.35);
+  const n=Math.floor(clamp((t-11.15)/2.8)*Q.length); $('ptxt').textContent=Q.slice(0,n);
+  $('sig').style.opacity=clamp((t-14.0)/.3); $('flick').style.opacity=.6+.4*Math.sin(t*13)*Math.sin(t*7.3);
+  // amanecer: "gobiernas tu día"
+  $('sunS').style.opacity=win(t,20.5,24.4,.4); place($('sun'),ns,.6,.45,1.5-.25*ease(clamp((t-20.5)/3.9)));
+  // luz de vela
+  const fl=.85+.15*Math.sin(t*11)*Math.sin(t*5.7+1);
+  $('light').style.opacity=(t<20.5?1:.35)*fl*(t>24.4?0:1);
+  $('shade').style.opacity=t>24.4?0:1;
+  $('fog').style.transform=`translate(${-260+t*12}px,-250px)`; $('fog').style.opacity=t<20.5?.12:.05;
+  // nombre
+  $('name').style.opacity=win(t,0.3,3.6,.4);
+  // final
+  $('endS').style.opacity=clamp((t-24.45)/.35);
+  $('esm').style.opacity=clamp((t-25.7)/.4); $('ebr').style.opacity=clamp((t-26.4)/.5);
+  document.querySelector('#endS .big').style.transform=`scale(${1.08-.08*eout(clamp((t-24.45)/.6))})`;
+  $('turb').setAttribute('seed',Math.floor(t*24)%100+1);
+  // subtítulos elegantes (ocultos en el pergamino y al final)
+  const S=$('subs'); const hide=(t>11.0&&t<14.5)||t>24.4||t<3.7&&t>0.25&&false;
+  const c=T.subs.find(s=>t>=s.s-0.05&&t<s.e);
+  if(!c||hide){S.innerHTML='';}else{S.innerHTML=c.w.map(w=>`<span class="${t>=w.s-0.03?'on':''}">${w.t}</span>`).join(' ');}
+  S.style.top=(t<3.7)?'1430px':'1380px';
+}
+</script></body></html>
