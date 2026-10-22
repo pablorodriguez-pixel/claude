@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><style>body{margin:0;background:#2a3146}</style></head><body>
+<svg id="s" width="2400" height="1100"><defs><radialGradient id="aura" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd59a" stop-opacity=".55"/><stop offset="1" stop-color="#e8b062" stop-opacity="0"/></radialGradient></defs></svg>
+<script src="characters.js"></script>
+<script>
+const P=[
+ drawAlex({x:200,y:1000,s:1,look:[3,0]}),
+ drawAlex({x:520,y:1000,s:1,look:[5,-2],brow:'up',mouth:.7,emo:'surprise',armR:-40,elbowR:-60}),
+ drawAlex({x:860,y:1000,s:1,sit:true,look:[0,5],brow:'sad',emo:'sad',phone:true,armR:30,elbowR:-110,tilt:-6}),
+ drawAlex({x:1200,y:1000,s:1,walk:1,phase:0.6,look:[6,0],emo:'smile',armL:25,armR:-25}),
+ drawAlex({x:1480,y:1000,s:1,walk:1,phase:2.2,look:[6,0],brow:'down',emo:'smile',armL:-150,armR:150,elbowL:-20,elbowR:20}),
+ drawMarco({x:1820,y:1000,s:1,look:[-5,0],brow:'soft',aura:.8}),
+ drawMarco({x:2180,y:1000,s:1,look:[-5,-1],brow:'down',mouth:.6,armR:-95,elbowR:-50,tilt:3}),
+];
+document.getElementById('s').insertAdjacentHTML('beforeend',P.join(''));
+</script></body></html>
