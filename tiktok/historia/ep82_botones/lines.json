@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Las camisas de mujer se abrochan al revés.",
+  "s": 0.12,
+  "e": 2.018
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y si alguna vez te has liado con los botones de tu pareja... tranquilo, no es torpeza. Es culpa de alguien de hace cuatro siglos.",
+  "s": 2.368,
+  "e": 9.798
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Antes, los botones eran carísimos. Solo los llevaban los ricos.",
+  "s": 10.098,
+  "e": 14.486
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y aquí está el truco: los señores se vestían solos... pero las señoras no. A ellas las vestía la criada. De frente.",
+  "s": 14.786,
+  "e": 23.504
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que los botones se pusieron al revés... para que fuera cómodo para la criada. No para la señora.",
+  "s": 23.804,
+  "e": 29.458
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Los hombres, mientras, iban a lo suyo: abrochados al otro lado para meter la mano derecha en la chaqueta... y sacar la espada sin engancharse.",
+  "s": 29.758,
+  "e": 36.876
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 37.176,
+  "e": 39.782
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Pasaron los siglos. Las criadas desaparecieron. Las espadas también.",
+  "s": 40.082,
+  "e": 44.879
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Pero los botones siguen exactamente igual. Nadie se atrevió a cambiarlos.",
+  "s": 45.179,
+  "e": 49.327
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que cada mañana, millones de mujeres se abrochan la camisa... pensando en la comodidad de una criada de hace siglos.",
+  "s": 49.627,
+  "e": 57.042
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: no está demostrado del todo. Hay más teorías.",
+  "s": 57.342,
+  "e": 60.697
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: la próxima vez que te pelees con su camisa... dile que la culpa es de la criada.",
+  "s": 60.997,
+  "e": 66.429
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Confiesa: ¿a quién le has desabrochado tú una camisa... y te has liado con los botones? Os leo.",
+  "s": 66.729,
+  "e": 74.16
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 74.46,
+  "e": 77.415
+ }
+]

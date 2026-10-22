@@ -1,0 +1,81 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Las camisas de mujer se abrochan al revés."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y si alguna vez te has liado con los botones de tu pareja... tranquilo, no es torpeza. Es culpa de alguien de hace cuatro siglos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Antes, los botones eran carísimos. Solo los llevaban los ricos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y aquí está el truco: los señores se vestían solos... pero las señoras no. A ellas las vestía la criada. De frente.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Así que los botones se pusieron al revés... para que fuera cómodo para la criada. No para la señora.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Los hombres, mientras, iban a lo suyo: abrochados al otro lado para meter la mano derecha en la chaqueta... y sacar la espada sin engancharse.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pasaron los siglos. Las criadas desaparecieron. Las espadas también.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Pero los botones siguen exactamente igual. Nadie se atrevió a cambiarlos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Así que cada mañana, millones de mujeres se abrochan la camisa... pensando en la comodidad de una criada de hace siglos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: no está demostrado del todo. Hay más teorías.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la próxima vez que te pelees con su camisa... dile que la culpa es de la criada.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿a quién le has desabrochado tú una camisa... y te has liado con los botones? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
