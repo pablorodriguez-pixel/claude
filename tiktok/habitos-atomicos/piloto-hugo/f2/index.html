@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<script src="../shared/data.js"></script><script src="../shared/engine.js"></script>
+<style>
+@font-face{font-family:Archivo;font-weight:100 900;font-stretch:62% 125%;src:url(../shared/archivo.woff2) format('woff2')}
+@font-face{font-family:Marker;src:url(../shared/PermanentMarker-Regular.ttf)}
+@font-face{font-family:ISerif;font-style:italic;src:url(../shared/InstrumentSerif-Italic.ttf)}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#1B1B1F;--paper:#F6F2E8;--lime:#D4FF3A;--red:#F2412E;--blue:#2F55D4}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--paper)}
+body{font-family:Archivo;color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--paper);background-image:radial-gradient(circle,rgba(27,27,31,.16) 2.4px,transparent 3px);background-size:54px 54px}
+#cam{position:absolute;inset:0;transform-origin:540px 800px}
+#page{position:absolute;left:0;top:0;width:1080px;height:14000px}
+.abs{position:absolute}
+svg{position:absolute;overflow:visible}
+.mk{position:absolute;font-family:Marker;line-height:1.02;color:var(--ink);white-space:nowrap}
+.hi{position:absolute;background:rgba(212,255,58,.92);border-radius:.2em .5em .3em .6em;transform-origin:0 50%}
+.sk path,.sk line,.sk circle,.sk ellipse,.sk rect,.sk polyline{fill:none;stroke:var(--ink);stroke-width:7;stroke-linecap:round;stroke-linejoin:round}
+.sk .r{stroke:var(--red)}.sk .b{stroke:var(--blue)}
+.head{position:absolute;left:60px;right:60px;top:150px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:4px solid var(--ink);padding-bottom:16px;background:var(--paper);z-index:5}
+.head .t{font:italic 400 58px/1 ISerif}
+.head .t b{font:800 30px/1 Archivo;letter-spacing:.16em;text-transform:uppercase;font-style:normal;vertical-align:middle;margin-right:14px}
+.head .n{font:400 54px/1 Marker;color:var(--red)}
+#topfade{position:absolute;left:0;right:0;top:0;height:250px;background:linear-gradient(var(--paper) 75%,rgba(246,242,232,0));z-index:4}
+#caps{position:absolute;left:50px;right:50px;top:1470px;text-align:center;font:900 82px/1.06 Archivo;font-stretch:82%;text-transform:uppercase;color:var(--ink);letter-spacing:.01em}
+#caps span{display:inline-block;padding:0 12px;border-radius:10px;margin:4px 0}
+#caps .on{background:var(--lime);box-shadow:0 0 0 5px var(--ink)}
+#capbg{position:absolute;left:0;right:0;top:1420px;bottom:0;background:linear-gradient(rgba(246,242,232,0),var(--paper) 18%)}
+#pen{position:absolute;left:0;top:0;width:180px;height:280px;pointer-events:none;z-index:6;transform-origin:0 0;filter:drop-shadow(10px 14px 6px rgba(0,0,0,.18))}
+#bar{position:absolute;left:0;top:0;height:7px;background:var(--red);z-index:9}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+.photo{position:absolute;background:#fff;padding:14px 14px 50px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.photo .ph{width:100%;height:100%;background-size:cover;background-position:50% 25%;filter:grayscale(1) contrast(1.15)}
+.tape{position:absolute;height:54px;width:160px;background:rgba(255,255,255,.65);box-shadow:0 2px 5px rgba(0,0,0,.08)}
+.stamp{position:absolute;border:9px solid var(--red);color:var(--red);font:400 64px/1 Marker;padding:16px 30px;border-radius:50%;white-space:nowrap}
+.boxr{position:absolute;border:8px solid var(--red);border-radius:24px}
+</style></head><body><div id="stage"><div id="cam">
+<div id="page">
+<!-- A · GANCHO (y 0) -->
+<div class="mk w" id="a1" style="left:60px;top:300px;font-size:150px" data-t="0.05" data-d="0.55">Así dejas</div>
+<div class="mk w" id="a2" style="left:60px;top:460px;font-size:150px" data-t="0.55" data-d="0.6">de distraerte</div>
+<div class="hi" id="a3h" style="left:50px;top:660px;width:900px;height:120px"></div>
+<div class="mk w" id="a3" style="left:70px;top:662px;font-size:82px" data-t="1.45" data-d="0.75">sin fuerza de voluntad.</div>
+<svg class="sk" width="1080" height="1300" style="left:0;top:0">
+  <rect class="dr" data-t="2.25" data-d="0.35" x="420" y="850" width="240" height="400" rx="34"/><path class="dr" data-t="2.45" data-d="0.3" d="M460 920 L 620 920 M460 980 L 590 980 M460 1040 L 610 1040 M510 1210 L 570 1210"/><path class="dr r" data-t="2.7" data-d="0.3" d="M360 820 L 720 1280 M720 820 L 360 1280" style="stroke-width:14"/>
+</svg>
+
+<!-- B · NO ERES TÚ (y 1100) -->
+<div class="mk w" id="b1" style="left:60px;top:1350px;font-size:110px" data-t="3.25" data-d="0.55">El problema</div>
+<div class="mk w" id="b2" style="left:60px;top:1470px;font-size:110px" data-t="3.85" data-d="0.8">no eres <span style="color:var(--red)">tú.</span></div>
+<svg class="sk" width="1080" height="2400" style="left:0;top:0">
+  <!-- tú hoy -->
+  <g transform="translate(250 2080)"><circle class="dr" data-t="5.5" data-d="0.25" cx="0" cy="-160" r="45"/><path class="dr" data-t="5.7" data-d="0.35" d="M0 -115 L0 0 M0 0 L-40 80 M0 0 L40 80 M-55 -70 L55 -70"/></g>
+  <!-- tú mañana con gorro -->
+  <g transform="translate(760 2080)"><circle class="dr" data-t="5.95" data-d="0.25" cx="0" cy="-160" r="45"/><path class="dr b" data-t="6.15" data-d="0.3" d="M-50 -175 Q 0 -280 70 -230 L 50 -170 Z" style="stroke-width:8"/><path class="dr" data-t="6.35" data-d="0.35" d="M0 -115 L0 0 M0 0 L-40 80 M0 0 L40 80 M-55 -70 L55 -70 M-20 -165 L-8 -165 M10 -165 L22 -165"/></g>
+  <path class="dr r" data-t="6.6" data-d="0.35" d="M340 1980 C 450 1920, 560 1920, 660 1980 M630 1955 L 662 1982 L 625 2000"/>
+</svg>
+<div class="mk w" id="b3" style="left:170px;top:2190px;font-size:52px" data-t="5.6" data-d="0.3">tú hoy</div>
+<div class="mk w" id="b4" style="left:610px;top:2190px;font-size:52px;color:var(--blue)" data-t="6.2" data-d="0.45">tu yo de mañana</div>
+<div class="mk w" id="b5" style="left:560px;top:1660px;font-size:58px;color:var(--blue)" data-t="8.45" data-d="0.55">«mañana lo hago»</div>
+<svg class="sk" width="1080" height="2400" style="left:0;top:0"><path class="dr b" data-t="8.3" data-d="0.3" d="M540 1650 C 520 1610, 1040 1610, 1030 1690 C 1030 1750, 560 1750, 550 1700 Z M720 1740 L 740 1800 L 780 1740" style="stroke-width:6"/></svg>
+
+<!-- C · HUGO 1830 (y 2200) -->
+<div class="mk w" id="c1" style="left:60px;top:2440px;font-size:80px" data-t="10.15" data-d="0.55">Víctor Hugo tenía uno.</div>
+<div class="photo" id="hugoph" style="left:80px;top:2600px;width:360px;height:470px;transform:rotate(-4deg)"><div class="ph" data-img="../shared/hugo1829.jpg" style="background-image:url(../shared/hugo1829.jpg)"></div></div>
+<div class="tape" style="left:180px;top:2580px;transform:rotate(3deg)" id="tp1"></div>
+<div class="mk w" id="c2" style="left:500px;top:2620px;font-size:84px;color:var(--red)" data-t="11.6" data-d="0.4">1830</div>
+<div id="calg" class="abs" style="left:500px;top:2760px;width:520px;height:300px"></div>
+<div class="mk w" id="c3" style="left:500px;top:3080px;font-size:56px" data-t="14.0" data-d="0.6">1 año · 0 páginas</div>
+<div class="mk w" id="c4" style="left:90px;top:3150px;font-size:48px;color:#55545c" data-t="15.1" data-d="0.55">(prometidas a su editor)</div>
+
+<!-- C2 · DISTRACCIONES (y 3300) -->
+<svg class="sk" width="1080" height="4400" style="left:0;top:0">
+  <!-- copa -->
+  <g transform="translate(200 3700)"><path class="dr" data-t="16.66" data-d="0.35" d="M-50 -90 L50 -90 Q 50 -10 0 0 Q -50 -10 -50 -90 Z M0 0 L0 70 M-40 70 L40 70"/><path class="dr r" data-t="16.9" data-d="0.2" d="M-70 -130 l -20 -20 M0 -140 l0 -30 M70 -130 l 20 -20"/></g>
+  <!-- personas -->
+  <g transform="translate(540 3700)"><circle class="dr" data-t="17.2" data-d="0.15" cx="-40" cy="-70" r="28"/><circle class="dr" data-t="17.3" data-d="0.15" cx="40" cy="-70" r="28"/><path class="dr" data-t="17.4" data-d="0.3" d="M-80 40 Q -80 -30 -40 -30 Q 0 -30 0 40 M0 40 Q 0 -30 40 -30 Q 80 -30 80 40"/></g>
+  <!-- libros -->
+  <g transform="translate(880 3700)"><rect class="dr" data-t="18.22" data-d="0.3" x="-70" y="-30" width="140" height="40" rx="6"/><rect class="dr" data-t="18.4" data-d="0.3" x="-60" y="-75" width="120" height="45" rx="6"/><rect class="dr" data-t="18.55" data-d="0.3" x="-75" y="10" width="150" height="40" rx="6"/></g>
+</svg>
+<div class="mk w" id="d1" style="left:110px;top:3800px;font-size:56px" data-t="16.66" data-d="0.4">fiestas</div>
+<div class="mk w" id="d2" style="left:430px;top:3800px;font-size:56px" data-t="17.22" data-d="0.45">invitados</div>
+<div class="mk w" id="d3" style="left:770px;top:3800px;font-size:56px" data-t="18.24" data-d="0.45">proyectos</div>
+<div class="mk w" id="d4" style="left:60px;top:3980px;font-size:92px" data-t="19.18" data-d="0.4">Todo menos</div>
+<div class="mk w" id="d5" style="left:640px;top:3980px;font-size:92px;color:var(--red)" data-t="19.72" data-d="0.35">escribir.</div>
+<svg class="sk" width="1080" height="4400" style="left:0;top:0"><path class="dr r" data-t="20.15" data-d="0.3" d="M630 4035 C 740 4015, 900 4015, 1030 4045" style="stroke-width:12"/></svg>
+
+<!-- D · EDITOR (y 4400) -->
+<div class="mk w" id="e1" style="left:60px;top:4640px;font-size:76px" data-t="20.95" data-d="0.6">Hasta que su editor dijo:</div>
+<div class="boxr" id="ebox" style="left:70px;top:4790px;width:940px;height:420px"></div>
+<div class="mk w" id="e2" style="left:110px;top:4830px;font-size:52px;color:#55545c" data-t="22.1" data-d="0.4">última fecha →</div>
+<div class="mk w" id="e3" style="left:110px;top:4910px;font-size:150px;color:var(--red)" data-t="23.4" data-d="0.55">febrero</div>
+<div class="mk w" id="e4" style="left:110px;top:5070px;font-size:110px" data-t="23.95" data-d="0.4">1831</div>
+<svg class="sk" width="1080" height="5400" style="left:0;top:0"><g transform="translate(860 4870)"><circle class="dr" data-t="22.3" data-d="0.3" cx="0" cy="0" r="50"/><path class="dr r" data-t="22.6" data-d="0.15" d="M0 0 L0 -32 M0 0 L22 10"/></g></svg>
+
+<!-- E · ALGO ABSURDO + BAÚL (y 5500) -->
+<div class="mk w" id="f1" style="left:60px;top:5740px;font-size:110px" data-t="26.3" data-d="0.5">Y Hugo hizo</div>
+<div class="mk w" id="f2" style="left:60px;top:5860px;font-size:130px;color:var(--red)" data-t="26.95" data-d="0.5">algo absurdo:</div>
+<svg class="sk" width="1080" height="7000" style="left:0;top:0">
+  <!-- baúl -->
+  <g transform="translate(330 6380)"><rect class="dr" data-t="28.2" data-d="0.4" x="-200" y="-40" width="400" height="200" rx="16"/><path class="dr" data-t="28.5" data-d="0.35" d="M-200 -40 Q -200 -140 0 -140 Q 200 -140 200 -40"/><path class="dr" data-t="28.75" data-d="0.25" d="M-130 -130 L-130 160 M130 -130 L130 160"/>
+    <rect class="dr r" data-t="29.35" data-d="0.25" x="-30" y="-20" width="60" height="55" rx="8" style="stroke-width:9"/><path class="dr r" data-t="29.5" data-d="0.15" d="M-18 -20 Q -18 -55 0 -55 Q 18 -55 18 -20" style="stroke-width:9"/></g>
+  <!-- ropa que entra -->
+  <path class="dr" data-t="28.3" data-d="0.3" d="M650 6170 L610 6195 L625 6225 L645 6212 L645 6290 L715 6290 L715 6212 L735 6225 L750 6195 L710 6170 Q 680 6190 650 6170 Z"/>
+  <path class="dr" data-t="28.6" data-d="0.3" d="M800 6250 L 860 6250 L 866 6360 L 838 6360 L 832 6300 L 826 6360 L 796 6360 Z"/>
+  <path class="dr r" data-t="28.85" data-d="0.35" d="M620 6300 C 580 6340, 560 6340, 520 6320 M545 6300 L 518 6320 L 548 6338"/>
+  <!-- chal -->
+  <g transform="translate(830 6540)"><path class="dr b" data-t="31.0" data-d="0.4" d="M-150 -60 Q 0 -90 150 -60 L 0 120 Z" style="stroke-width:9"/><path class="dr b" data-t="31.3" data-d="0.3" d="M-120 -20 L -140 0 M-90 20 L-110 40 M-60 60 L-80 80 M120 -20 L 140 0 M90 20 L110 40 M60 60 L80 80" style="stroke-width:6"/></g>
+</svg>
+<div class="mk w" id="f3" style="left:90px;top:6600px;font-size:64px" data-t="29.0" data-d="0.45">su ropa → baúl</div>
+<div class="mk w" id="f4" style="left:650px;top:6690px;font-size:62px;color:var(--blue)" data-t="31.2" data-d="0.4">solo un chal</div>
+
+<!-- F · SIN SALIR + ESCRIBIÓ (y 7100) -->
+<svg class="sk" width="1080" height="8400" style="left:0;top:0">
+  <g transform="translate(250 7700)"><rect class="dr" data-t="32.1" data-d="0.35" x="-110" y="-230" width="220" height="380" rx="10"/><circle class="dr" data-t="32.4" data-d="0.1" cx="70" cy="-30" r="10"/>
+    <path class="dr r" data-t="33.1" data-d="0.3" d="M-150 -260 L 150 180 M150 -260 L -150 180" style="stroke-width:14"/></g>
+  <!-- pila de hojas -->
+  <g transform="translate(780 7980)"><rect class="dr" data-t="34.2" data-d="0.25" x="-150" y="0" width="300" height="60" rx="6"/><rect class="dr" data-t="34.5" data-d="0.25" x="-140" y="-60" width="300" height="60" rx="6"/><rect class="dr" data-t="34.8" data-d="0.25" x="-155" y="-120" width="300" height="60" rx="6"/><rect class="dr" data-t="35.1" data-d="0.25" x="-145" y="-180" width="300" height="60" rx="6"/><rect class="dr" data-t="35.6" data-d="0.25" x="-150" y="-240" width="300" height="60" rx="6"/><rect class="dr" data-t="36.0" data-d="0.25" x="-140" y="-300" width="300" height="60" rx="6"/><rect class="dr" data-t="36.6" data-d="0.25" x="-152" y="-360" width="300" height="60" rx="6"/><rect class="dr" data-t="37.0" data-d="0.25" x="-146" y="-420" width="300" height="60" rx="6"/></g>
+</svg>
+<div class="mk w" id="g1" style="left:60px;top:7340px;font-size:70px" data-t="32.1" data-d="0.7">Sin ropa no podía salir…</div>
+<div class="mk w" id="g2" style="left:610px;top:8070px;font-size:60px;color:#E07B1E" data-t="35.6" data-d="0.4">otoño 🍂</div>
+<div class="mk w" id="g3" style="left:610px;top:8150px;font-size:60px;color:var(--blue)" data-t="36.62" data-d="0.45">invierno ❄</div>
+<div class="mk w" id="g4" style="left:110px;top:7900px;font-size:76px" data-t="33.86" data-d="0.5">así que escribió</div>
+
+<!-- G · RESULTADO (y 8300) -->
+<div class="hi" id="h1h" style="left:50px;top:8620px;width:960px;height:140px"></div>
+<div class="mk w" id="h1" style="left:70px;top:8620px;font-size:100px" data-t="37.85" data-d="0.6">Libro entregado</div>
+<div class="mk w" id="h2" style="left:70px;top:8780px;font-size:106px;color:var(--red)" data-t="38.66" data-d="0.6">2 semanas ANTES</div>
+<div class="stamp" id="hst" style="left:620px;top:9000px;transform:rotate(-10deg)">✓ del plazo</div>
+
+<!-- H · FÓRMULA (y 9400) -->
+<div class="mk w" id="i1" style="left:60px;top:9640px;font-size:66px;color:#55545c" data-t="40.95" data-d="0.5">Eso tiene nombre:</div>
+<div class="hi" id="i2h" style="left:50px;top:9740px;width:980px;height:250px"></div>
+<div class="mk w" id="i2" style="left:70px;top:9740px;font-size:118px" data-t="42.0" data-d="0.4">Mecanismo</div>
+<div class="mk w" id="i3" style="left:70px;top:9860px;font-size:118px" data-t="42.55" data-d="0.45">de compromiso</div>
+<div class="mk w" id="i4" style="left:110px;top:10120px;font-size:120px;color:var(--red)" data-t="45.0" data-d="0.3">HOY</div>
+<div class="mk w" id="i5" style="left:620px;top:10120px;font-size:120px;color:var(--blue)" data-t="46.2" data-d="0.4">mañana</div>
+<svg class="sk" width="1080" height="10600" style="left:0;top:0"><path class="dr" data-t="45.5" data-d="0.4" d="M330 10190 L 590 10190 M550 10160 L 592 10190 L 550 10220" style="stroke-width:9"/>
+  <path class="dr r" data-t="47.1" data-d="0.3" d="M600 10120 L 1000 10290 M1000 10120 L 600 10290" style="stroke-width:10;opacity:.0"/>
+  <g transform="translate(800 10380)"><rect class="dr r" data-t="46.95" data-d="0.25" x="-40" y="-10" width="80" height="70" rx="10" style="stroke-width:9"/><path class="dr r" data-t="47.1" data-d="0.15" d="M-25 -10 Q -25 -55 0 -55 Q 25 -55 25 -10" style="stroke-width:9"/></g></svg>
+<div class="mk w" id="i6" style="left:110px;top:10330px;font-size:56px" data-t="47.0" data-d="0.4">no puede fallar →</div>
+
+<!-- I · HAZLO HOY (y 10700) -->
+<div class="mk w" id="j1" style="left:60px;top:10940px;font-size:100px" data-t="48.35" data-d="0.6">Tú no necesitas</div>
+<div class="mk w" id="j2" style="left:60px;top:11060px;font-size:100px" data-t="49.1" data-d="0.35">un baúl.</div>
+<svg class="sk" width="1080" height="12000" style="left:0;top:0"><rect class="dr" data-t="50.1" data-d="0.3" x="80" y="11300" width="90" height="90" rx="12"/><path class="dr r" data-t="51.6" data-d="0.25" d="M95 11340 L 125 11380 L 190 11270" style="stroke-width:12"/></svg>
+<div class="mk w" id="j3" style="left:200px;top:11290px;font-size:66px" data-t="50.15" data-d="0.9">Esta noche: el móvil</div>
+<div class="mk w" id="j4" style="left:200px;top:11375px;font-size:66px" data-t="51.2" data-d="0.5">en otra habitación</div>
+
+<!-- J · PREGUNTA (y 11800) -->
+<div class="mk w" id="k1" style="left:60px;top:12040px;font-size:110px" data-t="52.1" data-d="0.4">¿Qué vas a</div>
+<div class="hi" id="k2h" style="left:50px;top:12160px;width:690px;height:130px"></div>
+<div class="mk w" id="k2" style="left:70px;top:12160px;font-size:120px" data-t="53.3" data-d="0.45">esconder</div>
+<div class="mk w" id="k3" style="left:60px;top:12300px;font-size:110px" data-t="53.75" data-d="0.4">tú hoy?</div>
+<div class="stamp" id="kst" style="left:420px;top:12660px;transform:rotate(-8deg);font-size:48px">GUÁRDALA · chuleta 01</div>
+<div class="mk w" id="k4" style="left:70px;top:12520px;font-size:54px;color:#55545c" data-t="54.85" data-d="0.6">💬 te leo en comentarios</div>
+</div>
+<!-- rotulador -->
+<svg id="pen" viewBox="-10 -10 190 290"><path d="M0 0 L14 -6 L30 28 L16 34 Z" fill="#1B1B1F" id="pentip"/><path d="M10 22 L42 8 L120 190 L88 204 Z" fill="#F1EEE6" stroke="#1B1B1F" stroke-width="5" stroke-linejoin="round"/><path d="M58 118 L104 98 L170 252 L124 272 Z" fill="#1B1B1F" stroke="#1B1B1F" stroke-width="5" stroke-linejoin="round" id="penbody"/><path d="M30 70 L66 54" stroke="#1B1B1F" stroke-width="5"/></svg>
+</div>
+<div id="topfade"></div>
+<div class="head"><div class="t"><b>Apuntes</b>imparables</div><div class="n">pág. 01</div></div>
+<div id="capbg"></div>
+<div id="caps"></div>
+<div id="bar"></div>
+<div id="flash"></div>
+</div>
+<script>
+// secciones: [tiempo, scrollY]
+const SEC=[[0,0],[B.noeres,1100],[B.hugo,2200],[B.fiestas,3300],[B.ultima,4400],[B.absurdo,5500],[B.sinropa,7100],[B.libro,8300],[B.nombre,9400],[B.tu,10700],[B.que,11800]];
+// calendario 12 casillas
+(function(){const g=$('calg');for(let i=0;i<12;i++){const d=document.createElement('div');d.className='abs';d.id='cg'+i;d.style.cssText=`left:${(i%6)*86}px;top:${Math.floor(i/6)*110}px;width:72px;height:90px;border:6px solid #1B1B1F;border-radius:10px;font:400 60px/78px Marker;text-align:center;color:#F2412E`;d.innerHTML='<span>✗</span>';g.appendChild(d)}})();
+const W=[...document.querySelectorAll('.w')].map(e=>({e,t:+e.dataset.t,d:+e.dataset.d}));
+const P=[...document.querySelectorAll('.dr')].map(e=>({e,t:+e.dataset.t,d:+e.dataset.d,svg:e.ownerSVGElement}));
+let PEN=null;
+function camY(t){let y=0;for(let i=0;i<SEC.length;i++){const [s,yy]=SEC[i];if(t>=s-.35){const prev=i?SEC[i-1][1]:0;const k=eio(p(t,s-.35,.6));y=prev+(yy-prev)*k}}return y}
+window.render=function(t){
+  FX.sx=0;FX.sy=0;FX.flash=0;FX.zoom=1;PEN=null;
+  // texto que se escribe
+  W.forEach(({e,t:a,d})=>{const k=cl((t-a)/d);e.style.clipPath=`inset(-20% ${(1-k)*100}% -20% -2%)`;e.style.visibility=k>0?'visible':'hidden';
+    if(k>0&&k<1){const r=e.getBoundingClientRect?null:null;PEN={x:e.offsetLeft+e.offsetWidth*k,y:e.offsetTop+e.offsetHeight*.75}}});
+  // trazos
+  P.forEach(({e,t:a,d})=>{const k=cl((t-a)/d);drawPath(e,k);e.style.visibility=k>0?'visible':'hidden';
+    if(k>0&&k<1){try{const pt=e.getPointAtLength(e.__L*k);const m=e.getCTM();const sv=e.ownerSVGElement;const q=sv.createSVGPoint();q.x=pt.x;q.y=pt.y;const g=q.matrixTransform(m);PEN={x:g.x+(parseFloat(sv.style.left)||0),y:g.y+(parseFloat(sv.style.top)||0)}}catch(_){}}});
+  // subrayados fosforito
+  [['a3h',1.3,.6],['h1h',37.8,.5],['i2h',42.9,.5],['k2h',53.6,.4]].forEach(([id,a,d])=>{const e=$(id);const k=eo(p(t,a,d));e.style.transform=`scaleX(${k}) rotate(-1deg)`;e.style.opacity=k>0?1:0});
+  // calendario
+  for(let i=0;i<12;i++){const c=$('cg'+i);const a=12.0+i*.06;c.style.opacity=t>a?1:0;c.style.transform=`scale(${.5+.5*eback(p(t,a,.2))})`;c.firstChild.style.opacity=t>B.ano+i*.1?1:0}
+  // foto Hugo + cinta
+  {const k=eback(p(t,B.hugo+.3,.4));const ph=$('hugoph');ph.style.opacity=cl(k*2);ph.style.transform=`rotate(-4deg) scale(${1.3-.3*k})`;$('tp1').style.opacity=t>B.hugo+.65?1:0}
+  // caja editor
+  {const e=$('ebox');const k=eo(p(t,21.8,.35));e.style.clipPath=`inset(0 ${(1-k)*100}% 0 0)`}
+  // sellos
+  {const s=$('hst');const k=p(t,39.4,.2);s.style.opacity=k>0?1:0;s.style.transform=`rotate(-10deg) scale(${k<1?2.4-1.4*eo(k):1})`;shake(t,39.4,.25,14)}
+  {const s=$('kst');const k=p(t,55.5,.2);s.style.opacity=k>0?1:0;s.style.transform=`rotate(-8deg) scale(${k<1?2.4-1.4*eo(k):1})`;shake(t,55.5,.25,12)}
+  shake(t,B.y1831,.25,10);shake(t,B.absurdo2,.25,14);shake(t,33.1,.2,10);
+  // cámara
+  const y=camY(t);$('page').style.transform=`translateY(${-y}px)`;
+  // rotulador
+  const pen=$('pen');if(PEN){pen.style.opacity=1;pen.style.left=(PEN.x)+'px';pen.style.top=(PEN.y-y)+'px';pen.style.transform=`rotate(${Math.sin(t*30)*3}deg)`}else{pen.style.opacity=0}
+  $('cam').style.transform=`scale(${FX.zoom}) translate(${FX.sx}px,${FX.sy}px)`;
+  $('flash').style.opacity=FX.flash;$('bar').style.width=(100*cl(t/DUR))+'%';
+  captions(t,false);
+};
+window.ready=readyAll();
+</script></body></html>

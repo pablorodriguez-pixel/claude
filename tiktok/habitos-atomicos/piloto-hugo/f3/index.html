@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<script src="../shared/data.js"></script><script src="../shared/engine.js"></script>
+<style>
+@font-face{font-family:Serif;font-style:italic;src:url(../shared/InstrumentSerif-Italic.ttf)}
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--lime:#D4FF3A;--bg:#0B0B10;--panel:#1C1C24;--panel2:#2A2A35;--txt:#F5F5F7;--mut:#9A9AA8;--red:#FF453A}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+body{font-family:Inter,system-ui,sans-serif;color:var(--txt);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden}
+#cam{position:absolute;inset:0;transform-origin:540px 960px}
+.sc{position:absolute;inset:0;display:none;overflow:hidden}
+.abs{position:absolute}
+.wall{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 15%,#5B2BBF 0,transparent 55%),radial-gradient(ellipse at 85% 70%,#C2185B 0,transparent 50%),radial-gradient(ellipse at 40% 100%,#1E40AF 0,transparent 55%),#0B0B10}
+.status{position:absolute;left:0;right:0;top:0;height:110px;display:flex;align-items:center;justify-content:space-between;padding:30px 70px 0;font:600 40px Inter}
+.status .r{display:flex;gap:18px;align-items:center}
+.bat{width:70px;height:34px;border:4px solid var(--txt);border-radius:9px;position:relative}.bat::after{content:'';position:absolute;left:4px;top:4px;bottom:4px;width:16px;background:var(--red);border-radius:3px}
+.sig{display:flex;gap:5px;align-items:flex-end}.sig i{width:8px;background:var(--txt);border-radius:2px;display:block}
+.notif{position:absolute;left:44px;right:44px;border-radius:44px;background:rgba(40,40,52,.78);backdrop-filter:blur(30px);padding:28px 34px;display:flex;gap:26px;align-items:flex-start;box-shadow:0 18px 50px rgba(0,0,0,.4)}
+.notif .ic{width:84px;height:84px;border-radius:22px;flex:none;display:flex;align-items:center;justify-content:center;font-size:48px}
+.notif .tt{display:flex;justify-content:space-between;font:600 34px Inter;color:#fff}
+.notif .tt span{color:var(--mut);font-weight:500}
+.notif .bd{font:500 36px/1.25 Inter;color:#E8E8EE;margin-top:6px}
+.notif.hero{border:5px solid var(--lime);background:rgba(20,20,26,.92)}
+.notif.hero .bd{font:800 50px/1.15 Inter;color:#fff}
+.pov{position:absolute;left:44px;top:170px;background:#fff;color:#111;font:800 52px/1 Inter;padding:20px 26px;border-radius:14px}
+.pov b{background:var(--lime);padding:0 8px}
+/* chat */
+.chat{background:var(--bg)}
+.hdr{position:absolute;left:0;right:0;top:110px;height:160px;display:flex;align-items:center;gap:26px;padding:0 50px;border-bottom:2px solid #22222c;background:#121218;z-index:5}
+.av{width:100px;height:100px;border-radius:50%;background:var(--lime);display:flex;align-items:center;justify-content:center;flex:none}
+.hdr .nm{font:700 46px Inter}.hdr .st{font:500 32px Inter;color:var(--lime);margin-top:4px}
+#list{position:absolute;left:0;right:0;bottom:430px;display:flex;flex-direction:column;gap:22px;padding:0 44px}
+.m{max-width:820px;padding:26px 34px;border-radius:40px;font:500 46px/1.28 Inter;background:var(--panel2);align-self:flex-start;border-bottom-left-radius:12px;transform-origin:0 100%}
+.m.me{align-self:flex-end;background:var(--lime);color:#111;font-weight:600;border-bottom-left-radius:40px;border-bottom-right-radius:12px;transform-origin:100% 100%}
+.m.big{font:800 64px/1.1 Inter}
+.m.img{padding:12px;border-radius:34px;background:var(--panel2)}
+.m.img .ph{width:520px;height:600px;border-radius:26px;background-size:cover;background-position:50% 25%;filter:grayscale(1) contrast(1.15)}
+.m.img .cap{font:600 34px Inter;color:var(--mut);padding:14px 16px 6px}
+.m.card{background:#14141A;border:5px solid var(--lime);padding:34px 40px;border-radius:36px}
+.m.card .k{font:800 30px Inter;letter-spacing:.14em;color:var(--lime);text-transform:uppercase}
+.m.card .v{font:900 96px/1 Inter;margin-top:12px;letter-spacing:-.02em}
+.m.card .s{font:500 36px Inter;color:var(--mut);margin-top:12px}
+.m.card.red{border-color:var(--red)}.m.card.red .k{color:var(--red)}
+.typing{align-self:flex-start;padding:26px 34px;border-radius:40px;background:var(--panel2);display:flex;gap:12px}
+.typing i{width:18px;height:18px;border-radius:50%;background:#bbb;display:block}
+.inp{position:absolute;left:0;right:0;bottom:0;height:400px;background:#121218;border-top:2px solid #22222c}
+.inp .box{position:absolute;left:44px;right:160px;top:40px;height:100px;border-radius:50px;background:var(--panel);font:500 40px/100px Inter;color:var(--mut);padding-left:40px}
+.inp .send{position:absolute;right:44px;top:40px;width:100px;height:100px;border-radius:50%;background:var(--lime)}
+/* lesson sheet */
+.sheet{position:absolute;left:30px;right:30px;top:300px;border-radius:56px;background:#14141A;border:4px solid #2a2a35;padding:60px 60px 70px}
+.k2{font:800 34px Inter;letter-spacing:.16em;color:var(--lime);text-transform:uppercase}
+.ttl{font:900 120px/1 Inter;letter-spacing:-.03em;margin-top:24px}
+.quote{font:italic 64px/1.12 Serif;color:#E9E9EF;margin-top:40px}
+.row{display:flex;align-items:center;gap:30px;margin-top:50px}
+.tag{padding:20px 30px;border-radius:24px;font:900 56px Inter}
+/* settings */
+.set{background:#000}
+.grp{position:absolute;left:40px;right:40px;border-radius:44px;background:#1C1C22;overflow:hidden}
+.it{display:flex;align-items:center;gap:30px;padding:34px 40px;border-bottom:2px solid #2b2b33}
+.it:last-child{border-bottom:0}
+.it .ic{width:92px;height:92px;border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:52px;flex:none}
+.it .t{flex:1}.it .t b{display:block;font:700 46px Inter}.it .t span{font:500 34px Inter;color:var(--mut)}
+.tog{width:150px;height:90px;border-radius:45px;background:#3a3a44;position:relative;flex:none}
+.tog i{position:absolute;left:6px;top:6px;width:78px;height:78px;border-radius:50%;background:#fff;display:block;box-shadow:0 4px 10px rgba(0,0,0,.3)}
+#caps{position:absolute;left:50px;right:50px;top:1500px;text-align:center;font:900 84px/1.06 Inter;letter-spacing:-.02em;color:#fff;text-shadow:0 6px 24px rgba(0,0,0,.8)}
+#caps span{display:inline-block;padding:0 10px;border-radius:12px}
+#caps .on{background:var(--lime);color:#111;text-shadow:none}
+#flash{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none}
+#bar{position:absolute;left:0;top:0;height:7px;background:var(--lime);z-index:20}
+#tap{position:absolute;width:150px;height:150px;border-radius:50%;background:rgba(255,255,255,.35);border:5px solid #fff;opacity:0;pointer-events:none}
+</style></head><body><div id="stage"><div id="cam">
+
+<!-- S1 LOCK SCREEN -->
+<div class="sc" id="s1"><div class="wall" id="wall1"></div>
+  <div class="status"><span></span><span class="r"><span class="sig"><i style="height:14px"></i><i style="height:20px"></i><i style="height:26px"></i><i style="height:32px;opacity:.4"></i></span><span class="bat"></span></span></div>
+  <div class="pov" id="pov">POV: son las 23:47 y <b>aún no has empezado</b></div>
+  <div class="abs" id="date" style="left:0;right:0;top:330px;text-align:center;font:500 46px Inter;color:#E8E8EE">martes, 22 de octubre</div>
+  <div class="abs" id="clockbig" style="left:0;right:0;top:380px;text-align:center;font:200 280px/1 Inter;letter-spacing:-.04em">23:47</div>
+  <div class="notif" id="n0" style="top:1180px"><div class="ic" style="background:#FF2D55">▶</div><div style="flex:1"><div class="tt">Vídeos<span>ahora</span></div><div class="bd">12 vídeos nuevos para ti</div></div></div>
+  <div class="notif" id="n1" style="top:1180px"><div class="ic" style="background:#2F7BFF">💬</div><div style="flex:1"><div class="tt">Grupo «Viernes»<span>ahora</span></div><div class="bd">14 mensajes nuevos</div></div></div>
+  <div class="notif" id="n2" style="top:1180px"><div class="ic" style="background:#FF9F0A">🛍</div><div style="flex:1"><div class="tt">Tienda<span>ahora</span></div><div class="bd">Tu carrito te espera</div></div></div>
+  <div class="notif hero" id="nh" style="top:640px"><div class="ic" style="background:var(--lime);color:#111;font-weight:900">↑</div><div style="flex:1"><div class="tt">Imparable<span>ahora</span></div><div class="bd">Así dejas de distraerte, sin fuerza de voluntad.</div></div></div>
+  <div id="tap"></div>
+</div>
+
+<!-- S2 CHAT -->
+<div class="sc chat" id="s2">
+  <div class="status" style="background:#121218"><span>23:48</span><span class="r"><span class="sig"><i style="height:14px"></i><i style="height:20px"></i><i style="height:26px"></i><i style="height:32px;opacity:.4"></i></span><span class="bat"></span></span></div>
+  <div class="hdr"><span style="font:600 70px Inter;color:var(--lime)">‹</span><div class="av"><svg width="56" height="56" viewBox="0 0 56 56" style="position:static"><path d="M28 48 V10 M12 26 L28 10 L44 26" stroke="#111" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><div class="nm">Imparable</div><div class="st" id="st">en línea</div></div></div>
+  <div class="abs" style="inset:0;clip-path:inset(272px 0 400px 0)"><div id="list"></div></div>
+  <div class="inp"><div class="box" id="inbox">Mensaje</div><div class="send"></div></div>
+</div>
+
+<!-- S3 LESSON SHEET -->
+<div class="sc" id="s3" style="background:rgba(0,0,0,.6)">
+  <div class="abs" style="inset:0;background:#0B0B10"></div>
+  <div class="sheet" id="sh">
+    <div class="k2">Eso tiene nombre</div>
+    <div class="ttl" id="ttl">Mecanismo de <span style="color:var(--lime)">compromiso</span></div>
+    <div class="row" id="r1"><div class="tag" style="background:var(--lime);color:#111" id="tgh">HOY</div><div style="font:600 46px/1.2 Inter">tomas una decisión…</div></div>
+    <div class="row" id="r2"><div class="tag" style="background:#3a3a44;color:#fff" id="tgm">MAÑANA</div><div style="font:600 46px/1.2 Inter">…y tu yo de mañana <span style="color:var(--lime)">no puede fallar</span>.</div></div>
+    <div class="quote" id="qt">«Una elección que haces en el presente para controlar tus acciones en el futuro.»</div>
+    <div style="font:700 30px Inter;letter-spacing:.16em;color:var(--mut);margin-top:20px">HÁBITOS ATÓMICOS · CAP. 14</div>
+  </div>
+</div>
+
+<!-- S4 MODO IMPARABLE -->
+<div class="sc set" id="s4">
+  <div class="status"><span>23:49</span><span class="r"><span class="sig"><i style="height:14px"></i><i style="height:20px"></i><i style="height:26px"></i><i style="height:32px;opacity:.4"></i></span><span class="bat"></span></span></div>
+  <div class="abs" id="s4t" style="left:44px;top:180px;font:900 96px/1 Inter;letter-spacing:-.03em">Tú no necesitas<br><span style="color:var(--lime)">un baúl.</span></div>
+  <div class="grp" id="g1" style="top:470px">
+    <div class="it"><div class="ic" style="background:var(--lime);color:#111;font-weight:900">↑</div><div class="t"><b>Modo imparable</b><span id="mst">Desactivado</span></div><div class="tog" id="tg0"><i></i></div></div>
+  </div>
+  <div class="grp" id="g2" style="top:700px">
+    <div class="it"><div class="ic" style="background:#5E5CE6">🌙</div><div class="t"><b>Esta noche</b><span>a partir de las 23:50</span></div><div class="tog" id="tg1"><i></i></div></div>
+    <div class="it"><div class="ic" style="background:#FF9F0A">📱</div><div class="t"><b>Móvil en otra habitación</b><span>cargando lejos de ti</span></div><div class="tog" id="tg2"><i></i></div></div>
+    <div class="it"><div class="ic" style="background:#FF453A">🔕</div><div class="t"><b>Notificaciones</b><span>en silencio</span></div><div class="tog" id="tg3"><i></i></div></div>
+  </div>
+  <div class="abs" id="blackout" style="inset:0;background:#000;opacity:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:30px">
+    <div style="font:900 110px Inter;color:var(--lime)">↑</div><div style="font:800 64px Inter">Modo imparable</div><div style="font:500 44px Inter;color:var(--mut)">activado · hasta mañana</div></div>
+</div>
+
+<!-- S5 PREGUNTA -->
+<div class="sc" id="s5"><div class="wall" style="filter:brightness(.55)"></div>
+  <div class="abs" id="qcard" style="left:90px;right:90px;top:420px;background:#fff;color:#111;border-radius:50px;padding:60px;box-shadow:0 30px 80px rgba(0,0,0,.5)">
+    <div style="font:800 32px Inter;letter-spacing:.16em;color:#777">PREGUNTA DE HOY</div>
+    <div style="font:900 96px/1.05 Inter;letter-spacing:-.03em;margin-top:24px">¿Qué vas a <span style="background:var(--lime);padding:0 10px">esconder</span> tú hoy?</div>
+    <div class="abs" id="ans" style="left:60px;right:60px;bottom:-150px;height:120px;border-radius:60px;background:#1C1C24;color:#fff;font:500 44px/120px Inter;padding-left:44px"></div>
+  </div>
+</div>
+
+</div>
+<div id="caps"></div>
+<div id="bar"></div>
+<div id="flash"></div>
+</div>
+<script>
+// mensajes del chat: [tiempo, lado, clase, html]
+const MS=[
+ [B.noeres,'in','big','El problema no eres tú.'],
+ [B.yomanana+.1,'in','','Es tu <b>yo de mañana</b>. El que siempre dice…'],
+ [B.bubble,'me','big','mañana lo hago 😴'],
+ [B.hugo,'in','','Víctor Hugo tenía uno 👇'],
+ [B.hugo+.6,'in','img','<div class="ph" data-img="../shared/hugo1829.jpg" style="background-image:url(../shared/hugo1829.jpg)"></div><div class="cap">Víctor Hugo · 1829</div>'],
+ [B.y1830,'in','','1830. Un año sin escribir el libro que le había prometido a su editor.'],
+ [B.fiestas,'in','','Fiestas 🎉'],[B.invitados,'in','','Invitados 🥂'],[B.proyectos,'in','','Otros proyectos 📚'],
+ [B.menos,'in','big','Todo menos escribir.'],
+ [B.ultima+.3,'in','card red','<div class="k">Mensaje del editor</div><div class="v">Febrero 1831</div><div class="s">Última fecha. Sin excusas.</div>'],
+ [B.absurdo,'in','','Y Hugo hizo algo absurdo 👀'],
+ [B.absurdo2+.4,'me','','¿qué hizo?'],
+ [B.metio,'in','big','Metió toda su ropa en un baúl 🧳🔒'],
+ [B.chal,'in','','Y se quedó solo con un chal 🧣'],
+ [B.chal+.75,'me','','JAJAJA ¿en serio?'],
+ [B.sinropa,'in','','Sin ropa, no podía salir.'],
+ [B.escribio,'in','big','Así que escribió.'],
+ [B.otono,'in','','Todo el otoño 🍂'],[B.invierno,'in','','Todo el invierno ❄️'],
+ [B.libro,'in','card','<div class="k">Resultado</div><div class="v">2 semanas antes</div><div class="s">entregó el libro antes del plazo 📕</div>'],
+];
+(function(){const L=$('list');MS.forEach((m,i)=>{const d=document.createElement('div');d.className='m '+(m[1]==='me'?'me ':'')+m[2];d.id='m'+i;d.innerHTML=m[3];d.style.display='none';L.appendChild(d)});
+  const ty=document.createElement('div');ty.className='typing';ty.id='typing';ty.innerHTML='<i></i><i></i><i></i>';ty.style.display='none';L.appendChild(ty)})();
+function tog(id,on,k){const g=$(id);const kk=on?eo(k):0;g.style.background=`rgb(${58+(212-58)*kk},${58+(255-58)*kk},${68+(58-68)*kk})`;g.firstElementChild.style.transform=`translateX(${kk*60}px)`}
+const SC=[['s1',0,'cut'],['s2',B.noeres-.25,'up'],['s3',B.nombre,'up'],['s4',B.tu,'whip'],['s5',B.que,'zoom']];
+const R={
+ s1:(lt,d,t)=>{$('wall1').style.transform=`scale(${1.05+.03*Math.sin(t)})`;rise($('pov'),lt,0,.3,-30);
+   ['n0','n1','n2'].forEach((id,i)=>{const el=$(id);const k=eback(p(lt,.15+i*.25,.3));el.style.opacity=cl(k*2);el.style.transform=`translateY(${(1-k)*80+ (2-i)*0}px)`;el.style.top=(1180+i*170)+'px'});
+   const h=$('nh');const k=eback(p(lt,.05,.35));h.style.opacity=cl(k*2);h.style.transform=`translateY(${(1-k)*-120}px) scale(${.92+.08*k})`;
+   const tp=$('tap');const tk=p(lt,2.55,.35);tp.style.left='440px';tp.style.top='740px';tp.style.opacity=tk>0&&tk<1?1-tk:0;tp.style.transform=`scale(${.5+tk})`;if(lt>2.6)h.style.transform+=` scale(${1-.04*Math.sin(p(lt,2.6,.2)*Math.PI)})`},
+ s2:(lt,d,t)=>{let last=-1;MS.forEach((m,i)=>{const el=$('m'+i);const on=t>=m[0];el.style.display=on?'block':'none';if(on)last=i});
+   // typing indicator ~0.7s antes de cada mensaje entrante
+   const nx=MS.find(m=>m[0]>t);const ty=$('typing');const typing=nx&&nx[1]==='in'&&nx[0]-t<.7&&nx[0]-t>0;ty.style.display=typing?'flex':'none';
+   [...ty.children].forEach((d,i)=>{d.style.transform=`translateY(${-Math.abs(Math.sin(t*8+i*.8))*12}px)`});
+   $('st').textContent=typing?'escribiendo…':'en línea';
+   const ib=$('inbox');const nme=MS.find(m=>m[0]>t&&m[1]==='me');if(nme&&nme[0]-t<.9){const txt=nme[3].replace(/<[^>]+>/g,'');const k=1-(nme[0]-t)/.9;ib.textContent=txt.slice(0,Math.ceil(txt.length*k));ib.style.color='#fff'}else{ib.textContent='Mensaje';ib.style.color=''}
+   if(last>=0){const m=MS[last],el=$('m'+last);const k=p(t,m[0],.28);el.style.transform=`scale(${.6+.4*eback(k)})`;el.style.opacity=cl(k*3);
+     const L=$('list');const h=el.offsetHeight+22;L.style.transform=`translateY(${(1-eo(k))*h}px)`;if(m[2].includes('card'))punch(t,m[0],.03,.3)}},
+ s3:(lt,d,t)=>{const sh=$('sh');const k=eo(p(lt,0,.4));sh.style.transform=`translateY(${(1-k)*900}px)`;
+   const ttl=$('ttl');pop(ttl,lt,B.mecanismo-B.nombre-.1,.35,.7);rise($('r1'),lt,B.decision-B.nombre-.1,.3,30);rise($('r2'),lt,B.manana-B.nombre-.3,.3,30);
+   const th=$('tgh');const hk=p(lt,B.hoy-B.nombre-.1,.3);th.style.transform=`scale(${1+.15*Math.sin(hk*Math.PI)})`;
+   const tm=$('tgm');const mk=lt>B.fallar-B.nombre-.1;tm.style.background=mk?'#FF453A':'#3a3a44';
+   rise($('qt'),lt,1.0,.4,30)},
+ s4:(lt,d,t)=>{const a=B.tu;rise($('s4t'),lt,.05,.35,40);rise($('g1'),lt,.4,.35,40);rise($('g2'),lt,B.noche-a-.4,.35,40);
+   tog('tg1',lt>B.noche-a,p(lt,B.noche-a,.2));tog('tg2',lt>B.movil-a,p(lt,B.movil-a,.2));tog('tg3',lt>B.habitacion-a-.1,p(lt,B.habitacion-a-.1,.2));
+   const all=lt>B.habitacion-a+.25;tog('tg0',all,p(lt,B.habitacion-a+.25,.2));$('mst').textContent=all?'Activado':'Desactivado';$('mst').style.color=all?'#D4FF3A':'';
+   const bo=$('blackout');bo.style.opacity=eo(p(lt,B.habitacion-a+.55,.25));if(lt>B.habitacion-a+.25&&lt<B.habitacion-a+.45)flashAt(lt,B.habitacion-a+.25,.25)},
+ s5:(lt,d,t)=>{const a=B.que;const q=$('qcard');pop(q,lt,.05,.4,.7);const an=$('ans');const s=B.leo-a;an.style.opacity=lt>s-.2?1:0;
+   const txt='💬 Te leo en comentarios';const n=Math.floor(cl((lt-s)*22,0,txt.length));an.innerHTML=txt.slice(0,n)+(Math.floor(t*3)%2?'|':'')}
+};
+window.render=makeRender(SC,R,{td:.35,hideCaps:(t,id)=>id==='s1'||id==='s2'||id==='s3'||id==='s5'});
+window.ready=readyAll();
+</script></body></html>
