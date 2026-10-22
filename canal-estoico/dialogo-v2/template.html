@@ -1,0 +1,330 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link rel="stylesheet" href="fonts.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#141826}
+body{font-family:"Patrick Hand",sans-serif;color:#1d1f2a}
+.layer{position:absolute;inset:0;overflow:hidden}
+svg{position:absolute;left:0;top:0}
+#rome{opacity:0}
+.tex{position:absolute;inset:0;pointer-events:none;mix-blend-mode:multiply;opacity:.32}
+#vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,transparent 50%,rgba(0,0,0,.5))}
+#black{position:absolute;inset:0;background:#0b0d14;opacity:0}
+.sign{position:absolute;background:#efe6d2;border:5px solid #1d1f2a;padding:16px 26px;box-shadow:8px 10px 0 rgba(0,0,0,.28);text-align:center;opacity:0}
+.sign b{display:block;font-family:"Patrick Hand SC","Patrick Hand";font-size:66px;line-height:1;color:#a8402e}
+.sign span{display:block;font-size:34px;margin-top:6px}
+.lab{position:absolute;color:#efe6d2;opacity:0}
+.lab b{display:block;font-family:"Patrick Hand SC";font-size:46px;letter-spacing:.04em;line-height:1}
+.lab span{display:block;font-size:30px;opacity:.85}
+#lines{position:absolute;left:0;top:0;width:1080px;height:1920px;pointer-events:none}
+/* subtítulo en cinta de papel */
+#ban{position:absolute;left:46px;right:46px;top:1600px;background:#efe6d2;padding:22px 36px 26px;text-align:center;
+  clip-path:polygon(0 8%,3% 0,97% 4%,100% 0,99% 92%,96% 100%,4% 96%,1% 100%);box-shadow:0 10px 0 rgba(0,0,0,.2)}
+#who{display:inline-block;font-family:"Patrick Hand SC";font-size:30px;letter-spacing:.1em;color:#fff;padding:2px 18px;border-radius:8px;margin-bottom:6px}
+#txt{font-size:56px;line-height:1.08}
+#txt span{color:#b3a68d}#txt span.on{color:#1d1f2a}#txt span.k{color:#a8402e}
+/* tarjetas */
+.card{position:absolute;left:90px;right:90px;background:#efe6d2;border:5px solid #1d1f2a;border-radius:16px;box-shadow:8px 10px 0 rgba(0,0,0,.28);display:flex;align-items:center;gap:26px;padding:20px 26px;opacity:0}
+.card .n{flex:none;width:84px;height:84px;border-radius:50%;display:grid;place-items:center;font-size:62px;color:#fff;border:5px solid #1d1f2a}
+.card b{display:block;font-family:"Patrick Hand SC";font-size:48px;line-height:1}
+.card span{display:block;font-size:36px;color:#5a4f3e}
+#mind{position:absolute;left:40px;right:40px;top:200px;height:760px;opacity:0}
+.col{position:absolute;top:0;width:480px;height:760px;border:5px solid #1d1f2a;border-radius:18px;padding:26px 22px;box-shadow:8px 10px 0 rgba(0,0,0,.28)}
+.col.l{left:0;background:#cfcac0}.col.r{right:0;background:#e9cf9f}
+.col h4{font-family:"Patrick Hand SC";font-size:46px;text-align:center;margin-bottom:22px}
+.col .st{background:#fbf6ea;border:4px solid #1d1f2a;border-radius:14px;padding:14px;font-size:38px;line-height:1.05;text-align:center;opacity:0}
+.col .ar{text-align:center;font-size:54px;line-height:1.1;opacity:0}
+.col.l .st.bad{background:#8a8d95;color:#fff}
+.col.r .st.good{background:#2f6f6a;color:#fff}
+#phone{position:absolute;left:330px;top:300px;width:420px;height:820px;border-radius:60px;background:#11131a;border:8px solid #1d1f2a;opacity:0;box-shadow:12px 14px 0 rgba(0,0,0,.3)}
+#phone .scr{position:absolute;inset:18px;border-radius:44px;background:linear-gradient(#20283a,#121622);color:#fff;text-align:center;font-family:Inter,sans-serif}
+#phone .tm{margin-top:150px;font-size:120px;font-weight:800;letter-spacing:-3px}
+#phone .lb{margin:20px 30px 0;background:rgba(255,255,255,.12);border-radius:24px;padding:22px;font-size:34px;font-weight:700}
+#phone .lb small{display:block;font-size:26px;font-weight:600;opacity:.7;margin-bottom:6px}
+#phone .tg{position:absolute;right:46px;top:322px;width:86px;height:50px;border-radius:30px;background:#39c27a}
+#phone .tg i{position:absolute;right:5px;top:5px;width:40px;height:40px;border-radius:50%;background:#fff}
+#end{position:absolute;inset:0;background:#efe6d2;opacity:0}
+#end .a{position:absolute;left:80px;right:80px;top:560px;text-align:center;font-family:"Patrick Hand SC";font-size:104px;line-height:1;color:#1d1f2a}
+#end .a em{font-style:normal;color:#a8402e}
+#end .b{position:absolute;left:100px;right:100px;top:900px;text-align:center;font-size:52px;line-height:1.1;color:#5a4f3e}
+#end .c{position:absolute;left:0;right:0;top:1180px;text-align:center}
+#bar{position:absolute;left:0;top:0;height:6px;width:0;background:#a8402e}
+</style></head><body>
+<div class="layer" id="room"><svg id="roomsvg" width="1080" height="1920"><g id="cam"></g></svg></div>
+<div class="layer" id="rome"><svg id="romesvg" width="1080" height="1920"><g id="rcam"></g></svg></div>
+<div id="mind">
+  <div class="col l"><h4>Mente frágil</h4><div class="st" id="f1">Espero a tener ganas</div><div class="ar" id="fa1">↓</div><div class="st" id="f2">Las ganas no llegan</div><div class="ar" id="fa2">↓</div><div class="st bad" id="f3">No empiezo… y me siento peor</div></div>
+  <div class="col r"><h4>Mente forjada</h4><div class="st" id="g1">Empiezo, aunque sea poco</div><div class="ar" id="ga1">↓</div><div class="st" id="g2">Las ganas llegan después</div><div class="ar" id="ga2">↓</div><div class="st good" id="g3">Sigo… y me hago más fuerte</div></div>
+</div>
+<div class="card" id="c1" style="top:190px"><div class="n" style="background:#2f6f6a">1</div><div><b>Recuerda para qué</b><span>Tu porqué pesa más que tu pereza.</span></div></div>
+<div class="card" id="c2" style="top:370px"><div class="n" style="background:#b8864b">2</div><div><b>Hazlo pequeño</b><span>Cinco minutos. Imposible decir que no.</span></div></div>
+<div class="card" id="c3" style="top:550px"><div class="n" style="background:#a8402e">3</div><div><b>Decide antes</b><span>Si suena la alarma → pies al suelo.</span></div></div>
+<div id="phone"><div class="scr"><div class="tm">7:00</div><div class="lb"><small>ALARMA · MAÑANA</small>Pies al suelo. Sin negociar.</div><div class="tg"><i></i></div></div></div>
+<div class="sign" id="title" style="left:80px;top:170px;width:620px;transform:rotate(-2deg)"><b>LA FORJA</b><span>Episodio 1 · La voz que dice «mañana»</span></div>
+<div class="sign" id="romesign" style="left:90px;top:180px;width:470px;transform:rotate(-3deg)"><b>ROMA · 170 d.C.</b><span>el palacio del emperador</span></div>
+<div class="sign" id="quote" style="left:90px;top:1150px;width:900px;transform:rotate(1.5deg)"><b style="font-family:'Patrick Hand';font-size:58px;color:#1d1f2a">«¿Naciste para estar cómodo… o para actuar?»</b><span>— Meditaciones, libro V</span></div>
+<div class="sign" id="seven" style="left:290px;top:300px;width:500px;transform:rotate(-2deg)"><b>7:00 a.m.</b><span>a la mañana siguiente</span></div>
+<div class="lab" id="labA"><b>ÁLEX</b><span>27 años · «mañana empiezo»</span></div>
+<div class="lab" id="labM"><b>MARCO AURELIO</b><span>emperador de Roma · 161–180</span></div>
+<svg id="lines" width="1080" height="1920"><path id="lnA" stroke="#efe6d2" stroke-width="3" fill="none"/><path id="lnM" stroke="#efe6d2" stroke-width="3" fill="none"/></svg>
+<div id="black"></div>
+<div id="end"><div class="a">Esto es <em>forjar</em><br>el carácter.</div><div class="b">Mañana: ¿por qué te importa tanto lo que piensan los demás?</div>
+ <div class="c"><svg width="760" height="214" viewBox="0 0 640 180" style="position:relative"><g transform="translate(95,78) scale(1.15)" fill="none" stroke-linecap="round" stroke-width="7"><path d="M-34 44V-6a34 34 0 0 1 68 0v50" stroke="#1d1f2a"/><path d="M-44 44h88" stroke="#1d1f2a"/><path d="M0 34V8" stroke="#b8864b"/></g><circle cx="95" cy="73" r="7.5" fill="#b8864b"/><text x="190" y="88" font-family="Cinzel,serif" font-weight="800" font-size="56" letter-spacing="3" fill="#1d1f2a">CARÁCTER</text><text x="190" y="146" font-family="Cinzel,serif" font-weight="800" font-size="56" letter-spacing="3" fill="#b8864b">ESTOICO</text></svg><div style="font-size:40px;color:#5a4f3e;margin-top:10px">Una lección al día · Sígueme</div></div></div>
+<div id="ban"><div id="who"></div><div id="txt"></div></div>
+<svg class="tex" width="1080" height="1920"><filter id="p"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="3" seed="4"/><feColorMatrix values="0 0 0 0 .55  0 0 0 0 .5  0 0 0 0 .42  0 0 0 .9 0"/></filter><rect width="1080" height="1920" filter="url(#p)"/></svg>
+<div id="vig"></div>
+<div id="bar"></div>
+<script>
+const T=/*TIMING*/null; const D=T.D;
+const $=id=>document.getElementById(id);
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const eout=x=>1-Math.pow(1-x,3);
+const back=x=>{const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const win=(t,a,b,f=.3)=>clamp((t-a)/f)*clamp((b-t)/f);
+const lerp=(a,b,k)=>a+(b-a)*k;
+const W=(txt,after=0)=>{const w=T.words.find(w=>w.s>=after&&w.t.toLowerCase().replace(/[^a-záéíóúñü]/g,'')===txt);return w?w.s:after;};
+const INK='#1d1f2a', SW='stroke="#1d1f2a" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"';
+const KEY=/^(mañana|nada|emperador|cama|cómodo|actuar|ganas|error|después|antes|uno|dos|tres|pequeño|minutos|alarma|ahora|suelo|negociar|negoció|deciden|tú|forjar|carácter|demás)$/i;
+
+// ---------------- dibujo de personajes ----------------
+function mouthPath(open,emo){ // open 0..1
+  const c=emo==='smile'?10:emo==='sad'?-9:0;
+  if(open<.08) return `M-18 0 Q0 ${c} 18 0`;
+  const h=6+open*30, w=15+open*4;
+  return `M${-w} 0 Q0 ${-4+c*.4} ${w} 0 Q0 ${h+c*.3} ${-w} 0Z`;
+}
+function alexSVG(p){ // p = prefijo
+  return `<g id="${p}">
+   <g id="${p}_legs_stand"><rect x="-44" y="-235" width="38" height="220" rx="12" fill="#2b3550" ${SW}/><rect x="6" y="-235" width="38" height="220" rx="12" fill="#2b3550" ${SW}/>
+     <path d="M-52 -14 h50 v16 h-54z M2 -14 h50 v16 h-50z" fill="#f1ede4" ${SW}/></g>
+   <g id="${p}_legs_sit"><path d="M-46 -235 h150 v44 h-150z" fill="#2b3550" ${SW}/><rect x="70" y="-205" width="40" height="190" rx="12" fill="#2b3550" ${SW}/><path d="M64 -14 h58 v16 h-58z" fill="#f1ede4" ${SW}/>
+     <path d="M-40 -190 h120 v38 h-120z" fill="#24304a" ${SW}/><rect x="20" y="-170" width="40" height="160" rx="12" fill="#24304a" ${SW}/><path d="M14 -12 h54 v14 h-54z" fill="#e3dccb" ${SW}/></g>
+   <g id="${p}_body">
+    <g id="${p}_armL"><path d="M-62 -500 Q-96 -400 -86 -300" fill="none" stroke="#2f6f6a" stroke-width="40" stroke-linecap="round"/><path d="M-62 -500 Q-96 -400 -86 -300" fill="none" ${SW} stroke-width="5" opacity=".0"/><circle cx="-86" cy="-292" r="20" fill="#e8b48e" ${SW}/></g>
+    <path d="M-74 -520 Q-84 -380 -76 -225 H76 Q84 -380 74 -520 Q0 -548 -74 -520Z" fill="#2f6f6a" ${SW}/>
+    <path d="M-40 -526 Q0 -470 40 -526" fill="none" stroke="#245955" stroke-width="10"/>
+    <path d="M-12 -500 v60 M12 -500 v52" stroke="#efe6d2" stroke-width="5" stroke-linecap="round"/>
+    <path d="M-50 -320 h100 v50 h-100z" fill="#2a6560" ${SW}/>
+    <g id="${p}_armR"><path d="M62 -500 Q96 -400 86 -300" fill="none" stroke="#2f6f6a" stroke-width="40" stroke-linecap="round"/><circle cx="86" cy="-292" r="20" fill="#e8b48e" ${SW}/>
+      <g id="${p}_phone"><ellipse cx="96" cy="-330" rx="110" ry="90" fill="#9fd0ff" opacity=".25" id="${p}_glow"/><rect x="74" y="-360" width="46" height="80" rx="10" fill="#11131a" ${SW}/><rect x="81" y="-352" width="32" height="62" rx="5" fill="#8ec6ff"/></g></g>
+    <g id="${p}_head">
+     <rect x="-24" y="-562" width="48" height="40" fill="#d9a07a" ${SW}/>
+     <ellipse cx="-74" cy="-626" rx="14" ry="20" fill="#e0a984" ${SW}/><ellipse cx="74" cy="-626" rx="14" ry="20" fill="#e0a984" ${SW}/>
+     <ellipse cx="0" cy="-630" rx="74" ry="80" fill="#e8b48e" ${SW}/>
+     <path d="M-78 -640 Q-86 -728 0 -722 Q86 -728 78 -640 Q66 -690 30 -684 Q8 -706 -18 -686 Q-50 -700 -78 -640Z" fill="#3a2a22" ${SW}/>
+     <g><circle cx="-28" cy="-632" r="18" fill="#fff" ${SW}/><circle cx="28" cy="-632" r="18" fill="#fff" ${SW}/>
+       <circle id="${p}_pL" cx="-28" cy="-632" r="7" fill="${INK}"/><circle id="${p}_pR" cx="28" cy="-632" r="7" fill="${INK}"/>
+       <g id="${p}_lids"><rect x="-49" y="-653" width="42" height="42" fill="#e8b48e"/><rect x="7" y="-653" width="42" height="42" fill="#e8b48e"/></g>
+       <path d="M-46 -632 a18 18 0 0 1 36 0 M10 -632 a18 18 0 0 1 36 0" fill="none" ${SW} id="${p}_lidline" opacity="0"/></g>
+     <path id="${p}_bL" d="M-46 -662 h32" ${SW}/><path id="${p}_bR" d="M14 -662 h32" ${SW}/>
+     <path d="M-4 -606 q8 10 -2 14" fill="none" stroke="#c48c6a" stroke-width="4" stroke-linecap="round"/>
+     <g transform="translate(0,-578)"><path id="${p}_mouth" d="M-18 0 Q0 0 18 0" fill="#7a3b33" ${SW}/></g>
+    </g>
+   </g></g>`;
+}
+function marcoSVG(p,laurel=true,robe='#efe6d2'){
+  const curls=[[-62,-690],[-30,-712],[6,-718],[42,-708],[66,-684],[-78,-652],[80,-648]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="26"/>`).join('');
+  const leaves=[[-60,-708,-35],[-30,-726,-15],[4,-730,0],[36,-724,15],[64,-706,35],[-82,-676,-60],[84,-672,60]].map(([x,y,r])=>`<ellipse cx="${x}" cy="${y}" rx="20" ry="8" fill="#7f9a52" transform="rotate(${r} ${x} ${y})" ${SW}/>`).join('');
+  return `<g id="${p}">
+   <ellipse id="${p}_aura" cx="0" cy="-420" rx="300" ry="520" fill="url(#aura)"/>
+   <g id="${p}_body">
+    <g id="${p}_armL"><path d="M-70 -500 Q-110 -390 -96 -280" fill="none" stroke="${robe}" stroke-width="46" stroke-linecap="round"/><circle cx="-96" cy="-272" r="20" fill="#e3c7a6" ${SW}/></g>
+    <path d="M-84 -520 Q-112 -260 -104 0 H104 Q112 -260 84 -520 Q0 -548 -84 -520Z" fill="${robe}" ${SW}/>
+    <path d="M-60 -520 Q20 -300 90 0" fill="none" stroke="#6a2f50" stroke-width="22"/>
+    <path d="M-30 -400 Q0 -200 -20 0 M40 -380 Q60 -200 50 0" fill="none" stroke="#cfc4ae" stroke-width="6"/>
+    <g id="${p}_armR"><path d="M70 -500 Q110 -390 96 -280" fill="none" stroke="${robe}" stroke-width="46" stroke-linecap="round"/><circle cx="96" cy="-272" r="20" fill="#e3c7a6" ${SW}/></g>
+    <g id="${p}_head">
+     <rect x="-26" y="-566" width="52" height="44" fill="#d8bc98" ${SW}/>
+     <ellipse cx="0" cy="-630" rx="74" ry="80" fill="#e3c7a6" ${SW}/>
+     <g fill="#8a7a63" ${SW}>${curls}</g>${laurel?leaves:''}
+     <path d="M-74 -620 Q-80 -520 0 -508 Q80 -520 74 -620 Q56 -566 0 -560 Q-56 -566 -74 -620Z" fill="#8a7a63" ${SW}/>
+     <g><circle cx="-28" cy="-640" r="16" fill="#fff" ${SW}/><circle cx="28" cy="-640" r="16" fill="#fff" ${SW}/>
+       <circle id="${p}_pL" cx="-28" cy="-640" r="6.5" fill="${INK}"/><circle id="${p}_pR" cx="28" cy="-640" r="6.5" fill="${INK}"/>
+       <g id="${p}_lids"><rect x="-47" y="-659" width="38" height="38" fill="#e3c7a6"/><rect x="9" y="-659" width="38" height="38" fill="#e3c7a6"/></g></g>
+     <path id="${p}_bL" d="M-46 -668 h32" ${SW}/><path id="${p}_bR" d="M14 -668 h32" ${SW}/>
+     <path d="M-30 -592 Q0 -602 30 -592" fill="none" stroke="#6f6150" stroke-width="12" stroke-linecap="round"/>
+     <g transform="translate(0,-578)"><path id="${p}_mouth" d="M-16 0 Q0 0 16 0" fill="#5b3f33" ${SW}/></g>
+    </g>
+   </g></g>`;
+}
+// rig: aplica pose
+function rig(p,o){ // o: {x,y,s,flip,tilt,nod,look:[x,y],blink,brow:'n|up|down|sad',mouth,emo,armL,armR,sit,op,bob}
+  const g=$(p); if(!g) return;
+  g.setAttribute('transform',`translate(${o.x},${o.y+(o.bob||0)}) scale(${(o.flip?-1:1)*(o.s||1)},${o.s||1})`);
+  g.style.opacity=o.op===undefined?1:o.op;
+  const body=$(p+'_body'); if(body) body.setAttribute('transform',`translate(0,${o.sit?34:0}) rotate(${o.lean||0} 0 -230)`);
+  const ls=$(p+'_legs_stand'),lt=$(p+'_legs_sit'); if(ls){ls.style.display=o.sit?'none':'';lt.style.display=o.sit?'':'none';}
+  $(p+'_head').setAttribute('transform',`rotate(${o.tilt||0} 0 -560) translate(0,${o.nod||0})`);
+  const [lx,ly]=o.look||[0,0]; $(p+'_pL').setAttribute('transform',`translate(${lx},${ly})`); $(p+'_pR').setAttribute('transform',`translate(${lx},${ly})`);
+  const lids=$(p+'_lids'); const bl=clamp(o.blink||0); const ty=p[0]==='a'?-653:-659; lids.setAttribute('transform',`translate(0,${ty}) scale(1,${bl}) translate(0,${-ty})`);
+  const b=o.brow||'n'; const bm={n:[0,0,0],up:[-10,-8,8],down:[6,10,-10],sad:[-6,-10,10],angry:[6,12,-12]}[b];
+  $(p+'_bL').setAttribute('transform',`translate(0,${bm[0]}) rotate(${bm[1]} -30 -662)`); $(p+'_bR').setAttribute('transform',`translate(0,${bm[0]}) rotate(${bm[2]} 30 -662)`);
+  $(p+'_mouth').setAttribute('d',mouthPath(o.mouth||0,o.emo||'n'));
+  $(p+'_armL').setAttribute('transform',`rotate(${o.armL||0} -66 -500)`); $(p+'_armR').setAttribute('transform',`rotate(${o.armR||0} 66 -500)`);
+}
+// ojos con parpadeo automático
+const blinkAt=(t,seed)=>{const ph=(t+seed)%4.1;return ph<.07?ph/.07:ph<.14?1-(ph-.07)/.07:0;};
+// sincronía labial
+function talk(t,who){const s=T.seg.find(s=>s.who===who&&t>=s.s&&t<=s.e);if(!s)return 0;const i=Math.floor((t-s.s)*30);return s.env[Math.min(i,s.env.length-1)]||0;}
+function speaking(t,who){return T.seg.some(s=>s.who===who&&t>=s.s-0.05&&t<=s.e+0.05);}
+
+// ---------------- escenarios ----------------
+const DEFS=`<defs>
+ <radialGradient id="aura" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffd59a" stop-opacity=".55"/><stop offset=".55" stop-color="#e8b062" stop-opacity=".18"/><stop offset="1" stop-color="#e8b062" stop-opacity="0"/></radialGradient>
+ <radialGradient id="lamp" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffcf8a" stop-opacity=".5"/><stop offset="1" stop-color="#ffcf8a" stop-opacity="0"/></radialGradient>
+ <linearGradient id="nightsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1322"/><stop offset="1" stop-color="#25304a"/></linearGradient>
+ <linearGradient id="dawnsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6c27a"/><stop offset=".6" stop-color="#e88a5a"/><stop offset="1" stop-color="#8a5a7a"/></linearGradient>
+ <clipPath id="winclip"><rect x="1000" y="320" width="380" height="500" rx="10"/></clipPath>
+ <clipPath id="rwinclip"><path d="M700 300 a170 170 0 0 1 340 0 v520 h-340z"/></clipPath>
+</defs>`;
+function roomSVG(){
+  let rain=''; for(let i=0;i<70;i++) rain+=`<path class="rd" d="M${1000+((i*53)%380)} ${320+((i*97)%500)} l-6 26" stroke="#9fb3d6" stroke-width="2"/>`;
+  let city=''; for(let i=0;i<9;i++){const x=1000+i*44,h=120+((i*37)%140);city+=`<rect x="${x}" y="${820-h}" width="40" height="${h}" fill="#1a2236"/>`;for(let j=0;j<6;j++) if((i*7+j*3)%4) city+=`<rect x="${x+8+((j%2)*16)}" y="${820-h+16+Math.floor(j/2)*30}" width="8" height="10" fill="#f6c27a" opacity=".8"/>`;}
+  return DEFS+`
+  <rect x="-400" y="0" width="2400" height="1920" fill="#252c40"/>
+  <rect id="dawnwall" x="-400" y="0" width="2400" height="1920" fill="#c98a62" opacity="0"/>
+  <!-- ventana -->
+  <g clip-path="url(#winclip)"><rect x="1000" y="320" width="380" height="500" fill="url(#nightsky)"/><rect id="dawnwin" x="1000" y="320" width="380" height="500" fill="url(#dawnsky)" opacity="0"/>
+    <circle cx="1290" cy="420" r="34" fill="#f1e7c9" id="moon"/><circle id="sun" cx="1200" cy="760" r="70" fill="#ffe2a8" opacity="0"/>${city}<g id="rain">${rain}</g></g>
+  <rect x="990" y="310" width="400" height="520" rx="14" fill="none" stroke="#3a4258" stroke-width="22"/><path d="M1190 320 v500 M1000 570 h380" stroke="#3a4258" stroke-width="14"/>
+  <rect x="975" y="830" width="430" height="26" rx="6" fill="#3a4258" ${SW}/>
+  <!-- póster y notas -->
+  <g transform="translate(130,330) rotate(-3)"><rect width="260" height="330" fill="#d9cfb8" ${SW}/><path d="M20 290 L100 150 L150 220 L190 170 L240 290Z" fill="#7a8a8e" ${SW}/><circle cx="190" cy="90" r="30" fill="#e0a64d" ${SW}/></g>
+  ${['ENTRENAR','LEER','PROYECTO'].map((n,i)=>`<g transform="translate(${1440+i*0},${380+i*120}) rotate(${[-4,3,-2][i]})"><rect width="230" height="96" fill="${['#f2d16b','#9fd3b8','#f2a68b'][i]}" ${SW}/><text x="115" y="62" text-anchor="middle" font-family="Patrick Hand SC" font-size="42" fill="${INK}">${n}</text><path id="x${i}" d="M14 50 h202" stroke="#a8402e" stroke-width="7" opacity="0"/></g>`).join('')}
+  <!-- escritorio -->
+  <rect x="1300" y="1150" width="440" height="34" rx="6" fill="#6b4f3a" ${SW}/><rect x="1330" y="1184" width="26" height="230" fill="#5a4231" ${SW}/><rect x="1690" y="1184" width="26" height="230" fill="#5a4231" ${SW}/>
+  <path d="M1400 1150 l30 -150 h170 l-20 150z" fill="#3a4258" ${SW}/><rect x="1620" y="1080" width="90" height="70" fill="#a8402e" ${SW}/><rect x="1630" y="1040" width="80" height="40" fill="#2f6f6a" ${SW}/>
+  <!-- suelo -->
+  <rect x="-400" y="1400" width="2400" height="520" fill="#181c28"/>
+  <ellipse cx="760" cy="1560" rx="520" ry="80" fill="#2a2f42"/>
+  <!-- mesilla y lámpara -->
+  <rect x="-60" y="1180" width="150" height="220" fill="#5a4231" ${SW}/><path d="M-20 1180 l20 -90 h40 l20 90z" fill="#e3c27a" ${SW}/><circle cx="20" cy="1100" r="160" fill="url(#lamp)" id="lampglow"/>
+  <g id="nsphone" transform="translate(40,1170)"><rect x="-26" y="-14" width="52" height="16" rx="5" fill="#11131a" ${SW}/></g>
+  <!-- cama -->
+  <rect x="100" y="1240" width="700" height="170" rx="24" fill="#3b4a6b" ${SW}/><rect x="100" y="1205" width="700" height="70" rx="24" fill="#e3dccb" ${SW}/><rect x="110" y="1150" width="190" height="80" rx="34" fill="#f1ece0" ${SW}/>
+  <path d="M380 1215 Q560 1180 790 1220 V1290 H380Z" fill="#4c5f86" ${SW}/>
+  <g id="sparks"></g>
+  ${alexSVG('ax')}
+  ${marcoSVG('mx')}`;
+}
+function romeSVG(){
+  return DEFS+`
+  <rect x="0" y="0" width="1080" height="1920" fill="#3b2f28"/>
+  <g clip-path="url(#rwinclip)"><rect x="700" y="130" width="340" height="700" fill="url(#dawnsky)"/><circle cx="870" cy="700" r="80" fill="#ffe2a8"/><path d="M700 720 Q800 660 900 700 T1040 690 V830 H700Z" fill="#6b5a6e"/></g>
+  <path d="M700 300 a170 170 0 0 1 340 0 v520 h-340z" fill="none" stroke="#d8cfbd" stroke-width="22"/>
+  ${[40,560].map(x=>`<rect x="${x}" y="260" width="80" height="1100" fill="#d8cfbd" ${SW}/><rect x="${x-14}" y="230" width="108" height="34" fill="#d8cfbd" ${SW}/><rect x="${x-14}" y="1356" width="108" height="34" fill="#d8cfbd" ${SW}/>`).join('')}
+  <rect x="0" y="1390" width="1080" height="530" fill="#2a211c"/>
+  <path d="M0 1390 h1080" stroke="#1d1f2a" stroke-width="5"/>
+  <rect x="140" y="1220" width="640" height="180" rx="22" fill="#6a2f50" ${SW}/><rect x="140" y="1190" width="640" height="60" rx="22" fill="#e8dcc0" ${SW}/>
+  <rect x="820" y="1180" width="200" height="30" fill="#6b4f3a" ${SW}/><rect x="840" y="1210" width="22" height="190" fill="#5a4231" ${SW}/><rect x="980" y="1210" width="22" height="190" fill="#5a4231" ${SW}/>
+  <circle cx="930" cy="1150" r="16" fill="#ffcf8a"/><circle cx="930" cy="1150" r="120" fill="url(#lamp)"/>
+  ${marcoSVG('mr',true,'#e8dcc0')}
+  <g id="tablet"><rect x="-70" y="-50" width="140" height="100" rx="6" fill="#8a6a45" ${SW}/><rect x="-58" y="-38" width="116" height="76" fill="#3d2f22"/><path id="scrib" d="M-48 -20 h96 M-48 0 h80 M-48 20 h60" stroke="#e3c27a" stroke-width="4" stroke-dasharray="300" stroke-dashoffset="300"/></g>`;
+}
+let sparks=[];
+window.ready=document.fonts.ready.then(()=>{
+  $('cam').innerHTML=roomSVG(); $('rcam').innerHTML=romeSVG();
+  const S=$('sparks'); for(let i=0;i<40;i++){const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('r',3+((i*7)%5));c.setAttribute('fill','#ffd59a');S.appendChild(c);
+    const r=k=>{const x=Math.sin(i*127.1+k*311.7)*43758.5453;return x-Math.floor(x)};sparks.push({el:c,a:r(1)*6.28,d:120+r(2)*260,sp:.4+r(3),ph:r(4)*6.28,y0:r(5)});}
+});
+// cámara: [t, cx, cy, zoom]
+const CAM=[[0,1190,580,1.55],[3.0,1190,600,1.5],[5.2,540,940,1.3],[10.5,520,930,1.38],[13.6,560,940,1.3],[14.6,780,860,1.06],[17.6,800,850,1.12],[25.4,770,860,1.08],[27.4,820,850,1.14],
+ [35.3,660,920,1.22],[38.8,780,860,1.0],[47.2,760,860,1.08],[50.0,780,820,1.0],[65.6,700,900,1.15],[67.4,620,940,1.25],[71.7,620,940,1.25],[72.4,560,940,1.3],[76.0,580,900,1.24],[78.4,770,860,1.08],[81.8,770,860,1.12]];
+function camAt(t){let i=0;while(i<CAM.length-1&&CAM[i+1][0]<=t)i++;const b=CAM[i],a=CAM[Math.max(0,i-1)];if(i===0)return b.slice(1);
+  const k=ease(clamp((t-b[0])/1.3));return [lerp(a[1],b[1],k),lerp(a[2],b[2],k),lerp(a[3],b[3],k)];}
+function render(t){
+  $('bar').style.width=(t/D*1080)+'px';
+  const [cx,cy,z]=camAt(t); const drift=Math.sin(t*.35)*6;
+  $('cam').setAttribute('transform',`translate(${540-cx*z+drift},${900-cy*z}) scale(${z})`);
+  // ----- ambiente: noche → amanecer -----
+  const dawn=clamp((t-71.9)/1.2);
+  $('dawnwall').setAttribute('opacity',.55*dawn); $('dawnwin').setAttribute('opacity',dawn); $('moon').setAttribute('opacity',1-dawn); $('sun').setAttribute('opacity',dawn);
+  $('rain').style.opacity=1-dawn; document.querySelectorAll('.rd').forEach((r,i)=>r.setAttribute('transform',`translate(0,${((t*620+i*71)%500)-250})`));
+  $('lampglow').setAttribute('opacity',(1-dawn)*(.85+.15*Math.sin(t*3)));
+  // notas tachadas al decir "no ha hecho nada"
+  [0,1,2].forEach(i=>$('x'+i).setAttribute('opacity',t<71.9?clamp((t-(5.0+i*.85))/.25):0));
+  // ----- Álex -----
+  const aTalk=talk(t,'alex'), mTalk=talk(t,'marco');
+  const startle=win(t,15.7,17.4,.12);
+  const standing=t>=75.4;
+  const sitAx=520, sitAy=1400;
+  let ax={x:standing?lerp(560,600,eout(clamp((t-75.4)/.6))):sitAx,y:sitAy,s:1,sit:!standing,blink:blinkAt(t,.3),mouth:aTalk,emo:'n',brow:'n',look:[4,0],tilt:0,nod:0,armL:0,armR:0,lean:0};
+  if(t<14.2){ax.look=[0,4];ax.brow='sad';ax.emo='sad';ax.tilt=-4+Math.sin(t*.8)*2;ax.nod=6;ax.armR=-8;} // mirando el móvil, abatido
+  if(t>10.8&&t<13.6){ax.brow='sad';ax.lean=-3;}
+  if(t>=14.2&&t<15.7){ax.look=[7,-1];ax.brow='up';}
+  if(startle){ax.brow='up';ax.blink=0;ax.lean=-6*startle;ax.y-=24*startle;ax.look=[8,-2];}
+  if(t>=17.4&&t<71.7){ax.look=[8,-3];ax.tilt=speaking(t,'marco')?4:0;ax.armR=t<66?40:-10;}
+  if(t>35.4&&t<38.8){ax.brow='sad';ax.emo='sad';ax.tilt=-6;ax.look=[2,4];}
+  if(t>=47.4&&t<50){ax.brow='up';}
+  if(t>=65.8&&t<66.6){ax.brow='up';ax.look=[8,-3];}
+  if(t>=67.2&&t<71.7){ax.armR=-20;ax.look=[6,6];ax.nod=4;ax.emo='smile';} // pone la alarma
+  if(t>=71.7&&t<74.0){ax.blink=.75;ax.brow='n';ax.tilt=-8;ax.armR=-10;ax.look=[0,0];ax.emo='n';} // dormido / despertando
+  if(t>=74.0&&t<75.4){ax.blink=blinkAt(t,.3);ax.brow='down';ax.emo='n';ax.armR=-10;ax.look=[-6,2];}
+  if(standing){ax.sit=false;ax.brow='down';ax.emo='smile';ax.look=[6,-2];ax.armL=t>78.6&&t<82?-150:0;ax.armR=t>78.6&&t<82?150:-5;}
+  if(t>=78.6) {ax.look=[8,-3];}
+  ax.bob=Math.sin(t*1.6)*2;
+  $('ax_phone').style.display=(t<14.2||(t>=67.0&&t<71.7))?'':'none';
+  $('ax_glow').setAttribute('opacity',.3+.1*Math.sin(t*4));
+  rig('ax',ax);
+  // ----- Marco (aparición) -----
+  const mIn=clamp((t-13.9)/1.0), mOut=1-clamp((t-71.4)/.6), mBack=win(t,78.2,81.6,.5);
+  const mop=Math.max(Math.min(mIn,mOut),mBack);
+  const mxx=t>=78?1010:1040;
+  let mx={x:mxx,y:1400+Math.sin(t*1.2)*8-10,s:1,op:mop*.96,blink:blinkAt(t,1.7),mouth:mTalk,brow:speaking(t,'marco')?'n':'n',look:[-7,0],tilt:Math.sin(t*.7)*1.5+(mTalk?Math.sin(t*5)*1.2:0),armL:0,armR:0,emo:'n'};
+  if(t>=50.1&&t<65.6){mx.armR=-120+Math.sin(t*2)*6;mx.brow='down';} // gesto de enseñar
+  if(t>=39.1&&t<47.1){mx.armL=40;mx.brow='down';}
+  if(t>=66.6&&t<71.6){mx.armR=-60;mx.brow='down';}
+  if(t>=78.2){mx.emo='smile';mx.armL=30;}
+  rig('mx',mx);
+  $('mx_aura').setAttribute('opacity',(.75+.25*Math.sin(t*1.7))*(mTalk?1.1:1));
+  // chispas doradas en la aparición
+  sparks.forEach(s=>{const app=clamp((t-13.6)/1.4);const conv=1-eout(app);const life=(t>13.6&&t<16)||(t>78.1&&t<79.6)||(t>71.2&&t<72.2);
+    const ang=s.a+t*s.sp, r=s.d*(t<16?conv+.15:.6+.4*Math.sin(t+s.ph));
+    s.el.setAttribute('cx',mxx+Math.cos(ang)*r);s.el.setAttribute('cy',1000+Math.sin(ang)*r*1.4-((t*40+s.y0*400)%400));
+    s.el.setAttribute('opacity',life?(.4+.6*Math.abs(Math.sin(t*3+s.ph))):(mop>.5?.25*Math.abs(Math.sin(t*2+s.ph)):0));});
+  // ----- flashback Roma (iris) -----
+  const rin=clamp((t-27.5)/.6), rout=clamp((t-35.0)/.5); const rr=(t<35?eout(rin):1-eout(rout))*1500;
+  $('rome').style.opacity=(t>27.4&&t<35.6)?1:0; $('rome').style.clipPath=`circle(${rr}px at 540px 820px)`;
+  const rz=1.0+.08*clamp((t-27.5)/7.5); $('rcam').setAttribute('transform',`translate(${540-470*rz},${900-1000*rz}) scale(${rz})`);
+  const wr=t>29.6; // escribe la nota
+  rig('mr',{x:470,y:1400,s:1,blink:t<29.4?.6:blinkAt(t,.9),mouth:0,brow:t<29.4?'sad':'down',look:wr?[4,7]:[0,2],tilt:t<29.4?-7+Math.sin(t*2)*2:-4,nod:wr?8:0,armR:wr?-55+Math.sin(t*14)*6:0,armL:wr?-35:0});
+  $('mr_aura').setAttribute('opacity',0);
+  $('tablet').setAttribute('transform',`translate(${470+74},${1400-320}) rotate(-8)`); $('tablet').style.opacity=wr?1:0;
+  $('scrib').setAttribute('stroke-dashoffset',300*(1-clamp((t-30.1)/3.5)));
+  $('romesign').style.opacity=win(t,28.0,34.6,.3); $('romesign').style.transform=`rotate(-3deg) scale(${.9+.1*eout(clamp((t-28)/.35))})`;
+  $('quote').style.opacity=win(t,30.9,35.2,.25); $('quote').style.transform=`rotate(1.5deg) translateY(${(1-eout(clamp((t-30.9)/.4)))*30}px)`;
+  // ----- rótulos -----
+  $('title').style.opacity=win(t,0.8,5.0,.35); $('title').style.transform=`rotate(-2deg) scale(${.92+.08*eout(clamp((t-.8)/.4))})`;
+  const la=win(t,6.2,10.0,.3); $('labA').style.opacity=la; $('labA').style.left='640px'; $('labA').style.top='470px';
+  const lm=win(t,17.8,24.6,.3); $('labM').style.opacity=lm; $('labM').style.left='420px'; $('labM').style.top='300px';
+  // líneas de etiqueta hacia la cabeza (coordenadas de pantalla)
+  const toS=(x,y)=>[540-cx*z+drift+x*z,900-cy*z+y*z];
+  const ha=toS(ax.x,ax.y-700), hm=toS(mx.x,mx.y-760);
+  $('lnA').setAttribute('d',`M650 545 L${ha[0]+60} ${ha[1]+60}`); $('lnA').style.opacity=la;
+  $('lnM').setAttribute('d',`M560 380 L${hm[0]} ${hm[1]}`); $('lnM').style.opacity=lm;
+  // ----- mente frágil vs forjada -----
+  const mind=win(t,38.9,47.3,.35); $('mind').style.opacity=mind; $('mind').style.transform=`translateY(${(1-eout(clamp((t-38.9)/.5)))*40}px)`;
+  const tf=[[ 'f1',41.0],['fa1',42.2],['f2',43.7],['fa2',44.5],['f3',44.9],['g1',45.8],['ga1',46.0],['g2',46.1],['ga2',46.3],['g3',46.5]];
+  tf.forEach(([id,a])=>{const k=clamp((t-a)/.25);$(id).style.opacity=k;$(id).style.transform=`scale(${k?back(k):.8})`;});
+  // ----- tarjetas del método -----
+  const cIn=[51.5,55.2,61.6]; ['c1','c2','c3'].forEach((id,i)=>{const k=clamp((t-cIn[i])/.35);const o=k*clamp((66.0-t)/.4);$(id).style.opacity=o;$(id).style.transform=`translateX(${(1-eout(k))*-120}px) rotate(${[-1.5,1,-1][i]}deg)`;});
+  // ----- móvil con alarma -----
+  const ph=win(t,68.3,71.6,.3); $('phone').style.opacity=ph; $('phone').style.transform=`scale(${.85+.15*eout(clamp((t-68.3)/.4))}) rotate(-3deg)`;
+  // ----- salto temporal -----
+  $('black').style.opacity=win(t,71.6,72.7,.35)*.95;
+  $('seven').style.opacity=win(t,71.9,74.4,.25);
+  const ring=t>72.4&&t<74.3; $('nsphone').setAttribute('transform',`translate(${40+(ring?Math.sin(t*80)*6:0)},1170)`);
+  // ----- final -----
+  $('end').style.opacity=clamp((t-81.9)/.5);
+  // ----- subtítulo -----
+  const sub=T.subs.find(s=>t>=s.s-0.06&&t<s.e);
+  const segw=sub?T.seg.find(s=>s.id===sub.seg):null;
+  const hideBan=(t>81.85);
+  $('ban').style.opacity=hideBan?0:(sub?1:.0);
+  if(sub){const who=segw.who;$('who').textContent={narrador:'NARRADOR',alex:'ÁLEX',marco:'MARCO AURELIO'}[who];
+    $('who').style.background={narrador:'#5a4f3e',alex:'#2f6f6a',marco:'#b8864b'}[who];
+    $('txt').innerHTML=sub.w.map(w=>{const on=t>=w.s-0.04;const k=on&&KEY.test(w.t.replace(/[^\wáéíóúñü]/gi,''));return `<span class="${on?'on':''}${k?' k':''}">${w.t}</span>`;}).join(' ');}
+}
+</script></body></html>
