@@ -184,6 +184,11 @@ preguntaFinal('¿Cuántos cafés necesitas', 'para ser persona?', { size: 80, dr
 /* L14 · cierre */
 cierre(88, 'Las cabras del café', ['CAFÉ', 'y cabras']);
 
+/* transiciones de cuento y música que sigue la tensión */
+transTela(L(7) - 0.1, { pat: 'repeating-linear-gradient(90deg, #2e6b3a 0 50px, #f2c230 50px 100px, #c8102e 100px 150px)' }); transPapel(L(11) - 0.1);
+sfx('harpa', L(2) - 0.15, 0.6); sfx('mus_baja', L(5) - 0.3); sfx('mus_sube', T.baila5); sfx('harpa', T.baila5, 0.6);
+sfx('harpa', T.olor, 0.5); sfx('mus_baja', L(10) - 0.2); sfx('mus_sube', T.dormirse); sfx('harpa', T.dormirse + 0.2, 0.5);
+
 Story.run({
   textura: true,
   ovalo: [[L(1) - 0.05, L(6) - 0.15], [L(7), L(13) - 0.15]],
