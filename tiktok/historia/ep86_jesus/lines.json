@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Decir «¡Jesús!» al que estornuda es un conjuro.",
+  "s": 0.12,
+  "e": 2.753
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y lo llevas haciendo toda la vida sin saberlo.",
+  "s": 3.103,
+  "e": 5.468
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Roma, año quinientos noventa. La peste recorre la ciudad, casa por casa.",
+  "s": 5.768,
+  "e": 10.721
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y la gente nota algo: muchos, antes de caer enfermos... estornudan.",
+  "s": 11.021,
+  "e": 17.339
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que un estornudo ya no es un estornudo. Es mala señal. Muy mala.",
+  "s": 17.639,
+  "e": 23.819
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "El papa Gregorio, desesperado, ordena: al que estornude, se le bendice. Al momento.",
+  "s": 24.119,
+  "e": 29.872
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 30.172,
+  "e": 32.779
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y Roma se llena de gente bendiciéndose a gritos: ¡achís! ¡Jesús! ¡achís! ¡Dios te bendiga!",
+  "s": 33.079,
+  "e": 40.031
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "La peste pasó. Pero la costumbre... se quedó para siempre.",
+  "s": 40.331,
+  "e": 44.459
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Aquí se quedó como «¡Jesús!», en Inglaterra como «bless you», y en Alemania como «salud».",
+  "s": 44.759,
+  "e": 50.351
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y si estornudas tres veces seguidas, siempre hay alguien que remata: «¡Jesús, María y José!».",
+  "s": 50.651,
+  "e": 55.61
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: los romanos ya decían «¡salud!» siglos antes. Gregorio solo lo hizo sagrado.",
+  "s": 55.91,
+  "e": 61.827
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: la próxima vez que estornudes y nadie te diga nada... estás solo ante la peste.",
+  "s": 62.127,
+  "e": 68.121
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Confiesa: ¿tú dices «¡Jesús!», «¡salud!»... o haces como que no lo has oído? Os leo.",
+  "s": 68.421,
+  "e": 75.697
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 75.997,
+  "e": 78.952
+ }
+]

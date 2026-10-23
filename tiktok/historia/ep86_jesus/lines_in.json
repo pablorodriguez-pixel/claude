@@ -1,0 +1,86 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Decir «¡Jesús!» al que estornuda es un conjuro."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo llevas haciendo toda la vida sin saberlo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Roma, año quinientos noventa. La peste recorre la ciudad, casa por casa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y la gente nota algo: muchos, antes de caer enfermos... estornudan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Así que un estornudo ya no es un estornudo. Es mala señal. Muy mala.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "El papa Gregorio, desesperado, ordena: al que estornude, se le bendice. Al momento.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y Roma se llena de gente bendiciéndose a gritos: ¡achís! ¡Jesús! ¡achís! ¡Dios te bendiga!",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] La peste pasó. Pero la costumbre... se quedó para siempre.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Aquí se quedó como «¡Jesús!», en Inglaterra como «bless you», y en Alemania como «salud».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y si estornudas tres veces seguidas, siempre hay alguien que remata: «¡Jesús, María y José!».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: los romanos ya decían «¡salud!» siglos antes. Gregorio solo lo hizo sagrado.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la próxima vez que estornudes y nadie te diga nada... estás solo ante la peste.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿tú dices «¡Jesús!», «¡salud!»... o haces como que no lo has oído? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
