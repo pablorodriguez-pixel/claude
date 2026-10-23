@@ -1,0 +1,91 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El acueducto de Segovia lo hizo el diablo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] En una sola noche. Y no le salió del todo bien.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Segovia, hace siglos. La aguadora sube cada día la cuesta con el cántaro lleno. Y está harta.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Esa noche suspira: por no subir más esta cuesta... daría lo que fuera.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Y de entre las sombras aparece un caballero muy elegante. Con unos cuernos... un poco sospechosos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Te traigo el agua hasta la puerta antes de que cante el gallo. A cambio... de tu alma.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ella acepta. Y el diablo se pone a trabajar como un loco: piedra sobre piedra, arco tras arco.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero a la chica le entra el miedo, y se pone a rezar para que amanezca antes.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y justo cuando al diablo le falta una sola piedra... ¡quiquiriquí! Canta el gallo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] El diablo se queda sin alma, y se larga echando humo. Y el acueducto se queda ahí.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo de verdad: lo levantaron los romanos hace casi dos mil años. Miles de bloques de granito... sin nada de argamasa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: esos agujeritos de las piedras no son sus dedos. Son de las grúas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: si vas a Segovia, cuenta las piedras... a ver si te sale alguna de menos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿tú qué venderías por no subir una cuesta? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
