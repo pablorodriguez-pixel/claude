@@ -1,0 +1,86 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El café lo descubrieron unas cabras."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Unas cabras... que se pusieron a bailar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Etiopía, hace siglos. Un pastor, Kaldi, saca a sus cabras al monte, como cada día.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero esa tarde, las cabras se comen unas bayas rojas... y se vuelven locas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Saltan, brincan, y se pasan toda la noche despiertas. Bailando.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Kaldi prueba las bayas. Y él también se pone a bailar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Se las lleva a un monje. Y el monje, muy serio: esto es cosa del diablo. Y las tira al fuego.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pero del fuego sale un olor... buenísimo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Las sacan, las tuestan, las meten en agua caliente... y se lo beben.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Esa noche, por primera vez, los monjes rezan hasta el amanecer sin dormirse.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo de las cabras es leyenda. Lo cierto es que el café viene de Etiopía.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: mañana, cuando no seas persona hasta el primer café... eres una cabra más.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿cuántos cafés necesitas tú para ser persona? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

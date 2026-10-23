@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "El café lo descubrieron unas cabras.",
+  "s": 0.12,
+  "e": 2.336
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Unas cabras... que se pusieron a bailar.",
+  "s": 2.686,
+  "e": 5.299
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Etiopía, hace siglos. Un pastor, Kaldi, saca a sus cabras al monte, como cada día.",
+  "s": 5.599,
+  "e": 11.431
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero esa tarde, las cabras se comen unas bayas rojas... y se vuelven locas.",
+  "s": 11.731,
+  "e": 17.484
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Saltan, brincan, y se pasan toda la noche despiertas. Bailando.",
+  "s": 17.784,
+  "e": 22.419
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Kaldi prueba las bayas. Y él también se pone a bailar.",
+  "s": 22.719,
+  "e": 27.061
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 27.361,
+  "e": 29.968
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Se las lleva a un monje. Y el monje, muy serio: esto es cosa del diablo. Y las tira al fuego.",
+  "s": 30.268,
+  "e": 38.073
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Pero del fuego sale un olor... buenísimo.",
+  "s": 38.373,
+  "e": 41.459
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Las sacan, las tuestan, las meten en agua caliente... y se lo beben.",
+  "s": 41.759,
+  "e": 45.918
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Esa noche, por primera vez, los monjes rezan hasta el amanecer sin dormirse.",
+  "s": 46.218,
+  "e": 51.327
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: lo de las cabras es leyenda. Lo cierto es que el café viene de Etiopía.",
+  "s": 51.627,
+  "e": 56.577
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: mañana, cuando no seas persona hasta el primer café... eres una cabra más.",
+  "s": 56.877,
+  "e": 63.351
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Confiesa: ¿cuántos cafés necesitas tú para ser persona? Os leo.",
+  "s": 63.651,
+  "e": 67.966
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 68.266,
+  "e": 71.221
+ }
+]
