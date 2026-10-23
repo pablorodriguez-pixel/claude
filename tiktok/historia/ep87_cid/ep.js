@@ -48,11 +48,11 @@ function valencia(c) {
   // llanura: campamento enemigo
   const tiendas = [[2700, 260, '#f4efe2'], [2960, 300, '#2e6b3a'], [3200, 240, '#f4efe2']].map(([x, w, col]) => box(M.w, x, SUELO - w * 0.87, w, w * 0.87, { zIndex: 3 }, `<svg viewBox="0 0 300 260" width="${w}" height="${w * 0.87}"><path d="M0,260 L150,10 L300,260 Z" fill="${col}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/><path d="M120,260 L150,140 L180,260 Z" fill="#3d3a44" stroke="${INK}" stroke-width="5"/></svg>`));
   const suelo = box(M.w, 0, SUELO, 3400, 1100, { zIndex: 5, background: '#b8a07a', borderTop: `10px solid #7d9a52` });
-  const enemigos = [...Array(6)].map((_, i) => [PERSm(M.w, 210, { ropa: ['#2e6b3a', '#a8452e', '#2b3550', '#6b4a2a', '#2e6b3a', '#a8452e'][i], gorro: 'turbante', barba: i % 2 === 0, z: 8 }), 2300 + (i % 3) * 260 + Math.floor(i / 3) * 120, i]);
+  const enemigos = [...Array(6)].map((_, i) => [PERSm(M.w, 210, { ropa: ['#2e6b3a', '#a8452e', '#2b3550', '#6b4a2a', '#2e6b3a', '#a8452e'][i], gorro: 'turbante', barba: i % 2 === 0, z: 8, piernas: true }), 2300 + (i % 3) * 260 + Math.floor(i / 3) * 120, i]);
   const cid = PERSm(M.w, 230, { ropa: '#7a1f3a', pelo: 'largo', pcol: '#e6e0d0', barba: true, z: 9, piel: '#f2c9a0' });
   const cidC = PERSm(M.w, 230, { ropa: '#9aa4ad', gorro: 'casco', barba: true, pcol: '#e6e0d0', z: 11, piel: PIEL_MUERTO });
   const ox = OJOSX(cidC, 230), ox2 = OJOSX(cid, 230);
-  const jim = PERSm(M.w, 220, { ropa: '#2b3550', pelo: 'moño', pcol: '#3a2a1e', z: 9 });
+  const jim = PERSm(M.w, 220, { ropa: '#2b3550', pelo: 'moño', pcol: '#3a2a1e', z: 9, piernas: true, calzas: '#2b3550' });
   const bab = CABALLO(M.w, 460, 10), espada = ESPADA(M.w, 300, 12), cuerda = CUERDA(M.w, 200, 13);
   const cabezaB = box(M.w, 0, 0, 200, 200, { zIndex: 4 }, `<svg viewBox="300 0 140 200" width="200" height="200"><path d="M330,200 C350,70 360,40 380,20 L430,60 C420,80 400,90 380,96 C370,120 360,140 350,200 Z" fill="#f4efe2" stroke="${INK}" stroke-width="8"/><circle cx="398" cy="46" r="7" fill="${INK}"/><path d="M380,22 L372,0 L392,16" fill="#f4efe2" stroke="${INK}" stroke-width="6"/></svg>`);
   const sol = SOL(c, 1), luna = LUNA(c, 1), est = ESTRELLAS_C(c, 22, 1); [sol, luna, ...est].forEach(e => M.vp.appendChild(e));
@@ -73,38 +73,33 @@ const montado = (W, t, x, corre) => {
   set(W.espada, { x: x + 80, y: by - 560, r: 20 + (corre ? Math.sin(t * 7) * 4 : 0) }); set(W.cuerda, { x: x - 110, y: by - 260 });
 };
 
-/* L0 · PORTADA (fotograma 0 completo, amarilla): el Cid con ojos en X, tieso sobre Babieca al galope; el enemigo huye */
-plano(-1, L(1) - 0.1, PAPEL, c => {
-  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.34)', 'rgba(0,0,0,0)', 0);
-  texto(c, 190, 'El Cid ganó una batalla…', { size: 80 });
-  const t2 = texto(c, 290, '…' + hlSpan('MUERTO', 'phl'), { size: 160, italic: true });
-  const W = { bab: CABALLO(c, 600, 8), cidC: PERS(c, 0, 0, 300, { ropa: '#9aa4ad', gorro: 'casco', barba: true, pcol: '#e6e0d0', z: 10, piel: PIEL_MUERTO }), espada: ESPADA(c, 400, 12), cuerda: CUERDA(c, 260, 13) };
-  W.cidC._x0 = 0; W.cidC._y0 = 0; W.ox = OJOSX(W.cidC, 300);
-  const en = PERS(c, 760, 1120, 200, { ropa: '#2e6b3a', gorro: 'turbante', barba: true });
-  const bo = BOCADILLO(c, 700, 1000, '¡socorro!', { size: 44 });
-  sfx('swoosh_up', 0.05, 0.6); sp(T.muerto0, 'thud', 1); sp(T.muerto0 + 0.1, 'boing', 0.6);
+/* L0 · PORTADA (fotograma 0 completo, estilo leyenda): el mundo al amanecer, el Cid tieso sobre Babieca ante la puerta; título limpio arriba */
+plano(-1, L(1) - 0.1, { background: '#f4a46a' }, c => {
+  const W = valencia(c); W.cid.style.visibility = W.ox2.style.visibility = W.jim.style.visibility = 'hidden';
+  const t1 = texto(c, 190, 'EL CID GANÓ UNA BATALLA…', { size: 92, color: '#f4efe2', shadow: `4px 4px 0 rgba(0,0,0,.6), 0 0 18px rgba(0,0,0,.35)` }); t1.style.fontFamily = 'Patrick'; t1.style.fontWeight = 400;
+  const t2 = texto(c, 290, '…MUERTO', { size: 210, color: '#f4efe2', shadow: `6px 6px 0 rgba(0,0,0,.6), 0 0 24px rgba(0,0,0,.35)` }); t2.style.fontFamily = 'Patrick'; t2.style.fontWeight = 400;
+  const t3 = texto(c, 520, 'una leyenda de Valencia', { size: 48, color: '#f4efe2', shadow: `2px 2px 0 rgba(0,0,0,.5)` }); t3.style.fontFamily = 'Patrick'; t3.style.fontWeight = 400;
+  sfx('harpa', 0.05, 0.6); sp(T.muerto0, 'thud', 0.9);
   return t => {
-    set(ry, { r: t * 6 }); set(t2, { r: -2 + wobble(t, 0.5, 1) }); paint(c.querySelector('.phl'), t, 0.25, 0.4);
-    const by = 1280 - Math.abs(Math.sin(t * 7)) * 18; set(W.bab, { x: 140, y: by - 450, r: Math.sin(t * 7) * 2 }); galopa(W.bab, t, true);
-    pies(W.cidC, 300, 420, by - 230, { r: Math.sin(t * 7 + 1) * 3 }); pFace(W.cidC, t, { feliz: 0, closed: true, ceja: 0 });
-    set(W.espada, { x: 560, y: by - 860, r: 20 }); set(W.cuerda, { x: 290, y: by - 340 });
-    pFace(en, t, { feliz: -1, ceja: 20, look: [-14, -4], jaw: 0.8 }); set(en, { x: Math.sin(t * 9) * 8 }); set(bo, { r: 5 });
+    camara(W.M, t, [[-1, 1640, 1160, 1.25], [L(1), 1640, 1150, 1.3]]); cielo(W.M, T.amanecer + 0.9, CIELO()); set(W.sol, { x: 140, y: 420, o: 1 }); set(W.luna, { o: 0 }); brillan(W.est, t, 0);
+    set(W.hojas[0], { sx: 0.1 }); set(W.hojas[1], { sx: 0.1 }); montado(W, t, 1640, false);
+    W.enemigos.forEach(([f, x, i]) => pies(f, 210, x + 200, SUELO));
   };
 }, { sfx: false });
-shakeAt(T.muerto0, 0.3, 12);
-
 /* PLANO A (L1 → CTA): (avance) el Cid tieso a caballo ante la puerta → CORTE: Valencia, de día → el ejército enemigo llega por la llanura →
    CORTE: la alcoba, el Cid enfermo en la cama → su orden en susurro (Babieca asoma por la ventana) → muere: la vela se apaga, anochece; Jimena, decidida */
 plano(L(1) - 0.1, L(6) - 0.1, { background: '#8fc3e8' }, c => {
   const W = valencia(c);
   const r1 = ROTULO(c, 580, 380, 'VALENCIA', 'hace 900 años', { w: 400 }), r2 = ROTULO(c, 560, 380, 'EL PLAN', 'que nadie se entere', { w: 420 });
   const lag = lagrima(W.M.w, 0, 0);
+  const eC = ETIQUETA(c, 'EL CID', 'Rodrigo Díaz de Vivar'), eJ = ETIQUETA(c, 'JIMENA', 'su mujer'), eB = ETIQUETA(c, 'BABIECA', 'su caballo'), eA = ETIQUETA(c, 'LOS ALMORÁVIDES', 'quieren Valencia');
   sp(T.iba, 'thud', 0.8); sp(L(2) - 0.1, 'whoosh', 0.6); sp(T.ejercito, 'drumroll', 0.7); sp(L(3) - 0.1, 'whoosh', 0.5); sp(T.rara, 'boing', 0.6);
   sp(T.babieca, 'pop2', 0.8); sp(T.babieca + 0.3, 'boing', 0.6); sp(T.muere, 'sad', 0.6); sp(T.plan, 'paper', 0.7);
   return t => {
-    camara(W.M, t, [[L(1) - 0.1, 1560, 1180, 1.3], [L(2) - 0.15, 1580, 1170, 1.4], [L(2) - 0.1, 1150, 1200, 0.72, 'corte'], [T.ejercito, 1350, 1250, 0.78], [T.quitarsela + 0.6, 2550, 1300, 0.85],
+    const cam = camara(W.M, t, [[L(1) - 0.1, 1560, 1180, 1.3], [L(2) - 0.15, 1580, 1170, 1.4], [L(2) - 0.1, 1150, 1200, 0.72, 'corte'], [T.ejercito, 1350, 1250, 0.78], [T.quitarsela + 0.6, 2550, 1300, 0.85],
       [L(3) - 0.1, 620, 1230, 1.15, 'corte'], [T.rara + 0.5, 600, 1250, 1.35], [T.momento, 590, 1220, 1.6], [T.babieca + 0.7, 700, 1150, 1.35], [L(6), 680, 1230, 1.3]]);
-    pintaV(W, t); rotuloA(r1, t, T.valencia, T.enfermo); rotuloA(r2, t, T.plan, 99);
+    pintaV(W, t);
+    etiquetaA(eA, t, T.quitarsela - 0.2, L(3) - 0.2, cam, 2550, 1180); etiquetaA(eC, t, L(3) + 0.3, T.orden, cam, 430, 1350, -230); etiquetaA(eJ, t, T.jimena, L(6) - 0.1, cam, 900, 1210, -110); etiquetaA(eB, t, T.babieca + 0.3, T.muere, cam, 800, 1040, -150); rotuloA(r1, t, T.valencia, T.enfermo); rotuloA(r2, t, T.plan, 99);
     const avance = t < L(2) - 0.1;
     if (avance) { montado(W, t, 1580, false); W.cid.style.visibility = W.ox2.style.visibility = W.jim.style.visibility = 'hidden'; set(W.hojas[0], { sx: 0.05 }); set(W.hojas[1], { sx: 0.05 }); }
     else {
@@ -171,15 +166,23 @@ plano(L(7) - 0.1, L(11) - 0.1, { background: '#2b2f52' }, c => {
 });
 shakeAt(T.vivo, 0.3, 12); shakeAt(T.puertas + 0.2, 0.2, 8);
 
-/* L11 · OJO: es leyenda (lo cuentan las crónicas); el Cid sí murió en Valencia, en 1099 */
-plano(L(11) - 0.1, L(12) - 0.1, PAPEL, c => {
-  sello(c, 300, '¡OJO!', T.ojo, { size: 140 });
-  const le = chip(c, 380, 520, 'LEYENDA', { size: 70, bg: '#1d1a22' });
-  const cr = box(c, 320, 680, 460, 380, { zIndex: 6, background: '#f4ecd8', border: `8px solid ${INK}`, boxShadow: `10px 10px 0 ${INK}`, fontFamily: 'SpecialElite', fontSize: '34px', color: INK, padding: '30px', boxSizing: 'border-box', lineHeight: 1.4 }, '<b style="font-family:Rye;font-size:46px">CRÓNICA</b><br>…e el Çid, muerto, sobre Bavieca…');
-  const r = ROTULO(c, 600, 1110, 'VALENCIA', 'muere en 1099', { w: 340 });
-  return t => { popA(le, t, T.leyenda, { r: -5 }); set(cr, { r: -3 + Math.sin(t * 2) * 1.5, s: pop(t, L(11), 0.4) }); rotuloA(r, t, T.m1099 - 0.2); };
+/* L11 · OJO (registro «la verdad»: papel, línea de tiempo con fechas y una flecha que la recorre) */
+plano(L(11) - 0.1, L(12) - 0.1, { background: '#e9dfc8' }, c => {
+  const ti = texto(c, 330, 'Ojo:', { size: 110, color: '#2b2118' }); ti.style.fontFamily = 'Patrick'; ti.style.fontWeight = 400;
+  const le = texto(c, 470, 'esto es leyenda', { size: 64, color: '#b8322a' }); le.style.fontFamily = 'Patrick'; le.style.fontWeight = 400;
+  const lin = box(c, 90, 1060, 900, 6, { zIndex: 4, background: '#2b2118', transformOrigin: '0 50%' });
+  const hitos = [[260, '1099', 'muere en Valencia', T.m1099 - 0.6], [760, 's. XIII', 'nace la leyenda', T.m1099 + 0.4]].map(([x, a, b, t0]) => { const d = box(c, x - 160, 860, 320, 190, { zIndex: 5, textAlign: 'center', fontFamily: 'Patrick', color: '#2b2118' }, `<div style="font-size:30px;opacity:.85">${b}</div><div style="font-size:84px;line-height:90px">${a}</div>`); const tk = box(c, x - 3, 1040, 6, 46, { zIndex: 5, background: '#2b2118' }); return [d, tk, t0]; });
+  const tumba = box(c, 170, 1120, 180, 200, { zIndex: 5 }, `<svg viewBox="0 0 180 200" width="180" height="200"><path d="M20,200 V70 C20,20 160,20 160,70 V200 Z" fill="#cdbb98" stroke="#2b2118" stroke-width="5"/><path d="M90,60 V140 M60,90 H120" stroke="#2b2118" stroke-width="6"/></svg>`);
+  const libro = box(c, 670, 1130, 200, 150, { zIndex: 5 }, `<svg viewBox="0 0 200 150" width="200" height="150"><path d="M100,30 C70,10 30,10 10,20 V140 C30,130 70,130 100,145 C130,130 170,130 190,140 V20 C170,10 130,10 100,30 Z" fill="#f4ecd8" stroke="#2b2118" stroke-width="5"/><path d="M100,30 V145" stroke="#2b2118" stroke-width="4"/></svg>`);
+  const fl = box(c, 0, 0, 160, 40, { zIndex: 6 }, `<svg viewBox="0 0 160 40" width="160" height="40"><path d="M0,20 H130" stroke="#6b4a2a" stroke-width="6"/><path d="M130,6 L160,20 L130,34 Z" fill="#9aa4ad" stroke="#2b2118" stroke-width="3"/><path d="M0,8 L20,20 L0,32" fill="#b8322a"/></svg>`);
+  return t => {
+    set(lin, { sx: p(t, L(11), 0.8, E.outCubic) }); set(le, { o: t > T.leyenda ? 1 : 0, s: pop(t, T.leyenda, 0.3) });
+    hitos.forEach(([d, tk, t0], i) => { set(d, { o: t > t0 ? 1 : 0, y: (1 - p(t, t0, 0.4, E.outBack)) * 40 }); set(tk, { o: t > t0 ? 1 : 0 }); });
+    set(tumba, { o: t > hitos[0][2] ? 1 : 0, s: pop(t, hitos[0][2], 0.35) }); set(libro, { o: t > hitos[1][2] ? 1 : 0, s: pop(t, hitos[1][2], 0.35) });
+    const kf = p(t, L(11) + 0.2, L(12) - L(11) - 0.4, E.inOutCubic); set(fl, { x: lerp(-200, 1000, kf), y: 1000 + Math.sin(kf * 6) * 6, o: kf > 0 && kf < 1 ? 1 : 0 });
+  };
 });
-sp(T.leyenda, 'stamp', 0.7); sp(T.m1099, 'pop2', 0.6);
+sp(T.leyenda, 'paper', 0.6); sp(T.m1099 - 0.6, 'pop', 0.5); sp(T.m1099 + 0.4, 'pop', 0.5); sp(L(11) + 0.2, 'whoosh', 0.4);
 
 /* L12 · O sea: el Cid tiene más victorias muerto… que tú vivo en el pádel (marcador 0-6 y el Cid con la copa) */
 plano(L(12) - 0.1, L(13) - 0.1, { background: '#2b8ad6', backgroundImage: 'linear-gradient(90deg, transparent 49.6%, #fff 49.6% 50.4%, transparent 50.4%), linear-gradient(transparent 70%, rgba(255,255,255,.9) 70% 70.6%, transparent 70.6%)' }, c => {
@@ -205,7 +208,7 @@ sfx('harpa', L(2) - 0.15, 0.6); sfx('mus_baja', L(4) - 0.3); sfx('mus_silencio',
 sfx('riser', T.puertas - 1.1, 0.6); sfx('harpa', T.sale, 0.7); sfx('harpa', T.dedo, 0.5);
 
 Story.run({
-  textura: true,
-  ovalo: [[L(1) - 0.05, L(6) - 0.15], [L(7), L(13) - 0.15]],
+  leyenda: true,
+  ovalo: [],
   vecino: { risa: [[T.babieca, T.babieca + 1.0], [T.respirar, T.respirar + 1.0], [T.padel, T.padel + 1.0]], sorpresa: [[T.iba, T.iba + 0.8], [T.vivo, T.vivo + 0.8]], golpes: [T.iba, T.puertas + 0.2, T.vivo, T.padel] },
 });
