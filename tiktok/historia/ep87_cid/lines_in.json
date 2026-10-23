@@ -1,0 +1,86 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El Cid ganó una batalla... muerto."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y no, no es una forma de hablar. Iba muerto. Encima de su caballo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Valencia, hace más de novecientos años. El Cid la ha conquistado, y un ejército enorme viene a quitársela.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero el Cid está enfermo. Muy enfermo. Y antes de morir, da una orden muy rara.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Que nadie se entere de que he muerto. Y cuando llegue el momento... montadme en Babieca.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "El Cid muere. Y su mujer, Jimena, cumple el plan al pie de la letra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo embalsaman, le ponen la armadura, y lo atan bien tieso al caballo. Con la espada en la mano.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Al amanecer, se abren las puertas de Valencia... y sale el Cid, cabalgando delante de todos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] El enemigo lo ve, y le entra el pánico: ¡el Cid está vivo! Y salen corriendo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Ganó la batalla sin mover ni un dedo. Y sin respirar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: esto es leyenda. El Cid murió de verdad en Valencia, en mil noventa y nueve.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el Cid tiene más victorias muerto... que tú vivo en el pádel.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿a quién conoces tú que gane discusiones sin abrir la boca? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

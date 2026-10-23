@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "El Cid ganó una batalla... muerto.",
+  "s": 0.12,
+  "e": 2.574
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no, no es una forma de hablar. Iba muerto. Encima de su caballo.",
+  "s": 2.924,
+  "e": 7.209
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Valencia, hace más de novecientos años. El Cid la ha conquistado, y un ejército enorme viene a quitársela.",
+  "s": 7.509,
+  "e": 14.06
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero el Cid está enfermo. Muy enfermo. Y antes de morir, da una orden muy rara.",
+  "s": 14.36,
+  "e": 21.69
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Que nadie se entere de que he muerto. Y cuando llegue el momento... montadme en Babieca.",
+  "s": 21.99,
+  "e": 28.037
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "El Cid muere. Y su mujer, Jimena, cumple el plan al pie de la letra.",
+  "s": 28.337,
+  "e": 33.207
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 33.507,
+  "e": 36.114
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Lo embalsaman, le ponen la armadura, y lo atan bien tieso al caballo. Con la espada en la mano.",
+  "s": 36.414,
+  "e": 42.806
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Al amanecer, se abren las puertas de Valencia... y sale el Cid, cabalgando delante de todos.",
+  "s": 43.106,
+  "e": 49.021
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "El enemigo lo ve, y le entra el pánico: ¡el Cid está vivo! Y salen corriendo.",
+  "s": 49.321,
+  "e": 54.088
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ganó la batalla sin mover ni un dedo. Y sin respirar.",
+  "s": 54.388,
+  "e": 58.021
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: esto es leyenda. El Cid murió de verdad en Valencia, en mil noventa y nueve.",
+  "s": 58.321,
+  "e": 64.079
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: el Cid tiene más victorias muerto... que tú vivo en el pádel.",
+  "s": 64.379,
+  "e": 69.413
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Confiesa: ¿a quién conoces tú que gane discusiones sin abrir la boca? Os leo.",
+  "s": 69.713,
+  "e": 74.987
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 75.287,
+  "e": 78.242
+ }
+]
