@@ -18,3 +18,4 @@
 html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
 #stage{position:relative;width:1080px;height:1920px;overflow:hidden}
 #stage *{transform-origin:center center}
+@font-face{font-family:'Patrick';src:url(fonts/PatrickHand.ttf)}

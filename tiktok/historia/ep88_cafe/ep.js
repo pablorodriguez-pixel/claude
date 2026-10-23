@@ -43,9 +43,9 @@ function monte(c) {
   const suelo = box(M.w, 0, SUELO, 3200, 1100, { zIndex: 4, background: '#a8845a', borderTop: `10px solid #6f8a42` });
   const hog = box(M.w, 2150, 1360, 220, 150, { zIndex: 6 }, `<svg viewBox="0 0 220 150" width="220" height="150"><path d="M20,140 L200,110 M30,110 L190,140" stroke="#6b4a2a" stroke-width="18" stroke-linecap="round"/><path class="ll" d="M110,0 C160,50 170,90 150,120 C130,140 90,140 70,120 C50,90 60,50 110,0 Z" fill="#ff8a2a" stroke="${INK}" stroke-width="6"/><path d="M110,50 C130,80 132,100 120,118 C108,128 96,124 92,110 C86,92 96,74 110,50 Z" fill="#ffe27a"/></svg>`);
   const olla = box(M.w, 2180, 1260, 160, 120, { zIndex: 7 }, `<svg viewBox="0 0 160 120" width="160" height="120"><path d="M10,20 H150 C150,90 120,116 80,116 C40,116 10,90 10,20 Z" fill="#3d3a44" stroke="${INK}" stroke-width="7"/><ellipse cx="80" cy="20" rx="70" ry="14" fill="#6b3a1e" stroke="${INK}" stroke-width="6"/></svg>`);
-  const kaldi = PERSm(M.w, 240, { ropa: '#f4efe2', pelo: 'corto', pcol: '#1d1a22', piel: PIEL_K, z: 9 });
+  const kaldi = PERSm(M.w, 240, { ropa: '#f4efe2', pelo: 'corto', pcol: '#1d1a22', piel: PIEL_K, z: 9, piernas: true, calzas: '#6b4a2a' });
   const cabras = [0, 1, 2, 3].map(i => CABRA(M.w, [240, 210, 230, 200][i], ['#f4efe2', '#c87a3a', '#3d3a44', '#e6d3b0'][i], 8));
-  const monjes = [0, 1, 2].map(i => PERSm(M.w, [250, 210, 210][i], { ropa: ['#c8a050', '#8a5a32', '#8a5a32'][i], pelo: 'calvo', barba: true, pcol: '#1d1a22', piel: PIEL_K, cuello: i === 0, z: 8 }));
+  const monjes = [0, 1, 2].map(i => PERSm(M.w, [250, 210, 210][i], { ropa: ['#c8a050', '#8a5a32', '#8a5a32'][i], pelo: 'calvo', barba: true, pcol: '#1d1a22', piel: PIEL_K, cuello: i === 0, z: 8, piernas: true, calzas: '#5a3d22' }));
   const sol = SOL(c, 1), luna = LUNA(c, 1), est = ESTRELLAS_C(c, 26, 1); [sol, luna, ...est].forEach(e => M.vp.appendChild(e));
   return { M, bayas, hog, olla, kaldi, cabras, monjes, sol, luna, est };
 }
@@ -58,20 +58,17 @@ const pintaM = (W, t) => { cielo(W.M, t, CIELO()); const n = (t > T.saltan - 0.3
 /* coloca una cabra con las patas en el suelo (x centro) y un salto opcional */
 const cabraEn = (g, w, x, salto = 0, r = 0) => set(g, { x: x - w / 2, y: SUELO - w * 240 / 300 - salto, r });
 
-/* L0 · PORTADA (fotograma 0 completo, amarilla): una cabra bailando a dos patas con una taza de café, notas musicales y bayas rojas */
-plano(-1, L(1) - 0.1, PAPEL, c => {
-  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.34)', 'rgba(0,0,0,0)', 0);
-  texto(c, 190, 'El café lo descubrieron…', { size: 80 });
-  const t2 = texto(c, 290, '…unas ' + hlSpan('CABRAS', 'phl'), { size: 116, italic: true });
-  const g = CABRA(c, 520, '#f4efe2', 8);
-  const taza = box(c, 640, 640, 170, 150, { zIndex: 12 }, `<svg viewBox="0 0 170 150" width="170" height="150"><path d="M10,20 H130 L118,140 H22 Z" fill="#fff" stroke="${INK}" stroke-width="8"/><ellipse cx="70" cy="22" rx="60" ry="12" fill="#6b3a1e" stroke="${INK}" stroke-width="6"/><path d="M130,50 C170,50 170,100 124,104" stroke="${INK}" stroke-width="10" fill="none"/></svg>`);
-  const ns = NOTAS(c, 4); const bs = [...Array(5)].map((_, i) => box(c, 0, 0, 40, 40, { zIndex: 9, background: ROJO_B, border: `5px solid ${INK}`, borderRadius: '50%' }));
-  sfx('swoosh_up', 0.05, 0.6); sp(T.cabras0, 'boing', 0.9); sp(T.cabras0 + 0.2, 'tada', 0.5);
+/* L0 · PORTADA (fotograma 0 completo, estilo leyenda): el monte con las cabras saltando y Kaldi alucinando; título limpio arriba */
+plano(-1, L(1) - 0.1, { background: '#8fc3e8' }, c => {
+  const W = monte(c); const XS = [640, 900, 1180, 1420];
+  const tx = (y, txt, size) => { const e = texto(c, y, txt, { size, color: '#f4efe2', shadow: `5px 5px 0 rgba(0,0,0,.6), 0 0 20px rgba(0,0,0,.35)` }); e.style.fontFamily = 'Patrick'; e.style.fontWeight = 400; return e; };
+  tx(190, 'EL CAFÉ LO DESCUBRIERON…', 88); tx(290, '…UNAS CABRAS', 150); tx(470, 'una leyenda de Etiopía', 48);
+  const ns = NOTAS(W.M.w, 4);
+  sfx('harpa', 0.05, 0.6); sp(T.cabras0, 'boing', 0.7);
   return t => {
-    set(ry, { r: t * 6 }); set(t2, { r: -2 + wobble(t, 0.5, 1) }); paint(c.querySelector('.phl'), t, 0.25, 0.4);
-    set(g, { x: 230, y: 640 - Math.abs(Math.sin(t * 6)) * 40, r: -62 + Math.sin(t * 6) * 8 }); brinca(g, t, true);
-    set(taza, { y: -Math.abs(Math.sin(t * 6)) * 40, r: Math.sin(t * 6) * 10 }); notasA(ns, t, true, 520, 640);
-    bs.forEach((b, i) => set(b, { x: 220 + i * 160, y: 1240 + Math.sin(t * 4 + i) * 14 }));
+    camara(W.M, t, [[-1, 1000, 1250, 1.15], [L(1), 1010, 1245, 1.2]]); pintaM(W, -1);
+    W.cabras.forEach((g, i) => { const w = [240, 210, 230, 200][i]; cabraEn(g, w, XS[i], Math.abs(Math.sin(t * 6 + i * 1.3)) * 120, Math.sin(t * 6 + i) * 18); brinca(g, t, true, i); });
+    pies(W.kaldi, 240, 760, SUELO); pFace(W.kaldi, t, { feliz: -0.3, ceja: 18, jaw: 0.6, look: [14, -6] }); notasA(ns, t, true, 1000, SUELO - 420);
   };
 }, { sfx: false });
 
@@ -81,16 +78,16 @@ plano(L(1) - 0.1, L(6) - 0.1, { background: '#8fc3e8' }, c => {
   const W = monte(c);
   const r1 = ROTULO(c, 560, 380, 'ETIOPÍA', 'hace siglos', { w: 420 }), reloj = ROTULO(c, 680, 380, '03:00', 'y siguen', { w: 300, size: 70 });
   const ns = NOTAS(W.M.w, 4), zz = [0, 1, 2].map(i => texto(W.M.w, 0, 'z', { size: 60 + i * 12, italic: true, color: '#f4efe2', x: 0, w: 80, z: 12, shadow: `3px 3px 0 ${INK}` }));
-  const XS = [700, 1020, 1260, 1480];
+  const XS = [700, 1020, 1260, 1480]; const eK = ETIQUETA(c, 'KALDI', 'pastor de cabras');
   sp(L(1) + 0.4, 'boing', 0.6); sp(L(2) - 0.1, 'whoosh', 0.5); sp(T.monte, 'pop', 0.4); sp(T.bayas, 'squish', 0.6); sp(T.bayas + 0.4, 'squish', 0.5); sp(T.locas, 'boing', 0.9); sp(T.locas + 0.2, 'glitch', 0.5);
   [0, 1, 2, 3, 4].forEach(i => sp(T.saltan + i * 0.4, 'pop2', 0.35)); sp(T.prueba, 'squish', 0.7); sp(T.baila5, 'tada', 0.7);
   return t => {
-    camara(W.M, t, [[L(1) - 0.1, 1000, 1220, 1.0], [L(2) - 0.15, 1020, 1210, 1.08],
-      [L(2) - 0.1, 900, 1150, 0.72, 'corte'], [L(3) - 0.15, 1000, 1220, 0.85],
-      [L(3) - 0.1, 900, 1300, 1.25, 'corte'], [L(4) - 0.15, 900, 1280, 1.45],
-      [L(4) - 0.1, 1000, 1220, 0.85, 'corte'], [L(5) - 0.15, 1000, 1220, 0.92],
+    const cam = camara(W.M, t, [[L(1) - 0.1, 1000, 1250, 1.15], [L(2) - 0.15, 1020, 1245, 1.22],
+      [L(2) - 0.1, 950, 1240, 1.0, 'corte'], [L(3) - 0.15, 1000, 1245, 1.1],
+      [L(3) - 0.1, 900, 1290, 1.4, 'corte'], [L(4) - 0.15, 900, 1285, 1.55],
+      [L(4) - 0.1, 1050, 1245, 1.05, 'corte'], [L(5) - 0.15, 1050, 1245, 1.12],
       [L(5) - 0.1, 860, 1180, 1.45, 'corte'], [T.tambien, 900, 1200, 1.4], [L(6), 1000, 1230, 1.05]]);
-    pintaM(W, t); rotuloA(r1, t, T.etiopia, L(3) - 0.1);
+    pintaM(W, t); rotuloA(r1, t, T.etiopia, L(3) - 0.1); etiquetaA(eK, t, T.kaldi, T.tarde, cam, 830, 1240, -180);
     const avance = t < L(2) - 0.1, locas = avance || t > T.locas, noche = t > T.saltan - 0.3;
     // bayas: desaparecen cuando se las comen
     W.bayas.forEach((b, i) => b.style.opacity = t > T.bayas + i * 0.06 && !avance ? 0.15 : 1);
@@ -122,14 +119,15 @@ plano(L(7) - 0.1, L(11) - 0.1, { background: '#8fc3e8' }, c => {
   const diab = BOCADILLO(W.M.w, 0, 0, '¡cosa del diablo!', { size: 50 }), mmm = BOCADILLO(W.M.w, 0, 0, 'mmmm…', { size: 54 });
   const tazas = [0, 1, 2].map(() => box(W.M.w, 0, 0, 70, 60, { zIndex: 12 }, `<svg viewBox="0 0 70 60" width="70" height="60"><path d="M4,6 H56 L50,56 H10 Z" fill="#fff" stroke="${INK}" stroke-width="5"/><path d="M56,20 C70,20 70,42 52,42" stroke="${INK}" stroke-width="5" fill="none"/></svg>`));
   const pasos = ROTULO(c, 560, 380, '1 · sacar', '', { w: 440, size: 46 }), reloj = ROTULO(c, 680, 380, '23:00', 'y despiertos', { w: 300, size: 70 });
+  const eM = ETIQUETA(c, 'EL MONJE', 'muy serio');
   const pp = ['1 · sacar', '2 · tostar', '3 · agua caliente', '4 · ¡a beber!'], tp = [T.sacan, T.tuestan, T.agua, T.beben];
   sp(T.monje, 'pop', 0.5); sp(T.serio, 'thud', 0.6); sp(T.diablo, 'glitch', 0.8); sp(T.fuego, 'whoosh', 0.8); sp(T.fuego + 0.4, 'burst', 0.6);
   sp(T.olor, 'sparkle', 0.7); sp(T.buenisimo, 'ding', 0.6); tp.forEach(x => sp(x, 'pop2', 0.5)); sp(T.beben + 0.3, 'gulp', 0.8); sp(T.beben + 0.7, 'boing', 0.7); sp(T.dormirse, 'tada', 0.6);
   return t => {
-    camara(W.M, t, [[L(7) - 0.1, 2200, 1200, 0.95], [T.serio, 2350, 1150, 1.25], [T.diablo + 0.4, 2480, 1130, 1.5],
+    const cam = camara(W.M, t, [[L(7) - 0.1, 2250, 1245, 1.1], [T.serio, 2350, 1150, 1.25], [T.diablo + 0.4, 2480, 1130, 1.5],
       [T.fuego - 0.1, 2180, 1300, 1.3, 'corte'], [L(8) - 0.15, 2170, 1290, 1.4], [T.buenisimo + 0.6, 2280, 1220, 1.1], [T.tuestan, 2230, 1280, 1.35], [T.beben + 0.8, 2330, 1180, 1.25],
-      [L(10) - 0.1, 2400, 1150, 0.9, 'corte'], [L(11), 2420, 1140, 1.0]]);
-    pintaM(W, t);
+      [L(10) - 0.1, 2420, 1245, 1.05, 'corte'], [L(11), 2440, 1240, 1.12]]);
+    pintaM(W, t); etiquetaA(eM, t, T.monje, T.diablo - 0.3, cam, 2540, 1190, -200);
     W.bayas.forEach(b => b.style.opacity = 0.2); W.cabras.forEach((g, i) => { cabraEn(g, [240, 210, 230, 200][i], 1800 + i * 110, Math.abs(Math.sin(t * 6 + i)) * 50); brinca(g, t, true, i); });
     // Kaldi con el cuenco de bayas
     pies(W.kaldi, 240, 2020, SUELO); pFace(W.kaldi, t, { feliz: t > T.beben ? 1 : 0.4, ceja: t > T.diablo ? 16 : 4, look: [14, -4], jaw: t > L(7) && t < T.monje + 0.6 ? 0.5 : 0 });
@@ -151,15 +149,21 @@ plano(L(7) - 0.1, L(11) - 0.1, { background: '#8fc3e8' }, c => {
 });
 shakeAt(T.diablo, 0.25, 10); shakeAt(T.beben + 0.7, 0.25, 10);
 
-/* L11 · OJO: lo de las cabras es leyenda; lo cierto es que el café viene de Etiopía (rama de cafeto + rótulo) */
-plano(L(11) - 0.1, L(12) - 0.1, PAPEL, c => {
-  sello(c, 300, '¡OJO!', T.ojo, { size: 140 });
-  const le = chip(c, 380, 520, 'LEYENDA', { size: 70, bg: '#1d1a22' });
-  const rama = box(c, 300, 640, 500, 460, { zIndex: 6 }, `<svg viewBox="-260 -300 520 480" width="500" height="460" style="overflow:visible">${CAFETO(0, 150, 1.6)}</svg>`);
-  const r = ROTULO(c, 600, 1120, 'ETIOPÍA', 'su cuna, de verdad', { w: 360 });
-  return t => { popA(le, t, T.leyenda, { r: -5 }); set(rama, { r: Math.sin(t * 2) * 3, s: pop(t, L(11), 0.4) }); rotuloA(r, t, T.etiopia11 - 0.3); };
+/* L11 · OJO (registro «la verdad»: papel, línea de tiempo con fechas y una flecha que la recorre) */
+plano(L(11) - 0.1, L(12) - 0.1, { background: '#e9dfc8' }, c => {
+  const tx = (y, txt, size, col = '#2b2118') => { const e = texto(c, y, txt, { size, color: col }); e.style.fontFamily = 'Patrick'; e.style.fontWeight = 400; return e; };
+  tx(330, 'Ojo:', 110); const le = tx(470, 'lo de las cabras es leyenda', 60, '#b8322a');
+  const lin = box(c, 90, 1060, 900, 6, { zIndex: 4, background: '#2b2118', transformOrigin: '0 50%' });
+  const hitos = [[260, 'ETIOPÍA', 'de aquí sale el café', T.etiopia11 - 0.4], [760, '1671', 'se escribe lo de las cabras', T.leyenda + 0.2]].map(([x, a, b, t0]) => { const d = box(c, x - 180, 860, 360, 190, { zIndex: 5, textAlign: 'center', fontFamily: 'Patrick', color: '#2b2118' }, `<div style="font-size:30px;opacity:.85">${b}</div><div style="font-size:${a.length > 5 ? 70 : 84}px;line-height:90px">${a}</div>`); const tk = box(c, x - 3, 1040, 6, 46, { zIndex: 5, background: '#2b2118' }); return [d, tk, t0]; });
+  const rama = box(c, 150, 1110, 220, 220, { zIndex: 5 }, `<svg viewBox="-160 -260 320 300" width="220" height="220" style="overflow:visible">${CAFETO(0, 30, 1)}</svg>`);
+  const libro = box(c, 660, 1130, 200, 150, { zIndex: 5 }, `<svg viewBox="0 0 200 150" width="200" height="150"><path d="M100,30 C70,10 30,10 10,20 V140 C30,130 70,130 100,145 C130,130 170,130 190,140 V20 C170,10 130,10 100,30 Z" fill="#f4ecd8" stroke="#2b2118" stroke-width="5"/><path d="M100,30 V145" stroke="#2b2118" stroke-width="4"/></svg>`);
+  return t => {
+    set(lin, { sx: p(t, L(11), 0.8, E.outCubic) }); set(le, { o: t > T.leyenda - 0.2 ? 1 : 0, s: pop(t, T.leyenda - 0.2, 0.3) });
+    hitos.forEach(([d, tk, t0]) => { set(d, { o: t > t0 ? 1 : 0, y: (1 - p(t, t0, 0.4, E.outBack)) * 40 }); set(tk, { o: t > t0 ? 1 : 0 }); });
+    set(libro, { o: t > hitos[1][2] ? 1 : 0, s: pop(t, hitos[1][2], 0.35) }); set(rama, { o: t > hitos[0][2] ? 1 : 0, s: pop(t, hitos[0][2], 0.35) });
+  };
 });
-sp(T.leyenda, 'stamp', 0.7); sp(T.etiopia11, 'pop2', 0.6);
+sp(T.leyenda, 'paper', 0.6); sp(T.etiopia11 - 0.4, 'pop', 0.5);
 
 /* L12 · O sea: mañana, zombi hasta el primer café… sorbo → te salen cuernos de cabra y bailas */
 plano(L(12) - 0.1, L(13) - 0.1, { background: '#f3e2c4', backgroundImage: 'repeating-linear-gradient(90deg, rgba(168,69,46,.12) 0 60px, transparent 60px 120px)' }, c => {
@@ -190,7 +194,7 @@ sfx('harpa', L(2) - 0.15, 0.6); sfx('mus_baja', L(5) - 0.3); sfx('mus_sube', T.b
 sfx('harpa', T.olor, 0.5); sfx('mus_baja', L(10) - 0.2); sfx('mus_sube', T.dormirse); sfx('harpa', T.dormirse + 0.2, 0.5);
 
 Story.run({
-  textura: true,
-  ovalo: [[L(1) - 0.05, L(6) - 0.15], [L(7), L(13) - 0.15]],
+  leyenda: true,
+  ovalo: [],
   vecino: { risa: [[T.baila5, T.baila5 + 1.0], [T.beben + 0.5, T.beben + 1.5], [T.cabra, T.cabra + 1.0]], sorpresa: [[T.locas, T.locas + 0.8], [T.diablo, T.diablo + 0.8]], golpes: [T.locas, T.diablo, T.beben + 0.7, T.cabra] },
 });
