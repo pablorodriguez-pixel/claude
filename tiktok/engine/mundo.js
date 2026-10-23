@@ -64,3 +64,25 @@ const pies = (f, w, x, y, extra = {}) => set(f, Object.assign({ x: x - w / 2 - f
 const PERSm = (c, w, o = {}) => { const f = PERS(c, 0, 0, w, o); f._x0 = 0; f._y0 = 0; return f; };
 /* casa de pueblo (tejado, fachada y dos ventanas) */
 const CASA = (w, h, techo = '#b5523a') => `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="overflow:visible"><path d="M0,${h * 0.32} L${w / 2},0 L${w},${h * 0.32} Z" fill="${techo}" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/><rect x="${w * 0.06}" y="${h * 0.3}" width="${w * 0.88}" height="${h * 0.7}" fill="#e9dcc2" stroke="${INK}" stroke-width="6"/><rect x="${w * 0.2}" y="${h * 0.45}" width="${w * 0.18}" height="${h * 0.16}" fill="#3d3a44" stroke="${INK}" stroke-width="5"/><rect x="${w * 0.6}" y="${h * 0.45}" width="${w * 0.18}" height="${h * 0.16}" fill="#3d3a44" stroke="${INK}" stroke-width="5"/></svg>`;
+/* TRANSICIONES DE CUENTO (capa por encima de los planos; t0 = instante del corte, que queda tapado en el centro de la transición).
+   transTela: dos lienzos de tela (lona de tienda, cortina, bandera…) se cierran y se abren — para entrar en un interior o cambiar de lugar.
+   transPapel: una hoja de papel inclinada barre la pantalla — para pasar a «la verdad» / el Ojo (cambio de registro, como un documental).
+   Sonido incluido (tela / papel_w); añade la música con sfx('mus_baja'|'mus_sube'|'mus_silencio', t) y el glissando con sfx('harpa', t). */
+function transTela(t0, o = {}) {
+  const d = o.d || 0.8, c1 = o.c1 || '#c8102e', c2 = o.c2 || '#f4efe2', pat = o.pat || `repeating-linear-gradient(90deg, ${c1} 0 64px, ${c2} 64px 128px)`;
+  plano(t0 - d / 2, t0 + d / 2, { background: 'transparent' }, c => {
+    const a = box(c, 0, 0, 600, 1920, { zIndex: 5, background: pat, borderRight: `8px solid ${INK}`, boxShadow: '20px 0 40px rgba(0,0,0,.35)' });
+    const b = box(c, 480, 0, 600, 1920, { zIndex: 5, background: pat, borderLeft: `8px solid ${INK}`, boxShadow: '-20px 0 40px rgba(0,0,0,.35)' });
+    return t => { const k = t < t0 ? E.inOutCubic(clamp((t - (t0 - d / 2)) / (d / 2))) : 1 - E.inOutCubic(clamp((t - t0) / (d / 2)));
+      set(a, { x: lerp(-620, 0, k), sx: 1 + 0.03 * Math.sin(t * 20) * k }); set(b, { x: lerp(620, 0, k) }); };
+  }, { z: 800, cut: false });
+  sfx('tela', t0 - d / 2, o.gain || 0.7);
+}
+function transPapel(t0, o = {}) {
+  const d = o.d || 0.9;
+  plano(t0 - d / 2, t0 + d / 2, { background: 'transparent' }, c => {
+    const h = box(c, 0, -200, 1500, 2400, { zIndex: 5, background: o.col || '#ece3cf', boxShadow: '-30px 0 50px rgba(0,0,0,.35)', borderLeft: `6px solid rgba(43,33,24,.4)`, transformOrigin: '0 50%' });
+    return t => { const k = E.inOutCubic(clamp((t - (t0 - d / 2)) / d)); set(h, { x: lerp(1250, -1700, k), r: 7 }); };
+  }, { z: 800, cut: false });
+  sfx('papel_w', t0 - d / 2 + 0.1, o.gain || 0.8);
+}
