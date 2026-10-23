@@ -1,0 +1,86 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El cruasán es una burla a los turcos."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y cada vez que lo mojas en el café... te estás comiendo el símbolo del enemigo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Viena, mil seiscientos ochenta y tres. Un ejército turco enorme rodea la ciudad.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Por arriba no pueden entrar. Así que, de noche, empiezan a cavar un túnel por debajo de la muralla.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Toda Viena duerme. Bueno... toda no. Los panaderos trabajan de madrugada.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y entre masa y masa, un panadero oye algo bajo el suelo: tac... tac... tac.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] ¡Están picando! Da la alarma, los soldados corren al túnel... y pillan a los turcos con la pala en la mano.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Llega ayuda, el asedio se rompe, y Viena se salva.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y los panaderos, para celebrarlo, hacen un pan con la forma del símbolo turco: la media luna.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Para comérsela en el desayuno. Literalmente.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: esto es leyenda. El cruasán de verdad llegó a París mucho después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: mañana, cuando muerdas la punta del cruasán... hazlo por Viena.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿tú lo mojas en el café, o lo abres y le metes de todo? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
