@@ -1,0 +1,81 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Los aviones tienen ceniceros."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sí, aunque no se puede fumar desde hace más de veinte años. Fíjate la próxima vez en la puerta del baño.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Antes se fumaba en los aviones como en un bar. Y la zona de no fumadores estaba... una fila más atrás.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que lo prohibieron. Y quitaron los ceniceros de los asientos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero aquí viene lo bueno: la normativa obliga a que siga habiendo ceniceros en los baños.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué? Porque siempre hay alguien que fuma a escondidas en el baño.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y si no tiene dónde apagarlo... lo tira a la papelera. Llena de papel.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] En mil novecientos setenta y tres, un avión acabó estrellándose cerca de París por un fuego que empezó en un baño.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que prefieren que el fumador pillado... por lo menos lo apague bien.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: fumar en un avión te puede costar miles de euros de multa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el cenicero no es para que fumes. Es para cuando la lías.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿conoces a alguien capaz de fumarse uno en el baño del avión? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
