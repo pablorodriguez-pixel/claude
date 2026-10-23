@@ -199,6 +199,11 @@ preguntaFinal('¿Quién gana discusiones', 'sin abrir la boca?', { size: 80, dra
 /* L14 · cierre */
 cierre(87, 'El Cid, muerto y ganando', ['EL CID', '1099']);
 
+/* transiciones de cuento y música que sigue la tensión */
+transTela(L(3) - 0.1, { c1: '#7a1f3a', c2: '#5a1530' }); transPapel(L(11) - 0.1);
+sfx('harpa', L(2) - 0.15, 0.6); sfx('mus_baja', L(4) - 0.3); sfx('mus_silencio', T.muere); sfx('mus_sube', T.jimena);
+sfx('riser', T.puertas - 1.1, 0.6); sfx('harpa', T.sale, 0.7); sfx('harpa', T.dedo, 0.5);
+
 Story.run({
   textura: true,
   ovalo: [[L(1) - 0.05, L(6) - 0.15], [L(7), L(13) - 0.15]],
