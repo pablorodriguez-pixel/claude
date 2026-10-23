@@ -107,6 +107,14 @@ function updOval(t) {
   vecFace(vecO, t, o);
 }
 /* Papel con fibras + viñeta + borde quemado por encima de todas las escenas (como el ep07) */
+/* modo LEYENDA (formato cuento, como los vídeos de leyendas animadas): colores apagados y cálidos, grano de papel y viñeta;
+   sin bordes rotos ni óvalo. Se activa con Story.run({ leyenda: true, ovalo: [] }). */
+function leyenda() {
+  world.style.filter = 'saturate(.7) sepia(.14) contrast(.95) brightness(.98)';
+  box(world, 0, 0, 1080, 1920, { zIndex: 790, pointerEvents: 'none', background: 'radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(30,20,10,.38) 100%)' });
+  box(world, 0, 0, 1080, 1920, { zIndex: 791, pointerEvents: 'none', opacity: 0.22, mixBlendMode: 'multiply' },
+    `<svg width="1080" height="1920"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3"/><feColorMatrix values="0 0 0 0 .45  0 0 0 0 .38  0 0 0 0 .3  0 0 0 1.2 -.2"/></filter><rect width="1080" height="1920" filter="url(#gr)"/></svg>`);
+}
 function textura() {
   const r = rng(1932), d = box(world, 0, 0, 1080, 1920, { zIndex: 800, pointerEvents: 'none' });
   let fb = ''; for (let k = 0; k < 500; k++) fb += `M${f1(r() * 1080)},${f1(r() * 1920)}l${f1(r() * 14 - 7)},${f1(r() * 6 - 3)}`;
@@ -264,8 +272,11 @@ const Story = {
     };
     sfx('whoosh', LOOP, 0.6);
     // precarga de fuentes
-    ['900 40px Playfair', 'italic 800 40px Playfair', '800 40px Playfair', '40px Rye', '40px SpecialElite', '800 40px Bricolage'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
-    Engine.start({ captions: { y: 1380, font: 'Bricolage', size: 50, weight: 800, bg: '#111', color: '#fff', hi: '#FFE600', radius: 40, pad: '12px 30px 14px', maxWords: 3 }, duration: LOOP + 0.6 });
+    ['40px Patrick', '900 40px Playfair', 'italic 800 40px Playfair', '800 40px Playfair', '40px Rye', '40px SpecialElite', '800 40px Bricolage'].forEach(f => { try { document.fonts.load(f); } catch (e) { } });
+    const CAP = o.leyenda ? { y: 1390, font: 'Patrick', size: 66, weight: 400, bg: '#efe6d2', color: '#2b2118', hi: '#b8322a', radius: 3, pad: '8px 34px 10px', border: '3px solid rgba(43,33,24,.35)', shadow: '0 6px 0 rgba(0,0,0,.22)', maxWords: 5 }
+      : { y: 1380, font: 'Bricolage', size: 50, weight: 800, bg: '#111', color: '#fff', hi: '#FFE600', radius: 40, pad: '12px 30px 14px', maxWords: 3 };
+    if (o.leyenda) leyenda();
+    Engine.start({ captions: CAP, duration: LOOP + 0.6 });
     const capBox = [...document.getElementById('stage').children].find(e => e.style.zIndex === '900');
     const r0 = window.render; window.render = t => { r0(t); if (capBox && t >= LOOP) capBox.style.visibility = 'hidden'; };
   },
