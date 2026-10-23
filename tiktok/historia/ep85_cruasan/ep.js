@@ -50,9 +50,9 @@ function viena(c) {
   // suelo con corte: tierra, túnel y pozo de entrada
   const tierra = box(M.w, 0, SUELO_Y, 3000, 2300, { zIndex: 4, background: TIERRA_C, borderTop: `10px solid #7d9a52`, backgroundImage: `radial-gradient(circle, ${TIERRA_O} 14px, transparent 15px)`, backgroundSize: '160px 120px' });
   const pozo = box(M.w, TUN_X1 - 30, SUELO_Y, 120, TUN_Y - SUELO_Y + 80, { zIndex: 5, background: '#2a1d12', border: `6px solid ${INK}` });
-  const tunel = box(M.w, TUN_X1, TUN_Y, 10, 150, { zIndex: 5, background: '#2a1d12', border: `6px solid ${INK}`, borderRadius: '70px 0 0 70px' });
-  const vigas = [...Array(6)].map((_, i) => box(M.w, 0, TUN_Y - 6, 22, 162, { zIndex: 6, background: '#8a5a32', border: `4px solid ${INK}` }));
-  const zapadores = [0, 1].map(i => [PERSm(M.w, 170, { ropa: ['#a8452e', '#2e6b3a'][i], gorro: 'turbante', z: 7 }), PICO(M.w)]);
+  const tunel = box(M.w, TUN_X1, TUN_Y, 10, 270, { zIndex: 5, background: '#2a1d12', border: `6px solid ${INK}`, borderRadius: '70px 0 0 70px' });
+  const vigas = [...Array(6)].map((_, i) => box(M.w, 0, TUN_Y - 6, 22, 282, { zIndex: 6, background: '#8a5a32', border: `4px solid ${INK}` }));
+  const zapadores = [0, 1].map(i => [PERSm(M.w, 210, { ropa: ['#a8452e', '#2e6b3a'][i], gorro: 'turbante', z: 7 }), PICO(M.w)]);
   const panadero = PERSm(M.w, 230, { ropa: '#f4efe2', gorro: 'gorro', pelo: 'calvo', barba: true, pcol: '#8a5a32', z: 6 });
   const soldados = [0, 1, 2].map(i => PERSm(M.w, 180, { ropa: '#c8102e', gorro: 'casco', z: 7 }));
   const luna = LUNA(c, 1), sol = SOL(c, 1), est = ESTRELLAS_C(c, 26, 1); [luna, sol, ...est].forEach(e => M.vp.appendChild(e));
@@ -117,21 +117,21 @@ plano(L(2) - 0.1, L(6) - 0.1, { background: '#0f1730' }, c => {
   sp(T.viena2, 'whoosh', 0.7); sp(T.m1683, 'stamp', 0.6); sp(T.ejercito, 'drumroll', 0.6); sp(T.arriba + 0.4, 'thud', 0.8); sp(T.cavar, 'swoosh_up', 0.6);
   sp(T.duerme, 'pop', 0.4); sp(T.toda, 'ding', 0.6); sp(T.masa, 'squish', 0.6); sp(T.masa + 0.6, 'squish', 0.5); [0, 1, 2].forEach(i => sp(T.tac + i * 0.55, 'click', 0.9));
   return t => {
-    camara(W.M, t, [[L(2) - 0.1, 1500, 800, 0.6], [T.m1683 + 0.4, 1400, 1260, 0.62], [T.ejercito + 0.3, 2250, 1320, 0.85], [T.rodea + 0.6, 1500, 1300, 0.62],
-      [T.arriba + 0.2, 1500, 1150, 0.85], [T.cavar - 0.2, 1700, 1300, 0.7], [T.muralla + 0.4, 1750, 1850, 0.85], [T.duerme - 0.1, 1750, 1850, 0.85],
-      [T.duerme + 0.6, 650, 1150, 0.8], [T.toda + 0.2, 750, 1250, 1.05], [T.madrugada + 0.2, 720, 1300, 1.45], [T.oye, 720, 1330, 1.5], [T.suelo + 0.2, 1050, 1650, 0.8], [L(6), 1050, 1650, 0.8]]);
+    camara(W.M, t, [[L(2) - 0.1, 1300, 1150, 0.7], [T.ejercito, 1500, 1250, 0.75], [T.rodea + 0.6, 2250, 1300, 0.9],
+      [T.arriba - 0.1, 1500, 1250, 1.0, 'corte'], [T.cavar - 0.1, 1560, 1300, 1.05], [T.cavar, 2250, 1800, 1.1, 'corte'], [L(4) - 0.2, 2050, 1820, 1.1],
+      [T.duerme - 0.05, 650, 1200, 0.85, 'corte'], [T.toda, 700, 1250, 1.0], [T.madrugada + 0.5, 720, 1300, 1.4], [T.oye, 720, 1320, 1.45], [T.suelo + 1.2, 1150, 1600, 0.95], [L(6), 1150, 1610, 0.97]]);
     pintaMundo(W, t); rotuloA(r1, t, T.viena2 + 0.2, T.arriba);
     // turcos en el campamento (marchan); uno sube la escala y se cae
     W.turcos.forEach(([f, x, w], i) => pies(f, w, x + Math.sin(t * 2 + i) * 20, SUELO_Y - (t > T.ejercito ? Math.abs(Math.sin(t * 6 + i)) * 12 : 0)));
     W.turcos.forEach(([f], i) => pFace(f, t, { feliz: t > T.arriba + 0.4 && i === 0 ? -1 : 0.3, ceja: 12, look: [-14, 0], seed: i }));
     const kk = p(t, T.arriba + 0.4, 0.5, E.inCubic); set(escala, { o: t > T.arriba - 0.3 && t < T.cavar + 0.5 ? 1 : 0, r: -10 + 70 * kk });
     // zapadores en el frente del túnel
-    const fx = frente(t); W.zapadores.forEach(([z, pi], i) => { pies(z, 170, fx + 90 + i * 130, TUN_Y + 150); pFace(z, t, { feliz: 0.2, ceja: 10, look: [-14, 0], seed: 4 + i }); z.style.visibility = t > T.cavar - 0.2 ? 'visible' : 'hidden'; set(pi, { x: fx + 20 + i * 130, y: TUN_Y + 10, r: -40 + Math.max(0, Math.sin(t * 8 + i * 1.5)) * 50, o: t > T.cavar - 0.2 ? 1 : 0 }); });
+    const fx = frente(t); W.zapadores.forEach(([z, pi], i) => { pies(z, 210, fx + 110 + i * 160, TUN_Y + 262); pFace(z, t, { feliz: 0.2, ceja: 10, look: [-14, 0], seed: 4 + i }); z.style.visibility = t > T.cavar - 0.2 ? 'visible' : 'hidden'; set(pi, { x: fx + 30 + i * 160, y: TUN_Y + 60, r: -40 + Math.max(0, Math.sin(t * 8 + i * 1.5)) * 50, o: t > T.cavar - 0.2 ? 1 : 0 }); });
     // ciudad dormida y panadero
     zz.forEach((z, i) => { const k = ((t - T.duerme) * 0.6 + i / 3) % 1; set(z, { o: t > T.duerme && t < T.bueno + 0.4 ? 1 - k : 0, x: 300 + i * 40, y: 1060 - k * 160 }); });
     pies(W.panadero, 230, 640, 1460); const amasa = t > T.panaderos; set(W.masa, { sx: amasa ? 1 + 0.18 * Math.sin(t * 8) : 1, sy: amasa ? 1 - 0.18 * Math.sin(t * 8) : 1 });
     pFace(W.panadero, t, { feliz: t > T.oye ? -0.4 : 1, ceja: t > T.oye ? 18 : 6, look: t > T.oye ? [0, 14] : [10, 6], jaw: 0, closed: t > T.panaderos && t < T.masa + 0.4 && ((t * 2) % 1) < 0.1, seed: 2 });
-    tacs.forEach((x, i) => { const t0 = T.tac + i * 0.55, k = p(t, t0, 0.8); set(x, { o: t > t0 ? 1 - k * 0.7 : 0, x: frente(t) - 120 + i * 90, y: TUN_Y - 40 - k * 220, s: pop(t, t0, 0.25) }); });
+    tacs.forEach((x, i) => { const t0 = T.tac + i * 0.55, k = p(t, t0, 0.8); set(x, { o: t > t0 ? 1 - k * 0.7 : 0, x: frente(t) - 120 + i * 90, y: TUN_Y - 60 - k * 200, s: pop(t, t0, 0.25) }); });
   };
 });
 shakeAt(T.tac, 0.15, 6); shakeAt(T.tac + 0.55, 0.15, 6); shakeAt(T.tac + 1.1, 0.15, 8);
@@ -153,8 +153,9 @@ plano(L(7) - 0.1, L(11) - 0.1, { background: '#0f1730' }, c => {
   sp(T.picando, 'stamp', 0.9); sp(T.alarma, 'bell', 0.9); sp(T.alarma + 0.6, 'bell', 0.7); sp(T.soldados, 'whoosh', 0.7); sp(T.pillan, 'boing', 0.9); sp(T.pala, 'ding', 0.6);
   sp(T.ayuda, 'drumroll', 0.6); sp(T.asedio, 'burst', 0.7); sp(T.salva, 'tada', 0.8); sp(T.forma, 'squish', 0.7); sp(T.luna, 'sparkle', 0.8); sp(T.literal, 'squish', 0.9);
   return t => {
-    camara(W.M, t, [[L(7) - 0.1, 720, 1300, 1.5], [T.alarma - 0.2, 720, 1300, 1.4], [T.alarma + 0.3, 230, 1050, 1.2], [T.soldados + 0.2, 900, 1600, 0.75], [T.pillan, 1250, 1800, 1.0], [T.pala + 0.4, 1200, 1820, 1.25],
-      [T.ayuda + 0.3, 2200, 1300, 0.72], [T.salva + 0.4, 1100, 1250, 0.66], [T.celebrar + 0.2, 720, 1300, 1.3], [T.luna + 0.3, 720, 1310, 1.6], [T.desayuno + 0.3, 720, 1300, 1.85], [L(11), 720, 1300, 1.9]]);
+    camara(W.M, t, [[L(7) - 0.1, 720, 1300, 1.5], [T.alarma - 0.05, 730, 1300, 1.55], [T.alarma, 260, 1050, 1.3, 'corte'], [T.soldados - 0.05, 260, 1040, 1.35],
+      [T.soldados, 1150, 1750, 0.95, 'corte'], [T.pala + 0.4, 1200, 1780, 1.2], [T.ayuda, 2250, 1300, 0.85, 'corte'], [T.salva - 0.05, 2250, 1300, 0.9],
+      [T.salva, 1000, 1250, 0.75, 'corte'], [L(9) - 0.2, 900, 1250, 0.85], [T.celebrar, 720, 1300, 1.25, 'corte'], [T.luna + 0.3, 720, 1310, 1.6], [L(11), 720, 1300, 1.85]]);
     pintaMundo(W, t);
     set(ex, { o: t > T.picando && t < T.alarma ? 1 : 0, s: pop(t, T.picando, 0.3), r: Math.sin(t * 20) * 4 });
     // campana
@@ -164,12 +165,12 @@ plano(L(7) - 0.1, L(11) - 0.1, { background: '#0f1730' }, c => {
     pies(W.panadero, 230, 640, 1460); pFace(W.panadero, t, { feliz: t > T.salva ? 1 : -0.5, ceja: t > T.salva ? 4 : 18, look: [10, 6], jaw: t > T.picando && t < T.alarma ? 0.9 : (t > T.literal ? 0.6 : 0), closed: t > T.luna && t < T.desayuno, seed: 2 });
     // soldados bajan corriendo al túnel; los turcos congelados con la pala
     const fx = frente(t), ks = p(t, T.soldados, T.pillan - T.soldados, E.inOutCubic);
-    W.soldados.forEach((s, i) => { s.style.visibility = t > T.soldados - 0.1 && t < T.ayuda ? 'visible' : 'hidden'; pies(s, 180, lerp(900, fx - 60 - i * 110, ks) - i * 60, lerp(SUELO_Y, TUN_Y + 150, ks), { r: Math.sin(t * 14 + i) * 5 }); pFace(s, t, { feliz: -0.2, ceja: 16, look: [14, 0], seed: 6 + i }); });
+    W.soldados.forEach((s, i) => { s.style.visibility = t > T.soldados - 0.1 && t < T.ayuda ? 'visible' : 'hidden'; pies(s, 180, lerp(900, fx - 60 - i * 110, ks) - i * 60, lerp(SUELO_Y, TUN_Y + 262, ks), { r: Math.sin(t * 14 + i) * 5 }); pFace(s, t, { feliz: -0.2, ceja: 16, look: [14, 0], seed: 6 + i }); });
     const quietos = t > T.pillan;
-    W.zapadores.forEach(([z, pi], i) => { z.style.visibility = t < T.ayuda ? 'visible' : 'hidden'; pies(z, 170, fx + 90 + i * 130, TUN_Y + 150); pFace(z, t, { feliz: quietos ? -1 : 0.2, ceja: quietos ? 20 : 10, look: quietos ? [-14, -4] : [-14, 0], jaw: quietos ? 0.8 : 0, seed: 4 + i }); set(pi, { x: fx + 20 + i * 130, y: TUN_Y + 10, r: quietos ? -70 : -40 + Math.max(0, Math.sin(t * 8 + i * 1.5)) * 50, o: t < T.ayuda ? 1 : 0 }); });
-    pil.forEach((x, i) => set(x, { o: quietos && t < T.ayuda ? 1 : 0, x: fx + 110 + i * 130, y: TUN_Y - 190, s: pop(t, T.pillan + i * 0.1, 0.3) }));
+    W.zapadores.forEach(([z, pi], i) => { z.style.visibility = t < T.ayuda ? 'visible' : 'hidden'; pies(z, 210, fx + 110 + i * 160, TUN_Y + 262); pFace(z, t, { feliz: quietos ? -1 : 0.2, ceja: quietos ? 20 : 10, look: quietos ? [-14, -4] : [-14, 0], jaw: quietos ? 0.8 : 0, seed: 4 + i }); set(pi, { x: fx + 30 + i * 160, y: TUN_Y + 60, r: quietos ? -70 : -40 + Math.max(0, Math.sin(t * 8 + i * 1.5)) * 50, o: t < T.ayuda ? 1 : 0 }); });
+    pil.forEach((x, i) => set(x, { o: quietos && t < T.ayuda ? 1 : 0, x: fx + 130 + i * 160, y: TUN_Y - 120, s: pop(t, T.pillan + i * 0.1, 0.3) }));
     // el asedio se rompe: tiendas y banderas caen
-    const ka = p(t, T.asedio, 0.6, E.inCubic); W.tiendas.forEach((d, i) => set(d, { y: ka * 260, r: ka * (i % 2 ? 20 : -20), o: 1 - ka }));
+    const ka = p(t, T.asedio, 0.6, E.inCubic); W.tiendas.forEach((d, i) => set(d, { y: ka * 120, sy: 1 - ka * 0.6, r: ka * (i % 2 ? 12 : -12), o: 1 - ka * 0.3 }));
     W.banderas.forEach((b, i) => set(b, { r: ka * 80 * (i ? 1 : -1), o: 1 - ka * 0.8 })); W.turcos.forEach(([f, x, w]) => { f.style.visibility = t < T.asedio + 0.4 ? 'visible' : 'hidden'; pies(f, w, x + ka * 900, SUELO_Y); });
     rotuloA(r2, t, T.salva, T.celebrar); conf.forEach((q, i) => { const k = ((t - T.salva) * 0.5 + i * 0.055) % 1; set(q, { o: t > T.salva && t < T.celebrar + 0.6 ? 1 : 0, x: (i * 61) % 1060, y: -40 + k * 1500, r: t * 300 + i * 40 }); });
     // la masa se vuelve media luna; el panadero le da un bocado
