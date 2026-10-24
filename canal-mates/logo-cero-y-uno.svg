@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600" width="1500" height="600" role="img" aria-labelledby="t">
+  <title id="t">Cero y Uno — acertijos matemáticos</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1446"/>
+      <stop offset="1" stop-color="#0b0a1f"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffd166"/>
+      <stop offset="1" stop-color="#ff7a59"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1500" height="600" fill="#0b0a1f"/>
+
+  <!-- Isotipo -->
+  <g transform="translate(120 130)">
+    <rect width="340" height="340" rx="84" fill="url(#bg)" stroke="#4b3fd1" stroke-width="6"/>
+    <!-- Cero -->
+    <ellipse cx="124" cy="170" rx="58" ry="84" fill="none" stroke="url(#acc)" stroke-width="30"/>
+    <!-- Uno -->
+    <path d="M232 112 L262 90 V250" fill="none" stroke="#ffffff" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Chispa -->
+    <path d="M296 40 L304 62 L326 70 L304 78 L296 100 L288 78 L266 70 L288 62 Z" fill="#ffd166"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="520" y="318" font-family="'Trebuchet MS', Helvetica, Arial, sans-serif" font-weight="700" font-size="124" letter-spacing="2" fill="#ffffff">Cero <tspan fill="#ffd166">y</tspan> Uno</text>
+  <text x="524" y="388" font-family="'Trebuchet MS', Helvetica, Arial, sans-serif" font-weight="400" font-size="36" letter-spacing="8" fill="#a79bff">ACERTIJOS EN 30 SEGUNDOS</text>
+</svg>
