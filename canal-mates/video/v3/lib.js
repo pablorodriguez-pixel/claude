@@ -234,3 +234,11 @@ function hat(x, y, s, white) {                 // chistera sobre la cabeza de pe
 function check(x, y, s, col = C.mint) { ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = s * .18; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - s * .4, y); ctx.lineTo(x - s * .1, y + s * .3); ctx.lineTo(x + s * .45, y - s * .35); ctx.stroke(); ctx.restore(); }
 function stamp(text, x, y, size, col, k, rot = -.08, pad = 40) { if (k <= 0) return; ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k); ctx.font = `800 ${size}px ${MONO}`; ctx.letterSpacing = '3px'; const w = ctx.measureText(text).width + pad * 2;
   rrect(-w / 2, -size * .85, w, size * 1.7, 22); ctx.fillStyle = 'rgba(5,32,42,.93)'; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.stroke(); ctx.restore(); txt(text, x, y + 4, size, col, { weight: 800, ls: 3, scale: k }); }
+
+// ── piezas para los vídeos de decisiones (¿te compensa?) ──
+function band(text, size, col, a, y = 470, sc = 1) { if (a <= 0) return; ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = 'rgba(5,32,42,.84)'; ctx.fillRect(0, y - size * .9, W, size * 1.8); ctx.restore(); txt(text, 540, y + 4, size, col, { weight: 800, alpha: a, scale: sc }); }
+function choice2(t, a, labA, labB, picked = -1, y = 690) { if (a <= 0) return; const p = (i, x, lab, col) => { const on = picked === i, sc = a * (picked < 0 ? 1 + .04 * Math.sin(t * 6 + i * 2) : (on ? 1.06 : .94));
+    ctx.save(); ctx.translate(x, y); ctx.scale(sc, sc); rrect(-215, -58, 430, 116, 58); ctx.fillStyle = on ? col : 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 5; ctx.stroke(); txt(lab, 0, 4, 46, on ? C.ink : col, { weight: 800, ls: 2 }); ctx.restore(); };
+  p(0, 300, labA, C.mint); p(1, 780, labB, C.accent); }
+const eur = (v, d = 2) => (v < 0 ? '−' : '') + Math.abs(v).toFixed(d).replace('.', ',') + ' €';
+function bigNum(text, y, size, col, k = 1) { if (k > 0) txt(text, 540, y, size, col, { weight: 800, scale: k }); }

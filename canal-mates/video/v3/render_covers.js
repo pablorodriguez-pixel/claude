@@ -1,5 +1,15 @@
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const COVERS = {
+  ep11: `background();
+    line(GX0 - 80, 1250, GX1 + 80, 1250, C.soft, 6); pylon(GX0, 1250, 300, 'AL LADO', '1,82', C.line); pylon(GX1, 1250, 300, 'LEJOS', '1,77', C.mint); txt('← 12 km →', 540, 1330, 60, C.accent, { weight: 800 });
+    band('¿TE COMPENSA', 116, C.line, 1, 400); band('IR MÁS LEJOS?', 116, C.accent, 1, 570); stamp('NO ES LO QUE CREES', 540, 1500, 54, C.accent, 1); brand(1650);`,
+  ep12: `background();
+    tag(290, 880, '3x2', C.mint, 1, -.06); tag(790, 880, '2ª −50%', C.accent, 1, .06);
+    for (let i = 0; i < 3; i++) product(170 + i * 115, 1260, 200, {}); for (let i = 0; i < 2; i++) product(700 + i * 150, 1260, 200, {});
+    band('¿CUÁL ES', 120, C.line, 1, 400); band('MEJOR OFERTA?', 110, C.accent, 1, 570); stamp('LA MAYORÍA ELIGE MAL', 540, 1420, 50, C.red, 1); brand(1600);`,
+  ep13: `background();
+    decimo(540, 980, 760, 0, { num: '48271', rot: -.04 });
+    band('20 € DE LOTERÍA', 100, '#ffd166', 1, 400); band('¿CUÁNTO RECUPERAS?', 82, C.line, 1, 560); stamp('NO ES LO QUE CREES', 540, 1360, 58, C.accent, 1); brand(1560);`,
   ep07: `background();
     shout('99 DE 100', 380, 150, C.mint); shout('SALEN LIBRES', 530, 110, C.line);
     line100(0, k => ({ num: k + 1, hat: HATS[k], state: k > 0 ? 'free' : null, hl: k === 0 }));
