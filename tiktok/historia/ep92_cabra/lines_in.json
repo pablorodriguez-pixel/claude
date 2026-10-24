@@ -1,0 +1,71 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Estar como una cabra... es un PIROPO."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y te lo demuestran unas cabras que trepan por una pared de cincuenta metros.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Alpes italianos. Una presa de piedra... tan vertical como un edificio de quince pisos.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Un excursionista mira hacia arriba... [surprised] y casi se le cae la cámara.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Hay cabras. COLGADAS de la pared. Sobre el vacío... y sin cuerda.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Sube la foto a internet y todos dicen lo mismo: «Eso es un montaje». Pero NO.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] ¿Y qué buscan ahí arriba, jugándose el cuello? ...SAL. Lamen la sal de las piedras.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y los pastores llevan siglos viéndolo: las crías se escapan monte arriba y saltan por donde nadie se atreve.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Nadie lo dejó por escrito... pero el que hacía locuras, para ellos, «estaba como una cabra».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que si te lo dicen a ti... tómatelo como un piropo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú qué locura harías por algo que te gusta tanto? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
