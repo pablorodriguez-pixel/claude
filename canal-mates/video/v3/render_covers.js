@@ -1,5 +1,8 @@
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const COVERS = {
+  ep14: `background();
+    for (let i = 0; i < 3; i++) drawDoor(i, 0, { y: 820 }); for (let i = 0; i < 3; i++) txt(String(i + 1) + '?', DXS[i], 1330, 80, C.accent, { weight: 800 });
+    band('¿QUÉ PUERTA', 124, C.line, 1, 400); band('ABRIRÍAS?', 124, C.accent, 1, 570); stamp('CASI TODOS FALLAN', 540, 1480, 56, C.accent, 1); brand(1650);`,
   ep11: `background();
     line(GX0 - 80, 1250, GX1 + 80, 1250, C.soft, 6); pylon(GX0, 1250, 300, 'AL LADO', '1,82', C.line); pylon(GX1, 1250, 300, 'LEJOS', '1,77', C.mint); txt('← 12 km →', 540, 1330, 60, C.accent, { weight: 800 });
     band('¿TE COMPENSA', 116, C.line, 1, 400); band('IR MÁS LEJOS?', 116, C.accent, 1, 570); stamp('NO ES LO QUE CREES', 540, 1500, 54, C.accent, 1); brand(1650);`,

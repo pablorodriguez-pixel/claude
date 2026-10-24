@@ -1,0 +1,30 @@
+[
+ [
+  "hook",
+  "¿Qué puerta abrirías? Detrás de una hay un coche. Detrás de las otras dos, cabras. Eliges la uno… y el presentador abre OTRA y te enseña una cabra. ¿Te quedas… o cambias?"
+ ],
+ [
+  "reglas",
+  "Ojo: el presentador SABE dónde está el coche, y siempre abre una puerta con cabra: nunca la tuya, nunca la del coche. Cambiar es pasarte a la otra puerta cerrada."
+ ],
+ [
+  "intuicion",
+  "Casi todos piensan lo mismo: quedan dos puertas, así que es cincuenta y cincuenta. Da igual. Pero no. Cambiar te da el DOBLE de posibilidades. Te explico por qué."
+ ],
+ [
+  "casos",
+  "¿Por qué? Mira los tres casos posibles, con el coche en cada puerta. Si el coche está en TU puerta, cambiar pierde. Pero si está en cualquiera de las otras dos, el presentador abre la cabra que queda, y cambiar GANA. Dos casos de tres."
+ ],
+ [
+  "prueba",
+  "¿No te lo crees? Hagamos mil partidas. Quedándote, ganas unas trescientas treinta. Cambiando… unas seiscientas setenta."
+ ],
+ [
+  "cien",
+  "Imagina cien puertas. Eliges una, y el presentador abre noventa y ocho cabras. ¿Sigues con la tuya… o cambias a la que queda?"
+ ],
+ [
+  "cta",
+  "Tu intuición te engaña, y las matemáticas lo demuestran. Sigue Cero y Uno y descubre el próximo misterio."
+ ]
+]
