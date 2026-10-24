@@ -1,0 +1,10 @@
+[
+ ["hook",    "Noventa y nueve de cien presos salen libres. Siempre. Y cada uno solo puede decir una palabra."],
+ ["reglas",  "Las reglas: a cada preso le ponen un gorro blanco o negro, al azar. Nadie ve el suyo. Si adivina su color, sale libre. Si falla, se queda dentro."],
+ ["azar",    "Si cada uno dice un color al azar, es como lanzar una moneda: saldrían unos cincuenta. Pero hay un truco que salva a noventa y nueve."],
+ ["fila",    "Los colocan en fila, mirando hacia delante: cada uno ve los gorros de todos los que tiene delante, pero no el suyo. Hablan de uno en uno, empezando por el último, y todos oyen lo que dice cada uno. La noche antes, pueden pactar un plan."],
+ ["truco",   "Todo el truco está en el primero que habla: el del fondo. Cuenta los gorros blancos que ve. Si son impares, dice blanco. Si son pares, dice negro. Él se la juega al cincuenta por ciento… pero acaba de darles a todos una pista."],
+ ["ejemplo", "Imagina que ve cuarenta y siete blancos: impar, así que dice blanco. El siguiente cuenta los que ve: cuarenta y seis. Par. Pero el de atrás dijo impar… así que falta un blanco: ¡el suyo!"],
+ ["cadena",  "Y así cada uno, escuchando lo que dicen los de detrás, sabe su color exacto. Noventa y nueve libres, seguro. El del fondo… cara o cruz."],
+ ["cta",     "Tu intuición te engaña. Sigue a cerouno para el próximo."]
+]

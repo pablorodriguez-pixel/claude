@@ -1,5 +1,22 @@
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const COVERS = {
+  ep07: `background();
+    shout('99 DE 100', 380, 150, C.mint); shout('SALEN LIBRES', 530, 110, C.line);
+    ctx.save(); ctx.translate(0, 100); gridPeople(0, i => i === 0 ? C.accent : C.mint); txt('?', GRID(0)[0], GRID(0)[1] - 40, 50, C.accent, { weight: 800 }); ctx.restore();
+    stamp('¿CÓMO?', 540, 1520, 76, C.accent, 1, -.06); brand(1665);`,
+  ep08: `background();
+    shout('10 AÑOS', 380, 170, C.accent); shout('MIRANDO EL MÓVIL', 530, 84, C.line);
+    years(0, { sleep: 0, work: 0, phone: 10 });
+    legend(1290, C.accent, 'MÓVIL 4 h/día', '10 AÑOS', 1); brand(1600);`,
+  ep09: `background();
+    road(0, 0); traffic(0, 0, 120); carTop((RL + LM) / 2, SC_Y, 210, C.accent, 'rgba(255,143,107,.25)'); txt('TÚ', (RL + LM) / 2, SC_Y, 40, C.accent, { weight: 800 });
+    ctx.save(); ctx.fillStyle = 'rgba(6,35,42,.75)'; ctx.fillRect(0, 250, 1080, 380); ctx.restore();
+    shout('¿POR QUÉ EL OTRO', 360, 92, C.line); shout('CARRIL VA MÁS', 470, 100, C.accent); shout('RÁPIDO?', 570, 100, C.accent);
+    stamp('ES UNA ILUSIÓN', 540, 1330, 60, C.accent, 1); brand(1560);`,
+  ep10: `background();
+    shout('+1 METRO', 380, 150, C.accent); shout('¿CUÁNTO SE SEPARA?', 520, 76, C.line);
+    globe(0, 300, 540, 960); circle(540, 960, 314, { stroke: C.accent, w: 8 });
+    stamp('¡PASA UN GATO!', 540, 1380, 62, C.accent, 1); brand(1580);`,
   ep04: `background();
     shout('ESTE FOLIO', 360, 120, C.line); shout('LLEGA A LA LUNA', 500, 92, C.accent);
     ctx.save(); ctx.translate(0, 170); drawFold(41.6); ctx.restore();

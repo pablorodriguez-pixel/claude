@@ -1,6 +1,6 @@
 #!/bin/bash
 # Uso: build_ep.sh <ep> <proveedor_voz>  (la voz usa caché: no vuelve a gastar créditos si el texto no cambia)
-set -e
+set -e -o pipefail   # si falla el render, se para (antes seguía y salía un vídeo cortado)
 cd "$(dirname "$0")"; EP=$1; PROV=${2:-eleven:o0SveC0zgHFuCsEO3vHR:eleven_v4}; B=build/$EP
 mkdir -p $B; python3 make_voice.py scripts/$EP.json $B "$PROV" | tail -1
 python3 make_timeline.py $B | head -1

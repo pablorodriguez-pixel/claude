@@ -28,7 +28,7 @@ function txt(s, x, y, size, color, o = {}) {
   ctx.letterSpacing = (o.ls || 0) + 'px'; ctx.fillStyle = color; ctx.fillText(s, 0, 0); ctx.restore();
 }
 function line(x1, y1, x2, y2, color = C.line, w = 3) { ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.lineWidth = w; ctx.strokeStyle = color; ctx.stroke(); }
-function circle(x, y, r, o = {}) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); if (o.fill) { ctx.fillStyle = o.fill; ctx.fill(); } if (o.stroke !== null) { ctx.lineWidth = o.w || 3; ctx.strokeStyle = o.stroke || C.line; ctx.stroke(); } }
+function circle(x, y, r, o = {}) { r = Math.max(0, r); ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); if (o.fill) { ctx.fillStyle = o.fill; ctx.fill(); } if (o.stroke !== null) { ctx.lineWidth = o.w || 3; ctx.strokeStyle = o.stroke || C.line; ctx.stroke(); } }
 function rrect(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
 
 function bottle(x, y, w, h, color = C.line, lw = 2, fill = null) {
@@ -223,3 +223,14 @@ function drawCta(t, lt, tS) {   // cierre común: marca + botón seguir
   if (t > tS - .6) { ctx.save(); ctx.translate(cx, cy + (pressed ? 8 : 0)); ctx.fillStyle = '#fff'; ctx.strokeStyle = C.ink; ctx.lineWidth = 5; ctx.lineJoin = 'round';
     ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 92); ctx.lineTo(24, 70); ctx.lineTo(44, 112); ctx.lineTo(64, 102); ctx.lineTo(44, 62); ctx.lineTo(78, 60); ctx.closePath(); ctx.stroke(); ctx.fill(); ctx.restore(); }
 }
+
+// ── piezas extra para los episodios 7-10 ──
+function hat(x, y, s, white) {                 // chistera sobre la cabeza de person(x, y, s)
+  const top = y - 1.05 * s; ctx.save(); ctx.lineWidth = Math.max(2, s * .03); ctx.strokeStyle = white ? C.line : C.line;
+  ctx.fillStyle = white ? '#f4fffb' : '#071a1f';
+  ctx.beginPath(); ctx.rect(x - s * .15, top - s * .2, s * .3, s * .2); ctx.fill(); ctx.stroke();
+  ctx.beginPath(); ctx.rect(x - s * .24, top - s * .015, s * .48, s * .05); ctx.fill(); ctx.stroke(); ctx.restore();
+}
+function check(x, y, s, col = C.mint) { ctx.save(); ctx.strokeStyle = col; ctx.lineWidth = s * .18; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.beginPath(); ctx.moveTo(x - s * .4, y); ctx.lineTo(x - s * .1, y + s * .3); ctx.lineTo(x + s * .45, y - s * .35); ctx.stroke(); ctx.restore(); }
+function stamp(text, x, y, size, col, k, rot = -.08, pad = 40) { if (k <= 0) return; ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k); ctx.font = `800 ${size}px ${MONO}`; ctx.letterSpacing = '3px'; const w = ctx.measureText(text).width + pad * 2;
+  rrect(-w / 2, -size * .85, w, size * 1.7, 22); ctx.fillStyle = 'rgba(5,32,42,.93)'; ctx.fill(); ctx.strokeStyle = col; ctx.lineWidth = 6; ctx.stroke(); ctx.restore(); txt(text, x, y + 4, size, col, { weight: 800, ls: 3, scale: k }); }
