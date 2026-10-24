@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Este señor VENDIÓ la torre Eiffel. Y no era suya.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo mejor: intentó venderla otra vez.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "París, mil novecientos veinticinco. Victor Lustig, estafador, lee en el periódico que arreglar la torre cuesta una fortuna.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que se hace pasar por un alto cargo del gobierno. Y reúne en un hotel de lujo a cinco chatarreros.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Les dice: «Es secreto. Vamos a desmontar la torre. Y se la vendo al que pague más».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno de ellos, André Poisson, se lo cree. Pero su mujer... sospecha.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que Lustig le confiesa: [sarcastic] «Soy un funcionario corrupto. Quiero un soborno».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y Poisson, tranquilo, le paga el soborno... y la torre.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Lustig huye con una maleta llena de billetes. Y Poisson [whispers] no lo denuncia. Le da demasiada vergüenza.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Así que Lustig vuelve a París... ¡a vender la torre OTRA VEZ! Esta vez sí le denuncian. Pero escapa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y la torre sigue en pie. Que no es poco, con las veces que la han vendido.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué es lo más raro que te han intentado vender? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

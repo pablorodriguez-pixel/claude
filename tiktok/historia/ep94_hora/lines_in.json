@@ -1,0 +1,68 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Si cenas a las DIEZ... la culpa es de Hitler.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Bueno... de Hitler y de Franco. Te lo cuento.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil novecientos cuarenta. España tiene la misma hora que Portugal y que Londres. La que le toca por el sol.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero Franco quiere caerle bien a Hitler. Así que un día... adelanta TODOS los relojes de España una hora.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "A la hora de Berlín. La guerra acaba... [whispers] pero el reloj se queda así.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que hoy, cuando tu reloj marca las diez de la noche... para el sol son casi las nueve.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y en verano, ¡casi las ocho! Por eso en Galicia todavía es de día a las diez.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea... no cenamos tan tarde como crees. Es el reloj, que va adelantado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que la próxima vez que cenes a las diez... ya sabes a quién echarle la culpa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A qué hora cenáis en tu casa? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
