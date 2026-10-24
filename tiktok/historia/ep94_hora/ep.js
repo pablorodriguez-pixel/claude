@@ -83,7 +83,7 @@ plano(-1, L(2) - 0.1, { background: '#f3d9c4' }, c => {
   const mien = texto(c, 1180, '¡MENTIROSO!', { size: 120, color: RED, z: 45, shadow: `5px 5px 0 ${INK}` });
   sfx('swoosh_up', 0.05, 0.5); sp(T.hitler0, 'thud', 0.8); sp(T.reloj1, 'tick', 0.6); sp(T.mintiendote, 'boing', 0.9);
   return t => {
-    const kz = p(t, T.reloj1 - 0.2, T.ochenta - T.reloj1 + 0.4, E.inOutCubic); K.cam.style.transformOrigin = '845px 685px'; set(K.cam, { s: 1 + kz * 0.9, x: kz * (540 - 845), y: kz * (760 - 685) });
+    const kz = clamp((t + 0.2) / (L(2) + 0.1)); K.cam.style.transformOrigin = '845px 685px'; set(K.cam, { s: 1 + kz * 0.7, x: kz * (540 - 845), y: kz * (800 - 685) });
     set(t1, { r: -1 + wobble(t, 0.5, 0.6), o: 1 - p(t, T.broma, 0.3) }); set(t2, { o: 1 - p(t, T.broma, 0.3) }); paint(c.querySelector('.phl'), t, 0.2, 0.4);
     pon(K.reloj, 22 + t / 3600, t); nariz(K.reloj, p(t, T.mintiendote, 0.6, E.outBack)); set(K.reloj.pu, { x: Math.sin(t * 1.3) * 4 });
     set(K.reloj, { x: 680, y: 520, r: t > T.mintiendote ? Math.sin(t * 9) * 3 : 0 });
@@ -104,10 +104,10 @@ plano(L(2) - 0.1, L(4) - 0.1, { background: '#9fd0ee' }, c => {
   sp(T.franco, 'thud', 0.6); sp(T.hitler3 + 0.2, 'pop', 0.5); sp(T.ordena, 'stamp', 0.7); sp(T.todos, 'clockfast', 0.8); sp(T.berlin, 'ding', 0.7);
   return t => {
     const cm = camara(W.M, t, [
-      [L(2) - 0.1, TX.mad, 1150, 0.8], [T.londres - 0.1, TX.mad - 300, 1150, 0.7], [T.londres + 0.6, TX.lon, 1150, 0.8], [T.portugal2 + 0.5, TX.lis, 1150, 0.8],
-      [T.sol2 + 0.4, 1900, 1060, 0.3], [L(3) - 0.1, 1900, 1060, 0.3],
-      [T.franco + 0.4, TX.mad + 200, 1400, 1.05], [T.hitler3 - 0.1, TX.mad + 300, 1400, 0.95], [T.hitler3 + 0.7, TX.ber - 120, 1400, 1.0], [T.ordena + 0.2, TX.ber - 120, 1400, 0.9],
-      [T.ordena + 0.8, TX.mad, 1250, 0.75], [T.todos + 0.9, TX.mad, 1150, 0.85], [T.berlin + 0.3, 1900, 1060, 0.3], [L(4), 1900, 1060, 0.3]]);
+      [L(2) - 0.1, 1900, 1070, 0.3], [L(3) - 0.1, 1900, 1055, 0.32],
+      [T.franco - 0.05, TX.mad + 200, 1420, 0.95, 'corte'], [T.hitler3 + 0.8, 2800, 1420, 0.85], [T.ordena - 0.05, 2830, 1420, 0.84],
+      [T.ordena, TX.mad, 1280, 0.78, 'corte'], [T.berlin - 0.05, TX.mad, 1180, 0.95],
+      [T.berlin, 1900, 1070, 0.3, 'corte'], [L(4), 1900, 1055, 0.32]]);
     cielo(W.M, t, DIA()); set(W.sol, { x: 540 + Math.sin(t * 0.2) * 20, y: 230 });
     const km = p(t, T.todos, 0.9, E.inOutCubic);
     ponHoras(W, t, { lon: 12 + t / 3600, lis: 12 + t / 3600, mad: 12 + km + t / 3600, ber: 13 + t / 3600 }, cm);
@@ -152,7 +152,7 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#9fd0ee' }, c => {
   const bo = BOCADILLO(W.M.w, 0, 0, '¡Nosotros no!', { size: 54 });
   sp(T.guerra, 'tada', 0.5); sp(T.nadie, 'click', 0.5); sp(T.portugal5, 'whoosh', 0.5); sp(T.suhora, 'pop', 0.6);
   return t => {
-    camara(W.M, t, [[L(5) - 0.1, TX.mad, 1150, 0.8], [T.nadie + 0.6, TX.mad, 1100, 0.9], [T.portugal5 + 0.7, TX.lis + 120, 1250, 0.85], [L(6), TX.lis + 120, 1250, 0.9]]);
+    camara(W.M, t, [[L(5) - 0.1, 1900, 1055, 0.31], [T.portugal5 + 0.8, TX.lis + 250, 1300, 0.7], [L(6), TX.lis + 250, 1320, 0.76]]);
     cielo(W.M, t, DIA()); set(W.sol, { x: 560, y: 230 });
     ponHoras(W, t, { lon: 12 + t / 3600, lis: 12 + t / 3600, mad: 13 + t / 3600, ber: 13 + t / 3600 });
     rotuloA(fin, t, T.guerra, T.portugal5);
@@ -164,15 +164,16 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#9fd0ee' }, c => {
 
 /* ACTO 3 · EL GIRO (corte al presente): tu reloj marca las 22:00; el reloj del SOL, las 21:00 casi… y en verano, las 20:00 casi */
 plano(L(6) - 0.1, L(7) - 0.1, { background: '#cfe0ee' }, c => {
-  const fondo = box(c, 0, 0, 1080, 1920, { zIndex: 0, background: '#cfe0ee' });
-  const r1 = RELOJ(c, 400, { z: 4 }), r2 = RELOJ(c, 400, { z: 4, fondo: '#ffe27a' }); set(r1, { x: 80, y: 560 }); set(r2, { x: 600, y: 560 });
-  const rayos = box(c, 560, 520, 480, 480, { zIndex: 3, borderRadius: '50%', background: 'repeating-conic-gradient(rgba(255,200,40,.6) 0 10deg, transparent 10deg 20deg)' });
-  const l1 = texto(c, 1000, 'TU RELOJ', { size: 60, color: INK, x: 30, w: 500, z: 5 }), l2 = texto(c, 1000, 'EL SOL', { size: 60, color: INK, x: 550, w: 500, z: 5 });
-  const h1 = texto(c, 420, '22:00', { size: 100, color: '#fff', x: 30, w: 500, z: 6, shadow: `5px 5px 0 ${INK}` }), h2 = texto(c, 420, '22:00', { size: 100, color: '#fff', x: 550, w: 500, z: 6, shadow: `5px 5px 0 ${INK}` });
-  const est = chip(c, 340, 1150, 'INVIERNO', { size: 64, bg: '#2b3550' });
+  const cam = CAM(c);
+  const fondo = box(cam, 0, 0, 1080, 1920, { zIndex: 0, background: '#cfe0ee' });
+  const r1 = RELOJ(cam, 400, { z: 4 }), r2 = RELOJ(cam, 400, { z: 4, fondo: '#ffe27a' }); set(r1, { x: 80, y: 560 }); set(r2, { x: 600, y: 560 });
+  const rayos = box(cam, 560, 520, 480, 480, { zIndex: 3, borderRadius: '50%', background: 'repeating-conic-gradient(rgba(255,200,40,.6) 0 10deg, transparent 10deg 20deg)' });
+  const l1 = texto(cam, 1000, 'TU RELOJ', { size: 60, color: INK, x: 30, w: 500, z: 5 }), l2 = texto(cam, 1000, 'EL SOL', { size: 60, color: INK, x: 550, w: 500, z: 5 });
+  const h1 = texto(cam, 420, '22:00', { size: 100, color: '#fff', x: 30, w: 500, z: 6, shadow: `5px 5px 0 ${INK}` }), h2 = texto(cam, 420, '22:00', { size: 100, color: '#fff', x: 550, w: 500, z: 6, shadow: `5px 5px 0 ${INK}` });
+  const est = chip(cam, 340, 1150, 'INVIERNO', { size: 64, bg: '#2b3550' });
   sp(T.marca, 'tick', 0.6); sp(T.nueve, 'clockfast', 0.7); sp(T.verano, 'swoosh_up', 0.6); sp(T.ocho, 'clockfast', 0.8); sp(T.ocho + 0.5, 'ding', 0.6);
   return t => {
-    const kv = p(t, T.verano, 0.5, E.outCubic); fondo.style.background = mixC('#cfe0ee', '#ffd9a0', kv);
+    zoom(cam, t, L(6), L(7) - L(6), 0.1); const kv = p(t, T.verano, 0.5, E.outCubic); fondo.style.background = mixC('#cfe0ee', '#ffd9a0', kv);
     const hs = 22 - p(t, T.nueve - 0.2, 0.8, E.inOutCubic) * 1.25 - p(t, T.ocho - 0.2, 0.8, E.inOutCubic) * 1.0;
     pon(r1, 22 + t / 3600, t); pon(r2, hs, t); h2.innerHTML = hh(hs); set(rayos, { r: t * 20 });
     est.innerHTML = t > T.verano ? 'VERANO' : 'INVIERNO'; est.style.background = t > T.verano ? RED : '#2b3550'; set(est, { s: t > T.verano ? pop(t, T.verano, 0.3) : pop(t, L(6), 0.3), r: -3 });
@@ -207,7 +208,7 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#f3d9c4' }, c => {
   const t2 = texto(c, 340, '…es el reloj', { size: 84, italic: true, color: GOLD, z: 40, shadow: `4px 4px 0 ${INK}, -2px -2px 0 ${INK}` });
   sp(T.tarde, 'pop', 0.5); sp(T.otro, 'stamp', 0.8); sp(T.culpa, 'boing', 0.7);
   return t => {
-    const kz = p(t, T.noche9, 1.2, E.inOutCubic); K.cam.style.transformOrigin = '540px 1000px'; set(K.cam, { s: 1.05 + kz * 0.12 });
+    const kz = clamp((t - L(8) + 0.1) / (L(10) - L(8))); K.cam.style.transformOrigin = '700px 900px'; set(K.cam, { s: 1.08 + kz * 0.3 });
     set(t1, { o: t > T.tarde - 0.1 && t < T.noche9 ? 1 : 0, s: pop(t, T.tarde - 0.1, 0.35), r: -2 }); set(t2, { o: t > T.tuhora && t < T.noche9 ? 1 : 0, s: pop(t, T.tuhora, 0.35) });
     pon(K.reloj, 22 + t / 3600, t); nariz(K.reloj, t > T.otro ? 0.6 : 0); set(K.reloj.pu, { x: t > T.culpa ? -8 : 0 });
     set(etq, { o: t > T.otro ? 1 : 0, s: pop(t, T.otro, 0.3), r: -6 });
