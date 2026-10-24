@@ -27,8 +27,12 @@ function sayAt(k, text, k0, col = C.accent) { if (k0 <= 0) return; const [x, y, 
 
 function sceneHook(t, lt, s) {
   const T = w => wt('hook', w), tSi = T('siempre'), tPa = T('palabra');
-  headline('99 de 100', 'salen libres', .05, t, { cps: 34, size: 66 });
-  const z = lerp(1.25, 1, easeOut(seg(t, 0, 2.6)));                  // la cámara retrocede a lo largo de la fila desde el fotograma 0
+  // titular enorme y centrado desde el fotograma 0 (se lee sin sonido y en medio segundo)
+  const big = 1 - easeIO(seg(t, tSi - .2, tSi + .2));
+  if (big > 0) { ctx.save(); ctx.globalAlpha *= big; ctx.fillStyle = 'rgba(5,32,42,.78)'; ctx.fillRect(0, 300, W, 330); ctx.restore();
+    txt('99 DE 100', 540, 400, 150, C.mint, { weight: 800, alpha: big, scale: lerp(1.15, 1, easeOut(seg(t, 0, .4))) }); txt('SALEN LIBRES', 540, 545, 110, C.line, { weight: 800, alpha: big }); }
+  else headline('99 de 100', 'salen libres', tSi, t, { cps: 80, size: 66 });
+  const z = lerp(1.6, 1, easeOut(seg(t, 0, 2.6)));                  // la cámara retrocede a lo largo de la fila desde el fotograma 0
   const wave = 99 * easeIO(seg(t, 1.5, 2.8));
   cam(z, 330, 1100, () => line100(t, k => ({ num: k + 1, hat: HATS[k], drop: easeOut(seg(t, k * .016, .35 + k * .016)), state: k > 0 && k <= wave ? 'free' : null, hl: k === 0 && t > 2.8, q: false })));
   hud('R', 'LIBRES', String(Math.floor(wave)), { color: C.mint, size: 96, alpha: seg(t, 1.4, 1.7) });
