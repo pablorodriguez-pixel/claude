@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El logo del Chupa Chups... lo dibujó DALÍ.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sí, el de los relojes derretidos. Y tardó una hora.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Barcelona, años cincuenta. Enric Bernat ve que los niños se sacan el caramelo de la boca... y acaban con las manos pegajosas.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que le pone un palo. Y lo vende por toda España.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero en mil novecientos sesenta y nueve quiere más: un logo que se reconozca en todo el mundo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y se lo cuenta, tomando un café, a un amigo suyo... Salvador Dalí.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Dalí coge un papel... y en una hora dibuja una margarita amarilla, con el nombre en rojo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero el truco no es el dibujo. Es dónde lo pone: ARRIBA del caramelo, no en un lado. Para que se vea siempre entero.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y desde entonces, el logo casi no ha cambiado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que la próxima vez que alguien se coma un Chupa Chups... suéltale: «¿Sabías que eso es un Dalí?»",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué otro logo crees que esconde una historia? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
