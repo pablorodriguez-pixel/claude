@@ -15,6 +15,8 @@ const T = {
   enpie: Q('sigue en pie'), comprarla: Q('comprarla'),
 };
 const SUELO = 2000, EX = 2500, HX = 800;
+const KH0 = () => [[L(3) + 0.9, 540, 960, 1.0], [T.secreto, 540, 860, 1.12], [T.vendo, 540, 820, 1.25], [T.mas + 0.3, 540, 960, 1.05], [T.poisson5, 540, 1040, 1.2],
+  [T.muere + 0.3, 540, 1110, 1.5], [T.mujer, 560, 1110, 1.5], [T.sospecha, 740, 1020, 1.25], [T.aparte + 0.6, 640, 1000, 1.2], [T.convence, 600, 1000, 1.3], [L(8), 560, 1040, 1.25]];
 const OUT = `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`;
 const LUSTIG = { ropa: '#2a2530', gorro: 'chistera', bigote: true, pelo: 'corto', pcol: '#2a2118', cuello: true };
 const POISSON = { ropa: '#8a6a3a', pelo: 'calvo', bigote: true, pcol: '#6b4a2a' };
@@ -49,6 +51,7 @@ function paris(c) {
   const sol = SOL(c, 1); M.vp.appendChild(sol);
   const oxi = torre.querySelector('.oxi'); oxi.style.opacity = 0; return { M, torre, lus, poi, mal, bil, poli, sol, oxi };
 }
+const KH = KH0(); // claves de la cámara del hotel (una sola lista: se prepara una vez)
 const DIA = () => [[-1, '#9fd0ee', '#eaf2f6', '#ffffff', 0], [999, '#9fd0ee', '#eaf2f6', '#ffffff', 0]];
 const TARDE = () => [[-1, '#f6a96a', '#ffe1a6', '#ffffff', 0], [999, '#f6a96a', '#ffe1a6', '#ffffff', 0]];
 const ocultaP = W => { [W.lus, W.poi, ...W.poli].forEach(f => f.style.visibility = 'hidden'); set(W.mal, { o: 0 }); W.bil.forEach(b => set(b, { o: 0 })); };
@@ -89,7 +92,7 @@ plano(L(2) - 0.1, L(3) + 0.9, { background: '#9fd0ee' }, c => {
   const idea = texto(c, 0, '!', { size: 200, color: YEL, x: 0, w: 200, z: 45, shadow: `6px 6px 0 ${INK}` });
   sp(T.paris, 'whoosh', 0.4); sp(T.periodico, 'paper', 0.8); sp(T.oxidada, 'squish', 0.6); sp(T.fortuna, 'ding', 0.6); sp(T.pasar, 'sparkle', 0.7);
   return t => {
-    const cm = camara(W.M, t, [[L(2) - 0.1, 1200, 1500, 0.7], [T.lustig2, 1150, 1700, 1.15], [T.periodico + 0.2, 1150, 1720, 1.2], [T.oxidada - 0.3, EX, 1300, 0.75], [T.fortuna + 0.4, EX, 1100, 0.85], [L(3), 1250, 1650, 1.1], [L(3) + 0.9, 1250, 1640, 1.15]]);
+    const cm = camara(W.M, t, [[L(2) - 0.1, 1200, 1550, 0.8], [T.periodico, 1180, 1680, 1.05], [T.oxidada - 0.3, 1170, 1700, 1.12], [T.oxidada - 0.25, EX, 1400, 0.72, 'corte'], [T.fortuna + 0.6, EX, 1200, 0.8], [L(3) - 0.1, EX, 1150, 0.82], [L(3) - 0.05, 1250, 1660, 1.05, 'corte'], [L(3) + 0.9, 1250, 1650, 1.12]]);
     cielo(W.M, t, DIA()); set(W.sol, { x: 860, y: 300 }); ocultaP(W); vis(W.lus);
     W.oxi.style.opacity = f1(p(t, T.oxidada, 0.8));
     rotuloA(chip_, t, T.paris, T.lustig2 - 0.1);
@@ -122,14 +125,12 @@ plano(L(3) + 0.9, L(8) - 0.1, { background: '#7a2a2a' }, c => {
   bil.forEach((_, i) => sp(T.paga + 0.2 + i * 0.25, 'pop', 0.4)); sp(T.latorre7, 'thud', 0.7);
   return t => {
     // cámara: plano general → empuje a Lustig (secreto) → general (pujas) → Poisson → Poisson + mujer → Lustig y Poisson aparte
-    const keys = [[L(3) + 0.9, 540, 960, 1.0], [T.secreto, 540, 900, 1.0], [T.secreto + 0.6, 540, 760, 1.35], [T.vendo, 540, 800, 1.3], [T.mas + 0.2, 540, 1000, 1.0],
-      [T.poisson5, 540, 1000, 1.0], [T.poisson5 + 0.5, 540, 1130, 1.6], [T.mujer - 0.2, 560, 1120, 1.55], [T.mujer + 0.4, 760, 1000, 1.25], [T.aparte, 760, 1000, 1.2],
-      [T.aparte + 0.8, 600, 1000, 1.25], [T.convence, 600, 1000, 1.3], [T.paga, 560, 1040, 1.2], [L(8), 560, 1040, 1.25]];
+    const keys = KH;
     const [cx, cy, s] = camVal(keys, t); cam.style.transformOrigin = '0 0'; set(cam, { x: 540 - cx * s, y: 960 - cy * s, s });
     const cmv = [cx, cy, s];
     const aparte = t > T.aparte + 0.2;
-    set(lus, { x: aparte ? lerp(0, 160, p(t, T.aparte, 0.8, E.inOutCubic)) : 0, y: aparte ? 60 : 0, s: 1, r: t > T.secreto && t < T.mas ? 6 : 0 }); pFace(lus, t, { feliz: t > T.confiesa ? 0.6 : 1, ceja: t > T.secreto && t < T.mas ? 16 : -4, look: aparte ? [-14, 6] : [0, 8], seed: 1 });
-    chat.forEach((f, i) => { const yo = t > T.mas + 0.2 + (i % 3) * 0.3 && t < T.uno; set(f, { y: yo ? -30 : 0 }); pFace(f, t, { feliz: i === 2 && t > T.muere ? 1 : 0.2, ceja: t > T.desmontar ? 14 : 2, jaw: t > T.desmontar && t < T.vendo ? 0.7 : 0, look: i === 2 && t > T.mujer ? [14, -4] : [(2 - i) * 6, -10], seed: i }); });
+    set(lus, { x: 160 * p(t, T.aparte, 0.8, E.inOutCubic), y: 60 * p(t, T.aparte, 0.8, E.inOutCubic), s: 1, r: t > T.secreto && t < T.mas ? 6 : 0 }); pFace(lus, t, { feliz: t > T.confiesa ? 0.6 : 1, ceja: t > T.secreto && t < T.mas ? 16 : -4, look: aparte ? [-14, 6] : [0, 8], seed: 1 });
+    chat.forEach((f, i) => { const t0 = T.mas + 0.2 + (i % 3) * 0.3; set(f, { y: -30 * (p(t, t0, 0.25, E.outBack) - p(t, T.uno - 0.3, 0.3)) }); pFace(f, t, { feliz: i === 2 && t > T.muere ? 1 : 0.2, ceja: t > T.desmontar ? 14 : 2, jaw: t > T.desmontar && t < T.vendo ? 0.7 : 0, look: i === 2 && t > T.mujer ? [14, -4] : [(2 - i) * 6, -10], seed: i }); });
     pujas.forEach((b, i) => { const t0 = T.mas + 0.2 + i * 0.3; set(b, { o: t > t0 && t < T.uno ? 1 : 0, x: [20, 420, 820][i], y: 850 - (i % 2) * 70, s: pop(t, t0, 0.3), r: i % 2 ? 5 : -5 }); });
     set(doc, { o: t > T.secreto && t < T.mas ? 1 : 0, s: t > T.desmontar ? lerp(1.6, 1, p(t, T.desmontar, 0.2)) : 0.6, r: -6 });
     ojos.forEach((o, i) => set(o, { o: t > T.muere && t < T.mujer + 0.3 ? 1 : 0, x: 470 + i * 64, y: 1080 + Math.sin(t * 8) * 4, s: 1 + 0.15 * Math.sin(t * 9) }));
@@ -155,9 +156,9 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#9fd0ee' }, c => {
   const humo = [0, 1, 2].map(() => box(W.M.w, 0, 0, 90, 90, { zIndex: 7, borderRadius: '50%', background: '#e6e0d2', border: `5px solid ${INK}` }));
   sp(T.huye, 'whoosh', 0.6); sp(T.ypoisson - 0.2, 'mus_baja', 1); sp(T.verguenza, 'sad', 0.5); sp(T.vuelve - 0.2, 'mus_sube', 1); sp(T.otravez, 'stamp', 0.9); sp(T.denuncian, 'error', 0.4); sp(T.escapa, 'swoosh_up', 0.7);
   return t => {
-    camara(W.M, t, [[L(8) - 0.1, 1150, 1700, 0.95], [T.maleta + 0.8, 1750, 1700, 0.95], [T.ypoisson - 0.2, 1900, 1700, 0.9],
-      [T.ypoisson + 0.1, HX, 1700, 1.15, 'corte'], [T.verguenza + 0.6, HX, 1680, 1.3],
-      [T.vuelve - 0.1, EX, 1350, 0.7, 'corte'], [T.otravez + 0.5, EX - 100, 1550, 0.9], [T.denuncian + 0.6, EX - 300, 1650, 0.95], [L(10), EX - 600, 1650, 0.95]]);
+    camara(W.M, t, [[L(8) - 0.1, 1150, 1700, 0.95], [T.ypoisson, 1950, 1700, 0.9],
+      [T.ypoisson, HX, 1700, 1.15, 'corte'], [T.vuelve - 0.15, HX, 1680, 1.3],
+      [T.vuelve - 0.1, EX, 1350, 0.7, 'corte'], [T.otravez + 0.5, EX - 100, 1550, 0.9], [L(10), EX - 500, 1650, 0.95]]);
     cielo(W.M, t, DIA()); set(W.sol, { x: 860, y: 300 }); ocultaP(W); W.oxi.style.opacity = 1;
     const huida = t < T.ypoisson;
     if (huida) { vis(W.lus); const k = p(t, L(8) - 0.1, T.ypoisson - L(8), E.linear), x = lerp(1000, 2300, k); const yb = x > 1460 && x < 2040 ? 60 : 0;
