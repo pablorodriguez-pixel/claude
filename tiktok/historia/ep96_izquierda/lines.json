@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "En Madrid se conducía por la IZQUIERDA. Como en Londres.",
+  "s": 0.12,
+  "e": 3.368
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y hay un sitio de Madrid donde todavía se hace. Ahora te lo cuento.",
+  "s": 3.918,
+  "e": 7.409
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Principios del siglo veinte. En Barcelona, los coches van por la derecha. Pero en Madrid... por la izquierda.",
+  "s": 7.959,
+  "e": 14.031
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Así que, cuando sales de Madrid, tienes que cambiarte de lado en mitad de la carretera.",
+  "s": 14.581,
+  "e": 18.813
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Y claro... sustos, choques y accidentes cada dos por tres.",
+  "s": 19.363,
+  "e": 23.38
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "En mil novecientos dieciocho, una norma dice: en España, por la DERECHA. Pero deja una excepción... y Madrid se agarra a ella.",
+  "s": 23.93,
+  "e": 33.122
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Hasta que en mil novecientos veinticuatro, el gobernador de Madrid dice: basta.",
+  "s": 33.672,
+  "e": 37.988
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Un bando avisa: el diez de abril... todo el mundo, a la derecha.",
+  "s": 38.538,
+  "e": 45.227
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y ese día, Madrid entero se cambia de lado.",
+  "s": 45.777,
+  "e": 49.212
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Todos... menos uno. El Metro. Llevaba cinco años abierto, y cambiarlo costaba una fortuna.",
+  "s": 49.762,
+  "e": 56.17
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Así que, si hoy coges el Metro de Madrid, fíjate: los trenes siguen yendo por la IZQUIERDA. Cien años después... y todavía no se ha enterado.",
+  "s": 56.72,
+  "e": 65.757
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Tú te habías dado cuenta? Os leo.",
+  "s": 66.307,
+  "e": 68.705
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 69.255,
+  "e": 72.21
+ }
+]

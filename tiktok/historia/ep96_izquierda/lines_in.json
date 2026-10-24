@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] En Madrid se conducía por la IZQUIERDA. Como en Londres.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y hay un sitio de Madrid donde todavía se hace. Ahora te lo cuento.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Principios del siglo veinte. En Barcelona, los coches van por la derecha. Pero en Madrid... por la izquierda.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que, cuando sales de Madrid, tienes que cambiarte de lado en mitad de la carretera.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[sighs] Y claro... sustos, choques y accidentes cada dos por tres.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "En mil novecientos dieciocho, una norma dice: en España, por la DERECHA. Pero deja una excepción... y Madrid se agarra a ella.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Hasta que en mil novecientos veinticuatro, el gobernador de Madrid dice: basta.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Un bando avisa: el diez de abril... todo el mundo, a la derecha.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ese día, Madrid entero se cambia de lado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Todos... menos uno. El Metro. Llevaba cinco años abierto, y cambiarlo costaba una fortuna.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que, si hoy coges el Metro de Madrid, fíjate: los trenes siguen yendo por la IZQUIERDA. [laughs] Cien años después... y todavía no se ha enterado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú te habías dado cuenta? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
