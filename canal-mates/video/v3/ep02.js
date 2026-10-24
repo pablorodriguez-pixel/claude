@@ -54,6 +54,7 @@ const hudSim = (lt, n, r) => { hud('L', 'CHOQUES', String(n), { color: C.accent,
 function winFor(name) {
   const s = SC[name], T = (w, n = 0) => wt(name, w, n);
   if (name === 'hook') return [{ r: 100, t0: 0, times: evenTimes(0, wt('hook', 'universo') + .2, 31) }];
+  if (name === 'frenar') return [{ r: 100, t0: s.start + .2, times: evenTimes(s.start + .2, s.end - 1.4, 31) }];
   if (name === 'igual') return [{ r: 1, t0: s.start + .5, times: [T('empuja') + .2, T('rebota') + .45, T('chocar') + .1] }];
   if (name === 'cien') return [{ r: 100, t0: s.start + .3, times: evenTimes(s.start + .3, T('treinta') + .05, 31) }];
   if (name === 'digitos') return [{ r: 1e4, t0: s.start + .2, times: evenTimes(s.start + .2, T('catorce') + .1, 314) }, { r: 1e6, t0: T('millon') + .2, times: evenTimes(T('millon') + .2, T('uno', 0) + .1, 3141) }];
@@ -136,6 +137,7 @@ function sceneReloj(t, lt, s) {
   ctx.save(); ctx.globalAlpha *= a; hud('L', 'CHOQUES', String(Math.min(N, Math.floor(hand + 1e-6))), { color: C.accent, size: 76 }); hud('R', 'PASO', '5,7°', { size: 76 });
   dial(th, Math.floor(hand), hand * (t < start ? 0 : 1), seg(t, tIg - .1, tIg + .3) > 0 ? 1 : 0); ctx.restore();
   if (t >= tPa && t < tIg) { const w = easeOut(seg(t, tPa, tPa + .4)); ctx.save(); ctx.globalAlpha *= w; ctx.beginPath(); ctx.moveTo(DX, DY); ctx.arc(DX, DY, 200, -Math.PI / 2, -Math.PI / 2 + th * Math.PI / 180 * 1); ctx.closePath(); ctx.fillStyle = 'rgba(255,143,107,.45)'; ctx.fill(); ctx.restore(); txt('1 paso', DX + 90, DY - 230, 30, C.accent, { weight: 800, alpha: w }); }
+  const tCh = T('choque', 0), lg = easeBack(seg(t, tCh - .05, tCh + .35)); if (lg > 0 && t < tMe - .2) txt('1 CHOQUE = 1 PASO', DX, 1215, 46, C.accent, { weight: 800, scale: lg, ls: 3 });
   const m = easeBack(seg(t, tMe - .05, tMe + .4)); if (m > 0) txt('MEDIA VUELTA', DX, 1240, 56, C.accent, { weight: 800, scale: m, ls: 3 });
   txt('= 180°', DX, 1310, 40, C.line, { weight: 800, alpha: m });
 }
@@ -148,20 +150,30 @@ function scenePorque(t, lt, s) {
   dial(data[1], Math.max(1, shown), shown, 1);
   txt(stage === 0 ? 'PASO GRANDE' : stage === 1 ? 'PASO MEDIANO' : 'PASO MINÚSCULO', DX, 1240, 44, C.line, { weight: 800, ls: 3 });
   txt(`${data[1] >= 10 ? '45' : data[1] > 1 ? '5,7' : '0,57'}° × ${steps} ≈ 180°`, DX, 1305, 38, C.accent, { weight: 800 });
+  const lg2 = easeOut(seg(t, tPas, tPas + .4)); if (lg2 > 0) txt('×100 DE MASA = 1 DÍGITO MÁS DE π', 540, 415, 28, C.label, { weight: 700, ls: 2, alpha: lg2 * (1 - seg(t, tPi - .1, tPi + .1)) });
   const p = easeBack(seg(t, tPi - .05, tPi + .4)); if (p > 0) { ctx.save(); ctx.fillStyle = 'rgba(5,32,42,.94)'; rrect(120, 470, 840, 150, 30); ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); txt('media vuelta = π', W / 2, 545, 62, C.accent, { weight: 800, scale: p }); }
 }
+function sceneFrenar(t, lt, s) {
+  const T = (w, n = 0) => wt('frenar', w, n), tRe = T('rebota'), tFr = T('frena'), tPe = T('pesa'), tHa = T('hacen');
+  const [n, r, sim] = runWin('frenar', t); hud('L', 'CHOQUES', String(n), { color: C.accent, alpha: seg(lt, .05, .35) });
+  const w = winFor('frenar')[0], u = uFromTimes(t, w.t0, w.times), k = Math.min(sim.n, Math.floor(u)), v = sim.ev[k].v2;
+  hud('R', 'VELOCIDAD DEL GRANDE', (Math.abs(v) < .005 ? 0 : v).toFixed(2).replace('.', ','), { size: 64, color: v < 0 ? C.accent : C.mint, alpha: seg(lt, .05, .35) });
+  const a = easeBack(seg(t, tRe - .1, tRe + .35)) * (1 - seg(t, tFr - .1, tFr + .1)); if (a > 0) txt('EL PEQUEÑO REBOTA', 540, 470, 44, C.line, { weight: 800, scale: a, ls: 2 });
+  const b = easeBack(seg(t, tFr - .05, tFr + .35)) * (1 - seg(t, tPe - .1, tPe + .1)); if (b > 0) txt('CADA CHOQUE LO FRENA UN POCO', 540, 470, 40, C.accent, { weight: 800, scale: b, ls: 2 });
+  const c = easeBack(seg(t, tPe - .05, tPe + .35)); if (c > 0) txt('MÁS PESO = MÁS CHOQUES', 540, 470, 44, C.mint, { weight: 800, scale: c, ls: 2 });
+}
 function sceneCta(t, lt, s) { drawCta(t, lt, wt('cta', 'sigue')); }
-const DRAW = { hook: sceneHook, reglas: sceneReglas, igual: sceneIgual, cien: sceneCien, digitos: sceneDigitos, reloj: sceneReloj, porque: scenePorque, cta: sceneCta };
+const DRAW = { hook: sceneHook, reglas: sceneReglas, igual: sceneIgual, cien: sceneCien, digitos: sceneDigitos, frenar: sceneFrenar, reloj: sceneReloj, porque: scenePorque, cta: sceneCta };
 
 window.getEvents = () => {
   const E = [], P = (s, w, n = 0, ty = 'pop') => E.push({ t: wt(s, w, n), type: ty });
   TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
-  ['hook', 'igual', 'cien', 'digitos'].forEach(name => winFor(name).forEach(w => { const sim = simulate(w.r);
+  ['hook', 'igual', 'cien', 'frenar', 'digitos'].forEach(name => winFor(name).forEach(w => { const sim = simulate(w.r);
     for (let k = 1; k <= sim.n; k++) { const e = sim.ev[k], wall = Math.abs(e.x1) < 1e-6; E.push({ t: w.times[k - 1], type: sim.n > 400 ? 'roll' : (wall ? 'wall' : 'hit') }); } }));
   P('hook', 'chocan'); P('hook', 'famosos', 0, 'boom'); P('reglas', 'rozamiento'); P('reglas', 'billar'); P('reglas', 'avanza', 0, 'swipe');
   P('igual', 'tres', 0, 'ding'); P('cien', 'camion'); P('cien', 'pelota'); P('cien', 'treinta', 0, 'ding'); P('digitos', 'suena');
   P('digitos', 'tres', 1, 'ding'); P('digitos', 'uno', 1, 'ding'); P('digitos', 'cuatro', 0, 'ding'); P('digitos', 'uno', 2, 'ding'); P('digitos', 'pi', 0, 'ding');
-  P('reloj', 'reloj'); P('reloj', 'paso'); P('reloj', 'mismo'); P('reloj', 'media', 0, 'ding'); P('porque', 'pesado'); P('porque', 'pequeno'); P('porque', 'pasos'); P('porque', 'pi', 0, 'ding');
+  P('frenar', 'rebota'); P('frenar', 'frena'); P('frenar', 'pesa', 0, 'ding'); P('reloj', 'reloj'); P('reloj', 'paso'); P('reloj', 'mismo'); P('reloj', 'media', 0, 'ding'); P('porque', 'pesado'); P('porque', 'pequeno'); P('porque', 'pasos'); P('porque', 'pi', 0, 'ding');
   P('cta', 'sigue', 0, 'click'); E.push({ t: wt('cta', 'sigue') + .1, type: 'ding' });
   return E;
 };

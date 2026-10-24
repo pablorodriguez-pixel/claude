@@ -100,17 +100,22 @@ function sceneJuego(t, lt, s) {
 }
 
 function sceneCatador(t, lt, s) {
-  const T = (w, n = 0) => wt('catador', w, n), tP = T('pregunta'), tE0 = T('enferma', 0), tSi = T('si', 1), tE1 = T('enferma', 1), tNo = T('no', 1), tDi = T('diez', 0);
-  headline('Catador =', 'pregunta', s.start + .1, t);
-  const big = 1 - easeOut(seg(t, tDi - .1, tDi + .4)), sick = t >= tE0 && t < tE1 - .05;
-  if (big > 0) { ctx.save(); ctx.globalAlpha *= big; ctx.translate(540, 1050); ctx.scale(big * .6 + .4, big * .6 + .4);
-    person(0, 0, 420, sick ? C.mint : C.line, sick ? 'rgba(126,240,200,.40)' : null, 5); if (sick) zzz(0, 0, 420, t); ctx.restore(); }
-  bubble(600, 520, 700, 110, '¿ES MAYOR QUE 500?', C.line, { alpha: seg(t, tP - .1, tP + .25) * (1 - seg(t, tDi - .1, tDi + .2)), scale: .92 + .08 * easeBack(seg(t, tP - .1, tP + .3)) });
-  if (t >= tSi && t < tE1 - .05) { const a = easeBack(seg(t, tSi, tSi + .3)); txt('SÍ', 540, 1270, 100, C.mint, { weight: 800, scale: a, alpha: big }); }
-  if (t >= tNo) { const a = easeBack(seg(t, tNo, tNo + .3)); txt('NO', 540, 1270, 100, C.red, { weight: 800, scale: a, alpha: big }); }
-  const row = easeOut(seg(t, tDi - .1, tDi + .3));
-  if (row > 0) { txt('10 CATADORES = 10 PREGUNTAS', W / 2, 760, 38, C.accent, { weight: 800, ls: 2, alpha: row });
-    peopleRow(10, 135, 90, 1050, 100, tDi, { t, step: .08, color: () => C.accent, label: i => 'P' + (i + 1) }); }
+  const T = (w, n = 0) => wt('catador', w, n), tP1 = T('pregunta', 1), tG0 = T('grupo', 0), tDi = T('distinto'), tVez = T('vez'), tE0 = T('enferma'), tSi = T('si', 1), tNo = T('no', 1), tDz = T('diez');
+  headline('Cada catador', '= una pregunta', s.start + .1, t);
+  const k = t < tG0 - .1 ? 0 : t < tDi ? 1 : t < tDi + 1.15 ? 2 : t < tVez ? 3 : t < tDz ? 1 : 0;       // grupo de botellas que prueba el catador k
+  const sick = t >= tE0 && t < tNo, outside = t >= tNo && t < tDz;
+  const base = k ? .3 : 1;
+  grid(i => easeOut(seg(lt, .05 + i / 1000 * .6, .3 + i / 1000 * .6)) * (t >= tDz ? .5 : 1) * (outside && k ? 1 : (sick && k ? .3 : base)),
+       i => (k && !outside && ((i >> (k - 1)) & 1)) ? C.accent : (outside && k && !((i >> (k - 1)) & 1)) ? C.mint : C.line);
+  if (k && !(t >= tDz)) grid(i => ((((i >> (k - 1)) & 1) && !outside) ? 1 : 0) * (sick ? 1 : (outside ? 0 : 1)), () => C.accent);
+  const big = 1 - easeOut(seg(t, tDz - .1, tDz + .4));
+  if (big > 0) { ctx.save(); ctx.globalAlpha *= big; person(200, 1330, 210, sick ? C.mint : C.line, sick ? 'rgba(126,240,200,.40)' : null, 4); if (sick) zzz(200, 1330, 210, t);
+    if (k) txt(`CATADOR ${k}`, 200, 1190, 26, k ? C.accent : C.label, { weight: 800, ls: 3 }); ctx.restore(); }
+  const bq = seg(t, tP1 - .1, tP1 + .3) * big * (1 - seg(t, tVez - .2, tVez - .05)); if (bq > 0) bubble(660, 1215, 700, 100, '¿ESTÁ LA MALA EN MI GRUPO?', C.line, { alpha: bq, scale: .93 + .07 * easeBack(seg(t, tP1 - .1, tP1 + .3)), size: 34 });
+  if (t >= tE0 && t < tNo) { const a = easeBack(seg(t, tSi, tSi + .3)); txt('SÍ → ESTÁ EN SU GRUPO', 640, 1250, 44, C.mint, { weight: 800, scale: a, alpha: big }); }
+  if (t >= tNo && t < tDz) { const a = easeBack(seg(t, tNo, tNo + .3)); txt('NO → ESTÁ FUERA', 640, 1250, 44, C.line, { weight: 800, scale: a, alpha: big }); }
+  const vz = easeBack(seg(t, tVez - .1, tVez + .35)); if (vz > 0 && t < tE0 - .3) txt('TODOS A LA VEZ', 640, 1250, 48, C.accent, { weight: 800, scale: vz, ls: 3 });
+  const row = easeOut(seg(t, tDz - .1, tDz + .3)); if (row > 0) { txt('10 CATADORES = 10 PREGUNTAS', W / 2, 1150, 38, C.accent, { weight: 800, ls: 2, alpha: row }); peopleRow(10, 135, 90, 1300, 100, tDz, { t, step: .08, color: () => C.accent, label: i => 'P' + (i + 1) }); }
 }
 
 function miniBase(t, tB, o = {}) {
@@ -149,9 +154,11 @@ function sceneLecturas(t, lt, s) {
   headline('Leemos', 'el resultado', s.start + .1, t);
   miniBase(t, s.start - 5, { hi: res ? k : -1 });
   toggles(t, s.start - 5, s.start - 5, [0, 1].map(r => [0, 1, 2, 3].map(i => ((i >> r) & 1) ? 1 : 0)), { sick });
-  if (k >= 0 && t < tPer - .1) txt(['NADIE ENFERMA', 'ENFERMA ANA', 'ENFERMA BETO', 'ENFERMAN LOS DOS'][k], W / 2, 1190, 40, C.mint, { weight: 800, ls: 3 });
-  if (res && t < tPer - .1) txt(`→ BOTELLA ${k + 1}`, W / 2, 1270, 54, C.accent, { weight: 800, scale: .9 + .1 * easeBack(seg(t, A[k][1] - .05, A[k][1] + .3)) });
-  const e = easeBack(seg(t, tPer - .05, tPer + .35)); if (e > 0) { ctx.save(); ctx.fillStyle = 'rgba(5,32,42,.92)'; rrect(110, 1150, 860, 170, 30); ctx.fill(); ctx.restore(); txt('2 PERSONAS', W / 2, 1200, 56, C.line, { weight: 800, scale: e }); txt('= 4 BOTELLAS', W / 2, 1270, 56, C.accent, { weight: 800, scale: e }); }
+  const rows = [['NADIE ENFERMA', '1'], ['SOLO ANA', '2'], ['SOLO BETO', '3'], ['ENFERMAN LOS DOS', '4']];
+  rows.forEach(([lab, n], i) => { const seen = t >= A[i][0] - .05, act = k === i && t < tPer - .1, y = 1130 + i * 56; if (!seen) return; const a = easeOut(seg(t, A[i][0] - .05, A[i][0] + .25));
+    ctx.save(); ctx.globalAlpha *= a * (act ? 1 : .5); if (act) { ctx.fillStyle = 'rgba(255,143,107,.14)'; rrect(150, y - 26, 780, 52, 14); ctx.fill(); }
+    txt(lab, 190, y, 32, act ? C.mint : C.line, { align: 'left', weight: 800, ls: 1 }); txt('→  BOTELLA ' + n, 890, y, 36, act ? C.accent : C.line, { align: 'right', weight: 800 }); ctx.restore(); });
+  const e = easeBack(seg(t, tPer - .05, tPer + .35)); if (e > 0) { ctx.save(); ctx.fillStyle = 'rgba(5,32,42,.94)'; rrect(110, 1100, 860, 230, 30); ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); txt('2 PERSONAS', W / 2, 1170, 60, C.line, { weight: 800, scale: e }); txt('= 4 BOTELLAS', W / 2, 1255, 60, C.accent, { weight: 800, scale: e }); }
 }
 
 function sceneDobla(t, lt, s) {
@@ -213,7 +220,7 @@ window.getEvents = () => {
   E.push({ t: wt('hook', 'mil') - .25, type: 'zoom' }); E.push({ t: wt('hook', 'mil') + 2.1, type: 'boom' }); P('hook', 'fiesta'); P('hook', 'envenenada', 0, 'boom'); P('hook', 'sorbo'); P('hook', 'muerto', 0, 'buzz'); P('hook', 'hora'); P('hook', 'dia'); P('hook', 'cuantos', 0, 'ding');
   P('obvio', 'botella'); P('obvio', 'truco', 0, 'swipe'); P('obvio', 'diez', 0, 'ding'); P('obvio', 'jugando');
   P('juego', 'quinientos'); P('juego', 'si', 0, 'ding'); P('juego', 'setecientos'); P('juego', 'no', 0, 'buzz'); P('juego', 'mitad');
-  P('catador', 'pregunta'); P('catador', 'enferma', 0, 'buzz'); P('catador', 'no', 1); P('catador', 'diez', 0, 'ding');
+  P('catador', 'pregunta', 1); P('catador', 'grupo', 0); P('catador', 'distinto'); P('catador', 'vez', 0, 'ding'); P('catador', 'enferma', 0, 'buzz'); P('catador', 'no', 1); P('catador', 'diez', 0, 'ding');
   P('mini', 'dos', 1); P('mini', 'cuatro', 1); P('mini', 'tres'); P('mini', 'cuatro', 2);
   ['uno', 'tres'].forEach(w => P('lecturas', w, 0, 'ding')); P('lecturas', 'dos', 0, 'ding'); P('lecturas', 'cuatro', 0, 'ding'); P('lecturas', 'personas', 0, 'ding');
   P('dobla', 'duplican'); P('dobla', 'tres'); P('dobla', 'cuatro'); P('dobla', 'diez', 0, 'ding'); P('dobla', 'mil', 0, 'ding');

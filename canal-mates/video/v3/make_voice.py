@@ -75,7 +75,7 @@ def check_budget(model):
     for _, text in SCENES:
         h = hashlib.sha1(f"{VOICE_ID}|{model}|{text}".encode()).hexdigest()[:16]
         if not os.path.exists(os.path.join(cache, h + ".json")): need += len(text)
-    cost = need * 0.3   # coste real medido ≈ 0.11-0.25 créditos/carácter
+    cost = need * 0.25   # coste real medido ≈ 0.11-0.25 créditos/carácter
     print(f"créditos restantes: {left} · esta ejecución gastará ≈ {cost:.0f} ({need} caracteres nuevos, modelo {model})")
     if cost > left:
         sys.exit("ABORTADO: no hay créditos suficientes en la cuenta de ElevenLabs")
