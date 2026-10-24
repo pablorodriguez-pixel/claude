@@ -35,10 +35,12 @@ const camVal = (keys, t) => { let K = CAMS.get(keys); if (!K) { K = prepCam(keys
   let a = 0; for (let i = 1; i < K.length; i++) if (K[i][4] === 'corte' && t >= K[i][0]) a = i;
   let b = K.length; for (let i = a + 1; i < K.length; i++) if (K[i][4] === 'corte') { b = i; break; }
   const seg = K.slice(a, b), ts = seg.map(q => q[0]); return [1, 2, 3].map(j => monotona(ts, seg.map(q => q[j]), t)); };
+/* la escala NO se redondea a 0,1 (daba saltos de zoom a trompicones): 4 decimales */
+const f4 = v => Math.round(v * 10000) / 10000;
 const camara = (M, t, keys, par = 0.45) => {
   const [cx, cy, s] = camVal(keys, t);
-  M.w.style.transform = `translate(${f1(540 - cx * s)}px,${f1(960 - cy * s)}px) scale(${f1(s)})`;
-  M.far.style.transform = `translate(${f1(540 - cx * s * par)}px,${f1(960 - cy * s * par - 140)}px) scale(${f1(s)})`;
+  M.w.style.transform = `translate(${f1(540 - cx * s)}px,${f1(960 - cy * s)}px) scale(${f4(s)})`;
+  M.far.style.transform = `translate(${f1(540 - cx * s * par)}px,${f1(960 - cy * s * par - 140)}px) scale(${f4(s)})`;
   return [cx, cy, s];
 };
 const cielo = (M, t, keys) => { const [a, b, ti, o] = interp(keys, t); M.sky.style.background = `linear-gradient(${a}, ${b})`; M.tint.style.background = ti; M.tint.style.opacity = f1(o); };
