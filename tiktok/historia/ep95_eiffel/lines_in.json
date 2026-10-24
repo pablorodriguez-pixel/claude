@@ -11,8 +11,8 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] Este hombre VENDIÓ la torre Eiffel... y no era suya.",
-   "tempo": 1.08,
+   "text": "[excited] Este hombre VENDIÓ la torre Eiffel. ¡Y no era suya!",
+   "tempo": 1.22,
    "gap_after": 0.55
   },
   {

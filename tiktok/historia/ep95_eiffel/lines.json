@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Este hombre VENDIÓ la torre Eiffel. ¡Y no era suya!",
+  "s": 0.12,
+  "e": 3.34
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y el que se la compró... encima le pagó un SOBORNO.",
+  "s": 3.89,
+  "e": 8.139
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "París, mil novecientos veinticinco. Victor Lustig, estafador, lee en el periódico que la torre está oxidada... y que arreglarla cuesta una fortuna.",
+  "s": 8.689,
+  "e": 17.644
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Así que se hace pasar por un alto cargo del gobierno. Y cita en un hotel de lujo a cinco chatarreros.",
+  "s": 18.194,
+  "e": 24.188
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "«Es secreto de Estado. Vamos a desmontar la torre. Y se la vendo al que pague más».",
+  "s": 24.738,
+  "e": 30.725
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Uno de ellos, André Poisson, se muere por quedársela. Pero su mujer... sospecha.",
+  "s": 31.275,
+  "e": 37.347
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Así que Lustig se lo lleva aparte y le confiesa: «Soy un funcionario corrupto. Necesito un soborno».",
+  "s": 37.897,
+  "e": 43.888
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y eso a Poisson le CONVENCE: si pide sobornos, tiene que ser de verdad. Así que paga el soborno... y la torre.",
+  "s": 44.438,
+  "e": 51.926
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Lustig huye con una maleta llena de billetes. ¿Y Poisson? No lo denuncia. Le da demasiada vergüenza.",
+  "s": 52.476,
+  "e": 59.831
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que Lustig vuelve a París... ¡a vender la torre OTRA VEZ! Esta vez sí le denuncian. Pero escapa.",
+  "s": 60.381,
+  "e": 67.79
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y la torre sigue en pie. Por si alguien quiere comprarla.",
+  "s": 68.34,
+  "e": 72.654
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿A ti qué es lo más raro que te han intentado vender? Os leo.",
+  "s": 73.204,
+  "e": 75.92
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 76.47,
+  "e": 79.425
+ }
+]
