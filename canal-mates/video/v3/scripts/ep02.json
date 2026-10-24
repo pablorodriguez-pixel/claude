@@ -1,0 +1,11 @@
+[
+ ["hook",    "Dos bloques y una pared. Cuenta cuántas veces chocan, y te saldrán los dígitos de pi."],
+ ["reglas",  "Sin rozamiento y con choques perfectos. El pequeño espera quieto, y el grande avanza hacia él."],
+ ["igual",   "Si pesan lo mismo, solo hay tres choques."],
+ ["cien",    "Si el grande pesa cien veces más, treinta y uno."],
+ ["masas",   "Con diez mil veces más, trescientos catorce. Con un millón de veces más, tres mil ciento cuarenta y uno."],
+ ["tabla",   "Cada vez que multiplicas la masa por cien, aparece un dígito más de pi: tres, uno, cuatro, uno, cinco, nueve."],
+ ["energia", "¿Por qué? Porque la energía total no cambia. Si dibujas las velocidades, cada choque es un salto sobre una circunferencia."],
+ ["circulo", "Todos los saltos miden lo mismo. Y el número de saltos que caben en media vuelta es pi dividido entre ese ángulo."],
+ ["cta",     "Pi estaba escondido en los choques. Sigue Cero y Uno y descubre el próximo misterio."]
+]
