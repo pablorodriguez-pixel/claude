@@ -21,11 +21,11 @@ const MUNDO = (c, w, h) => {
   const tint = box(vp, 0, 0, 1080, 1920, { zIndex: 60, pointerEvents: 'none', mixBlendMode: 'multiply' });
   return { vp, sky, far, w: wd, tint };
 };
-/* cámara de cine: las claves se ORDENAN por tiempo, se funden las que caen a menos de 0,6 s y se interpolan con una curva monótona
+/* cámara de cine: las claves se ORDENAN por tiempo, se funden las que caen a menos de 0,04 s (duplicadas) y se interpolan con una curva monótona
    (velocidad continua: sin arrancar y frenar a cada segundo, sin pasarse ni volver atrás). Una clave con 5º elemento 'corte' salta en seco:
    para cambiar de sitio se corta, no se barre a lo loco. (cx, cy) es el punto del mundo en el centro de la pantalla; «far» va a «par» (paralaje). */
 const prepCam = keys => { const k = keys.slice().sort((a, b) => a[0] - b[0]), out = [];
-  k.forEach(q => { const l = out[out.length - 1]; if (l && q[4] !== 'corte' && q[0] - l[0] < 0.6) { out[out.length - 1] = [l[0], q[1], q[2], q[3], l[4]]; } else out.push(q); }); return out; };
+  k.forEach(q => { const l = out[out.length - 1]; if (l && q[4] !== 'corte' && q[0] - l[0] < 0.04) { out[out.length - 1] = [l[0], q[1], q[2], q[3], l[4]]; } else out.push(q); }); return out; };
 const monotona = (ts, vs, t) => { const n = ts.length; if (t <= ts[0]) return vs[0]; if (t >= ts[n - 1]) return vs[n - 1];
   let i = 0; while (t > ts[i + 1]) i++; const h = ts[i + 1] - ts[i], d = (j) => (vs[j + 1] - vs[j]) / (ts[j + 1] - ts[j]);
   const m = j => { if (j === 0 || j === n - 1) return 0; const a = d(j - 1), b = d(j); if (a * b <= 0) return 0; const h0 = ts[j] - ts[j - 1], h1 = ts[j + 1] - ts[j], w1 = 2 * h1 + h0, w2 = h1 + 2 * h0; return (w1 + w2) / (w1 / a + w2 / b); };

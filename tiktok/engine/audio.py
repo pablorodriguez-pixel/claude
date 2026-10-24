@@ -1,7 +1,7 @@
 """Mezcla final: voz + efectos + música (todo generado con ElevenLabs). Las funciones procedurales antiguas no se usan.
 uso: python3 audio.py <dir> <estilo_musica>   (estilos: detective, ambient, telenovela, ragtime)
 Lee <dir>/voice_final.wav, <dir>/sfx.json, <dir>/video_noaudio.mp4 -> <dir>/final.mp4"""
-import sys, json, wave, subprocess, numpy as np
+import os, sys, json, wave, subprocess, numpy as np
 
 SR = 44100
 rng = np.random.default_rng(7)
@@ -163,8 +163,8 @@ def el_music(style, dur):
 # ---------------- MEZCLA ----------------
 # Reglas fijas (no tocar sin motivo): la voz manda. Todo se calcula RELATIVO a la voz.
 VOICE_LUFS = -16.0      # la voz se normaliza aquí antes de mezclar
-MUSIC_BED_LU = -20.0    # música sin voz: 20 LU por debajo de la voz
-MUSIC_DUCK_DB = -9.0    # mientras hay voz, la música baja 9 dB más
+MUSIC_BED_LU = float(os.environ.get('BED_LU', -20.0))    # música sin voz: LU por debajo de la voz (cuentos: -15)
+MUSIC_DUCK_DB = float(os.environ.get('DUCK_DB', -9.0))  # mientras hay voz, la música baja más (cuentos: -7)
 MIN_SNR_DB = 20.0       # QA: voz vs música DURANTE el habla, mínimo exigido
 FINAL_LUFS = -14.0
 
