@@ -11,48 +11,48 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] Este señor VENDIÓ la torre Eiffel. Y no era suya.",
+   "text": "[excited] Este hombre VENDIÓ la torre Eiffel... y no era suya.",
    "tempo": 1.08,
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[mischievously] Y lo mejor: intentó venderla otra vez.",
+   "text": "[mischievously] Y el que se la compró... encima le pagó un SOBORNO.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "París, mil novecientos veinticinco. Victor Lustig, estafador, lee en el periódico que arreglar la torre cuesta una fortuna.",
+   "text": "París, mil novecientos veinticinco. Victor Lustig, estafador, lee en el periódico que la torre está oxidada... y que arreglarla cuesta una fortuna.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Así que se hace pasar por un alto cargo del gobierno. Y reúne en un hotel de lujo a cinco chatarreros.",
+   "text": "Así que se hace pasar por un alto cargo del gobierno. Y cita en un hotel de lujo a cinco chatarreros.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[whispers] Les dice: «Es secreto. Vamos a desmontar la torre. Y se la vendo al que pague más».",
+   "text": "[whispers] «Es secreto de Estado. Vamos a desmontar la torre. Y se la vendo al que pague más».",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Uno de ellos, André Poisson, se lo cree. Pero su mujer... sospecha.",
+   "text": "Uno de ellos, André Poisson, se muere por quedársela. Pero su mujer... sospecha.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Así que Lustig le confiesa: [sarcastic] «Soy un funcionario corrupto. Quiero un soborno».",
+   "text": "Así que Lustig se lo lleva aparte y le confiesa: [sarcastic] «Soy un funcionario corrupto. Necesito un soborno».",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[laughs] Y Poisson, tranquilo, le paga el soborno... y la torre.",
+   "text": "[laughs] Y eso a Poisson le CONVENCE: si pide sobornos, tiene que ser de verdad. Así que paga el soborno... y la torre.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Lustig huye con una maleta llena de billetes. Y Poisson [whispers] no lo denuncia. Le da demasiada vergüenza.",
+   "text": "Lustig huye con una maleta llena de billetes. ¿Y Poisson? [whispers] No lo denuncia. Le da demasiada vergüenza.",
    "gap_after": 0.55
   },
   {
@@ -62,12 +62,12 @@
   },
   {
    "who": "VECINO",
-   "text": "Y la torre sigue en pie. Que no es poco, con las veces que la han vendido.",
+   "text": "Y la torre sigue en pie. [mischievously] Por si alguien quiere comprarla.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "¿Qué es lo más raro que te han intentado vender? Os leo.",
+   "text": "¿A ti qué es lo más raro que te han intentado vender? Os leo.",
    "gap_after": 0.55
   },
   {

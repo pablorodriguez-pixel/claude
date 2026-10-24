@@ -11,48 +11,53 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] Si cenas a las DIEZ... la culpa es de Hitler.",
+   "text": "[excited] Cenas a las DIEZ de la noche... por culpa de Hitler.",
    "tempo": 1.08,
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[mischievously] Bueno... de Hitler y de Franco. Te lo cuento.",
+   "text": "[mischievously] Y no es broma. Tu reloj lleva más de ochenta años... MINTIÉNDOTE.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Mil novecientos cuarenta. España tiene la misma hora que Portugal y que Londres. La que le toca por el sol.",
+   "text": "Marzo de mil novecientos cuarenta. España tiene la hora de Londres y de Portugal: la que le toca por el sol.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Pero Franco quiere caerle bien a Hitler. Así que un día... adelanta TODOS los relojes de España una hora.",
+   "text": "Pero Franco quiere caerle bien a Hitler. Así que ordena poner TODOS los relojes de España a la hora de Berlín.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "A la hora de Berlín. La guerra acaba... [whispers] pero el reloj se queda así.",
+   "text": "[whispers] Esa noche, a las once... los relojes saltan directamente a las doce.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Así que hoy, cuando tu reloj marca las diez de la noche... para el sol son casi las nueve.",
+   "text": "La guerra acaba. Pero nadie vuelve a tocar el reloj. Y Portugal, que está al lado... sigue con su hora.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[surprised] Y en verano, ¡casi las ocho! Por eso en Galicia todavía es de día a las diez.",
+   "text": "Así que hoy, cuando tu reloj marca las diez... para el sol son casi las nueve. [surprised] Y en verano, ¡casi las ocho!",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "O sea... no cenamos tan tarde como crees. Es el reloj, que va adelantado.",
+   "text": "Por eso en Galicia, en junio, a las diez de la noche todavía es de día.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[laughs] Así que la próxima vez que cenes a las diez... ya sabes a quién echarle la culpa.",
+   "text": "O sea... no cenas tarde. Cenas a tu hora... con el reloj de otro país.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que esta noche, cuando te sientes a cenar a las diez... ya sabes a quién echarle la culpa.",
    "gap_after": 0.55
   },
   {
