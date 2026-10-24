@@ -3,7 +3,7 @@ import json, subprocess, sys, os
 
 B = sys.argv[1]
 GAP = 0.32   # pausa entre escenas: ritmo más pausado
-LEAD = 0.4
+LEAD = float(os.environ.get("LEAD", "0.4"))  # respiro inicial antes de la primera palabra
 
 voice = json.load(open(os.path.join(B, "voice.json")))
 t = LEAD

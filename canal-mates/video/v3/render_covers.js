@@ -1,5 +1,22 @@
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const COVERS = {
+  ep04: `background();
+    shout('ESTE FOLIO', 360, 120, C.line); shout('LLEGA A LA LUNA', 500, 92, C.accent);
+    ctx.save(); ctx.translate(0, 170); drawFold(41.6); ctx.restore();
+    circle(830, 700, 95, { fill: 'rgba(230,255,247,.14)', stroke: C.line, w: 4 }); circle(800, 675, 18, { stroke: C.faint, w: 3 }); circle(865, 735, 13, { stroke: C.faint, w: 3 }); txt('LUNA', 830, 830, 34, C.line, { weight: 800, ls: 3 });
+    { ctx.save(); ctx.translate(540, 1000); ctx.rotate(-.08); rrect(-300, -66, 600, 132, 24); ctx.fillStyle = 'rgba(5,32,42,.94)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 6; ctx.stroke(); txt('42 DOBLECES', 0, 5, 72, C.accent, { weight: 800, ls: 2 }); ctx.restore(); }
+    brand(1560);`,
+  ep05: `background();
+    shout('ESTE ORDEN', 380, 124, C.line); shout('NUNCA HA EXISTIDO', 520, 84, C.accent);
+    fan(0, 540, 1420, 640, -1.0, 1.0, 112, 164);
+    { ctx.save(); ctx.translate(540, 1030); ctx.rotate(-.14); rrect(-240, -82, 480, 164, 26); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 7; ctx.stroke(); txt('ÚNICO', 0, 6, 110, C.accent, { weight: 800, ls: 8 }); ctx.restore(); }
+    brand(1600);`,
+  ep06: `background();
+    shout('2 CUMPLEAÑOS', 380, 112, C.line); shout('EL MISMO DÍA', 520, 112, C.accent);
+    ctx.save(); ctx.translate(0, 130); pitch(); players(0, { hl: true });
+    { const [ax, ay] = playerXY(MATCH[0], 0), [bx, by] = playerXY(MATCH[1], 0); ctx.save(); ctx.setLineDash([12, 10]); line(ax, ay - 20, bx, by - 20, C.accent, 4); ctx.restore(); cake(ax, ay - 70, 64); cake(bx, by - 70, 64); }
+    ctx.restore();
+    shout('EN 1 DE CADA 2 PARTIDOS', 1460, 52, C.line); brand(1600);`,
   ep01: `background();
     shout('1 BOTELLA', 400, 132, C.line); shout('ENVENENADA', 545, 132, C.accent); shout('ENTRE 1.000', 680, 104, C.line);
     bottleGrid(1000, 40, 214, 800, 16.35, 18, () => .9, i => i === POISON ? C.accent : C.line);

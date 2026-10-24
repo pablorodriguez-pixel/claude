@@ -212,8 +212,9 @@ function drawCta(t, lt, tS) {   // cierre común: marca + botón seguir
   ctx.beginPath(); ctx.ellipse(124, 170, 58, 84, 0, 0, Math.PI * 2); ctx.lineWidth = 30; ctx.strokeStyle = C.accent; ctx.stroke();
   ctx.beginPath(); ctx.moveTo(232, 112); ctx.lineTo(262, 90); ctx.lineTo(262, 250); ctx.lineWidth = 30; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#fff'; ctx.stroke();
   ctx.restore();
-  txt('CERO Y UNO', W / 2, 900, 76, C.line, { alpha: seg(lt, .15, .5), weight: 800, ls: 4 });
-  txt('ACERTIJOS DE MATEMÁTICAS', W / 2, 980, 28, C.label, { alpha: seg(lt, .3, .7), weight: 500, ls: 5 });
+  ctx.save(); ctx.globalAlpha *= seg(lt, .15, .5); ctx.font = `800 96px ${MONO}`; ctx.letterSpacing = '0px'; ctx.textBaseline = 'middle'; const wc = ctx.measureText('cero').width, wu = ctx.measureText('uno').width;
+  ctx.textAlign = 'left'; ctx.fillStyle = C.line; ctx.fillText('cero', W / 2 - (wc + wu) / 2, 900); ctx.fillStyle = C.accent; ctx.fillText('uno', W / 2 - (wc + wu) / 2 + wc, 900); ctx.restore();
+  txt('@cerouno.tv', W / 2, 985, 34, C.label, { alpha: seg(lt, .3, .7), weight: 600, ls: 3 });
   const bp = easeBack(seg(lt, .5, 1)), pressed = seg(t, tS + .05, tS + .35) > .5, pulse = 1 + (pressed ? 0 : .04 * Math.sin(t * 6));
   ctx.save(); ctx.translate(W / 2, 1170); const sc = bp * pulse * (pressed ? .95 : 1); ctx.scale(sc, sc);
   rrect(-270, -70, 540, 140, 70); ctx.fillStyle = pressed ? C.mint : C.accent; ctx.fill();
