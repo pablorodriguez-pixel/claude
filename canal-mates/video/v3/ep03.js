@@ -38,12 +38,13 @@ const openAt = (t, t0, d = .45) => easeIO(seg(t, t0, t0 + d));
 const pulse = (t, f = 5) => 1 + .04 * Math.sin(t * f);
 
 function sceneHook(t, lt, s) {
-  const T = (w, n = 0) => wt('hook', w, n), tCon = T('concurso'), tCo = T('coche'), tCa = T('cabras'), tEl = T('eliges'), tPr = T('presentador'), tOt = T('otra'), tCb = T('cabra'), tQu = T('quedas'), tCm = T('cambias');
-  headline('¿Quedarte o', 'cambiar?', .05, t, { cps: 34 });
+  const T = (w, n = 0) => wt('hook', w, n), tCon = T('concurso'), tDob = T('dobla'), tMira = T('mira'), tCo = T('coche', 1), tCa = T('cabras'), tEl = T('eliges'), tPr = T('presentador'), tOt = T('otra'), tCb = T('cabra'), tQu = T('quedas'), tCm = T('cambias');
+  headline('Cambiar de puerta', 'dobla tus opciones', .05, t, { cps: 34, size: 54 });
+  const db = easeBack(seg(t, tDob - .1, tDob + .4)) * (1 - seg(t, tMira - .1, tMira + .1)); if (db > 0) txt('×2', 540, 1100, 150, C.accent, { weight: 800, scale: db * (1 + .05 * Math.sin(t * 8)) });
   // rótulo de concurso con bombillas (el contexto desde el primer segundo)
-  { const bl = Math.floor(t * 6) % 2; ctx.save(); rrect(640, 262, 350, 96, 24); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.stroke();
-    for (let i = 0; i < 12; i++) circle(660 + i * 28.6, 270, 5, { fill: (i + bl) % 2 ? C.accent : 'rgba(255,143,107,.25)', stroke: null }), circle(660 + i * 28.6, 350, 5, { fill: (i + bl) % 2 ? 'rgba(255,143,107,.25)' : C.accent, stroke: null });
-    txt('CONCURSO', 815, 312, 44, C.accent, { weight: 800, ls: 4 }); ctx.restore(); }
+  { const bl = Math.floor(t * 6) % 2, ba = easeOut(seg(t, tCon - .1, tCon + .3)); ctx.save(); ctx.globalAlpha *= ba; rrect(700, 262, 290, 88, 24); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.stroke();
+    for (let i = 0; i < 10; i++) circle(722 + i * 29.5, 270, 5, { fill: (i + bl) % 2 ? C.accent : 'rgba(255,143,107,.25)', stroke: null }), circle(722 + i * 29.5, 342, 5, { fill: (i + bl) % 2 ? 'rgba(255,143,107,.25)' : C.accent, stroke: null });
+    txt('CONCURSO', 845, 306, 38, C.accent, { weight: 800, ls: 4 }); ctx.restore(); }
   // las puertas irrumpen desde el fotograma 0 con la cámara cerca y desenfoque; luego se aleja
   const e = easeOut(seg(t, 0, 1.5)), Z = lerp(1.7, 1, e), sh = clamp(1 - seg(t, 0, 1.3));
   const scene = (z, alpha) => { ctx.save(); ctx.globalAlpha *= alpha; ctx.translate(540, 775); ctx.scale(z, z); ctx.translate(-540, -775);
@@ -162,12 +163,13 @@ function sceneCien(t, lt, s) {
   const cm = easeBack(seg(t, tCm - .1, tCm + .4)); if (cm > 0) { txt('TU PUERTA: 1/100', 540, 1260, 44, C.accent, { weight: 800, scale: cm, ls: 2 }); txt('LA OTRA: 99/100', 540, 1330, 56, C.mint, { weight: 800, scale: cm, ls: 2 }); }
 }
 function sceneCta(t, lt, s) { drawCta(t, lt, wt('cta', 'sigue')); }
+window.CHAPTERS = { labels: ['1 EL JUEGO', '2 LA TRAMPA', '3 LA PRUEBA'], map: { hook: 0, reglas: 0, intuicion: 1, casos: 2, prueba: 2, cien: 2, cta: -1 } };
 const DRAW = { hook: sceneHook, reglas: sceneReglas, intuicion: sceneIntuicion, casos: sceneCasos, prueba: scenePrueba, cien: sceneCien, cta: sceneCta };
 
 window.getEvents = () => {
   const E = [], P = (s, w, n = 0, ty = 'pop') => E.push({ t: wt(s, w, n), type: ty });
   TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
-  E.push({ t: 0.05, type: 'boom' }); P('hook', 'concurso'); P('hook', 'coche', 0, 'ding'); P('hook', 'cabras', 0, 'buzz'); P('hook', 'eliges'); P('hook', 'otra', 0, 'swipe'); P('hook', 'cabra', 0, 'buzz'); P('hook', 'quedas'); P('hook', 'cambias', 0, 'ding');
+  E.push({ t: 0.05, type: 'boom' }); P('hook', 'concurso'); P('hook', 'dobla', 0, 'ding'); P('hook', 'coche', 1, 'ding'); P('hook', 'cabras', 0, 'buzz'); P('hook', 'eliges'); P('hook', 'otra', 0, 'swipe'); P('hook', 'cabra', 0, 'buzz'); P('hook', 'quedas'); P('hook', 'cambias', 0, 'ding');
   P('intuicion', 'cincuenta'); P('intuicion', 'no', 0, 'buzz'); P('intuicion', 'doble', 0, 'ding');
   P('reglas', 'hall'); P('reglas', 'sabe'); P('reglas', 'siempre', 0, 'swipe'); P('reglas', 'tuya', 0, 'buzz'); P('reglas', 'nunca', 1, 'buzz'); P('reglas', 'cambiar'); P('reglas', 'coche', 2, 'ding');
   P('casos', 'casos'); P('casos', 'pierde', 0, 'buzz'); P('casos', 'gana', 0, 'ding'); P('casos', 'dos', 1, 'ding');

@@ -172,6 +172,16 @@ function headline(l1, l2, t0, t, o = {}) {
   if (l2 && n2 > 0) txt(l2.slice(0, n2), 90, (o.y || 250) + (o.size || 64) * 1.15, o.size || 64, o.color2 || C.accent, { align: 'left', weight: 800, alpha: a });
 }
 
+// indicador de capítulos (dónde estás en el vídeo): activo en acento, hechos en menta, pendientes atenuados
+function stepper(labels, active, y = 178) {
+  ctx.save(); ctx.font = `700 22px ${MONO}`; ctx.letterSpacing = '1px';
+  const pad = 22, gap = 12, ws = labels.map(s => ctx.measureText(s).width + pad * 2); let x = 90;
+  labels.forEach((s, i) => { const w = ws[i], on = i === active, done = i < active; rrect(x, y - 21, w, 42, 21);
+    if (on) { ctx.fillStyle = C.accent; ctx.fill(); } else { ctx.strokeStyle = done ? C.mint : C.faint; ctx.lineWidth = 2; ctx.stroke(); }
+    ctx.fillStyle = on ? C.ink : (done ? C.mint : 'rgba(230,255,247,.45)'); ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.fillText(s, x + pad, y + 1); x += w + gap; });
+  ctx.restore();
+}
+
 // ── render(t): fondo + escena (barrido de escaneo al entrar) + subtítulos ──
 function render(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
@@ -189,6 +199,7 @@ function render(t) {
   DRAW[s.name](t, lt, s);
   ctx.restore();
   if (sweep < 1) { ctx.save(); ctx.globalAlpha = (1 - sweep) * .9; line(0, lerp(0, 1500, sweep), W, lerp(0, 1500, sweep), C.accent, 3); ctx.restore(); }
+  if (window.CHAPTERS && CHAPTERS.map[s.name] >= 0) { ctx.save(); ctx.globalAlpha = clamp(aOut); stepper(CHAPTERS.labels, CHAPTERS.map[s.name]); ctx.restore(); }
   ctx.save(); ctx.globalAlpha = clamp(aOut); captions(t); ctx.restore();
 }
 window.render = render;
