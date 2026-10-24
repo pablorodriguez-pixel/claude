@@ -1,11 +1,38 @@
 [
- ["hook",     "Mañana das la fiesta del año. Mil botellas de vino… y UNA está envenenada. Un solo sorbo, y en una hora estás muerto. Tienes un día para encontrarla. ¿Cuántos catadores necesitas?"],
- ["obvio",    "Lo normal: un catador por botella. Mil personas… para una fiesta. Pero hay un truco que lo cambia todo. Con solo DIEZ catadores, basta. Y lo vas a entender jugando."],
- ["juego",    "Piensa un número del uno al mil. Yo lo adivino en diez preguntas. ¿Es mayor que quinientos? Sí. ¿Mayor que setecientos cincuenta? No. ¿Ves? Cada respuesta tira la mitad de las opciones a la basura."],
- ["catador",  "Y aquí viene lo bueno: un catador ES una pregunta. Si enferma, la respuesta es sí. Si no enferma, es no. Diez catadores… diez preguntas… ¡y una sola botella!"],
- ["mini",     "Vamos con un caso pequeño. Cuatro botellas, dos catadores: Ana y Beto. Ana bebe de la dos y la cuatro. Beto, de la tres y la cuatro. Atento a lo que pasa."],
- ["lecturas", "Si no enferma nadie, es la uno. Si solo Ana, la dos. Solo Beto, la tres. Si enferman los dos… la cuatro. Dos personas. Cuatro botellas. Sin probarlas todas."],
- ["dobla",    "¿Y si añadimos un catador? ¡Se duplican las opciones! Con tres, ocho botellas. Con cuatro, dieciséis. Con diez… mil veinticuatro."],
- ["diez",     "Así que con diez catadores y UNA sola ronda… sabes cuál es la botella mala. Y con veinte, podrías analizar más de un millón. Un millón de botellas, con veinte personas."],
- ["cta",      "Eso es el sistema binario: la base de todo ordenador. Sigue Cero y Uno y descubre el próximo misterio que te va a volar la cabeza."]
+ [
+  "hook",
+  "Mil botellas de vino. Una fiesta mañana. Y UNA está envenenada. Un solo sorbo, y en una hora estás muerto. Tienes un día. ¿Cuántos catadores necesitas para encontrarla?"
+ ],
+ [
+  "obvio",
+  "Lo normal: un catador por botella. Mil personas… para una fiesta. Pero hay un truco que lo cambia todo. Con solo DIEZ catadores, basta. Y lo vas a entender jugando."
+ ],
+ [
+  "juego",
+  "Piensa un número del uno al mil. Yo lo adivino en diez preguntas. ¿Es mayor que quinientos? Sí. ¿Mayor que setecientos cincuenta? No. ¿Ves? Cada respuesta tira la mitad de las opciones a la basura."
+ ],
+ [
+  "catador",
+  "Y aquí viene lo bueno: un catador ES una pregunta. Si enferma, la respuesta es sí. Si no enferma, es no. Diez catadores… diez preguntas… ¡y una sola botella!"
+ ],
+ [
+  "mini",
+  "Vamos con un caso pequeño. Cuatro botellas, dos catadores: Ana y Beto. Ana bebe de la dos y la cuatro. Beto, de la tres y la cuatro. Atento a lo que pasa."
+ ],
+ [
+  "lecturas",
+  "Si no enferma nadie, es la uno. Si solo Ana, la dos. Solo Beto, la tres. Si enferman los dos… la cuatro. Dos personas. Cuatro botellas. Sin probarlas todas."
+ ],
+ [
+  "dobla",
+  "¿Y si añadimos un catador? ¡Se duplican las opciones! Con tres, ocho botellas. Con cuatro, dieciséis. Con diez… mil veinticuatro."
+ ],
+ [
+  "diez",
+  "Así que con diez catadores y UNA sola ronda… sabes cuál es la botella mala. Y con veinte, podrías analizar más de un millón. Un millón de botellas, con veinte personas."
+ ],
+ [
+  "cta",
+  "Eso es el sistema binario: la base de todo ordenador. Sigue Cero y Uno y descubre el próximo misterio que te va a volar la cabeza."
+ ]
 ]

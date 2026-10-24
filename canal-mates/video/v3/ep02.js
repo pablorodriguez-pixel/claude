@@ -36,8 +36,11 @@ function drawWorld(sim, u, o = {}) {
   ctx.beginPath(); ctx.rect(WALL - 34, FLOOR - 600, 34, 600); ctx.fillStyle = 'rgba(230,255,247,.07)'; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 3; ctx.stroke();
   ctx.beginPath(); for (let y = FLOOR - 600; y < FLOOR; y += 18) { ctx.moveTo(WALL - 34, y + 18); ctx.lineTo(WALL, y); } ctx.strokeStyle = C.faint; ctx.lineWidth = 2; ctx.stroke();
   const sx1 = WALL + st.x1, sx2 = WALL + st.x2;
-  ctx.beginPath(); ctx.rect(sx1, FLOOR - w1, w1, w1); ctx.fillStyle = 'rgba(230,255,247,.10)'; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.stroke();
-  ctx.beginPath(); ctx.rect(sx2, FLOOR - w2, w2, w2); ctx.fillStyle = 'rgba(255,143,107,.14)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.stroke();
+  const kf = Math.floor(Math.max(0, u)), ff = Math.max(0, u) - kf, fl = (sim.n <= 40 && kf >= 1 && kf <= sim.n && ff < .4) ? 1 - ff / .4 : 0;
+  const vv = u < sim.n ? sim.ev[Math.min(sim.n, kf)] : sim.ev[sim.n];            // velocidades del tramo actual
+  if (Math.abs(vv.v2) > .05 && u < sim.n + 1) for (let i = 0; i < 5; i++) { const L = Math.min(90, 55 * Math.abs(vv.v2)) * (1 - i * .12); line(sx2 + w2 + 14, FLOOR - w2 * (.2 + i * .15), sx2 + w2 + 14 + L, FLOOR - w2 * (.2 + i * .15), C.soft, 2); }
+  ctx.beginPath(); ctx.rect(sx1, FLOOR - w1, w1, w1); ctx.fillStyle = `rgba(230,255,247,${.10 + .5 * fl})`; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.stroke();
+  ctx.beginPath(); ctx.rect(sx2, FLOOR - w2, w2, w2); ctx.fillStyle = `rgba(255,143,107,${.14 + .45 * fl})`; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.stroke();
   txt('1 KG', sx1 + w1 / 2, FLOOR - w1 / 2, 20, C.line, { weight: 700 });
   txt(fmt(sim.ratio) + ' KG', sx2 + w2 / 2, FLOOR - w2 / 2, Math.max(18, Math.min(34, w2 / 7)), C.accent, { weight: 800 });
   if (sim.n <= 40 && o.flash !== false && u < sim.n + 1) { const k = Math.floor(u), f = u - k;
@@ -50,6 +53,7 @@ const hudSim = (lt, n, r) => { hud('L', 'CHOQUES', String(n), { color: C.accent,
 // ── ventanas de simulación (también sirven para el sonido) ──
 function winFor(name) {
   const s = SC[name], T = (w, n = 0) => wt(name, w, n);
+  if (name === 'hook') return [{ r: 100, t0: 0, times: evenTimes(0, wt('hook', 'universo') + .2, 31) }];
   if (name === 'igual') return [{ r: 1, t0: s.start + .5, times: [T('empuja') + .2, T('rebota') + .45, T('chocar') + .1] }];
   if (name === 'cien') return [{ r: 100, t0: s.start + .3, times: evenTimes(s.start + .3, T('treinta') + .05, 31) }];
   if (name === 'digitos') return [{ r: 1e4, t0: s.start + .2, times: evenTimes(s.start + .2, T('catorce') + .1, 314) }, { r: 1e6, t0: T('millon') + .2, times: evenTimes(T('millon') + .2, T('uno', 0) + .1, 3141) }];
@@ -61,27 +65,26 @@ function runWin(name, t) {
 }
 
 function sceneHook(t, lt, s) {
-  const T = w => wt('hook', w), tPa = T('pared'), tCh = T('chocan'), tFam = T('famosos'), tUni = T('universo');
-  headline('¿Cuántos', 'choques?', tPa - .1, t, { cps: 30 });
-  // arranque: primer plano de los dos bloques (como en el reel) y la cámara se aleja con desenfoque al decir "pared"
-  const c0 = tPa - .35, c1 = tPa + 1.3, zoomAt = tt => lerp(2.7, 1, easeIO(seg(tt, c0, c1))), Z = zoomAt(t), run = seg(t, c0, c1);
-  const cam = (z, alpha) => { ctx.save(); ctx.globalAlpha *= alpha; ctx.translate(WALL + 360, FLOOR - 60); ctx.scale(z, z); ctx.translate(-(WALL + 360), -(FLOOR - 60)); drawWorld(simulate(100), 0, { flash: false, meters: false }); ctx.restore(); };
-  const sh = .07 * clamp(Math.sin(run * Math.PI) * 3, 0, 1) * (run > 0 && run < 1 ? 1 : 0);
-  if (sh > .003) for (let k = 0; k < 7; k++) cam(zoomAt(t - sh * k / 6), .2);
-  cam(Z, sh > .003 ? .6 : 1);
-  const a = easeOut(seg(t, tCh - .1, tCh + .3)); if (a > 0) { txt('1 KG', 330, FLOOR + 90, 26, C.label, { alpha: a, weight: 700, ls: 3 }); txt('100 KG', 690, FLOOR + 90, 26, C.accent, { alpha: a, weight: 700, ls: 3 }); txt('¿CUÁNTAS VECES SE TOCAN?', 540, FLOOR + 170, 30, C.line, { alpha: a, weight: 800, ls: 3 }); }
+  const T = w => wt('hook', w), tFam = T('famosos'), tUni = T('universo');
+  // la acción empieza en el fotograma 0: el bloque grande ya avanza y los choques arrancan enseguida mientras el narrador pregunta
+  const w = winFor('hook')[0], sim = simulate(100), u = uFromTimes(t, w.t0, w.times), st = stateAt(sim, u), w2 = bigSize(100);
+  const e = easeOut(seg(t, 0, 2.2)), bigX = WALL + st.x2 + w2 / 2, fx = lerp(bigX, 540, e), Z = lerp(1.9, 1, e);
+  headline('¿Cuántos', 'choques?', .05, t, { cps: 34 });
+  ctx.save(); ctx.translate(540, FLOOR - 60); ctx.scale(Z, Z); ctx.translate(-fx, -(FLOOR - 60)); drawWorld(sim, u); ctx.restore();
   const q = easeBack(seg(t, tFam - .1, tFam + .4)); if (q > 0) { txt('?', 700, 640, 260, C.accent, { weight: 800, scale: q * (1 + .04 * Math.sin(t * 5)) }); txt('UN NÚMERO FAMOSO', 700, 790, 34, C.label, { weight: 700, ls: 4, alpha: seg(t, tUni - .1, tUni + .3) }); }
 }
 function sceneReglas(t, lt, s) {
   const T = w => wt('reglas', w), tRo = T('rozamiento'), tPe = T('perfectos'), tBi = T('billar'), tPq = T('pequeno'), tQu = T('quieto'), tGr = T('grande'), tAv = T('avanza');
   hud('L', 'CHOQUES', '0', { color: C.accent, alpha: seg(lt, .05, .35) }); hud('R', 'MASA DEL GRANDE', '100', { unit: 'KG', size: 64, alpha: seg(lt, .05, .35) });
-  const sim = simulate(100); drawWorld(sim, seg(t, tAv, tAv + 1.6) * .6, { flash: false });
+  const sim = simulate(100); drawWorld(sim, seg(t, s.start, tAv) * .22 + seg(t, tAv, tAv + 1.6) * .38, { flash: false });
   // sin rozamiento: líneas de deslizamiento bajo los bloques
   const fr = easeOut(seg(t, tRo - .1, tRo + .4)); if (fr > 0) { ctx.save(); ctx.globalAlpha *= fr * .8; for (let i = 0; i < 5; i++) line(190 + i * 150, FLOOR + 22 + (i % 2) * 10, 260 + i * 150, FLOOR + 22 + (i % 2) * 10, C.mint, 3); ctx.restore(); txt('SIN ROZAMIENTO', 540, FLOOR + 80, 30, C.mint, { weight: 800, ls: 4, alpha: fr }); }
-  // bolas de billar
-  const bi = easeBack(seg(t, tBi - .3, tBi + .3)); if (bi > 0) { ctx.save(); ctx.translate(540, 560); ctx.scale(bi, bi);
-    circle(-70, 0, 46, { stroke: C.accent, w: 4, fill: 'rgba(255,143,107,.15)' }); circle(70, 0, 46, { stroke: C.line, w: 4, fill: 'rgba(230,255,247,.10)' });
-    txt('8', -70, 2, 40, C.accent, { weight: 800 }); txt('3', 70, 2, 40, C.line, { weight: 800 }); line(-18, 0, 18, 0, C.accent, 4); ctx.restore();
+  // bolas de billar que chocan en bucle (nunca hay un segundo quieto)
+  const bi = easeBack(seg(t, tBi - .3, tBi + .3)), ph = (t % 2.0) / 2.0; if (bi > 0) { ctx.save(); ctx.translate(540, 560); ctx.scale(bi, bi);
+    const ax = ph < .35 ? lerp(-250, -52, ph / .35) : -52, bx = ph < .35 ? 52 : lerp(52, 330, easeOut((ph - .35) / .5)); ctx.globalAlpha *= 1 - seg(ph, .88, 1) ;
+    circle(ax, 0, 46, { stroke: C.accent, w: 4, fill: 'rgba(255,143,107,.15)' }); circle(bx, 0, 46, { stroke: C.line, w: 4, fill: 'rgba(230,255,247,.10)' });
+    txt('8', ax, 2, 40, C.accent, { weight: 800 }); txt('3', bx, 2, 40, C.line, { weight: 800 });
+    if (ph > .33 && ph < .5) circle(0, 0, 20 + (ph - .33) * 260, { stroke: C.accent, w: 3 }); ctx.restore();
     txt('COMO BOLAS DE BILLAR', 540, 655, 32, C.accent, { weight: 800, ls: 3, alpha: seg(t, tBi, tBi + .3) }); }
   const pa = seg(t, tPq, tPq + .3); if (pa > 0) txt('PEQUEÑO', WALL + 235, FLOOR + 140, 26, C.label, { alpha: pa, weight: 700, ls: 3 });
   const ga = seg(t, tGr, tGr + .3); if (ga > 0) txt('GRANDE', WALL + 593, FLOOR + 140, 26, C.accent, { alpha: ga, weight: 700, ls: 3 });
@@ -153,9 +156,9 @@ const DRAW = { hook: sceneHook, reglas: sceneReglas, igual: sceneIgual, cien: sc
 window.getEvents = () => {
   const E = [], P = (s, w, n = 0, ty = 'pop') => E.push({ t: wt(s, w, n), type: ty });
   TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
-  ['igual', 'cien', 'digitos'].forEach(name => winFor(name).forEach(w => { const sim = simulate(w.r);
+  ['hook', 'igual', 'cien', 'digitos'].forEach(name => winFor(name).forEach(w => { const sim = simulate(w.r);
     for (let k = 1; k <= sim.n; k++) { const e = sim.ev[k], wall = Math.abs(e.x1) < 1e-6; E.push({ t: w.times[k - 1], type: sim.n > 400 ? 'roll' : (wall ? 'wall' : 'hit') }); } }));
-  E.push({ t: wt('hook', 'pared') - .35, type: 'zoom' }); E.push({ t: wt('hook', 'pared') + 1.3, type: 'boom' }); P('hook', 'chocan'); P('hook', 'famosos', 0, 'boom'); P('reglas', 'rozamiento'); P('reglas', 'billar'); P('reglas', 'avanza', 0, 'swipe');
+  P('hook', 'chocan'); P('hook', 'famosos', 0, 'boom'); P('reglas', 'rozamiento'); P('reglas', 'billar'); P('reglas', 'avanza', 0, 'swipe');
   P('igual', 'tres', 0, 'ding'); P('cien', 'camion'); P('cien', 'pelota'); P('cien', 'treinta', 0, 'ding'); P('digitos', 'suena');
   P('digitos', 'tres', 1, 'ding'); P('digitos', 'uno', 1, 'ding'); P('digitos', 'cuatro', 0, 'ding'); P('digitos', 'uno', 2, 'ding'); P('digitos', 'pi', 0, 'ding');
   P('reloj', 'reloj'); P('reloj', 'paso'); P('reloj', 'mismo'); P('reloj', 'media', 0, 'ding'); P('porque', 'pesado'); P('porque', 'pequeno'); P('porque', 'pasos'); P('porque', 'pi', 0, 'ding');
