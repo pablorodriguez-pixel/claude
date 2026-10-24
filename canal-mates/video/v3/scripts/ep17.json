@@ -1,0 +1,9 @@
+[
+ ["hook",    "En la Segunda Guerra Mundial, los aliados necesitaban saber cuántos tanques fabricaba Hitler cada mes. Los espías decían más de mil quinientos. Unos matemáticos dijeron menos de trescientos. ¿Quién acertó?"],
+ ["truco",   "El truco de los matemáticos: los números de serie. Cada tanque alemán llevaba un número, en orden. Y cada vez que capturaban uno, lo apuntaban."],
+ ["ejemplo", "Imagina que capturas cinco tanques, y el número más alto es el sesenta. Lo lógico sería pensar que hay sesenta. Pero casi seguro que hay más: lo normal es que haya otro hueco por encima del más alto."],
+ ["formula", "La fórmula: el número más alto, más el más alto dividido entre los tanques capturados, menos uno. Sesenta, más doce, menos uno: unos setenta y uno."],
+ ["final",   "Al acabar la guerra, vieron los registros alemanes. En agosto de mil novecientos cuarenta y dos, los espías decían mil quinientos cincuenta. Los matemáticos, trescientos veintisiete. La cifra real: trescientos cuarenta y dos."],
+ ["cierre",  "Unos pocos números de serie ganaron a todos los espías."],
+ ["cta",     "Sigue a cerouno para el próximo."]
+]

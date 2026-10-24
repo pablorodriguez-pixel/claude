@@ -1,5 +1,14 @@
 const { chromium } = require('playwright'); const fs = require('fs'), path = require('path');
 const COVERS = {
+  ep15: `background();
+    idCard(540, 980, 860, '12345678', '?', { rot: -.04, letterCol: C.accent, letterK: 1.3 });
+    band('¿POR QUÉ TU DNI', 100, C.line, 1, 400); band('TIENE UNA LETRA?', 100, C.accent, 1, 560); stamp('NO ES AL AZAR', 540, 1380, 66, C.mint, 1); brand(1560);`,
+  ep16: `background();
+    bars(0, 1, { pct: true });
+    band('¿TE INVENTAS', 110, C.line, 1, 400); band('UNA FACTURA?', 110, C.accent, 1, 560); stamp('LAS MATES TE DELATAN', 540, 1360, 54, C.red, 1); brand(1560);`,
+  ep17: `background();
+    for (let i = 0; i < 4; i++) tank(200 + i * 230, 1050, 210, 100 + i * 7);
+    band('¿CUÁNTOS TANQUES', 100, C.line, 1, 400); band('TENÍA HITLER?', 100, C.accent, 1, 560); stamp('LO ADIVINARON CON MATES', 540, 1330, 52, C.mint, 1); brand(1560);`,
   ep14: `background();
     for (let i = 0; i < 3; i++) drawDoor(i, 0, { y: 820 }); for (let i = 0; i < 3; i++) txt(String(i + 1) + '?', DXS[i], 1330, 80, C.accent, { weight: 800 });
     band('¿QUÉ PUERTA', 124, C.line, 1, 400); band('ABRIRÍAS?', 124, C.accent, 1, 570); stamp('CASI TODOS FALLAN', 540, 1480, 56, C.accent, 1); brand(1650);`,

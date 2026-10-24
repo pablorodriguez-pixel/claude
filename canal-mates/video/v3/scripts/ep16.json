@@ -1,0 +1,9 @@
+[
+ ["hook",     "Si te inventas los números de una factura, las matemáticas pueden delatarte. ¿Sabes cómo? Casi nadie lo sabe."],
+ ["pregunta", "Mira la primera cifra de números reales: precios, facturas, la población de cada pueblo. ¿Cuántos empiezan por uno? Lo lógico sería uno de cada nueve, ¿no?"],
+ ["pero",     "Pues no. Casi un treinta por ciento empiezan por uno. Y por nueve, menos de un cinco por ciento. Se llama ley de Benford."],
+ ["porque",   "¿Por qué? Porque para pasar de empezar por uno a empezar por dos, un número tiene que doblarse. Pero de nueve a diez, solo crece un poco. Así que los números pasan mucho más tiempo empezando por uno."],
+ ["fraude",   "Quien se inventa cifras las reparte por igual… y eso no pasa en la vida real. Por eso los auditores, y hasta la agencia tributaria de Canadá, la usan para cazar fraudes."],
+ ["reto",     "Mira tus facturas, y cuéntame cuántas empiezan por uno."],
+ ["cta",      "Sigue a cerouno para el próximo."]
+]

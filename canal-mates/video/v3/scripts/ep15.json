@@ -1,0 +1,9 @@
+[
+ ["hook",    "¿Por qué tu DNI tiene una letra? La mayoría cree que es al azar. Pero no: puedes calcularla tú en cinco segundos. Te enseño cómo."],
+ ["paso1",   "Coge el número de tu DNI y divídelo entre veintitrés. El resultado no importa: solo lo que sobra, el resto. Siempre sale un número del cero al veintidós."],
+ ["paso2",   "Ahora busca ese resto en esta tabla. El cero es la T, el uno la R, el dos la W… y así hasta el veintidós, que es la E."],
+ ["ejemplo", "Ejemplo: doce millones trescientos cuarenta y cinco mil seiscientos setenta y ocho. Entre veintitrés, sobran catorce. Y el catorce… es la Z."],
+ ["porque",  "¿Y para qué sirve? Para cazar errores: si alguien escribe mal una sola cifra, la letra ya no cuadra. Por eso tampoco hay ni I ni O: para no confundirlas con el uno y el cero."],
+ ["reto",    "Haz la prueba con el tuyo, y dime en los comentarios si te cuadra."],
+ ["cta",     "Sigue a cerouno para el próximo."]
+]
