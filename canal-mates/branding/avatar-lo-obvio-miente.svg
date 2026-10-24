@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-labelledby="t">
+  <title id="t">Lo Obvio Miente — avatar</title>
+  <defs><radialGradient id="bg" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#0f5560"/><stop offset="1" stop-color="#05202a"/></radialGradient></defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <g transform="translate(540 540) scale(2.1) translate(-188 -152)">
+    <path d="M66 190 L122 246 L214 98" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M214 98 C241 55 300 36 306 92 C311 133 262 146 256 188" fill="none" stroke="#ff8f6b" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="256" cy="250" r="19" fill="#ff8f6b"/>
+  </g>
+</svg>

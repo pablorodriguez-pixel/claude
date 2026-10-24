@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600" width="1500" height="600" role="img" aria-labelledby="t">
+  <title id="t">Lo Obvio Miente — tu intuición te engaña</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f5560"/><stop offset="1" stop-color="#05202a"/></linearGradient>
+  </defs>
+  <rect width="1500" height="600" fill="#06232a"/>
+  <g transform="translate(120 130)">
+    <rect width="340" height="340" rx="84" fill="url(#bg)" stroke="#e6fff7" stroke-width="6"/>
+    <!-- visto bueno (lo obvio) que se dobla en interrogación (lo que miente) -->
+    <path d="M66 190 L122 246 L214 98" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M214 98 C241 55 300 36 306 92 C311 133 262 146 256 188" fill="none" stroke="#ff8f6b" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="256" cy="250" r="19" fill="#ff8f6b"/>
+  </g>
+  <g font-family="'JetBrains Mono', 'DejaVu Sans Mono', monospace" font-weight="800">
+    <text x="520" y="285" font-size="112" fill="#e6fff7" letter-spacing="2">LO OBVIO</text>
+    <text x="520" y="410" font-size="150" fill="#ff8f6b" letter-spacing="2">MIENTE</text>
+    <text x="524" y="478" font-size="30" font-weight="500" fill="#8fd3c4" letter-spacing="7">TU INTUICIÓN TE ENGAÑA</text>
+  </g>
+</svg>
