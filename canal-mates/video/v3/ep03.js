@@ -38,30 +38,75 @@ const openAt = (t, t0, d = .45) => easeIO(seg(t, t0, t0 + d));
 const pulse = (t, f = 5) => 1 + .04 * Math.sin(t * f);
 
 function sceneHook(t, lt, s) {
-  const T = (w, n = 0) => wt('hook', w, n), tPu = T('puertas'), tCo = T('coche'), tCa = T('cabras'), tEl = T('eliges'), tPr = T('presentador'), tOt = T('otra'), tCb = T('cabra'), tQu = T('quedas'), tCm = T('cambias');
+  const T = (w, n = 0) => wt('hook', w, n), tCon = T('concurso'), tCo = T('coche'), tCa = T('cabras'), tEl = T('eliges'), tPr = T('presentador'), tOt = T('otra'), tCb = T('cabra'), tQu = T('quedas'), tCm = T('cambias');
   headline('¿Quedarte o', 'cambiar?', .05, t, { cps: 34 });
+  // rótulo de concurso con bombillas (el contexto desde el primer segundo)
+  { const bl = Math.floor(t * 6) % 2; ctx.save(); rrect(640, 262, 350, 96, 24); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.stroke();
+    for (let i = 0; i < 12; i++) circle(660 + i * 28.6, 270, 5, { fill: (i + bl) % 2 ? C.accent : 'rgba(255,143,107,.25)', stroke: null }), circle(660 + i * 28.6, 350, 5, { fill: (i + bl) % 2 ? 'rgba(255,143,107,.25)' : C.accent, stroke: null });
+    txt('CONCURSO', 815, 312, 44, C.accent, { weight: 800, ls: 4 }); ctx.restore(); }
   // las puertas irrumpen desde el fotograma 0 con la cámara cerca y desenfoque; luego se aleja
   const e = easeOut(seg(t, 0, 1.5)), Z = lerp(1.7, 1, e), sh = clamp(1 - seg(t, 0, 1.3));
   const scene = (z, alpha) => { ctx.save(); ctx.globalAlpha *= alpha; ctx.translate(540, 775); ctx.scale(z, z); ctx.translate(-540, -775);
     for (let i = 0; i < 3; i++) {
-      const pop = lerp(1.35, 1, easeOut(seg(t, .0 + i * .06, .5 + i * .06))), flash = (t > tCo - .1 && t < tCo + 1.1 && i === 1) ? 1 : (t > tCa - .1 && t < tCa + 1.3 && i !== 1) ? 1 : 0;
+      const pop = lerp(1.35, 1, easeOut(seg(t, i * .06, .5 + i * .06))), flash = (t > tCo - .1 && t < tCo + 1.1 && i === 1) ? 1 : (t > tCa - .1 && t < tCa + 1.3 && i !== 1) ? 1 : 0;
       const open = i === 2 && t >= tOt ? openAt(t, tOt, .5) : flash * Math.min(1, Math.sin(clamp((t - (i === 1 ? tCo : tCa) + .1) / 1.2) * Math.PI) * 3);
       ctx.save(); ctx.translate(DXS[i], DY0 + DH / 2); ctx.scale(pop, pop); ctx.translate(-DXS[i], -(DY0 + DH / 2));
       drawDoor(i, open, { chosen: i === 0 && t >= tEl, col: (i === 0 && t >= tEl) ? C.accent : C.line }); ctx.restore();
     } ctx.restore(); };
   if (sh > .02) for (let k = 0; k < 5; k++) { ctx.save(); scene(lerp(1.7, 1, easeOut(seg(t - sh * .16 * k / 4, 0, 1.5))), .2); ctx.restore(); }
   scene(Z, sh > .02 ? .62 : 1);
-  // tu elección
+  const pc = easeBack(seg(t, tCo, tCo + .35)) * (1 - seg(t, tCa - .1, tCa)); if (pc > 0) txt('PREMIO: UN COCHE', 540, 1110, 48, C.accent, { weight: 800, scale: pc, ls: 3 });
+  const pg = easeBack(seg(t, tCa, tCa + .35)) * (1 - seg(t, tEl + .9, tEl + 1.2)); if (pg > 0) txt('LAS OTRAS DOS: CABRAS', 540, 1110, 44, C.line, { weight: 800, scale: pg, ls: 3 });
   const r = easeBack(seg(t, tEl, tEl + .4));
   if (r > 0) { ctx.save(); ctx.translate(DXS[0], DY0 + DH + 56); ctx.scale(r, r); txt('TU ELECCIÓN', 0, 0, 30, C.accent, { weight: 800, ls: 3 }); ctx.restore(); circle(DXS[0], DY0 + DH / 2, (DW / 2 + 22) * (1 + .02 * Math.sin(t * 6)) * r, { stroke: C.accent, w: 3 }); }
-  // presentador
   const pa = easeOut(seg(t, tPr - .1, tPr + .3));
   if (pa > 0) { ctx.save(); ctx.globalAlpha *= pa; person(105, 1345, 120, C.line, null, 3); txt('PRESENTADOR', 105, 1385, 20, C.label, { weight: 700, ls: 3 }); ctx.restore(); }
   const ob = easeBack(seg(t, tCb - .2, tCb + .3)); if (ob > 0 && t < tQu - .1) txt('¡UNA CABRA!', 540, 1180, 56, C.line, { weight: 800, scale: ob, ls: 2 });
-  // ¿te quedas o cambias?
   const bq = easeBack(seg(t, tQu - .1, tQu + .4)); if (bq > 0) { const sel = t >= tCm - .1 ? 1 : 0;
     ctx.save(); ctx.translate(390, 1195); ctx.scale(bq * (sel ? 1 : pulse(t)), bq * (sel ? 1 : pulse(t))); rrect(-170, -50, 340, 100, 50); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 4; ctx.stroke(); txt('QUEDARME', 0, 3, 40, C.line, { weight: 800, ls: 2 }); ctx.restore();
     ctx.save(); ctx.translate(790, 1195); const bs = bq * pulse(t, sel ? 8 : 5); ctx.scale(bs, bs); rrect(-170, -50, 340, 100, 50); ctx.fillStyle = sel ? C.accent : 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.stroke(); txt('CAMBIAR', 0, 3, 40, sel ? C.ink : C.accent, { weight: 800, ls: 2 }); ctx.restore(); }
+}
+
+// Reglas del juego, una a una (contexto: qué es esto, qué sabe el presentador, qué significa cambiar)
+function sceneReglas(t, lt, s) {
+  const T = (w, n = 0) => wt('reglas', w, n), tHa = T('hall'), tSa = T('sabe'), tSi = T('siempre'), tTu = T('tuya'), tN2 = T('nunca', 1), tCa = T('cambiar'), tCe = T('cerrada'), tCo = T('coche', 2);
+  headline('Las reglas', '', s.start + .1, t);
+  const tag = easeOut(seg(t, tHa - .1, tHa + .3)); if (tag > 0) txt('EL PROBLEMA DE MONTY HALL', 540, 392, 30, C.label, { weight: 700, ls: 4, alpha: tag });
+  const open3 = openAt(t, tSi + .3, .5) * (1 - seg(t, tCa - .2, tCa));
+  for (let i = 0; i < 3; i++) drawDoor(i, i === 2 ? open3 : 0, { chosen: i === 0, col: i === 0 ? C.accent : C.line, y: 520 });
+  const kn = easeBack(seg(t, tSa - .1, tSa + .35)); if (kn > 0) { ctx.save(); ctx.translate(150, 1300); ctx.scale(kn, kn); person(0, 0, 150, C.line, null, 3); ctx.restore();
+    ctx.save(); ctx.globalAlpha *= kn; bubble(560, 1180, 600, 120, '', C.line, { size: 30 }); car(400, 1182, 50, C.accent, 4); txt('SABE DÓNDE ESTÁ', 700, 1184, 28, C.accent, { weight: 800, ls: 2 }); ctx.restore(); }
+  const nv = (cx, tt, lab) => { const a = easeBack(seg(t, tt, tt + .3)); if (a <= 0) return; ctx.save(); ctx.globalAlpha *= a * (1 - seg(t, tCa - .2, tCa)); ctx.strokeStyle = C.red; ctx.lineWidth = 9; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(cx - 70, 640); ctx.lineTo(cx + 70, 780); ctx.moveTo(cx + 70, 640); ctx.lineTo(cx - 70, 780); ctx.stroke(); ctx.restore(); txt(lab, cx, 1030, 26, C.red, { weight: 800, ls: 2, alpha: a * (1 - seg(t, tCa - .2, tCa)) }); };
+  nv(DXS[0], tTu - .05, 'NUNCA LA TUYA'); nv(DXS[1], tN2 - .05, 'NI LA DEL COCHE');
+  const sw = easeOut(seg(t, tCa - .1, tCa + .5)); if (sw > 0) { ctx.save(); ctx.globalAlpha *= sw; ctx.strokeStyle = C.accent; ctx.lineWidth = 6; ctx.setLineDash([16, 10]); ctx.beginPath(); ctx.moveTo(DXS[0] + 50, 480); ctx.quadraticCurveTo((DXS[0] + DXS[1]) / 2, 400, DXS[1] - 50, 480); ctx.stroke(); ctx.restore();
+    txt('CAMBIAR = IR A LA OTRA', 540, 1030, 34, C.accent, { weight: 800, ls: 3, alpha: sw }); txt('PUERTA CERRADA', 540, 1075, 34, C.accent, { weight: 800, ls: 3, alpha: sw }); }
+  const g = easeBack(seg(t, tCo - .15, tCo + .3)); if (g > 0) { ctx.save(); ctx.fillStyle = 'rgba(5,32,42,.94)'; rrect(150, 1160, 780, 170, 30); ctx.fill(); ctx.strokeStyle = C.accent; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); car(330, 1245, 60, C.accent, 5); txt('TU OBJETIVO:', 640, 1215, 34, C.label, { weight: 700, ls: 3, alpha: g }); txt('EL COCHE', 640, 1272, 64, C.accent, { weight: 800, scale: g }); }
+}
+
+// Los tres casos posibles: por qué cambiar gana 2 de cada 3 veces
+function sceneCasos(t, lt, s) {
+  const T = (w, n = 0) => wt('casos', w, n), tCs = T('casos'), tTu = T('tu'), tPi = T('pierde'), tOt = T('otras'), tGa = T('gana'), tDo = T('dos', 1);
+  headline('Los 3 casos', '', s.start + .1, t);
+  const rows = [{ y: 440, car: 0, host: 2, n: 1, sub: 'coche en TU puerta' }, { y: 705, car: 1, host: 2, n: 2, sub: 'coche en la 2' }, { y: 970, car: 2, host: 1, n: 3, sub: 'coche en la 3' }];
+  const MX = [225, 360, 495];
+  rows.forEach((r, ri) => {
+    const a = easeOut(seg(t, tCs + ri * .35, tCs + .35 + ri * .35)); if (a <= 0) return;
+    const act = (ri === 0 && t >= tTu - .05 && t < tOt - .1) || (ri > 0 && t >= tOt - .05 && t < tDo - .2), done = ri === 0 ? t >= tPi : t >= tGa;
+    ctx.save(); ctx.globalAlpha *= a;
+    if (act) { ctx.fillStyle = 'rgba(255,143,107,.10)'; rrect(60, r.y - 40, 960, 255, 26); ctx.fill(); }
+    txt(`CASO ${r.n}`, 90, r.y - 12, 26, C.accent, { align: 'left', weight: 800, ls: 3 }); txt(r.sub, 90, r.y + 18, 22, C.label, { align: 'left', weight: 600, ls: 1 });
+    for (let d = 0; d < 3; d++) { const ho = d === r.host ? openAt(t, tCs + ri * .35 + .5, .4) : 0;
+      drawDoor(d, ho, { x: MX[d] + 60, y: r.y + 40, w: 112, h: 160, label: false, content: 'goat', col: d === 0 ? C.accent : C.line });
+      if (d === r.car) car(MX[d] + 60, r.y + 224, 24, C.accent, 3); }
+    // resultados
+    const chip = (cy, lab, win, col) => { const k = done ? easeBack(seg(t, ri === 0 ? tPi : tGa, (ri === 0 ? tPi : tGa) + .35)) : 0;
+      rrect(660, cy - 30, 330, 60, 30); ctx.fillStyle = k > 0 ? (win ? 'rgba(126,240,200,.22)' : 'rgba(255,93,115,.20)') : 'rgba(255,255,255,.05)'; ctx.fill(); ctx.strokeStyle = k > 0 ? (win ? C.mint : C.red) : C.faint; ctx.lineWidth = 3; ctx.stroke();
+      txt(lab, 695, cy + 2, 30, C.line, { align: 'left', weight: 800, ls: 2 }); if (k > 0) txt(win ? '✓' : '✗', 955, cy + 2, 40, win ? C.mint : C.red, { weight: 800, scale: k }); };
+    chip(r.y + 75, 'QUEDARTE', r.car === 0); chip(r.y + 155, 'CAMBIAR', r.car !== 0);
+    if (done) { const target = r.car === 0 ? (r.host === 2 ? 1 : 2) : r.car; const sw = easeOut(seg(t, ri === 0 ? tPi : tGa, (ri === 0 ? tPi : tGa) + .5)); ctx.save(); ctx.globalAlpha *= sw * .9; ctx.strokeStyle = C.accent; ctx.lineWidth = 4; ctx.setLineDash([10, 8]); ctx.beginPath(); ctx.moveTo(MX[0] + 60, r.y + 28); ctx.quadraticCurveTo((MX[0] + MX[target]) / 2 + 60, r.y - 14, MX[target] + 60, r.y + 28); ctx.stroke(); ctx.restore(); }
+    ctx.restore(); });
+  const fin = easeBack(seg(t, tDo - .1, tDo + .4)); if (fin > 0) { ctx.save(); ctx.fillStyle = 'rgba(5,32,42,.95)'; rrect(110, 1250, 860, 100, 28); ctx.fill(); ctx.strokeStyle = C.mint; ctx.lineWidth = 3; ctx.stroke(); ctx.restore(); txt('CAMBIAR GANA 2 DE 3', 540, 1302, 52, C.mint, { weight: 800, scale: fin, ls: 2 }); }
 }
 
 function sceneIntuicion(t, lt, s) {
@@ -76,23 +121,6 @@ function sceneIntuicion(t, lt, s) {
     const bar = (cx, v, col, lab) => { rrect(cx - 105, 1130, 210, 28, 14); ctx.fillStyle = 'rgba(255,255,255,.08)'; ctx.fill(); ctx.save(); rrect(cx - 105, 1130, 210 * v * easeOut(seg(t, tDo, tDo + .8)), 28, 14); ctx.fillStyle = col; ctx.fill(); ctx.restore(); txt(lab, cx, 1100, 28, col, { weight: 800, ls: 3 }); };
     bar(DXS[0], 1 / 3, C.accent, 'QUEDARTE'); bar(DXS[1], 2 / 3, C.mint, 'CAMBIAR');
     txt('×2', 540, 1230, 120, C.mint, { weight: 800, scale: d * pulse(t, 6) }); }
-}
-
-function scenePorque(t, lt, s) {
-  const T = (w, n = 0) => wt('porque', w, n), tTe = T('tercio', 0), tTs = T('tercios', 0), tSa = T('sabe'), tCb = T('cabra', 0), tJu = T('juntan'), tQu = T('queda', 0);
-  headline('¿Por qué?', '', s.start + .1, t);
-  const open3 = openAt(t, tCb, .5), moved = easeIO(seg(t, tJu, tJu + .9));
-  for (let i = 0; i < 3; i++) drawDoor(i, i === 2 ? open3 : 0, { chosen: i === 0, col: i === 0 ? C.accent : (i === 1 && t >= tQu ? C.mint : C.line) });
-  const lab = (i, v, col, a = 1) => txt(v, DXS[i], 470, 64, col, { weight: 800, alpha: a });
-  const a1 = easeBack(seg(t, tTe - .1, tTe + .35)); if (a1 > 0) { txt('1/3', DXS[0], 470, 64, C.accent, { weight: 800, scale: a1 }); circle(DXS[0], DY0 + DH / 2, DW / 2 + 22, { stroke: C.accent, w: 3 }); }
-  const g = easeOut(seg(t, tTs - .1, tTs + .4)) * (1 - moved);                   // llave de "los otros dos"
-  if (g > 0) { ctx.save(); ctx.globalAlpha *= g; ctx.strokeStyle = C.mint; ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.beginPath(); ctx.moveTo(DXS[1] - DW / 2, 1090); ctx.lineTo(DXS[1] - DW / 2, 1110); ctx.lineTo(DXS[2] + DW / 2, 1110); ctx.lineTo(DXS[2] + DW / 2, 1090); ctx.stroke(); ctx.restore(); txt('2/3', (DXS[1] + DXS[2]) / 2, 1170, 90, C.mint, { weight: 800, alpha: g, scale: .9 + .1 * easeBack(seg(t, tTs, tTs + .4)) }); }
-  const sa = easeOut(seg(t, tSa - .1, tSa + .3)); if (sa > 0) { ctx.save(); ctx.globalAlpha *= sa * (1 - moved * .0); person(110, 1330, 130, C.line, null, 3); txt('SABE DÓNDE ESTÁ', 140, 1370, 20, C.label, { weight: 700, ls: 2, alpha: 1 }); ctx.restore(); }
-  if (t >= tCb + .2 && moved < 1) txt('0', DXS[2], 470, 64, C.red, { weight: 800, alpha: easeOut(seg(t, tCb + .2, tCb + .5)) * (1 - moved) });
-  if (moved > 0) { txt('2/3', DXS[1], 470, 64, C.mint, { weight: 800, scale: .85 + .15 * moved }); txt('0', DXS[2], 470, 64, C.red, { weight: 800, alpha: 1 });
-    ctx.save(); ctx.strokeStyle = C.mint; ctx.lineWidth = 6; ctx.setLineDash([14, 10]); ctx.beginPath(); ctx.moveTo(DXS[2], 1170); ctx.quadraticCurveTo((DXS[1] + DXS[2]) / 2, 1250, DXS[1], 1010 + 30 * (1 - moved)); ctx.stroke(); ctx.restore();
-    txt('SE JUNTAN EN LA PUERTA 2', 540, 1260, 38, C.mint, { weight: 800, ls: 2, alpha: moved }); }
-  if (t >= tQu) circle(DXS[1], DY0 + DH / 2, (DW / 2 + 22) * pulse(t, 6), { stroke: C.mint, w: 4 });
 }
 
 // 1.000 partidas (resultado fijo y reproducible para que coincida con la narración)
@@ -134,14 +162,15 @@ function sceneCien(t, lt, s) {
   const cm = easeBack(seg(t, tCm - .1, tCm + .4)); if (cm > 0) { txt('TU PUERTA: 1/100', 540, 1260, 44, C.accent, { weight: 800, scale: cm, ls: 2 }); txt('LA OTRA: 99/100', 540, 1330, 56, C.mint, { weight: 800, scale: cm, ls: 2 }); }
 }
 function sceneCta(t, lt, s) { drawCta(t, lt, wt('cta', 'sigue')); }
-const DRAW = { hook: sceneHook, intuicion: sceneIntuicion, porque: scenePorque, prueba: scenePrueba, cien: sceneCien, cta: sceneCta };
+const DRAW = { hook: sceneHook, reglas: sceneReglas, intuicion: sceneIntuicion, casos: sceneCasos, prueba: scenePrueba, cien: sceneCien, cta: sceneCta };
 
 window.getEvents = () => {
   const E = [], P = (s, w, n = 0, ty = 'pop') => E.push({ t: wt(s, w, n), type: ty });
   TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
-  E.push({ t: 0.05, type: 'boom' }); P('hook', 'coche', 0, 'ding'); P('hook', 'cabras', 0, 'buzz'); P('hook', 'eliges'); P('hook', 'otra', 0, 'swipe'); P('hook', 'cabra', 0, 'buzz'); P('hook', 'quedas'); P('hook', 'cambias', 0, 'ding');
+  E.push({ t: 0.05, type: 'boom' }); P('hook', 'concurso'); P('hook', 'coche', 0, 'ding'); P('hook', 'cabras', 0, 'buzz'); P('hook', 'eliges'); P('hook', 'otra', 0, 'swipe'); P('hook', 'cabra', 0, 'buzz'); P('hook', 'quedas'); P('hook', 'cambias', 0, 'ding');
   P('intuicion', 'cincuenta'); P('intuicion', 'no', 0, 'buzz'); P('intuicion', 'doble', 0, 'ding');
-  P('porque', 'tercio'); P('porque', 'tercios'); P('porque', 'sabe'); P('porque', 'cabra', 0, 'swipe'); P('porque', 'juntan', 0, 'ding'); P('porque', 'queda');
+  P('reglas', 'hall'); P('reglas', 'sabe'); P('reglas', 'siempre', 0, 'swipe'); P('reglas', 'tuya', 0, 'buzz'); P('reglas', 'nunca', 1, 'buzz'); P('reglas', 'cambiar'); P('reglas', 'coche', 2, 'ding');
+  P('casos', 'casos'); P('casos', 'pierde', 0, 'buzz'); P('casos', 'gana', 0, 'ding'); P('casos', 'dos', 1, 'ding');
   P('prueba', 'mil', 0, 'swipe'); P('prueba', 'trescientas', 0, 'ding'); P('prueba', 'seiscientas', 0, 'ding');
   P('cien', 'eliges'); { const a = wt('cien', 'noventa'), b = wt('cien', 'ocho') + .6; for (let i = 0; i < 24; i++) E.push({ t: a + (b - a) * i / 23, type: 'hit' }); } P('cien', 'cambias', 0, 'ding');
   P('cta', 'sigue', 0, 'click'); E.push({ t: wt('cta', 'sigue') + .1, type: 'ding' });

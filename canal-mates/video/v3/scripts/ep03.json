@@ -1,7 +1,8 @@
 [
- ["hook",      "Tres puertas. Detrás de una, un coche. Detrás de las otras dos, cabras. Eliges una… y el presentador abre OTRA y te enseña una cabra. ¿Te quedas… o cambias?"],
+ ["hook",      "Estás en un concurso de televisión. Tres puertas: detrás de una hay un coche; detrás de las otras dos, cabras. Eliges la uno… y el presentador abre OTRA y te enseña una cabra. ¿Te quedas… o cambias?"],
+ ["reglas",    "Es el famoso problema de Monty Hall. Ojo con las reglas. El presentador SABE dónde está el coche, y siempre abre una puerta con cabra: nunca la tuya, nunca la del coche. Después te deja cambiar a la otra puerta cerrada. Tú quieres el coche."],
  ["intuicion", "Casi todos piensan igual: quedan dos puertas, así que es cincuenta y cincuenta. Da igual. Pues no. Cambiar te da el DOBLE de posibilidades."],
- ["porque",    "Mira. Al elegir, tienes un tercio de acertar. Los otros dos tercios están en las otras puertas. El presentador sabe dónde está el coche y siempre abre una cabra. Así, esos dos tercios se juntan en la puerta que queda."],
+ ["casos",     "¿Por qué? Mira los tres casos posibles, con el coche en cada puerta. Si el coche está en TU puerta, cambiar pierde. Pero si está en cualquiera de las otras dos, el presentador abre la cabra que queda, y cambiar GANA. Dos casos de tres."],
  ["prueba",    "¿No te lo crees? Hagamos mil partidas. Quedándote, ganas unas trescientas treinta. Cambiando… unas seiscientas setenta."],
  ["cien",      "Imagina cien puertas. Eliges una, y el presentador abre noventa y ocho cabras. ¿Sigues con la tuya… o cambias a la que queda?"],
  ["cta",       "Tu intuición te engaña, y las matemáticas lo demuestran. Sigue Cero y Uno y descubre el próximo misterio."]
