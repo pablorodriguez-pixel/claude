@@ -123,6 +123,55 @@ function peopleRow(n, x0, dx, y, s, t0, o = {}) {
   }
 }
 
+
+// ── dibujos originales extra ──
+function skull(x, y, s, color = C.red, lw = 3) {        // calavera con huesos cruzados
+  ctx.save(); ctx.translate(x, y); ctx.lineWidth = lw; ctx.strokeStyle = color; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(-s * .85, s * .55); ctx.lineTo(s * .85, s * 1.05); ctx.moveTo(s * .85, s * .55); ctx.lineTo(-s * .85, s * 1.05); ctx.stroke();
+  ctx.beginPath(); ctx.arc(0, 0, s * .62, Math.PI * .85, Math.PI * 2.15); ctx.lineTo(s * .36, s * .62); ctx.lineTo(-s * .36, s * .62); ctx.closePath(); ctx.fillStyle = 'rgba(5,32,42,.85)'; ctx.fill(); ctx.stroke();
+  circle(-s * .24, -s * .02, s * .15, { fill: color, stroke: null }); circle(s * .24, -s * .02, s * .15, { fill: color, stroke: null });
+  line(-s * .12, s * .4, -s * .12, s * .62, color, lw); line(s * .12, s * .4, s * .12, s * .62, color, lw); ctx.restore();
+}
+function glass(x, y, s, color = C.line, fill = null, lw = 3) {   // copa (x centro, y borde superior)
+  ctx.save(); ctx.translate(x, y); ctx.lineWidth = lw; ctx.strokeStyle = color; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(-s * .45, 0); ctx.quadraticCurveTo(-s * .5, s * .75, 0, s * .8); ctx.quadraticCurveTo(s * .5, s * .75, s * .45, 0); ctx.closePath();
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); } ctx.stroke();
+  line(0, s * .8, 0, s * 1.35, color, lw); line(-s * .3, s * 1.38, s * .3, s * 1.38, color, lw); ctx.restore();
+}
+function truck(x, y, s, color = C.line, lw = 3) {   // camión de línea (x centro, y suelo)
+  ctx.save(); ctx.translate(x, y); ctx.lineWidth = lw; ctx.strokeStyle = color; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.rect(-s * .9, -s * .85, s * 1.15, s * .7); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(s * .3, -s * .65); ctx.lineTo(s * .7, -s * .65); ctx.lineTo(s * .95, -s * .35); ctx.lineTo(s * .95, -s * .15); ctx.lineTo(s * .3, -s * .15); ctx.closePath(); ctx.stroke();
+  circle(-s * .5, -s * .1, s * .15, { fill: 'rgba(5,32,42,.9)', stroke: color, w: lw }); circle(s * .6, -s * .1, s * .15, { fill: 'rgba(5,32,42,.9)', stroke: color, w: lw }); ctx.restore();
+}
+function ball(x, y, r, color = C.line, lw = 3) {   // pelota
+  circle(x, y, r, { w: lw, stroke: color });
+  ctx.save(); ctx.beginPath(); ctx.arc(x - r * 1.05, y, r * .95, -.9, .9); ctx.strokeStyle = color; ctx.lineWidth = lw * .7; ctx.stroke();
+  ctx.beginPath(); ctx.arc(x + r * 1.05, y, r * .95, Math.PI - .9, Math.PI + .9); ctx.stroke(); ctx.restore();
+}
+function bunting(x1, x2, y, t0, t) {   // banderines de fiesta
+  const n = 9, cols = [C.accent, C.mint, C.line];
+  if (t < t0 - .05) return;
+  ctx.save(); ctx.beginPath(); for (let i = 0; i <= 60; i++) { const f = i / 60, xx = lerp(x1, x2, f), yy = y + Math.sin(f * Math.PI) * 34; i ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy); }
+  ctx.strokeStyle = C.soft; ctx.lineWidth = 2; ctx.stroke();
+  for (let i = 0; i < n; i++) { const f = (i + .5) / n, a = easeBack(seg(t, t0 + i * .06, t0 + i * .06 + .3)); if (a <= 0) continue;
+    const xx = lerp(x1, x2, f), yy = y + Math.sin(f * Math.PI) * 34; ctx.save(); ctx.translate(xx, yy); ctx.scale(a, a); ctx.beginPath(); ctx.moveTo(-16, 0); ctx.lineTo(16, 0); ctx.lineTo(0, 34); ctx.closePath(); ctx.fillStyle = cols[i % 3]; ctx.globalAlpha *= .85; ctx.fill(); ctx.restore(); }
+  ctx.restore();
+}
+function bubble(x, y, w, h, text, color = C.line, o = {}) {   // bocadillo de diálogo (cola abajo-izquierda)
+  ctx.save(); ctx.globalAlpha *= o.alpha ?? 1; ctx.translate(x, y); if (o.scale) ctx.scale(o.scale, o.scale);
+  rrect(-w / 2, -h / 2, w, h, 26); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.lineWidth = 3; ctx.strokeStyle = color; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-w / 2 + 50, h / 2 - 2); ctx.lineTo(-w / 2 + 30, h / 2 + 34); ctx.lineTo(-w / 2 + 90, h / 2 - 2); ctx.fillStyle = 'rgba(5,32,42,.92)'; ctx.fill(); ctx.strokeStyle = color; ctx.stroke();
+  txt(text, 0, 0, o.size || 40, color, { weight: 800 }); ctx.restore();
+}
+// titular fijo arriba con efecto de escritura (como en los reels de referencia)
+function headline(l1, l2, t0, t, o = {}) {
+  const per = o.cps || 38, n1 = Math.floor((t - t0) * per), n2 = Math.floor((t - t0 - l1.length / per - .1) * per);
+  const a = o.alpha ?? 1; if (n1 <= 0) return;
+  txt(l1.slice(0, n1), 90, o.y || 250, o.size || 64, C.line, { align: 'left', weight: 800, alpha: a });
+  if (l2 && n2 > 0) txt(l2.slice(0, n2), 90, (o.y || 250) + (o.size || 64) * 1.15, o.size || 64, o.color2 || C.accent, { align: 'left', weight: 800, alpha: a });
+}
+
 // ── render(t): fondo + escena (barrido de escaneo al entrar) + subtítulos ──
 function render(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;

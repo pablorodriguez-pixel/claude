@@ -1,11 +1,10 @@
 [
- ["hook",    "Dos bloques y una pared. Cuenta cuántas veces chocan, y te saldrán los dígitos de pi."],
- ["reglas",  "Sin rozamiento y con choques perfectos. El pequeño espera quieto, y el grande avanza hacia él."],
- ["igual",   "Si pesan lo mismo, solo hay tres choques."],
- ["cien",    "Si el grande pesa cien veces más, treinta y uno."],
- ["masas",   "Con diez mil veces más, trescientos catorce. Con un millón de veces más, tres mil ciento cuarenta y uno."],
- ["tabla",   "Cada vez que multiplicas la masa por cien, aparece un dígito más de pi: tres, uno, cuatro, uno, cinco, nueve."],
- ["energia", "¿Por qué? Porque la energía total no cambia. Si dibujas las velocidades, cada choque es un salto sobre una circunferencia."],
- ["circulo", "Todos los saltos miden lo mismo. Y el número de saltos que caben en media vuelta es pi dividido entre ese ángulo."],
- ["cta",     "Pi estaba escondido en los choques. Sigue Cero y Uno y descubre el próximo misterio."]
+ ["hook",    "¿Cuántas veces chocan estos dos bloques? Parece física del instituto, pero la respuesta esconde uno de los números más famosos del mundo."],
+ ["reglas",  "Las reglas: no hay rozamiento y los choques son perfectos, como bolas de billar. El bloque pequeño espera quieto, y el grande avanza hacia él."],
+ ["igual",   "Si pesan lo mismo, es sencillo: tres choques. El grande empuja al pequeño, el pequeño rebota en la pared, y vuelve a chocar."],
+ ["cien",    "Ahora el grande pesa cien veces más. Es como un camión contra una pelota. ¿Cuántos choques? Treinta y uno."],
+ ["digitos", "Con diez mil veces más, trescientos catorce. Con un millón, tres mil ciento cuarenta y uno. ¿Notas algo? Tres, uno, cuatro, uno. Son los dígitos de pi."],
+ ["reloj",   "¿Por qué sale pi? Imagina un reloj. Cada choque mueve la aguja un paso, y todos los pasos son iguales. Los choques terminan cuando la aguja da media vuelta."],
+ ["porque",  "Cuanto más pesado es el bloque, más pequeño es el paso, y más pasos caben en media vuelta. Y media vuelta es justo lo que mide pi."],
+ ["cta",     "Pi estaba escondido en los choques. Sigue Cero y Uno y te enseño el próximo misterio."]
 ]

@@ -1,12 +1,11 @@
 [
- ["hook",     "Mil botellas de vino. Una está envenenada. Y con solo diez catadores puedes encontrarla. ¿Cómo?"],
- ["plazo",    "La fiesta es mañana, el veneno tarda una hora en hacer efecto, y solo tienes una ronda de pruebas."],
- ["obvio",    "Lo lógico sería contratar a cientos de catadores. Pero el sistema binario lo resuelve con diez."],
- ["mini",     "Empecemos por algo pequeño. Cuatro botellas, y dos catadores: Ana y Beto."],
- ["reglas",   "Ana bebe de la dos y de la cuatro. Beto bebe de la tres y de la cuatro."],
- ["lecturas", "Si no enferma nadie, es la uno. Si enferma solo Ana, la dos. Solo Beto, la tres. Y si enferman los dos, la cuatro."],
- ["dobla",    "Cada catador nuevo duplica las botellas que puedes comprobar. Con tres, ocho. Con cuatro, dieciséis."],
- ["diez",     "Con diez catadores, llegas a mil veinticuatro botellas. Cada uno prueba unas quinientas, y en una sola ronda sabes cuál es la mala."],
- ["veinte",   "Con veinte catadores, podrías analizar más de un millón de botellas."],
- ["cta",      "Eso es el binario. Sigue Cero y Uno para el próximo acertijo."]
+ ["hook",     "Tienes mil botellas de vino para la fiesta de mañana, y exactamente una está envenenada. Un solo sorbo mata en una hora. ¿Cuántos catadores necesitas para encontrarla?"],
+ ["obvio",    "Lo lógico: un catador por botella. Mil personas. Pero existe un truco que lo resuelve con solo diez. Y lo vas a entender jugando."],
+ ["juego",    "Piensa un número del uno al mil. Yo lo adivino con diez preguntas de sí o no. ¿Es mayor que quinientos? Sí. ¿Mayor que setecientos cincuenta? No. Cada respuesta descarta la mitad."],
+ ["catador",  "Pues un catador es una pregunta. Si enferma, la respuesta es sí. Si no enferma, es no. Diez catadores, diez preguntas."],
+ ["mini",     "Probemos con cuatro botellas y dos catadores: Ana y Beto. Ana bebe de la dos y la cuatro. Beto, de la tres y la cuatro."],
+ ["lecturas", "Si no enferma nadie, es la uno. Si solo Ana, la dos. Solo Beto, la tres. Si enferman los dos, la cuatro. Dos personas, cuatro botellas."],
+ ["dobla",    "Cada catador nuevo duplica las botellas. Con tres, ocho. Con cuatro, dieciséis. Con diez, mil veinticuatro."],
+ ["diez",     "Así que con diez catadores y una sola ronda, sabes cuál es la botella mala. Con veinte, podrías analizar más de un millón."],
+ ["cta",      "Eso es el sistema binario. Sigue Cero y Uno y te cuento el próximo misterio."]
 ]
