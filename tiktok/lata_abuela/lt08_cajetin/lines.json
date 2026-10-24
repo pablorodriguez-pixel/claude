@@ -1,0 +1,51 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¿Sabes para qué sirven estos tres huecos de la lavadora?",
+  "s": 0.12,
+  "e": 3.245
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Mucha gente echa el detergente en cualquiera... y no da igual.",
+  "s": 3.395,
+  "e": 6.95
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "El uno es el prelavado: solo para ropa muy sucia.",
+  "s": 7.1,
+  "e": 10.562
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "El dos es el lavado principal: aquí va el detergente de cada día.",
+  "s": 10.712,
+  "e": 14.707
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Y la flor es el suavizante: la máquina lo suelta sola al final.",
+  "s": 14.857,
+  "e": 18.763
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Eso sí: no pases la raya de máximo, o se desborda.",
+  "s": 18.913,
+  "e": 22.299
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "Ve a tu lavadora: ¿cuántos huecos tiene la tuya? Cuéntamelo en los comentarios... y sígueme, que cada día te traigo un truco.",
+  "s": 22.449,
+  "e": 29.222
+ }
+]

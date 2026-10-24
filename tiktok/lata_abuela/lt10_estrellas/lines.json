@@ -1,0 +1,51 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¿Sabes qué significan las estrellitas de tu congelador?",
+  "s": 0.12,
+  "e": 2.977
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Las has visto mil veces, y nadie te las explicó.",
+  "s": 3.127,
+  "e": 5.985
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Una estrella: a menos seis grados, la comida aguanta más o menos una semana.",
+  "s": 6.135,
+  "e": 10.909
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Dos estrellas: menos doce, un mes. Tres: menos dieciocho, unos tres meses.",
+  "s": 11.059,
+  "e": 16.256
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Y cuatro estrellas es el congelador de verdad: es el único que congela comida fresca.",
+  "s": 16.406,
+  "e": 21.521
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Ojo: congelar no mata las bacterias... solo las pone a dormir.",
+  "s": 21.671,
+  "e": 25.486
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "Mira tu congelador: ¿cuántas estrellas tiene? Dímelo en los comentarios... y sígueme, que cada día te traigo un truco.",
+  "s": 25.636,
+  "e": 32.322
+ }
+]

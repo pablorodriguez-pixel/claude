@@ -1,0 +1,1 @@
+A.bookmark = () => `<svg viewBox="0 0 160 200" width="160" height="200" style="overflow:visible"><path class="bm" d="M20 10 H140 Q150 10 150 20 V190 L80 140 L10 190 V20 Q10 10 20 10 Z" fill="${CREAM}" stroke="${INK}" stroke-width="9" stroke-linejoin="round"/></svg>`;

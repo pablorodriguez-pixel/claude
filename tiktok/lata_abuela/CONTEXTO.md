@@ -54,3 +54,10 @@ Plantilla de código: `lt05_huevo/main.js` (utilidades card/badge/comment/hen + 
 2. Voz: `python3 -I ../engine/gen_lines.py .`; comprobar con `python3 -I ../engine/tr.py voice_final.wav`.
 3. `bash ../engine/sheet.sh $PWD 1`, `node ../engine/render.js $PWD video` (si se cae: `engine/render_all.sh` / `engine/render_resumible.js`), `python3 -I ../engine/audio.py $PWD abuela`.
 - Créditos ElevenLabs compartidos con los otros canales (~25.000 caracteres al traspaso). No más de 3–4 renders a la vez.
+
+## Actualización 24/10/2026 (episodios 8-10)
+- Hechos en esta sesión: `lt08_cajetin` «Cajetín de la lavadora» (30 s, 1 secreto/curiosidad), `lt09_congelar` «Congelar bien» (37 s, 2 útiles), `lt10_estrellas` «Estrellas del congelador» (33 s, curiosidad). Textos en PUBLICAR.txt.
+- Datos del canal (captura 24/10): huevo 7.082 vis., fechas 5.552, pasta 2.205, pollo 931, súper 832, nevera 679; 56 seguidores. Los más vistos son de curiosidad/mito → el siguiente test es comparar con los 2 «útiles».
+- Código compartido nuevo: `common.js` (fondo, titulares, abuela, `endSave`, `endAsk`, `finish`) y `art_bookmark.js`; los episodios 8-10 solo definen escenas. Cada carpeta: `art.js art2.js art3.js art<N>.js` + `common.js` (symlink) + `main.js`.
+- Sin faster_whisper en este entorno: no se pudo transcribir para verificar la voz; revisar de oído.
+- Ideas pendientes: cajetín ✔, estrellas ✔, congelar ✔; quedan manchas, lavadora (eco/standby), luz, compra (precio por kilo), flecha del depósito de gasolina, tapa del boli, tarro abierto «12M».

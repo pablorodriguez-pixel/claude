@@ -1,0 +1,65 @@
+[
+ {
+  "line": 0,
+  "who": "ABUELA",
+  "text": "¿Congelas la comida en un bloque así? ¡Luego no hay quien la descongele!",
+  "s": 0.12,
+  "e": 4.024
+ },
+ {
+  "line": 1,
+  "who": "ABUELA",
+  "text": "Dos consejos para congelar bien.",
+  "s": 4.174,
+  "e": 6.082
+ },
+ {
+  "line": 2,
+  "who": "ABUELA",
+  "text": "Uno: congela plano. Mete la comida en una bolsa, sácale el aire y aplástala.",
+  "s": 6.232,
+  "e": 11.349
+ },
+ {
+  "line": 3,
+  "who": "ABUELA",
+  "text": "Así se congela más rápido, ocupa menos sitio y se descongela en un rato.",
+  "s": 11.499,
+  "e": 16.106
+ },
+ {
+  "line": 4,
+  "who": "ABUELA",
+  "text": "Y apúntale la fecha con rotulador.",
+  "s": 16.256,
+  "e": 18.326
+ },
+ {
+  "line": 5,
+  "who": "ABUELA",
+  "text": "Dos: descongela siempre en la nevera, nunca en la encimera.",
+  "s": 18.476,
+  "e": 21.767
+ },
+ {
+  "line": 6,
+  "who": "ABUELA",
+  "text": "En la encimera, por fuera se calienta y las bacterias se despiertan, mientras el centro sigue helado.",
+  "s": 21.917,
+  "e": 28.085
+ },
+ {
+  "line": 7,
+  "who": "ABUELA",
+  "text": "Así que pásala a la nevera la noche anterior.",
+  "s": 28.235,
+  "e": 30.742
+ },
+ {
+  "line": 8,
+  "who": "ABUELA",
+  "text": "Guárdate este vídeo para cuando congeles... y sígueme, que cada día te traigo dos más.",
+  "s": 30.892,
+  "e": 35.935
+ }
+]
