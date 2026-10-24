@@ -6,33 +6,57 @@ const grid = (alphaFn, colorFn) => bottleGrid(1000, 40, HG.x0, HG.y0, HG.cw, HG.
 const sickSet = n => { const a = []; for (let k = 1; k <= 10; k++) if (((n - 1) >> (k - 1)) & 1) a.push(k); return a; };
 const BX = i => 390 + i * 150;
 
+// Zoom-out con desenfoque: de UNA botella enorme a la rejilla de 1.000 (como el arranque de los reels)
+const Z0 = 14.5, ZC = [HG.x0 + 19 * HG.cw + HG.cw / 2, HG.y0 + 12 * HG.ch + HG.ch * .85 / 2];
+function latticeBottle(i, Z, col, alpha, lw) {
+  const c = i % 40, r = Math.floor(i / 40), bw = HG.cw * .5 * Z, bh = HG.ch * .85 * Z;
+  const x = ZC[0] + (c - 19) * HG.cw * Z, y = ZC[1] + (r - 12) * HG.ch * Z - bh / 2;
+  if (x < -bw || x > W + bw || y < -bh || y > H + bh) return;
+  ctx.save(); ctx.globalAlpha *= alpha; bottle(x, y, bw, bh, col, lw); ctx.restore();
+}
+function zoomAt(t, t0, t1) {            // exponencial con un pequeño rebote final
+  const u = easeIO(seg(t, t0, t1)), z = Z0 * Math.pow(1 / Z0, u), over = Math.sin(clamp((t - t1) / .35) * Math.PI) * .05 * (t > t1 ? 1 : 0);
+  return z * (1 - over * 0);
+}
 function sceneHook(t, lt, s) {
-  const T = w => wt('hook', w), tMil = T('mil'), tFi = T('fiesta'), tEx = T('exactamente'), tEnv = T('envenenada'), tSor = T('sorbo'), tMata = T('mata'), tHora = T('hora'), tCu = T('cuantos'), tCat = T('catadores');
-  // titular fijo (como en los reels) y cambio de titular con la pregunta final
+  const T = w => wt('hook', w), tFi = T('fiesta'), tMil = T('mil'), tEnv = T('envenenada'), tSor = T('sorbo'), tMue = T('muerto'), tHora = T('hora'), tDia = T('dia'), tCu = T('cuantos'), tCat = T('catadores');
+  const z0 = tMil - .25, z1 = tMil + 2.1, Z = zoomAt(t, z0, z1), run = seg(t, z0, z1);
+  const poisonOn = t >= tEnv - .1, dimQ = lerp(1, .35, seg(t, tCu, tCu + .4));
+  // contador: cuántas botellas caben en pantalla a este zoom (como en el reel)
+  const cols = Math.min(40, Math.floor(W / (HG.cw * Z)) + 1), rows = Math.min(25, Math.floor(1000 / (HG.ch * Z * 1.0)) + 1);
+  const n = t < z0 ? 1 : (run >= 1 ? 1000 : Math.max(1, Math.min(1000, cols * Math.min(rows, 25))));
+  hud('R', 'BOTELLAS', fmt(n), { size: 76 });
+  if (t < z0) {                                    // una botella enorme con corcho, desde el primer fotograma
+    const pulse = 1 + .05 * seg(t, 0, z0) + .012 * Math.sin(t * 5); ctx.save(); ctx.translate(ZC[0], ZC[1]); ctx.scale(pulse, pulse); ctx.translate(-ZC[0], -ZC[1]);
+    latticeBottle(19 + 12 * 40, Z0, C.line, 1, 5); txt('VINO', ZC[0], ZC[1] + 40, 38, C.label, { weight: 700, ls: 6 }); ctx.restore();
+  } else {
+    const SUB = 8, shutter = .09 * clamp(Math.sin(run * Math.PI) * 3, 0, 1) * (1 - seg(run, .72, .93));        // desenfoque proporcional a la velocidad
+    for (let i = 0; i < 1000; i++) {
+      const c = i % 40, r = Math.floor(i / 40), d = Math.max(Math.abs(c - 19) / 20, Math.abs(r - 12) / 12.5);   // revelado rectangular, como el recorte de pantalla del reel
+      const appear = i === 19 + 12 * 40 ? 1 : easeOut(seg(run, d * .62, d * .62 + .18));
+      if (appear <= .01) continue;
+      const col = (i === POISON && poisonOn) ? C.accent : C.line, a = (i === POISON ? 1 : dimQ) * appear;
+      if (shutter > .004 && run < 1) { for (let k = 0; k < SUB; k++) { const tt = t - shutter * (k / (SUB - 1)); latticeBottle(i, zoomAt(tt, z0, z1), col, a * .22 * (1 - seg(run, .5, .82)), Math.max(1.4, 2 * Z0 / Math.max(Z, 1) * .12)); } }
+      latticeBottle(i, Z, col, a * (shutter > .004 && run < 1 ? lerp(.55, .9, seg(run, .5, .82)) : 1), Math.max(1.4, Math.min(5, 1.4 * Math.sqrt(Z))));
+    }
+  }
+  // titular que escribe la información clave
   const h1 = 1 - seg(t, tCu - .15, tCu + .05);
-  headline('1.000 botellas.', '1 envenenada.', s.start + .1, t, { alpha: h1 });
+  const t1 = tMil + 1.7; if (t > t1) { const n1 = Math.floor((t - t1) * 38); txt('1.000 botellas.'.slice(0, n1), 90, 250, 64, C.line, { align: 'left', weight: 800, alpha: h1 }); }
+  if (t > tEnv - .2) { const n2 = Math.floor((t - tEnv + .2) * 38); txt('1 envenenada.'.slice(0, n2), 90, 250 + 74, 64, C.accent, { align: 'left', weight: 800, alpha: h1 }); }
   headline('¿Cuántos', 'catadores?', tCu, t, { cps: 30 });
-  // 1 botella → 1.000
-  const n = t < tMil ? 1 : Math.round(lerp(1, 1000, easeOut(seg(t, tMil, tMil + 1.7))));
-  hud('R', 'BOTELLAS', fmt(n), { alpha: seg(lt, .1, .4), size: 76 });
-  const one = easeBack(seg(lt, .2, .7)) * (1 - seg(t, tMil, tMil + .45));
-  if (one > 0) { ctx.save(); ctx.translate(540, 840); ctx.scale(one, one); bottle(0, -150, 140, 320, C.line, 4); txt('VINO', 0, 60, 34, C.label, { weight: 700, ls: 4 }); ctx.restore(); }
-  const dim = lerp(1, .38, seg(t, tCu, tCu + .4));
-  grid(i => easeOut(seg(t, tMil + .1 + i / 1000 * 1.5, tMil + .4 + i / 1000 * 1.5)) * (i === POISON ? 1 : dim), i => (i === POISON && t >= tEnv - .1) ? C.accent : C.line);
   bunting(150, 930, 415, tFi, t);
-  // veneno
   const [px, py] = cellXY(POISON), ring = easeBack(seg(t, tEnv - .1, tEnv + .4));
-  if (ring > 0) { circle(px, py + 10, 22 * ring, { stroke: C.accent, w: 3 }); const ph = ((t - tEnv) * .9) % 1; ctx.save(); ctx.globalAlpha *= (1 - ph) * .6; circle(px, py + 10, 22 + ph * 60, { stroke: C.accent, w: 2 }); ctx.restore();
+  if (ring > 0 && run >= 1) { circle(px, py + 10, 22 * ring, { stroke: C.accent, w: 3 }); const ph = ((t - tEnv) * .9) % 1; ctx.save(); ctx.globalAlpha *= (1 - ph) * .6; circle(px, py + 10, 22 + ph * 60, { stroke: C.accent, w: 2 }); ctx.restore();
     line(px, py - 14, px, py - 52, C.accent, 3); skull(px, py - 90, 34, C.accent, 3); }
-  // catador, copa, reloj
-  const pa = easeOut(seg(t, tSor - .25, tSor + .15)), sick = t >= tMata;
+  const pa = easeOut(seg(t, tSor - .25, tSor + .15)), sick = t >= tMue;
   if (pa > 0) { ctx.save(); ctx.globalAlpha *= pa; person(300, 1300, 130, sick ? C.mint : C.line, sick ? 'rgba(126,240,200,.45)' : null, 3);
     if (sick) zzz(300, 1300, 130, t);
-    const up = easeIO(seg(t, tSor, tSor + .5)) * (1 - seg(t, tMata, tMata + .3)); glass(300 + lerp(78, 30, up), 1215 + lerp(30, -2, up), 40, C.line, 'rgba(255,143,107,.55)', 3);
-    if (!sick) txt('1 sorbo', 300, 1355, 24, C.label, { weight: 600, ls: 2 }); else txt('¡enfermo!', 300, 1355, 24, C.mint, { weight: 700, ls: 2 });
-    ctx.restore(); }
+    const up = easeIO(seg(t, tSor, tSor + .5)) * (1 - seg(t, tMue, tMue + .3)); glass(300 + lerp(78, 30, up), 1215 + lerp(30, -2, up), 40, C.line, 'rgba(255,143,107,.55)', 3);
+    txt(sick ? '¡enfermo!' : '1 sorbo', 300, 1355, 24, sick ? C.mint : C.label, { weight: sick ? 700 : 600, ls: 2 }); ctx.restore(); }
   const ca = easeBack(seg(t, tHora - .2, tHora + .3));
   if (ca > 0) { ctx.save(); ctx.translate(720, 1230); ctx.scale(ca, ca); clock(0, 0, 68, easeIO(seg(t, tHora, tHora + 1.3)) * Math.PI * 2); ctx.restore(); txt('1 SORBO = 1 HORA', 720, 1335, 26, C.accent, { weight: 800, ls: 3, alpha: seg(t, tHora + .1, tHora + .5) }); }
+  const dd = easeBack(seg(t, tDia - .1, tDia + .35)); if (dd > 0 && t < tCu) txt('TIENES 1 DÍA', W / 2, 1120, 46, C.accent, { weight: 800, ls: 3, scale: dd });
   const q = seg(t, tCat - .1, tCat + .3); if (q > 0) txt('?', 300, 1175 + Math.sin(t * 6) * 6, 80, C.accent, { weight: 800, alpha: q });
 }
 
@@ -53,7 +77,7 @@ function sceneObvio(t, lt, s) {
 }
 
 function sceneJuego(t, lt, s) {
-  const T = (w, n = 0) => wt('juego', w, n), tNum = T('numero'), tDi = T('diez'), tQ1 = T('quinientos'), tS1 = T('si', 1), tQ2 = T('setecientos'), tN2 = T('no', 1), tMi = T('mitad');
+  const T = (w, n = 0) => wt('juego', w, n), tNum = T('numero'), tDi = T('diez'), tQ1 = T('quinientos'), tS1 = T('si', 0), tQ2 = T('setecientos'), tN2 = T('no', 0), tMi = T('mitad');
   headline('Adivina', 'mi número', s.start + .1, t);
   const stage = t >= tN2 ? 3 : t >= tQ2 - .05 ? 2 : t >= tS1 ? 1 : t >= tQ1 - .05 ? 0.5 : 0;
   const remaining = i => stage >= 3 ? (i >= 500 && i < 750) : stage >= 1 && stage < 2 ? i >= 500 : stage >= 2 ? (i >= 500) : true;
@@ -131,7 +155,7 @@ function sceneLecturas(t, lt, s) {
 }
 
 function sceneDobla(t, lt, s) {
-  const T = w => wt('dobla', w), t3 = T('tres'), t4 = T('cuatro'), tD = T('diez'), tMil = T('mil'), tDup = T('duplica');
+  const T = w => wt('dobla', w), t3 = T('tres'), t4 = T('cuatro'), tD = T('diez'), tMil = T('mil'), tDup = T('duplican');
   headline('Cada catador', 'duplica', s.start + .1, t, { alpha: 1 - seg(t, tD - .1, tD + .1) });
   const stage = t >= t4 ? 4 : t >= t3 ? 3 : 2, n = 1 << stage, stT = stage === 4 ? t4 : stage === 3 ? t3 : s.start;
   const pre = 1 - seg(t, tD - .1, tD + .2);
@@ -186,13 +210,13 @@ const DRAW = { hook: sceneHook, obvio: sceneObvio, juego: sceneJuego, catador: s
 window.getEvents = () => {
   const E = [], P = (s, w, n = 0, ty = 'pop') => E.push({ t: wt(s, w, n), type: ty });
   TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
-  P('hook', 'mil'); P('hook', 'fiesta'); P('hook', 'envenenada', 0, 'ding'); P('hook', 'sorbo'); P('hook', 'mata', 0, 'buzz'); P('hook', 'hora'); P('hook', 'cuantos');
+  E.push({ t: wt('hook', 'mil') - .25, type: 'zoom' }); E.push({ t: wt('hook', 'mil') + 2.1, type: 'boom' }); P('hook', 'fiesta'); P('hook', 'envenenada', 0, 'boom'); P('hook', 'sorbo'); P('hook', 'muerto', 0, 'buzz'); P('hook', 'hora'); P('hook', 'dia'); P('hook', 'cuantos', 0, 'ding');
   P('obvio', 'botella'); P('obvio', 'truco', 0, 'swipe'); P('obvio', 'diez', 0, 'ding'); P('obvio', 'jugando');
-  P('juego', 'quinientos'); P('juego', 'si', 1, 'ding'); P('juego', 'setecientos'); P('juego', 'no', 1, 'buzz'); P('juego', 'mitad');
+  P('juego', 'quinientos'); P('juego', 'si', 0, 'ding'); P('juego', 'setecientos'); P('juego', 'no', 0, 'buzz'); P('juego', 'mitad');
   P('catador', 'pregunta'); P('catador', 'enferma', 0, 'buzz'); P('catador', 'no', 1); P('catador', 'diez', 0, 'ding');
   P('mini', 'dos', 1); P('mini', 'cuatro', 1); P('mini', 'tres'); P('mini', 'cuatro', 2);
   ['uno', 'tres'].forEach(w => P('lecturas', w, 0, 'ding')); P('lecturas', 'dos', 0, 'ding'); P('lecturas', 'cuatro', 0, 'ding'); P('lecturas', 'personas', 0, 'ding');
-  P('dobla', 'tres'); P('dobla', 'cuatro'); P('dobla', 'diez', 0, 'ding'); P('dobla', 'mil', 0, 'ding');
+  P('dobla', 'duplican'); P('dobla', 'tres'); P('dobla', 'cuatro'); P('dobla', 'diez', 0, 'ding'); P('dobla', 'mil', 0, 'ding');
   P('diez', 'ronda'); P('diez', 'mala', 0, 'ding'); P('diez', 'veinte'); P('diez', 'millon', 0, 'ding');
   P('cta', 'sigue', 0, 'click'); E.push({ t: wt('cta', 'sigue') + .1, type: 'ding' });
   return E;

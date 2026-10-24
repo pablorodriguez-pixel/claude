@@ -26,6 +26,17 @@ async def edge_one(name, text, voice):
     return {"name": name, "text": text, "words": words, "dur": dur(mp3)}
 
 
+TEMPO = float(os.environ.get("VOICE_TEMPO", "1.10"))   # más ritmo sin cambiar el tono (atempo)
+STAB = float(os.environ.get("VOICE_STABILITY", "0.4"))
+
+
+def speed_up(mp3, words):
+    if abs(TEMPO - 1.0) < 1e-3: return words
+    tmp = mp3 + ".t.mp3"
+    subprocess.check_call(["ffmpeg", "-v", "error", "-y", "-i", mp3, "-filter:a", f"atempo={TEMPO}", "-b:a", "128k", tmp]); os.replace(tmp, mp3)
+    return [{"w": w["w"], "t": w["t"] / TEMPO, "d": w["d"] / TEMPO} for w in words]
+
+
 def eleven_one(name, text, voice_id, model):
     import requests
     key = os.environ["API_KEY_ELEVENLABS"]
@@ -36,7 +47,7 @@ def eleven_one(name, text, voice_id, model):
         r = requests.post(f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}/with-timestamps?output_format=mp3_44100_128",
                           headers={"xi-api-key": key, "Content-Type": "application/json"},
                           json={"text": text, "model_id": model, "language_code": "es",
-                                "voice_settings": {"stability": 0.5, "similarity_boost": 0.75, "style": 0.15, "use_speaker_boost": True}}, timeout=120)
+                                "voice_settings": {"stability": STAB, "similarity_boost": 0.8}}, timeout=120)
         if r.status_code != 200:
             sys.exit(f"ElevenLabs {r.status_code}: {r.text[:300]}")
         open(cj, "w").write(r.text)
@@ -50,6 +61,8 @@ def eleven_one(name, text, voice_id, model):
         j = i
         while j < len(ch) and not ch[j].isspace(): j += 1
         words.append({"w": "".join(ch[i:j]), "t": st[i], "d": en[j - 1] - st[i]}); i = j
+    words = [w for w in words if not (w["w"].startswith("[") and w["w"].endswith("]"))]
+    words = speed_up(mp3, words)
     return {"name": name, "text": text, "words": words, "dur": dur(mp3)}
 
 
@@ -62,7 +75,7 @@ def check_budget(model):
     for _, text in SCENES:
         h = hashlib.sha1(f"{VOICE_ID}|{model}|{text}".encode()).hexdigest()[:16]
         if not os.path.exists(os.path.join(cache, h + ".json")): need += len(text)
-    cost = need * (0.5 if "flash" in model or "turbo" in model else 1.0)
+    cost = need * 0.3   # coste real medido ≈ 0.11-0.25 créditos/carácter
     print(f"créditos restantes: {left} · esta ejecución gastará ≈ {cost:.0f} ({need} caracteres nuevos, modelo {model})")
     if cost > left:
         sys.exit("ABORTADO: no hay créditos suficientes en la cuenta de ElevenLabs")
@@ -74,7 +87,7 @@ async def main():
         res = await asyncio.gather(*[edge_one(n, t, rest) for n, t in SCENES])
     else:
         global VOICE_ID
-        VOICE_ID, _, model = rest.partition(":"); model = model or "eleven_flash_v2_5"
+        VOICE_ID, _, model = rest.partition(":"); model = model or "eleven_v4"
         check_budget(model)
         res = [eleven_one(n, t, VOICE_ID, model) for n, t in SCENES]
     json.dump(res, open(os.path.join(OUT, "voice.json"), "w"), ensure_ascii=False, indent=1)

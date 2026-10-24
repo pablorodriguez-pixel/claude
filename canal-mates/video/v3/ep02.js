@@ -61,11 +61,16 @@ function runWin(name, t) {
 }
 
 function sceneHook(t, lt, s) {
-  const T = w => wt('hook', w), tCh = T('chocan'), tFam = T('famosos'), tMun = T('mundo');
-  headline('¿Cuántos', 'choques?', s.start + .1, t, { cps: 30 });
-  drawWorld(simulate(100), 0, { flash: false });
+  const T = w => wt('hook', w), tPa = T('pared'), tCh = T('chocan'), tFam = T('famosos'), tUni = T('universo');
+  headline('¿Cuántos', 'choques?', tPa - .1, t, { cps: 30 });
+  // arranque: primer plano de los dos bloques (como en el reel) y la cámara se aleja con desenfoque al decir "pared"
+  const c0 = tPa - .35, c1 = tPa + 1.3, zoomAt = tt => lerp(2.7, 1, easeIO(seg(tt, c0, c1))), Z = zoomAt(t), run = seg(t, c0, c1);
+  const cam = (z, alpha) => { ctx.save(); ctx.globalAlpha *= alpha; ctx.translate(WALL + 360, FLOOR - 60); ctx.scale(z, z); ctx.translate(-(WALL + 360), -(FLOOR - 60)); drawWorld(simulate(100), 0, { flash: false, meters: false }); ctx.restore(); };
+  const sh = .07 * clamp(Math.sin(run * Math.PI) * 3, 0, 1) * (run > 0 && run < 1 ? 1 : 0);
+  if (sh > .003) for (let k = 0; k < 7; k++) cam(zoomAt(t - sh * k / 6), .2);
+  cam(Z, sh > .003 ? .6 : 1);
   const a = easeOut(seg(t, tCh - .1, tCh + .3)); if (a > 0) { txt('1 KG', 330, FLOOR + 90, 26, C.label, { alpha: a, weight: 700, ls: 3 }); txt('100 KG', 690, FLOOR + 90, 26, C.accent, { alpha: a, weight: 700, ls: 3 }); txt('¿CUÁNTAS VECES SE TOCAN?', 540, FLOOR + 170, 30, C.line, { alpha: a, weight: 800, ls: 3 }); }
-  const q = easeBack(seg(t, tFam - .1, tFam + .4)); if (q > 0) { txt('?', 700, 640, 260, C.accent, { weight: 800, scale: q * (1 + .04 * Math.sin(t * 5)) }); txt('UN NÚMERO FAMOSO', 700, 790, 34, C.label, { weight: 700, ls: 4, alpha: seg(t, tMun - .1, tMun + .3) }); }
+  const q = easeBack(seg(t, tFam - .1, tFam + .4)); if (q > 0) { txt('?', 700, 640, 260, C.accent, { weight: 800, scale: q * (1 + .04 * Math.sin(t * 5)) }); txt('UN NÚMERO FAMOSO', 700, 790, 34, C.label, { weight: 700, ls: 4, alpha: seg(t, tUni - .1, tUni + .3) }); }
 }
 function sceneReglas(t, lt, s) {
   const T = w => wt('reglas', w), tRo = T('rozamiento'), tPe = T('perfectos'), tBi = T('billar'), tPq = T('pequeno'), tQu = T('quieto'), tGr = T('grande'), tAv = T('avanza');
@@ -95,7 +100,7 @@ function sceneCien(t, lt, s) {
   const b = easeBack(seg(t, tPe - .1, tPe + .35)); if (b > 0) { ctx.save(); ctx.translate(330, 650); ctx.scale(b, b); ball(0, 0, 36, C.line, 4); ctx.restore(); txt('PELOTA', 330, 740, 30, C.line, { weight: 800, ls: 4, alpha: seg(t, tPe, tPe + .3) }); }
 }
 function sceneDigitos(t, lt, s) {
-  const T = (w, n = 0) => wt('digitos', w, n), tNo = T('notas'), fade = 1 - seg(t, tNo - .1, tNo + .3);
+  const T = (w, n = 0) => wt('digitos', w, n), tNo = T('suena'), fade = 1 - seg(t, tNo - .1, tNo + .3);
   if (fade > 0) { ctx.save(); ctx.globalAlpha *= fade; const [n, r] = runWin('digitos', t); hudSim(lt, n, r); ctx.restore(); }
   const post = easeOut(seg(t, tNo, tNo + .4)); if (post <= 0) return;
   ctx.save(); ctx.globalAlpha *= post;
@@ -120,7 +125,7 @@ function dial(stepDeg, steps, hand, tickAlpha = 1) {
   ctx.beginPath(); ctx.arc(DX, DY, DR + 30, -Math.PI / 2, -Math.PI / 2 + a); ctx.lineWidth = 8; ctx.strokeStyle = 'rgba(255,143,107,.55)'; ctx.stroke();
 }
 function sceneReloj(t, lt, s) {
-  const T = (w, n = 0) => wt('reloj', w, n), tPi = T('pi'), tRe = T('reloj'), tAg = T('aguja', 0), tPa = T('paso', 0), tIg = T('iguales'), tMe = T('media');
+  const T = (w, n = 0) => wt('reloj', w, n), tPi = T('pi'), tRe = T('reloj'), tAg = T('aguja', 0), tPa = T('paso', 0), tIg = T('mismo'), tMe = T('media');
   headline('¿Por qué', 'sale pi?', s.start + .1, t, { alpha: 1 - seg(t, tRe - .1, tRe + .1) });
   const th = Math.atan(.1) * 180 / Math.PI, N = 31, start = tPa + .2, end = tMe + .3;
   const k = clamp((t - start) / (end - start)) * N, kk = Math.floor(k), f = k - kk, hand = t < start ? 0 : kk + easeIO(f);
@@ -150,10 +155,10 @@ window.getEvents = () => {
   TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
   ['igual', 'cien', 'digitos'].forEach(name => winFor(name).forEach(w => { const sim = simulate(w.r);
     for (let k = 1; k <= sim.n; k++) { const e = sim.ev[k], wall = Math.abs(e.x1) < 1e-6; E.push({ t: w.times[k - 1], type: sim.n > 400 ? 'roll' : (wall ? 'wall' : 'hit') }); } }));
-  P('hook', 'chocan'); P('hook', 'famosos', 0, 'ding'); P('reglas', 'rozamiento'); P('reglas', 'billar'); P('reglas', 'avanza', 0, 'swipe');
-  P('igual', 'tres', 0, 'ding'); P('cien', 'camion'); P('cien', 'pelota'); P('cien', 'treinta', 0, 'ding'); P('digitos', 'notas');
+  E.push({ t: wt('hook', 'pared') - .35, type: 'zoom' }); E.push({ t: wt('hook', 'pared') + 1.3, type: 'boom' }); P('hook', 'chocan'); P('hook', 'famosos', 0, 'boom'); P('reglas', 'rozamiento'); P('reglas', 'billar'); P('reglas', 'avanza', 0, 'swipe');
+  P('igual', 'tres', 0, 'ding'); P('cien', 'camion'); P('cien', 'pelota'); P('cien', 'treinta', 0, 'ding'); P('digitos', 'suena');
   P('digitos', 'tres', 1, 'ding'); P('digitos', 'uno', 1, 'ding'); P('digitos', 'cuatro', 0, 'ding'); P('digitos', 'uno', 2, 'ding'); P('digitos', 'pi', 0, 'ding');
-  P('reloj', 'reloj'); P('reloj', 'paso'); P('reloj', 'iguales'); P('reloj', 'media', 0, 'ding'); P('porque', 'pesado'); P('porque', 'pequeno'); P('porque', 'pasos'); P('porque', 'pi', 0, 'ding');
+  P('reloj', 'reloj'); P('reloj', 'paso'); P('reloj', 'mismo'); P('reloj', 'media', 0, 'ding'); P('porque', 'pesado'); P('porque', 'pequeno'); P('porque', 'pasos'); P('porque', 'pi', 0, 'ding');
   P('cta', 'sigue', 0, 'click'); E.push({ t: wt('cta', 'sigue') + .1, type: 'ding' });
   return E;
 };

@@ -1,10 +1,10 @@
 [
- ["hook",    "¿Cuántas veces chocan estos dos bloques? Parece física del instituto, pero la respuesta esconde uno de los números más famosos del mundo."],
- ["reglas",  "Las reglas: no hay rozamiento y los choques son perfectos, como bolas de billar. El bloque pequeño espera quieto, y el grande avanza hacia él."],
- ["igual",   "Si pesan lo mismo, es sencillo: tres choques. El grande empuja al pequeño, el pequeño rebota en la pared, y vuelve a chocar."],
- ["cien",    "Ahora el grande pesa cien veces más. Es como un camión contra una pelota. ¿Cuántos choques? Treinta y uno."],
- ["digitos", "Con diez mil veces más, trescientos catorce. Con un millón, tres mil ciento cuarenta y uno. ¿Notas algo? Tres, uno, cuatro, uno. Son los dígitos de pi."],
- ["reloj",   "¿Por qué sale pi? Imagina un reloj. Cada choque mueve la aguja un paso, y todos los pasos son iguales. Los choques terminan cuando la aguja da media vuelta."],
- ["porque",  "Cuanto más pesado es el bloque, más pequeño es el paso, y más pasos caben en media vuelta. Y media vuelta es justo lo que mide pi."],
- ["cta",     "Pi estaba escondido en los choques. Sigue Cero y Uno y te enseño el próximo misterio."]
+ ["hook",    "Dos bloques. Una pared. Y una pregunta que parece una tontería: ¿cuántas veces chocan? La respuesta esconde uno de los números más famosos del universo."],
+ ["reglas",  "Las reglas son simples: nada de rozamiento, y choques perfectos, como bolas de billar. El bloque pequeño espera quieto. El grande avanza hacia él… y empieza el juego."],
+ ["igual",   "Primera prueba: pesan lo mismo. Resultado: tres choques. El grande empuja al pequeño, el pequeño rebota en la pared… y vuelve a chocar. Tres."],
+ ["cien",    "Ahora el grande pesa CIEN veces más. Imagina un camión contra una pelota. ¿Cuántos choques? ¡Treinta y uno!"],
+ ["digitos", "Y si pesa diez mil veces más: trescientos catorce. Con un millón: tres mil ciento cuarenta y uno. ¿Te suena? Tres. Uno. Cuatro. Uno. ¡Son los dígitos de pi!"],
+ ["reloj",   "¿Por qué sale pi? Imagina un reloj. Cada choque mueve la aguja un paso, siempre el mismo. Y cuando la aguja da media vuelta… se acabaron los choques."],
+ ["porque",  "Cuanto más pesado es el bloque, más pequeño es el paso… y más pasos caben en media vuelta. Y media vuelta es exactamente lo que mide pi."],
+ ["cta",     "Pi estaba escondido en los choques. Sigue Cero y Uno y descubre el próximo misterio matemático."]
 ]

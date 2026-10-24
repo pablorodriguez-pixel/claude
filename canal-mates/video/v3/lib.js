@@ -176,10 +176,11 @@ function headline(l1, l2, t0, t, o = {}) {
 function render(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
   background();
-  const s = TL.scenes.find(s => t >= s.start - .02 && t < s.end + .2);
+  const s = TL.scenes.find(s => t >= s.start - .02 && t < s.end + .2) || (t < TL.scenes[0].start ? TL.scenes[0] : null);   // antes de la primera palabra ya se ve la primera escena
   if (!s) return;
-  const lt = t - s.start, aIn = easeOut(seg(lt, 0, .25)), aOut = 1 - easeOut(seg(lt, s.dur + .02, s.dur + .25));
-  const sweep = easeOut(seg(lt, 0, .55));
+  const first = s === TL.scenes[0];   // el primer fotograma ya tiene que impactar: sin fundido ni barrido
+  const lt = t - s.start, aIn = first ? 1 : easeOut(seg(lt, 0, .25)), aOut = 1 - easeOut(seg(lt, s.dur + .02, s.dur + .25));
+  const sweep = first ? 1 : easeOut(seg(lt, 0, .55));
   ctx.save();
   ctx.globalAlpha = clamp(aIn * aOut);
   const z = 1 + .03 * (lt / s.dur);
