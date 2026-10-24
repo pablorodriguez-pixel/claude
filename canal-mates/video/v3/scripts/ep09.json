@@ -1,30 +1,8 @@
 [
- [
-  "hook",
-  "¿Por qué el carril de al lado SIEMPRE va más rápido? No es mala suerte. Es una ilusión… y tiene explicación."
- ],
- [
-  "escena",
-  "Imagina dos carriles que, de media, van exactamente igual de rápido. A ratos avanza uno, a ratos el otro."
- ],
- [
-  "clave",
-  "La clave: los tramos lentos duran más. Un kilómetro a veinte por hora son tres minutos. A sesenta, uno solo. Así que pasas mucho más tiempo en el tramo lento… viendo cómo te adelantan."
- ],
- [
-  "cabeza",
-  "Cuando por fin vas rápido, adelantas en un momento y ni lo notas. Y tu cabeza solo apunta una cosa: mi carril es el lento."
- ],
- [
-  "estudio",
-  "Un estudio publicado en la revista Nature lo comprobó con conductores: el setenta por ciento creía que el carril de al lado iba más rápido… cuando en realidad iba un poco más lento."
- ],
- [
-  "cierre",
-  "Así que antes de cambiarte de carril… piénsalo dos veces. Muchas veces, es solo una ilusión."
- ],
- [
-  "cta",
-  "Tu intuición te engaña. Sigue a cerouno."
- ]
+ ["hook",      "Llegas tarde, estás en un atasco… y el carril de al lado avanza más. ¿Te cambias? Casi todo el mundo lo hace. Y casi nunca sirve de nada."],
+ ["prueba",    "Mira. Los dos carriles van, de media, igual de rápido. Pero los tramos lentos duran más: un kilómetro a veinte por hora son tres minutos; a sesenta, solo uno. Así que tres de cada cuatro minutos los pasas viendo cómo te adelantan."],
+ ["cabeza",    "Y cuando por fin vas rápido, adelantas en un momento y ni lo notas. Por eso parece que el otro carril siempre gana."],
+ ["estudio",   "Un estudio publicado en la revista Nature lo comprobó: el setenta por ciento de los conductores creía que el carril de al lado iba más rápido… y en realidad iba un poco más lento."],
+ ["veredicto", "Así que, ¿te cambias? Casi nunca compensa: no ganas ni un minuto, y cada cambio de carril es una maniobra de riesgo."],
+ ["cta",       "Tu intuición te engaña. Sigue a cerouno."]
 ]
