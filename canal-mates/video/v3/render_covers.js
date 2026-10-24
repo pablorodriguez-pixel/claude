@@ -2,8 +2,9 @@ const { chromium } = require('playwright'); const fs = require('fs'), path = req
 const COVERS = {
   ep07: `background();
     shout('99 DE 100', 380, 150, C.mint); shout('SALEN LIBRES', 530, 110, C.line);
-    ctx.save(); ctx.translate(0, 100); gridPeople(0, i => i === 0 ? C.accent : C.mint); txt('?', GRID(0)[0], GRID(0)[1] - 40, 50, C.accent, { weight: 800 }); ctx.restore();
-    stamp('¿CÓMO?', 540, 1520, 76, C.accent, 1, -.06); brand(1665);`,
+    line100(0, k => ({ num: k + 1, hat: HATS[k], state: k > 0 ? 'free' : null, hl: k === 0 }));
+    { const [x, y, sz] = HEAD(0); txt('?', x + sz * .5, y - sz * .55, 90, C.accent, { weight: 800 }); }
+    stamp('¿CÓMO?', 700, 1480, 70, C.accent, 1, -.06); brand(1640);`,
   ep08: `background();
     shout('10 AÑOS', 380, 170, C.accent); shout('MIRANDO EL MÓVIL', 530, 84, C.line);
     years(0, { sleep: 0, work: 0, phone: 10 });

@@ -2,91 +2,105 @@
 const RND = i => { const x = Math.sin(i * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
 const HATS = (() => { const h = []; for (let i = 0; i < 100; i++) h.push(RND(i + 3) < .47 ? 1 : 0); h[0] = 0; h[1] = 1;
   let w = h.slice(1).reduce((a, b) => a + b, 0); for (let i = 99; i > 1 && w !== 47; i--) { if (w > 47 && h[i]) { h[i] = 0; w--; } else if (w < 47 && !h[i]) { h[i] = 1; w++; } } return h; })();
-const GRID = i => [180 + (i % 10) * 80, 560 + Math.floor(i / 10) * 82];
-function gridPeople(t, colorFn, o = {}) { for (let i = 0; i < 100; i++) { const [x, y] = GRID(i), a = o.appear !== undefined ? easeBack(seg(t, o.appear + i * .006, o.appear + .3 + i * .006)) : 1; if (a <= 0) continue;
-  ctx.save(); ctx.translate(x, y); ctx.scale(a, a); ctx.translate(-x, -y); const c = colorFn(i); person(x, y + 30, 54, c, c === C.mint ? 'rgba(126,240,200,.35)' : c === C.red ? 'rgba(255,93,115,.3)' : null, 2.4); hat(x, y + 30, 54, HATS[i]); ctx.restore(); } }
-const ROWX = k => 110 + k * 143, ROWY = 1080, RS = 140;          // fila: k=0 es el del fondo (a la izquierda), miran hacia la derecha
-function row(t, o = {}) { line(60, ROWY + 6, 1020, ROWY + 6, C.soft, 3);
-  for (let k = 0; k < 7; k++) { const x = ROWX(k), col = o.col ? o.col(k) : C.line, a = o.alpha ? o.alpha(k) : 1; if (a <= 0) continue; ctx.save(); ctx.globalAlpha *= a;
-    person(x, ROWY, RS, col, col === C.mint ? 'rgba(126,240,200,.35)' : null, 3); if (!(o.hide && o.hide(k))) hat(x, ROWY, RS, HATS[k]); else txt('?', x, ROWY - 1.15 * RS, 52, C.accent, { weight: 800 }); ctx.restore(); }
-  txt('… hasta 100', 1040, ROWY + 56, 26, C.label, { align: 'right', weight: 700 }); txt('FONDO', ROWX(0), ROWY + 52, 24, C.label, { weight: 700, ls: 2 }); }
-function say(k, text, k0, col = C.accent) { if (k0 <= 0) return; bubble(ROWX(k) + 140, ROWY - 2.05 * RS, 290, 84, text, col, { scale: k0, size: 38 }); }
+// ── la fila en perspectiva: k = 0 es el del fondo de la fila (el más cercano a cámara, abajo a la izquierda) ──
+const VP = [880, 470], P0 = [250, 1290], S0 = 300;
+const persp = k => { const z = 1 + k * .42; return [VP[0] + (P0[0] - VP[0]) / z, VP[1] + (P0[1] - VP[1]) / z, S0 / z]; };
+const BODY = [[-.20, -.26], [-.31, -.14], [-.33, .08], [-.25, .08], [-.22, -.10], [-.14, -.10], [-.14, .5], [-.02, .5], [-.02, .12], [.02, .12], [.02, .5], [.14, .5], [.14, -.10], [.22, -.10], [.25, .08], [.33, .08], [.31, -.14], [.20, -.26]];
+function prisoner(x, y, s, o = {}) {           // preso con uniforme de rayas, número y bola con cadena (dibujo propio)
+  const a = o.alpha ?? 1; if (a <= .01 || s < 2) return; ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y - s * .5);
+  const st = o.state, c1 = st === 'free' ? C.mint : st === 'out' ? C.red : '#ff8f6b', c2 = '#16262c';
+  if (s > 40) { ctx.strokeStyle = 'rgba(230,255,247,.6)'; ctx.lineWidth = Math.max(1, s * .012); ctx.beginPath(); ctx.moveTo(s * .1, s * .48); ctx.quadraticCurveTo(s * .25, s * .56, s * .36, s * .47); ctx.stroke(); circle(s * .4, s * .45, s * .065, { fill: '#0b1c21', stroke: 'rgba(230,255,247,.7)', w: Math.max(1, s * .01) }); }
+  ctx.beginPath(); BODY.forEach(([px, py], i) => i ? ctx.lineTo(px * s, py * s) : ctx.moveTo(px * s, py * s)); ctx.closePath();
+  ctx.save(); ctx.clip(); const sh = Math.max(2, s * .075); for (let yy = -s * .3, i = 0; yy < s * .55; yy += sh, i++) { ctx.fillStyle = i % 2 ? c2 : c1; ctx.fillRect(-s * .4, yy, s * .8, sh + .5); } ctx.restore();
+  ctx.lineWidth = Math.max(1.2, s * .018); ctx.strokeStyle = o.hl ? C.accent : 'rgba(230,255,247,.85)'; ctx.lineJoin = 'round'; ctx.stroke();
+  ctx.beginPath(); ctx.arc(0, -.42 * s, .13 * s, 0, Math.PI * 2); ctx.fillStyle = '#f4e3d6'; ctx.fill(); ctx.stroke();
+  if (s > 70 && o.num !== undefined) { ctx.fillStyle = '#f4fffb'; ctx.fillRect(-s * .1, -s * .2, s * .2, s * .09); txt(String(o.num).padStart(3, '0'), 0, -s * .155, s * .07, C.ink, { weight: 800 }); }
+  ctx.restore();
+  if (o.q) txt('?', x, y - 1.2 * s, Math.max(14, s * .3), C.accent, { weight: 800, alpha: a });
+  else if (o.hat !== undefined && o.hat !== null) { const d = o.drop ?? 1; if (d > 0) { ctx.save(); ctx.globalAlpha *= a * Math.min(1, d * 2); hat(x, y - (1 - d) * s * 1.4, s, o.hat); ctx.restore(); } }
+  if (o.chk) check(x, y - 1.55 * s, Math.max(14, s * .3));
+}
+function line100(t, fn) { for (let k = 99; k >= 0; k--) { const [x, y, s] = persp(k); prisoner(x, y, s, fn(k, x, y, s) || {}); } }
+function cam(z, cx, cy, draw) { ctx.save(); ctx.translate(cx, cy); ctx.scale(z, z); ctx.translate(-cx, -cy); draw(); ctx.restore(); }
+const HEAD = k => { const [x, y, s] = persp(k); return [x, y - .95 * s, s]; };
+function sayAt(k, text, k0, col = C.accent) { if (k0 <= 0) return; const [x, y, s] = persp(k); bubble(x + 180, y - 1.55 * s - 40, 300, 88, text, col, { scale: k0, size: 40 }); }
 
 function sceneHook(t, lt, s) {
   const T = w => wt('hook', w), tSi = T('siempre'), tPa = T('palabra');
   headline('99 de 100', 'salen libres', .05, t, { cps: 34, size: 66 });
-  const free = Math.floor(99 * easeIO(seg(t, .35, 2.3)));
-  gridPeople(t, i => i === 0 ? (t > 2.3 ? C.accent : C.line) : (i <= free ? C.mint : C.line));
-  hud('R', 'LIBRES', String(free), { color: C.mint, size: 96 });
-  if (t > 2.3) txt('?', GRID(0)[0], GRID(0)[1] - 40, 46, C.accent, { weight: 800, scale: .9 + .1 * Math.sin(t * 7) });
-  stamp('SIEMPRE', 540, 960, 76, C.mint, easeBack(seg(t, tSi - .1, tSi + .3)) * (1 - seg(t, tPa - .4, tPa - .2)));
-  const p = easeBack(seg(t, tPa - .25, tPa + .2)); if (p > 0) { bubble(400, 1000, 320, 96, 'BLANCO', C.line, { scale: p, size: 44 }); bubble(720, 1000, 320, 96, 'NEGRO', C.line, { scale: p, size: 44 }); stamp('SOLO 1 PALABRA', 540, 1170, 50, C.accent, p, 0); }
+  const z = lerp(1.25, 1, easeOut(seg(t, 0, 2.6)));                  // la cámara retrocede a lo largo de la fila desde el fotograma 0
+  const wave = 99 * easeIO(seg(t, 1.5, 2.8));
+  cam(z, 330, 1100, () => line100(t, k => ({ num: k + 1, hat: HATS[k], drop: easeOut(seg(t, k * .016, .35 + k * .016)), state: k > 0 && k <= wave ? 'free' : null, hl: k === 0 && t > 2.8, q: false })));
+  hud('R', 'LIBRES', String(Math.floor(wave)), { color: C.mint, size: 96, alpha: seg(t, 1.4, 1.7) });
+  if (t > 2.8) { const [x, y, sz] = HEAD(0); txt('?', x + sz * .5, y - sz * .55, 70, C.accent, { weight: 800, scale: .9 + .1 * Math.sin(t * 7) }); }
+  stamp('SIEMPRE', 600, 780, 76, C.mint, easeBack(seg(t, tSi - .1, tSi + .3)) * (1 - seg(t, tPa - .4, tPa - .2)));
+  const p = easeBack(seg(t, tPa - .25, tPa + .2)); if (p > 0) { sayAt(0, 'BLANCO', p, C.line); bubble(760, 760, 300, 88, 'NEGRO', C.line, { scale: p, size: 40 }); stamp('SOLO 1 PALABRA', 600, 620, 50, C.accent, p, 0); }
 }
 function sceneReglas(t, lt, s) {
-  const T = w => wt('reglas', w), tGo = T('gorro'), tBl = T('blanco'), tNe = T('negro'), tNa = T('nadie'), tLi = T('libre'), tFa = T('falla');
+  const T = w => wt('reglas', w), tGo = T('gorro'), tNe = T('negro'), tNa = T('nadie'), tLi = T('libre'), tFa = T('falla');
   headline('Las reglas', '', s.start + .1, t);
-  const cx = 540, by = 1150, S = 400, drop = easeOut(seg(t, tGo - .2, tGo + .3)), white = t < tNe ? 1 : (Math.floor((t - tNe) * 1.5) % 2 === 0 ? 0 : 1);
-  if (t >= tFa - .1) { ctx.save(); ctx.globalAlpha *= seg(t, tFa - .1, tFa + .3); for (let i = 0; i < 9; i++) line(250 + i * 72, 560, 250 + i * 72, 1180, C.red, 6); ctx.restore(); }
-  person(cx, by, S, t >= tLi - .05 && t < tFa - .1 ? C.mint : C.line, null, 6);
-  if (drop > 0) { ctx.save(); ctx.translate(0, (1 - drop) * -300); ctx.globalAlpha *= drop; hat(cx, by, S, white); ctx.restore(); }
-  const n = easeBack(seg(t, tNa - .1, tNa + .3)) * (1 - seg(t, tLi - .2, tLi)); if (n > 0) { txt('?', cx + 150, by - 1.2 * S, 120, C.accent, { weight: 800, scale: n }); txt('NADIE VE EL SUYO', cx, 470, 50, C.accent, { weight: 800, scale: n, ls: 2 }); }
-  const l = easeBack(seg(t, tLi - .1, tLi + .3)) * (1 - seg(t, tFa - .2, tFa)); if (l > 0) txt('ACIERTA → LIBRE', cx, 470, 56, C.mint, { weight: 800, scale: l, ls: 2 });
-  const f = easeBack(seg(t, tFa - .1, tFa + .3)); if (f > 0) txt('FALLA → DENTRO', cx, 470, 56, C.red, { weight: 800, scale: f, ls: 2 });
+  const white = t < tNe ? 1 : (Math.floor((t - tNe) * 1.5) % 2 === 0 ? 0 : 1), st = t >= tFa - .05 ? 'out' : t >= tLi - .05 ? 'free' : null;
+  cam(1.55, 300, 1150, () => line100(t, k => k === 0 ? { num: 1, hat: white, drop: easeOut(seg(t, tGo - .25, tGo + .25)), q: t >= tNa - .05 && t < tLi - .1, state: st, hl: true } : { num: k + 1, alpha: .35 }));
+  if (t >= tFa - .1) { ctx.save(); ctx.globalAlpha *= seg(t, tFa - .1, tFa + .3); for (let i = 0; i < 7; i++) line(80 + i * 90, 560, 80 + i * 90, 1330, C.red, 7); ctx.restore(); }
+  const n = easeBack(seg(t, tNa - .1, tNa + .3)) * (1 - seg(t, tLi - .2, tLi)); if (n > 0) txt('NADIE VE EL SUYO', 600, 470, 50, C.accent, { weight: 800, scale: n, ls: 2 });
+  const l = easeBack(seg(t, tLi - .1, tLi + .3)) * (1 - seg(t, tFa - .2, tFa)); if (l > 0) txt('ACIERTA → LIBRE', 600, 470, 56, C.mint, { weight: 800, scale: l, ls: 2 });
+  const f = easeBack(seg(t, tFa - .1, tFa + .3)); if (f > 0) txt('FALLA → DENTRO', 600, 470, 56, C.red, { weight: 800, scale: f, ls: 2 });
 }
 function sceneAzar(t, lt, s) {
   const T = w => wt('azar', w), tMo = T('moneda'), tTr = T('truco'), tNo = T('noventa');
   headline('Al azar…', '', s.start + .1, t, { alpha: 1 - seg(t, tTr - .1, tTr + .1) }); headline('Con el truco', '', tTr, t, { cps: 40 });
-  const run = t < tNo - .1 ? Math.floor(clamp((t - s.start - .3) / 1.1, 0, 9)) : -1;
-  const ok = i => run < 0 ? i !== 0 : RND(i * 7 + run * 131) < .5;
-  const cnt = run < 0 ? 99 : [...Array(100).keys()].filter(ok).length;
-  gridPeople(t, i => run < 0 ? (i === 0 ? C.accent : C.mint) : (ok(i) ? C.mint : C.red));
+  const run = t < tNo - .1 ? Math.floor(clamp((t - s.start - .3) / 1.1, 0, 9)) : -1, ok = k => run < 0 ? k !== 0 : RND(k * 7 + run * 131) < .5;
+  const cnt = [...Array(100).keys()].filter(ok).length;
+  line100(t, k => ({ num: k + 1, hat: HATS[k], state: ok(k) ? 'free' : (run < 0 ? null : 'out'), hl: run < 0 && k === 0 }));
   hud('R', 'LIBRES', String(cnt), { color: run < 0 ? C.mint : C.line, size: 96 });
-  const c = easeBack(seg(t, tMo - .1, tMo + .3)) * (1 - seg(t, tTr - .2, tTr)); if (c > 0) { ctx.save(); ctx.translate(540, 1380 - 60); ctx.scale(c * Math.abs(Math.cos(t * 6)), c); circle(0, 0, 50, { fill: 'rgba(255,209,102,.35)', stroke: '#ffd166', w: 5 }); ctx.restore(); }
+  const c = easeBack(seg(t, tMo - .1, tMo + .3)) * (1 - seg(t, tTr - .2, tTr)); if (c > 0) { ctx.save(); ctx.translate(780, 900); ctx.scale(c * Math.abs(Math.cos(t * 6)), c); circle(0, 0, 70, { fill: 'rgba(255,209,102,.35)', stroke: '#ffd166', w: 6 }); ctx.restore(); }
 }
 function sceneFila(t, lt, s) {
   const T = (w, n = 0) => wt('fila', w, n), tFi = T('fila'), tVe = T('ve'), tSu = T('suyo'), tHa = T('hablan'), tUl = T('ultimo'), tOy = T('oyen'), tPl = T('plan');
   headline('En fila', '', s.start + .1, t);
-  const me = 3, look = t >= tVe - .1 && t < tHa - .2;
-  row(t, { alpha: k => easeOut(seg(t, s.start + k * .06, s.start + .3 + k * .06)), col: k => look && k === me ? C.accent : C.line, hide: k => look && k === me && t >= tSu - .1 });
-  const ar = easeOut(seg(t, tFi + .6, tFi + 1.2)); if (ar > 0 && t < tVe - .1) txt('MIRAN →', 540, 600, 46, C.label, { weight: 800, ls: 4, alpha: ar });
-  if (look) { const a = easeOut(seg(t, tVe - .1, tVe + .4)); ctx.save(); ctx.globalAlpha *= a * .8; for (let k = me + 1; k < 7; k++) { ctx.setLineDash([8, 8]); line(ROWX(me) + 14, ROWY - .95 * RS, ROWX(k), ROWY - 1.15 * RS, C.accent, 2); } ctx.restore();
-    txt('VE A TODOS LOS DE DELANTE', 540, 600, 40, C.accent, { weight: 800, ls: 2, alpha: a }); if (t >= tSu - .1) txt('PERO NO EL SUYO', 540, 660, 40, C.red, { weight: 800, ls: 2, alpha: seg(t, tSu - .1, tSu + .2) }); }
-  if (t >= tHa - .2) { const k = Math.floor(clamp((t - tUl) / .6, 0, 6)); for (let j = 0; j <= Math.min(6, k); j++) txt(String(j + 1), ROWX(j), ROWY - 1.5 * RS, 34, j === k ? C.accent : C.label, { weight: 800 });
-    txt('HABLAN DESDE EL FONDO →', 540, 600, 40, C.line, { weight: 800, ls: 2, alpha: seg(t, tHa - .2, tHa + .2) }); }
-  if (t >= tOy - .1) { const ph = (Math.max(0, t - tOy) * 1.2) % 1; ctx.save(); ctx.globalAlpha *= (1 - ph) * seg(t, tOy - .1, tOy + .2) * (1 - seg(t, tPl - .2, tPl)); circle(ROWX(0), ROWY - .9 * RS, 40 + ph * 520, { stroke: C.mint, w: 4 }); ctx.restore(); txt('TODOS LO OYEN', 540, 660, 40, C.mint, { weight: 800, ls: 2, alpha: seg(t, tOy - .1, tOy + .2) * (1 - seg(t, tPl - .2, tPl)) }); }
-  stamp('PLAN PACTADO', 540, 640, 56, C.accent, easeBack(seg(t, tPl - .15, tPl + .3)));
+  const me = 2, look = t >= tVe - .1 && t < tHa - .2, z = lerp(1.15, 1, easeOut(seg(t, s.start, s.start + 2)));
+  cam(z, 600, 900, () => {
+    line100(t, k => ({ num: k + 1, hat: look && k === me && t >= tSu - .1 ? null : HATS[k], q: look && k === me && t >= tSu - .1, hl: (look && k === me) || (t >= tHa - .2 && k === Math.floor(clamp((t - tUl) / .5, 0, 99))) }));
+    if (look) { const a = easeOut(seg(t, tVe - .1, tVe + .4)), [hx, hy] = HEAD(me); ctx.save(); ctx.globalAlpha *= a * .85; ctx.setLineDash([8, 8]); for (let k = me + 1; k < 40; k += (k < 10 ? 1 : 3)) { const [x2, y2] = HEAD(k); line(hx, hy, x2, y2, C.accent, 2); } ctx.restore(); }
+    if (t >= tOy - .1) { const ph = (Math.max(0, t - tOy) * 1.1) % 1, [hx, hy] = HEAD(0); ctx.save(); ctx.globalAlpha *= (1 - ph) * seg(t, tOy - .1, tOy + .2) * (1 - seg(t, tPl - .2, tPl)); circle(hx, hy, 40 + ph * 650, { stroke: C.mint, w: 5 }); ctx.restore(); }
+  });
+  const ar = easeOut(seg(t, tFi + .5, tFi + 1)); if (ar > 0 && t < tVe - .1) txt('TODOS MIRAN HACIA DELANTE ↗', 560, 470, 40, C.label, { weight: 800, ls: 2, alpha: ar });
+  if (look) { txt('VE A TODOS LOS DE DELANTE', 560, 470, 42, C.accent, { weight: 800, ls: 2, alpha: seg(t, tVe - .1, tVe + .3) }); if (t >= tSu - .1) txt('PERO NO EL SUYO', 560, 530, 42, C.red, { weight: 800, ls: 2, alpha: seg(t, tSu - .1, tSu + .2) }); }
+  if (t >= tHa - .2 && t < tOy - .1) txt('HABLAN DESDE EL FONDO', 560, 470, 42, C.line, { weight: 800, ls: 2, alpha: seg(t, tHa - .2, tHa + .2) });
+  if (t >= tOy - .1 && t < tPl - .2) txt('TODOS LO OYEN', 560, 470, 46, C.mint, { weight: 800, ls: 2 });
+  stamp('PLAN PACTADO', 600, 520, 56, C.accent, easeBack(seg(t, tPl - .15, tPl + .3)));
 }
 function sceneTruco(t, lt, s) {
   const T = (w, n = 0) => wt('truco', w, n), tFo = T('fondo'), tCu = T('cuenta'), tIm = T('impares'), tPa = T('pares'), tCi = T('cincuenta'), tPi = T('pista');
   headline('El del fondo', '', s.start + .1, t);
-  const cnt = Math.floor(47 * easeIO(seg(t, tCu, tIm - .2)));
-  row(t, { col: k => k === 0 ? C.accent : (t >= tCu && t < tIm && HATS[k] && k <= 1 + Math.floor(5 * seg(t, tCu, tIm - .3)) ? C.mint : C.line) });
+  const kc = Math.floor(99 * easeIO(seg(t, tCu, tIm - .2))); let cnt = 0; for (let k = 1; k <= kc; k++) cnt += HATS[k];
+  const focus = easeIO(seg(t, s.start, tFo + .5)) * (1 - easeIO(seg(t, tCu - .3, tCu + .4)));
+  cam(1 + .45 * focus, 300, 1150, () => line100(t, k => ({ num: k + 1, hat: HATS[k], hl: k === 0, state: t >= tCu && t < tIm + .5 && k >= 1 && k <= kc && HATS[k] ? 'free' : null })));
   if (t >= tCu - .1) hud('R', 'BLANCOS QUE VE', String(cnt), { color: C.mint, size: 84 });
   const r1 = easeBack(seg(t, tIm - .1, tIm + .3)), r2 = easeBack(seg(t, tPa - .1, tPa + .3));
-  if (r1 > 0) txt('IMPAR → dice «BLANCO»', 540, 560, 46, C.line, { weight: 800, scale: r1 }); if (r2 > 0) txt('PAR → dice «NEGRO»', 540, 640, 46, C.line, { weight: 800, scale: r2 });
-  const c = easeBack(seg(t, tCi - .1, tCi + .3)); if (c > 0) { ctx.save(); ctx.translate(ROWX(0), ROWY - 1.55 * RS); ctx.scale(c * (.3 + .7 * Math.abs(Math.cos(t * 5))), c); circle(0, 0, 42, { fill: 'rgba(255,209,102,.35)', stroke: '#ffd166', w: 5 }); ctx.restore(); txt('50%', ROWX(0) + 60, ROWY - 1.95 * RS, 40, '#ffd166', { align: 'left', weight: 800, alpha: c }); }
-  const p = easeBack(seg(t, tPi - .1, tPi + .3)); if (p > 0) { const ph = (Math.max(0, t - tPi) * 1.2) % 1; ctx.save(); ctx.globalAlpha *= 1 - ph; circle(ROWX(0), ROWY - .9 * RS, 40 + ph * 560, { stroke: C.accent, w: 4 }); ctx.restore(); stamp('UNA PISTA PARA TODOS', 540, 800, 48, C.accent, p); }
+  if (r1 > 0) stamp('IMPAR → «BLANCO»', 600, 560, 44, C.line, r1, 0); if (r2 > 0) stamp('PAR → «NEGRO»', 600, 680, 44, C.line, r2, 0);
+  const c = easeBack(seg(t, tCi - .1, tCi + .3)); if (c > 0) { const [x, y, sz] = HEAD(0); ctx.save(); ctx.translate(x + sz * .6, y - sz * .6); ctx.scale(c * (.3 + .7 * Math.abs(Math.cos(t * 5))), c); circle(0, 0, 54, { fill: 'rgba(255,209,102,.35)', stroke: '#ffd166', w: 6 }); ctx.restore(); txt('50%', x + sz * .6, y - sz * .6 - 90, 48, '#ffd166', { weight: 800, alpha: c }); }
+  const p = easeBack(seg(t, tPi - .1, tPi + .3)); if (p > 0) { const ph = (Math.max(0, t - tPi) * 1.1) % 1, [hx, hy] = HEAD(0); ctx.save(); ctx.globalAlpha *= 1 - ph; circle(hx, hy, 40 + ph * 700, { stroke: C.accent, w: 5 }); ctx.restore(); stamp('UNA PISTA PARA TODOS', 600, 800, 48, C.accent, p); }
 }
 function sceneEjemplo(t, lt, s) {
   const T = (w, n = 0) => wt('ejemplo', w, n), t47 = T('cuarenta', 0), tIm0 = T('impar', 0), tDi = T('blanco', 0), tSi = T('siguiente'), t46 = T('cuarenta', 1), tPa = T('par'), tIm1 = T('impar', 1), tFa = T('falta'), tSu = T('suyo');
   headline('Un ejemplo', '', s.start + .1, t);
   const focus = t >= tSi - .1 ? 1 : 0, reveal = t >= tSu - .1;
-  row(t, { col: k => k === focus ? C.accent : (reveal && k === 1 ? C.mint : C.line), hide: k => k === 1 && t >= tSi - .1 && !reveal });
-  if (focus === 0) { hud('R', 'EL DEL FONDO VE', '47', { color: C.mint, size: 84, alpha: seg(t, t47 - .1, t47 + .2) }); const a = easeBack(seg(t, tIm0 - .1, tIm0 + .3)); if (a > 0) txt('47 ES IMPAR', 540, 580, 54, C.line, { weight: 800, scale: a, ls: 2 }); }
-  say(0, '«BLANCO»', easeBack(seg(t, tDi - .1, tDi + .3)));
-  if (focus === 1) { hud('R', 'EL SIGUIENTE VE', t >= t46 - .1 ? '46' : '…', { color: C.mint, size: 84 }); const b = easeBack(seg(t, tPa - .1, tPa + .3)) * (1 - seg(t, tFa - .2, tFa)); if (b > 0) txt('46 ES PAR', 540, 580, 54, C.line, { weight: 800, scale: b, ls: 2 });
-    const c = easeBack(seg(t, tIm1 - .1, tIm1 + .3)) * (1 - seg(t, tFa - .2, tFa)); if (c > 0) txt('PERO EL DE ATRÁS DIJO IMPAR', 540, 660, 40, C.accent, { weight: 800, scale: c, ls: 1 });
-    const d = easeBack(seg(t, tFa - .1, tFa + .3)); if (d > 0) { txt('47 − 46 = 1 BLANCO', 540, 580, 56, C.mint, { weight: 800, scale: d, ls: 2 }); txt('¡EL SUYO!', 540, 670, 64, C.mint, { weight: 800, scale: easeBack(seg(t, tSu - .1, tSu + .3)) }); }
-    if (reveal) check(ROWX(1), ROWY - 1.5 * RS, 64); }
+  cam(1.35, 330, 1150, () => line100(t, k => ({ num: k + 1, hat: k === 1 && focus && !reveal ? null : HATS[k], q: k === 1 && focus && !reveal, hl: k === focus, state: reveal && k === 1 ? 'free' : null, chk: reveal && k === 1 })));
+  if (!focus) { hud('R', 'EL DEL FONDO VE', '47', { color: C.mint, size: 84, alpha: seg(t, t47 - .1, t47 + .2) }); const a = easeBack(seg(t, tIm0 - .1, tIm0 + .3)); if (a > 0) stamp('47 ES IMPAR', 600, 450, 54, C.line, a, 0); }
+  const sb = easeBack(seg(t, tDi - .1, tDi + .3)); if (sb > 0) bubble(330, 640, 330, 96, '«BLANCO»', C.accent, { scale: sb, size: 44 });
+  if (focus) { hud('R', 'EL SIGUIENTE VE', t >= t46 - .1 ? '46' : '…', { color: C.mint, size: 84 }); const b = easeBack(seg(t, tPa - .1, tPa + .3)) * (1 - seg(t, tFa - .2, tFa)); if (b > 0) stamp('46 ES PAR', 640, 440, 54, C.line, b, 0);
+    const c = easeBack(seg(t, tIm1 - .1, tIm1 + .3)) * (1 - seg(t, tFa - .2, tFa)); if (c > 0) txt('PERO EL DE ATRÁS DIJO IMPAR', 600, 580, 40, C.accent, { weight: 800, scale: c });
+    const d = easeBack(seg(t, tFa - .1, tFa + .3)); if (d > 0) { stamp('47 − 46 = 1 BLANCO', 600, 440, 50, C.mint, d, 0); txt('¡EL SUYO!', 680, 560, 70, C.mint, { weight: 800, scale: easeBack(seg(t, tSu - .1, tSu + .3)) }); } }
 }
 function sceneCadena(t, lt, s) {
   const T = (w, n = 0) => wt('cadena', w, n), tEx = T('exacto'), tNo = T('noventa'), tFo = T('fondo'), tCa = T('cara');
   headline('Uno tras otro', '', s.start + .1, t);
-  const k = 1 + Math.floor(5 * easeIO(seg(t, s.start + .3, tEx + .4))), free = Math.floor(99 * easeIO(seg(t, s.start + .3, tNo + .3)));
-  row(t, { col: j => j === 0 ? C.accent : (j <= k ? C.mint : C.line) }); for (let j = 1; j <= Math.min(6, k); j++) check(ROWX(j), ROWY - 1.5 * RS, 48);
-  hud('R', 'LIBRES SEGUROS', String(free), { color: C.mint, size: 96 });
-  const c = easeBack(seg(t, tFo - .1, tFo + .3)); if (c > 0) { ctx.save(); ctx.translate(ROWX(0), ROWY - 1.55 * RS); ctx.scale(c * (.2 + .8 * Math.abs(Math.cos(t * 6))), c); circle(0, 0, 46, { fill: 'rgba(255,209,102,.35)', stroke: '#ffd166', w: 5 }); ctx.restore(); }
-  stamp('CARA O CRUZ', 540, 640, 60, '#ffd166', easeBack(seg(t, tCa - .1, tCa + .3)));
+  const k1 = 99 * easeIO(seg(t, s.start + .3, tNo + .3)), z = lerp(1, 1.12, seg(t, s.start, s.end));
+  cam(z, 700, 700, () => line100(t, k => ({ num: k + 1, hat: HATS[k], state: k >= 1 && k <= k1 ? 'free' : null, chk: k >= 1 && k <= k1 && k < 25, hl: k === 0 })));
+  hud('R', 'LIBRES SEGUROS', String(Math.floor(k1)), { color: C.mint, size: 96 });
+  const c = easeBack(seg(t, tFo - .1, tFo + .3)); if (c > 0) { const [x, y, sz] = HEAD(0); ctx.save(); ctx.translate(x + sz * .6, y - sz * .6); ctx.scale(c * (.2 + .8 * Math.abs(Math.cos(t * 6))), c); circle(0, 0, 56, { fill: 'rgba(255,209,102,.35)', stroke: '#ffd166', w: 6 }); ctx.restore(); }
+  stamp('CARA O CRUZ', 600, 560, 60, '#ffd166', easeBack(seg(t, tCa - .1, tCa + .3)));
 }
 function sceneCta(t, lt, s) { drawCta(t, lt, wt('cta', 'sigue')); }
 const DRAW = { hook: sceneHook, reglas: sceneReglas, azar: sceneAzar, fila: sceneFila, truco: sceneTruco, ejemplo: sceneEjemplo, cadena: sceneCadena, cta: sceneCta };
