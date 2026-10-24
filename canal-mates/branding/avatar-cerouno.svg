@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-labelledby="t">
+  <title id="t">cerouno — avatar</title>
+  <defs>
+    <radialGradient id="bg" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#0f5560"/><stop offset="1" stop-color="#05202a"/></radialGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffb08a"/><stop offset="1" stop-color="#ff7a59"/></linearGradient>
+  </defs>
+  <rect width="1080" height="1080" fill="url(#bg)"/>
+  <!-- zona segura circular de TikTok: todo el símbolo cabe dentro de un círculo central -->
+  <g transform="translate(540 540) scale(1.9) translate(-186 -168)">
+    <ellipse cx="124" cy="170" rx="58" ry="84" fill="none" stroke="url(#acc)" stroke-width="30"/>
+    <path d="M232 112 L262 90 V250" fill="none" stroke="#e6fff7" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M304 52 L311 71 L330 78 L311 85 L304 104 L297 85 L278 78 L297 71 Z" fill="#7ef0c8"/>
+  </g>
+</svg>
