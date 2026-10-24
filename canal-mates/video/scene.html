@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<style>html,body{margin:0;background:#0b0a1f}canvas{display:block}</style>
+</head><body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script src="build/timeline.js"></script>
+<script>
+// ───────── utilidades ─────────
+const W = 1080, H = 1920;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
+const easeOut = x => 1 - Math.pow(1 - clamp(x), 3);
+const easeIO = x => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const easeBack = x => { x = clamp(x); if (x <= 0) return 0; if (x >= 1) return 1; const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const lerp = (a, b, x) => a + (b - a) * x;
+
+const C = { bg1: '#1b1446', bg2: '#0b0a1f', violet: '#4b3fd1', lilac: '#a79bff', amber: '#ffd166',
+            coral: '#ff7a59', red: '#ff4d5e', green: '#5eead4', white: '#ffffff', dim: 'rgba(167,155,255,.28)' };
+const SANS = "'DejaVu Sans', 'Trebuchet MS', Helvetica, Arial, sans-serif";
+const MONO = "'DejaVu Sans Mono', monospace";
+
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]/g, '');
+const SC = {};
+TL.scenes.forEach(s => SC[s.name] = s);
+// instante absoluto en que se pronuncia la n-ésima aparición de una palabra de la escena
+function wt(scene, word, nth = 0) {
+  const s = SC[scene]; let k = 0;
+  for (const w of s.words) if (norm(w.w) === norm(word)) { if (k++ === nth) return s.start + w.t; }
+  throw new Error('palabra no encontrada: ' + scene + ':' + word + '#' + nth);
+}
+
+// ───────── dibujo básico ─────────
+function rr(x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+function txt(s, x, y, size, color, o = {}) {
+  ctx.save();
+  ctx.globalAlpha *= o.alpha ?? 1;
+  ctx.translate(x, y); if (o.scale) ctx.scale(o.scale, o.scale); if (o.rot) ctx.rotate(o.rot);
+  ctx.font = `${o.weight || 700} ${size}px ${o.mono ? MONO : SANS}`;
+  ctx.textAlign = o.align || 'center'; ctx.textBaseline = o.base || 'middle';
+  if (o.glow) { ctx.shadowColor = o.glow; ctx.shadowBlur = o.glowBlur || 40; }
+  if (o.stroke) { ctx.lineWidth = o.stroke; ctx.strokeStyle = o.strokeColor || 'rgba(8,6,28,.95)'; ctx.lineJoin = 'round'; ctx.strokeText(s, 0, 0); }
+  ctx.fillStyle = color; ctx.fillText(s, 0, 0);
+  ctx.restore();
+}
+function glowCircle(x, y, r, color, a = 1, blur = 30) {
+  ctx.save(); ctx.globalAlpha *= a; ctx.shadowColor = color; ctx.shadowBlur = blur;
+  ctx.fillStyle = color; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); ctx.restore();
+}
+function logoMark(x, y, s, a = 1) { // isotipo 0|1 (centro x,y; tamaño s)
+  ctx.save(); ctx.globalAlpha *= a; ctx.translate(x, y); ctx.scale(s / 340, s / 340); ctx.translate(-170, -170);
+  const g = ctx.createLinearGradient(0, 0, 340, 340); g.addColorStop(0, '#1b1446'); g.addColorStop(1, '#0b0a1f');
+  rr(0, 0, 340, 340, 84); ctx.fillStyle = g; ctx.fill(); ctx.lineWidth = 6; ctx.strokeStyle = '#4b3fd1'; ctx.stroke();
+  const ga = ctx.createLinearGradient(66, 86, 182, 254); ga.addColorStop(0, '#ffd166'); ga.addColorStop(1, '#ff7a59');
+  ctx.beginPath(); ctx.ellipse(124, 170, 58, 84, 0, 0, Math.PI * 2); ctx.lineWidth = 30; ctx.strokeStyle = ga; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(232, 112); ctx.lineTo(262, 90); ctx.lineTo(262, 250); ctx.lineWidth = 30; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#fff'; ctx.stroke();
+  ctx.fillStyle = '#ffd166'; ctx.beginPath(); ctx.moveTo(296, 40); ctx.lineTo(304, 62); ctx.lineTo(326, 70); ctx.lineTo(304, 78); ctx.lineTo(296, 100); ctx.lineTo(288, 78); ctx.lineTo(266, 70); ctx.lineTo(288, 62); ctx.closePath(); ctx.fill();
+  ctx.restore();
+}
+function pill(x, y, w, h, fill, a = 1) { ctx.save(); ctx.globalAlpha *= a; rr(x - w / 2, y - h / 2, w, h, h / 2); ctx.fillStyle = fill; ctx.fill(); ctx.restore(); }
+
+// ───────── fondo ─────────
+function rand(i) { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+function background(t) {
+  const g = ctx.createLinearGradient(0, 0, W * .4, H); g.addColorStop(0, C.bg1); g.addColorStop(1, C.bg2);
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  ctx.save(); ctx.font = `700 40px ${MONO}`; ctx.textAlign = 'center';
+  for (let i = 0; i < 46; i++) {
+    const x = rand(i) * W, sp = 18 + rand(i + 99) * 44, y = ((rand(i + 7) * H + t * sp) % (H + 80)) - 40;
+    ctx.fillStyle = `rgba(120,108,255,${.05 + rand(i + 3) * .09})`; ctx.fillText(rand(i + 5) > .5 ? '1' : '0', x, y);
+  }
+  ctx.restore();
+  const v = ctx.createRadialGradient(W / 2, H * .45, 300, W / 2, H * .45, 1250);
+  v.addColorStop(0, 'rgba(0,0,0,0)'); v.addColorStop(1, 'rgba(0,0,0,.45)'); ctx.fillStyle = v; ctx.fillRect(0, 0, W, H);
+}
+function chrome(t) { // barra de progreso + marca de agua
+  ctx.fillStyle = 'rgba(255,255,255,.12)'; rr(60, 52, W - 120, 8, 4); ctx.fill();
+  ctx.fillStyle = C.amber; rr(60, 52, (W - 120) * clamp(t / TL.total), 8, 4); ctx.fill();
+  logoMark(110, 150, 70); txt('Cero y Uno', 168, 150, 40, C.white, { align: 'left', weight: 700 });
+}
+
+// ───────── subtítulos karaoke ─────────
+const CHUNKS = [];
+TL.scenes.forEach(s => {
+  let cur = [];
+  s.words.forEach((w, i) => {
+    cur.push({ ...w, abs: s.start + w.t });
+    const end = /[.,:;?!…]$/.test(w.w) && cur.length >= 2;
+    if (cur.length >= 4 || end || i === s.words.length - 1) { CHUNKS.push({ words: cur, scene: s }); cur = []; }
+  });
+});
+function captions(t) {
+  let ch = null;
+  for (let i = 0; i < CHUNKS.length; i++) {
+    const c = CHUNKS[i], st = c.words[0].abs;
+    const en = i + 1 < CHUNKS.length && CHUNKS[i + 1].scene === c.scene ? CHUNKS[i + 1].words[0].abs : c.scene.start + c.scene.dur + .1;
+    if (t >= st && t < en) { ch = c; ch.st = st; break; }
+  }
+  if (!ch) return;
+  const words = ch.words.map(w => w.w);
+  let size = 84; ctx.font = `800 ${size}px ${SANS}`;
+  const measure = () => words.map(w => ctx.measureText(w + ' ').width);
+  let ws = measure(), total = ws.reduce((a, b) => a + b, 0);
+  while (total > 960) { size -= 4; ctx.font = `800 ${size}px ${SANS}`; ws = measure(); total = ws.reduce((a, b) => a + b, 0); }
+  const pop = easeBack(seg(t, ch.st, ch.st + .18));
+  let x = W / 2 - total / 2; const y = 1650;
+  ctx.save(); ctx.globalAlpha *= clamp(seg(t, ch.st, ch.st + .08));
+  ch.words.forEach((w, i) => {
+    const active = t >= w.abs && t < w.abs + Math.max(w.d, .25);
+    const past = t >= w.abs + Math.max(w.d, .25);
+    const sc = active ? 1 + .12 * Math.sin(seg(t, w.abs, w.abs + .25) * Math.PI) : 1;
+    ctx.save(); ctx.translate(x + ws[i] / 2, y + (1 - pop) * 24);
+    txt(w.w, 0, 0, size, active ? C.amber : (past ? C.white : 'rgba(255,255,255,.55)'),
+        { stroke: 14, scale: sc, glow: active ? 'rgba(255,209,102,.7)' : null, glowBlur: 30 });
+    ctx.restore(); x += ws[i];
+  });
+  ctx.restore();
+}
+
+// ───────── escenas ─────────
+const POISON = 647;
+const GRID = { n: 1000, cols: 32, cell: 26, x0: 124, y0: 500 };
+function bottleDot(i, t, lt, o) {
+  const cx = GRID.x0 + (i % GRID.cols) * GRID.cell + GRID.cell / 2, cy = GRID.y0 + Math.floor(i / GRID.cols) * GRID.cell + GRID.cell / 2;
+  return [cx, cy];
+}
+
+function sceneHook(t, lt, s) {
+  const tMil = wt('hook', 'mil'), tVeneno = wt('hook', 'envenenada'), tHora = wt('hook', 'hora');
+  const p = easeBack(seg(t, tMil - .05, tMil + .35));
+  txt('1.000', W / 2, 330, 190, C.white, { scale: p, glow: 'rgba(120,108,255,.8)', glowBlur: 50 });
+  txt('botellas de vino', W / 2, 440, 56, C.lilac, { alpha: seg(t, tMil + .15, tMil + .5) });
+  const dim = easeOut(seg(t, tVeneno - .25, tVeneno + .15));
+  for (let i = 0; i < GRID.n; i++) {
+    if (i === POISON) continue;
+    const a = easeOut(seg(lt, .1 + (i / GRID.n) * 1.5, .1 + (i / GRID.n) * 1.5 + .25));
+    const [cx, cy] = bottleDot(i);
+    ctx.fillStyle = `rgba(167,155,255,${a * lerp(.9, .22, dim)})`;
+    ctx.beginPath(); ctx.arc(cx, cy, 8.5 * (.4 + .6 * a), 0, Math.PI * 2); ctx.fill();
+  }
+  const [px, py] = bottleDot(POISON);
+  const pa = easeOut(seg(lt, .1 + (POISON / GRID.n) * 1.5, .1 + (POISON / GRID.n) * 1.5 + .25));
+  const hot = easeBack(seg(t, tVeneno - .1, tVeneno + .4));
+  if (hot > 0) {
+    for (let k = 0; k < 3; k++) { const ph = ((t - tVeneno) * 1.1 + k / 3) % 1; ctx.save(); ctx.strokeStyle = `rgba(255,77,94,${(1 - ph) * .8})`; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(px, py, 14 + ph * 110, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
+    glowCircle(px, py, lerp(8.5, 17, hot), C.red, 1, 40);
+  } else { ctx.fillStyle = `rgba(167,155,255,${pa * .9})`; ctx.beginPath(); ctx.arc(px, py, 8.5 * (.4 + .6 * pa), 0, Math.PI * 2); ctx.fill(); }
+  const pv = easeBack(seg(t, tVeneno, tVeneno + .35));
+  txt('1 envenenada', W / 2, 1415, 92, C.red, { scale: pv, alpha: pv > 0 ? 1 : 0, glow: 'rgba(255,77,94,.7)', glowBlur: 40 });
+  const ph = easeBack(seg(t, tHora - .1, tHora + .3));
+  pill(W / 2, 1510, 500, 84, 'rgba(255,255,255,.1)', ph > 0 ? 1 : 0);
+  txt('el veneno tarda 1 hora', W / 2, 1510, 38, C.white, { alpha: seg(t, tHora - .1, tHora + .2), weight: 600 });
+}
+
+function sceneReto(t, lt, s) {
+  const tHora = wt('reto', 'hora'), tCat = wt('reto', 'catadores');
+  // reloj: una hora entera en lo que dura la escena
+  const cx = W / 2, cy = 800, R = 270, prog = seg(lt, .2, s.dur - .5);
+  const inp = easeBack(seg(t, s.start + .05, s.start + .5));
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(inp, inp);
+  ctx.lineWidth = 34; ctx.strokeStyle = 'rgba(167,155,255,.18)'; ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); ctx.stroke();
+  const g = ctx.createLinearGradient(-R, -R, R, R); g.addColorStop(0, C.amber); g.addColorStop(1, C.coral);
+  ctx.strokeStyle = g; ctx.lineCap = 'round'; ctx.shadowColor = 'rgba(255,209,102,.6)'; ctx.shadowBlur = 30;
+  ctx.beginPath(); ctx.arc(0, 0, R, -Math.PI / 2, -Math.PI / 2 + prog * Math.PI * 2); ctx.stroke(); ctx.shadowBlur = 0;
+  for (let i = 0; i < 12; i++) { const a = i / 12 * Math.PI * 2; ctx.strokeStyle = 'rgba(255,255,255,.35)'; ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.moveTo(Math.sin(a) * (R - 52), -Math.cos(a) * (R - 52)); ctx.lineTo(Math.sin(a) * (R - 38), -Math.cos(a) * (R - 38)); ctx.stroke(); }
+  const a = prog * Math.PI * 2; ctx.strokeStyle = '#fff'; ctx.lineWidth = 10; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(Math.sin(a) * (R - 80), -Math.cos(a) * (R - 80)); ctx.stroke();
+  ctx.beginPath(); ctx.arc(0, 0, 14, 0, Math.PI * 2); ctx.fillStyle = '#fff'; ctx.fill();
+  ctx.restore();
+  txt('1 HORA', W / 2, 1180, 76, C.amber, { alpha: seg(t, tHora - .1, tHora + .25), scale: easeBack(seg(t, tHora - .1, tHora + .3)) });
+  const pc = easeBack(seg(t, tCat - .1, tCat + .35));
+  for (let i = 0; i < 5; i++) {
+    const x = W / 2 + (i - 2) * 150, bob = Math.sin(t * 3 + i) * 8, a = easeOut(seg(t, tCat + i * .08, tCat + .3 + i * .08));
+    ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.lilac; ctx.lineWidth = 6; ctx.setLineDash([12, 12]);
+    ctx.beginPath(); ctx.arc(x, 1330 + bob, 52, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]); ctx.restore();
+    txt('?', x, 1332 + bob, 60, C.lilac, { alpha: a });
+  }
+  txt('¿Cuántos catadores?', W / 2, 330, 84, C.white, { scale: pc, alpha: pc > 0 ? 1 : 0, glow: 'rgba(120,108,255,.8)' });
+}
+
+function sceneGiro(t, lt, s) {
+  const tQ = wt('giro', 'quinientos'), tC = wt('giro', 'cien'), tD = wt('giro', 'diez');
+  const strike = (cx, cy, tt) => { const p = easeOut(seg(t, tt + .55, tt + .8)); if (p <= 0) return;
+    ctx.save(); ctx.strokeStyle = C.red; ctx.lineWidth = 16; ctx.lineCap = 'round'; ctx.shadowColor = C.red; ctx.shadowBlur = 25;
+    ctx.beginPath(); ctx.moveTo(cx - 230, cy + 40); ctx.lineTo(cx - 230 + 460 * p, cy - 40 * (2 * p - 1)); ctx.stroke(); ctx.restore(); };
+  txt('Lo que responde casi todo el mundo', W / 2, 330, 40, C.lilac, { alpha: seg(lt, .1, .5), weight: 600 });
+  const f = easeOut(seg(t, tD - .1, tD + .3));
+  const q = easeBack(seg(t, tQ - .1, tQ + .3)), c = easeBack(seg(t, tC - .1, tC + .3));
+  txt('500', W / 2, 560, 230, C.white, { scale: q, alpha: (q > 0 ? 1 : 0) * (1 - .55 * f) });
+  strike(W / 2, 560, tQ);
+  txt('100', W / 2, 860, 230, C.white, { scale: c, alpha: (c > 0 ? 1 : 0) * (1 - .55 * f) });
+  strike(W / 2, 860, tC);
+  const d = easeBack(seg(t, tD, tD + .45));
+  if (d > 0) {
+    for (let k = 0; k < 3; k++) { const ph = clamp(seg(t, tD + k * .12, tD + .9 + k * .12)); ctx.save(); ctx.strokeStyle = `rgba(255,209,102,${(1 - ph) * .7})`; ctx.lineWidth = 8;
+      ctx.beginPath(); ctx.arc(W / 2, 1230, 120 + ph * 420, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
+    txt('LA RESPUESTA', W / 2, 1020, 44, C.amber, { alpha: seg(t, tD, tD + .3), weight: 700 });
+    txt('10', W / 2, 1230, 430, C.amber, { scale: d, glow: 'rgba(255,209,102,.85)', glowBlur: 80 });
+  }
+}
+
+function binStr(n) { return n.toString(2).padStart(10, '0'); }
+const ROWS = [1, 2, 3, null, 13, 1000];
+function sceneBinario(t, lt, s) {
+  const tB = wt('binario', 'binario'), tCada = wt('binario', 'cada');
+  const x0 = 320, bw = 66, y0 = 600, dy = 130;
+  txt('NÚMERO → BINARIO', W / 2, 380, 46, C.lilac, { alpha: seg(t, tB - .2, tB + .2), scale: easeBack(seg(t, tB - .2, tB + .3)), weight: 700 });
+  ROWS.forEach((n, i) => {
+    const st = lt + .0 - (.35 + i * .62), a = easeOut(seg(st, 0, .3)), y = y0 + i * dy + (1 - a) * 40;
+    if (a <= 0) return;
+    ctx.save(); ctx.globalAlpha *= a;
+    if (n === null) { txt('⋮', 650, y, 70, C.lilac); ctx.restore(); return; }
+    const hi = n === 13;
+    txt(String(n), 230, y, 62, C.white, { align: 'right' });
+    txt('→', 275, y, 54, C.lilac);
+    const b = binStr(n);
+    for (let k = 0; k < 10; k++) {
+      const on = b[k] === '1';
+      rr(x0 + k * bw + 3, y - 36, bw - 6, 72, 14); ctx.fillStyle = on ? 'rgba(255,209,102,.16)' : 'rgba(167,155,255,.07)'; ctx.fill();
+      if (on) { ctx.strokeStyle = 'rgba(255,209,102,.5)'; ctx.lineWidth = 3; ctx.stroke(); }
+      txt(b[k], x0 + k * bw + bw / 2, y + 2, 50, on ? C.amber : C.dim, { mono: true, glow: on ? 'rgba(255,209,102,.7)' : null, glowBlur: 20 });
+    }
+    ctx.restore();
+  });
+  const br = easeOut(seg(t, tCada - .2, tCada + .35));
+  if (br > 0) {
+    ctx.save(); ctx.globalAlpha *= br; ctx.strokeStyle = C.coral; ctx.lineWidth = 6; ctx.lineCap = 'round';
+    const yb = y0 + 5 * dy + 70, xa = x0 + 4, xb = x0 + 10 * bw - 4;
+    ctx.beginPath(); ctx.moveTo(xa, yb - 14); ctx.lineTo(xa, yb); ctx.lineTo(xb, yb); ctx.lineTo(xb, yb - 14); ctx.stroke();
+    txt('10 dígitos', (xa + xb) / 2, yb + 52, 52, C.coral, { weight: 700 }); ctx.restore();
+  }
+}
+
+const tx = k => 108 + (10 - k) * 96;
+function sceneReparto(t, lt, s) {
+  const tCada = wt('reparto', 'cada');
+  const cycle = (s.dur - .9) / 4; const idx = clamp(Math.floor((lt - .5) / cycle), 0, 3);
+  const k = idx + 1, kt = seg(lt - .5 - idx * cycle, 0, .35);
+  txt('Cada catador, un dígito', W / 2, 330, 62, C.white, { alpha: seg(lt, .05, .4) });
+  for (let j = 1; j <= 10; j++) {
+    const active = j === k, x = tx(j), a = easeOut(seg(lt, .1 + (10 - j) * .04, .4 + (10 - j) * .04));
+    ctx.save(); ctx.globalAlpha *= a;
+    if (active) glowCircle(x, 480, 42, C.amber, .95, 40); else { ctx.fillStyle = 'rgba(167,155,255,.18)'; ctx.beginPath(); ctx.arc(x, 480, 38, 0, Math.PI * 2); ctx.fill(); }
+    txt(String(j), x, 482, 40, active ? '#1b1446' : C.lilac, { weight: 800 });
+    ctx.restore();
+  }
+  txt('catadores', W / 2, 565, 34, C.lilac, { alpha: seg(lt, .3, .6), weight: 600 });
+  txt(`Catador ${k}: bebe si la botella tiene un 1 en su dígito`, W / 2, 690, 36, C.white, { alpha: seg(lt, .4, .7), weight: 600 });
+  const gx = 100, gy = 770, cw = 110, ch = 110;
+  for (let n = 1; n <= 32; n++) {
+    const i = n - 1, col = i % 8, row = Math.floor(i / 8);
+    const on = (n >> (k - 1)) & 1, prevK = Math.max(1, k - 1), was = idx === 0 ? on : (n >> (prevK - 1)) & 1;
+    const lit = lerp(was, on, easeOut(kt));
+    const a = easeOut(seg(lt, .3 + (col + row) * .03, .6 + (col + row) * .03));
+    const x = gx + col * cw, y = gy + row * ch;
+    ctx.save(); ctx.globalAlpha *= a;
+    rr(x + 6, y + 6, cw - 12, ch - 12, 20);
+    ctx.fillStyle = `rgba(255,209,102,${.05 + lit * .3})`; ctx.fill();
+    ctx.strokeStyle = `rgba(255,209,102,${.1 + lit * .8})`; ctx.lineWidth = 3; ctx.stroke();
+    txt(String(n), x + cw / 2, y + ch / 2 + 2, 42, lit > .5 ? C.amber : 'rgba(167,155,255,.5)', { weight: 700, scale: 1 + .06 * lit });
+    ctx.restore();
+  }
+  const bit = easeOut(seg(t, tCada, tCada + .3));
+  txt('1 = bebe   ·   0 = no bebe', W / 2, 1270, 38, C.lilac, { alpha: seg(lt, 1.5, 1.9), weight: 600 });
+}
+
+function sceneLectura(t, lt, s) {
+  const tU = wt('lectura', 'uno', 0), tT = wt('lectura', 'tres'), tC = wt('lectura', 'cuatro');
+  const tSale = wt('lectura', 'sale'), d1 = wt('lectura', 'uno', 1), d2 = wt('lectura', 'uno', 2), d3 = wt('lectura', 'cero'), d4 = wt('lectura', 'uno', 3);
+  const tTrece = wt('lectura', 'trece');
+  const dead = { 1: tU, 3: tT, 4: tC };
+  txt('Pasada la hora…', W / 2, 330, 62, C.white, { alpha: seg(lt, .05, .4) });
+  for (let j = 10; j >= 1; j--) {
+    const x = tx(j), y = 560, a = easeOut(seg(lt, .1 + (10 - j) * .04, .4 + (10 - j) * .04));
+    const td = dead[j], isDead = td !== undefined && t >= td, pop = td !== undefined ? easeBack(seg(t, td, td + .35)) : 0;
+    ctx.save(); ctx.globalAlpha *= a;
+    if (isDead) { glowCircle(x, y, 44 * (.8 + .2 * pop), C.red, .95, 36); txt('✕', x, y + 2, 50, '#fff', { weight: 800 }); }
+    else { ctx.fillStyle = 'rgba(94,234,212,.2)'; ctx.beginPath(); ctx.arc(x, y, 40, 0, Math.PI * 2); ctx.fill();
+           ctx.strokeStyle = C.green; ctx.lineWidth = 4; ctx.stroke(); txt(String(j), x, y + 2, 38, C.green, { weight: 800 }); }
+    txt('C' + j, x, y + 74, 28, C.lilac, { weight: 600 });
+    ctx.restore();
+  }
+  const dig = { 4: d1, 3: d2, 2: d3, 1: d4 };
+  for (let j = 10; j >= 1; j--) {
+    const x = tx(j), y = 800, tt = dig[j] ?? tSale + .1, a = easeOut(seg(t, tt, tt + .22));
+    if (a <= 0) continue;
+    const one = dead[j] !== undefined;
+    ctx.save(); ctx.globalAlpha *= a;
+    rr(x - 40, y - 52, 80, 104, 16); ctx.fillStyle = one ? 'rgba(255,209,102,.18)' : 'rgba(167,155,255,.07)'; ctx.fill();
+    if (one) { ctx.strokeStyle = C.amber; ctx.lineWidth = 3; ctx.stroke(); }
+    txt(one ? '1' : '0', x, y + 3, 64, one ? C.amber : C.dim, { mono: true, scale: .9 + .1 * easeBack(seg(t, tt, tt + .3)), glow: one ? 'rgba(255,209,102,.8)' : null });
+    ctx.restore();
+  }
+  txt('muere = 1   ·   vive = 0', W / 2, 910, 36, C.lilac, { alpha: seg(t, tSale, tSale + .4), weight: 600 });
+  const f = easeBack(seg(t, tTrece - .05, tTrece + .45));
+  if (f > 0) {
+    for (let k = 0; k < 2; k++) { const ph = clamp(seg(t, tTrece + k * .14, tTrece + .9 + k * .14)); ctx.save(); ctx.strokeStyle = `rgba(255,77,94,${(1 - ph) * .7})`; ctx.lineWidth = 8;
+      ctx.beginPath(); ctx.arc(W / 2, 1250, 120 + ph * 380, 0, Math.PI * 2); ctx.stroke(); ctx.restore(); }
+    txt('0000001101 = 13', W / 2, 1000, 54, C.lilac, { mono: true, alpha: seg(t, tTrece, tTrece + .3) });
+    txt('13', W / 2, 1250, 360, C.red, { scale: f, glow: 'rgba(255,77,94,.85)', glowBlur: 70 });
+    txt('¡ESA ES LA BOTELLA!', W / 2, 1430, 50, C.white, { alpha: seg(t, tTrece + .2, tTrece + .5), scale: easeBack(seg(t, tTrece + .2, tTrece + .6)) });
+  }
+}
+
+function sceneCierre(t, lt, s) {
+  const tM = wt('cierre', 'mil');
+  txt('10 dígitos →', W / 2, 360, 70, C.white, { alpha: seg(lt, .05, .4) });
+  const start = .5, step = (s.dur - 1.7) / 10;
+  let n = 0;
+  for (let k = 0; k < 10; k++) {
+    const tk = start + k * step, a = easeBack(seg(lt, tk, tk + .3)), x = 108 + k * 96;
+    if (a > 0) n = k + 1;
+    ctx.save(); ctx.globalAlpha *= a > 0 ? 1 : 0;
+    ctx.translate(x, 560); ctx.scale(a, a);
+    rr(-40, -52, 80, 104, 16); ctx.fillStyle = 'rgba(255,209,102,.18)'; ctx.fill(); ctx.strokeStyle = C.amber; ctx.lineWidth = 3; ctx.stroke();
+    txt('×2', 0, 3, 40, C.amber, { weight: 800 });
+    ctx.restore();
+  }
+  const val = n === 0 ? 1 : Math.pow(2, n);
+  const bump = n > 0 ? 1 + .12 * Math.sin(clamp((lt - (start + (n - 1) * step)) / .3) * Math.PI) : 1;
+  const done = easeBack(seg(lt, start + 9 * step + .5, start + 9 * step + 1));
+  txt(val >= 1000 ? String(Math.floor(val / 1000)) + '.' + String(val % 1000).padStart(3, '0') : String(val), W / 2, 1020, 330, n === 10 ? C.amber : C.white, { scale: bump, glow: n === 10 ? 'rgba(255,209,102,.85)' : 'rgba(120,108,255,.6)', glowBlur: 70 });
+  txt('combinaciones posibles', W / 2, 1210, 48, C.lilac, { alpha: seg(lt, .6, 1) });
+  if (done > 0) {
+    pill(W / 2, 1360, 700, 110, 'rgba(94,234,212,.18)', 1);
+    txt('1.024 > 1.000  ✓', W / 2, 1362, 66, C.green, { scale: done, weight: 800 });
+  }
+}
+
+function sceneCta(t, lt, s) {
+  const tSigue = wt('cta', 'sigue');
+  const p = easeBack(seg(lt, 0, .5));
+  logoMark(W / 2, 560, 360 * p);
+  txt('Cero y Uno', W / 2, 840, 110, C.white, { alpha: seg(lt, .15, .5) });
+  txt('Acertijos que te vuelan la cabeza', W / 2, 940, 42, C.lilac, { alpha: seg(lt, .3, .7), weight: 600 });
+  const bp = easeBack(seg(lt, .5, 1)) , pulse = 1 + .05 * Math.sin(t * 7);
+  const tap = seg(t, tSigue + .05, tSigue + .35), pressed = tap > .5;
+  ctx.save(); ctx.translate(W / 2, 1180); ctx.scale(bp * pulse * (pressed ? .94 : 1), bp * pulse * (pressed ? .94 : 1));
+  ctx.shadowColor = pressed ? 'rgba(94,234,212,.7)' : 'rgba(255,122,89,.7)'; ctx.shadowBlur = 50;
+  rr(-290, -75, 580, 150, 75);
+  const g = ctx.createLinearGradient(-290, 0, 290, 0);
+  if (pressed) { g.addColorStop(0, '#2dd4bf'); g.addColorStop(1, '#5eead4'); } else { g.addColorStop(0, C.amber); g.addColorStop(1, C.coral); }
+  ctx.fillStyle = g; ctx.fill(); ctx.shadowBlur = 0;
+  txt(pressed ? '✓ Siguiendo' : '+  SEGUIR', 0, 6, 70, '#1b1446', { weight: 800 });
+  ctx.restore();
+  // cursor
+  const cx = lerp(W / 2 + 330, W / 2 + 120, easeOut(seg(t, tSigue - .5, tSigue + .05))) , cy = lerp(1420, 1215, easeOut(seg(t, tSigue - .5, tSigue + .05)));
+  if (t > tSigue - .6) { ctx.save(); ctx.translate(cx, cy + (pressed ? 8 : 0)); ctx.fillStyle = '#fff'; ctx.strokeStyle = '#111'; ctx.lineWidth = 5; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 92); ctx.lineTo(24, 70); ctx.lineTo(44, 112); ctx.lineTo(64, 102); ctx.lineTo(44, 62); ctx.lineTo(78, 60); ctx.closePath(); ctx.stroke(); ctx.fill(); ctx.restore(); }
+  if (pressed) for (let k = 0; k < 10; k++) { const a = k / 10 * Math.PI * 2, ph = easeOut(seg(t, tSigue + .2, tSigue + .9)), r = 300 + ph * 160;
+    ctx.save(); ctx.globalAlpha *= (1 - ph); ctx.fillStyle = k % 2 ? C.amber : C.green; ctx.beginPath(); ctx.arc(W / 2 + Math.cos(a) * r * 1.3, 1180 + Math.sin(a) * r * .55, 9, 0, Math.PI * 2); ctx.fill(); ctx.restore(); }
+}
+
+const DRAW = { hook: sceneHook, reto: sceneReto, giro: sceneGiro, binario: sceneBinario, reparto: sceneReparto, lectura: sceneLectura, cierre: sceneCierre, cta: sceneCta };
+
+// ───────── render(t) ─────────
+function render(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  background(t); chrome(t);
+  const s = TL.scenes.find(s => t >= s.start - .02 && t < s.end + .12);
+  if (s) {
+    const lt = t - s.start;
+    const aIn = easeOut(seg(lt, 0, .22)), aOut = 1 - easeOut(seg(lt, s.dur - .15, s.dur + .1));
+    ctx.save();
+    ctx.globalAlpha = clamp(aIn * aOut);
+    const zoom = 1 + .035 * (lt / s.dur) + .05 * (1 - aIn);               // cámara lenta + "punch-in" al entrar
+    ctx.translate(W / 2, 900); ctx.scale(zoom, zoom); ctx.translate(-W / 2, -900);
+    if (s.name !== 'cta') ctx.translate(0, (1 - aIn) * 30);
+    DRAW[s.name](t, lt, s);
+    ctx.restore();
+    ctx.save(); ctx.globalAlpha = clamp(aIn * aOut); captions(t); ctx.restore();
+  }
+}
+window.render = render;
+window.getFrame = (t, q) => { render(t); return cv.toDataURL('image/jpeg', q || .92).split(',')[1]; };
+
+// eventos de sonido (misma fuente de verdad que la imagen)
+window.getEvents = () => {
+  const E = [];
+  TL.scenes.forEach(s => E.push({ t: s.start, type: 'whoosh' }));
+  for (let i = 0; i < 28; i++) E.push({ t: SC.reto.start + .3 + i * ((SC.reto.dur - .6) / 28), type: 'tick' });
+  E.push({ t: wt('hook', 'mil'), type: 'pop' }, { t: wt('hook', 'envenenada'), type: 'thud' }, { t: wt('hook', 'hora'), type: 'pop' });
+  E.push({ t: wt('reto', 'catadores'), type: 'pop' });
+  E.push({ t: wt('giro', 'quinientos') + .55, type: 'swipe' }, { t: wt('giro', 'cien') + .55, type: 'swipe' }, { t: wt('giro', 'diez'), type: 'ding' });
+  for (let i = 0; i < 5; i++) E.push({ t: SC.binario.start + .35 + i * .62 + (i > 2 ? 0 : 0), type: 'pop' });
+  [1, 3, 4].forEach(k => E.push({ t: wt('lectura', ['', 'uno', '', 'tres', 'cuatro'][k]), type: 'buzz' }));
+  E.push({ t: wt('lectura', 'trece'), type: 'ding' });
+  { const st = SC.cierre.start + .5, step = (SC.cierre.dur - 1.7) / 10; for (let k = 0; k < 10; k++) E.push({ t: st + k * step, type: 'pop', pitch: k }); E.push({ t: st + 9 * step + .5, type: 'ding' }); }
+  E.push({ t: wt('cta', 'sigue') + .2, type: 'click' }, { t: wt('cta', 'sigue') + .3, type: 'ding' });
+  return E;
+};
+</script></body></html>
