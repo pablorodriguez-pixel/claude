@@ -103,7 +103,7 @@ plano(L(4) - 0.1, L(9) - 0.1, { background: '#e9dcc2' }, c => {
   sp(T.diez7, 'ding', 0.5); sp(T.quince, 'ding', 0.5); sp(T.dieciseis, 'tada', 0.7); sp(T.bajos, 'whoosh', 0.5);
   return t => {
     const cm = camara(W.M, t, [[L(4) - 0.1, XN(1) + 300, 1040, 1.0], [T.hija + 0.6, XN(3), 1040, 1.0], [T.del4, XN(5), 1060, 0.62], [T.hoy5 + 0.3, XN(8), 1060, 0.62], [T.diez6, XN(10), 1040, 0.95],
-      [T.felipe, XN(14), 1040, 0.95], [T.leonor + 0.5, XN(16) - 150, 1040, 1.0], [T.bajos, XN(8.5), 900, 0.12], [L(9) - 0.1, XN(8.5), 900, 0.118]]);
+      [T.felipe, XN(14), 1040, 0.95], [T.leonor + 0.5, XN(16) - 150, 1040, 1.0], [T.bajos, XN(8.5), 900, 0.12], [L(9) - 0.1, XN(8.5) + 250, 920, 0.15]]);
     for (let n = 1; n <= 16; n++) { const q = W.d[n]; if (q.cara) pFace(q.cara, t, { feliz: 0.4, look: [0, 4], seed: n }); set(q, { x: XN(n) - 210, y: 900, s: 1, r: n >= 4 && n <= 9 && t > T.nadie5 && t < T.diez6 ? Math.sin(t * 8 + n) * 3 : 0 });
       if (q.corona) set(q.corona, { x: XN(n) - 60, y: 800 - (t > T.diez7 ? Math.abs(Math.sin(t * 3 + n)) * 10 : 0), o: t > T.real - 0.2 ? 1 : 0 }); }
     W.marco.style.opacity = t > T.hueco ? 1 : 0; set(W.vacio, { o: t > T.nadie5 - 0.1 ? 1 : 0, s: pop(t, T.nadie5 - 0.1, 0.35) });
