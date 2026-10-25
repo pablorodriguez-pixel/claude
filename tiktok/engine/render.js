@@ -12,6 +12,10 @@ const {chromium}=require('/opt/node22/lib/node_modules/playwright');const {spawn
  if(mode==='sheet'){
    const ts=process.argv.slice(4).map(Number); fs.mkdirSync(dir+'/shots',{recursive:true});
    for(const t of ts){await pg.evaluate(t=>render(t),t);await pg.screenshot({path:`${dir}/shots/s_${t.toFixed(2).padStart(6,'0')}.jpg`,type:'jpeg',quality:70});}
+ } else if(mode==='portada'){
+   // portada para TikTok: el fotograma del gancho (por defecto 0,9 s, con el título ya pintado) SIN subtítulos
+   const t=+(process.argv[4]||0.9); await pg.evaluate(t=>{render(t);[...document.querySelectorAll('#stage > *')].filter(e=>e.style.zIndex==='900').forEach(e=>e.style.visibility='hidden');},t);
+   await pg.screenshot({path:`${dir}/portada.jpg`,type:'jpeg',quality:90});
  } else {
    const FPS=30,N=Math.ceil((process.env.MAXT?Math.min(D,+process.env.MAXT):D)*FPS);
    const ff=spawn('ffmpeg',['-y','-loglevel','error','-f','image2pipe','-framerate','30','-c:v','mjpeg','-i','-','-c:v','libx264','-preset','medium','-crf','18','-pix_fmt','yuv420p',dir+'/video_noaudio.mp4'],{stdio:['pipe','inherit','inherit']});

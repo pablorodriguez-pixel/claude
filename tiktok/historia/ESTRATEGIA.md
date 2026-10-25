@@ -34,6 +34,7 @@ Lo que **cambia de raíz**:
 ## 4. Cómo se publica
 - **1 vídeo al día como máximo** (mejor 4-5 por semana con temas filtrados que 3 al día). Hora: 20:00 (sábados 18:00).
 - **Texto del post**: la frase que la gente buscaría («de dónde viene estar como una cabra») + 3-5 hashtags.
+- **Cada episodio sale con `portada.jpg` (fotograma del gancho, sin subtítulos, lo genera `hacer.sh video`) y `descripcion.txt` (descripción + hashtags + comentario fijado).**
 - **Comentario fijado**: la fuente o una segunda curiosidad.
 - **Responder con vídeo** a los mejores comentarios (función oficial de TikTok).
 - Revisar en **TikTok Studio** si algún vídeo sale «no apto para recomendación» o con etiqueta de IA.
