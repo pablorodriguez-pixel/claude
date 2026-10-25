@@ -108,7 +108,7 @@ plano(L(6) - 0.1, L(8) - 0.1, { background: '#efe1c6' }, c => {
   const gasP = box(cam, 600, 640, 200, 110, { zIndex: 4, background: '#fbf6ea', border: `6px solid ${INK}`, fontFamily: 'Rye', fontSize: '28px', textAlign: 'center', lineHeight: '98px', color: RED }, 'GASOLINERA');
   const coche = box(cam, 0, 0, 120, 70, { zIndex: 5, background: '#e8507a', border: `6px solid ${INK}`, borderRadius: '20px' });
   const XS = { 1000: 150, 750: 385, 500: 620, 250: 855 }, YS = 1230;
-  const sen = texto(cam, 1000, 'sentido →', { size: 50, color: '#fff', x: 0, w: 400, z: 4, shadow: OUT }); const salP = texto(cam, 820, 'salida al pueblo', { size: 44, color: INK, x: 700, w: 400, z: 4 });
+  const sen = texto(cam, 1000, 'sentido de la marcha', { size: 50, color: '#fff', x: 0, w: 400, z: 4, shadow: OUT }); const salP = texto(cam, 800, 'salida al pueblo', { size: 44, color: INK, x: 560, w: 400, z: 4 });
   Object.values(XS).forEach(x => box(cam, x - 5, 1210, 10, 70, { zIndex: 5, background: INK }));
   const e1 = SALIDA(cam, '1000 m', 7), e2 = SALIDA(cam, '500 m', 7);
   const g1 = S105(cam, '750 m', 8, RED), g2 = S105(cam, '250 m', 8, RED);
