@@ -1,0 +1,79 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Las autovías de España van como las agujas del RELOJ.",
+  "s": 0.12,
+  "e": 3.222
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y cuando lo sepas... ya no se te olvida nunca.",
+  "s": 3.772,
+  "e": 7.897
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Todas salen del mismo sitio: una placa en el suelo de la Puerta del Sol. El kilómetro CERO.",
+  "s": 8.447,
+  "e": 14.922
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Desde ahí se miden las seis grandes carreteras que salen de Madrid.",
+  "s": 15.472,
+  "e": 18.505
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Y para ponerles número, alguien tuvo una idea muy simple: hacerlo como un reloj.",
+  "s": 19.055,
+  "e": 24.651
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La A-uno sube al norte, hacia Burgos. Justo donde marcan las doce.",
+  "s": 25.201,
+  "e": 29.195
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y a partir de ahí, girando como las agujas: la A-dos, a Barcelona. La A-tres, a Valencia. La A-cuatro, a Andalucía.",
+  "s": 29.745,
+  "e": 37.903
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "La A-cinco, a Extremadura. Y la A-seis, a Galicia. Una vuelta completa... en el sentido del reloj.",
+  "s": 38.453,
+  "e": 46.242
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Así que la próxima vez que alguien no sepa si la A-tres va a Valencia o a Galicia... dile que mire el reloj.",
+  "s": 46.792,
+  "e": 52.862
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Y tú por qué autovía sales de Madrid? Os leo.",
+  "s": 53.412,
+  "e": 56.044
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 56.594,
+  "e": 59.549
+ }
+]
