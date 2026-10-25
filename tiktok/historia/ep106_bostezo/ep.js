@@ -111,10 +111,10 @@ plano(L(7) - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
   sp(T.enfria, 'sparkle', 0.6); sp(T.aire, 'swoosh_up', 0.6); sp(T.fria, 'pop', 0.6); sp(T.nueve, 'ding', 0.7); sp(T.cuarentayuno, 'ding', 0.7);
   const H = 360;
   return t => {
-    deriva(cam, t, L(7) - 0.1, L(9) - 0.1, [540, 900, 1.0], [520, 880, 1.12]);
+    deriva(cam, t, L(7) - 0.1, L(9) - 0.1, [540, 940, 0.95], [500, 860, 1.3]); set(cab, { x: 220, y: 560 + Math.sin(t * 2) * 10, r: Math.sin(t * 1.3) * 2 });
     const kf = p(t, T.aire, 2.0); cer.setAttribute('fill', mixC('#e8507a', '#9fd3ee', kf)); term.textContent = t > T.enfria ? (kf > 0.6 ? '❄' : '🌡') : ''; term.style.opacity = 0;
     aire.forEach((a, i) => { const k = ((t * 0.8 + i / 3) % 1); set(a, { o: t > T.aire - 0.2 && t < T.fria ? 1 - k : 0, x: 860 - k * 300, y: 900 + i * 40 - k * 120, r: -15 }); });
-    const vb = t > T.fria - 0.3; set(barras, { o: vb ? 1 : 0, s: pop(t, T.fria - 0.3, 0.4) });
+    const vb = t > T.fria - 0.3; set(barras, { o: vb ? 1 : 0, s: pop(t, T.fria - 0.3, 0.4) * (1 + 0.015 * Math.sin(t * 3)), r: Math.sin(t * 1.7) * 1.5 });
     const hF = H * 0.09 / 0.41 * p(t, T.nueve - 0.2, 0.5, E.outCubic), hC = H * p(t, T.cuarentayuno - 0.3, 0.6, E.outCubic);
     set(bF, { y: 490 - hF }); bF.style.height = px(f1(hF)); set(bC, { y: 490 - hC }); bC.style.height = px(f1(hC));
     set(nF, { o: t > T.nueve ? 1 : 0, y: 400 - hF }); set(nC, { o: t > T.cuarentayuno ? 1 : 0, y: 400 - hC });
