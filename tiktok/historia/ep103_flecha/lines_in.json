@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¿Ves esta flechita? Te dice dónde está el depósito.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y existe porque un señor... se mojó.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Detroit, mil novecientos ochenta y seis. Jim Moylan, diseñador de Ford, coge un coche de la empresa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Está lloviendo. Llega a la gasolinera... y para en el lado equivocado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[sighs] Así que tiene que dar la vuelta. Y acaba empapado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Ese mismo día escribe una nota a su jefe: «¿Y si ponemos un símbolo que diga de qué lado está el depósito?»",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Siete meses después, le contestan... que sí.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y en mil novecientos ochenta y nueve, los primeros Ford salen con la flechita.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Hoy la tienen casi todos los coches del mundo. Por una nota... y un señor mojado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que la próxima vez que cojas un coche alquilado, no te asomes por la ventanilla: mira la flecha.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú lo sabías o te has enterado ahora? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
