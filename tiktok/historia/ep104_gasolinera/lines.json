@@ -2,85 +2,85 @@
  {
   "line": 0,
   "who": "VECINO",
-  "text": "¿Pone setecientos cincuenta metros? Toca desviarse.",
+  "text": "Estos dos carteles parecen iguales... pero uno te saca de la autovía.",
   "s": 0.12,
-  "e": 3.009
+  "e": 3.254
  },
  {
   "line": 1,
   "who": "VECINO",
-  "text": "Y si pone mil o quinientos... la tienes en la autovía. Te explico por qué.",
-  "s": 3.559,
-  "e": 9.758
+  "text": "Y te lo chiva el número. Fíjate.",
+  "s": 3.804,
+  "e": 6.049
  },
  {
   "line": 2,
   "who": "VECINO",
-  "text": "En la autovía, antes de cada salida hay dos carteles: uno a mil metros... y otro a quinientos.",
-  "s": 10.308,
-  "e": 16.384
+  "text": "Vas en reserva por la autovía. Gasolinera a 1000 metros. Luego, a 500.",
+  "s": 6.599,
+  "e": 12.116
  },
  {
   "line": 3,
   "who": "VECINO",
-  "text": "Si la gasolinera tiene su propia salida, su cartel va justo ahí: a mil y a quinientos. Y la tienes pegada a la autovía.",
-  "s": 16.934,
-  "e": 23.806
+  "text": "Y ahí la tienes: pegada a la carretera. Entras, repostas y sigues.",
+  "s": 12.666,
+  "e": 17.378
  },
  {
   "line": 4,
   "who": "VECINO",
-  "text": "Pero muchas gasolineras están fuera, en un pueblo. Y para llegar, sales por la misma salida que todo el mundo.",
-  "s": 24.356,
-  "e": 30.034
+  "text": "Otro día, otra gasolinera. Pero esta pone 750. Luego, 250.",
+  "s": 17.928,
+  "e": 24.885
  },
  {
   "line": 5,
   "who": "VECINO",
-  "text": "Ahí está el lío: en los mil y en los quinientos ya está el cartel de esa salida. Y la norma prohíbe mezclarlos.",
-  "s": 30.584,
-  "e": 37.778
+  "text": "Tomas la salida... y acabas dando vueltas por un pueblo, buscándola.",
+  "s": 25.435,
+  "e": 29.585
  },
  {
   "line": 6,
   "who": "VECINO",
-  "text": "Así que el de la gasolinera se adelanta doscientos cincuenta metros: a setecientos cincuenta... y a doscientos cincuenta.",
-  "s": 38.328,
-  "e": 45.496
+  "text": "¿Por qué? Porque esa gasolinera no tiene salida propia: usa la del pueblo.",
+  "s": 30.135,
+  "e": 35.089
  },
  {
   "line": 7,
   "who": "VECINO",
-  "text": "O sea: mil y quinientos, gasolinera en la autovía. Setecientos cincuenta y doscientos cincuenta... desvío.",
-  "s": 46.046,
-  "e": 52.844
+  "text": "Y en los 1000 y en los 500 ya están los carteles de esa salida. Así que los de la gasolinera van en medio: a 750 y a 250.",
+  "s": 35.639,
+  "e": 43.634
  },
  {
   "line": 8,
   "who": "VECINO",
-  "text": "Y ojo: no pueden anunciar cualquiera. Salir, repostar y volver no puede pasar de cinco kilómetros.",
-  "s": 53.394,
-  "e": 60.313
+  "text": "No es casualidad. Lo dice la norma de señales de carretera.",
+  "s": 44.184,
+  "e": 48.112
  },
  {
   "line": 9,
   "who": "VECINO",
-  "text": "Así que la próxima vez que vayas en reserva... no mires solo el precio. Mira los metros.",
-  "s": 60.863,
-  "e": 66.714
+  "text": "Así que: número redondo, la tienes ahí. Número raro... toca desvío.",
+  "s": 48.662,
+  "e": 53.679
  },
  {
   "line": 10,
   "who": "VECINO",
-  "text": "¿Cuál es la gasolinera más escondida que te has encontrado? Os leo.",
-  "s": 67.264,
-  "e": 71.177
+  "text": "¿Te ha tocado alguna vez la del pueblo? Os leo.",
+  "s": 54.229,
+  "e": 57.026
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 71.727,
-  "e": 74.682
+  "s": 57.576,
+  "e": 60.531
  }
 ]
