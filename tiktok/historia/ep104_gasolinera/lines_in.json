@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¿Pone setecientos cincuenta metros? Toca desviarse.",
+   "tempo": 1.12,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y si pone mil o quinientos... la tienes en la autovía. Te explico por qué.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "En la autovía, antes de cada salida hay dos carteles: uno a mil metros... y otro a quinientos.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Si la gasolinera tiene su propia salida, su cartel va justo ahí: a mil y a quinientos. Y la tienes pegada a la autovía.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero muchas gasolineras están fuera, en un pueblo. Y para llegar, sales por la misma salida que todo el mundo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Ahí está el lío: en los mil y en los quinientos ya está el cartel de esa salida. Y la norma prohíbe mezclarlos.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Así que el de la gasolinera se adelanta doscientos cincuenta metros: a setecientos cincuenta... y a doscientos cincuenta.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: mil y quinientos, gasolinera en la autovía. Setecientos cincuenta y doscientos cincuenta... desvío.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y ojo: no pueden anunciar cualquiera. Salir, repostar y volver no puede pasar de cinco kilómetros.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que la próxima vez que vayas en reserva... no mires solo el precio. Mira los metros.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cuál es la gasolinera más escondida que te has encontrado? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
