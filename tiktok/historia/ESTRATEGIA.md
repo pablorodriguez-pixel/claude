@@ -55,3 +55,8 @@ Se cambia **una variable cada vez**. Si los dos primeros superan claramente la m
 4. Transiciones «firma» planificadas en el guion: objeto que la cámara sigue, zoom que atraviesa, corte por forma.
 
 **Créditos ElevenLabs**: quedan ≈1.000-1.800. Cada vídeo de 65 s ≈ 870 caracteres. Hay que recargar para mantener 4-5 vídeos por semana.
+
+## 7. Estado de publicación
+- **Subidos:** ep94 hora de Hitler (viral), ep96 Madrid por la izquierda (viral), ep98 autovías, ep99 reloj de las uvas.
+- **En la recámara:** ep100 Gran Vía (al usuario le parece aburrido: es una lista de nombres sin nada que el espectador use a diario).
+- **Lo que funciona:** algo que haces cada día y que no siempre fue así, con un culpable o un giro, y un remate que puedes comprobar tú mismo (el Metro, el reloj).
