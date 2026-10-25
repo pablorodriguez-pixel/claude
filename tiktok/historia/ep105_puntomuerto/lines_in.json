@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Bajar en punto muerto... gasta MÁS gasolina.",
+   "tempo": 1.14,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y tu padre no estaba loco. Hace cuarenta años... tenía razón.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Años setenta. El seiscientos, el ciento veintisiete... todos llevan carburador.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el carburador es tonto: aunque levantes el pie, sigue echando gasolina.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que en una bajada, con la marcha metida, el motor va revolucionado... y chupando.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Por eso tu padre ponía punto muerto: el motor se quedaba al ralentí, gastando lo mínimo. Y ahorraba.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero a principios de los noventa llega la inyección electrónica. Y con ella... un cerebro.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Ahora, si bajas con la marcha metida y sin tocar el acelerador... la centralita corta la gasolina. Cero.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Son las ruedas las que mueven el motor. Gratis.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] En cambio, en punto muerto, el motor tiene que seguir encendido solo... y quema gasolina para no calarse.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] O sea, que el truco de tu padre ahora hace justo lo contrario. Y encima te quedas sin freno motor.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿En tu casa quién sigue bajando en punto muerto? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

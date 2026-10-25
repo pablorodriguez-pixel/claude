@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Bajar en punto muerto... gasta MÁS gasolina.",
+  "s": 0.12,
+  "e": 2.564
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y tu padre no estaba loco. Hace cuarenta años... tenía razón.",
+  "s": 3.114,
+  "e": 8.849
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Años setenta. El seiscientos, el ciento veintisiete... todos llevan carburador.",
+  "s": 9.399,
+  "e": 15.476
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y el carburador es tonto: aunque levantes el pie, sigue echando gasolina.",
+  "s": 16.026,
+  "e": 20.258
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que en una bajada, con la marcha metida, el motor va revolucionado... y chupando.",
+  "s": 20.808,
+  "e": 25.597
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Por eso tu padre ponía punto muerto: el motor se quedaba al ralentí, gastando lo mínimo. Y ahorraba.",
+  "s": 26.147,
+  "e": 32.383
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Pero a principios de los noventa llega la inyección electrónica. Y con ella... un cerebro.",
+  "s": 32.933,
+  "e": 38.928
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Ahora, si bajas con la marcha metida y sin tocar el acelerador... la centralita corta la gasolina. Cero.",
+  "s": 39.478,
+  "e": 48.503
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Son las ruedas las que mueven el motor. Gratis.",
+  "s": 49.053,
+  "e": 52.801
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "En cambio, en punto muerto, el motor tiene que seguir encendido solo... y quema gasolina para no calarse.",
+  "s": 53.351,
+  "e": 59.234
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea, que el truco de tu padre ahora hace justo lo contrario. Y encima te quedas sin freno motor.",
+  "s": 59.784,
+  "e": 65.301
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿En tu casa quién sigue bajando en punto muerto? Os leo.",
+  "s": 65.851,
+  "e": 68.647
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 69.197,
+  "e": 72.152
+ }
+]
