@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Tu paga extra de verano... te la puso FRANCO.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y no la puso en julio por casualidad. La puso un día muy concreto.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Años cuarenta. Posguerra. Los sueldos no llegan ni para comer.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "En la Navidad de mil novecientos cuarenta y cuatro aparece una paga de regalo: una semana de sueldo... para las fiestas.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero en mil novecientos cuarenta y siete llega otra. Y la fecha no es cualquiera: el dieciocho de julio.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] El aniversario del golpe de Estado del treinta y seis. Oficialmente... la «Fiesta de Exaltación del Trabajo».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que, el día antes, toda España cobra una semana extra... para celebrarlo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Con los años, las dos pagas crecen hasta un mes entero de sueldo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Llega la democracia, cambian los nombres... y la paga de julio se queda. Hasta hoy.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que cuando te llegue en julio, ya sabes de dónde viene. Y si la tienes prorrateada... Franco ni se entera.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú la cobras en julio o prorrateada? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
