@@ -135,7 +135,7 @@ plano(L(4) - 0.1, L(6) - 0.1, { background: '#6d6a72' }, c => {
   sp(T.tambien, 'error', 0.5); sp(T.entra, 'whoosh', 0.7); sp(T.remolinos, 'swoosh_up', 0.5); sp(T.frena, 'thud', 0.7); sp(T.paracaidas, 'boing', 0.6);
   return t => {
     // la cámara baja siguiendo el aire: ventanilla → remolinos → paracaídas
-    deriva(cam, t, L(4) - 0.1, L(6) - 0.1, [540, 900, 0.95], [540, 1380, 0.85]);
+    deriva(cam, t, L(4) - 0.1, L(6) - 0.1, [540, 900, 0.95], [540, 1500, 0.8]);
     set(lineas, { y: (t * 900) % 300 }); set(car, { x: Math.sin(t * 1.7) * 6 });
     flechas.forEach((f, i) => { const k = ((t - T.entra) * 1.1 + i * 0.25) % 1; set(f, { o: t > T.entra - 0.1 ? Math.sin(k * Math.PI) : 0, x: lerp(-120, 200, k), y: 900 + i * 40 + k * 30 }); });
     rem.forEach(([r, i]) => set(r, { o: t > T.remolinos + i * 0.2 ? 0.95 : 0, r: t * (i % 2 ? -300 : 300), s: pop(t, T.remolinos + i * 0.2, 0.4) }));
