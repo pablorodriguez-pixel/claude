@@ -26,7 +26,7 @@
   },
   {
    "who": "VECINO",
-   "text": "Es un oficial británico. Muerto. Y lleva un maletín... atado al abrigo con una cadena.",
+   "text": "Es un oficial británico. Muerto. Con un maletín... atado al abrigo con una cadena.",
    "gap_after": 0.55
   },
   {
@@ -36,27 +36,32 @@
   },
   {
    "who": "VECINO",
-   "text": "Abren las cartas con mucho cuidado, las copian... y las mandan a Berlín. Es el plan de los aliados: van a atacar Grecia.",
+   "text": "Abren las cartas con mucho cuidado, las copian... y las mandan a Berlín: los aliados van a atacar Grecia.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Y en los bolsillos, todo cuadra: la foto de su novia, cartas de amor, entradas de teatro... hasta una carta del banco reclamándole dinero.",
+   "text": "Y en los bolsillos, todo cuadra: la foto de su novia, cartas de amor... hasta una carta del banco reclamándole dinero.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[whispers] Pero nada era verdad. El comandante William Martin... no existía.",
+   "text": "Pero nada era verdad. El comandante William Martin... no existía.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "Era un vagabundo galés, Glindur Maicol, que había muerto en Londres envenenado. Los británicos le inventaron una vida entera... y lo soltaron en el mar desde un submarino.",
+   "text": "Era Glindur Maicol, un vagabundo galés que murió en Londres. Los británicos le inventaron una vida entera... y lo soltaron en el mar desde un submarino.",
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[excited] Y Hitler se lo cree. Manda tropas a Grecia y a Cerdeña. Pero en julio, los aliados desembarcan... en Sicilia.",
+   "text": "¿Y para qué? Los aliados iban a invadir Sicilia... y era tan obvio, que los alemanes ya la esperaban. Había que hacerles mirar a otro sitio.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[excited] Y funciona: Hitler manda tropas a Grecia y a Cerdeña. Y en julio, los aliados desembarcan... en Sicilia.",
    "gap_after": 0.55
   },
   {
@@ -66,7 +71,7 @@
   },
   {
    "who": "VECINO",
-   "text": "[softly] Hoy su tumba sigue en el cementerio de Huelva. Con el nombre falso... y, desde mil novecientos noventa y ocho, también con el suyo.",
+   "text": "[softly] Hoy su tumba sigue en Huelva. Con el nombre falso... y, desde mil novecientos noventa y ocho, también con el suyo.",
    "gap_after": 0.55
   },
   {

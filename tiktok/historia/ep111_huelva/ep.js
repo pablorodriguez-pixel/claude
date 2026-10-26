@@ -8,13 +8,14 @@ const T = {
   treinta: Q('treinta de abril'), pescador: Q('un pescador'), flotando: Q('flotando'),
   oficial: Q('oficial británico'), muerto2: Q('muerto'), maletin: Q('un maletín'), cadena: Q('una cadena'),
   espana: Q('españa no'), espias: Q('espías alemanes'), manos: Q('sus manos'),
-  abren: Q('abren las cartas'), copian: Q('las copian'), berlin: Q('a berlín'), plan: Q('el plan'), grecia: Q('atacar grecia'),
-  bolsillos: Q('los bolsillos'), foto: Q('la foto'), cartas: Q('cartas de amor'), entradas: Q('entradas de teatro'), banco: Q('carta del banco'),
+  abren: Q('abren las cartas'), copian: Q('las copian'), berlin: Q('a berlín'), grecia: Q('atacar grecia'),
+  bolsillos: Q('los bolsillos'), foto: Q('la foto'), cartas: Q('cartas de amor'), banco: Q('carta del banco'),
   nada: Q('nada era verdad'), martin: Q('william martin'), noexistia: Q('no existía'),
-  vagabundo: Q('un vagabundo'), glyn: Q('glyndwr'), londres: Q('en londres'), envenenado: Q('envenenado'), inventaron: Q('le inventaron'), soltaron: Q('lo soltaron'), submarino: Q('un submarino'),
-  cree: Q('se lo cree'), tropasG: Q('a grecia'), cerdena: Q('cerdeña'), julio: Q('en julio'), sicilia: Q('en sicilia'),
+  glyn: Q('glyndwr'), vagabundo: Q('un vagabundo'), londres: Q('en londres'), inventaron: Q('le inventaron'), soltaron: Q('lo soltaron'), submarino: Q('un submarino'),
+  para: Q('para qué'), invadir: Q('invadir sicilia'), obvio: Q('tan obvio'), esperaban: Q('la esperaban'), mirar: Q('otro sitio'),
+  cree: Q('y funciona'), tropasG: Q('a grecia'), cerdena: Q('cerdeña'), julio: Q('en julio'), sicilia: Q('en sicilia'),
   churchill: Q('a churchill'), tragado: Q('se lo han tragado'),
-  tumba: Q('su tumba'), cementerio: Q('el cementerio'), falso: Q('nombre falso'), anos: Q('mil novecientos noventa y ocho'), suyo: Q('con el suyo'),
+  tumba: Q('su tumba'), falso: Q('nombre falso'), anos: Q('mil novecientos noventa y ocho'), suyo: Q('con el suyo'),
 };
 const OUT = `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`;
 const MAR = '#1f4f7a', NOCHE = '#141a2e', CAQUI = '#5d6b4a', PAPC = '#fbf6ea';
@@ -130,7 +131,7 @@ plano(L(4) - 0.1, L(6) - 0.1, { background: '#2a2530' }, c => {
     set(pinza, { o: t > T.abren - 0.2 && t < T.copian ? 1 : 0, x: -lerp(0, 120, p(t, T.abren - 0.2, 0.8)), r: -8 });
     flash.style.opacity = f1(t > T.copian ? Math.max(0, 1 - (t - T.copian) / 0.25) : 0);
     const kc = p(t, T.berlin - 0.3, 0.7, E.inCubic); set(copia, { o: t > T.copian && t < T.berlin + 0.5 ? 1 : 0, x: kc * 500, y: -kc * 700, r: kc * 30, s: 1 - kc * 0.5 });
-    set(ber, { o: t > T.berlin - 0.1 && t < T.plan ? 1 : 0, s: pop(t, T.berlin - 0.1, 0.35), r: -4 });
+    set(ber, { o: t > T.berlin - 0.1 && t < T.grecia - 0.6 ? 1 : 0, s: pop(t, T.berlin - 0.1, 0.35), r: -4 });
     set(neutral, { o: t > T.espana - 0.1 && t < T.espias ? 1 : 0, s: pop(t, T.espana - 0.1, 0.35), r: -3 });
     set(esp, { o: t > T.espias - 0.1 && t < T.manos + 0.4 ? 1 : 0, s: pop(t, T.espias - 0.1, 0.35), r: 3 });
     const sub = carta.querySelector('.sub'); if (sub) sub.style.transform = `scaleX(${f1(p(t, T.grecia - 0.1, 0.4) * 1000) / 1000})`;
@@ -148,7 +149,7 @@ plano(L(6) - 0.1, L(7) - 0.1, { background: '#6b4a2a' }, c => {
   const entr = [0, 1].map(i => box(cam, 120 + i * 60, 1060 + i * 40, 380, 160, { zIndex: 5 + i, background: '#f2c230', border: `6px dashed ${INK}`, borderRadius: '14px', fontFamily: 'Rye', fontSize: '44px', textAlign: 'center', lineHeight: '148px', color: INK, transformOrigin: '50% 50%' }, 'TEATRO'));
   const banco = CARTA(cam, 580, 1000, 400, `<div style="font-family:Bricolage;font-weight:800;font-size:40px">BANCO</div><div style="margin-top:14px">Le rogamos que pague lo que nos debe.</div><div style="font-family:Bricolage;font-weight:800;color:${RED};font-size:48px;margin-top:10px">DEBE DINERO</div>`, { z: 5, size: 36 });
   const cuadra = texto(c, 220, 'todo cuadra', { size: 104, color: '#fff', z: 40, shadow: OUT });
-  const items = [[foto, T.foto, -8], [amor, T.cartas, 6], [entr[0], T.entradas, -10], [entr[1], T.entradas + 0.25, 8], [banco, T.banco, 4]];
+  const items = [[foto, T.foto, -8], [amor, T.cartas, 6], [entr[0], T.cartas + 0.7, -10], [entr[1], T.cartas + 0.95, 8], [banco, T.banco, 4]];
   items.forEach(([e, tt]) => sp(tt, 'paper', 0.5));
   return t => {
     deriva(cam, t, L(6) - 0.1, L(7) - 0.1, [540, 900, 0.95], [540, 1000, 1.08]);
@@ -186,13 +187,13 @@ plano(L(8) - 0.1, T.inventaron - 0.1, { background: '#9a948a' }, c => {
   const nom = box(c, 120, 260, 840, 220, { zIndex: 40, background: PAPC, border: `8px solid ${INK}`, borderRadius: '20px', boxShadow: `10px 10px 0 ${INK}`, textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '76px', color: INK, paddingTop: '20px', boxSizing: 'border-box', lineHeight: 1.1 }, 'Glyndwr Michael<div style="font-family:Bricolage;font-weight:800;font-size:44px;color:#6b5a40">vagabundo galés</div>');
   const lon = chip(c, 360, 520, 'Londres, 1943', { size: 56, bg: INK, color: '#fff', z: 40 });
   const ven = chip(c, 240, 1560, 'muerto envenenado', { size: 58, bg: '#2e6b3a', z: 40 });
-  sp(T.vagabundo, 'whoosh', 0.5); sp(T.glyn, 'ding', 0.6); sp(T.envenenado, 'mus_baja', 0.5);
+  sp(T.vagabundo, 'whoosh', 0.5); sp(T.glyn, 'ding', 0.6); sp(T.londres + 0.6, 'mus_baja', 0.5);
   return t => {
     deriva(cam, t, L(8) - 0.1, T.inventaron - 0.1, [480, 1050, 0.95], [520, 1080, 1.1]);
     niebla.forEach((n, i) => set(n, { x: ((t * (40 + i * 20)) % 600) - 300 }));
     pFace(vag, t, { feliz: -0.6, ceja: 8, look: [0, 12], seed: 8 }); set(vag, { y: wobble(t, 0.4, 4) });
     set(nom, { o: t > T.glyn - 0.2 ? 1 : 0, s: pop(t, T.glyn - 0.2, 0.4), r: -2 });
-    popA(lon, t, T.londres - 0.1, { r: 3 }); popA(ven, t, T.envenenado - 0.1, { r: -3 });
+    popA(lon, t, T.londres - 0.1, { r: 3 }); popA(ven, t, T.londres + 0.5, { r: -3 });
   };
 });
 
@@ -232,7 +233,7 @@ plano(T.soltaron - 0.1, L(9) - 0.1, { background: NOCHE }, c => {
 });
 
 /* L9-L10 (corte): el mapa del Mediterráneo: flechas alemanas a Grecia y Cerdeña… y los barcos aliados llegan a Sicilia; telegrama a Churchill */
-plano(L(9) - 0.1, L(11) - 0.1, { background: '#bfe3f5' }, c => {
+plano(L(9) - 0.1, L(12) - 0.1, { background: '#bfe3f5' }, c => {
   const cam = CAM(c);
   box(cam, -600, -400, 2280, 2720, { zIndex: 0, background: '#9fd3e8' });
   const mapa = box(cam, -60, 380, 1200, 1200, { zIndex: 2 }, `<svg viewBox="0 0 1200 1200" width="1200" height="1200">
@@ -250,6 +251,13 @@ plano(L(9) - 0.1, L(11) - 0.1, { background: '#bfe3f5' }, c => {
   const fG = fl(600, 480, 880, 780), fC = fl(480, 480, 380, 780);
   const flechas = [[fG, T.tropasG], [fC, T.cerdena]];
   const barcos = [0, 1, 2].map(i => box(cam, 0, 0, 120, 70, { zIndex: 6 }, `<svg viewBox="0 0 120 70" width="120" height="70"><path d="M5,30 L115,30 Q100,66 60,66 Q20,66 5,30Z" fill="#2b3550" stroke="${INK}" stroke-width="6"/><rect x="40" y="6" width="40" height="26" fill="#2b3550" stroke="${INK}" stroke-width="6"/></svg>`));
+  const diana = box(cam, 640 - 130, 1170 - 130, 260, 260, { zIndex: 4, transformOrigin: '50% 50%' }, `<svg viewBox="0 0 300 300" width="260" height="260">${[140, 100, 60, 22].map((r, i) => `<circle cx="150" cy="150" r="${r}" fill="${i % 2 ? '#fff' : RED}" fill-opacity=".75" stroke="${INK}" stroke-width="6"/>`).join('')}</svg>`);
+  const cascos = [0, 1, 2, 3].map(i => box(cam, 0, 0, 90, 60, { zIndex: 7 }, `<svg viewBox="0 0 90 60" width="90" height="60"><path d="M6,54 Q6,6 45,6 Q84,6 84,54 L70,54 L70,46 L20,46 L20,54Z" fill="#6b6e5a" stroke="${INK}" stroke-width="6"/></svg>`));
+  const casaIni = [[580, 1160], [660, 1190], [710, 1150], [620, 1220]], casaFin = [[880, 960], [940, 1020], [300, 880], [350, 960]];
+  const objT = chip(c, 260, 330, 'objetivo: SICILIA', { size: 62, bg: '#2b3550', z: 40 });
+  const obvT = chip(c, 300, 450, 'demasiado obvio', { size: 58, bg: RED, z: 40 });
+  const mirT = chip(c, 160, 330, '¡que miren a otro sitio!', { size: 58, bg: INK, color: YEL, z: 40 });
+  sp(T.invadir, 'ding', 0.5); sp(T.obvio, 'error', 0.5); sp(T.esperaban, 'drumroll', 0.4); sp(T.mirar, 'whoosh', 0.6);
   const hit = PERS(c, 780, 110, 240, { ropa: '#9a8458', gorro: 'gorra', gcol: '#9a8458', bigote: 'corto', pelo: 'corto', pcol: '#2a2118', z: 38 });
   const cree = chip(c, 80, 330, 'Hitler se lo cree', { size: 58, bg: INK, color: '#fff', z: 40 });
   const jul = chip(c, 380, 300, 'julio de 1943', { size: 60, bg: '#2b3550', z: 40 });
@@ -257,11 +265,17 @@ plano(L(9) - 0.1, L(11) - 0.1, { background: '#bfe3f5' }, c => {
   const MSG = 'SE LO HAN TRAGADO ENTERO.';
   sp(T.cree, 'boing', 0.5); sp(T.tropasG, 'swoosh_up', 0.5); sp(T.cerdena, 'swoosh_up', 0.5); sp(T.sicilia, 'tada', 0.8); sp(T.churchill, 'ding', 0.6); sp(T.tragado, 'stamp', 0.6);
   return t => {
-    deriva(cam, t, L(9) - 0.1, L(11) - 0.1, [560, 980, 0.95], [660, 1100, 1.16]);
+    deriva(cam, t, L(9) - 0.1, L(12) - 0.1, [600, 1060, 0.92], [660, 1100, 1.16]);
     flechas.forEach(([f, tt]) => { const k = p(t, tt - 0.2, 0.6, E.outCubic); f.style.clipPath = `inset(0 ${f1((1 - k) * 100)}% 0 0)`; f.style.opacity = t > tt - 0.2 ? 1 : 0; });
     barcos.forEach((b, i) => { const k = p(t, T.julio + i * 0.25, 1.4, E.inOutCubic); set(b, { o: t > T.julio ? 1 : 0, x: lerp(480 + i * 110, 560 + i * 70, k), y: lerp(1120, 800 + (i % 2) * 30, k) + Math.sin(t * 3 + i) * 4 }); });
     const sic = mapa.querySelector('.sic'); if (sic) sic.setAttribute('fill', t > T.sicilia ? '#9fd3c0' : '#e8d8a8');
-    pFace(hit, t, { feliz: t > T.sicilia ? -1 : 0.6, ceja: t > T.sicilia ? 18 : 4, jaw: t > T.sicilia ? 0.8 : 0, look: [16, -6], seed: 9 }); set(hit, { o: t < T.churchill - 0.3 ? 1 : 0, y: t > T.sicilia ? Math.sin(t * 25) * 4 : wobble(t, 0.6, 4) });
+    pFace(hit, t, { feliz: t > T.sicilia ? -1 : 0.6, ceja: t > T.sicilia ? 18 : 4, jaw: t > T.sicilia ? 0.8 : 0, look: [16, -6], seed: 9 }); set(hit, { o: t > T.cree - 0.3 && t < T.churchill - 0.3 ? 1 : 0, y: t > T.sicilia ? Math.sin(t * 25) * 4 : wobble(t, 0.6, 4) });
+    set(diana, { o: t > T.invadir - 0.2 && t < T.cree ? 1 : 0, s: pop(t, T.invadir - 0.2, 0.4) * (1 + 0.05 * Math.sin(t * 5)), r: t * 20 });
+    const kv = p(t, T.tropasG - 0.4, 1.4, E.inOutCubic);
+    cascos.forEach((h, i) => set(h, { o: t > T.esperaban - 0.2 + i * 0.12 ? 1 : 0, s: pop(t, T.esperaban - 0.2 + i * 0.12, 0.3), x: lerp(casaIni[i][0], casaFin[i][0], i < 2 ? kv : p(t, T.cerdena - 0.4, 1.2, E.inOutCubic)) - 45, y: lerp(casaIni[i][1], casaFin[i][1], i < 2 ? kv : p(t, T.cerdena - 0.4, 1.2, E.inOutCubic)) - 30 + Math.sin(t * 4 + i) * 3 }));
+    set(objT, { o: t > T.invadir - 0.1 && t < T.mirar - 0.2 ? 1 : 0, s: pop(t, T.invadir - 0.1, 0.35), r: -3 });
+    set(obvT, { o: t > T.obvio - 0.1 && t < T.mirar - 0.2 ? 1 : 0, s: pop(t, T.obvio - 0.1, 0.35), r: 3 });
+    set(mirT, { o: t > T.mirar - 0.2 && t < T.cree ? 1 : 0, s: pop(t, T.mirar - 0.2, 0.35), r: -3 });
     set(cree, { o: t > T.cree - 0.1 && t < T.julio ? 1 : 0, s: pop(t, T.cree - 0.1, 0.35), r: -3 });
     set(jul, { o: t > T.julio - 0.1 && t < T.churchill - 0.3 ? 1 : 0, s: pop(t, T.julio - 0.1, 0.35), r: -3 });
     const kt = t > T.churchill - 0.3; set(tele, { o: kt ? 1 : 0, s: pop(t, T.churchill - 0.3, 0.35) * (1 + 0.04 * clamp((t - T.churchill) / 3)), r: -2 + Math.sin(t * 1.2) * 1 });
@@ -270,7 +284,7 @@ plano(L(9) - 0.1, L(11) - 0.1, { background: '#bfe3f5' }, c => {
 });
 
 /* L11 (corte): el cementerio de la Soledad (Huelva): la lápida con «William Martin»… y la línea de 1998 con su nombre de verdad */
-plano(L(11) - 0.1, L(12) - 0.1, { background: '#d8eef8' }, c => {
+plano(L(12) - 0.1, L(13) - 0.1, { background: '#d8eef8' }, c => {
   const cam = CAM(c);
   box(cam, -600, -400, 2280, 1800, { zIndex: 0, background: 'linear-gradient(#9fd3e8, #f4efe2)' });
   box(cam, -600, 1300, 2280, 1200, { zIndex: 1, background: '#a7b97a', borderTop: `10px solid ${INK}` });
@@ -284,10 +298,10 @@ plano(L(11) - 0.1, L(12) - 0.1, { background: '#d8eef8' }, c => {
   sp(T.tumba, 'harpa', 0.5); sp(T.falso, 'pop', 0.5); sp(T.suyo, 'sparkle', 0.8);
   return t => {
     // primero la lápida entera; luego baja hacia la línea de 1998 (un solo sentido)
-    deriva(cam, t, L(11) - 0.1, L(12) - 0.1, [540, 1000, 0.92], [540, 1260, 1.25]);
+    deriva(cam, t, L(12) - 0.1, L(13) - 0.1, [540, 1000, 0.92], [540, 1260, 1.25]);
     const l98 = lap.querySelector('.lin98'); if (l98) { l98.style.opacity = f1(p(t, T.anos, 0.6)); l98.style.background = t > T.suyo ? `rgba(242,194,48,${f1(0.5 * p(t, T.suyo, 0.4))})` : 'transparent'; }
     set(flores, { r: Math.sin(t * 1.5) * 1.5 });
-    popA(lug, t, T.cementerio - 0.1, { r: -2 });
+    popA(lug, t, T.tumba + 0.4, { r: -2 });
     set(falso, { o: t > T.falso - 0.1 && t < T.anos ? 1 : 0, s: pop(t, T.falso - 0.1, 0.35), r: 3 });
     popA(ano, t, T.anos - 0.1, { r: -3 });
   };
