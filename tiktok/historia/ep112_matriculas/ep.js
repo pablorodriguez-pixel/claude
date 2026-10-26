@@ -174,10 +174,10 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: OSC }, c => {
   const nueva = chip(c, 260, 1560, 'los coches de este año: N', { size: 56, bg: RED, z: 40 });
   sp(T.truco, 'ding', 0.5); sp(T.bbb, 'pop', 0.5); sp(T.avanzando, 'clockfast', 0.5); sp(T.nueva, 'tada', 0.7);
   return t => {
-    deriva(cam, t, L(8) - 0.1, L(10) - 0.1, [540, 820, 0.95], [540, 900, 1.06]);
+    deriva(cam, t, L(8) - 0.1, L(10) - 0.1, [540, 1000, 1.05], [540, 880, 1.0]);
     // avance de B a N mientras dice «han ido avanzando… la N»
     const k = p(t, T.avanzando - 0.3, T.nueva - T.avanzando + 0.5, E.inOutCubic); const iN = CONS.indexOf('N'); const fi = k * iN, i0 = Math.floor(fi);
-    set(marca, { x: lerp(xL(0), xL(iN), k) - 30, y: Math.sin(t * 4) * 4 });
+    set(marca, { x: lerp(xL(0), xL(iN), k) - 30, y: Math.sin(t * 5) * 14 }); set(regla, { r: Math.sin(t * 1.4) * 1.5, y: Math.sin(t * 1.1) * 8 });
     const rel = regla.querySelector('.rel'); if (rel) rel.style.width = f1(lerp(xL(0), xL(iN), k) - X0) + 'px';
     const L1 = CONS[Math.min(i0, iN)], L2 = CONS[Math.floor((fi * 7) % CONS.length)], L3 = CONS[Math.floor((fi * 13) % CONS.length)];
     ponTexto(pl.let, k <= 0 ? 'BBB' : k >= 1 ? 'NLB' : L1 + L2 + L3); ponTexto(pl.num, k <= 0 ? '0000' : String(1000 + Math.floor(t * 731) % 9000));
