@@ -1,0 +1,10 @@
+DESCRIPCIÓN
+¿Ventanilla o aire acondicionado? Depende de la velocidad. En ciudad gasta menos la ventanilla; en autovía, a partir de unos 80-100 km/h, la ventanilla abierta frena el coche y puede gastar tanto o más que el aire. ¿En tu coche quién manda en el aire?
+
+#coches #conducir #ahorro #trucos #curiosidades
+
+COMENTARIO FIJADO
+El aire acondicionado gasta porque el compresor lo mueve el motor. La ventanilla abierta gasta porque frena el coche, y ese freno crece con el cuadrado de la velocidad. En ensayos como el de la SAE (2013-01-0551), con el aire a tope el consumo fue mayor que con las ventanillas bajadas entre 64 y 113 km/h, y en una berlina el aire empezó a compensar a partir de unos 120-130 km/h. El punto exacto depende de cada coche.
+
+PORTADA
+portada.jpg (súbela como portada; o en TikTok elige el fotograma 0)
