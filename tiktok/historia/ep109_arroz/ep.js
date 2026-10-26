@@ -117,7 +117,7 @@ plano(L(4) - 0.1, L(6) - 0.1, { background: '#efe1c6' }, c => {
     set(lFuera, { o: t > T.fuera - 0.1 && t < T.dentro ? 1 : 0, s: pop(t, T.fuera - 0.1, 0.3), r: -3 });
     set(lDentro, { o: t > T.dentro - 0.1 && t < T.polvo - 0.3 ? 1 : 0, s: pop(t, T.dentro - 0.1, 0.3), r: 3 });
     set(nollega, { o: t > T.nollega - 0.1 && t < T.polvo - 0.3 ? 1 : 0, s: pop(t, T.nollega - 0.1, 0.35), r: -4 });
-    set(polvo, { o: cpo ? 1 : 0, y: cpo ? lerp(300, -20, p(t, T.polvo - 0.3, T.conector - T.polvo + 0.4, E.inOutCubic)) : 300, s: cpo ? lerp(1, 0.4, p(t, T.polvo - 0.3, T.conector - T.polvo + 0.6)) : 1 });
+    set(polvo, { o: cpo ? 1 : 0, y: cpo ? lerp(260, -150, p(t, T.polvo - 0.3, T.conector - T.polvo + 0.4, E.inOutCubic)) : 260, s: cpo ? lerp(1.3, 0.55, p(t, T.polvo - 0.3, T.conector - T.polvo + 0.6)) : 1.3 });
     set(con, { o: t > T.conector - 0.1 ? 1 : 0, s: 1 + 0.08 * Math.sin(t * 9) });
     set(etq, { o: t > T.conector - 0.1 ? 1 : 0, s: pop(t, T.conector - 0.1, 0.35), r: -4 });
   };
