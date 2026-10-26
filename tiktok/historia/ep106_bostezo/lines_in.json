@@ -11,8 +11,11 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] Te reto: no bosteces hasta el final de este vídeo.",
-   "tempo": 1.1,
+   "text": "Uf... perdón. Te reto: no bosteces hasta el final.",
+   "tempo": 1.15,
+   "pausas": {
+    "Uf...": 1.4
+   },
    "gap_after": 0.55
   },
   {

@@ -3,6 +3,7 @@
    Cámara siempre en movimiento lento; cortes solo entre escenas. */
 Story.prepara();
 const T = {
+  uf: Q('uf'), perdon: Q('perdón'),
   reto: Q('te reto'), final0: Q('hasta el final'),
   spoiler: Q('spoiler'), nadie1: Q('casi nadie'), truco1: Q('un truco'), alfinal: Q('pero al final'),
   siglos: Q('hace siglos'), miedo2: Q('miedo bostezar'),
@@ -20,6 +21,27 @@ const AZUL = '#2b8ad6', VERDE = '#2e6b3a';
 const deriva = (cam, t, t0, t1, a, b) => { const k = clamp((t - t0) / (t1 - t0)), e = k * k * (3 - 2 * k) * 0.5 + k * 0.5; const cx = lerp(a[0], b[0], e), cy = lerp(a[1], b[1], e), s = lerp(a[2], b[2], e);
   cam.style.transformOrigin = '0 0'; set(cam, { x: 540 - cx * s, y: 960 - cy * s, s }); return [cx, cy, s]; };
 /* bostezo: abre la boca despacio, ojos cerrados, y cierra (t0 = inicio, d = duración) */
+/* CARA_B: cara grande ilustrada para el bostezo (vb 0 0 600 720): ojos que se aprietan, cejas arriba, lágrimas y una bocaza con dientes, lengua y campanilla */
+const CARA_B = (c, w = 760, z = 6) => { const d = box(c, 0, 0, w, w * 1.2, { zIndex: z, transformOrigin: '50% 90%' }, `<svg viewBox="0 0 600 720" width="${w}" height="${w * 1.2}" style="overflow:visible">
+  <path d="M300,90 C110,90 50,250 60,420 C70,600 120,700 140,720 H460 C480,700 530,600 540,420 C550,250 490,90 300,90 Z" fill="#3a2a1e" stroke="${INK}" stroke-width="10"/>
+  <path d="M120,720 C110,640 170,600 300,600 C430,600 490,640 480,720 Z" fill="#e8507a" stroke="${INK}" stroke-width="10"/>
+  <ellipse cx="300" cy="370" rx="200" ry="235" fill="#f2c9a0" stroke="${INK}" stroke-width="10"/>
+  <path d="M100,300 C120,160 220,120 300,130 C380,120 480,160 500,300 C440,230 380,200 300,215 C230,205 160,230 100,300 Z" fill="#3a2a1e" stroke="${INK}" stroke-width="8"/>
+  <ellipse cx="180" cy="430" rx="40" ry="24" fill="#f4a0a0" opacity=".7"/><ellipse cx="420" cy="430" rx="40" ry="24" fill="#f4a0a0" opacity=".7"/>
+  <g class="ce"><path d="M170,280 Q215,255 260,280 M340,280 Q385,255 430,280" stroke="${INK}" stroke-width="12" fill="none" stroke-linecap="round"/></g>
+  <g class="oa"><ellipse cx="215" cy="340" rx="32" ry="36" fill="#fff" stroke="${INK}" stroke-width="7"/><ellipse cx="385" cy="340" rx="32" ry="36" fill="#fff" stroke="${INK}" stroke-width="7"/><circle cx="220" cy="345" r="15" fill="${INK}"/><circle cx="390" cy="345" r="15" fill="${INK}"/></g>
+  <g class="oc"><path d="M180,345 Q215,325 250,345 M350,345 Q385,325 420,345" stroke="${INK}" stroke-width="12" fill="none" stroke-linecap="round"/><path d="M175,335 l-20,-12 M425,335 l20,-12" stroke="${INK}" stroke-width="7" stroke-linecap="round"/></g>
+  <g class="lg"><path d="M150,360 C140,385 150,400 162,400 C174,400 178,385 150,360 Z M450,360 C460,385 450,400 438,400 C426,400 422,385 450,360 Z" fill="#9fd3ee" stroke="${INK}" stroke-width="4"/></g>
+  <path d="M300,370 C290,400 285,415 300,420 C310,420 316,414 312,408" stroke="${INK}" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path class="bc" d="M260,480 Q300,505 340,480" stroke="${INK}" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <g class="bo"><ellipse cx="300" cy="500" rx="95" ry="120" fill="#5a1a14" stroke="${INK}" stroke-width="10"/><path d="M225,430 Q300,400 375,430 L370,452 Q300,428 230,452 Z" fill="#fff" stroke="${INK}" stroke-width="4"/>
+    <path d="M300,410 C292,440 290,460 300,470 C310,460 308,440 300,410 Z" fill="#c8504a" stroke="${INK}" stroke-width="3"/><ellipse cx="300" cy="575" rx="62" ry="36" fill="#e8607a" stroke="${INK}" stroke-width="5"/></g></svg>`);
+  ['ce', 'oa', 'oc', 'lg', 'bc', 'bo'].forEach(k => d[k] = d.querySelector('.' + k)); return d; };
+/* a = 0..1 cuánto bosteza */
+const bostezaB = (d, t, a) => { a = clamp(a); d.bo.setAttribute('transform', `translate(300 430) scale(${f1((0.75 + 0.25 * a) * 100) / 100} ${f1(Math.max(0.02, a) * 100) / 100}) translate(-300 -430)`); d.bo.style.opacity = a > 0.03 ? 1 : 0; d.bc.style.opacity = a > 0.03 ? 0 : 1;
+  d.oa.style.opacity = a > 0.25 ? 0 : 1; d.oc.style.opacity = a > 0.25 ? 1 : 0; d.lg.style.opacity = f1(clamp((a - 0.5) * 2)); d.ce.setAttribute('transform', `translate(0 ${f1(-30 * a)})`);
+  if (a <= 0.03) d.oa.querySelectorAll('circle').forEach((q, i) => q.setAttribute('cx', i ? 390 + Math.sin(t) * 5 : 220 + Math.sin(t) * 5)); };
+const curva = (t, t0, d) => { const k = clamp((t - t0) / d); return k <= 0 || k >= 1 ? 0 : Math.pow(Math.sin(k * Math.PI), 0.7); };
 /* boca de bostezo grande encima de una PERS(c, x, y, w) */
 const BOCA = (c, x, y, w) => { const b = box(c, x + w * 0.5 - w * 0.13, y + w * 0.77, w * 0.26, w * 0.3, { zIndex: 9, background: '#5a1a14', border: `${Math.max(4, w / 60)}px solid ${INK}`, borderRadius: '50%', transformOrigin: '50% 0' }); return b; };
 const abre = (b, a) => set(b, { o: a > 0.05 ? 1 : 0, sy: Math.max(0.05, a), sx: 0.7 + 0.3 * a });
@@ -33,15 +55,16 @@ FX.fns.push(t => { const vis = t < L(11) - 0.1; crono.style.visibility = vis ? '
 plano(-1, L(2) - 0.1, { background: YEL }, c => {
   const cam = CAM(c);
   box(cam, -400, -400, 1880, 2720, { zIndex: 0, background: YEL, backgroundImage: 'repeating-conic-gradient(from 0deg at 50% 55%, rgba(255,255,255,.28) 0 9deg, transparent 9deg 18deg)' });
-  const cara = PERS(cam, 190, 560, 700, { ropa: '#e8507a', pelo: 'largo', pcol: '#3a2a1e' }); const bc = BOCA(cam, 190, 560, 700);
+  const cara = CARA_B(cam, 760); set(cara, { x: 160, y: 560 });
+  const aah = texto(cam, 520, 'AAAAH…', { size: 120, color: INK, x: 120, w: 840, z: 20, shadow: `5px 5px 0 #fff` });
   const t1 = texto(c, 300, 'TE RETO:', { size: 96, color: '#fff', z: 40, shadow: OUT });
   const t2 = texto(c, 410, hlSpan('NO BOSTECES', 'phl', RED), { size: 118, color: '#fff', z: 40, shadow: OUT });
   const n = chip(c, 300, 1150, 'casi nadie lo consigue', { size: 58, bg: INK, color: YEL, z: 41 });
   const tr = chip(c, 330, 1260, 'el truco: al final', { size: 54, bg: RED, z: 41 });
-  sfx('swoosh_up', 0.05, 0.5); sp(T.reto, 'stamp', 0.8); sp(T.nadie1, 'pop', 0.5); sp(T.truco1, 'ding', 0.6);
+  sp(T.uf + 0.55, 'bostezo', 1.4); sp(T.reto, 'stamp', 0.8); sp(T.nadie1, 'pop', 0.5); sp(T.truco1, 'ding', 0.6);
   return t => {
     deriva(cam, t, -0.2, L(2), [540, 1060, 1.0], [540, 1000, 1.15]);
-    abre(bc, bosteza(cara, t, 0.4, 3.8, 1, { feliz: 0.2, look: [0, -4] }));
+    const a = curva(t, T.uf - 0.05, T.perdon - T.uf + 0.2); bostezaB(cara, t, a); set(cara, { x: 160, y: 560, r: a * 4, sy: 1 + a * 0.04 }); set(aah, { o: a > 0.3 ? a : 0, s: 0.8 + a * 0.3, r: -4 });
     paint(c.querySelector('.phl'), t, 0.25, 0.4); set(t2, { r: -2 + wobble(t, 0.5, 0.8) });
     set(n, { o: t > T.nadie1 - 0.1 ? 1 : 0, s: pop(t, T.nadie1 - 0.1, 0.3), r: -3 }); set(tr, { o: t > T.truco1 ? 1 : 0, s: pop(t, T.truco1, 0.3), r: 3 });
   };
@@ -125,16 +148,16 @@ plano(L(7) - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
 plano(L(9) - 0.1, L(11) - 0.1, { background: VERDE }, c => {
   const cam = CAM(c);
   box(cam, -400, -400, 1880, 2720, { zIndex: 0, background: '#9fd3c0', backgroundImage: 'repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,255,255,.22) 0 9deg, transparent 9deg 18deg)' });
-  const cara = PERS(cam, 190, 560, 700, { ropa: '#e8507a', pelo: 'largo', pcol: '#3a2a1e' }); const bc = BOCA(cam, 190, 560, 700);
+  const cara = CARA_B(cam, 760); set(cara, { x: 160, y: 560 });
   const aire = [0, 1, 2].map(() => box(cam, 0, 0, 90, 26, { zIndex: 12, background: '#fff', border: `4px solid ${INK}`, borderRadius: '20px' }));
   const cero = texto(c, 300, '0%', { size: 220, color: '#fff', z: 40, shadow: OUT });
   const nar = chip(c, 300, 1150, 'respira por la NARIZ', { size: 62, bg: INK, color: YEL, z: 41 });
-  sp(T.nariz, 'swoosh_up', 0.6); sp(T.nadie9, 'tada', 0.9); sp(T.pensandolo, 'boing', 0.6);
+  sp(T.nariz, 'swoosh_up', 0.6); sp(T.nadie9, 'tada', 0.9); sp(T.pensandolo, 'bostezo', 1.1);
   return t => {
     deriva(cam, t, L(9) - 0.1, L(11) - 0.1, [540, 1060, 1.05], [540, 1000, 1.2]);
     const remate = t > T.pensandolo - 0.3;
-    if (remate) abre(bc, bosteza(cara, t, T.pensandolo - 0.3, 2.4, 1, { feliz: 0.2 })); else { abre(bc, 0); pFace(cara, t, { feliz: 0.6, jaw: 0, ceja: -4, look: [0, -4], seed: 1 }); }
-    aire.forEach((a, i) => { const k = ((t * 0.9 + i / 3) % 1); set(a, { o: t > T.nariz - 0.2 && !remate ? 1 - k : 0, x: 860 - k * 260, y: 1000 + i * 30 - k * 10, r: -6 }); });
+    const a = remate ? curva(t, T.pensandolo - 0.3, 2.6) : 0; bostezaB(cara, t, a); set(cara, { x: 160, y: 560, r: a * 4 });
+    aire.forEach((a, i) => { const k = ((t * 0.9 + i / 3) % 1); set(a, { o: t > T.nariz - 0.2 && !remate ? 1 - k : 0, x: 900 - k * 300, y: 1060 + i * 26 - k * 10, r: -4 }); });
     set(cero, { o: t > T.nadie9 - 0.1 && !remate ? 1 : 0, s: pop(t, T.nadie9 - 0.1, 0.4), r: -4 });
     set(nar, { o: t > T.nariz - 0.1 && !remate ? 1 : 0, s: pop(t, T.nariz - 0.1, 0.3), r: -2 });
   };
