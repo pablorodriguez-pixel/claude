@@ -60,3 +60,11 @@ Se cambia **una variable cada vez**. Si los dos primeros superan claramente la m
 - **Subidos:** ep94 hora de Hitler (viral), ep96 Madrid por la izquierda (viral), ep98 autovías, ep99 reloj de las uvas.
 - **En la recámara:** ep100 Gran Vía (al usuario le parece aburrido: es una lista de nombres sin nada que el espectador use a diario).
 - **Lo que funciona:** algo que haces cada día y que no siempre fue así, con un culpable o un giro, y un remate que puedes comprobar tú mismo (el Metro, el reloj).
+
+## 8. Lección del récord: autovías (756.000 vistas, 34.400 me gusta, 11.500 compartidos, 7.500 guardados en 1 día)
+Lo que hizo que se parara el dedo, y que se aplica a TODOS los vídeos desde ahora:
+1. **El fotograma 0 es la idea entera en una imagen**, y mezcla dos cosas conocidas que no pegan juntas (el mapa de España + un reloj). No entiendes por qué están juntas → te quedas a verlo.
+2. **El título es la afirmación sorprendente, no una pregunta**: «LAS AUTOVÍAS VAN COMO LAS AGUJAS DEL RELOJ». Grande, dos líneas, arriba.
+3. **Algo reconocible al instante y nuestro**: el mapa de España se lee en medio segundo. Mejor un mapa, un objeto o un sitio que todo el mundo conoce que un personaje genérico.
+4. **Se guarda y se comparte porque sirve**: los guardados (1 %) y los compartidos (1,5 %) dicen «esto lo voy a usar / se lo mando a alguien». Siempre que se pueda, un remate práctico o comprobable.
+Checklist de portada antes de renderizar: ¿se entiende el tema sin sonido? ¿hay dos cosas que no deberían estar juntas? ¿el título afirma algo?
