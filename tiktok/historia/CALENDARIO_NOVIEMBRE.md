@@ -58,7 +58,7 @@ Reglas que no cambian:
 | **Jue 26** | Por qué el teclado del móvil va 1-2-3 y la calculadora 7-8-9 | Por qué chocamos las copas al brindar (y no era por el veneno) | El azúcar no pone hiperactivos a los niños | Rodar el coche nuevo despacio: antes sí, ahora no |
 | **Vie 27** · Black Friday | Por qué se llama Black Friday (y no es por lo que dicen) | «Ser un cero a la izquierda» | Los huevos morenos no son más nutritivos | Llenar el depósito por la mañana «porque está fría»: mito |
 | **Sáb 28** | Santa Claus ya iba de rojo antes de Coca-Cola | Por qué el Gordo lo cantan los niños de San Ildefonso | La gasolina de 98 no limpia tu motor | Por qué el paso de cebra se llama así |
-| **Dom 29** | El submarino de Isaac Peral | «¡No hay tu tía!»: la tía era una pomada | El brindis del veneno: mito (si no salió el 26) | Los portales de Madrid: el número 1 está siempre más cerca de Sol |
+| **Dom 29** | El submarino de Isaac Peral | «¡No hay tu tía!»: la tía era una pomada | Perdemos casi todo el calor por la cabeza: mentira | Los portales de Madrid: el número 1 está siempre más cerca de Sol |
 | **Lun 30** | Por qué el año empieza el 1 de enero | Las uvas de Nochevieja: ¿excedente de 1909 o burla de 1882? | El Ratoncito Pérez se inventó para un rey de 8 años (Alfonso XIII) | Por qué las matrículas ya no llevan la M de Madrid (desde el año 2000) |
 
 ## Reserva (por si un tema no pasa la comprobación)
