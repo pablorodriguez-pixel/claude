@@ -122,13 +122,14 @@ plano(L(7) - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
   box(cam, -400, 1026, 1880, 8, { zIndex: 3, backgroundImage: 'repeating-linear-gradient(90deg, #f4efe2 0 60px, transparent 60px 120px)' });
   const r1 = box(cam, 330, 640, 110, 260, { zIndex: 1, background: '#6d6a72', border: `7px solid ${INK}`, transform: 'skewX(-30deg)' }), r2 = box(cam, 640, 1160, 110, 260, { zIndex: 1, background: '#6d6a72', border: `7px solid ${INK}`, transform: 'skewX(-30deg)' });
   const la = texto(cam, 520, '23A', { size: 120, color: '#fff', x: 220, w: 360, z: 6, shadow: OUT }), lb = texto(cam, 1420, '23B', { size: 120, color: '#fff', x: 540, w: 360, z: 6, shadow: OUT });
-  const cA = COCHE(cam, '#f2c230'), cB = COCHE(cam, '#e8507a');
+  const cA = COCHE(cam, '#f2c230'), cB = COCHE(cam, '#e8507a'), cX = COCHE(cam, '#9fd3c0');
   const fa = texto(c, 330, 'kilómetros subiendo: A', { size: 64, color: '#fff', z: 40, shadow: OUT }), fb = texto(c, 1220, 'kilómetros bajando: B', { size: 64, color: '#fff', z: 40, shadow: OUT });
   const mismo = chip(c, 280, 420, 'el mismo kilómetro: 23', { size: 56, bg: INK, color: YEL, z: 41 });
   sp(T.dos, 'pop', 0.5); sp(T.letra, 'ding', 0.6); sp(T.primeraA, 'swoosh_up', 0.6); sp(T.laB, 'swoosh_up', 0.6);
   return t => {
-    deriva(cam, t, L(7) - 0.1, L(9) - 0.1, [540, 1040, 0.95], [540, 1040, 1.08]);
+    deriva(cam, t, L(7) - 0.1, L(9) - 0.1, [520, 1060, 0.9], [560, 1020, 1.15]);
     set(mismo, { o: t > T.dos && t < T.primeraA ? 1 : 0, s: pop(t, T.dos, 0.3), r: -3 });
+    set(cX, { x: -300 + ((t * 420) % 1800), y: 900, r: 90 });
     const ka = p(t, T.primeraA - 0.3, 2.0, E.inOutCubic); set(cA, { o: t > T.primeraA - 0.3 ? 1 : 0, x: lerp(-200, 380, ka), y: 900, r: 90 - (ka > 0.8 ? (ka - 0.8) * 5 * 50 : 0) });
     const kb = p(t, T.laB - 0.3, 2.0, E.inOutCubic); set(cB, { o: t > T.laB - 0.3 ? 1 : 0, x: lerp(1200, 690, kb), y: 990, r: -90 - (kb > 0.8 ? (kb - 0.8) * 5 * 50 : 0) });
     set(la, { o: t > T.letra ? 1 : 0, s: pop(t, T.letra, 0.3) * (t > T.primeraA && t < T.laB ? 1.15 : 1) }); set(lb, { o: t > T.letra ? 1 : 0, s: pop(t, T.letra + 0.2, 0.3) * (t > T.laB ? 1.15 : 1) });
