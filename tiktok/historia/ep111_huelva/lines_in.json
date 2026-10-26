@@ -1,0 +1,83 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Este hombre engañó a Hitler... estando muerto.",
+   "tempo": 1.1,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Y todavía está enterrado en Huelva.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Treinta de abril de mil novecientos cuarenta y tres. Un pescador de Punta Umbría ve algo flotando en el mar.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Es un oficial británico. Muerto. Y lleva un maletín... atado al abrigo con una cadena.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "España no está en la guerra, pero está llena de espías alemanes. Y el maletín acaba en sus manos.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Abren las cartas con mucho cuidado, las copian... y las mandan a Berlín. Es el plan de los aliados: van a atacar Grecia.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y en los bolsillos, todo cuadra: la foto de su novia, cartas de amor, entradas de teatro... hasta una carta del banco reclamándole dinero.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Pero nada era verdad. El comandante William Martin... no existía.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Era un vagabundo galés, Glindur Maicol, que había muerto en Londres envenenado. Los británicos le inventaron una vida entera... y lo soltaron en el mar desde un submarino.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[excited] Y Hitler se lo cree. Manda tropas a Grecia y a Cerdeña. Pero en julio, los aliados desembarcan... en Sicilia.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "A Churchill le llega un telegrama: «Se lo han tragado entero».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[softly] Hoy su tumba sigue en el cementerio de Huelva. Con el nombre falso... y, desde mil novecientos noventa y ocho, también con el suyo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Sabías que esto pasó en Huelva? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
