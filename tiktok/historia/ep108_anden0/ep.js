@@ -134,8 +134,8 @@ plano(L(9) - 0.1, L(11) - 0.1, { background: '#efe1c6' }, c => {
   const pas = PERS(vag, 60, 60, 300, { ropa: '#2b8ad6', pelo: 'corto', pcol: '#3a2a1e' }); const movil = box(vag, 240, 250, 70, 110, { zIndex: 12, background: '#1d1a22', border: `5px solid ${INK}`, borderRadius: '12px' });
   sp(T.bajarte, 'pop', 0.5); sp(T.iglesia, 'whoosh', 0.6); sp(T.movil, 'error', 0.4); sp(T.ventana, 'sparkle', 0.8);
   return t => {
-    deriva(cam, t, L(9) - 0.1, L(11) - 0.1, [540, 760, 1.0], [540, 780, 1.08]);
-    const kb = clamp((t - T.iglesia + 0.3) / 2.6); set(bola, { x: lerp(120, 960, kb) - 35, y: 685 });
+    deriva(cam, t, L(9) - 0.1, L(11) - 0.1, [500, 740, 0.92], [580, 800, 1.2]);
+    const kb = clamp((t - L(9)) / (T.proxima - L(9))); set(bola, { x: lerp(120, 960, kb) - 35, y: 685 + Math.sin(t * 6) * 4 });
     set(fant, { o: t > T.iglesia ? 1 : 0, r: -4 + Math.sin(t * 3) * 2 });
     const dentro = t > T.proxima - 0.3; set(vag, { o: dentro ? 1 : 0, y: dentro ? (1 - p(t, T.proxima - 0.3, 0.4, E.outCubic)) * 400 : 400 });
     const mira = t > T.ventana - 0.3; set(vista, { x: mira ? lerp(200, -900, p(t, T.ventana - 0.3, 2.0)) : 200 - ((t * 400) % 120) });
