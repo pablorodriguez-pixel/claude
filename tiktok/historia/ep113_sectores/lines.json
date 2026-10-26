@@ -1,0 +1,79 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Sabías que España está partida en seis trozos?",
+  "s": 0.12,
+  "e": 2.835
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y cada carretera te dice en cuál estás. Seguro que nunca te habías fijado.",
+  "s": 3.385,
+  "e": 8.099
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Mira esta: la N seiscientos treinta y cuatro. Parece un número cualquiera. Pues no lo es.",
+  "s": 8.649,
+  "e": 15.127
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "En mil novecientos treinta y nueve, el ministro Alfonso Peña cogió el mapa de España... y lo partió como una tarta.",
+  "s": 15.677,
+  "e": 21.508
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Los cuchillos fueron las seis carreteras que salen de Madrid. Seis trozos, numerados del uno al seis.",
+  "s": 22.058,
+  "e": 27.252
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La primera cifra es tu trozo. Si empieza por seis, estás entre la A seis y la A uno: el norte.",
+  "s": 27.802,
+  "e": 35.477
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "La segunda cifra es la distancia: cada número, cien kilómetros más lejos de Madrid. Un tres... a más de trescientos.",
+  "s": 36.027,
+  "e": 44.015
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Así que la seiscientos treinta y cuatro es: trozo seis, a más de trescientos kilómetros. Y efectivamente: va por la costa del norte, de Galicia al País Vasco.",
+  "s": 44.565,
+  "e": 54.956
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Pruébalo con la próxima que veas. La cuatrocientos, entre la A cuatro y la A cinco. La trescientos, entre Valencia y Andalucía.",
+  "s": 55.506,
+  "e": 64.944
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Qué carretera pasa por tu pueblo? Dime el número... Os leo.",
+  "s": 65.494,
+  "e": 69.251
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 69.801,
+  "e": 72.756
+ }
+]
