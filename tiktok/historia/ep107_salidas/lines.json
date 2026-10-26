@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Este número te dice cuánto te queda... y nadie lo usa.",
+  "s": 0.12,
+  "e": 3.272
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Es el número de la salida. Y no está puesto al azar.",
+  "s": 3.822,
+  "e": 6.991
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "La norma de carreteras lo dice clarito: cada salida lleva el número del kilómetro en el que está.",
+  "s": 7.541,
+  "e": 11.934
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "La salida 23 está en el kilómetro 23. La 120, en el 120.",
+  "s": 12.484,
+  "e": 17.516
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que si pasas por la salida 120 y la tuya es la 165... te quedan cuarenta y cinco kilómetros. Sin GPS.",
+  "s": 18.066,
+  "e": 26.381
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y en las autovías que salen de Madrid, hay más: ese kilómetro se cuenta desde la Puerta del Sol.",
+  "s": 26.931,
+  "e": 32.971
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "O sea, la salida 23 de la A tres... está a veintitrés kilómetros del kilómetro cero.",
+  "s": 33.521,
+  "e": 39.674
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "¿Y si hay dos salidas en el mismo kilómetro? Les ponen una letra: A y B.",
+  "s": 40.224,
+  "e": 45.096
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "La A es la primera que te encuentras si los kilómetros van subiendo. La B, si van bajando.",
+  "s": 45.646,
+  "e": 51.384
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que la próxima vez que alguien pregunte «¿cuánto queda?»... mira la salida y resta.",
+  "s": 51.934,
+  "e": 56.648
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Qué número tiene la salida de tu casa? Os leo.",
+  "s": 57.198,
+  "e": 59.91
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 60.46,
+  "e": 63.415
+ }
+]
