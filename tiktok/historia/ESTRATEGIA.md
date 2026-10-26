@@ -76,3 +76,14 @@ Tres reglas, y las tres se cumplen antes de escribir el guion:
 3. **No lo cuentes: enséñalo.** Si la voz explica un mecanismo, la imagen lo hace a la vez (la electricidad sale hacia el dedo y un número baja de 100 a 62). Menos rótulos que repiten la voz; más proceso animado, con números que cambian y cosas que se mueven.
 Estilo que funciona: primer plano macro, fondo oscuro y limpio, una sola idea por plano, subtítulo pequeño arriba con la palabra clave resaltada.
 Antes de renderizar: ¿es algo de su día a día en lo que nunca se había fijado? ¿el fotograma 0 se mueve? ¿hay algún plano donde la voz cuenta algo que la imagen no enseña?
+
+## 10. Datos reales (perfil a 9.550 seguidores)
+| Vídeo | Vistas | Lectura |
+|---|---|---|
+| Autovías como un reloj | 772.600 | Algo que usas + imagen-idea (España = reloj) |
+| «OK» falta de ortografía | 132.500 | Palabra que dices cada día + giro |
+| Napoleón no era bajito | 118.700 | Mito que todos «saben» + se desmonta |
+| Ventanilla o aire | 3.560 | Consejo ya muy oído: no sorprende |
+| Reto bostezo | 2.728 | Truco de reto: no aporta nada que contar |
+| El muerto de Huelva | 254 | Historia de guerra, ajena: el protagonista no eres tú |
+Regla que sale de aquí: **el protagonista es el espectador** (su cena, su carretera, su palabra). Hitler funcionó porque iba de TU hora de cenar, no de Hitler. Historias ajenas (guerra, espías) y consejos conocidos, fuera. Lo que funciona además se comparte para «hacerse el listo»: un dato que puedes soltar en una cena.
