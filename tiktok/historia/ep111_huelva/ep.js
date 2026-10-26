@@ -257,14 +257,14 @@ plano(L(9) - 0.1, L(11) - 0.1, { background: '#bfe3f5' }, c => {
   const MSG = 'SE LO HAN TRAGADO ENTERO.';
   sp(T.cree, 'boing', 0.5); sp(T.tropasG, 'swoosh_up', 0.5); sp(T.cerdena, 'swoosh_up', 0.5); sp(T.sicilia, 'tada', 0.8); sp(T.churchill, 'ding', 0.6); sp(T.tragado, 'stamp', 0.6);
   return t => {
-    deriva(cam, t, L(9) - 0.1, L(10) - 0.1, [560, 980, 0.95], [640, 1080, 1.1]);
+    deriva(cam, t, L(9) - 0.1, L(11) - 0.1, [560, 980, 0.95], [660, 1100, 1.16]);
     flechas.forEach(([f, tt]) => { const k = p(t, tt - 0.2, 0.6, E.outCubic); f.style.clipPath = `inset(0 ${f1((1 - k) * 100)}% 0 0)`; f.style.opacity = t > tt - 0.2 ? 1 : 0; });
     barcos.forEach((b, i) => { const k = p(t, T.julio + i * 0.25, 1.4, E.inOutCubic); set(b, { o: t > T.julio ? 1 : 0, x: lerp(480 + i * 110, 560 + i * 70, k), y: lerp(1120, 800 + (i % 2) * 30, k) + Math.sin(t * 3 + i) * 4 }); });
     const sic = mapa.querySelector('.sic'); if (sic) sic.setAttribute('fill', t > T.sicilia ? '#9fd3c0' : '#e8d8a8');
     pFace(hit, t, { feliz: t > T.sicilia ? -1 : 0.6, ceja: t > T.sicilia ? 18 : 4, jaw: t > T.sicilia ? 0.8 : 0, look: [16, -6], seed: 9 }); set(hit, { o: t < T.churchill - 0.3 ? 1 : 0, y: t > T.sicilia ? Math.sin(t * 25) * 4 : wobble(t, 0.6, 4) });
     set(cree, { o: t > T.cree - 0.1 && t < T.julio ? 1 : 0, s: pop(t, T.cree - 0.1, 0.35), r: -3 });
     set(jul, { o: t > T.julio - 0.1 && t < T.churchill - 0.3 ? 1 : 0, s: pop(t, T.julio - 0.1, 0.35), r: -3 });
-    const kt = t > T.churchill - 0.3; set(tele, { o: kt ? 1 : 0, s: pop(t, T.churchill - 0.3, 0.35), r: -2 });
+    const kt = t > T.churchill - 0.3; set(tele, { o: kt ? 1 : 0, s: pop(t, T.churchill - 0.3, 0.35) * (1 + 0.04 * clamp((t - T.churchill) / 3)), r: -2 + Math.sin(t * 1.2) * 1 });
     const tt = tele.querySelector('.tt'); if (tt) tt.textContent = MSG.slice(0, Math.floor(clamp((t - T.tragado + 0.1) / 1.2) * MSG.length));
   };
 });
