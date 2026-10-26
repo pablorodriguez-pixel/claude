@@ -60,7 +60,7 @@ plano(-1, L(2) - 0.1, { background: '#9fd3e8' }, c => {
   const traza = box(cam, 0, 0, 1080, 1920, { zIndex: 4 }, `<svg viewBox="0 0 1080 1920" width="1080" height="1920"><path class="tr" d="M290,1290 Q420,820 820,780" stroke="${RED}" stroke-width="12" fill="none" stroke-dasharray="26 18" stroke-linecap="round"/></svg>`);
   const t1 = texto(c, 140, `ENGAÑÓ A ${hlSpan('HITLER', 'phl', RED)}`, { size: 104, color: '#fff', z: 40, shadow: OUT });
   const t2 = texto(c, 270, 'estando MUERTO', { size: 112, color: YEL, z: 40, shadow: OUT });
-  sp(T.muerto0, 'thud', 0.7); sp(T.huelva0, 'ding', 0.6);
+  sp(QE('estando muerto', 0) + 0.05, 'thud', 0.5); sp(T.huelva0, 'ding', 0.6);
   return t => {
     deriva(cam, t, -0.2, L(2), [540, 1000, 0.95], [520, 1060, 1.06]);
     // la carta viaja en bucle de la lápida a Hitler

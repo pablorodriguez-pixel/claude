@@ -12,12 +12,11 @@
   {
    "who": "VECINO",
    "text": "[excited] Este hombre engañó a Hitler... estando muerto.",
-   "tempo": 1.1,
    "gap_after": 0.55
   },
   {
    "who": "VECINO",
-   "text": "[whispers] Y todavía está enterrado en Huelva.",
+   "text": "Y todavía está enterrado en Huelva.",
    "gap_after": 0.55
   },
   {
