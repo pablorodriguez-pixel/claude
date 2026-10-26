@@ -68,3 +68,11 @@ Lo que hizo que se parara el dedo, y que se aplica a TODOS los vídeos desde aho
 3. **Algo reconocible al instante y nuestro**: el mapa de España se lee en medio segundo. Mejor un mapa, un objeto o un sitio que todo el mundo conoce que un personaje genérico.
 4. **Se guarda y se comparte porque sirve**: los guardados (1 %) y los compartidos (1,5 %) dicen «esto lo voy a usar / se lo mando a alguien». Siempre que se pueda, un remate práctico o comprobable.
 Checklist de portada antes de renderizar: ¿se entiende el tema sin sonido? ¿hay dos cosas que no deberían estar juntas? ¿el título afirma algo?
+
+## 9. Lección del reel de @resultaaquee (mismo canal: 60.000 vs 10,5 millones)
+Tres reglas, y las tres se cumplen antes de escribir el guion:
+1. **De qué hablas: de algo que el espectador TOCA mientras ve el vídeo.** El AirTag (no todo el mundo tiene uno) se quedó en 60.000; la pantalla del móvil («la estás tocando ahora mismo») llegó a 10,5 M. Prioridad: móvil, teclado, monedas y billetes, DNI, mando, llaves, ticket… lo que está en la mano o en el bolsillo.
+2. **El primer segundo se mueve y sorprende.** Nada de un objeto quieto: un dedo gigante tocando la pantalla. En el fotograma 0 ya está pasando algo, en primerísimo plano.
+3. **No lo cuentes: enséñalo.** Si la voz explica un mecanismo, la imagen lo hace a la vez (la electricidad sale hacia el dedo y un número baja de 100 a 62). Menos rótulos que repiten la voz; más proceso animado, con números que cambian y cosas que se mueven.
+Estilo que funciona: primer plano macro, fondo oscuro y limpio, una sola idea por plano, subtítulo pequeño arriba con la palabra clave resaltada.
+Antes de renderizar: ¿el espectador tiene esto en la mano? ¿el fotograma 0 se mueve? ¿hay algún plano donde la voz cuenta algo que la imagen no enseña?
