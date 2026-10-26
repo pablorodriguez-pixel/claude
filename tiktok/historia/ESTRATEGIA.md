@@ -87,3 +87,4 @@ Antes de renderizar: ¿es algo de su día a día en lo que nunca se había fijad
 | Reto bostezo | 2.728 | Truco de reto: no aporta nada que contar |
 | El muerto de Huelva | 254 | Historia de guerra, ajena: el protagonista no eres tú |
 Regla que sale de aquí: **el protagonista es el espectador** (su cena, su carretera, su palabra). Hitler funcionó porque iba de TU hora de cenar, no de Hitler. Historias ajenas (guerra, espías) y consejos conocidos, fuera. Lo que funciona además se comparte para «hacerse el listo»: un dato que puedes soltar en una cena.
+**Filtro anti-obvio, frase a frase (no solo el tema):** cada dato del guion pasa la pregunta «¿esto lo sabe ya casi todo el mundo?». Si la respuesta es sí, se quita aunque el tema sea bueno. Ejemplo: en las matrículas, «cuanto más lejos de la B, más nuevo el coche» lo sabe cualquiera y bajó el final. El remate tiene que ser siempre el dato más sorprendente del vídeo, nunca uno de relleno.
