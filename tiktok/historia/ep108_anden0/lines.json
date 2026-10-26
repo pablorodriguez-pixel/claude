@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "En la línea 1 hay una estación donde el tren nunca para.",
+  "s": 0.12,
+  "e": 3.281
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Lleva sesenta años cerrada. Y sigue ahí, tal cual.",
+  "s": 3.831,
+  "e": 8.134
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Mil novecientos diecinueve. Se inaugura el primer Metro de Madrid. Y una de sus estaciones es Chamberí.",
+  "s": 8.684,
+  "e": 14.757
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Durante cuarenta y siete años funciona sin problema. Pero Madrid crece... y los trenes se quedan pequeños.",
+  "s": 15.307,
+  "e": 20.742
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que el Metro decide alargarlos. Y para que quepan, hay que alargar también los andenes.",
+  "s": 21.292,
+  "e": 26.565
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Pero Chamberí está en una curva. Y en una curva, el andén no se puede estirar.",
+  "s": 27.115,
+  "e": 31.855
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Así que en mil novecientos sesenta y seis... la cierran. Y los trenes empiezan a pasar de largo.",
+  "s": 32.405,
+  "e": 40.96
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y la estación se queda a oscuras, tal cual estaba: sus azulejos, sus anuncios, sus taquillas...",
+  "s": 41.51,
+  "e": 47.832
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Hasta que en dos mil ocho la abren otra vez... como museo. Se llama Andén cero.",
+  "s": 48.382,
+  "e": 54.778
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y lo mejor: la puedes ver sin bajarte. Está en la línea 1, entre Iglesia y Bilbao.",
+  "s": 55.328,
+  "e": 60.335
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Así que la próxima vez que vayas en la línea 1... no mires el móvil. Mira por la ventana.",
+  "s": 60.885,
+  "e": 66.796
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Conoces alguna otra estación fantasma? Os leo.",
+  "s": 67.346,
+  "e": 70.064
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 70.614,
+  "e": 73.569
+ }
+]
