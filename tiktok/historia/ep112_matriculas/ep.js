@@ -180,9 +180,9 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: OSC }, c => {
     set(marca, { x: lerp(xL(0), xL(iN), k) - 30, y: Math.sin(t * 5) * 14 }); set(regla, { r: Math.sin(t * 1.4) * 1.5, y: Math.sin(t * 1.1) * 8 });
     const rel = regla.querySelector('.rel'); if (rel) rel.style.width = f1(lerp(xL(0), xL(iN), k) - X0) + 'px';
     const L1 = CONS[Math.min(i0, iN)], L2 = CONS[Math.floor((fi * 7) % CONS.length)], L3 = CONS[Math.floor((fi * 13) % CONS.length)];
-    ponTexto(pl.let, k <= 0 ? 'BBB' : k >= 1 ? 'NLB' : L1 + L2 + L3); ponTexto(pl.num, k <= 0 ? '0000' : String(1000 + Math.floor(t * 731) % 9000));
+    ponTexto(pl.let, t < T.bbb - 0.1 ? rodillo(t, 4, 12) : k <= 0 ? 'BBB' : k >= 1 ? 'NLB' : L1 + L2 + L3); ponTexto(pl.num, t < T.bbb - 0.1 ? String(1000 + Math.floor(t * 23) % 9000) : k <= 0 ? '0000' : String(1000 + Math.floor(t * 731) % 9000));
     ponTexto(anio, String(Math.round(2000 + 26 * k))); set(anio, { o: t > T.bbb - 0.2 ? 1 : 0, r: -2 + wobble(t, 0.5, 0.6) });
-    set(pl, { o: t > T.bbb - 0.3 ? 1 : 0, s: pop(t, T.bbb - 0.3, 0.35), r: -2 + Math.sin(t * 1.3) * 1.2 });
+    set(pl, { o: 1, s: t > T.bbb - 0.1 && t < T.bbb + 0.3 ? 1.08 : 1, r: -2 + Math.sin(t * 1.3) * 1.2 });
     set(ord, { o: t > T.orden - 0.1 && t < T.bbb - 0.3 ? 1 : 0, s: pop(t, T.orden - 0.1, 0.3), r: -3 });
     set(nueva, { o: t > T.nueva - 0.1 ? 1 : 0, s: pop(t, T.nueva - 0.1, 0.3), r: -3 });
   };
