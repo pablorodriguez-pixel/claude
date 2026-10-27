@@ -139,13 +139,27 @@ body{font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased;color:#14
   <div class="note">Verde: 3 % (continua) y 2 % (discontinua). Rojo: 0,16 %. Interés compuesto, bruto.</div>
  </div>
 
- <!-- billón -->
- <div class="pane" id="p_billon">
-  <div class="abs h" style="left:0;right:0;top:40px;text-align:center;font-size:42px;color:#6b6358">Depósitos de los hogares españoles</div>
-  <div class="abs h" id="b1" style="left:0;right:0;top:110px;text-align:center;font-size:120px;white-space:nowrap">1,1 billones €</div>
-  <div class="abs h" id="b2" style="left:0;right:0;top:270px;text-align:center;font-size:50px;opacity:0">al 3 % serían</div>
-  <div class="abs h" id="b3" style="left:0;right:0;top:330px;text-align:center;font-size:104px;color:#1f7a4d;opacity:0"><span id="b3n">0</span> M€ / año</div>
-  <div class="note">Fuente: Banco de España, 2026. Cálculo hipotético: 1,1 billones × 3 %.</div>
+ <!-- comisión de mantenimiento -->
+ <div class="pane" id="p_comision">
+  <div class="abs" style="left:150px;top:40px;width:600px;height:420px;border:6px solid #141414;border-radius:26px;background:#fff">
+   <div class="abs h" style="left:30px;top:26px;font-size:30px;color:#6b6358;white-space:nowrap">Movimientos · Cuenta de siempre</div>
+   <div class="abs" style="left:30px;right:30px;top:80px;height:4px;background:#e2dccf"></div>
+   <div class="abs h" style="left:30px;top:110px;font-size:32px;color:#6b6358">Nómina<span style="float:right;margin-left:150px;color:#1f7a4d">+1.600,00 €</span></div>
+   <div class="abs h" style="left:30px;top:170px;font-size:32px;color:#6b6358">Recibo luz<span style="float:right;margin-left:170px">−58,40 €</span></div>
+   <div class="abs" id="cm_row" style="left:16px;right:16px;top:225px;height:110px;border-radius:16px;background:#fde3e1;border:5px solid #931219;opacity:0">
+    <div class="abs h" style="left:16px;top:16px;font-size:36px;color:#931219">Comisión mantenimiento</div>
+    <div class="abs h" style="right:20px;top:54px;font-size:46px;color:#931219">−15,00 €</div>
+   </div>
+   <div class="abs h" id="cm_q" style="left:30px;top:350px;font-size:26px;color:#6b6358;opacity:0">Ejemplo ilustrativo · cada trimestre</div>
+  </div>
+ </div>
+
+ <!-- reclamar -->
+ <div class="pane" id="p_reclama">
+  <div class="abs h" style="left:0;right:0;top:28px;text-align:center;font-size:46px">¿Puedes reclamarla?</div>
+  <div class="abs" id="r1" style="left:60px;top:110px;display:flex;align-items:center;gap:24px"><span class="pill" style="background:#FFD23F">1</span><span class="h" style="font-size:44px">¿Estaba en tu contrato?</span></div>
+  <div class="abs" id="r2" style="left:60px;top:205px;display:flex;align-items:center;gap:24px"><span class="pill" style="background:#FFD23F">2</span><span class="h" style="font-size:44px">¿Te avisaron con 2 meses?</span></div>
+  <div class="abs" id="r3" style="left:60px;top:310px;width:770px;padding:20px 26px;border:6px solid #141414;border-radius:22px;background:#A3D9C5"><span class="h" style="font-size:40px">Si no → reclama al banco.<br>Sin respuesta → Banco de España.</span></div>
  </div>
 
  <!-- banco: migajas -->
@@ -179,8 +193,9 @@ body{font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased;color:#14
    <div class="abs h" style="left:24px;top:260px;font-size:80px;color:#931219">0,00 %</div>
    <svg class="abs" id="circ" style="left:2px;top:236px" width="320" height="140" viewBox="0 0 320 140"><ellipse cx="150" cy="70" rx="140" ry="58" fill="none" stroke="#F25244" stroke-width="9" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
   </div>
-  <div class="abs h" id="q1" style="left:440px;top:90px;width:420px;font-size:68px">¿Cuánto te paga la tuya?</div>
-  <div class="abs h" id="q2" style="left:440px;top:330px;width:420px;font-size:38px;color:#50519E">Dímelo en comentarios ↓</div>
+  <div class="abs h" id="q1" style="left:430px;top:70px;width:440px;font-size:50px">Dónde sacarle más a tu dinero</div>
+  <div class="abs" id="q2" style="left:430px;top:250px;width:420px;height:120px;border-radius:100px;background:#50519E;border:6px solid #141414;color:#fff;display:flex;align-items:center;justify-content:center;gap:16px"><span style="font-size:64px;font-weight:900;line-height:1">+</span><span class="h" style="font-size:58px">Sígueme</span></div>
+  <svg class="abs" id="hand" style="left:720px;top:330px" width="120" height="140" viewBox="0 0 120 140"><path d="M40 20 Q40 6 52 6 Q64 6 64 20 V62 Q70 56 78 58 Q86 60 86 70 Q92 64 100 68 Q108 72 106 84 V104 Q106 132 78 134 H58 Q40 134 30 116 L12 86 Q6 76 14 72 Q22 68 30 78 L40 90 Z" fill="#fff" stroke="#141414" stroke-width="6" stroke-linejoin="round"/></svg>
  </div>
 
 </div></div>
@@ -268,7 +283,7 @@ function dani(m,blink,expr){
   ${mouth}
   </g>`;
 }
-const DEXPR={0:'proud',2:'confused',4:'normal',6:'worry',8:'normal',11:'shock',13:'worry'};
+const DEXPR={0:'proud',2:'confused',4:'normal',6:'worry',8:'normal',11:'shock',13:'shock'};
 
 // ---------- subtítulos: grupos de hasta 3 palabras ----------
 const G=[];{let cur=[];W.forEach((w,i)=>{cur.push(w);const brk=/[.,!?¿¡…:]$/.test(w.w)||cur.length>=3||i===W.length-1||(W[i+1]&&W[i+1].who!==w.who);if(brk){G.push(cur);cur=[]}})}
@@ -278,59 +293,69 @@ const clean=w=>w.replace(/[.,!?¿¡…:]/g,'');
 function talking(who,t){for(const w of W){if(w.who===who&&t>=w.s-0.02&&t<=w.e+0.02)return true;if(w.s>t+1)break}return false}
 function line(t){let k=-1;SC.forEach((s,i)=>{if(t>=s.s-0.05)k=i});return k}
 
+const norm=w=>clean(w).toLowerCase();
+function T(word,after=0){for(const w of W){if(w.s>=after-0.01&&norm(w.w).startsWith(word))return w.s}return after}
+const SS=n=>SC.find(s=>s.scene===n).s;
 function pane(name,lt,dur,t){
+ const st=SS(name);
  if(name==='oficina'){
-   const f=cl((t-5.2)/0.4); $('o_fire').setAttribute('opacity',f);
+   const q=T('quemando',st)-0.1;
+   const f=cl((t-q)/0.4); $('o_fire').setAttribute('opacity',f);
    const flick=Math.sin(t*25)*0.06; $('o_fire').setAttribute('transform',`translate(180 110) scale(${1+flick},${1-flick}) translate(-180 -110)`);
-   const burn=cl((t-5.3)/2.6); $('o_saldo').style.color=burn>0?`rgb(${20+127*burn},${20},${25})`:'#141414';
-   $('o_saldo').textContent=fmt(20000-burn*0)+' €';
+   const burn=cl((t-q)/2.0); $('o_saldo').style.color=burn>0?`rgb(${20+127*burn},20,25)`:'#141414';
  }
  if(name==='comparativa'){
-   const a=eo((lt-1.5)/0.8), b=eo((lt-6.0)/1.0);
+   const a=eo((t-T('cero',st))/0.8), b=eo((t-T('tres',st))/1.0);
    $('c_b1').style.height=(6+3*a)+'px'; $('c_v1').style.bottom=(20+6+3*a)+'px'; $('c_v1').style.opacity=a;
    $('c_b2').style.height=(190*b)+'px'; $('c_v2').style.bottom=(20+190*b)+'px'; $('c_v2').style.opacity=b;
  }
  if(name==='cuenta'){
-   [[1,1.1],[2,2.7],[3,4.3]].forEach(([i,s])=>{const k=eback((lt-s)/0.45);const e=$('k'+i);e.style.opacity=cl((lt-s)/0.2);e.style.transform=`translateX(${(1-k)*-60}px) scale(${0.8+0.2*k})`});
+   [[1,T('metes',st)],[2,T('sacas',st)],[3,T('intereses',st)]].forEach(([i,s])=>{const k=eback((t-s+0.15)/0.45);const e=$('k'+i);e.style.opacity=cl((t-s+0.15)/0.2);e.style.transform=`translateX(${(1-k)*-60}px) scale(${0.8+0.2*k})`});
  }
  if(name==='escudo'){
-   const q=t<25.6; $('e_crack').setAttribute('opacity',cl((t-23.6)/0.3)); $('e_q').setAttribute('opacity',cl((t-24)/0.3));
-   const sh=eback((t-25.8)/0.5);
-   $('e_bank').style.opacity=1-cl((t-25.6)/0.3);
-   $('e_shield').style.opacity=cl((t-25.7)/0.3); $('e_shield').style.transform=`scale(${0.85+0.15*sh})`;
-   if(q&&t>23.6&&t<24.3) $('e_bank').style.transform=`translateX(${Math.sin(t*90)*8}px)`; else $('e_bank').style.transform='';
+   const qb=T('quiebra',st), fg=T('fondo',st);
+   $('e_crack').setAttribute('opacity',cl((t-qb)/0.3)); $('e_q').setAttribute('opacity',cl((t-qb-0.2)/0.3));
+   const sh=eback((t-fg)/0.5);
+   $('e_bank').style.opacity=1-cl((t-fg+0.1)/0.3);
+   $('e_shield').style.opacity=cl((t-fg)/0.3); $('e_shield').style.transform=`scale(${0.85+0.15*sh})`;
+   $('e_bank').style.transform=(t>qb&&t<qb+0.6)?`translateX(${Math.sin(t*90)*8}px)`:'';
  }
  if(name==='contador'){
-   const k1=eo((t-38.8)/0.6), k2=eo((t-35.4)/1.6);
+   const k1=eo((t-T('treinta',st))/0.6), k2=eo((t-T('cuatrocientos',st))/1.6);
    $('n1').textContent=fmt(32*k1)+' €';
    $('n2').textContent=k2<1?fmt(400*k2)+' €':'400–600 €';
    $('n2').style.fontSize=k2<1?'110px':'78px';
  }
  if(name==='diezanos'){
-   const k=eo((lt-0.2)/2.2), N=60;
+   const k=eo((lt-0.2)/2.0), N=60;
    const X=i=>70+740*i/N, Y=v=>330-(v-20000)/7000*310;
    const pts=r=>{let a=[];for(let i=0;i<=N*k;i++)a.push([X(i),Y(20000*Math.pow(1+r,10*i/N))]);return a};
    const P=a=>a.length?'M'+a.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L'):'';
    const p3=pts(.03),p2=pts(.02),p0=pts(.0016);
    $('d_l3').setAttribute('d',P(p3));$('d_l2').setAttribute('d',P(p2));$('d_l0').setAttribute('d',P(p0));
    $('d_area').setAttribute('d',p3.length?P(p3)+' L'+p0.slice().reverse().map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L')+' Z':'');
-   const l=eback((lt-2.6)/0.5); $('d_lab').style.opacity=cl((lt-2.6)/0.2); $('d_lab').style.transform=`scale(${0.7+0.3*l}) rotate(-3deg)`;
+   const s=T('dejando',st)-0.4, l=eback((t-s)/0.5); $('d_lab').style.opacity=cl((t-s)/0.2); $('d_lab').style.transform=`scale(${0.7+0.3*l}) rotate(-3deg)`;
  }
- if(name==='billon'){
-   const k=eback((lt-0.1)/0.6); $('b1').style.transform=`scale(${0.7+0.3*k})`;
-   $('b2').style.opacity=cl((t-50.2)/0.3);
-   $('b3').style.opacity=cl((t-51.8)/0.3);
-   $('b3n').textContent=fmt(33000*eo((t-51.8)/1.4));
+ if(name==='comision'){
+   const c=T('comisión',st), k=eback((t-c)/0.45);
+   $('cm_row').style.opacity=cl((t-c)/0.2); $('cm_row').style.transform=`scale(${0.8+0.2*k})`; $('cm_q').style.opacity=cl((t-c-0.4)/0.3);
+   if(t>c&&t<c+0.35) $('cm_row').style.transform+=` translateX(${Math.sin(t*110)*8}px)`;
  }
  if(name==='banco'){
-   let s='';const k=cl((lt-2.4)/1.0);
+   let s='';const m=T('migajas',st),k=cl((t-m+0.6)/0.6);
    for(let i=0;i<9;i++){const ph=(i*0.13+lt*0.6)%1; if(k<=0)break; const x=440+Math.sin(i*2.1)*60-ph*330, y=330+ph*60+Math.sin(ph*6+i)*10;
      s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${5+(i%3)*2}" fill="#c9a26a" stroke="#141414" stroke-width="3" opacity="${k}"/>`}
-   $('crumbs').innerHTML=s; $('mig').setAttribute('opacity',cl((lt-2.6)/0.3));
+   $('crumbs').innerHTML=s; $('mig').setAttribute('opacity',cl((t-m)/0.3));
+ }
+ if(name==='reclama'){
+   [[1,T('contrato',st)-0.5],[2,T('avisarte',st)-0.3],[3,T('reclamarla',st)-0.3]].forEach(([i,s])=>{const k=eback((t-s)/0.45);const e=$('r'+i);e.style.opacity=cl((t-s)/0.2);e.style.transform=`translateY(${(1-k)*30}px) scale(${0.85+0.15*k})`});
  }
  if(name==='cierre'){
-   const c=$('circ').firstElementChild; c.setAttribute('stroke-dashoffset',1-eo((lt-0.6)/0.6));
-   $('q1').style.opacity=cl((t-60.6)/0.3); $('q2').style.opacity=cl((t-61.2)/0.3);
+   const c=$('circ').firstElementChild; c.setAttribute('stroke-dashoffset',1-eo((lt-0.4)/0.6));
+   const sg=T('sígueme',st), k=eback((t-sg+0.2)/0.45);
+   $('q1').style.opacity=cl((t-sg)/0.3);
+   $('q2').style.opacity=cl((t-sg+0.2)/0.2); $('q2').style.transform=`scale(${(0.7+0.3*k)*(1+0.04*Math.sin(t*8)*cl(t-sg-0.5))})`;
+   const tap=(t-sg-0.9)%1.2; $('hand').style.opacity=cl((t-sg-0.7)/0.2); $('hand').style.transform=`translate(${-20*cl(1-Math.abs(tap-0.3)*4)}px,${-20*cl(1-Math.abs(tap-0.3)*4)}px)`;
  }
 }
 
@@ -356,17 +381,17 @@ window.render=function(t){
  $('dani').style.transform=`translateY(${dB+(ex==='shock'?-18:0)}px) rotate(${dt?1.2:0}deg)`;
  // cámara: ligero push-in por escena + golpe en momentos clave
  let cam=1+0.03*cl(lt/4); let sx=0;
- if((t>43.6&&t<44.1)) sx=Math.sin(t*120)*10;
+ for(const i of [11,13]){if(t>SC[i].s&&t<SC[i].s+0.45) sx=Math.sin(t*120)*10;}
  $('cam').style.transform=`scale(${cam}) translateX(${sx}px)`;
  // subtítulos
  let html='';const subs=$('subs');
  for(const g of G){if(t>=g.s-0.02&&t<g.e){const kk=eback((t-g.s)/0.15);
-   html=g.map(w=>{const act=t>=w.s-0.03&&t<w.e+0.05;const num=/\d|%|€/.test(w.w)||/^(cero|dieciséis|tres|cien|mil|veinte|cuatrocientos|seiscientos|treinta|dos|cuatro|seis|diez|billón|millones)$/i.test(clean(w.w));
+   html=g.map(w=>{const act=t>=w.s-0.03&&t<w.e+0.05;const num=/\d|%|€/.test(w.w)||/^(cero|dieciséis|tres|cien|mil|veinte|cuatrocientos|seiscientos|treinta|dos|cuatro|seis|diez|meses)$/i.test(clean(w.w));
      return `<span style="color:${act?(num?'#A3D9C5':'#FFD23F'):'#fff'}">${clean(w.w)}</span>`}).join('');
    subs.style.transform=`scale(${0.85+0.15*kk})`;break}}
  subs.innerHTML=html;
  $('bar').style.width=(100*t/D.duration)+'%';
- $('disc').textContent=t>58.4?'Contenido educativo, no asesoramiento financiero.':'';
+ $('disc').textContent=t>SS('cierre')?'Contenido educativo, no asesoramiento financiero.':'';
 };
 window.ready=document.fonts.ready.then(()=>true);
 </script></body></html>

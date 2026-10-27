@@ -1,82 +1,19 @@
 [
- {
-  "who": "D",
-  "scene": "oficina",
-  "text": "[proud] Tengo veinte mil euros ahorrados en el banco. Y no los toco."
- },
- {
-  "who": "R",
-  "scene": "oficina",
-  "text": "[dry] Enhorabuena. Los estás quemando."
- },
- {
-  "who": "D",
-  "scene": "oficina",
-  "text": "[confused] ¿Quemando? ¡Si no gasto nada!"
- },
- {
-  "who": "R",
-  "scene": "comparativa",
-  "text": "Tu cuenta paga casi cero. De media, un cero coma dieciséis por ciento. Y hay cuentas remuneradas pagando un tres."
- },
- {
-  "who": "D",
-  "scene": "comparativa",
-  "text": "[curious] ¿Y eso qué es exactamente?"
- },
- {
-  "who": "R",
-  "scene": "cuenta",
-  "text": "Una cuenta normal. Metes el dinero, lo sacas cuando quieras, y te pagan intereses cada mes."
- },
- {
-  "who": "D",
-  "scene": "escudo",
-  "text": "[nervous] Ya... ¿y si el banco quiebra?"
- },
- {
-  "who": "R",
-  "scene": "escudo",
-  "text": "El Fondo de Garantía de Depósitos te cubre hasta cien mil euros por persona y por banco. Igual que tu cuenta de siempre."
- },
- {
-  "who": "D",
-  "scene": "contador",
-  "text": "Vale, ¿y de cuánto dinero hablamos?"
- },
- {
-  "who": "R",
-  "scene": "contador",
-  "text": "Con veinte mil, entre cuatrocientos y seiscientos euros al año. Tu banco te da treinta y dos."
- },
- {
-  "who": "R",
-  "scene": "diezanos",
-  "text": "En diez años, entre cuatro y seis mil euros que te estás dejando."
- },
- {
-  "who": "D",
-  "scene": "diezanos",
-  "text": "[shocked] ¿¡Seis mil!?"
- },
- {
-  "who": "R",
-  "scene": "billon",
-  "text": "Y aquí viene lo fuerte. Los españoles tienen más de un billón de euros en el banco. Al tres por ciento, serían treinta mil millones al año."
- },
- {
-  "who": "D",
-  "scene": "billon",
-  "text": "¿Y quién se queda eso?"
- },
- {
-  "who": "R",
-  "scene": "banco",
-  "text": "El banco. Presta tu dinero y te devuelve las migajas."
- },
- {
-  "who": "R",
-  "scene": "cierre",
-  "text": "Mira cuánto te paga tu cuenta. Si pone cero, ya sabes quién está ganando."
- }
+ {"who":"D","scene":"oficina","text":"Tengo veinte mil euros ahorrados en el banco. Y no los toco."},
+ {"who":"R","scene":"oficina","text":"Enhorabuena. Los estás quemando."},
+ {"who":"D","scene":"oficina","text":"¿Quemando? ¡Si no gasto nada!"},
+ {"who":"R","scene":"comparativa","text":"Tu cuenta paga casi cero. De media, un cero coma dieciséis por ciento. Y hay cuentas remuneradas pagando un tres."},
+ {"who":"D","scene":"comparativa","text":"¿Y eso qué es exactamente?"},
+ {"who":"R","scene":"cuenta","text":"Una cuenta normal. Metes el dinero, lo sacas cuando quieras, y te pagan intereses cada mes."},
+ {"who":"D","scene":"escudo","text":"¿Y si el banco quiebra?"},
+ {"who":"R","scene":"escudo","text":"El Fondo de Garantía de Depósitos te cubre hasta cien mil euros por persona y por banco. Igual que tu cuenta de siempre."},
+ {"who":"D","scene":"contador","text":"Vale, ¿y de cuánto dinero hablamos?"},
+ {"who":"R","scene":"contador","text":"Con veinte mil, entre cuatrocientos y seiscientos euros al año. Tu banco te da treinta y dos."},
+ {"who":"R","scene":"diezanos","text":"En diez años, entre cuatro y seis mil euros que te estás dejando."},
+ {"who":"D","scene":"diezanos","text":"¿¡Seis mil!?"},
+ {"who":"R","scene":"comision","text":"Y aquí viene lo fuerte. Hay bancos que encima te cobran comisión de mantenimiento."},
+ {"who":"D","scene":"comision","text":"¿Me cobran por guardar mi dinero?"},
+ {"who":"R","scene":"banco","text":"Y con tu dinero dan préstamos. A ti te dejan las migajas."},
+ {"who":"R","scene":"reclama","text":"Ojo: si esa comisión no estaba en tu contrato, o te la subieron sin avisarte con dos meses, puedes reclamarla."},
+ {"who":"R","scene":"cierre","text":"Mira cuánto te paga tu cuenta. Y sígueme para saber dónde sacarle más a tu dinero."}
 ]
