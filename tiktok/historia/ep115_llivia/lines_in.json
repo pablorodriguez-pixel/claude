@@ -1,0 +1,72 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Este pueblo es español... y está dentro de Francia.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y se quedó así por culpa de una sola palabra.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil seiscientos cincuenta y nueve. España pierde la guerra, y tiene que darle a Francia treinta y tres pueblos de los Pirineos.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero el tratado decía «aldeas»... y Llívia no era una aldea. Era una villa: un título que le había dado el emperador Carlos Quinto.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que Llívia se quedó en España. Rodeada de Francia. Hasta hoy: allí viven unas mil quinientas personas, y su carretera a España cruza territorio francés.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero lo más raro es dónde se firmó aquel tratado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "En una isla del río Bidasoa, entre Irún y Hendaya... que hoy cambia de país cada seis meses.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "De febrero a julio es española. De agosto a enero, francesa. Y así, desde hace más de un siglo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y en esa misma isla, un año después, el pintor más famoso de España preparó el encuentro de los dos reyes. Era Velázquez.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Volvió a Madrid agotado... y murió dos meses después.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Conocías Llívia? ¿O algún pueblo con una historia así de rara? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
