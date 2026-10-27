@@ -96,6 +96,7 @@ plano(L(3) - 0.1, L(6) - 0.1, { background: ESPACIO }, c => {
   // L5: la antena de cerca, atornillada para siempre
   const cerca = box(c, 0, 0, 1080, 1920, { zIndex: 30, background: OCASO });
   const ant = PARAB(cerca, 240, 620, 600, 2); const tornillos = [0, 1, 2].map(i => box(cerca, 520, 1080 + i * 110, 60, 60, { zIndex: 3, borderRadius: '50%', background: '#c9c4bc', border: `6px solid ${INK}` }, `<svg viewBox="0 0 60 60" width="48" height="48"><path d="M14,30 H46 M30,14 V46" stroke="${INK}" stroke-width="6"/></svg>`));
+  const nubes = [0, 1, 2].map(i => box(cerca, 0, 200 + i * 230, 340, 90, { zIndex: 1, borderRadius: '60px', background: 'rgba(255,255,255,.35)' }));
   const siempre = texto(cerca, 300, 'mirando al sur<br>para siempre', { size: 92, color: '#fff', z: 4, shadow: OUT });
   sp(T.satelites, 'pop', 0.4); sp(T.km, 'whoosh', 0.5); sp(T.ritmo, 'swoosh_up', 0.5); sp(T.quietos, 'ding', 0.6); sp(T.coloca, 'click', 0.6); sp(T.siempre, 'tada', 0.5);
   return t => {
@@ -109,8 +110,9 @@ plano(L(3) - 0.1, L(6) - 0.1, { background: ESPACIO }, c => {
     set(km, { o: t > T.km - 0.1 && t < T.vuelta ? 1 : 0, s: pop(t, T.km - 0.1, 0.3), r: -3 }); set(ecu, { o: t > T.ecuador - 0.1 && t < T.vuelta ? 1 : 0, s: pop(t, T.ecuador - 0.1, 0.3), r: 3 });
     set(mismo, { o: t > T.ritmo - 0.1 && t < T.coloca - 0.4 ? 1 : 0, s: pop(t, T.ritmo - 0.1, 0.3), r: -3 });
     set(quieto, { o: t > T.quietos - 0.1 && t < T.coloca - 0.4 ? 1 : 0, s: pop(t, T.quietos - 0.1, 0.3), r: -3 });
-    const kc = p(t, T.coloca - 0.4, 0.5, E.outCubic); set(cerca, { o: t > T.coloca - 0.4 ? 1 : 0, y: (1 - kc) * 1920, s: 1 + 0.04 * clamp((t - T.coloca) / 4) });
-    set(ant.cab, { r: -20 + Math.sin(t * 1.3) * 1.5 });
+    const kc = p(t, T.coloca - 0.4, 0.5, E.outCubic); set(cerca, { o: t > T.coloca - 0.4 ? 1 : 0, y: (1 - kc) * 1920, s: 1 + 0.14 * clamp((t - T.coloca) / 6) });
+    nubes.forEach((n, i) => set(n, { x: 1100 - ((t * (120 + i * 50) + i * 400) % 1600) }));
+    set(ant.cab, { r: -20 + Math.sin(t * 1.3) * 3 }); set(ant, { y: Math.sin(t * 1.7) * 10 });
     tornillos.forEach((s, i) => set(s, { r: t > T.coloca + i * 0.25 ? -360 * p(t, T.coloca + i * 0.25, 0.4) : 0 }));
     set(siempre, { o: t > T.siempre - 0.2 ? 1 : 0, s: pop(t, T.siempre - 0.2, 0.35), r: -2 });
   };
