@@ -1,0 +1,72 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Si te pierdes en una ciudad... mira los tejados.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Las parabólicas te dicen dónde está el sur. Y casi nadie se ha fijado.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "La próxima vez que salgas, míralas: en cualquier ciudad de España, casi todas apuntan hacia el mismo lado. Hacia el sur.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué? Porque miran a unos satélites colgados encima del ecuador... a treinta y seis mil kilómetros.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esos satélites dan la vuelta a la Tierra justo al mismo ritmo que ella gira. Así que, vistos desde aquí, están quietos en el cielo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Por eso la antena se coloca una vez... y se queda mirando al sur para siempre.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo mejor es quién lo pensó. En mil novecientos cuarenta y cinco, un joven técnico de radar británico publicó una idea que parecía ciencia ficción:",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "si pones un satélite justo a esa altura, se queda quieto sobre el mismo punto. Casi veinte años después, ya había uno allí.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Hoy esa órbita lleva su nombre: la órbita Clarke. Porque aquel chaval era Arthur C. Clarke... el que escribió dos mil uno: una odisea del espacio.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y si un día no hay parabólicas, busca una iglesia antigua: casi todas las románicas tienen el altar mirando al este, por donde sale el sol.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Hacia dónde mira la parabólica de tu edificio? Asómate y dímelo. Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
