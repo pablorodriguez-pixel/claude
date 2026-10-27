@@ -193,8 +193,8 @@ function preguntaFinal(l1, l2, o = {}) {
 function cierre(ep, titulo, izq = ['HISTORIA', 'de verdad']) {
   const line = NL - 1, i0 = W.findIndex(x => x.line === line), T0 = L(line) - 0.08;
   const tNo = W[i0 + 2].s, tLib = W[i0 + 6].s, TC = tLib - 0.05, SCB = 1.1;
-  headline(T0, tNo - 0.06, 'Y esto…', { size: 120, color: YEL, y: 150, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}` });
-  headline(tNo - 0.06, LOOP, '…no venía en el *libro.*', { size: 92, hlT: tLib, y: 170 });
+  headline(T0, tNo - 0.06, 'Y esto…', { size: 120, color: YEL, y: 255, shadow: `5px 5px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}` });
+  headline(tNo - 0.06, LOOP, '…no venía en el *libro.*', { size: 92, hlT: tLib, y: 262 });
   plano(T0, LOOP, ROSA, c => {
     rays(c, -160, 360, 1400, 24, 'rgba(255,255,255,.18)', 'rgba(0,0,0,0)', 1);
     const bookW = box(c, 0, 0, 1080, 1920, { transformOrigin: '540px 900px', zIndex: 2 });
