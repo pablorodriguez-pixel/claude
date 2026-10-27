@@ -42,9 +42,9 @@ plano(-1, L(2) - 0.1, { background: C_MAR }, c => {
     `<div style="position:absolute;left:0;right:0;bottom:0;height:70px;background:${C_ES};border-top:8px solid ${INK}"></div><div class="mancha" style="position:absolute;left:110px;top:90px;width:140px;height:110px;border-radius:50% 46% 52% 44%;background:${C_ES};border:8px solid ${INK};box-sizing:border-box"></div>
      <div style="position:absolute;left:0;right:0;top:220px;text-align:center;font-family:Bricolage;font-weight:800;font-size:40px;color:#fff;text-shadow:3px 3px 0 ${INK}">Llívia</div>`);
   const mango = box(cam, 0, 0, 60, 220, { zIndex: 7, background: '#6b4a2a', border: `10px solid ${INK}`, borderRadius: '20px', transformOrigin: '50% 0%' });
-  const t1 = texto(c, 140, 'ESTE PUEBLO ES ESPAÑOL', { size: 62, color: '#fff', z: 40, shadow: OUT });
-  const t2 = texto(c, 225, `…y está en ${hlSpan('FRANCIA', 'phl', '#5b8fd6')}`, { size: 104, color: '#fff', z: 40, shadow: OUT });
-  const pal = chip(c, 260, 1560, 'por UNA sola palabra', { size: 62, bg: RED, z: 41 });
+  const t1 = texto(c, 290, 'ESTE PUEBLO ES ESPAÑOL', { size: 62, color: '#fff', z: 40, shadow: OUT });
+  const t2 = texto(c, 375, `…y está en ${hlSpan('FRANCIA', 'phl', '#5b8fd6')}`, { size: 104, color: '#fff', z: 40, shadow: OUT });
+  const pal = chip(c, 260, 1475, 'por UNA sola palabra', { size: 62, bg: RED, z: 41 });
   sfx('swoosh_up', 0.05, 0.4); sp(T.francia0, 'ding', 0.6); sp(T.palabra, 'stamp', 0.5);
   return t => {
     deriva(cam, t, -0.2, L(2), [620, 900, 0.95], [700, 900, 1.15]);
@@ -63,7 +63,7 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: C_MAR }, c => {
   const cam = CAM(c); mapa(cam);
   const per = PERGAMINO(c, 140, 300, 800, 340, `<div style="font-family:Bricolage;font-weight:800;font-size:44px;text-align:center">TRATADO DE LOS PIRINEOS</div><div style="font-size:120px;font-weight:900;text-align:center;line-height:1.1">1659</div>`, 40);
   const casas = [...Array(33)].map((_, i) => box(cam, 0, 0, 46, 46, { zIndex: 6 }, casita(C_ES, 46)));
-  const cont = chip(c, 330, 1560, '33 pueblos para Francia', { size: 58, bg: C_FR, z: 41 });
+  const cont = chip(c, 330, 1475, '33 pueblos para Francia', { size: 58, bg: C_FR, z: 41 });
   sp(T.anio, 'stamp', 0.5); sp(T.pierde, 'thud', 0.5); sp(T.treinta, 'swoosh_up', 0.6);
   return t => {
     deriva(cam, t, L(2) - 0.1, L(3) - 0.1, [640, 1000, 1.0], [680, 920, 1.25]);
@@ -86,7 +86,7 @@ plano(L(3) - 0.1, L(4) - 0.1, { background: '#efe1c6' }, c => {
   const casa = box(cam, 340, 980, 400, 400, { zIndex: 4, transformOrigin: '50% 100%' }, casita(C_ES, 400));
   const cartel = box(cam, 300, 1380, 480, 140, { zIndex: 5, background: '#fbf6ea', border: `9px solid ${INK}`, borderRadius: '18px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '96px', textAlign: 'center', lineHeight: '122px', color: RED, transformOrigin: '50% 50%' }, 'VILLA');
   const sello = box(cam, 720, 1250, 240, 240, { zIndex: 6, transformOrigin: '50% 50%' }, `<svg viewBox="0 0 240 240" width="240" height="240"><circle cx="120" cy="120" r="104" fill="#b5523a" stroke="${INK}" stroke-width="8"/><circle cx="120" cy="120" r="80" fill="none" stroke="#f4e4c0" stroke-width="5" stroke-dasharray="8 6"/><path d="M80,110 L92,80 L106,102 L120,72 L134,102 L148,80 L160,110Z" fill="${GOLD}" stroke="${INK}" stroke-width="4"/><text x="120" y="160" text-anchor="middle" font-family="Playfair" font-weight="900" font-size="38" fill="#f4e4c0">Carlos V</text></svg>`);
-  const no = chip(c, 260, 1580, 'Llívia NO era una aldea', { size: 58, bg: INK, color: YEL, z: 40 });
+  const no = chip(c, 260, 1475, 'Llívia NO era una aldea', { size: 58, bg: INK, color: YEL, z: 40 });
   sp(T.aldeas, 'pop', 0.5); sp(T.noera, 'error', 0.4); sp(T.villa, 'tada', 0.6); sp(T.carlos, 'stamp', 0.8);
   return t => {
     deriva(cam, t, L(3) - 0.1, L(4) - 0.1, [540, 700, 1.0], [540, 1180, 0.98]);
@@ -110,9 +110,9 @@ plano(L(4) - 0.1, L(5) - 0.1, { background: '#7fbfe8' }, c => {
   const coche = box(cam, 520, 0, 60, 100, { zIndex: 4, background: RED, border: `6px solid ${INK}`, borderRadius: '16px' });
   const fr = ['FRANCIA', 'FRANCIA', 'FRANCIA', 'FRANCIA'].map((s, i) => box(cam, [[-60, 380], [880, 420], [-40, 1180], [860, 1200]][i][0], [[-60, 380], [880, 420], [-40, 1180], [860, 1200]][i][1], 300, 80, { zIndex: 2, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '52px', color: '#fff', textShadow: `3px 3px 0 ${INK}` }, s));
   const esp = box(cam, 340, 1560, 400, 90, { zIndex: 2, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '64px', color: INK, textAlign: 'center' }, 'ESPAÑA');
-  const nombre = texto(c, 220, 'Llívia', { size: 120, color: '#fff', z: 40, shadow: OUT });
-  const vec = chip(c, 320, 400, '≈ 1.500 vecinos', { size: 62, bg: INK, color: YEL, z: 40 });
-  const cruza = chip(c, 220, 1560, 'la carretera cruza Francia', { size: 58, bg: RED, z: 40 });
+  const nombre = texto(c, 280, 'Llívia', { size: 120, color: '#fff', z: 40, shadow: OUT });
+  const vec = chip(c, 320, 430, '≈ 1.500 vecinos', { size: 62, bg: INK, color: YEL, z: 40 });
+  const cruza = chip(c, 220, 1475, 'la carretera cruza Francia', { size: 58, bg: RED, z: 40 });
   sp(T.rodeada, 'whoosh', 0.5); sp(T.personas, 'pop', 0.5); sp(T.carretera, 'swoosh_up', 0.5);
   return t => {
     deriva(cam, t, L(4) - 0.1, L(5) - 0.1, [540, 800, 0.95], [540, 1100, 0.9]);
@@ -135,10 +135,10 @@ plano(L(5) - 0.1, L(8) - 0.1, { background: '#8fb46a' }, c => {
   const irun = box(cam, -40, 600, 320, 90, { zIndex: 4, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '60px', color: INK, textAlign: 'center' }, 'Irún'), hend = box(cam, 800, 600, 320, 90, { zIndex: 4, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '60px', color: INK, textAlign: 'center' }, 'Hendaya');
   const ie = box(cam, -40, 690, 320, 60, { zIndex: 4, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '40px', color: '#b5523a', textAlign: 'center' }, 'España'), hf = box(cam, 800, 690, 320, 60, { zIndex: 4, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '40px', color: '#1f4fa0', textAlign: 'center' }, 'Francia');
   const MES = ['ENE', 'FEB', 'C_MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
-  const cal = box(c, 380, 420, 320, 200, { zIndex: 40, background: '#fff', border: `9px solid ${INK}`, borderRadius: '20px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '110px', textAlign: 'center', lineHeight: '180px', color: INK }, 'FEB');
-  const pais = texto(c, 260, 'ESPAÑOLA', { size: 110, color: '#fff', z: 40, shadow: OUT });
-  const seis = chip(c, 240, 1580, 'cambia de país cada 6 meses', { size: 56, bg: INK, color: YEL, z: 40 });
-  const nom = chip(c, 300, 1580, 'isla de los Faisanes', { size: 56, bg: '#2e6b3a', z: 40 });
+  const cal = box(c, 380, 440, 320, 200, { zIndex: 40, background: '#fff', border: `9px solid ${INK}`, borderRadius: '20px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '110px', textAlign: 'center', lineHeight: '180px', color: INK }, 'FEB');
+  const pais = texto(c, 280, 'ESPAÑOLA', { size: 110, color: '#fff', z: 40, shadow: OUT });
+  const seis = chip(c, 240, 1475, 'cambia de país cada 6 meses', { size: 56, bg: INK, color: YEL, z: 40 });
+  const nom = chip(c, 300, 1475, 'isla de los Faisanes', { size: 56, bg: '#2e6b3a', z: 40 });
   sp(T.isla, 'whoosh', 0.5); sp(T.cambia, 'boing', 0.5); sp(T.febrero, 'ding', 0.5); sp(T.agosto, 'ding', 0.5);
   return t => {
     deriva(cam, t, L(5) - 0.1, L(8) - 0.1, [540, 700, 0.9], [540, 1000, 1.05]);
@@ -165,7 +165,7 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#efe1c6' }, c => {
   const vel = PERS(cam, 360, 860, 360, { ropa: '#1d1a22', pelo: 'largo', pcol: '#2a2118', bigote: 'dali', z: 5 });
   const paleta = box(cam, 640, 1100, 140, 100, { zIndex: 6 }, `<svg viewBox="0 0 140 100" width="140" height="100"><path d="M70,6 Q136,10 130,60 Q120,96 70,92 Q60,70 40,80 Q4,90 10,50 Q16,8 70,6Z" fill="#d9b48a" stroke="${INK}" stroke-width="6"/>${[[40, 34, RED], [70, 26, '#2b8ad6'], [100, 36, YEL], [108, 64, '#2e9e6b']].map(([x, y, col]) => `<circle cx="${x}" cy="${y}" r="10" fill="${col}" stroke="${INK}" stroke-width="3"/>`).join('')}</svg>`);
   const ano = chip(c, 380, 300, '1660', { size: 80, bg: INK, color: YEL, z: 40 });
-  const nom = texto(c, 1560, 'VELÁZQUEZ', { size: 120, color: '#fff', z: 40, shadow: OUT });
+  const nom = texto(c, 280, 'VELÁZQUEZ', { size: 120, color: '#fff', z: 40, shadow: OUT });
   // L9: Madrid, de noche: Velázquez cansado y una vela que se apaga
   const noche = box(c, 0, 0, 1080, 1920, { zIndex: 30, background: '#1d1a2e' });
   const vel2 = PERS(noche, 300, 700, 460, { ropa: '#1d1a22', pelo: 'largo', pcol: '#2a2118', bigote: 'dali', z: 2 });
@@ -179,7 +179,7 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#efe1c6' }, c => {
     pFace(rey1, t, { feliz: 0.6, look: [16, 0], seed: 51 }); pFace(rey2, t, { feliz: 0.6, look: [-16, 0], seed: 52 });
     set(rey1, { y: wobble(t, 0.5, 3), o: t > T.reyes - 0.3 ? 1 : 0 }); set(rey2, { y: wobble(t, 0.55, 3, 1), o: t > T.reyes - 0.3 ? 1 : 0 });
     pFace(vel, t, { feliz: 0.5, ceja: 6, look: [0, -8], seed: 53 }); set(vel, { o: t > T.pintor - 0.3 ? 1 : 0, s: pop(t, T.pintor - 0.3, 0.4), y: wobble(t, 0.7, 4) }); set(paleta, { o: t > T.pintor - 0.3 ? 1 : 0, r: Math.sin(t * 2) * 6 });
-    set(ano, { o: t > T.misma - 0.1 && t < L(9) - 0.3 ? 1 : 0, s: pop(t, T.misma - 0.1, 0.3), r: -3 });
+    set(ano, { o: t > T.misma - 0.1 && t < T.velazquez - 0.1 ? 1 : 0, s: pop(t, T.misma - 0.1, 0.3), r: -3 });
     set(nom, { o: t > T.velazquez - 0.1 && t < L(9) - 0.3 ? 1 : 0, s: pop(t, T.velazquez - 0.1, 0.35), r: -3 + wobble(t, 0.5, 0.8) });
     const kn = p(t, L(9) - 0.3, 0.5, E.outCubic); noche.style.transformOrigin = '540px 1100px'; set(noche, { o: t > L(9) - 0.3 ? kn : 0, s: 1 + 0.16 * clamp((t - L(9) + 0.3) / 4.5) });
     pFace(vel2, t, { feliz: -0.6, ceja: 4, look: [10, 14], seed: 54 }); set(vel2, { y: wobble(t, 0.4, 3) + clamp((t - T.agotado) / 2) * 30 });
