@@ -1,210 +1,34 @@
 <!doctype html>
 <html><head><meta charset="utf-8">
 <style>
+@font-face{font-family:Poppins;src:url(poppins-bold.ttf) format('truetype');font-weight:700}
 @font-face{font-family:Archivo;src:url(archivo.woff2) format('woff2');font-weight:100 900;font-stretch:62% 125%}
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:1080px;height:1920px;overflow:hidden;background:#2a1f1b}
-body{font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased;color:#141414}
-#cam{position:absolute;inset:0;transform-origin:540px 1100px}
-.abs{position:absolute}
-#screen{position:absolute;left:70px;top:600px;width:940px;height:560px;border-radius:34px;background:#141418;border:7px solid #141414;box-shadow:0 30px 60px rgba(0,0,0,.45)}
-#inner{position:absolute;inset:16px;border-radius:20px;background:#FBF7EE;overflow:hidden;border:5px solid #141414}
-.pane{position:absolute;inset:0;display:none}
-.h{font-weight:900;font-stretch:80%;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
-.note{position:absolute;left:28px;right:28px;bottom:16px;font-size:21px;font-weight:600;color:#6b6358;text-align:center}
-.pill{display:inline-block;border:5px solid #141414;border-radius:100px;padding:8px 26px;font-weight:800;font-size:34px;background:#fff}
-#subs{position:absolute;left:40px;right:40px;top:330px;text-align:center;font-weight:900;font-stretch:80%;font-size:100px;line-height:1.02;text-transform:uppercase;color:#fff;paint-order:stroke fill;-webkit-text-stroke:16px #111;transform-origin:50% 60%}
-#subs span{display:inline-block;margin:0 12px}
-#bar{position:absolute;left:0;top:0;height:10px;background:#FFD23F}
-.char{position:absolute;bottom:-40px;width:540px;height:1000px}
-#disc{position:absolute;left:0;right:0;bottom:22px;text-align:center;font-size:24px;font-weight:600;color:rgba(255,255,255,.75)}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+#world{position:absolute;left:0;top:0}
+#subs{position:absolute;left:60px;right:60px;top:560px;text-align:center;font-family:Poppins;font-weight:700;font-size:66px;line-height:1.1;color:#fff;letter-spacing:-.5px;
+ paint-order:stroke fill;-webkit-text-stroke:9px #1d1a17;text-shadow:0 5px 14px rgba(0,0,0,.45);transform-origin:50% 50%}
+#cta{position:absolute;left:50%;top:1640px;transform:translateX(-50%);font-family:Poppins;font-weight:700;font-size:52px;color:#fff;background:#50519E;border:6px solid #1d1a17;border-radius:100px;padding:14px 46px;opacity:0;white-space:nowrap}
+#disc{position:absolute;left:0;right:0;bottom:28px;text-align:center;font-family:Poppins;font-size:24px;color:rgba(255,255,255,.85);text-shadow:0 2px 6px rgba(0,0,0,.6)}
 </style></head><body>
-<div id="cam">
-<!-- Fondo: despacho de lujo -->
-<svg class="abs" width="1080" height="1920" viewBox="0 0 1080 1920">
+<svg id="world" width="1080" height="1920" viewBox="0 0 1080 1920">
  <defs>
-  <linearGradient id="wall" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a362d"/><stop offset="1" stop-color="#2f221d"/></linearGradient>
-  <radialGradient id="spot" cx=".5" cy="0" r="1"><stop offset="0" stop-color="#ffd9a0" stop-opacity=".35"/><stop offset="1" stop-color="#ffd9a0" stop-opacity="0"/></radialGradient>
+  <linearGradient id="gWin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#ff8f3d"/></linearGradient>
+  <linearGradient id="gCeil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2a20"/><stop offset="1" stop-color="#8a735c"/></linearGradient>
+  <linearGradient id="gSeat" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d9c7a6"/><stop offset=".5" stop-color="#efe3c9"/><stop offset="1" stop-color="#d4c09d"/></linearGradient>
+  <linearGradient id="gSteel" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#d7dade"/><stop offset=".5" stop-color="#a9aeb5"/><stop offset="1" stop-color="#7d838b"/></linearGradient>
+  <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9fd3f0"/><stop offset="1" stop-color="#f7e7c6"/></linearGradient>
+  <linearGradient id="gSea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3fa3c4"/><stop offset="1" stop-color="#1f6f96"/></linearGradient>
+  <linearGradient id="gScreen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1d2b4a"/><stop offset="1" stop-color="#0f1729"/></linearGradient>
+  <radialGradient id="gVig" cx=".5" cy=".5" r=".75"><stop offset=".6" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".35"/></radialGradient>
+  <clipPath id="cL"><rect x="0" y="0" width="538" height="1920"/></clipPath>
+  <clipPath id="cR"><rect x="542" y="0" width="538" height="1920"/></clipPath>
  </defs>
- <rect width="1080" height="1920" fill="url(#wall)"/>
- <g stroke="#1f1612" stroke-width="5" fill="none" opacity=".7">
-  <rect x="40" y="120" width="300" height="420" rx="8"/><rect x="390" y="120" width="300" height="420" rx="8"/><rect x="740" y="120" width="300" height="420" rx="8"/>
- </g>
- <rect x="0" y="0" width="1080" height="70" fill="#1d1512"/>
- <g fill="#ffe7b8"><circle cx="190" cy="70" r="12"/><circle cx="540" cy="70" r="12"/><circle cx="890" cy="70" r="12"/></g>
- <ellipse cx="190" cy="80" rx="260" ry="500" fill="url(#spot)"/><ellipse cx="540" cy="80" rx="260" ry="500" fill="url(#spot)"/><ellipse cx="890" cy="80" rx="260" ry="500" fill="url(#spot)"/>
- <rect x="0" y="1300" width="1080" height="620" fill="#5b3b28"/>
- <rect x="0" y="1300" width="1080" height="24" fill="#3a2518" stroke="#141414" stroke-width="5"/>
- <g stroke="#3a2518" stroke-width="5">
-  <line x1="180" y1="1324" x2="180" y2="1920"/><line x1="360" y1="1324" x2="360" y2="1920"/><line x1="540" y1="1324" x2="540" y2="1920"/><line x1="720" y1="1324" x2="720" y2="1920"/><line x1="900" y1="1324" x2="900" y2="1920"/>
- </g>
+ <g id="cam"></g>
+ <rect width="1080" height="1920" fill="url(#gVig)" pointer-events="none"/>
 </svg>
-
-<div id="screen"><div id="inner">
-
- <!-- oficina: ahorros que arden -->
- <div class="pane" id="p_oficina">
-  <div class="abs h" style="left:0;right:0;top:34px;text-align:center;font-size:44px;color:#6b6358">Cuenta de siempre</div>
-  <div class="abs h" id="o_saldo" style="left:0;right:0;top:92px;text-align:center;font-size:130px">20.000 €</div>
-  <svg class="abs" id="o_notes" style="left:270px;top:250px" width="360" height="250" viewBox="0 0 360 250">
-   <g stroke="#141414" stroke-width="6">
-    <rect x="30" y="120" width="300" height="110" rx="12" fill="#8fc79a"/>
-    <rect x="45" y="95" width="300" height="110" rx="12" fill="#a3d9ae"/>
-    <rect x="15" y="70" width="300" height="110" rx="12" fill="#b6e4bf"/>
-    <circle cx="165" cy="125" r="34" fill="#8fc79a"/>
-   </g>
-   <text x="165" y="138" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="40">€</text>
-   <g id="o_fire" opacity="0">
-    <path id="f1" d="M80 90 Q60 40 95 0 Q100 40 125 50 Q130 20 150 10 Q140 60 175 75 Q190 40 215 30 Q205 80 240 90 Q260 55 285 50 Q280 90 300 110 L70 110 Z" fill="#F25244" stroke="#141414" stroke-width="6"/>
-    <path id="f2" d="M110 100 Q105 70 125 55 Q130 80 150 85 Q160 60 175 55 Q172 85 200 95 Q215 75 235 70 Q232 95 255 105 Z" fill="#F2983E"/>
-    <path id="f3" d="M150 105 Q150 85 165 78 Q168 95 185 98 Q195 85 205 84 Q205 98 215 107 Z" fill="#FFD23F"/>
-   </g>
-  </svg>
- </div>
-
- <!-- comparativa: 0,16% vs 3% -->
- <div class="pane" id="p_comparativa">
-  <div class="abs h" style="left:0;right:0;top:28px;text-align:center;font-size:46px">¿Cuánto te paga al año?</div>
-  <div class="abs" style="left:110px;bottom:120px;width:260px;height:330px">
-   <div class="abs h" id="c_v1" style="left:0;right:0;text-align:center;font-size:62px;color:#931219">0,16 %</div>
-   <div class="abs" id="c_b1" style="left:40px;right:40px;bottom:0;height:0;background:#b9b2a6;border:6px solid #141414;border-radius:14px 14px 0 0"></div>
-  </div>
-  <div class="abs" style="left:520px;bottom:120px;width:300px;height:330px">
-   <div class="abs h" id="c_v2" style="left:0;right:0;text-align:center;font-size:62px;color:#1f7a4d">3 %</div>
-   <div class="abs" id="c_b2" style="left:40px;right:40px;bottom:0;height:0;background:#A3D9C5;border:6px solid #141414;border-radius:14px 14px 0 0"></div>
-  </div>
-  <div class="abs" style="left:40px;right:40px;bottom:112px;height:6px;background:#141414"></div>
-  <div class="abs h" style="left:70px;width:340px;bottom:60px;text-align:center;font-size:30px">Cuenta de siempre</div>
-  <div class="abs h" style="left:500px;width:340px;bottom:60px;text-align:center;font-size:30px">Cuenta remunerada</div>
-  <div class="note">Media cuentas a la vista (Banco de España) · Mejores ofertas oct. 2026: 3–3,5 % TAE</div>
- </div>
-
- <!-- cuenta: qué es -->
- <div class="pane" id="p_cuenta">
-  <div class="abs h" style="left:0;right:0;top:30px;text-align:center;font-size:48px">Cuenta remunerada</div>
-  <div class="abs" id="k1" style="left:60px;top:120px;display:flex;align-items:center;gap:28px"><svg width="96" height="96" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="#A3D9C5" stroke="#141414" stroke-width="6"/><path d="M48 22 V66 M30 50 L48 68 L66 50" stroke="#141414" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="h" style="font-size:54px">Metes tu dinero</span></div>
-  <div class="abs" id="k2" style="left:60px;top:240px;display:flex;align-items:center;gap:28px"><svg width="96" height="96" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="#D08EEB" stroke="#141414" stroke-width="6"/><path d="M48 74 V30 M30 46 L48 28 L66 46" stroke="#141414" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="h" style="font-size:54px">Lo sacas cuando quieras</span></div>
-  <div class="abs" id="k3" style="left:60px;top:360px;display:flex;align-items:center;gap:28px"><svg width="96" height="96" viewBox="0 0 96 96"><circle cx="48" cy="48" r="42" fill="#FFD23F" stroke="#141414" stroke-width="6"/><text x="48" y="64" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="46">+€</text></svg><span class="h" style="font-size:54px">Intereses cada mes</span></div>
- </div>
-
- <!-- escudo: FGD -->
- <div class="pane" id="p_escudo">
-  <svg class="abs" id="e_bank" style="left:300px;top:60px" width="340" height="340" viewBox="0 0 340 340">
-   <g stroke="#141414" stroke-width="7" stroke-linejoin="round">
-    <path d="M20 110 L170 30 L320 110 Z" fill="#e8e1d3"/>
-    <rect x="35" y="110" width="270" height="22" fill="#d6cdbb"/>
-    <rect x="60" y="140" width="34" height="140" fill="#fff"/><rect x="125" y="140" width="34" height="140" fill="#fff"/><rect x="190" y="140" width="34" height="140" fill="#fff"/><rect x="250" y="140" width="34" height="140" fill="#fff"/>
-    <rect x="25" y="285" width="290" height="30" fill="#d6cdbb"/>
-   </g>
-   <path id="e_crack" d="M170 40 L150 110 L185 160 L150 230 L180 310" stroke="#931219" stroke-width="9" fill="none" opacity="0"/>
-   <text id="e_q" x="300" y="70" font-family="Archivo" font-weight="900" font-size="100" fill="#931219" opacity="0">?</text>
-  </svg>
-  <div id="e_shield" style="opacity:0">
-   <svg class="abs" style="left:60px;top:70px" width="300" height="360" viewBox="0 0 300 360"><path d="M150 15 L275 60 V170 Q275 290 150 345 Q25 290 25 170 V60 Z" fill="#50519E" stroke="#141414" stroke-width="8"/><path d="M95 180 L140 225 L215 135" stroke="#fff" stroke-width="22" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-   <div class="abs h" style="left:390px;top:90px;font-size:44px;color:#6b6358">Fondo de Garantía<br>de Depósitos</div>
-   <div class="abs h" id="e_amt" style="left:390px;top:200px;font-size:110px;color:#50519E">100.000 €</div>
-   <div class="abs h" style="left:390px;top:320px;font-size:40px">por persona<br>y por banco</div>
-  </div>
- </div>
-
- <!-- contador: al año -->
- <div class="pane" id="p_contador">
-  <div class="abs h" style="left:0;right:0;top:28px;text-align:center;font-size:44px">Con 20.000 € ahorrados, al año:</div>
-  <div class="abs" style="left:40px;top:120px;width:380px;height:300px;border:6px solid #141414;border-radius:26px;background:#eee8dc">
-   <div class="abs h" style="left:0;right:0;top:30px;text-align:center;font-size:36px;color:#6b6358">Tu banco</div>
-   <div class="abs h" id="n1" style="left:0;right:0;top:110px;text-align:center;font-size:120px;color:#931219">0 €</div>
-  </div>
-  <div class="abs" style="left:450px;top:120px;width:410px;height:300px;border:6px solid #141414;border-radius:26px;background:#A3D9C5">
-   <div class="abs h" style="left:0;right:0;top:30px;text-align:center;font-size:36px;color:#1f5a40">Remunerada</div>
-   <div class="abs h" id="n2" style="left:0;right:0;top:110px;text-align:center;font-size:100px;color:#14402d">0 €</div>
-  </div>
-  <div class="note">Intereses brutos al 0,16 % vs. 2–3 % TAE. Los intereses tributan (19 %).</div>
- </div>
-
- <!-- diez años -->
- <div class="pane" id="p_diezanos">
-  <div class="abs h" style="left:0;right:0;top:24px;text-align:center;font-size:44px">20.000 € durante 10 años</div>
-  <svg class="abs" style="left:30px;top:80px" width="840" height="370" viewBox="0 0 840 370">
-   <line x1="70" y1="330" x2="810" y2="330" stroke="#141414" stroke-width="5"/>
-   <line x1="70" y1="20" x2="70" y2="330" stroke="#141414" stroke-width="5"/>
-   <text x="62" y="338" text-anchor="end" font-family="Archivo" font-weight="700" font-size="22">20k</text>
-   <text x="62" y="40" text-anchor="end" font-family="Archivo" font-weight="700" font-size="22">27k</text>
-   <text x="70" y="362" font-family="Archivo" font-weight="700" font-size="22">Hoy</text><text x="810" y="362" text-anchor="end" font-family="Archivo" font-weight="700" font-size="22">Año 10</text>
-   <path id="d_area" fill="#F25244" opacity=".25"/>
-   <path id="d_l3" fill="none" stroke="#1f7a4d" stroke-width="8" stroke-linecap="round"/>
-   <path id="d_l2" fill="none" stroke="#1f7a4d" stroke-width="8" stroke-linecap="round" stroke-dasharray="14 12"/>
-   <path id="d_l0" fill="none" stroke="#931219" stroke-width="8" stroke-linecap="round"/>
-  </svg>
-  <div class="abs h" id="d_lab" style="left:300px;top:150px;font-size:66px;color:#931219;opacity:0;background:#FBF7EE;padding:6px 14px;border:5px solid #931219;border-radius:16px">−4.000 a −6.500 €</div>
-  <div class="note">Verde: 3 % (continua) y 2 % (discontinua). Rojo: 0,16 %. Interés compuesto, bruto.</div>
- </div>
-
- <!-- comisión de mantenimiento -->
- <div class="pane" id="p_comision">
-  <div class="abs" style="left:150px;top:40px;width:600px;height:420px;border:6px solid #141414;border-radius:26px;background:#fff">
-   <div class="abs h" style="left:30px;top:26px;font-size:30px;color:#6b6358;white-space:nowrap">Movimientos · Cuenta de siempre</div>
-   <div class="abs" style="left:30px;right:30px;top:80px;height:4px;background:#e2dccf"></div>
-   <div class="abs h" style="left:30px;top:110px;font-size:32px;color:#6b6358">Nómina<span style="float:right;margin-left:150px;color:#1f7a4d">+1.600,00 €</span></div>
-   <div class="abs h" style="left:30px;top:170px;font-size:32px;color:#6b6358">Recibo luz<span style="float:right;margin-left:170px">−58,40 €</span></div>
-   <div class="abs" id="cm_row" style="left:16px;right:16px;top:225px;height:110px;border-radius:16px;background:#fde3e1;border:5px solid #931219;opacity:0">
-    <div class="abs h" style="left:16px;top:16px;font-size:36px;color:#931219">Comisión mantenimiento</div>
-    <div class="abs h" style="right:20px;top:54px;font-size:46px;color:#931219">−15,00 €</div>
-   </div>
-   <div class="abs h" id="cm_q" style="left:30px;top:350px;font-size:26px;color:#6b6358;opacity:0">Ejemplo ilustrativo · cada trimestre</div>
-  </div>
- </div>
-
- <!-- reclamar -->
- <div class="pane" id="p_reclama">
-  <div class="abs h" style="left:0;right:0;top:28px;text-align:center;font-size:46px">¿Puedes reclamarla?</div>
-  <div class="abs" id="r1" style="left:60px;top:110px;display:flex;align-items:center;gap:24px"><span class="pill" style="background:#FFD23F">1</span><span class="h" style="font-size:44px">¿Estaba en tu contrato?</span></div>
-  <div class="abs" id="r2" style="left:60px;top:205px;display:flex;align-items:center;gap:24px"><span class="pill" style="background:#FFD23F">2</span><span class="h" style="font-size:44px">¿Te avisaron con 2 meses?</span></div>
-  <div class="abs" id="r3" style="left:60px;top:310px;width:770px;padding:20px 26px;border:6px solid #141414;border-radius:22px;background:#A3D9C5"><span class="h" style="font-size:40px">Si no → reclama al banco.<br>Sin respuesta → Banco de España.</span></div>
- </div>
-
- <!-- banco: migajas -->
- <div class="pane" id="p_banco">
-  <svg class="abs" style="left:0;top:0" width="896" height="516" viewBox="0 0 896 516">
-   <g transform="translate(310,40)" stroke="#141414" stroke-width="7" stroke-linejoin="round">
-    <path d="M10 90 L140 20 L270 90 Z" fill="#e8e1d3"/><rect x="25" y="90" width="230" height="20" fill="#d6cdbb"/>
-    <rect x="45" y="118" width="30" height="120" fill="#fff"/><rect x="100" y="118" width="30" height="120" fill="#fff"/><rect x="150" y="118" width="30" height="120" fill="#fff"/><rect x="205" y="118" width="30" height="120" fill="#fff"/>
-    <rect x="15" y="240" width="250" height="26" fill="#d6cdbb"/>
-    <text x="140" y="75" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="34" fill="#141414" stroke="none">BANCO</text>
-   </g>
-   <path d="M60 170 Q170 100 300 150" stroke="#1f7a4d" stroke-width="18" fill="none" stroke-linecap="round"/>
-   <path d="M280 125 L310 152 L270 168" stroke="#1f7a4d" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-   <text x="40" y="110" font-family="Archivo" font-weight="900" font-size="36">TU DINERO</text>
-   <path d="M600 150 Q690 105 780 150" stroke="#50519E" stroke-width="18" fill="none" stroke-linecap="round"/>
-   <path d="M758 122 L788 152 L748 168" stroke="#50519E" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-   <text x="610" y="100" font-family="Archivo" font-weight="900" font-size="36">PRÉSTAMOS</text>
-   <text x="610" y="215" font-family="Archivo" font-weight="900" font-size="30" fill="#50519E">hipotecas…</text>
-   <g id="crumbs"></g>
-   <text id="mig" x="448" y="470" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="54" fill="#931219" opacity="0">TÚ: LAS MIGAJAS (0,16 %)</text>
-  </svg>
- </div>
-
- <!-- cierre -->
- <div class="pane" id="p_cierre">
-  <div class="abs" style="left:60px;top:40px;width:330px;height:440px;border:7px solid #141414;border-radius:40px;background:#fff">
-   <div class="abs" style="left:110px;top:16px;width:100px;height:14px;border-radius:10px;background:#141414"></div>
-   <div class="abs h" style="left:24px;top:70px;font-size:30px;color:#6b6358">Mi cuenta</div>
-   <div class="abs h" style="left:24px;top:110px;font-size:58px">20.000 €</div>
-   <div class="abs h" style="left:24px;top:220px;font-size:30px;color:#6b6358">Interés</div>
-   <div class="abs h" style="left:24px;top:260px;font-size:80px;color:#931219">0,00 %</div>
-   <svg class="abs" id="circ" style="left:2px;top:236px" width="320" height="140" viewBox="0 0 320 140"><ellipse cx="150" cy="70" rx="140" ry="58" fill="none" stroke="#F25244" stroke-width="9" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/></svg>
-  </div>
-  <div class="abs h" id="q1" style="left:430px;top:70px;width:440px;font-size:50px">Dónde sacarle más a tu dinero</div>
-  <div class="abs" id="q2" style="left:430px;top:250px;width:420px;height:120px;border-radius:100px;background:#50519E;border:6px solid #141414;color:#fff;display:flex;align-items:center;justify-content:center;gap:16px"><span style="font-size:64px;font-weight:900;line-height:1">+</span><span class="h" style="font-size:58px">Sígueme</span></div>
-  <svg class="abs" id="hand" style="left:720px;top:330px" width="120" height="140" viewBox="0 0 120 140"><path d="M40 20 Q40 6 52 6 Q64 6 64 20 V62 Q70 56 78 58 Q86 60 86 70 Q92 64 100 68 Q108 72 106 84 V104 Q106 132 78 134 H58 Q40 134 30 116 L12 86 Q6 76 14 72 Q22 68 30 78 L40 90 Z" fill="#fff" stroke="#141414" stroke-width="6" stroke-linejoin="round"/></svg>
- </div>
-
-</div></div>
-
-<svg class="char" id="dani" style="left:-30px" viewBox="0 0 540 1000"></svg>
-<svg class="char" id="ricardo" style="left:560px" viewBox="0 0 540 1000"></svg>
-</div>
 <div id="subs"></div>
-<div id="bar"></div>
+<div id="cta">+ Sígueme</div>
 <div id="disc"></div>
 
 <script src="subs.js"></script>
@@ -212,186 +36,428 @@ body{font-family:Archivo,sans-serif;-webkit-font-smoothing:antialiased;color:#14
 const $=id=>document.getElementById(id);
 const cl=x=>Math.max(0,Math.min(1,x));
 const eo=x=>1-Math.pow(1-cl(x),3);
+const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
 const eback=x=>{x=cl(x);const c=1.7;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
 const fmt=n=>Math.round(n).toLocaleString('es-ES').replace(/,/g,'.');
 const D=DATA, W=D.words, SC=D.scenes;
-const SK='#141414', SW=7;
+const OL='#1d1a17';
+const clean=w=>w.replace(/[.,!?¿¡…:]/g,'');
+const norm=w=>clean(w).toLowerCase();
+const L=i=>SC[i].s, LE=i=>SC[i].e;
+function T(word,after=0){for(const w of W){if(w.s>=after-0.01&&norm(w.w).startsWith(word))return w.s}return after}
+function talking(who,t){for(const w of W){if(w.who===who&&t>=w.s-0.02&&t<=w.e+0.02)return true;if(w.s>t+1)break}return false}
+function lineAt(t){let k=0;SC.forEach((s,i)=>{if(t>=s.s-0.05)k=i});return k}
 
-// ---------- personajes ----------
-function ricardo(m,blink){
-  const skin='#f1c7a0';
+// ================= primitivas =================
+const P=a=>'M'+a.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L');
+function limb(pts,w,fill){const d=P(pts);return `<path d="${d}" stroke="${OL}" stroke-width="${w+12}" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="${d}" stroke="${fill}" stroke-width="${w}" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`}
+const txt=(x,y,s,c,str,anchor='middle',w=800,font='Poppins')=>`<text x="${x}" y="${y}" font-family="${font}" font-weight="${w}" font-size="${s}" fill="${c}" text-anchor="${anchor}">${str}</text>`;
+
+// ---------- caras (diseño original, coords 520x1000) ----------
+function faceR(m,blink,sun){
+  const skin='#f1c7a0',SK=OL;
   const mouth=m>0.1
-   ?`<path d="M222 478 Q262 472 302 476 Q${292} ${490+28*m} 260 ${495+30*m} Q230 ${490+28*m} 222 478 Z" fill="#5a1a1a" stroke="${SK}" stroke-width="6"/><path d="M240 ${488+22*m} Q260 ${480+20*m} 282 ${488+22*m}" fill="#d9666b"/>`
-   :`<path d="M215 485 Q262 500 304 474" stroke="${SK}" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M300 470 L310 466" stroke="${SK}" stroke-width="6" stroke-linecap="round"/>`;
-  const lid=blink?`<path d="M176 382 Q205 352 234 382 Z" fill="${skin}"/><path d="M286 382 Q315 352 344 382 Z" fill="${skin}"/><path d="M176 384 L234 384 M286 384 L344 384" stroke="${SK}" stroke-width="6"/>`
-   :`<path d="M176 382 Q205 352 234 382 L234 372 Q205 356 176 372Z" fill="${skin}"/><path d="M286 382 Q315 352 344 382 L344 372 Q315 356 286 372Z" fill="${skin}"/><path d="M178 376 Q205 366 232 376 M288 376 Q315 366 342 376" stroke="${SK}" stroke-width="6" fill="none"/>`;
+   ?`<path d="M222 478 Q262 472 302 476 Q292 ${490+28*m} 260 ${495+30*m} Q230 ${490+28*m} 222 478 Z" fill="#5a1a1a" stroke="${SK}" stroke-width="6"/>`
+   :`<path d="M215 485 Q262 500 304 474" stroke="${SK}" stroke-width="7" fill="none" stroke-linecap="round"/>`;
+  const eyes=sun?`<path d="M160 360 L360 360 L350 400 Q330 420 290 410 L270 380 L250 380 L230 410 Q190 420 170 400 Z" fill="#141414" stroke="${SK}" stroke-width="5"/><path d="M180 372 L215 372" stroke="#555" stroke-width="5"/>`
+   :(blink?`<path d="M176 384 L234 384 M286 384 L344 384" stroke="${SK}" stroke-width="6"/>`
+   :`<ellipse cx="205" cy="382" rx="27" ry="19" fill="#fff" stroke="${SK}" stroke-width="5"/><ellipse cx="315" cy="382" rx="27" ry="19" fill="#fff" stroke="${SK}" stroke-width="5"/><circle cx="210" cy="385" r="9" fill="${SK}"/><circle cx="320" cy="385" r="9" fill="${SK}"/><path d="M176 382 Q205 352 234 382 L234 372 Q205 356 176 372Z" fill="${skin}"/><path d="M286 382 Q315 352 344 382 L344 372 Q315 356 286 372Z" fill="${skin}"/><path d="M178 376 Q205 366 232 376 M288 376 Q315 366 342 376" stroke="${SK}" stroke-width="6" fill="none"/>
+     <rect x="166" y="352" width="80" height="60" rx="16" fill="none" stroke="#222" stroke-width="5"/><rect x="274" y="352" width="80" height="60" rx="16" fill="none" stroke="#222" stroke-width="5"/><path d="M246 374 L274 374" stroke="#222" stroke-width="5"/>`);
   return `<g stroke-linejoin="round" stroke-linecap="round">
-  <path d="M40 1000 L70 720 Q95 610 270 600 Q445 610 470 720 L500 1000 Z" fill="#23305a" stroke="${SK}" stroke-width="${SW}"/>
-  <rect x="232" y="520" width="76" height="100" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M212 605 L270 770 L328 605 Z" fill="#fff" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M256 628 L284 628 L292 650 L282 790 L270 815 L258 790 L248 650 Z" fill="#c0262d" stroke="${SK}" stroke-width="6"/>
-  <path d="M212 605 L175 720 L238 740 L270 790 Z" fill="#1a2546" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M328 605 L365 720 L302 740 L270 790 Z" fill="#1a2546" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M110 900 L130 760" stroke="#141c38" stroke-width="6"/><path d="M430 900 L410 760" stroke="#141c38" stroke-width="6"/>
-  <ellipse cx="140" cy="410" rx="24" ry="36" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/><ellipse cx="380" cy="410" rx="24" ry="36" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M142 360 Q142 230 260 230 Q378 230 378 360 L372 455 Q358 548 260 552 Q162 548 148 455 Z" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M136 365 Q118 215 262 198 Q404 214 384 365 Q372 292 330 272 Q262 250 192 276 Q150 296 136 365 Z" fill="#4b3020" stroke="${SK}" stroke-width="${SW}"/>
+  <ellipse cx="140" cy="410" rx="24" ry="36" fill="${skin}" stroke="${SK}" stroke-width="7"/><ellipse cx="380" cy="410" rx="24" ry="36" fill="${skin}" stroke="${SK}" stroke-width="7"/>
+  <path d="M142 360 Q142 230 260 230 Q378 230 378 360 L372 455 Q358 548 260 552 Q162 548 148 455 Z" fill="${skin}" stroke="${SK}" stroke-width="7"/>
+  <path d="M136 365 Q118 215 262 198 Q404 214 384 365 Q372 292 330 272 Q262 250 192 276 Q150 296 136 365 Z" fill="#4b3020" stroke="${SK}" stroke-width="7"/>
   <path d="M200 240 Q262 220 330 238" stroke="#7a5236" stroke-width="7" fill="none"/>
-  <ellipse cx="205" cy="382" rx="27" ry="19" fill="#fff" stroke="${SK}" stroke-width="5"/><ellipse cx="315" cy="382" rx="27" ry="19" fill="#fff" stroke="${SK}" stroke-width="5"/>
-  <circle cx="210" cy="385" r="9" fill="${SK}"/><circle cx="320" cy="385" r="9" fill="${SK}"/>
-  ${lid}
-  <rect x="166" y="352" width="80" height="60" rx="16" fill="none" stroke="#222" stroke-width="5"/><rect x="274" y="352" width="80" height="60" rx="16" fill="none" stroke="#222" stroke-width="5"/>
-  <path d="M246 374 L274 374" stroke="#222" stroke-width="5"/>
+  ${eyes}
   <path d="M172 338 Q205 322 238 336" stroke="#3a2416" stroke-width="11" fill="none"/><path d="M284 332 Q318 318 350 340" stroke="#3a2416" stroke-width="11" fill="none"/>
   <path d="M262 398 Q248 440 262 452 Q276 455 284 446" stroke="${SK}" stroke-width="6" fill="none"/>
   <path d="M190 470 Q198 488 212 494" stroke="#d9a07c" stroke-width="5" fill="none"/>
-  ${mouth}
-  </g>`;
+  ${mouth}</g>`;
 }
-function dani(m,blink,expr){
-  const skin='#f6d2b0';
-  const big=expr==='shock';
-  const er=big?36:30, pr=big?8:12;
+function faceD(m,blink,expr){
+  const skin='#f6d2b0',SK=OL,big=expr==='shock',er=big?36:30,pr=big?8:12;
   let mouth;
   if(expr==='shock') mouth=`<ellipse cx="262" cy="${492+6*m}" rx="${22+6*m}" ry="${26+12*m}" fill="#5a1a1a" stroke="${SK}" stroke-width="6"/>`;
   else if(m>0.1) mouth=`<path d="M232 482 Q262 478 292 482 Q284 ${496+26*m} 262 ${500+28*m} Q240 ${496+26*m} 232 482 Z" fill="#5a1a1a" stroke="${SK}" stroke-width="6"/>`;
-  else if(expr==='proud') mouth=`<path d="M228 478 Q262 506 296 478" stroke="${SK}" stroke-width="7" fill="none" stroke-linecap="round"/>`;
-  else if(expr==='worry'||expr==='confused') mouth=`<path d="M236 494 Q262 480 288 494" stroke="${SK}" stroke-width="7" fill="none" stroke-linecap="round"/>`;
-  else mouth=`<path d="M238 484 Q262 494 286 484" stroke="${SK}" stroke-width="7" fill="none" stroke-linecap="round"/>`;
-  let brows;
-  if(expr==='worry') brows=`<path d="M180 330 Q205 314 238 318" /><path d="M286 318 Q318 314 344 330"/>`.replace(/<path/g,`<path stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"`);
-  else if(expr==='confused') brows=`<path d="M180 322 Q208 308 238 324" stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M286 338 Q318 334 344 340" stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"/>`;
-  else if(expr==='shock') brows=`<path d="M180 312 Q208 290 238 306" stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M286 306 Q316 290 344 312" stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"/>`;
-  else brows=`<path d="M182 330 Q208 318 236 326" stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"/><path d="M288 326 Q316 318 342 330" stroke="#a07a2a" stroke-width="10" fill="none" stroke-linecap="round"/>`;
-  const eyes=blink
-   ?`<path d="M${215-er} 385 L${215+er} 385 M${305-er} 385 L${305+er} 385" stroke="${SK}" stroke-width="7"/>`
+  else if(expr==='proud') mouth=`<path d="M228 478 Q262 506 296 478" stroke="${SK}" stroke-width="7" fill="none"/>`;
+  else if(expr==='worry'||expr==='confused') mouth=`<path d="M236 494 Q262 480 288 494" stroke="${SK}" stroke-width="7" fill="none"/>`;
+  else mouth=`<path d="M238 484 Q262 494 286 484" stroke="${SK}" stroke-width="7" fill="none"/>`;
+  const B=(a,b)=>`<path d="${a}" stroke="#a07a2a" stroke-width="10" fill="none"/><path d="${b}" stroke="#a07a2a" stroke-width="10" fill="none"/>`;
+  const brows=expr==='worry'?B('M180 330 Q205 314 238 318','M286 318 Q318 314 344 330'):expr==='confused'?B('M180 322 Q208 308 238 324','M286 338 Q318 334 344 340'):expr==='shock'?B('M180 312 Q208 290 238 306','M286 306 Q316 290 344 312'):B('M182 330 Q208 318 236 326','M288 326 Q316 318 342 330');
+  const eyes=blink?`<path d="M${215-er} 385 L${215+er} 385 M${305-er} 385 L${305+er} 385" stroke="${SK}" stroke-width="7"/>`
    :`<circle cx="215" cy="385" r="${er}" fill="#fff" stroke="${SK}" stroke-width="6"/><circle cx="305" cy="385" r="${er}" fill="#fff" stroke="${SK}" stroke-width="6"/><circle cx="220" cy="388" r="${pr}" fill="${SK}"/><circle cx="300" cy="388" r="${pr}" fill="${SK}"/>`;
+  const sweat=expr==='worry'?`<path d="M392 300 Q404 330 392 342 Q380 330 392 300 Z" fill="#9fd8ff" stroke="${SK}" stroke-width="4"/>`:'';
   return `<g stroke-linejoin="round" stroke-linecap="round">
-  <path d="M30 1000 L60 730 Q85 625 262 615 Q440 625 465 730 L495 1000 Z" fill="#3b4a3f" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M120 1000 L140 860 L384 860 L404 1000" fill="#33413a" stroke="${SK}" stroke-width="6"/>
-  <rect x="234" y="530" width="56" height="95" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M170 620 Q262 700 354 620 Q336 580 262 585 Q188 580 170 620 Z" fill="#2c3831" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M232 660 L226 740 M292 660 L298 740" stroke="#e8e8e8" stroke-width="6"/>
-  <path d="M215 630 L250 830 M309 630 L274 830" stroke="#2f6fd6" stroke-width="9"/>
-  <rect x="200" y="820" width="124" height="74" rx="10" fill="#fff" stroke="${SK}" stroke-width="6"/>
-  <text x="262" y="868" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="22" fill="#141414">BECARIO</text>
-  <ellipse cx="150" cy="400" rx="22" ry="32" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/><ellipse cx="374" cy="400" rx="22" ry="32" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M152 380 Q152 250 262 245 Q372 250 372 380 Q372 520 262 558 Q152 520 152 380 Z" fill="${skin}" stroke="${SK}" stroke-width="${SW}"/>
-  <path d="M146 372 Q130 236 222 214 L232 182 L258 212 L284 180 L298 216 Q392 230 378 372 Q362 300 322 286 L302 302 L282 282 L258 304 L232 284 L202 302 Q162 312 146 372 Z" fill="#e2b84f" stroke="${SK}" stroke-width="${SW}"/>
+  <ellipse cx="150" cy="400" rx="22" ry="32" fill="${skin}" stroke="${SK}" stroke-width="7"/><ellipse cx="374" cy="400" rx="22" ry="32" fill="${skin}" stroke="${SK}" stroke-width="7"/>
+  <path d="M152 380 Q152 250 262 245 Q372 250 372 380 Q372 520 262 558 Q152 520 152 380 Z" fill="${skin}" stroke="${SK}" stroke-width="7"/>
+  <path d="M146 372 Q130 236 222 214 L232 182 L258 212 L284 180 L298 216 Q392 230 378 372 Q362 300 322 286 L302 302 L282 282 L258 304 L232 284 L202 302 Q162 312 146 372 Z" fill="#e2b84f" stroke="${SK}" stroke-width="7"/>
   ${brows}${eyes}
   <path d="M262 410 Q254 438 266 446" stroke="${SK}" stroke-width="6" fill="none"/>
-  ${mouth}
-  </g>`;
+  ${mouth}${sweat}</g>`;
 }
+function faceB(m,blink){ // banquero: calvo, bigote, mofletes
+  const skin='#efbf9a',SK=OL;
+  const mouth=m>0.1?`<ellipse cx="262" cy="${505+6*m}" rx="${28}" ry="${10+16*m}" fill="#5a1a1a" stroke="${SK}" stroke-width="6"/>`:`<path d="M234 506 Q262 520 290 506" stroke="${SK}" stroke-width="7" fill="none"/>`;
+  return `<g stroke-linejoin="round" stroke-linecap="round">
+  <ellipse cx="128" cy="410" rx="26" ry="36" fill="${skin}" stroke="${SK}" stroke-width="7"/><ellipse cx="396" cy="410" rx="26" ry="36" fill="${skin}" stroke="${SK}" stroke-width="7"/>
+  <path d="M135 380 Q135 230 262 225 Q389 230 389 380 Q392 540 262 565 Q132 540 135 380 Z" fill="${skin}" stroke="${SK}" stroke-width="7"/>
+  <path d="M135 390 Q130 320 160 300 Q150 350 165 380 Z M389 390 Q394 320 364 300 Q374 350 359 380 Z" fill="#cfcfcf" stroke="${SK}" stroke-width="5"/>
+  ${blink?`<path d="M190 385 L240 385 M284 385 L334 385" stroke="${SK}" stroke-width="7"/>`:`<ellipse cx="215" cy="385" rx="22" ry="16" fill="#fff" stroke="${SK}" stroke-width="5"/><ellipse cx="309" cy="385" rx="22" ry="16" fill="#fff" stroke="${SK}" stroke-width="5"/><circle cx="218" cy="387" r="8" fill="${SK}"/><circle cx="306" cy="387" r="8" fill="${SK}"/>`}
+  <path d="M188 350 Q215 338 242 350 M282 350 Q309 338 336 350" stroke="#9a9a9a" stroke-width="10" fill="none"/>
+  <path d="M262 400 Q245 445 262 458 Q282 460 288 450" stroke="${SK}" stroke-width="6" fill="none"/>
+  <circle cx="180" cy="460" r="22" fill="#f2a08a" opacity=".6"/><circle cx="344" cy="460" r="22" fill="#f2a08a" opacity=".6"/>
+  <path d="M208 485 Q236 466 262 480 Q288 466 316 485 Q300 498 262 490 Q224 498 208 485 Z" fill="#8f8f8f" stroke="${SK}" stroke-width="5"/>
+  ${mouth}</g>`;
+}
+
+// ---------- props ----------
+function piggy(x,y,s,fire,t){
+  let f='';
+  if(fire>0){const fl=Math.sin(t*28)*0.08;f=`<g opacity="${fire}" transform="translate(${x} ${y-50}) scale(${s*0.8*(1+fl)} ${s*0.8*(1-fl)*fire})"><path d="M-95 0 Q-110 -70 -70 -110 Q-62 -60 -40 -55 Q-40 -120 0 -150 Q0 -90 30 -70 Q45 -120 80 -125 Q70 -70 95 -40 Q110 -20 95 0 Z" fill="#F25244" stroke="${OL}" stroke-width="6"/><path d="M-60 0 Q-70 -50 -40 -70 Q-32 -40 -12 -38 Q-5 -85 22 -95 Q22 -55 45 -45 Q60 -70 72 -70 Q68 -30 70 0 Z" fill="#F2983E"/><path d="M-30 0 Q-30 -30 -10 -40 Q0 -20 15 -22 Q25 -40 35 -40 Q35 -15 40 0 Z" fill="#FFD23F"/></g>`}
+  return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${OL}" stroke-width="6" stroke-linejoin="round">
+   <rect x="-70" y="40" width="26" height="40" rx="8" fill="#f2a5b8"/><rect x="40" y="40" width="26" height="40" rx="8" fill="#f2a5b8"/>
+   <ellipse cx="0" cy="0" rx="105" ry="78" fill="#f7b6c6"/><path d="M-50 -65 L-62 -105 L-20 -78 Z" fill="#f2a5b8"/>
+   <ellipse cx="-102" cy="8" rx="26" ry="30" fill="#f2a5b8"/><circle cx="-108" cy="2" r="5" fill="${OL}"/><circle cx="-98" cy="16" r="5" fill="${OL}"/>
+   <circle cx="-55" cy="-18" r="7" fill="${OL}" stroke="none"/><rect x="-20" y="-80" width="44" height="10" rx="5" fill="${OL}"/>
+   <path d="M100 0 Q125 -10 118 -28" fill="none"/>
+   <text x="10" y="32" font-family="Poppins" font-size="34" fill="#9b3c55" stroke="none" text-anchor="middle">20.000 €</text></g>${f}`;
+}
+function glass(x,y,s){return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${OL}" stroke-width="5"><path d="M-26 -50 L26 -50 L22 10 L-22 10 Z" fill="#dff1f7" opacity=".9"/><path d="M-24 -18 L24 -18 L22 10 L-22 10 Z" fill="#d68a2c"/><rect x="-12" y="-36" width="18" height="16" fill="#fff" opacity=".8" stroke-width="3"/></g>`}
+function cup(x,y,s){return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${OL}" stroke-width="5"><ellipse cx="0" cy="12" rx="44" ry="10" fill="#fff"/><path d="M-26 -30 L26 -30 L20 8 L-20 8 Z" fill="#fff"/><path d="M26 -20 Q44 -18 40 -4 Q38 6 22 2" fill="none"/></g>`}
+function phone(x,y,s,lines){let tl='';lines.forEach((l,i)=>tl+=`<text x="0" y="${-50+i*44}" font-family="Poppins" font-size="${l[2]||30}" fill="${l[1]}" text-anchor="middle" stroke="none">${l[0]}</text>`);
+ return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${OL}" stroke-width="6"><rect x="-80" y="-140" width="160" height="280" rx="24" fill="#222"/><rect x="-68" y="-122" width="136" height="244" rx="12" fill="#fff" stroke-width="3"/>${tl}</g>`}
+function paper(x,y,s,rot,body){return `<g transform="translate(${x} ${y}) rotate(${rot}) scale(${s})" stroke="${OL}" stroke-width="6"><rect x="-150" y="-200" width="300" height="400" rx="10" fill="#fffdf6"/><g stroke="none">${body}</g></g>`}
+function cash(x,y,s,n){let g='';for(let i=0;i<n;i++){const dx=(i%3)*58-58,dy=-Math.floor(i/3)*30;g+=`<g transform="translate(${dx} ${dy})"><rect x="-50" y="-26" width="100" height="40" rx="4" fill="#8fc79a" stroke="${OL}" stroke-width="5"/><rect x="-50" y="-12" width="100" height="10" fill="#cfa85a" stroke="${OL}" stroke-width="3"/></g>`}return `<g transform="translate(${x} ${y}) scale(${s})">${g}</g>`}
+function stack(x,y,h){return `<g stroke="${OL}" stroke-width="5"><rect x="${x-48}" y="${y-h}" width="96" height="${h}" fill="#8fc79a"/>${Array.from({length:Math.max(1,Math.floor(h/22))},(_,i)=>`<line x1="${x-48}" y1="${y-i*22}" x2="${x+48}" y2="${y-i*22}" stroke-width="3"/>`).join('')}<rect x="${x-48}" y="${y-h*0.6-8}" width="96" height="14" fill="#cfa85a" stroke-width="4"/></g>`}
+
+// ---------- personaje de cuerpo entero ----------
+// o:{who:'R'|'D'|'B', x,y (pies), s, pose:'stand'|'sit', arms:'down'|'lap'|'rest'|'holdR'|'point'|'eat'|'stamp', expr, m, blink, sun, hold:svg-fn(hx,hy)}
+function person(o){
+  const sit=o.pose==='sit', dy=sit?110:0, S=-640+dy, H=-400+dy;
+  const look={
+   R:{top:o.summer?'#f4f4f0':'#23305a',pants:o.summer?'#e9dfc8':'#1f2a4d',shoe:'#1b1b1b',skin:'#f1c7a0'},
+   D:{top:'#3b4a3f',pants:'#3d5a8a',shoe:'#f2f2f2',skin:'#f6d2b0'},
+   B:{top:'#5f6670',pants:'#4d535c',shoe:'#5b3a22',skin:'#efbf9a'}}[o.who];
+  let g='';
+  // piernas
+  const lx=o.who==='B'?50:40;
+  const legsS=[[[-lx,H],[-lx-4,-200],[-lx-6,-34]],[[lx,H],[lx+4,-200],[lx+6,-34]]];
+  const legsC=[[[-lx,H-10],[-lx-26,-250],[-lx-28,-34]],[[lx,H-10],[lx+26,-250],[lx+28,-34]]];
+  const legs=sit?legsC:legsS;
+  if(!o.noLegs){
+   legs.forEach(l=>g+=limb(l,66,look.pants));
+   if(sit) g+=`<path d="M${-lx-50} ${H-20} Q0 ${H+40} ${lx+50} ${H-20} L${lx+60} -250 Q0 -210 ${-lx-60} -250 Z" fill="${look.pants}" stroke="${OL}" stroke-width="6"/>`;
+   const fx=sit?lx+28:lx+6;
+   g+=`<ellipse cx="${-fx-6}" cy="-16" rx="50" ry="22" fill="${look.shoe}" stroke="${OL}" stroke-width="6"/><ellipse cx="${fx+6}" cy="-16" rx="50" ry="22" fill="${look.shoe}" stroke="${OL}" stroke-width="6"/>`;
+   if(o.who==='D') g+=`<path d="M${-fx-50} -10 L${-fx+38} -10 M${fx-38} -10 L${fx+50} -10" stroke="#c9c9c9" stroke-width="6"/>`;
+  }
+  // torso
+  const bw=o.who==='B'?150:105, ww=o.who==='B'?140:88;
+  const belly=o.who==='B'?`Q${bw+40} ${(S+H)/2+40} ${ww} ${H}`:`L${ww} ${H}`;
+  const bellyL=o.who==='B'?`Q${-bw-40} ${(S+H)/2+40} ${-bw} ${S+40}`:`L${-bw} ${S+30}`;
+  g+=`<path d="M${-bw} ${S+30} Q${-bw+5} ${S} ${-60} ${S-10} L60 ${S-10} Q${bw-5} ${S} ${bw} ${S+30} ${belly} L${-ww} ${H} ${bellyL} Z" fill="${look.top}" stroke="${OL}" stroke-width="6" stroke-linejoin="round"/>`;
+  g+=`<rect x="-24" y="${S-56}" width="48" height="60" fill="${look.skin}" stroke="${OL}" stroke-width="6"/>`;
+  if(o.who==='R'&&!o.summer) g+=`<path d="M-38 ${S-10} L0 ${S+110} L38 ${S-10} Z" fill="#fff" stroke="${OL}" stroke-width="5"/><path d="M-10 ${S+8} L10 ${S+8} L15 ${S+22} L8 ${S+120} L0 ${S+136} L-8 ${S+120} L-15 ${S+22} Z" fill="#c0262d" stroke="${OL}" stroke-width="5"/><path d="M-38 ${S-10} L-62 ${S+80} L-22 ${S+92} L0 ${S+130} Z M38 ${S-10} L62 ${S+80} L22 ${S+92} L0 ${S+130} Z" fill="#1a2546" stroke="${OL}" stroke-width="5"/><circle cx="0" cy="${S+170}" r="6" fill="#111"/><circle cx="0" cy="${S+205}" r="6" fill="#111"/>`;
+  if(o.who==='R'&&o.summer) g+=`<path d="M-30 ${S-10} L0 ${S+40} L30 ${S-10}" fill="${look.skin}" stroke="${OL}" stroke-width="5"/><path d="M0 ${S+40} L0 ${H}" stroke="#ccc" stroke-width="4"/>`;
+  if(o.who==='D') g+=`<path d="M-62 ${S-14} Q0 ${S+40} 62 ${S-14} Q50 ${S-40} 0 ${S-36} Q-50 ${S-40} -62 ${S-14} Z" fill="#2c3831" stroke="${OL}" stroke-width="5"/><path d="M-16 ${S+14} L-20 ${S+70} M16 ${S+14} L20 ${S+70}" stroke="#e8e8e8" stroke-width="5"/><path d="M-60 ${H-50} L60 ${H-50} L50 ${H-6} L-50 ${H-6} Z" fill="#33413a" stroke="${OL}" stroke-width="5"/><path d="M-40 ${S} L-12 ${S+110} M40 ${S} L12 ${S+110}" stroke="#2f6fd6" stroke-width="7"/><rect x="-48" y="${S+104}" width="96" height="56" rx="8" fill="#fff" stroke="${OL}" stroke-width="5"/><text x="0" y="${S+139}" font-family="Archivo" font-weight="900" font-size="19" text-anchor="middle" fill="#141414">BECARIO</text>`;
+  if(o.who==='B') g+=`<path d="M-30 ${S-10} L0 ${S+60} L30 ${S-10} Z" fill="#fff" stroke="${OL}" stroke-width="5"/><path d="M-8 ${S+5} L8 ${S+5} L0 ${S+20} Z" fill="#2b4a7a" stroke="${OL}" stroke-width="4"/><path d="M-30 ${S-10} L-70 ${S+40} L0 ${S+60} Z M30 ${S-10} L70 ${S+40} L0 ${S+60}Z" fill="#4c525b" stroke="${OL}" stroke-width="5"/><path d="M60 ${S+80} Q90 ${S+100} 80 ${S+130}" stroke="#d6b04a" stroke-width="5" fill="none"/>`;
+  // brazos
+  const sx=bw-12, sy=S+28;
+  const A={
+   down:[[[-sx,sy],[-sx-22,sy+130],[-sx-14,sy+240]],[[sx,sy],[sx+22,sy+130],[sx+14,sy+240]]],
+   lap:[[[-sx,sy],[-sx-24,sy+140],[-40,sy+200]],[[sx,sy],[sx+24,sy+140],[40,sy+200]]],
+   rest:[[[-sx,sy],[-sx-40,sy+140],[-sx-70,sy+230]],[[sx,sy],[sx+40,sy+140],[sx+70,sy+230]]],
+   holdR:[[[-sx,sy],[-sx-40,sy+140],[-sx-70,sy+230]],[[sx,sy],[sx+50,sy+150],[sx+10,sy+60]]],
+   holdL:[[[-sx,sy],[-sx-50,sy+150],[-sx-10,sy+60]],[[sx,sy],[sx+40,sy+140],[sx+70,sy+230]]],
+   point:[[[-sx,sy],[-sx-40,sy+140],[-sx-70,sy+230]],[[sx,sy],[sx+90,sy+40],[sx+190,sy-30]]],
+   pointL:[[[-sx,sy],[-sx-90,sy+40],[-sx-190,sy-30]],[[sx,sy],[sx+40,sy+140],[sx+70,sy+230]]],
+   eat:[[[-sx,sy],[-sx-40,sy+150],[-60,sy+190]],[[sx,sy],[sx+40,sy+120],[40,sy-80]]],
+   stamp:[[[-sx,sy],[-sx-40,sy+150],[-60,sy+200]],[[sx,sy],[sx+70,sy+100+(o.stampY||0)],[sx+40,sy+190+(o.stampY||0)]]],
+  }[o.arms||'down'];
+  const hands=A.map(a=>a[a.length-1]);
+  // cabeza
+  const face=o.who==='R'?faceR(o.m,o.blink,o.sun):o.who==='D'?faceD(o.m,o.blink,o.expr):faceB(o.m,o.blink);
+  const chin=o.who==='R'?552:o.who==='D'?558:565;
+  g+=`<g transform="translate(0 ${S-34}) scale(0.62) translate(-262 ${-chin})">${face}</g>`;
+  A.forEach(a=>g+=limb(a,46,look.top));
+  hands.forEach(h=>g+=`<circle cx="${h[0]}" cy="${h[1]}" r="22" fill="${look.skin}" stroke="${OL}" stroke-width="6"/>`);
+  if(o.hold) g+=o.hold(hands);
+  return `<g transform="translate(${o.x} ${o.y}) scale(${o.s}) ${o.flip?'scale(-1 1)':''}">${g}</g>`;
+}
+
+// ---------- asiento de jet ----------
+function seatBack(x,y,s){return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${OL}" stroke-width="6" stroke-linejoin="round"><path d="M-170 -150 L-180 -560 Q-180 -640 -100 -650 L100 -650 Q180 -640 180 -560 L170 -150 Z" fill="url(#gSeat)"/><path d="M-120 -600 Q0 -630 120 -600 L118 -420 Q0 -440 -118 -420 Z" fill="#e8d9bc" stroke-width="4"/><path d="M-60 -560 L-40 -480 M60 -560 L40 -480 M0 -580 L0 -470" stroke="#cdb894" stroke-width="4"/></g>`}
+function seatFront(x,y,s){return `<g transform="translate(${x} ${y}) scale(${s})" stroke="${OL}" stroke-width="6" stroke-linejoin="round"><path d="M-205 -330 Q-210 -380 -170 -385 L-140 -385 Q-120 -380 -122 -330 L-130 -60 L-200 -60 Z" fill="#e3d3b4"/><path d="M205 -330 Q210 -380 170 -385 L140 -385 Q120 -380 122 -330 L130 -60 L200 -60 Z" fill="#e3d3b4"/><path d="M-205 -60 L205 -60 L190 0 L-190 0 Z" fill="#c7b38f"/></g>`}
+
+// ================= escenarios =================
+function jet(st){
+  let g='';
+  g+=`<rect width="1080" height="1920" fill="#2a1d16"/>`;
+  g+=`<path d="M0 0 L1080 0 L680 620 L400 620 Z" fill="url(#gCeil)"/>`;
+  g+=`<path d="M0 0 Q540 -40 1080 0 L1080 170 Q540 120 0 170 Z" fill="#23180f"/>`;
+  [[540,250],[540,420],[540,540]].forEach(([x,y],i)=>g+=`<ellipse cx="${x}" cy="${y}" rx="${40-i*10}" ry="${10-i*2}" fill="#ffe2a8" opacity=".9"/>`);
+  // bodegas
+  g+=`<path d="M0 170 L400 620 L400 680 L0 470 Z" fill="#cdbb9e" stroke="${OL}" stroke-width="5"/><path d="M1080 170 L680 620 L680 680 L1080 470 Z" fill="#cdbb9e" stroke="${OL}" stroke-width="5"/>`;
+  // paredes
+  g+=`<path d="M0 470 L400 680 L400 1000 L0 1760 Z" fill="#e3d4ba" stroke="${OL}" stroke-width="5"/><path d="M1080 470 L680 680 L680 1000 L1080 1760 Z" fill="#e3d4ba" stroke="${OL}" stroke-width="5"/>`;
+  g+=`<path d="M0 1120 L400 860 L400 1000 L0 1760 Z" fill="#6b4a33" stroke="${OL}" stroke-width="5"/><path d="M1080 1120 L680 860 L680 1000 L1080 1760 Z" fill="#6b4a33" stroke="${OL}" stroke-width="5"/>`;
+  // ventanas
+  [0.06,0.3,0.5,0.66,0.78,0.88].forEach(f=>{
+    for(const side of [-1,1]){
+      const xw=side<0?400*f:1080-400*f, top=470+(680-470)*f, bot=1120+(860-1120)*f, h=bot-top, w=70*(1-f*0.82), cy=top+h*0.45;
+      g+=`<ellipse cx="${xw}" cy="${cy}" rx="${w*0.62}" ry="${w*1.05}" fill="#d8c7a8" stroke="${OL}" stroke-width="${4+2*(1-f)}"/><ellipse cx="${xw}" cy="${cy}" rx="${w*0.42}" ry="${w*0.8}" fill="url(#gWin)" stroke="${OL}" stroke-width="${3+2*(1-f)}"/>`;
+    }});
+  // pared del fondo + puerta
+  g+=`<rect x="400" y="620" width="280" height="380" fill="#5a3e2c" stroke="${OL}" stroke-width="5"/><rect x="470" y="660" width="140" height="340" rx="10" fill="#2a1c13" stroke="${OL}" stroke-width="5"/>`;
+  // suelo
+  g+=`<path d="M0 1760 L400 1000 L680 1000 L1080 1760 L1080 1920 L0 1920 Z" fill="#3e2a1f" stroke="${OL}" stroke-width="5"/><path d="M330 1920 L500 1000 L580 1000 L750 1920 Z" fill="#5b4031"/>`;
+  // asientos traseros
+  for(const [x,y,s] of [[455,1060,0.28],[625,1060,0.28],[410,1170,0.42],[670,1170,0.42]]) g+=seatBack(x,y,s)+seatFront(x,y,s);
+  // mesitas
+  g+=`<g stroke="${OL}" stroke-width="6"><path d="M-10 1420 L170 1420 L150 1470 L-10 1470 Z" fill="#7a5236"/><path d="M910 1420 L1090 1420 L1090 1470 L930 1470 Z" fill="#7a5236"/></g>`;
+  g+=cup(70,1405,1.2)+glass(1000,1408,1.3);
+  if(st.paperOnTable) g+='';
+  // asientos delanteros con personajes
+  g+=seatBack(250,1780,1.0)+seatBack(830,1780,1.0);
+  g+=st.dani+st.ric;
+  g+=seatFront(250,1780,1.0)+seatFront(830,1780,1.0);
+  return g;
+}
+function vault(st){
+  let g='';
+  g+=`<rect width="1080" height="1920" fill="#e2d4ba"/>`;
+  g+=`<rect width="1080" height="190" fill="#2a2420"/>`;
+  [180,540,900].forEach(x=>g+=`<ellipse cx="${x}" cy="150" rx="60" ry="16" fill="#fff3cf" stroke="${OL}" stroke-width="5"/><path d="M${x-120} 166 L${x+120} 166 L${x+260} 900 L${x-260} 900 Z" fill="#fff6dd" opacity=".18"/>`);
+  g+=`<rect x="0" y="1180" width="1080" height="70" fill="#6b4a33" stroke="${OL}" stroke-width="5"/>`;
+  g+=`<rect x="0" y="1250" width="1080" height="670" fill="#efece6" stroke="${OL}" stroke-width="5"/>`;
+  for(let i=0;i<6;i++){const y=1250+Math.pow(i/6,1.6)*670;g+=`<line x1="0" y1="${y}" x2="1080" y2="${y}" stroke="#d6d1c8" stroke-width="4"/>`}
+  for(let i=-6;i<=6;i++)g+=`<line x1="${540+i*90}" y1="1250" x2="${540+i*260}" y2="1920" stroke="#d6d1c8" stroke-width="4"/>`;
+  // cajas de seguridad
+  g+=`<rect x="30" y="620" width="240" height="560" fill="#9aa0a7" stroke="${OL}" stroke-width="5"/>`;
+  for(let r=0;r<8;r++)for(let c=0;c<3;c++)g+=`<rect x="${42+c*76}" y="${632+r*68}" width="66" height="58" rx="4" fill="url(#gSteel)" stroke="${OL}" stroke-width="3"/><circle cx="${75+c*76}" cy="${661+r*68}" r="5" fill="#555"/>`;
+  // calendario
+  g+=`<g transform="translate(60 300) rotate(-3)" stroke="${OL}" stroke-width="5"><rect width="200" height="230" rx="8" fill="#fff"/><rect width="200" height="56" rx="8" fill="#c0262d"/><circle cx="50" cy="0" r="9" fill="#555"/><circle cx="150" cy="0" r="9" fill="#555"/>
+   <text x="100" y="40" font-family="Poppins" font-size="30" fill="#fff" text-anchor="middle" stroke="none">${st.calTop}</text><text x="100" y="168" font-family="Poppins" font-size="${st.calBig.length>3?64:96}" fill="#1d1a17" text-anchor="middle" stroke="none">${st.calBig}</text></g>`;
+  // pantalla
+  g+=`<rect x="320" y="270" width="470" height="300" rx="20" fill="url(#gScreen)" stroke="${OL}" stroke-width="8"/>${txt(555,350,32,'#9fb6d9',st.scrTop)}${txt(555,450,86,'#ffffff',st.scrBig)}${st.scrSub?txt(555,525,32,st.scrSubC||'#7fe0a8',st.scrSub):''}`;
+  if(st.chart) g+=st.chart;
+  // puerta de cámara acorazada
+  g+=`<g transform="translate(900 860)" stroke="${OL}" stroke-width="7"><circle r="300" fill="#8d939a"/><circle r="262" fill="url(#gSteel)"/><circle r="200" fill="none" stroke-width="5"/>
+   ${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6;return `<circle cx="${Math.cos(a)*230}" cy="${Math.sin(a)*230}" r="12" fill="#6d737a" stroke-width="4"/>`}).join('')}
+   <g transform="rotate(${st.wheel||0})"><circle r="70" fill="#c9cdd2"/>${[0,60,120].map(a=>`<rect x="-150" y="-12" width="300" height="24" rx="12" fill="#b5bac0" transform="rotate(${a})"/>`).join('')}<circle r="34" fill="#9aa0a7"/></g></g>`;
+  // placa FGD
+  if(st.plaque!==undefined) g+=`<g opacity="${st.plaque}" transform="translate(230 610)" stroke="${OL}" stroke-width="6"><rect width="470" height="200" rx="16" fill="#d4a94a"/><rect x="14" y="14" width="442" height="172" rx="10" fill="none" stroke="#8a6a24" stroke-width="4"/>
+   <path d="M60 50 L110 32 L160 50 L160 100 Q160 150 110 172 Q60 150 60 100 Z" fill="#50519E"/><path d="M85 100 L105 120 L138 82" stroke="#fff" stroke-width="12" fill="none" stroke-linecap="round"/>
+   <g stroke="none">${txt(320,62,24,'#3d2a07','FONDO DE GARANTÍA')}${txt(320,88,24,'#3d2a07','DE DEPÓSITOS')}${txt(320,150,52,'#1d1a17','100.000 €')}${txt(320,180,22,'#3d2a07','por persona y por banco')}</g></g>`;
+  // mesa
+  g+=`<g stroke="${OL}" stroke-width="7"><rect x="200" y="1420" width="18" height="300" fill="#8a8f96"/><rect x="640" y="1420" width="18" height="300" fill="#8a8f96"/><path d="M150 1360 L710 1360 L740 1420 L120 1420 Z" fill="#cfd3d8"/></g>`;
+  g+=st.table||'';
+  g+=st.people||'';
+  return g;
+}
+function bankBg(x0,dull){ // media pantalla: sucursal
+  let g='';
+  if(dull){
+    g+=`<rect x="${x0}" y="0" width="540" height="1920" fill="#b9bfae"/><rect x="${x0}" y="0" width="540" height="130" fill="#8a907f"/>`;
+    g+=`<rect x="${x0+60}" y="160" width="420" height="22" fill="#f5f7e6" stroke="${OL}" stroke-width="5"/>`;
+    g+=`<rect x="${x0}" y="1200" width="540" height="720" fill="#8c8a7c" stroke="${OL}" stroke-width="5"/>`;
+    g+=`<rect x="${x0+40}" y="980" width="460" height="230" fill="#9d8f74" stroke="${OL}" stroke-width="6"/><rect x="${x0+70}" y="760" width="400" height="220" fill="#d7e3e6" opacity=".6" stroke="${OL}" stroke-width="5"/>`;
+    g+=`<g transform="translate(${x0+270} 1010)" stroke="${OL}" stroke-width="4"><path d="M-40 -20 L-40 -110 Q0 -150 40 -110 L40 -20 Z" fill="#7d6b56"/><circle cy="-140" r="38" fill="#e6c3a0"/><path d="M-12 -126 Q0 -132 12 -126" fill="none"/><path d="M-20 -150 L-6 -146 M6 -146 L20 -150" /></g>`;
+  } else {
+    g+=`<rect x="${x0}" y="0" width="540" height="1920" fill="#f4efe4"/><rect x="${x0+60}" y="140" width="420" height="560" rx="14" fill="url(#gSky)" stroke="${OL}" stroke-width="6"/><line x1="${x0+270}" y1="140" x2="${x0+270}" y2="700" stroke="${OL}" stroke-width="5"/>`;
+    g+=`<rect x="${x0}" y="1200" width="540" height="720" fill="#e9d8bc" stroke="${OL}" stroke-width="5"/>`;
+    g+=`<g stroke="${OL}" stroke-width="5"><rect x="${x0+430}" y="1080" width="70" height="120" fill="#c26b3c"/><path d="M${x0+465} 1080 Q${x0+400} 980 ${x0+420} 920 Q${x0+470} 990 ${x0+465} 1080 Q${x0+470} 960 ${x0+520} 930 Q${x0+510} 1010 ${x0+465} 1080" fill="#5aa469"/></g>`;
+  }
+  return g;
+}
+function sign(x,y,w,h,bg,lines){let s=`<g stroke="${OL}" stroke-width="6"><rect x="${x-w/2}" y="${y}" width="${w}" height="${h}" rx="16" fill="${bg}"/></g>`;lines.forEach(l=>s+=txt(x,y+l[0],l[1],l[2],l[3]));return s}
+function split(st){
+  let g=`<g clip-path="url(#cL)">${bankBg(0,true)}${st.left}</g><g clip-path="url(#cR)">${bankBg(540,false)}${st.right}</g>`;
+  g+=`<rect x="532" y="0" width="16" height="1920" fill="#fff" stroke="${OL}" stroke-width="5"/>`;
+  return g;
+}
+function office(st){
+  let g='';
+  g+=`<rect width="1080" height="1920" fill="#5c3d2c"/>`;
+  for(let x=0;x<1080;x+=180)g+=`<rect x="${x+14}" y="140" width="152" height="900" rx="6" fill="none" stroke="#3d281c" stroke-width="6"/>`;
+  g+=`<rect x="300" y="230" width="480" height="300" fill="#cfe6f2" stroke="${OL}" stroke-width="7"/>`;
+  for(let y=250;y<530;y+=26)g+=`<line x1="304" y1="${y}" x2="776" y2="${y}" stroke="#e8e0cc" stroke-width="12"/>`;
+  g+=sign(540,60,420,120,'#1f3a6b',[[80,60,'#fff','BANCO']]);
+  g+=`<rect x="0" y="1300" width="1080" height="620" fill="#3a271c"/>`;
+  g+=st.banker||'';
+  g+=`<g stroke="${OL}" stroke-width="7"><path d="M60 1240 L1020 1240 L1050 1320 L30 1320 Z" fill="#8a5a3a"/><rect x="60" y="1320" width="960" height="330" fill="#6e4329"/><rect x="120" y="1360" width="380" height="250" rx="10" fill="none" stroke="#4e2e1c" stroke-width="6"/><rect x="580" y="1360" width="380" height="250" rx="10" fill="none" stroke="#4e2e1c" stroke-width="6"/></g>`;
+  g+=st.desk||'';
+  g+=st.front||'';
+  return g;
+}
+function terrace(st){
+  let g='';
+  g+=`<rect width="1080" height="1100" fill="url(#gSky)"/>`;
+  g+=`<g fill="#fff" opacity=".9"><ellipse cx="200" cy="200" rx="120" ry="34"/><ellipse cx="280" cy="180" rx="80" ry="40"/><ellipse cx="820" cy="300" rx="140" ry="30"/></g>`;
+  g+=`<rect y="760" width="1080" height="420" fill="url(#gSea)"/>`;
+  g+=`<path d="M0 760 Q120 520 330 600 Q420 640 470 760 Z" fill="#8bb36b" stroke="${OL}" stroke-width="5"/>`;
+  const cols=['#f2c38f','#e98b6d','#f6e3b8','#d97a5b','#f0d29a','#c96f52'];
+  for(let i=0;i<14;i++){const x=20+i*30+((i*37)%17),y=640+((i*53)%90);g+=`<rect x="${x}" y="${y}" width="44" height="${120-((i*29)%40)}" fill="${cols[i%6]}" stroke="${OL}" stroke-width="4"/><path d="M${x-4} ${y} L${x+22} ${y-18} L${x+48} ${y} Z" fill="#b5523a" stroke="${OL}" stroke-width="4"/>`}
+  g+=`<g transform="translate(760 820)" stroke="${OL}" stroke-width="5"><path d="M-110 0 L110 0 L80 40 L-90 40 Z" fill="#fff"/><rect x="-50" y="-36" width="90" height="36" fill="#fff"/><rect x="-36" y="-26" width="16" height="12" fill="#3a6f96"/><rect x="-10" y="-26" width="16" height="12" fill="#3a6f96"/></g>`;
+  g+=`<rect y="1180" width="1080" height="740" fill="#d98c5f"/>`;
+  for(let y=1180;y<1920;y+=90)g+=`<line x1="0" y1="${y}" x2="1080" y2="${y}" stroke="#c07448" stroke-width="4"/>`;
+  g+=`<rect x="0" y="1030" width="1080" height="40" fill="#f3eadb" stroke="${OL}" stroke-width="6"/>`;
+  for(let x=20;x<1080;x+=70)g+=`<path d="M${x} 1070 Q${x-14} 1110 ${x} 1130 Q${x+14} 1150 ${x} 1180 L${x+36} 1180 Q${x+22} 1150 ${x+36} 1130 Q${x+50} 1110 ${x+36} 1070 Z" fill="#f3eadb" stroke="${OL}" stroke-width="4"/>`;
+  g+=`<rect x="0" y="1180" width="1080" height="30" fill="#e8dcc8" stroke="${OL}" stroke-width="6"/>`;
+  g+=`<g stroke="${OL}" stroke-width="7"><path d="M60 620 Q330 420 600 620 Z" fill="#f6efe2"/><path d="M150 620 Q240 520 330 470 Q420 520 510 620" fill="none" stroke-width="5"/><rect x="322" y="470" width="14" height="1100" fill="#7a5236"/></g>`;
+  g+=st.people||'';
+  g+=`<g stroke="${OL}" stroke-width="7"><ellipse cx="540" cy="1450" rx="230" ry="50" fill="#f4f4f0"/><rect x="530" y="1490" width="20" height="300" fill="#8a8a8a"/></g>`;
+  g+=glass(470,1430,1.2)+glass(620,1430,1.2);
+  return g;
+}
+
+// ================= planos =================
 const DEXPR={0:'proud',2:'confused',4:'normal',6:'worry',8:'normal',11:'shock',13:'shock'};
+function exprD(t){const k=lineAt(t);for(let i=k;i>=0;i--){if(SC[i].who==='D'){return t<SC[i].e+1.5?(DEXPR[i]||'normal'):'normal'}}return 'normal'}
+const CU_D=[250,1170,2.05], CU_R=[830,1170,2.05], WIDE=[540,1180,1.0];
+const SHOTS=[
+ {t:()=>L(0),set:'jet',cam:[[540,1150,1.0],[540,1200,1.1]]},
+ {t:()=>L(1),set:'jet',cam:[CU_R,[830,1170,2.15]]},
+ {t:()=>T('quemando',L(1))-0.1,set:'jet',cam:[[250,1460,2.4],[250,1440,2.6]]},
+ {t:()=>L(2),set:'jet',cam:[CU_D,[250,1170,2.15]]},
+ {t:()=>L(3),set:'split1',cam:[[540,960,1.0],[540,960,1.05]]},
+ {t:()=>L(4),set:'jet',cam:[[540,1180,1.05],[540,1180,1.12]]},
+ {subY:640,t:()=>L(5),set:'vault',v:'monthly',cam:[[540,960,1.0],[560,900,1.08]]},
+ {t:()=>L(6),set:'jet',cam:[CU_D,[250,1170,2.2]]},
+ {t:()=>L(7),set:'vault',v:'fgd',cam:[[480,740,1.35],[480,740,1.45]],subY:1180},
+ {t:()=>L(8),set:'jet',cam:[[540,1180,1.0],[540,1180,1.06]]},
+ {t:()=>L(9),set:'split2',cam:[[540,960,1.0],[540,960,1.05]]},
+ {subY:640,t:()=>L(10),set:'vault',v:'years',cam:[[540,960,1.0],[540,900,1.1]]},
+ {t:()=>L(11),set:'jet',cam:[[250,1170,1.7],[250,1150,2.4]],fast:true},
+ {t:()=>L(12),set:'office',v:'fee',cam:[[540,1100,1.0],[600,1050,1.12]]},
+ {t:()=>L(13),set:'office',v:'phone',cam:[[220,1220,1.8],[220,1220,1.95]]},
+ {t:()=>L(14),set:'office',v:'cake',cam:[[540,1100,1.1],[560,1080,1.2]]},
+ {t:()=>L(15),set:'jet',v:'paper',cam:[[760,1220,1.75],[760,1220,1.9]]},
+ {t:()=>L(16),set:'terrace',cam:[[540,1100,1.0],[540,1150,1.08]]},
+];
+SHOTS.forEach((s,i)=>{s.s=s.t();});
+SHOTS.forEach((s,i)=>{s.e=SHOTS[i+1]?SHOTS[i+1].s:D.duration+0.2});
 
-// ---------- subtítulos: grupos de hasta 3 palabras ----------
-const G=[];{let cur=[];W.forEach((w,i)=>{cur.push(w);const brk=/[.,!?¿¡…:]$/.test(w.w)||cur.length>=3||i===W.length-1||(W[i+1]&&W[i+1].who!==w.who);if(brk){G.push(cur);cur=[]}})}
-G.forEach((g,i)=>{g.s=g[0].s;g.e=G[i+1]?Math.min(G[i+1][0].s,g[g.length-1].e+0.5):g[g.length-1].e+0.6});
-const clean=w=>w.replace(/[.,!?¿¡…:]/g,'');
-
-function talking(who,t){for(const w of W){if(w.who===who&&t>=w.s-0.02&&t<=w.e+0.02)return true;if(w.s>t+1)break}return false}
-function line(t){let k=-1;SC.forEach((s,i)=>{if(t>=s.s-0.05)k=i});return k}
-
-const norm=w=>clean(w).toLowerCase();
-function T(word,after=0){for(const w of W){if(w.s>=after-0.01&&norm(w.w).startsWith(word))return w.s}return after}
-const SS=n=>SC.find(s=>s.scene===n).s;
-function pane(name,lt,dur,t){
- const st=SS(name);
- if(name==='oficina'){
-   const q=T('quemando',st)-0.1;
-   const f=cl((t-q)/0.4); $('o_fire').setAttribute('opacity',f);
-   const flick=Math.sin(t*25)*0.06; $('o_fire').setAttribute('transform',`translate(180 110) scale(${1+flick},${1-flick}) translate(-180 -110)`);
-   const burn=cl((t-q)/2.0); $('o_saldo').style.color=burn>0?`rgb(${20+127*burn},20,25)`:'#141414';
- }
- if(name==='comparativa'){
-   const a=eo((t-T('cero',st))/0.8), b=eo((t-T('tres',st))/1.0);
-   $('c_b1').style.height=(6+3*a)+'px'; $('c_v1').style.bottom=(20+6+3*a)+'px'; $('c_v1').style.opacity=a;
-   $('c_b2').style.height=(190*b)+'px'; $('c_v2').style.bottom=(20+190*b)+'px'; $('c_v2').style.opacity=b;
- }
- if(name==='cuenta'){
-   [[1,T('metes',st)],[2,T('sacas',st)],[3,T('intereses',st)]].forEach(([i,s])=>{const k=eback((t-s+0.15)/0.45);const e=$('k'+i);e.style.opacity=cl((t-s+0.15)/0.2);e.style.transform=`translateX(${(1-k)*-60}px) scale(${0.8+0.2*k})`});
- }
- if(name==='escudo'){
-   const qb=T('quiebra',st), fg=T('fondo',st);
-   $('e_crack').setAttribute('opacity',cl((t-qb)/0.3)); $('e_q').setAttribute('opacity',cl((t-qb-0.2)/0.3));
-   const sh=eback((t-fg)/0.5);
-   $('e_bank').style.opacity=1-cl((t-fg+0.1)/0.3);
-   $('e_shield').style.opacity=cl((t-fg)/0.3); $('e_shield').style.transform=`scale(${0.85+0.15*sh})`;
-   $('e_bank').style.transform=(t>qb&&t<qb+0.6)?`translateX(${Math.sin(t*90)*8}px)`:'';
- }
- if(name==='contador'){
-   const k1=eo((t-T('treinta',st))/0.6), k2=eo((t-T('cuatrocientos',st))/1.6);
-   $('n1').textContent=fmt(32*k1)+' €';
-   $('n2').textContent=k2<1?fmt(400*k2)+' €':'400–600 €';
-   $('n2').style.fontSize=k2<1?'110px':'78px';
- }
- if(name==='diezanos'){
-   const k=eo((lt-0.2)/2.0), N=60;
-   const X=i=>70+740*i/N, Y=v=>330-(v-20000)/7000*310;
-   const pts=r=>{let a=[];for(let i=0;i<=N*k;i++)a.push([X(i),Y(20000*Math.pow(1+r,10*i/N))]);return a};
-   const P=a=>a.length?'M'+a.map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L'):'';
-   const p3=pts(.03),p2=pts(.02),p0=pts(.0016);
-   $('d_l3').setAttribute('d',P(p3));$('d_l2').setAttribute('d',P(p2));$('d_l0').setAttribute('d',P(p0));
-   $('d_area').setAttribute('d',p3.length?P(p3)+' L'+p0.slice().reverse().map(p=>p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' L')+' Z':'');
-   const s=T('dejando',st)-0.4, l=eback((t-s)/0.5); $('d_lab').style.opacity=cl((t-s)/0.2); $('d_lab').style.transform=`scale(${0.7+0.3*l}) rotate(-3deg)`;
- }
- if(name==='comision'){
-   const c=T('comisión',st), k=eback((t-c)/0.45);
-   $('cm_row').style.opacity=cl((t-c)/0.2); $('cm_row').style.transform=`scale(${0.8+0.2*k})`; $('cm_q').style.opacity=cl((t-c-0.4)/0.3);
-   if(t>c&&t<c+0.35) $('cm_row').style.transform+=` translateX(${Math.sin(t*110)*8}px)`;
- }
- if(name==='banco'){
-   let s='';const m=T('migajas',st),k=cl((t-m+0.6)/0.6);
-   for(let i=0;i<9;i++){const ph=(i*0.13+lt*0.6)%1; if(k<=0)break; const x=440+Math.sin(i*2.1)*60-ph*330, y=330+ph*60+Math.sin(ph*6+i)*10;
-     s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${5+(i%3)*2}" fill="#c9a26a" stroke="#141414" stroke-width="3" opacity="${k}"/>`}
-   $('crumbs').innerHTML=s; $('mig').setAttribute('opacity',cl((t-m)/0.3));
- }
- if(name==='reclama'){
-   [[1,T('contrato',st)-0.5],[2,T('avisarte',st)-0.3],[3,T('reclamarla',st)-0.3]].forEach(([i,s])=>{const k=eback((t-s)/0.45);const e=$('r'+i);e.style.opacity=cl((t-s)/0.2);e.style.transform=`translateY(${(1-k)*30}px) scale(${0.85+0.15*k})`});
- }
- if(name==='cierre'){
-   const c=$('circ').firstElementChild; c.setAttribute('stroke-dashoffset',1-eo((lt-0.4)/0.6));
-   const sg=T('sígueme',st), k=eback((t-sg+0.2)/0.45);
-   $('q1').style.opacity=cl((t-sg)/0.3);
-   $('q2').style.opacity=cl((t-sg+0.2)/0.2); $('q2').style.transform=`scale(${(0.7+0.3*k)*(1+0.04*Math.sin(t*8)*cl(t-sg-0.5))})`;
-   const tap=(t-sg-0.9)%1.2; $('hand').style.opacity=cl((t-sg-0.7)/0.2); $('hand').style.transform=`translate(${-20*cl(1-Math.abs(tap-0.3)*4)}px,${-20*cl(1-Math.abs(tap-0.3)*4)}px)`;
- }
+function build(t){
+  const sh=SHOTS.filter(s=>t>=s.s-0.001).pop()||SHOTS[0];
+  const lt=t-sh.s, du=sh.e-sh.s, k=sh.fast?eo(lt/0.5):eio(lt/du);
+  const rt=talking('R',t), dt=talking('D',t);
+  const mR=rt?0.5+0.5*Math.abs(Math.sin(t*15)):0, mD=dt?0.5+0.5*Math.abs(Math.sin(t*17)):0;
+  const bR=(t%4.1)<0.12, bD=((t+1.7)%3.7)<0.12;
+  const ex=exprD(t);
+  const bobR=Math.sin(t*2.1)*4, bobD=Math.sin(t*2.4+1)*4;
+  let g='';
+  if(sh.set==='jet'){
+    const fireOn=t>=T('quemando',L(1))-0.1&&t<L(3)?cl((t-T('quemando',L(1))+0.1)/0.3):0;
+    const hasPig=t<L(3);
+    const dani=person({who:'D',x:250,y:1780+bobD,s:1,pose:'sit',arms:hasPig?'lap':'rest',expr:ex,m:mD,blink:bD,
+      hold:hasPig?(h)=>piggy(0,h[0][1]+30,0.8,fireOn,t):null});
+    const paperOn=sh.v==='paper';
+    const body=`${txt(0,-140,30,'#1d1a17','CONTRATO')}<line x1="-110" y1="-115" x2="110" y2="-115" stroke="#1d1a17" stroke-width="4"/>${txt(-120,-60,24,'#1d1a17','¿Comisión pactada?','start')}${txt(110,-60,34,'#c0262d','✗','end')}${txt(-120,-10,24,'#1d1a17','¿Aviso 2 meses?','start')}${txt(110,-10,34,'#c0262d','✗','end')}<rect x="-120" y="40" width="240" height="70" rx="10" fill="#A3D9C5" stroke="#1d1a17" stroke-width="4"/>${txt(0,88,34,'#1d1a17','RECLAMA')}${txt(0,160,20,'#666','al banco → Banco de España')}`;
+    const ric=person({who:'R',x:830,y:1780+bobR,s:1,pose:'sit',arms:paperOn?'holdL':'rest',m:mR,blink:bR,
+      hold:paperOn?(h)=>paper(h[0][0]-40,h[0][1]-120,0.95*eback((t-L(15))/0.5),-4,body):null});
+    g=jet({dani,ric});
+  }
+  if(sh.set==='vault'){
+    let st={calTop:'MES',calBig:'1',scrTop:'Cuenta remunerada',scrBig:'20.000 €',scrSub:'',people:'',table:''};
+    if(sh.v==='monthly'){
+      const steps=[T('metes',L(5)),T('sacas',L(5)),T('intereses',L(5))];
+      const mth=t<steps[2]?1:1+Math.min(3,Math.floor((t-steps[2])/0.7)+1);
+      st.calBig=String(mth); st.scrBig=fmt(20000+50*(mth-1))+' €'; st.scrSub=mth>1?'+50 € al mes':(t>steps[1]?'Lo sacas cuando quieras':'Disponible');
+      st.scrSubC=mth>1?'#7fe0a8':'#9fb6d9';
+      const bagOut=t>steps[1]&&t<steps[2];
+      st.table=cash(430,1340,1.1,bagOut?3:6);
+      st.wheel=(lt*30)%360;
+      st.people=person({who:'R',x:820,y:1840+bobR,s:1.08,pose:'stand',arms:'pointL',m:mR,blink:bR});
+    }
+    if(sh.v==='fgd'){
+      const f=T('fondo',L(7));
+      st.plaque=cl((t-f+0.3)/0.4); st.scrTop='Tu dinero'; st.scrBig='Protegido'; st.scrSub='hasta 100.000 €';
+      st.table=cash(430,1340,1.1,6);
+      st.people=person({who:'R',x:820,y:1840+bobR,s:1.08,pose:'stand',arms:'pointL',m:mR,blink:bR})+person({who:'D',x:150,y:1900+bobD,s:1.0,pose:'stand',arms:'down',expr:'worry',m:mD,blink:bD});
+    }
+    if(sh.v==='years'){
+      const k2=eio((t-L(10)-0.2)/(LE(10)-L(10)-0.4));
+      const yr=1+Math.round(9*k2); st.calTop='AÑO'; st.calBig=String(yr);
+      const v3=20000*Math.pow(1.03,yr), v0=20000*Math.pow(1.0016,yr);
+      st.scrTop='Al 3 % · año '+yr; st.scrBig=fmt(v3)+' €'; st.scrSub='En tu banco: '+fmt(v0)+' €'; st.scrSubC='#ff9c8f';
+      let tb='';for(let i=0;i<4;i++)tb+=stack(250+i*120,1360,30+k2*(60+i*40));
+      st.table=tb;
+      st.people=person({who:'R',x:860,y:1840+bobR,s:1.08,pose:'stand',arms:'pointL',m:mR,blink:bR});
+    }
+    g=vault(st);
+  }
+  if(sh.set==='split1'||sh.set==='split2'){
+    let left='',right='';
+    if(sh.set==='split1'){
+      const tr=T('tres',L(3)), on=cl((t-tr+0.2)/0.4);
+      left=sign(270,300,400,260,'#e9e6da',[[60,34,'#555','TU CUENTA'],[175,110,'#931219','0,16 %'],[230,26,'#555','de interés']])+person({who:'D',x:270,y:1880+bobD,s:1.0,pose:'stand',arms:'down',expr:'worry',m:mD,blink:bD});
+      right=`<g opacity="${0.35+0.65*on}" transform="translate(810 ${430}) scale(${0.85+0.15*eback((t-tr+0.2)/0.4)}) translate(-810 -430)">`+sign(810,300,400,260,'#A3D9C5',[[60,30,'#1f5a40','REMUNERADA'],[175,120,'#14402d','3 %'],[230,26,'#1f5a40','de interés']])+`</g>`+person({who:'R',x:810,y:1880+bobR,s:1.0,pose:'stand',arms:'down',m:mR,blink:bR});
+    } else {
+      const a=T('cuatrocientos',L(9)), b=T('treinta',L(9));
+      const kr=eo((t-a)/1.2), kl=eo((t-b)/0.6);
+      right=sign(810,240,420,170,'#ffffff',[[56,26,'#555','Cuenta remunerada'],[140,76,'#1f7a4d',kr<1?('+'+fmt(400*kr)+' €'):'+400–600 €']])+txt(810,450,32,'#333','al año')+
+        person({who:'R',x:810,y:1880+bobR,s:1.0,pose:'stand',arms:'holdR',m:mR,blink:bR,hold:(h)=>cash(h[1][0]+30,h[1][1]-10,0.9,6)});
+      left=sign(270,240,420,170,'#ffffff',[[56,26,'#555','Tu cuenta'],[140,76,'#931219','+'+fmt(32*kl)+' €']])+txt(270,450,32,'#333','al año')+
+        person({who:'D',x:270,y:1880+bobD,s:1.0,pose:'stand',arms:'holdR',expr:'worry',m:mD,blink:bD,hold:(h)=>`<g transform="translate(${h[1][0]+20} ${h[1][1]-60})" stroke="${OL}" stroke-width="5"><path d="M-50 -60 L50 -60 L50 50 L40 60 L30 50 L20 60 L10 50 L0 60 L-10 50 L-20 60 L-30 50 L-40 60 L-50 50 Z" fill="#fff"/>${txt(0,-20,22,'#333','Intereses')}${txt(0,25,34,'#931219','32 €')}</g>`});
+    }
+    g=split({left,right});
+  }
+  if(sh.set==='office'){
+    let st={};
+    const bob=Math.sin(t*2)*3;
+    if(sh.v==='fee'||sh.v==='phone'){
+      const c=T('comisión',L(12)), sp=(t>c-0.3&&t<c+0.3)?-60*Math.sin(cl((t-c+0.3)/0.6)*Math.PI):0;
+      st.banker=person({who:'B',x:620,y:1700+bob,s:1.05,pose:'sit',arms:'stamp',stampY:sp,noLegs:true,m:talking('X',t)?1:0,blink:bR});
+      const shown=cl((t-c)/0.2);
+      st.desk=`<g transform="translate(700 1250) rotate(-6)">${`<g stroke="${OL}" stroke-width="5"><rect x="-150" y="-90" width="300" height="160" rx="6" fill="#fffdf6"/></g>`}${txt(0,-50,22,'#333','AVISO DE CARGO')}<g opacity="${shown}">${txt(0,-4,24,'#931219','Comisión')}${txt(0,22,20,'#931219','de mantenimiento')}${txt(0,62,40,'#931219','−15,00 €')}</g></g>`;
+      st.front=person({who:'D',x:200,y:1940+bobD,s:1.15,pose:'stand',arms:sh.v==='phone'?'holdR':'down',expr:ex,m:mD,blink:bD,
+        hold:sh.v==='phone'?(h)=>phone(h[1][0]+10,h[1][1]-110,0.9,[['Tu banco','#888',24],['','#fff',10],['Comisión','#931219',28],['−15 €','#931219',44]]):null});
+    } else {
+      const m=T('migajas',L(14));
+      st.banker=person({who:'B',x:620,y:1700+bob,s:1.05,pose:'sit',arms:'eat',noLegs:true,m:Math.abs(Math.sin(t*6))*0.6,blink:bR,
+        hold:(h)=>`<g transform="translate(${h[1][0]} ${h[1][1]})"><path d="M-6 0 L-6 -70 M-14 -70 L-14 -95 M2 -70 L2 -95 M-6 -70 L-6 -95" stroke="#bbb" stroke-width="6"/><path d="M-16 -100 Q-6 -112 6 -100 L0 -86 L-12 -86 Z" fill="#7a4a2a" stroke="${OL}" stroke-width="3"/></g>`});
+      const eaten=cl((t-L(14))/(LE(14)-L(14)));
+      st.desk=`<g transform="translate(700 1235)" stroke="${OL}" stroke-width="6"><ellipse cx="0" cy="10" rx="190" ry="34" fill="#fff"/><path d="M-160 0 L-160 -110 Q0 -140 160 -110 L160 0 Q0 30 -160 0 Z" fill="#7a4a2a"/><path d="M-160 -110 Q0 -140 160 -110 Q0 -80 -160 -110 Z" fill="#fbe4ef"/><path d="M-160 -60 Q0 -30 160 -60" stroke="#fbe4ef" stroke-width="16" fill="none"/>
+        <path d="M${160-260*eaten} -130 L170 -130 L170 20 L${160-260*eaten} 20 Z" fill="#5c3d2c" stroke="none"/></g>`+txt(700,1200,40,'#fff','TU DINERO');
+      let cr='';const mk=cl((t-m+0.8)/0.5);for(let i=0;i<10;i++){const ph=((i*0.17+t*0.7)%1);cr+=`<circle cx="${560-ph*300+Math.sin(i*3)*30}" cy="${1260+ph*300}" r="${5+(i%3)*2}" fill="#7a4a2a" stroke="${OL}" stroke-width="3" opacity="${mk}"/>`}
+      st.front=cr+person({who:'D',x:200,y:1940+bobD,s:1.15,pose:'stand',arms:'lap',expr:'worry',m:mD,blink:bD,
+        hold:(h)=>`<g transform="translate(0 ${h[0][1]-10})" stroke="${OL}" stroke-width="5"><ellipse rx="90" ry="22" fill="#fff"/><g opacity="${mk}"><circle cx="-20" cy="-8" r="6" fill="#7a4a2a"/><circle cx="10" cy="-10" r="5" fill="#7a4a2a"/><circle cx="30" cy="-6" r="4" fill="#7a4a2a"/></g></g>`})+`<g opacity="${cl((t-m)/0.3)}">${txt(300,1110,44,'#fff','← las migajas')}</g>`;
+    }
+    g=office(st);
+  }
+  if(sh.set==='terrace'){
+    const people=person({who:'D',x:330,y:1800+bobD,s:0.95,pose:'sit',arms:'lap',expr:'normal',m:mD,blink:bD,hold:(h)=>phone(0,h[0][1]-60,0.55,[['Interés','#888',26],['0,00 %','#931219',40]])})
+      +person({who:'R',x:760,y:1800+bobR,s:0.95,pose:'sit',summer:true,sun:true,arms:t>T('sígueme',L(16))?'point':'rest',m:mR,blink:bR});
+    g=terrace({people});
+  }
+  // cámara
+  const c0=sh.cam[0],c1=sh.cam[1];
+  const cx=c0[0]+(c1[0]-c0[0])*k, cy=c0[1]+(c1[1]-c0[1])*k, z=c0[2]+(c1[2]-c0[2])*k;
+  let tx=540-cx*z, ty=960-cy*z;
+  tx=Math.min(0,Math.max(1080-1080*z,tx)); ty=Math.min(0,Math.max(1920-1920*z,ty));
+  let shake='';
+  for(const i of [11,13]){if(t>L(i)&&t<L(i)+0.4)shake=` translate(${Math.sin(t*120)*8} ${Math.cos(t*90)*6})`}
+  $('cam').setAttribute('transform',`translate(${tx} ${ty}) scale(${z})${shake}`);
+  $('cam').innerHTML=g;
 }
 
-let lastPane=null;
+// ---------- subtítulos: 1-3 palabras, estilo referente ----------
+const G=[];{let cur=[];W.forEach((w,i)=>{cur.push(w);const brk=/[.,!?¿¡…:]$/.test(w.w)||cur.length>=3||i===W.length-1||(W[i+1]&&W[i+1].who!==w.who);if(brk){G.push(cur);cur=[]}})}
+G.forEach((g,i)=>{g.s=g[0].s;g.e=G[i+1]?Math.min(G[i+1][0].s,g[g.length-1].e+0.4):g[g.length-1].e+0.5});
+const subText=w=>w.replace(/^[¿¡]+/,'').replace(/[.,;:]+$/,'');
+
 window.render=function(t){
- const k=line(t), sc=SC[Math.max(0,k)], name=sc.scene;
- // pane switching
- const ps=document.querySelectorAll('.pane'); ps.forEach(p=>p.style.display=p.id==='p_'+name?'block':'none');
- const first=SC.findIndex(s=>s.scene===name), st=SC[first].s, lt=t-st;
- const end=SC.filter(s=>s.scene===name).slice(-1)[0].e;
- pane(name,lt,end-st,t);
- const pop=eback(lt/0.35); $('inner').style.transform=`scale(${0.94+0.06*pop})`;
- // personajes
- const rt=talking('R',t), dt=talking('D',t);
- const mR=rt?0.5+0.5*Math.abs(Math.sin(t*15)):0, mD=dt?0.5+0.5*Math.abs(Math.sin(t*17)):0;
- const bR=(t%4.1)<0.12, bD=((t+1.7)%3.7)<0.12;
- let ex='normal'; for(let i=k;i>=0;i--){if(SC[i].who==='D'){if(t<SC[i].e+1.2)ex=DEXPR[i]||'normal';break}}
- if(k>=0&&SC[k].who==='R'&&ex==='proud')ex='normal';
- $('ricardo').innerHTML=ricardo(mR,bR);
- $('dani').innerHTML=dani(mD,bD,ex);
- const rB=Math.sin(t*2.1)*5-(rt?8:0), dB=Math.sin(t*2.4+1)*5-(dt?8:0);
- $('ricardo').style.transform=`translateY(${rB}px) rotate(${rt?-1.2:0}deg)`;
- $('dani').style.transform=`translateY(${dB+(ex==='shock'?-18:0)}px) rotate(${dt?1.2:0}deg)`;
- // cámara: ligero push-in por escena + golpe en momentos clave
- let cam=1+0.03*cl(lt/4); let sx=0;
- for(const i of [11,13]){if(t>SC[i].s&&t<SC[i].s+0.45) sx=Math.sin(t*120)*10;}
- $('cam').style.transform=`scale(${cam}) translateX(${sx}px)`;
- // subtítulos
- let html='';const subs=$('subs');
- for(const g of G){if(t>=g.s-0.02&&t<g.e){const kk=eback((t-g.s)/0.15);
-   html=g.map(w=>{const act=t>=w.s-0.03&&t<w.e+0.05;const num=/\d|%|€/.test(w.w)||/^(cero|dieciséis|tres|cien|mil|veinte|cuatrocientos|seiscientos|treinta|dos|cuatro|seis|diez|meses)$/i.test(clean(w.w));
-     return `<span style="color:${act?(num?'#A3D9C5':'#FFD23F'):'#fff'}">${clean(w.w)}</span>`}).join('');
-   subs.style.transform=`scale(${0.85+0.15*kk})`;break}}
- subs.innerHTML=html;
- $('bar').style.width=(100*t/D.duration)+'%';
- $('disc').textContent=t>SS('cierre')?'Contenido educativo, no asesoramiento financiero.':'';
+ build(t);
+ const sh=SHOTS.filter(s=>t>=s.s-0.001).pop()||SHOTS[0]; $('subs').style.top=(sh.subY||560)+'px';
+ let html='';
+ for(const g of G){if(t>=g.s-0.02&&t<g.e){const kk=eback((t-g.s)/0.14);
+   html=g.map(w=>subText(w.w)).join(' ');
+   $('subs').style.transform=`scale(${0.9+0.1*kk})`;break}}
+ $('subs').textContent=html;
+ const sg=T('sígueme',L(16));
+ $('cta').style.opacity=cl((t-sg)/0.25); $('cta').style.transform=`translateX(-50%) scale(${0.8+0.2*eback((t-sg)/0.4)})`;
+ $('disc').textContent=t>L(16)?'Contenido educativo, no asesoramiento financiero.':'';
 };
 window.ready=document.fonts.ready.then(()=>true);
 </script></body></html>
