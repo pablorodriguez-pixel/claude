@@ -94,3 +94,9 @@ Regla que sale de aquí: **el protagonista es el espectador** (su cena, su carre
 - **Derecha, x > 935 entre y 740 y 1650:** botones (perfil, me gusta, comentarios, guardar, compartir). Nada importante pegado a la derecha.
 - **Abajo, y > 1600:** usuario, descripción y barra de progreso. Los rótulos inferiores van en **y ≈ 1475** (justo bajo los subtítulos, que están en 1380).
 La hoja de contactos (`hacer.sh hoja`) pinta estas zonas en rojo: si un texto cae en rojo, se mueve antes de renderizar.
+
+## 12. Entrega SIEMPRE (TikTok e Instagram)
+Cada vídeo se entrega con, sin excepción:
+- **TikTok:** `final.mp4` + `portada.jpg` (sin subtítulos) + descripción corta + comentario fijado (en `descripcion.txt`).
+- **Instagram (Reels, ≤ 60 s):** vídeo de ≤ 60 s + `portada_insta.jpg` (el fotograma reducido y centrado sobre fondo desenfocado, para que el recorte 3:4 de la cuadrícula del perfil no corte el título) + descripción optimizada en `descripcion_insta.txt`: primera línea = gancho (es lo único que se ve antes del «más»), 2 líneas con el dato, llamada a guardar y a compartir, 4-5 hashtags.
+Y en el chat se pegan las descripciones, no solo los archivos.
