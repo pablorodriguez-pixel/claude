@@ -180,10 +180,10 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#efe1c6' }, c => {
     pFace(vel, t, { feliz: 0.5, ceja: 6, look: [0, -8], seed: 53 }); set(vel, { o: t > T.pintor - 0.3 ? 1 : 0, s: pop(t, T.pintor - 0.3, 0.4), y: wobble(t, 0.7, 4) }); set(paleta, { o: t > T.pintor - 0.3 ? 1 : 0, r: Math.sin(t * 2) * 6 });
     set(ano, { o: t > T.misma - 0.1 && t < L(9) - 0.3 ? 1 : 0, s: pop(t, T.misma - 0.1, 0.3), r: -3 });
     set(nom, { o: t > T.velazquez - 0.1 && t < L(9) - 0.3 ? 1 : 0, s: pop(t, T.velazquez - 0.1, 0.35), r: -3 + wobble(t, 0.5, 0.8) });
-    const kn = p(t, L(9) - 0.3, 0.5, E.outCubic); set(noche, { o: t > L(9) - 0.3 ? kn : 0 });
+    const kn = p(t, L(9) - 0.3, 0.5, E.outCubic); noche.style.transformOrigin = '540px 1100px'; set(noche, { o: t > L(9) - 0.3 ? kn : 0, s: 1 + 0.16 * clamp((t - L(9) + 0.3) / 4.5) });
     pFace(vel2, t, { feliz: -0.6, ceja: 4, look: [10, 14], seed: 54 }); set(vel2, { y: wobble(t, 0.4, 3) + clamp((t - T.agotado) / 2) * 30 });
     const ll = vela.querySelector('.llama'); const apagada = t > T.murio + 0.3; if (ll) { ll.style.opacity = apagada ? 0 : 1; ll.setAttribute('transform', `scale(1 ${f1(0.9 + 0.1 * Math.sin(t * 12))})`); }
-    luz.style.opacity = apagada ? Math.max(0, 1 - (t - T.murio - 0.3) / 0.4) : 1;
+    luz.style.opacity = apagada ? Math.max(0, 1 - (t - T.murio - 0.3) / 0.4) : f1(0.8 + 0.2 * Math.sin(t * 9) * Math.sin(t * 4));
     set(mad, { o: t > L(9) - 0.1 ? 1 : 0, s: pop(t, L(9) - 0.1, 0.3), r: -2 });
   };
 });
