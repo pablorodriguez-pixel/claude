@@ -171,6 +171,7 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#efe1c6' }, c => {
   const vel2 = PERS(noche, 300, 700, 460, { ropa: '#1d1a22', pelo: 'largo', pcol: '#2a2118', bigote: 'dali', z: 2 });
   const vela = box(noche, 820, 1100, 80, 260, { zIndex: 3 }, `<svg viewBox="0 0 80 260" width="80" height="260"><rect x="20" y="80" width="40" height="180" fill="#fbf6ea" stroke="${INK}" stroke-width="5"/><path class="llama" d="M40,10 Q62,50 40,76 Q18,50 40,10Z" fill="#ffb02e" stroke="${INK}" stroke-width="4"/></svg>`);
   const luz = box(noche, 0, 0, 1080, 1920, { zIndex: 1, background: 'radial-gradient(circle at 860px 1130px, rgba(255,200,100,.35), transparent 45%)' });
+  const humo = [0, 1, 2].map(i => box(noche, 830, 1080, 60, 60, { zIndex: 3, borderRadius: '50%', background: 'rgba(220,220,230,.55)' }));
   const mad = chip(noche, 360, 330, 'Madrid, agosto de 1660', { size: 54, bg: '#3d3a52', color: '#fff', z: 4 });
   sp(T.misma, 'whoosh', 0.4); sp(T.reyes, 'tada', 0.5); sp(T.velazquez, 'stamp', 0.8); sp(T.agotado, 'mus_baja', 0.6); sp(T.murio + 0.3, 'harpa', 0.4);
   return t => {
@@ -184,6 +185,7 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#efe1c6' }, c => {
     pFace(vel2, t, { feliz: -0.6, ceja: 4, look: [10, 14], seed: 54 }); set(vel2, { y: wobble(t, 0.4, 3) + clamp((t - T.agotado) / 2) * 30 });
     const ll = vela.querySelector('.llama'); const apagada = t > T.murio + 0.3; if (ll) { ll.style.opacity = apagada ? 0 : 1; ll.setAttribute('transform', `scale(1 ${f1(0.9 + 0.1 * Math.sin(t * 12))})`); }
     luz.style.opacity = apagada ? Math.max(0, 1 - (t - T.murio - 0.3) / 0.4) : f1(0.8 + 0.2 * Math.sin(t * 9) * Math.sin(t * 4));
+    humo.forEach((h, i) => { const k = ((t - T.murio - 0.3) * 0.7 + i * 0.33) % 1; set(h, { o: apagada ? 1 - k : 0, y: -k * 420, x: Math.sin(t * 2 + i) * 30, s: 0.6 + k * 1.6 }); });
     set(mad, { o: t > L(9) - 0.1 ? 1 : 0, s: pop(t, L(9) - 0.1, 0.3), r: -2 });
   };
 });
