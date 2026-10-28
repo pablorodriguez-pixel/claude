@@ -89,7 +89,7 @@ plano(L(3) - 0.1, L(4) - 0.1, { background: '#efe1c6' }, c => {
     v.querySelectorAll('.rv').forEach((r, i) => { if (i < 2) r.setAttribute('r', t > T.remaches + i * 0.4 ? f1(11 + 2 * Math.sin(t * 8)) : '0'); });
     popA(dav, t, T.davis - 0.1, { r: -3 });
     const kp = p(t, T.patentar - 0.4, 0.4, E.outCubic); set(pat, { o: t > T.patentar - 0.4 ? 1 : 0, x: (1 - kp) * 1080 });
-    set(doc, { r: -2 + Math.sin(t * 1.2) * 1.2 });
+    set(doc, { r: -2 + Math.sin(t * 1.6) * 2.5, s: 1 + 0.08 * clamp((t - T.patentar) / 3), y: Math.sin(t * 2) * 10 });
     const f1e = doc.querySelector('.f1'), f2e = doc.querySelector('.f2'); if (f1e) f1e.style.opacity = t > T.patentar + 0.4 ? 1 : 0; if (f2e) f2e.style.opacity = t > T.levi ? 1 : 0;
     set(levi, { o: t > T.levi - 0.3 ? 1 : 0, s: pop(t, T.levi - 0.3, 0.3), r: -3 });
   };
