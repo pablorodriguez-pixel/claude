@@ -10,3 +10,5 @@ voto-correo-tiktok.mp4
 **/build/sheet.jpg
 **/build/final_sheet.jpg
 **/build/mezcla.wav
+__pycache__/
+!canales/*/build/sonidos/*.wav
