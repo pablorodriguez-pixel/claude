@@ -124,7 +124,7 @@ plano(L(6) - 0.1, L(8) - 0.1, { background: '#efe1c6' }, c => {
     set(carlChip, { o: t > T.carlistas - 0.1 && t < T.guardia - 0.4 ? 1 : 0, s: pop(t, T.carlistas - 0.1, 0.3), r: -3 });
     // la palabra se encoge: GUIRISTINO → GUIRI justo antes del guardia civil
     const ks = clamp((t - (T.guardia - 1.2)) / 0.8); ponP(pal, ks <= 0 ? 'GUIRISTINO' : 'GUIRISTINO'.slice(0, Math.max(5, 10 - Math.floor(ks * 5)))); set(pal, { o: t > T.guiristinos - 0.2 && t < T.guardia - 0.4 ? 1 : 0, s: pop(t, T.guiristinos - 0.2, 0.35), r: -2 + wobble(t, 0.5, 0.6) });
-    const ke = p(t, T.guardia - 0.4, 0.4, E.outCubic); set(etapas, { o: t > T.guardia - 0.4 ? 1 : 0, x: (1 - ke) * 1080 });
+    const ke = p(t, T.guardia - 0.4, 0.4, E.outCubic); etapas.style.transformOrigin = '540px 1000px'; set(etapas, { o: t > T.guardia - 0.4 ? 1 : 0, x: (1 - ke) * 1080, s: 1 + 0.1 * clamp((t - T.guardia) / 4) });
     pFace(gc, t, { feliz: 0.2, ceja: 8, look: [12, 0], seed: 97 }); set(gc, { y: wobble(t, 0.6, 4) });
     pFace(tur, t, { feliz: 1, look: [-12, -6], seed: 98 }); set(tur, { o: t > T.turista - 0.3 ? 1 : 0, s: pop(t, T.turista - 0.3, 0.35), y: wobble(t, 0.7, 4) }); set(cam2, { o: t > T.turista - 0.3 ? 1 : 0, r: Math.sin(t * 3) * 6 });
     set(l1, { r: -3 }); set(l2, { o: t > T.turista - 0.3 ? 1 : 0, r: 3 });
