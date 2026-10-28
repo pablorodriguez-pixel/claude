@@ -5,8 +5,11 @@ import {THREE,W,H,cl,eio,eo,p,lerp,R,C,billTexture,proj,tag} from '../build/lib.
 const $=id=>document.getElementById(id);
 const V=(x,y,z)=>new THREE.Vector3(x,y,z);
 const r=new THREE.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
-r.setSize(W,H);r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.05;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
+r.setSize(W,H);r.toneMapping=THREE.ACESFilmicToneMapping;r.toneMappingExposure=1.2;r.shadowMap.enabled=true;r.shadowMap.type=THREE.PCFSoftShadowMap;
 $('gl').appendChild(r.domElement);
+// acabado: más contraste y color, y una viñeta que oscurece los bordes
+$('gl').style.filter='contrast(1.22) saturate(1.3) brightness(1.02)';
+{const v=document.createElement('div');v.style.cssText='position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 75% 60% at 50% 48%,rgba(0,0,0,0) 55%,rgba(0,0,0,.72) 100%)';$('gl').after(v)}
 await document.fonts.ready;
 
 // ───────── voz y cámara ─────────
@@ -34,25 +37,33 @@ const BT=billTexture(),billGeo=new THREE.PlaneGeometry(.42,.23);
 const billMat=new THREE.MeshStandardMaterial({map:BT,side:THREE.DoubleSide,roughness:.7});
 
 // ───────── estudio ─────────
-{const bg=tex(16,512,(g,w,h)=>{const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#05060f');gr.addColorStop(.55,'#141a3a');gr.addColorStop(.8,'#2a2350');gr.addColorStop(1,'#120f22');g.fillStyle=gr;g.fillRect(0,0,w,h)});
+{const bg=tex(16,512,(g,w,h)=>{const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#010103');gr.addColorStop(.5,'#06071a');gr.addColorStop(.78,'#1a1238');gr.addColorStop(1,'#040309');g.fillStyle=gr;g.fillRect(0,0,w,h)});
  S.add(new THREE.Mesh(new THREE.SphereGeometry(90,48,24),new THREE.MeshBasicMaterial({map:bg,side:THREE.BackSide,depthWrite:false})));
- const fl=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.MeshStandardMaterial({color:'#1b1d2c',roughness:.35,metalness:.3}));fl.rotation.x=-Math.PI/2;fl.receiveShadow=true;S.add(fl);
- S.add(new THREE.HemisphereLight('#8090ff','#20140a',.8));
- const key=new THREE.DirectionalLight('#fff0dc',2.2);key.position.set(-6,12,9);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-14,right:22,top:14,bottom:-14,far:60});S.add(key);
- const rim=new THREE.DirectionalLight('#8a7dff',1.2);rim.position.set(6,5,-8);S.add(rim);
+ const fl=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.MeshStandardMaterial({color:'#0b0c13',roughness:.22,metalness:.55}));fl.rotation.x=-Math.PI/2;fl.receiveShadow=true;S.add(fl);
+ S.add(new THREE.HemisphereLight('#6070d0','#100804',.42));
+ const key=new THREE.DirectionalLight('#fff0dc',1.1);key.position.set(-6,12,9);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-14,right:22,top:14,bottom:-14,far:60});S.add(key);
+ const rim=new THREE.DirectionalLight('#7f8cff',2.4);rim.position.set(6,5,-8);S.add(rim);
  // halos de luz en el suelo bajo cada estación
  const halo=tex(256,256,(g)=>{const gr=g.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,'rgba(255,200,120,.55)');gr.addColorStop(1,'rgba(255,200,120,0)');g.fillStyle=gr;g.fillRect(0,0,256,256)});
- for(const[x,z,s]of[[0,0,7],[0,-6,8],[10,0,6],[10,5,7]]){const m=new THREE.Mesh(new THREE.PlaneGeometry(s,s),new THREE.MeshBasicMaterial({map:halo,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));m.rotation.x=-Math.PI/2;m.position.set(x,.005,z);S.add(m)}}
+ for(const[x,z,s]of[[.9,0,5],[.6,-5.8,7],[11.1,0,4.5],[10,4.4,6]]){const m=new THREE.Mesh(new THREE.PlaneGeometry(s,s),new THREE.MeshBasicMaterial({map:halo,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending}));m.rotation.x=-Math.PI/2;m.position.set(x,.005,z);S.add(m)}}
+
+// focos que recortan cada objeto: oro donde el dinero crece, frío donde se queda quieto
+function foco(x,z,col,int,ang=.42,h=5.5){const l=new THREE.SpotLight(col,int,14,ang,.55,1.6);l.position.set(x+.6,h,z+2.2);l.target.position.set(x,.4,z);l.castShadow=true;l.shadow.mapSize.set(1024,1024);l.shadow.bias=-.0004;S.add(l,l.target);return l}
+foco(.85,-.2,'#ffc56a',120);foco(-1.1,0,'#9fb6ff',110,.3);foco(2.15,-1,'#ffcf6a',160,.3,6.5);
+foco(.6,-5.8,'#ffd7a0',130,.5);foco(8.9,0,'#8fa6ff',90,.28);foco(11.1,0,'#ffbf55',300,.3);foco(10,4.4,'#ffe2b8',80,.5);
+const glowTex=tex(256,256,(g)=>{const gr=g.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,'rgba(255,190,80,.9)');gr.addColorStop(.35,'rgba(255,160,40,.35)');gr.addColorStop(1,'rgba(255,140,30,0)');g.fillStyle=gr;g.fillRect(0,0,256,256)});
+function glow(x,y,z,s,a=1){const m=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:a}));m.position.set(x,y,z);m.scale.set(s,s,1);S.add(m);return m}
 
 // ───────── piezas ─────────
 // Tarro de cristal con monedas dentro (n = cuántas). 7 monedas por capa.
-function jar(x,z,label,sub,labelCol){const g=new THREE.Group();g.position.set(x,0,z);
-  const glass=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,1.1,48,1,true),new THREE.MeshStandardMaterial({color:'#bfe3ff',transparent:true,opacity:.18,roughness:.05,metalness:.1,side:THREE.DoubleSide,depthWrite:false}));glass.position.y=.55;
+const coldCoin=new THREE.MeshStandardMaterial({color:'#7d8494',metalness:.7,roughness:.45});
+function jar(x,z,label,sub,labelCol,cold=false){const g=new THREE.Group();g.position.set(x,0,z);
+  const glass=new THREE.Mesh(new THREE.CylinderGeometry(.42,.42,1.1,48,1,true),new THREE.MeshStandardMaterial({color:cold?'#8ea6c8':'#bfe3ff',transparent:true,opacity:.18,roughness:.05,metalness:.1,side:THREE.DoubleSide,depthWrite:false}));glass.position.y=.55;
   const rimT=new THREE.Mesh(new THREE.TorusGeometry(.42,.025,12,64),gold);rimT.rotation.x=Math.PI/2;rimT.position.y=1.1;
   const base=new THREE.Mesh(new THREE.CylinderGeometry(.43,.43,.04,48),new THREE.MeshStandardMaterial({color:'#9fc6e0',transparent:true,opacity:.4}));base.position.y=.02;
   const edge=new THREE.Mesh(new THREE.CylinderGeometry(.425,.425,1.1,48,1,true),new THREE.MeshBasicMaterial({color:'#dff2ff',transparent:true,opacity:.08,side:THREE.BackSide,depthWrite:false}));edge.position.y=.55;
   g.add(glass,edge,rimT,base);
-  const N=120,im=new THREE.InstancedMesh(coinGeo,coinMat,N);im.castShadow=true;g.add(im);
+  const N=120,im=new THREE.InstancedMesh(coinGeo,cold?[coldCoin,coldCoin,coldCoin]:coinMat,N);im.castShadow=true;g.add(im);
   const pl=plate(label,sub,labelCol);pl.position.set(0,1.45,.0);g.add(pl);
   g.userData={im,N,pl,glass,fill(n){const M=new THREE.Matrix4(),q=new THREE.Quaternion();let k=0;
     for(let i=0;i<N;i++){const layer=Math.floor(i/7),j=i%7;const a=j===0?0:(j-1)/6*Math.PI*2+layer*.6,rr=j===0?0:.2;
@@ -77,8 +88,8 @@ function house(x,z,label,col){const g=new THREE.Group();g.position.set(x,0,z);
   const pl=plate(label,null,'#ffffff',undefined,.95);pl.position.set(0,1.55,0);g.add(b,rf,w,pl);g.userData={pl};S.add(g);return g}
 // Flecha dorada de A a B (se dibuja con u = 0..1) y su curva para lo que viaja por ella
 function arrow(A,B,h,col='#f5b841'){const mid=A.clone().lerp(B,.5);mid.y+=h;const cv=new THREE.QuadraticBezierCurve3(A,mid,B);
-  const tube=new THREE.Mesh(new THREE.TubeGeometry(cv,80,.03,10,false),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.8}));
-  const head=new THREE.Mesh(new THREE.ConeGeometry(.09,.22,20),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:.8}));
+  const tube=new THREE.Mesh(new THREE.TubeGeometry(cv,80,.03,10,false),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:1.8}));
+  const head=new THREE.Mesh(new THREE.ConeGeometry(.09,.22,20),new THREE.MeshStandardMaterial({color:col,emissive:col,emissiveIntensity:1.8}));
   const g=new THREE.Group();g.add(tube,head);S.add(g);
   g.userData={cv,set(u){const n=tube.geometry.index.count;tube.geometry.setDrawRange(0,Math.floor(n*cl(u)/6)*6);g.visible=u>0;
     const P=cv.getPoint(cl(u)),T=cv.getTangent(cl(u));head.position.copy(P);head.quaternion.setFromUnitVectors(V(0,1,0),T)}};g.userData.set(0);return g}
@@ -91,7 +102,7 @@ function dome(x,z,rad){const m=new THREE.Mesh(new THREE.SphereGeometry(rad,64,32
   m.position.set(x,0,z);S.add(m);return m}
 
 // ───────── el mundo ─────────
-const A_JAR=jar(-1.1,0,'TUS AHORROS',null,'#ffffff');
+const A_JAR=jar(-1.1,0,'TUS AHORROS',null,'#ffffff',true);
 const BANK=bank(.85,-.2);
 const TOWER=new THREE.InstancedMesh(coinGeo,coinMat,160);TOWER.position.set(2.15,0,-1.0);TOWER.castShadow=true;S.add(TOWER);
 const TOWER_PL=plate('GANANCIAS','del banco','#ffd77a',undefined,1.1);S.add(TOWER_PL);
@@ -101,7 +112,8 @@ const AR1=arrow(V(-1.1,1.15,0),V(.6,.8,.45),.8);
 const H1=house(-.6,-5.6,'HIPOTECA','#d9c3a5'),H2=house(1.8,-5.9,'PRÉSTAMO','#c9d4e6');
 const AR2=arrow(V(.6,1.7,-.6),V(-.6,1.2,-5.4),1.2),AR3=arrow(V(.9,1.7,-.6),V(1.8,1.2,-5.6),1.0);
 const AR4=arrow(V(.2,1.1,-5.2),V(2.0,1.6,-1.1),1.6,'#ffd76a');
-const J0=jar(8.9,0,'CUENTA NORMAL','paga 0 %','#ffffff'),J3=jar(11.1,0,'REMUNERADA','paga ≈ 3 %','#ffd77a');
+const J0=jar(8.9,0,'CUENTA NORMAL','paga 0 %','#c9d3e6',true),J3=jar(11.1,0,'REMUNERADA','paga ≈ 3 %','#ffd77a');
+const G3=glow(11.1,.7,-.4,2.6,.0),GB=glow(2.15,1.2,-1.4,2.4,.55),GBANK=glow(.85,.9,-.6,3.2,.5);
 const D1=dome(-1.1,0,.85),D2=dome(11.1,0,.85);
 // calendario: 12 meses en 4 × 3, delante de los tarros
 const MESES=['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
@@ -153,7 +165,7 @@ window.render=function(t){
   // C: los dos tarros
   const rise=eo(p(t,T.pero-.1,.6));J0.position.y=-1.6*(1-rise);J3.position.y=-1.6*(1-eo(p(t,T.pero+.15,.6)));
   J0.userData.fill(56);J3.userData.fill(Math.round(56+lerp(0,8,eo(p(t,T.pagan,.8)))+lerp(0,10,eo(p(t,T.tres,1.2)))+lerp(0,12,eo(p(t,T.este,4)))));
-  J3.userData.glass.material.color.set(t>T.remu?'#ffe2a0':'#bfe3ff');J3.userData.glass.material.opacity=t>T.remu?.3:.18;
+  J3.userData.glass.material.color.set(t>T.remu?'#ffe2a0':'#bfe3ff');G3.material.opacity=.85*eo(p(t,T.remu-.1,.5));J3.userData.glass.material.opacity=t>T.remu?.3:.18;
   for(let i=0;i<10;i++){const t0=(i<4?T.pagan+.1:T.tres)+i%6*.16;const k=(t-t0)/.45;const m=FLY[30+i];m.visible=k>0&&k<1&&t<T.con;if(m.visible){m.position.set(11.1+Math.sin(i)*.1,1.9-1.2*eo(k),Math.cos(i)*.1);m.rotation.set(k*6,i,0)}}
   for(let i=0;i<10;i++){const t0=T.este+.1+i*.35;const k=(t-t0)/.45;const m=FLY[i];if(t>T.este&&k>0&&k<1){m.visible=true;m.position.set(11.1+Math.sin(i)*.1,1.9-1.2*eo(k),Math.cos(i)*.1);m.rotation.set(k*6,i,0)}}
   pill('cnt',380,'<b>≈ 3 %</b><small>al año</small>',p(t,T.tres-.05,.2)*(1-p(t,T.con-.2,.2)),'big');
