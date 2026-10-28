@@ -1,4 +1,5 @@
-// EP01 — «El billón dormido». 1,1 billones € en depósitos de hogares (BdE, ago 2026) apilados en billetes de 50 €.
+// EP01 — «El billón dormido» (formato escala). 1,1 billones € en depósitos de hogares (BdE, ago 2026) en billetes de 50 €.
+// Cada plano empieza en su palabra (W): si cambia la voz, la imagen la sigue.
 import {THREE,W,H,cl,eio,eo,p,lerp,lerpLog,fmtES,R,C,billTexture,edgeTexture,bandTexture,woodTexture,windowsTexture,cloudTexture,glowTexture,stack,tower,proj,bracket,tag,BILL} from '../build/lib.js';
 const $=id=>document.getElementById(id);
 const V=(x,y,z)=>new THREE.Vector3(x,y,z);
@@ -21,8 +22,6 @@ const T={s:new THREE.Scene(),c:new THREE.PerspectiveCamera(32,W/H,.005,50)};
  T.bundle=stack(BT,ET,{band:bandTexture('5.000 €')});s.add(T.bundle);
  const ph=new THREE.Mesh(new THREE.BoxGeometry(.072,.008,.152),[0,1,2,3,4,5].map(i=>new THREE.MeshStandardMaterial({color:i==2?'#0c0f1c':'#2a2b30',roughness:i==2?.15:.4,metalness:.4})));
  ph.position.set(.125,.004,.01);ph.rotation.y=-.18;ph.castShadow=true;T.phone=ph;s.add(ph);
- // «tu cuenta»: fajo cuyo techo se vuelve rojo y se evapora
- T.mine=stack(BT,ET,{band:bandTexture('TU CUENTA')});s.add(T.mine);
 }
 
 // ───────── CIUDAD → CIELO (metros) ─────────
@@ -54,6 +53,10 @@ const E={s:new THREE.Scene(),c:new THREE.PerspectiveCamera(40,W/H,.01,500000)};c
 const LAT=40.4*Math.PI/180,LON=-3.7,PHI=(LON+180)*Math.PI/180;
 const UP=V(-Math.cos(PHI)*Math.cos(LAT),Math.sin(LAT),Math.sin(PHI)*Math.cos(LAT)).normalize(); // Madrid
 {const s=E.s;s.background=new THREE.Color('#05060f');
+ {const c=document.createElement('canvas');c.width=2048;c.height=1024;const g=c.getContext('2d');g.fillStyle='#04050d';g.fillRect(0,0,2048,1024);
+  for(let i=0;i<70;i++){const x=R()*2048,y=200+R()*620,rad=80+R()*320,hue=[230,255,280,210][i%4];const gr=g.createRadialGradient(x,y,0,x,y,rad);gr.addColorStop(0,`hsla(${hue},60%,38%,.16)`);gr.addColorStop(1,`hsla(${hue},60%,30%,0)`);g.fillStyle=gr;g.fillRect(0,0,2048,1024)}
+  const nt=new THREE.CanvasTexture(c);nt.colorSpace=THREE.SRGBColorSpace;
+  s.add(new THREE.Mesh(new THREE.SphereGeometry(300000,64,32),new THREE.MeshBasicMaterial({map:nt,side:THREE.BackSide,depthWrite:false})))}
  const tl=new THREE.TextureLoader();const ld=u=>new Promise(res=>tl.load(u,t=>{t.colorSpace=THREE.SRGBColorSpace;t.anisotropy=8;res(t)}));
  const [day,night]=await Promise.all([ld('../../build/tex/day.jpg'),ld('../../build/tex/night.jpg')]);
  E.earth=new THREE.Mesh(new THREE.SphereGeometry(RE,192,96),new THREE.MeshStandardMaterial({map:day,color:'#3a4a7a',emissiveMap:night,emissive:'#ffcf7a',emissiveIntensity:2.2,roughness:1}));s.add(E.earth);
@@ -76,85 +79,96 @@ const UP=V(-Math.cos(PHI)*Math.cos(LAT),Math.sin(LAT),Math.sin(PHI)*Math.cos(LAT
 }
 const TOWER_KM=2200;
 
-const HKF=[[19.1,.011],[20.5,2],[21.4,260],[22.6,2200],[23.4,9500],[25.65,60000]];
+// ───────── TIEMPO DE LA VOZ ─────────
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^\w]/g,'').toLowerCase();
+function vt(w,n=1){let k=0;for(const x of SUBS)if(norm(x.t)===norm(w)&&++k===n)return x.s;throw new Error('palabra '+w)}
+const T0={climb:0,earth:vt('un'),table:vt('imagina'),bundle:vt('un',2),city:vt('ahora'),space:vt('no',2),loss:vt('pero'),remate:vt('asi'),cierre:vt('enviaselo')};
+const shots=Object.entries(T0).sort((a,b)=>a[1]-b[1]).map(([k,a],i,arr)=>[k,a,i+1<arr.length?arr[i+1][1]:99]);
+const tA=vt('apila');
+const HKF=[[tA+.15,.011],[vt('torre')-.4,2],[vt('rascacielos'),260],[vt('nubes'),2200],[vt('everest'),9000],[vt('sigue')+.3,30000],[T0.space,60000]];
 function HK(t){if(t<=HKF[0][0])return HKF[0][1];for(let i=1;i<HKF.length;i++){const[a,ha]=HKF[i-1],[b,hb]=HKF[i];if(t<=b)return lerpLog(ha,hb,(t-a)/(b-a))}return HKF.at(-1)[1]}
-{const a=lerp(.4,1.1,eio((23.3-18.6)/7.05));S.ev.position.set(-Math.sin(a)*42000,4424,-Math.cos(a)*42000);S.evTop=V(-Math.sin(a)*42000,8900,-Math.cos(a)*42000);
- S.tc.position.set(-Math.sin(.75)*260+60,124.5,-Math.cos(.75)*260)}
-// ───────── PLANOS ─────────
-const shots=[['earth',0,9.95],['table',9.95,18.6],['city',18.6,25.65],['space',25.65,32.1],['loss',32.1,43.6],['mine',43.6,99]];
+{const t=vt('everest');const a=lerp(.4,1.1,eio((t-T0.city)/(T0.space-T0.city)));S.ev.position.set(-Math.sin(a)*42000,4424,-Math.cos(a)*42000);S.evTop=V(-Math.sin(a)*42000,8900,-Math.cos(a)*42000)}
+
 const camAt=(c,pos,look)=>{c.position.copy(pos);c.lookAt(look)};
 const side=V(0,0,1).cross(UP).normalize(),fwd=UP.clone().cross(side).normalize();
 const onEarth=(alt,dSide,dFwd)=>UP.clone().multiplyScalar(RE+alt).add(side.clone().multiplyScalar(dSide)).add(fwd.clone().multiplyScalar(dFwd));
-function hideAll(){for(const id of['lab1','lab2','lab3','br1','big','cnt','cap','end'])$(id).style.opacity=0}
+const OV=['lab1','lab2','lab3','br1','br2','big','cnt'];
+function hideAll(){for(const id of OV)$(id).style.opacity=0}
+const pill=(id,x,y,html,k,cls='')=>{const e=$(id);e.className='ov tag '+cls;tag(e,{x,y,on:true},html,k)};
 
-function earthShot(t,mode){
-  const c=E.c;c.up.copy(UP);let H_=TOWER_KM;
-  E.chunk.visible=false;E.dust.visible=false;
-  if(mode==='earth'){const k=eio(p(t,0,9.95));const a=lerp(.55,.2,k),dist=lerp(19000,13500,k);
-    const pos=UP.clone().multiplyScalar(dist*Math.cos(a)).add(side.clone().multiplyScalar(dist*Math.sin(a))).add(fwd.clone().multiplyScalar(-dist*.18));
-    camAt(c,pos,UP.clone().multiplyScalar(RE*.55+TOWER_KM*.6));
-    const n=cl((t-1.7)/1.9);tag($('cnt'),{x:540,y:430,on:true},fmtES(1.1e12*eo(n))+' €',p(t,1.7,.3));
-    tag($('cap'),{x:540,y:510,on:true},'depósitos de los hogares españoles',p(t,3.6,.4));
-    if(t>5.7){const f=1-p(t,6.4,.6);$('cnt').style.opacity=f;$('cap').style.opacity=f}}
-  if(mode==='space'){H_=Math.min(TOWER_KM,lerpLog(60,TOWER_KM,eo(p(t,25.65,3.3))));
-    const k=eio(p(t,25.65,6.3));const dist=lerpLog(1400,11000,k);
-    camAt(c,onEarth(lerp(250,1800,k),-dist,-dist*.25),UP.clone().multiplyScalar(RE+lerp(400,1100,k)));
-    const a=proj(UP.clone().multiplyScalar(RE+408).add(side.clone().multiplyScalar(70)),c);tag($('lab1'),a,'Estación Espacial · 400 km',p(t,27.2,.3)*(1-p(t,29.3,.4)),0,-70);
-    bracket($('br1'),proj(UP.clone().multiplyScalar(RE),c),proj(UP.clone().multiplyScalar(RE+H_),c),'2.200 km',p(t,29.5,.6))}
-  if(mode==='loss'){const top=UP.clone().multiplyScalar(RE+TOWER_KM);
-    const k=eio(p(t,32.1,11.5));camAt(c,top.clone().add(side.clone().multiplyScalar(-lerp(900,760,k))).add(UP.clone().multiplyScalar(-lerp(260,220,k))).add(fwd.clone().multiplyScalar(-200)),top.clone().add(UP.clone().multiplyScalar(-70)));
-    // dos tramos de 44 km se tiñen y se deshacen (37,3 s y 41,9 s)
-    let lost=0;const cut=(a)=>{const red=p(t,a,.6),go=p(t,a+.9,1.6);return {red,go}};
-    const c1=cut(37.1),c2=cut(41.6);const seg=44;lost=seg*((c1.red>0)+(c2.red>0));H_=TOWER_KM-lost;
-    const cur=c1.go>=1?c2:c1;E.chunk.visible=cur.red>0&&cur.go<1;
-    const w=Math.max(BILL.w/1000,c.position.distanceTo(UP.clone().multiplyScalar(RE+H_*.5))*.009)*1.05;
-    const g=eo(cur.go);E.chunk.scale.set(w,seg*(1-g)+.01,w*.6);E.chunk.position.y=H_+seg*(1-g)/2+g*30;
-    E.dust.visible=cur.go>0&&cur.go<1;if(E.dust.visible){const sd=E.dust.userData.seed,ar=E.dust.geometry.attributes.position.array;
-      for(let i=0;i<900;i++){const[a,b,cc,d]=sd.slice(i*4,i*4+4);const q=g*(.4+d);ar[i*3]=a*w*2+a*160*q;ar[i*3+1]=H_+b*seg*(1-g)+(d+.2)*90*q;ar[i*3+2]=cc*w+cc*160*q}
-      E.dust.geometry.attributes.position.needsUpdate=true;E.dust.material.opacity=1-cur.go}
-    bracket($('br1'),proj(UP.clone().multiplyScalar(RE+H_+seg),c),proj(UP.clone().multiplyScalar(RE+H_),c),'−44 km / año',cur.red*(1-p(t,cur===c1?38.6:43.2,.3)));
-    tag($('lab2'),{x:540,y:1300,on:true},'inflación 2 % → −2 % de poder de compra',p(t,35.8,.4)*(1-p(t,40.5,.3)));
-    tag($('big'),{x:540,y:520,on:true},'≈ 5 × <span class="mtn">▲▲▲▲▲</span> Everest',p(t,40.7,.35)*(1-p(t,43.3,.3)))}
-  E.tw.userData.update(H_,c.position.distanceTo(UP.clone().multiplyScalar(RE+H_*.5))*(mode==='loss'?.009:.0045),1000);
+// La torre vista desde fuera, subiendo (hook y cierre: el último plano enlaza con el primero).
+function climb(t,t0,t1,rev=false){const c=E.c;c.up.copy(UP);E.chunk.visible=false;E.dust.visible=false;E.tw.userData.mat.emissiveIntensity=.25;
+  let k=eio(p(t,t0,t1-t0));if(rev)k=1-k;
+  // la cámara baja pegada a la torre, desde su punta hasta España
+  const alt=lerpLog(2300,1500,k),d=lerp(260,420,k);
+  camAt(c,onEarth(alt,-d,-d*.35),UP.clone().multiplyScalar(RE+alt*lerp(.55,.2,k)));
+  E.tw.userData.update(TOWER_KM,d*.012,1000);
+  r.render(E.s,c)}
+
+// Un tramo de 44 km que se tiñe de rojo y se deshace en polvo.
+function melt(t,tRed,tGo,H_,w){const red=p(t,tRed,.5),go=p(t,tGo,1.6),seg=44,g=eo(go);
+  E.chunk.visible=red>0&&go<1;E.chunk.material.opacity=1;E.chunk.scale.set(w,seg*(1-g)+.01,w*.6);E.chunk.position.y=H_+seg*(1-g)/2+g*30;
+  E.dust.visible=go>0&&go<1;if(E.dust.visible){const sd=E.dust.userData.seed,ar=E.dust.geometry.attributes.position.array;
+    for(let i=0;i<900;i++){const a=sd[i*4],b=sd[i*4+1],cc=sd[i*4+2],d=sd[i*4+3];const q=g*(.4+d);ar[i*3]=a*w*2+a*160*q;ar[i*3+1]=H_+b*seg*(1-g)+(d+.2)*90*q;ar[i*3+2]=cc*w+cc*160*q}
+    E.dust.geometry.attributes.position.needsUpdate=true;E.dust.material.opacity=1-go}
+  return red}
+
+function earthShot(t,mode,a,b){
+  const c=E.c;c.up.copy(UP);let H_=TOWER_KM;E.chunk.visible=false;E.dust.visible=false;
+  if(mode==='earth'){const k=eio(p(t,a,b-a));const push=eio(p(t,vt('ves')-.2,b-vt('ves')+.2));
+    const dist=lerp(lerp(19000,15500,k),9000,push),ang=lerp(.5,.3,k);
+    camAt(c,UP.clone().multiplyScalar(dist*Math.cos(ang)).add(side.clone().multiplyScalar(dist*Math.sin(ang))).add(fwd.clone().multiplyScalar(-dist*.18)),UP.clone().multiplyScalar(lerp(RE*.55+TOWER_KM*.6,RE+400,push)));
+    pill('cnt',540,470,'<b>1.100.000.000.000 €</b><small>en el banco</small>',p(t,vt('billon')-.05,.25)*(1-p(t,vt('ves')-.3,.3)),'big')}
+  if(mode==='space'){H_=Math.min(TOWER_KM,lerpLog(60,TOWER_KM,eo(p(t,a,vt('kilometros')-a))));
+    const k=eio(p(t,a,vt('kilometros')-a+.6));const dist=lerpLog(1400,11000,k);
+    const iss=eio(p(t,vt('cinco',2)-.2,vt('espacial')-vt('cinco',2)+.6));
+    camAt(c,onEarth(lerp(250,1800,k),-lerp(dist,1500,iss),-lerp(dist*.25,300,iss)),UP.clone().multiplyScalar(RE+lerp(lerp(400,1100,k),420,iss)));
+    const ip=UP.clone().multiplyScalar(RE+408).add(side.clone().multiplyScalar(70));
+    tag($('lab1'),proj(ip,c),'Estación Espacial · <b>400 km</b>',p(t,vt('estacion')-.1,.25),0,-90);
+    bracket($('br1'),proj(UP.clone().multiplyScalar(RE),c),proj(UP.clone().multiplyScalar(RE+H_),c),'2.200 km',p(t,vt('kilometros')-.1,.5)*(1-p(t,vt('mas',2)-.2,.3)))}
+  if(mode==='loss'){const top=UP.clone().multiplyScalar(RE+TOWER_KM),k=eio(p(t,a,b-a));
+    camAt(c,top.clone().add(side.clone().multiplyScalar(-lerp(820,640,k))).add(UP.clone().multiplyScalar(lerp(420,330,k))).add(fwd.clone().multiplyScalar(-200)),top.clone().add(UP.clone().multiplyScalar(-160)));
+    const tR=vt('desaparecieran'),tG=vt('cuarenta');H_=TOWER_KM-(t>=tR?44:0);
+    const w=Math.max(BILL.w/1000,c.position.distanceTo(UP.clone().multiplyScalar(RE+H_*.5))*.016)*1.05;
+    const red=melt(t,tR,tG,H_,w);
+    // los precios suben: la torre entera pierde brillo
+    E.tw.userData.mat.emissiveIntensity=.25-.15*p(t,vt('inflacion'),.8);
+    pill('lab2',540,800,'precios <b>+2 % / año</b>',p(t,vt('precios')-.05,.25)*(1-p(t,tR-.2,.3)),'red');
+    bracket($('br2'),proj(UP.clone().multiplyScalar(RE+H_+44),c),proj(UP.clone().multiplyScalar(RE+H_),c),'−44 km / año',p(t,vt('cuarenta')-.1,.3));
+    pill('big',540,800,'<b>= 5 Everest</b> cada año',p(t,vt('cinco',3)-.05,.25),'red')}
+  if(mode==='remate'){const k=eio(p(t,a,b-a));const dist=lerp(11000,16000,k);H_=TOWER_KM-44;
+    camAt(c,UP.clone().multiplyScalar(dist*.92).add(side.clone().multiplyScalar(-dist*.38)).add(fwd.clone().multiplyScalar(-dist*.12)),UP.clone().multiplyScalar(RE*.6+TOWER_KM*.5));
+    const tR=vt('derrite')-.15;H_-=t>=tR?44:0;const w=c.position.distanceTo(UP.clone().multiplyScalar(RE+H_*.5))*.0045;melt(t,tR,tR+.4,H_,w)}
+  if(mode!=='loss')E.tw.userData.mat.emissiveIntensity=.25;
+  E.tw.userData.update(H_,c.position.distanceTo(UP.clone().multiplyScalar(RE+H_*.5))*(mode==='loss'?.016:.0045),1000);
   r.render(E.s,c)}
 
 window.render=function(t){
   hideAll();
-  const sh=shots.find(([,a,b])=>t>=a&&t<b)[0];
-  if(sh==='earth'||sh==='space'||sh==='loss') earthShot(t,sh);
-  if(sh==='table'||sh==='mine'){const c=T.c;
-    T.bill.visible=sh==='table'&&t<13.9;T.bundle.visible=sh==='table'&&t>=13.9;T.phone.visible=T.bundle.visible&&t>16.3;T.mine.visible=sh==='mine';
-    if(T.bill.visible){const k=eo(p(t,9.95,.9));T.bill.position.set(0,.25*(1-k),0);T.bill.rotation.set(.5*(1-k)*Math.sin(t*6),.6*(1-k),.3*(1-k)*Math.cos(t*5));
-      const z=eio(p(t,9.95,3.9));camAt(c,V(lerp(.05,.02,z),lerp(.42,.24,z),lerp(.36,.22,z)),V(0,0,0));
-      tag($('lab1'),proj(V(0,0,-.05),c),'1 billete · 50 €',p(t,11,.3),0,-60)}
-    if(T.bundle.visible){const n=Math.round(lerp(1,100,eio(p(t,14,1.4))));T.bundle.userData.set(n);T.bundle.userData.band.visible=t>15.4;
-      T.phone.position.y=.004+.15*(1-eo(p(t,16.3,.5)));
-      const z=eio(p(t,13.9,4.7));camAt(c,V(lerp(-.04,.1,z),lerp(.2,.1,z),lerp(.36,.34,z)),V(.025,.004,0));
-      tag($('lab1'),proj(V(0,.012,-.06),c),n<100?n+' billetes':'100 billetes · 5.000 €',p(t,14.1,.3),0,-60);
-      bracket($('br1'),proj(V(-.07,.0102,.0385),c),proj(V(-.07,0,.0385),c),'≈ 1 cm',p(t,16.6,.4))}
-    if(T.mine.visible){T.mine.userData.set(100);T.mine.position.set(0,0,0);T.mine.userData.band.visible=true;
-      const z=eio(p(t,43.6,7));camAt(c,V(lerp(.08,.0,z),lerp(.18,.24,z),lerp(.34,.3,z)),V(0,.005,0));
-      const top=T.mine.userData.body.material[2];const lk=p(t,47.9,1.4);top.color.set(new THREE.Color('#ffffff').lerp(new THREE.Color(C.loss),lk));
-      T.mine.userData.set(100-2*eo(p(t,48.4,1.2)));
-      tag($('lab1'),proj(V(0,.012,-.06),c),'tu cuenta',p(t,43.8,.3)*(1-p(t,50.5,.3)),0,-150);
-      tag($('lab2'),proj(V(0,.012,.05),c),'−2 % / año',p(t,48.4,.3)*(1-p(t,50.5,.3)),0,-240);
-      const e=p(t,50.7,.5);$('end').style.opacity=e;$('end').style.transform=`translateY(${(1-eo(e))*40}px)`}
+  const [sh,a,b]=shots.find(([,a,b])=>t>=a&&t<b);
+  if(sh==='climb')climb(t,0,b+.6);
+  if(sh==='cierre')climb(t,a,DUR,true);
+  if(sh==='earth'||sh==='space'||sh==='loss'||sh==='remate')earthShot(t,sh,a,b);
+  if(sh==='table'||sh==='bundle'){const c=T.c;
+    T.bill.visible=sh==='table';T.bundle.visible=sh==='bundle';T.phone.visible=false;
+    if(T.bill.visible){const tl=vt('billetes');const k=eo(p(t,tl-.5,.9));T.bill.position.set(0,.25*(1-k),0);T.bill.rotation.set(.5*(1-k)*Math.sin(t*6),.6*(1-k),.3*(1-k)*Math.cos(t*5));
+      const z=eio(p(t,a,b-a));camAt(c,V(lerp(.05,.02,z),lerp(.42,.24,z),lerp(.36,.22,z)),V(0,0,0))}
+    if(T.bundle.visible){const n=Math.round(lerp(1,100,eio(p(t,vt('fajo'),vt('cinco')-vt('fajo')))));T.bundle.userData.set(n);T.bundle.userData.band.visible=t>vt('cinco')-.05;
+      const z=eio(p(t,a,b-a));camAt(c,V(lerp(-.03,.03,z),lerp(.24,.17,z),lerp(.52,.5,z)),V(0,.004,0));
+      bracket($('br1'),proj(V(-.07,.0102,.0385),c),proj(V(-.07,0,.0385),c),'1 cm',p(t,vt('mide')-.05,.4))}
     r.render(T.s,c)}
-  if(sh==='city'){const c=S.c,k=p(t,18.6,7.05);
-    const h=HK(t);
-    const look=Math.max(.008,h*.5),dist=Math.max(.32,h*.45),alt=Math.max(.06,h*.42);
-    const a=lerp(.4,1.1,eio(k));camAt(c,V(Math.sin(a)*dist,alt,Math.cos(a)*dist),V(0,look,0));
+  if(sh==='city'){const c=S.c,k=p(t,a,b-a);
+    const h=HK(t);const look=Math.max(.008,h*.5),dist=Math.max(.32,h*.45),alt=Math.max(.06,h*.42);
+    const an=lerp(.4,1.1,eio(k));camAt(c,V(Math.sin(an)*dist,alt,Math.cos(an)*dist),V(0,look,0));
     S.tw.userData.update(h,c.position.length()*.006);
     S.s.fog.density=.0012*Math.max(.02,1-alt/12000);S.s.background.set(new THREE.Color('#1b1f44').lerp(new THREE.Color('#05060f'),cl(alt/30000)));S.s.fog.color.copy(S.s.background);
-    tag($('lab1'),proj(S.tc.position.clone().setY(262),c),'Torre de Cristal · 249 m',p(t,21.3,.3)*(1-p(t,22.5,.3)),0,-40);
-    tag($('lab2'),proj(S.evTop,c),'Everest · 8.849 m',p(t,23.3,.3)*(1-p(t,25.2,.3)),0,-40);
-    tag($('lab3'),{x:540,y:430,on:true},fmtES(h<1?h*100:h)+(h<1?' cm':' m'),p(t,18.7,.3));
+    tag($('lab2'),proj(S.evTop,c),'Everest · <b>8.849 m</b>',p(t,vt('everest')-.05,.25)*(1-p(t,b-.4,.3)),0,-60);
+    pill('lab3',540,470,'<b>'+(h<1?fmtES(h*100)+' cm':h<10000?fmtES(h)+' m':(h/1000).toFixed(0)+' km')+'</b>',p(t,tA,.25));
     r.render(S.s,c)}
-  // subtítulos: una palabra cada vez
-  const w=WORDS.find(x=>t>=x.s-.03&&t<x.e2);const sb=$('subs');
-  if(w&&!(t>50.6)){sb.style.opacity=1;sb.textContent=w.t;sb.className=w.n?'n':'';const k=p(t,w.s-.03,.1);sb.style.transform=`translate(-50%,-50%) scale(${.88+.12*eo(k)})`}else sb.style.opacity=0;
-  $('bar').style.width=(100*cl(t/DUR))+'%';
+  // subtítulo «palabra»: una sola palabra, la clave en oro y algo más grande
+  const w=WORDS.find(x=>t>=x.s-.04&&t<x.e2);const sb=$('subs');
+  if(w){sb.style.opacity=1;sb.textContent=w.t;sb.className=w.k?'k':'';const k=p(t,w.s-.04,.09);sb.style.transform=`translate(-50%,-50%) scale(${1.12-.12*eo(k)})`;$('veil').style.opacity=1}else{sb.style.opacity=0;$('veil').style.opacity=0}
 };
-const NUM=/^(billón|cien|mil|millones|cincuenta|cinco|centímetro|dos|doscientos|kilómetros|cuarenta|cuatro|ciento|Everest)$/i;
-const WORDS=SUBS.map((w,i)=>({t:w.t,s:w.s,e2:Math.min(SUBS[i+1]?SUBS[i+1].s:DUR,w.e+.5),n:NUM.test(w.t)}));
+const CLAVES=['banco','ves','cincuenta','centimetro','sigue','espacial','come','desaparecieran','derrite','corriente'];
+const WORDS=SUBS.map((w,i)=>({t:w.t,s:w.s,e2:Math.min(SUBS[i+1]?SUBS[i+1].s:DUR,w.e+.6),k:CLAVES.includes(norm(w.t))}));
 window.ready=true;

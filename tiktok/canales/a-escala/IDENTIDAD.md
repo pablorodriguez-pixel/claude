@@ -11,12 +11,34 @@ Lo que hace propio a A ESCALA:
 |---|---|---|
 | Moneda / mercado | Dólar, EE. UU. | **Euro (billete de 50 €)**, hogar español |
 | Ancla geográfica | Genérica | La torre **nace en Madrid**; hitos españoles (Torre de Cristal, 249 m) |
-| Pregunta | «¿Cuánto es?» | **«¿Qué significa para tu dinero?»**: siempre bajamos a *tu cuenta* |
-| Firma visual | Etiquetas sueltas | **Corchete de medida dorado** que acota todo lo que se mide |
-| Cierre | Loop | Fajo «TU CUENTA» en la mesa y llamada a seguir |
+| Pregunta | «¿Cuánto es?» | **«¿Qué le pasa a ese dinero?»**: inflación, comisiones, interés compuesto |
+| Firma visual | Etiquetas sueltas | **Cota dorada** que acota todo lo que se mide; pérdidas en rojo |
+| Cierre | Loop | El cierre del creador sobre la torre, que enlaza con el primer fotograma |
+
+## 0. Cómo se hace: el método del kit «Videos-virales-3d»
+El canal sigue el método y las guías del kit del creador (guion, formatos, dibujo, looks, subtítulos, sonido):
+- **El guion manda** y se escribe para el ojo: cada frase se ve pasar; comparaciones con cosas de casa.
+- **Hook:** de qué va el vídeo con su nombre, nunca una cifra delante; espectacular desde el fotograma 0.
+- **Formatos** que mejor le van a las finanzas: `escala` (cifras enormes), `mito` («el banco es lo más seguro»),
+  `comparacion` (oro contra bolsa), `pregunta`, `dentro` (cómo funciona un fondo indexado), `historia` (burbujas).
+- **Cada plano empieza en su palabra** de la voz; la cámara solo se mueve cuando la voz lo pide.
+- **Sonido:** solo los efectos aprobados del kit (`build/sonidos/`), sin huecos de más de 2 s, por debajo de la voz.
+- **Pantalla:** nada importante por encima de y 270, por debajo de y 1440 ni a la derecha de x 950 desde y 1050.
+
+### La marca (equivalente a `marca.json`)
+| Ajuste | Valor |
+|---|---|
+| idioma | `es` |
+| look | `espacio`/noche con oro (look propio del canal: noche azul, la torre y las cifras en oro, el rojo solo para pérdidas) |
+| subtitulos | `palabra`, `abajo` (Figtree ExtraBold, contorno negro, velo suave); la clave de cada frase, en oro y más grande |
+| voz | Jaime (`43h7ymOnaaYdWr3dRbsS`), `eleven_v3` |
+| firma | `A ESCALA`, abajo (y 1400) — cambiar por el @ del canal |
+| cierre | «Envíaselo a ese amigo que tiene todo su dinero en la cuenta corriente.» |
+| duración | 40-60 s |
+| efectos | sí |
 
 ## 1. Marca
-- **Nombre:** `A ESCALA` · logotipo: corchete de medida dorado `⌶` + palabra en Unbounded 800.
+- **Nombre:** `A ESCALA` · logotipo: la palabra en Unbounded 800 (la firma de los vídeos va en Figtree).
 - **Tagline:** «El dinero, a tamaño real.»
 - **Aviso fijo** (cierre y descripción): «Contenido educativo · no es asesoramiento financiero». Nunca recomendaciones personalizadas (sin licencia CNMV).
 
@@ -30,25 +52,20 @@ Lo que hace propio a A ESCALA:
 | Madera | `#5a3418` | La mesa: el mundo «a escala humana» |
 
 ## 3. Tipografía
-- **Unbounded 800**: subtítulos y titulares. Subtítulo **una palabra cada vez**, centrado (y ≈ 1160), blanco; las cifras en oro.
-- **JetBrains Mono 700**: etiquetas, cotas, contadores, fuentes.
+- **Figtree ExtraBold** (la letra del kit, OFL): subtítulos `palabra`, pastillas y cotas.
+- **Unbounded 800**: solo el logotipo.
 
 ## 4. Lenguaje visual
 1. **Escalera de escalas:** mesa (mm) → calle (m) → cielo (km) → órbita (miles de km). Cortes secos entre escalas.
 2. **Medidas reales:** billete 140 × 77 mm, 0,1 mm de grosor por billete. La torre usa una anchura mínima en píxeles para seguir viéndose como un hilo dorado a cualquier distancia.
-3. **Corchete dorado** en cada plano que mide algo; etiquetas pill ancladas a objetos 3D.
+3. **Cota dorada** (raya con flechas y la cifra) en cada plano que mide algo; **pastillas** oscuras con la cifra en oro, ancladas a objetos 3D.
 4. **Rojo = pérdida**: el tramo que desaparece se vuelve rojo y se deshace en partículas.
-5. **Vuelta a casa:** cada vídeo termina en la mesa con el fajo «TU CUENTA».
+5. **El cierre enlaza con el hook:** el último plano vuelve a la imagen del primero, para que se vea dos veces sin notarlo.
 
-## 5. Estructura (45–60 s)
-| Bloque | Contenido |
-|---|---|
-| Hook (0–6 s) | Cifra enorme sobre la Tierra + contador en oro |
-| «No significa nada hasta que lo apilas» | Corte a la mesa: 1 billete → 1 fajo con cota |
-| Escalada | La torre sube por la ciudad, nubes, Everest, atmósfera, órbita |
-| Giro | Lo que le pasa a ese dinero (inflación, comisiones, interés compuesto) en rojo/oro |
-| Tu cuenta | Vuelta a la mesa: la lección aplicada a ti |
-| Cierre | Tarjeta A ESCALA + «Sígueme» + aviso educativo |
+## 5. Estructura
+La del formato elegido (ver `guia/formatos.md` del kit). Para `escala`, el del EP01:
+hook (la cosa con su nombre) → la cifra y la promesa de verla → la unidad de casa (un billete) → la regla de casa
+(un fajo, 1 cm) → crece pasando por cosas conocidas → el tamaño final → lo que le pasa (inflación) → remate → cierre.
 
 ## 6. Voz
 - ElevenLabs `eleven_v3`, voz **Jaime** (`43h7ymOnaaYdWr3dRbsS`), peninsular, cálida y segura. Etiquetas `[calm]`, `[excited]`, `[serious]`.
@@ -59,6 +76,7 @@ Lo que hace propio a A ESCALA:
 <episodio>/script.txt → tts.py → voice_raw.mp3 → stt.py → stt.json
 build/build.py <episodio>   → <episodio>/build/video.html (overlay + scenes.js del episodio)
 build/render.js <ep>/build video <dur>   (three.js por WebGL/SwiftShader en Playwright → video_noaudio.mp4)
+build/mezcla.py <episodio>   (sonidos.py del episodio + voz → mezcla.wav)
 ffmpeg mux → <episodio>.mp4
 ```
 - `build/lib.js`: texturas procedurales (billete estilizado, madera, ventanas, nubes), fajo, torre, corchete y etiquetas.
