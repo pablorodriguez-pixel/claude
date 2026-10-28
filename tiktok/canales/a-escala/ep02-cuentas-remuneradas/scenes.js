@@ -199,7 +199,7 @@ window.render=function(t){
   if(w){sb.style.opacity=1;sb.textContent=w.t;sb.className=w.k?'k':'';const k=p(t,w.s-.04,.09);sb.style.transform=`translate(-50%,-50%) scale(${1.12-.12*eo(k)})`;$('veil').style.opacity=1}else{sb.style.opacity=0;$('veil').style.opacity=0}
 };
 const CLAVES=[['euro',1],['intereses',1],['remuneradas',1],['tres',1],['cincuenta',1],['pierde',1],['garantizados',1],['devuelven',1],['gratis',3],['siguiente',1]];
-const KEYT=new Set(CLAVES.map(([w,n])=>vt(w,n)));
+const KEYT=new Set(CLAVES.map(([w,n])=>vt(w,n)));window.KEYT=KEYT;
 const WORDS=SUBS.map((w,i)=>({t:w.t,s:w.s,e2:Math.min(SUBS[i+1]?SUBS[i+1].s:DUR,w.e+.6),k:KEYT.has(w.s)}));
 window.setCam=(p,l)=>{cam.position.set(...p);cam.lookAt(...l);cam.updateMatrixWorld();r.render(S,cam)};
 window.ready=true;

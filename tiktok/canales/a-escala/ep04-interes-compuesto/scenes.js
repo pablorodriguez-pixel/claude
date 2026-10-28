@@ -167,6 +167,6 @@ window.render=function(t){
 };
 window.setCam=(p_,l)=>{cam.position.set(...p_);cam.lookAt(...l);cam.updateMatrixWorld();r.render(S,cam)};
 const CLAVES=[['millon',1],['treinta',1],['ochenta',1],['compuesto',1],['nieve',1],['dispara',1],['cuando',1],['tarde',1],['setenta',1],['mover',1],['hoy',1]];
-const KEYT=new Set(CLAVES.map(([w,n])=>vt(w,n)));
+const KEYT=new Set(CLAVES.map(([w,n])=>vt(w,n)));window.KEYT=KEYT;
 const WORDS=SUBS.map((w,i)=>({t:w.t,s:w.s,e2:Math.min(SUBS[i+1]?SUBS[i+1].s:DUR,w.e+.6),k:KEYT.has(w.s)}));
 window.ready=true;

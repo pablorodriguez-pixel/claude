@@ -26,3 +26,13 @@ body{font-family:Unbounded,sans-serif;color:#fff;-webkit-font-smoothing:antialia
 .br span{position:absolute;left:30px;top:50%;transform:translateY(-50%);font-family:Figtree,sans-serif;font-weight:800;font-size:46px;color:var(--gold);white-space:nowrap;text-shadow:0 2px 12px rgba(0,0,0,.9)}
 .br.red{background:var(--loss)}.br.red:before{border-bottom-color:var(--loss)}.br.red:after{border-top-color:var(--loss)}.br.red span{color:var(--loss)}
 #firma{position:absolute;left:70px;top:1400px;font-family:Figtree,sans-serif;font-weight:700;font-size:28px;color:rgba(255,255,255,.8);text-shadow:0 2px 8px rgba(0,0,0,.7);letter-spacing:.04em}
+/* capa de edición (edit.js): frase entera, capítulo, barra de progreso */
+#velo{position:absolute;left:0;right:0;top:1120px;height:380px;background:radial-gradient(ellipse 70% 50% at 50% 50%,rgba(4,6,14,.6),rgba(4,6,14,0));opacity:0}
+#frase{position:absolute;left:540px;top:1300px;width:960px;text-align:center;font-family:Figtree,sans-serif;font-weight:800;font-size:92px;line-height:1.08;letter-spacing:.005em;-webkit-text-stroke:14px #07080e;paint-order:stroke fill;text-shadow:0 8px 24px rgba(0,0,0,.6);transform:translate(-50%,-50%);opacity:0}
+#frase span{color:rgba(255,255,255,.42)}#frase span.on{color:#fff}#frase span.on.k{color:var(--gold)}
+#cap{position:absolute;left:540px;top:300px;display:flex;align-items:center;gap:18px;max-width:1000px;padding:14px 30px 14px 16px;border-radius:999px;background:rgba(10,13,26,.88);border:2px solid rgba(245,184,65,.45);box-shadow:0 10px 40px rgba(0,0,0,.5);font-family:Figtree,sans-serif;white-space:nowrap;opacity:0}
+#cap i{font-style:normal;font-weight:800;font-size:30px;color:#0b1026;background:var(--gold);border-radius:999px;padding:8px 16px}
+#cap b{font-weight:800;font-size:40px;color:var(--gold);letter-spacing:.03em}
+#cap span{font-weight:700;font-size:36px;color:#fff}
+#pista{position:absolute;left:60px;right:60px;top:262px;height:8px;border-radius:8px;background:rgba(255,255,255,.14)}
+#barra{height:100%;border-radius:8px;background:var(--gold);box-shadow:0 0 12px rgba(245,184,65,.6)}
