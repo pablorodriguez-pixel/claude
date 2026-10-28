@@ -39,7 +39,7 @@ const billMat=new THREE.MeshStandardMaterial({map:BT,side:THREE.DoubleSide,rough
 // ───────── estudio ─────────
 {const bg=tex(16,512,(g,w,h)=>{const gr=g.createLinearGradient(0,0,0,h);gr.addColorStop(0,'#010103');gr.addColorStop(.5,'#06071a');gr.addColorStop(.78,'#1a1238');gr.addColorStop(1,'#040309');g.fillStyle=gr;g.fillRect(0,0,w,h)});
  S.add(new THREE.Mesh(new THREE.SphereGeometry(90,48,24),new THREE.MeshBasicMaterial({map:bg,side:THREE.BackSide,depthWrite:false})));
- const fl=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.MeshStandardMaterial({color:'#0b0c13',roughness:.22,metalness:.55}));fl.rotation.x=-Math.PI/2;fl.receiveShadow=true;S.add(fl);
+ const fl=new THREE.Mesh(new THREE.PlaneGeometry(200,200),new THREE.MeshStandardMaterial({color:'#0b0c13',roughness:.55,metalness:.25}));fl.rotation.x=-Math.PI/2;fl.receiveShadow=true;S.add(fl);
  S.add(new THREE.HemisphereLight('#6070d0','#100804',.42));
  const key=new THREE.DirectionalLight('#fff0dc',1.1);key.position.set(-6,12,9);key.castShadow=true;key.shadow.mapSize.set(2048,2048);Object.assign(key.shadow.camera,{left:-14,right:22,top:14,bottom:-14,far:60});S.add(key);
  const rim=new THREE.DirectionalLight('#7f8cff',2.4);rim.position.set(6,5,-8);S.add(rim);
@@ -49,8 +49,8 @@ const billMat=new THREE.MeshStandardMaterial({map:BT,side:THREE.DoubleSide,rough
 
 // focos que recortan cada objeto: oro donde el dinero crece, frío donde se queda quieto
 function foco(x,z,col,int,ang=.42,h=5.5){const l=new THREE.SpotLight(col,int,14,ang,.55,1.6);l.position.set(x+.6,h,z+2.2);l.target.position.set(x,.4,z);l.castShadow=true;l.shadow.mapSize.set(1024,1024);l.shadow.bias=-.0004;S.add(l,l.target);return l}
-foco(.85,-.2,'#ffc56a',120);foco(-1.1,0,'#9fb6ff',110,.3);foco(2.15,-1,'#ffcf6a',160,.3,6.5);
-foco(.6,-5.8,'#ffd7a0',130,.5);foco(8.9,0,'#8fa6ff',90,.28);foco(11.1,0,'#ffbf55',300,.3);foco(10,4.4,'#ffe2b8',80,.5);
+foco(.85,-.2,'#ffc56a',120);foco(-1.1,0,'#9fb6ff',70,.3);foco(2.15,-1,'#ffcf6a',160,.3,6.5);
+foco(.6,-5.8,'#ffd7a0',130,.5);foco(8.9,0,'#8fa6ff',55,.28);foco(11.1,0,'#ffbf55',300,.3);foco(10,4.4,'#ffe2b8',80,.5);
 const glowTex=tex(256,256,(g)=>{const gr=g.createRadialGradient(128,128,0,128,128,128);gr.addColorStop(0,'rgba(255,190,80,.9)');gr.addColorStop(.35,'rgba(255,160,40,.35)');gr.addColorStop(1,'rgba(255,140,30,0)');g.fillStyle=gr;g.fillRect(0,0,256,256)});
 function glow(x,y,z,s,a=1){const m=new THREE.Sprite(new THREE.SpriteMaterial({map:glowTex,transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,opacity:a}));m.position.set(x,y,z);m.scale.set(s,s,1);S.add(m);return m}
 
