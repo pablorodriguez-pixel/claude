@@ -1,0 +1,40 @@
+/* SEÑAL/RUIDO — estilos base del canal (1080×1920). Ver ../IDENTIDAD.md */
+@font-face{font-family:Bricolage;src:url(bricolage.woff2) format('woff2');font-weight:200 800;font-stretch:75% 100%}
+@font-face{font-family:JBMono;src:url(jetbrainsmono.woff2) format('woff2');font-weight:100 800}
+:root{--papel:#EFECE4;--tinta:#121217;--senal:#FF4F1A;--ruido:#9A978E;--azul:#2E5BFF;--card:#FFFFFF}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--papel)}
+body{font-family:Bricolage,sans-serif;color:var(--tinta);-webkit-font-smoothing:antialiased}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--papel)}
+#cam{position:absolute;inset:0;transform-origin:540px 760px}
+/* retícula de papel milimetrado, muy sutil */
+.grid{position:absolute;inset:-120px;background-image:linear-gradient(rgba(18,18,23,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(18,18,23,.045) 1px,transparent 1px);background-size:40px 40px}
+.scene{position:absolute;inset:0;opacity:0;display:none}
+.abs{position:absolute}
+/* tipografía */
+.h{font-stretch:75%;font-weight:800;letter-spacing:-.01em;line-height:.92}
+.mono{font-family:JBMono,monospace;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.o{color:var(--senal)}
+.g{color:var(--ruido)}
+/* piezas */
+.label{position:absolute;left:70px;top:250px;font-family:JBMono,monospace;font-weight:700;font-size:30px;letter-spacing:.1em;text-transform:uppercase;padding:10px 20px;border:3px solid var(--tinta);border-radius:6px}
+.label.n{background:var(--tinta);color:var(--papel)}
+.label.s{background:var(--senal);border-color:var(--senal);color:#fff}
+.src{position:absolute;left:70px;right:140px;top:1110px;font-family:JBMono,monospace;font-weight:500;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:rgba(18,18,23,.55)}
+.src:before{content:"FUENTE · "}
+.card{position:absolute;background:var(--card);border:3px solid var(--tinta);border-radius:28px;box-shadow:10px 10px 0 var(--tinta)}
+.card.dark{background:var(--tinta);color:var(--papel)}
+.stamp{position:absolute;border:12px solid var(--senal);color:var(--senal);font-stretch:75%;font-weight:800;text-transform:uppercase;padding:6px 36px;border-radius:16px;letter-spacing:.02em;background:rgba(239,236,228,.85)}
+.stamp.g{border-color:var(--ruido);color:var(--ruido)}
+/* ruido: capa de estática sobre lo no verificado */
+.noisy{position:relative;overflow:hidden}
+.noisy canvas{position:absolute;inset:0;width:100%;height:100%;mix-blend-mode:multiply;image-rendering:pixelated}
+/* chrome del canal */
+#grain{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:multiply;image-rendering:pixelated;opacity:0}
+#subs{position:absolute;left:70px;right:70px;top:1220px;text-align:center;font-stretch:75%;font-weight:800;font-size:92px;line-height:1.08;letter-spacing:-.005em}
+#subs span{display:inline-block;margin:0 10px;padding:0 12px;border-radius:12px}
+#subs span.on{background:var(--senal);color:#fff}
+#brand{position:absolute;left:70px;top:118px;font-family:JBMono,monospace;font-weight:800;font-size:30px;letter-spacing:.14em;color:var(--tinta)}
+#brand b{color:var(--senal)}
+#top{position:absolute;left:0;right:0;top:0;height:10px;background:rgba(18,18,23,.12)}
+#bar{height:100%;background:var(--senal);width:0}
