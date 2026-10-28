@@ -5,7 +5,7 @@ ep=os.path.abspath(sys.argv[1]); out=os.path.join(ep,'build'); os.makedirs(out,e
 d=json.load(open(os.path.join(ep,'stt.json')))
 words=[]
 for w in (w for w in d['words'] if w['type']=='word'):
-    t=w['text'].strip(',.:;…')
+    t=w['text'].strip(',.:;…«»"')
     # «%» suelto se pega a su número («8 %»)
     if t=='%' and words: words[-1]['t']+=' %'; words[-1]['e']=w['end']; continue
     words.append({'t':t,'s':w['start'],'e':w['end']})
