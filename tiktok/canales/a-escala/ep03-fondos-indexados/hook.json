@@ -1,4 +1,4 @@
-{"voz": "[excited] Diez mil euros parados en el banco este año: mil quinientos que has dejado de ganar.",
- "tempo": 1.12,
- "lineas": [["10.000 € PARADOS", "#ffffff", 104], ["EN EL BANCO", "#ffffff", 104], ["−1.500 €", "#f5b841", 190], ["QUE NO GANASTE", "#f5b841", 92]],
- "planos": [46.0, 20.0, 3.5, 57.0]}
+{"voz": "[excited] Nueve de cada diez expertos en bolsa pierden contra algo que no hace nada.",
+ "tempo": 1.1,
+ "lineas": [["9 DE CADA 10", "#f5b841", 170], ["EXPERTOS PIERDEN", "#ffffff", 104], ["CONTRA ESTO", "#ffffff", 104]],
+ "planos": [20.0, 3.5, 9.0, 57.0]}

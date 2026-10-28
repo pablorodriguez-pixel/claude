@@ -1,4 +1,4 @@
-{"voz": "[excited] Si tienes tus ahorros en el banco, cada año estás perdiendo dinero.",
- "tempo": 1.1,
- "lineas": [["TUS AHORROS", "#ffffff", 110], ["EN EL BANCO", "#ffffff", 110], ["PIERDEN DINERO", "#ff5a4a", 116], ["CADA AÑO", "#ff5a4a", 116]],
+{"voz": "[excited] Ahorrar te está haciendo más pobre. Y tu banco lo sabe.",
+ "tempo": 1.08,
+ "lineas": [["AHORRAR TE ESTÁ", "#ffffff", 112], ["HACIENDO", "#ffffff", 112], ["MÁS POBRE", "#ff5a4a", 170]],
  "planos": [32.5, 10.0, 18.0, 40.0]}

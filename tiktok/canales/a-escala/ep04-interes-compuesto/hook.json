@@ -1,4 +1,4 @@
-{"voz": "[excited] Esperar un año para empezar a invertir te puede costar cien mil euros.",
+{"voz": "[excited] Dos personas invierten lo mismo. Una llega al millón. La otra, a un tercio. ¿Por qué?",
  "tempo": 1.1,
- "lineas": [["ESPERAR 1 AÑO", "#ffffff", 110], ["TE PUEDE COSTAR", "#ffffff", 104], ["100.000 €", "#f5b841", 190]],
+ "lineas": [["MISMO DINERO.", "#ffffff", 120], ["1.000.000 €", "#f5b841", 150], ["VS 360.000 €", "#8fb3ff", 120], ["¿POR QUÉ?", "#ffffff", 120]],
  "planos": [41.5, 25.0, 15.0, 58.0]}
