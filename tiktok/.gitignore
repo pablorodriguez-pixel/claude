@@ -12,3 +12,4 @@ voto-correo-tiktok.mp4
 **/build/mezcla.wav
 __pycache__/
 !canales/*/build/sonidos/*.wav
+voice_orig.mp3

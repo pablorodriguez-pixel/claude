@@ -3,7 +3,12 @@ Uso: python3 build.py ../ep01-billon-dormido"""
 import json,os,subprocess,sys
 ep=os.path.abspath(sys.argv[1]); out=os.path.join(ep,'build'); os.makedirs(out,exist_ok=True)
 d=json.load(open(os.path.join(ep,'stt.json')))
-words=[{'t':w['text'].strip(',.:;…'),'s':w['start'],'e':w['end']} for w in d['words'] if w['type']=='word']
+words=[]
+for w in (w for w in d['words'] if w['type']=='word'):
+    t=w['text'].strip(',.:;…')
+    # «%» suelto se pega a su número («8 %»)
+    if t=='%' and words: words[-1]['t']+=' %'; words[-1]['e']=w['end']; continue
+    words.append({'t':t,'s':w['start'],'e':w['end']})
 dur=float(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration','-of','csv=p=0',os.path.join(ep,'voice_raw.mp3')]))+1.2
 json.dump(words,open(os.path.join(out,'subs.json'),'w'),ensure_ascii=False)
 html=f'''<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../../build/base.css"></head><body>
