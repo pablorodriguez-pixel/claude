@@ -6,6 +6,7 @@ const {chromium}=require('playwright');const {spawn}=require('child_process');co
  const b=await chromium.launch({args:['--use-angle=swiftshader','--enable-unsafe-swiftshader','--allow-file-access-from-files','--ignore-gpu-blocklist']});
  const pg=await b.newPage({viewport:{width:1080,height:1920}});
  pg.on('pageerror',e=>console.log('ERR',e.message));pg.on('console',m=>m.type()=='error'&&console.log('CON',m.text()));await pg.goto('file://'+dir+'/video.html'); await pg.waitForFunction(()=>window.ready===true,null,{timeout:60000}); await pg.waitForTimeout(500);
+ if(process.env.HIDE) await pg.evaluate(()=>['subs','veil','firma'].forEach(id=>{const e=document.getElementById(id);if(e)e.style.display='none'}));
  if(mode==='sheet'){
    for(const t of process.argv.slice(4).map(Number)){await pg.evaluate(t=>render(t),t);await pg.screenshot({path:path.join(dir,`shot_${t.toFixed(2)}.jpg`),type:'jpeg',quality:80});}
  } else {
