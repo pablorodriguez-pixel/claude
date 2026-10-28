@@ -1,4 +1,4 @@
-{"voz": "[excited] Si este año tenías diez mil euros parados en el banco, has dejado de ganar mil quinientos.",
- "tempo": 1.1,
- "lineas": [["10.000 € PARADOS", "#ffffff"], ["EN EL BANCO", "#ffffff"], ["= 1.500 € QUE NO", "#f5b841"], ["GANASTE ESTE AÑO", "#f5b841"]],
- "planos": [45.6, 20.0, 49.0, 56.5]}
+{"voz": "[excited] Diez mil euros parados en el banco este año: mil quinientos que has dejado de ganar.",
+ "tempo": 1.12,
+ "lineas": [["10.000 € PARADOS", "#ffffff", 104], ["EN EL BANCO", "#ffffff", 104], ["−1.500 €", "#f5b841", 190], ["QUE NO GANASTE", "#f5b841", 92]],
+ "planos": [46.0, 20.0, 3.5, 57.0]}

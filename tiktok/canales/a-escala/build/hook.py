@@ -28,10 +28,10 @@ for i,t in enumerate(P):
 W,H=1080,1920;F=lambda s:ImageFont.truetype(os.path.join(here,'figtree-extrabold.ttf'),s)
 img=Image.new('RGBA',(W,H),(0,0,0,0));sh=Image.new('RGBA',(W,H),(0,0,0,0));d1=ImageDraw.Draw(img);d2=ImageDraw.Draw(sh)
 # velo oscuro arriba para que el titular se lea sobre cualquier plano
-for y in range(0,900):d2.line([(0,y),(W,y)],fill=(5,6,13,int(200*min(1,(900-y)/350))))
+for y in range(0,1000):d2.line([(0,y),(W,y)],fill=(5,6,13,int(235*min(1,(1000-y)/280))))
 y=330
-for txt,col in cfg['lineas']:
-    s=118
+for ln in cfg['lineas']:
+    txt,col=ln[:2];s=ln[2] if len(ln)>2 else 118
     while d1.textlength(txt,font=F(s))>W-120:s-=4
     f=F(s);w=d1.textlength(txt,font=f);d2.text(((W-w)/2,y+10),txt,font=f,fill=(0,0,0,220));d1.text(((W-w)/2,y),txt,font=f,fill=col,stroke_width=5,stroke_fill='#07080e');y+=int(s*1.12)
 sh=sh.filter(ImageFilter.GaussianBlur(10));tit=os.path.join(hd,'titular.png');Image.alpha_composite(sh,img).save(tit)
