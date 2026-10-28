@@ -8,7 +8,8 @@ python3 mezcla.py "$EP" >/dev/null
 N=$(python3 -c "import math;print(math.ceil($D*30))"); mkdir -p "$EP/build/segs"
 for ((a=0;a<N;a+=300)); do b=$((a+300<N?a+300:N)); f=$(printf "%s/build/segs/%05d.mp4" "$EP" $a)
   [ -f "$f" ] && continue
-  node render.js "$EP/build" seg $a $b "$f.tmp.mp4" && mv "$f.tmp.mp4" "$f"; echo "$NAME $b/$N"
+  for try in 1 2 3; do node render.js "$EP/build" seg $a $b "$f.tmp.mp4" && break; echo "reintento $try"; done
+  mv "$f.tmp.mp4" "$f"; echo "$NAME $b/$N"
 done
 ls "$EP"/build/segs/[0-9]*.mp4 | sed "s/.*/file '&'/" > "$EP/build/segs/list.txt"
 ffmpeg -y -loglevel error -f concat -safe 0 -i "$EP/build/segs/list.txt" -c copy "$EP/build/video_noaudio.mp4"
