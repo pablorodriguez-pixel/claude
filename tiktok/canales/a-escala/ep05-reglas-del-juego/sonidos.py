@@ -52,4 +52,5 @@ def efectos(vt, dur):
     pon('aire', vt('problema') + .3, -15, vel=.6, que='la cámara se acerca al tarro')
     pon('aire', vt('vehiculo'), -16, vel=.6, que='la cámara recorre los tarros')
     pon('aire', vt('trabaje'), -16, vel=.6, que='la cámara se abre')
+    pon('late', vt('lo', 2) + .1, -17, que='aparece la etiqueta de pronto')
     return e
