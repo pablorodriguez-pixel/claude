@@ -152,7 +152,7 @@ function tableShot(t,mode){const c=T.c;
   if(mode==='table'){
     ruta(c,t,[[M.pero,{p:[-.06,.1,.32],l:[.02,.01,0],f:40}],[vt('pagan'),{p:[.16,.14,.3],l:[.03,.01,0]}],[vt('remuneradas')+.3,{p:[.06,.26,.26],l:[.03,.006,0]}],
       [M.mejores,{p:[-.12,.14,.24],l:[0,.02,0]}],[vt('tres')+.4,{p:[-.02,.09,.3],l:[.02,.025,0]}],[M.con,{p:[-.02,.24,.42],l:[-.02,.01,0]}],[vt('trescientos'),{p:[.06,.34,.44],l:[.04,.0,.04]}],
-      [vt('cincuenta')+.6,{p:[.14,.42,.4],l:[.1,0,.06]}],[vt('hace',2),{p:[.02,.2,.36],l:[0,.02,0]}],[vt('pierde')-.1,{p:[-.04,.12,.34],l:[0,.05,0]}],[vt('quinientos')+.6,{p:[.0,.08,.5],l:[0,.2,0]}],[M.es-.95,{p:[.0,.08,.52],l:[0,.22,0]}]]);
+      [vt('cincuenta')+.6,{p:[.14,.42,.4],l:[.1,0,.06]}],[vt('hace',2),{p:[.02,.2,.36],l:[0,.02,0]}],[vt('pierde')-.1,{p:[-.04,.12,.34],l:[0,.05,0]}],[vt('quinientos')+.6,{p:[.0,.14,.46],l:[0,.08,0]}],[M.es-.95,{p:[.02,.16,.48],l:[0,.06,0]}]]);
     // monedas que te paga la cuenta: caen sobre el fajo
     const tc=vt('pagan')-.05;for(let i=0;i<14;i++){const t0=tc+i*.16+(i>4?(vt('tres')-tc-.8):0),k=p(t,t0,.45),m=T.coins[i];
       if(k>0){m.visible=true;const x=.09+(i%4)*.028-.01,z=-.02+Math.floor(i/4)*.028,y=.0013+(i%3)*.0026;m.position.set(x,y+.3*(1-eo(k)),z);m.rotation.set(Math.PI/2*(1-eo(k))*(i%2?1:-1),i,0)}}
