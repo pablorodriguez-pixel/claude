@@ -163,6 +163,7 @@ plano(L(7) - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
   const castillo = box(paz, 300, 560, 480, 420, {}, `<svg viewBox="0 0 480 420" width="480" height="420"><path d="M0,420 L60,300 L420,300 L480,420Z" fill="#7a8a6a" stroke="${INK}" stroke-width="8"/><rect x="100" y="140" width="280" height="170" fill="#e9e5dc" stroke="${INK}" stroke-width="8"/><rect x="190" y="40" width="100" height="120" fill="#e9e5dc" stroke="${INK}" stroke-width="8"/><path d="M180,40 L240,0 L300,40Z" fill="#c8102e" stroke="${INK}" stroke-width="6"/>${[130, 230, 330].map(x => `<rect x="${x}" y="190" width="30" height="40" fill="#3d3a44"/>`).join('')}<rect x="236" y="-40" width="8" height="40" fill="${INK}"/><rect x="244" y="-40" width="50" height="34" fill="url(#ban)" stroke="${INK}" stroke-width="3"/><defs><linearGradient id="ban" x1="0" y1="0" x2="0" y2="1"><stop offset=".5" stop-color="${AZL}"/><stop offset=".5" stop-color="${ROJL}"/></linearGradient></defs></svg>`);
   const anos = box(paz, 140, 285, 800, 220, { fontFamily: 'Bricolage', fontWeight: 800, fontSize: '150px', color: '#fff', textAlign: 'center', textShadow: OUT }, '0');
   const sub = box(paz, 140, 470, 800, 80, { fontFamily: 'Bricolage', fontWeight: 800, fontSize: '54px', color: INK, textAlign: 'center' }, 'años sin ejército');
+  const nubesP = [0, 1, 2].map(i => box(paz, 0, 640 + i * 90, 300, 80, { borderRadius: '50px', background: 'rgba(255,255,255,.8)', border: `5px solid ${INK}` }));
   const inv = chip(paz, 260, 1475, '0 invasiones', { size: 70, bg: '#2e9e6b', z: 2 });
   sp(T.dos, 'stamp', 0.5); sp(T.elimina, 'squish', 0.6); sp(T.cientocin, 'clockfast', 0.5); sp(T.invadido, 'tada', 0.7);
   return t => {
@@ -171,8 +172,9 @@ plano(L(7) - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
     set(percha, { o: t > T.elimina + 1.0 ? 1 : 0, s: pop(t, T.elimina + 1.0, 0.4), r: Math.sin(t * 2) * 4 });
     set(ano, { o: t > T.dos - 0.1 && t < L(8) - 0.3 ? 1 : 0, s: pop(t, T.dos - 0.1, 0.3), r: -3 });
     set(elim, { o: t > T.elimina - 0.1 && t < L(8) - 0.3 ? 1 : 0, s: pop(t, T.elimina - 0.1, 0.3), r: -3 + wobble(t, 0.5, 0.6) });
-    const kp = p(t, L(8) - 0.3, 0.5, E.outCubic); set(paz, { o: t > L(8) - 0.3 ? 1 : 0, y: (1 - kp) * 1920 });
-    castillo.style.transform = `scale(${f1(100 + 6 * clamp((t - L(8)) / 4) * 100 / 100) / 100})`;
+    const kp = p(t, L(8) - 0.3, 0.5, E.outCubic);
+    paz.style.transformOrigin = '540px 900px'; set(paz, { o: t > L(8) - 0.3 ? 1 : 0, y: (1 - kp) * 1920, s: 1 + 0.12 * clamp((t - L(8)) / 5) }); set(castillo, { y: Math.sin(t * 1.5) * 6 });
+    nubesP.forEach((n, i) => set(n, { x: 1200 - ((t * (70 + i * 30) + i * 500) % 1700) }));
     ponT(anos, String(Math.round(150 * p(t, T.cientocin - 0.3, 1.2, E.outCubic))) + (t > T.cientocin + 0.9 ? '+' : ''));
     set(inv, { o: t > T.invadido - 0.1 ? 1 : 0, s: pop(t, T.invadido - 0.1, 0.3), r: -3 });
   };
