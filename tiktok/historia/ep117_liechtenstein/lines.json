@@ -1,0 +1,79 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Fueron ochenta a la guerra... y volvieron ochenta y uno.",
+  "s": 0.12,
+  "e": 3.599
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no, no se equivocaron al contar.",
+  "s": 4.099,
+  "e": 6.33
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Mil ochocientos sesenta y seis. Liechtenstein, un país diminuto entre Suiza y Austria, entra en guerra junto a Austria.",
+  "s": 6.83,
+  "e": 13.864
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y manda a todo su ejército: ochenta hombres. La misión: vigilar un paso de los Alpes, frente a Italia.",
+  "s": 14.364,
+  "e": 21.954
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero allí arriba no aparece nadie. Ni un enemigo, ni un disparo.",
+  "s": 22.454,
+  "e": 27.324
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Acaba la guerra, bajan a casa... y al contarlos: ochenta y uno.",
+  "s": 27.824,
+  "e": 32.622
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Se les había unido alguien por el camino. Unos dicen que un oficial austriaco. Otros, que un italiano que se hizo su amigo.",
+  "s": 33.122,
+  "e": 39.676
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y dos años después, Liechtenstein hace algo que casi ningún país se atreve a hacer: elimina su ejército.",
+  "s": 40.176,
+  "e": 46.413
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Lleva más de ciento cincuenta años sin soldados... y nadie lo ha invadido.",
+  "s": 46.913,
+  "e": 51.306
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Tu país se atrevería a hacer lo mismo? Os leo.",
+  "s": 51.806,
+  "e": 54.682
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 55.182,
+  "e": 58.137
+ }
+]
