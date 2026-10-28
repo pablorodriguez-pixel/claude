@@ -201,4 +201,5 @@ window.render=function(t){
 const CLAVES=[['euro',1],['intereses',1],['remuneradas',1],['tres',1],['cincuenta',1],['pierde',1],['garantizados',1],['devuelven',1],['gratis',3],['siguiente',1]];
 const KEYT=new Set(CLAVES.map(([w,n])=>vt(w,n)));
 const WORDS=SUBS.map((w,i)=>({t:w.t,s:w.s,e2:Math.min(SUBS[i+1]?SUBS[i+1].s:DUR,w.e+.6),k:KEYT.has(w.s)}));
+window.setCam=(p,l)=>{cam.position.set(...p);cam.lookAt(...l);cam.updateMatrixWorld();r.render(S,cam)};
 window.ready=true;
