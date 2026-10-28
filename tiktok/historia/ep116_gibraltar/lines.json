@@ -1,0 +1,79 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Aquí, para cruzar la calle... tienes que esperar a que pase un avión.",
+  "s": 0.12,
+  "e": 3.617
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y está a un paso de España: en Gibraltar.",
+  "s": 4.167,
+  "e": 7.195
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "La única carretera que une Gibraltar con España es la avenida Winston Churchill. Y a mitad de camino... la cruza la pista del aeropuerto.",
+  "s": 7.745,
+  "e": 15.574
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Cuando llega un avión, suena la alarma, bajan las barreras... y todo el mundo espera. Como en un paso a nivel, pero con aviones.",
+  "s": 16.124,
+  "e": 23.879
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "¿Y por qué poner un aeropuerto justo ahí? Porque Gibraltar es casi todo roca. El único trozo llano es la franja de arena que lo une con España.",
+  "s": 24.429,
+  "e": 32.585
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "En mil novecientos treinta y ocho, los británicos empiezan a hacer una pista. Y en la Segunda Guerra Mundial la alargan... echando tierra al mar.",
+  "s": 33.135,
+  "e": 41.29
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Hoy, casi un tercio de la pista está construida sobre el agua.",
+  "s": 41.84,
+  "e": 44.797
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y aquí viene lo polémico: esa franja de arena no aparece en el tratado de mil setecientos trece. Por eso España dice que el aeropuerto está en terreno que nunca cedió.",
+  "s": 45.347,
+  "e": 55.422
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Desde dos mil veintitrés, los coches ya van por un túnel. Pero los peatones y las bicis... siguen cruzando la pista andando.",
+  "s": 55.972,
+  "e": 64.203
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Tú cruzarías andando una pista de aterrizaje? Os leo.",
+  "s": 64.753,
+  "e": 68.425
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 68.975,
+  "e": 71.93
+ }
+]

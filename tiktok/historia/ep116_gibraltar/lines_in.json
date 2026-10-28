@@ -1,0 +1,67 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Aquí, para cruzar la calle... tienes que esperar a que pase un avión.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y está a un paso de España: en Gibraltar.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "La única carretera que une Gibraltar con España es la avenida Winston Churchill. Y a mitad de camino... la cruza la pista del aeropuerto.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Cuando llega un avión, suena la alarma, bajan las barreras... y todo el mundo espera. Como en un paso a nivel, pero con aviones.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y por qué poner un aeropuerto justo ahí? Porque Gibraltar es casi todo roca. El único trozo llano es la franja de arena que lo une con España.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "En mil novecientos treinta y ocho, los británicos empiezan a hacer una pista. Y en la Segunda Guerra Mundial la alargan... echando tierra al mar.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Hoy, casi un tercio de la pista está construida sobre el agua.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y aquí viene lo polémico: esa franja de arena no aparece en el tratado de mil setecientos trece. Por eso España dice que el aeropuerto está en terreno que nunca cedió.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Desde dos mil veintitrés, los coches ya van por un túnel. Pero los peatones y las bicis... siguen cruzando la pista andando.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú cruzarías andando una pista de aterrizaje? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
