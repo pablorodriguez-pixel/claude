@@ -33,7 +33,7 @@ El canal sigue el método y las guías del kit del creador (guion, formatos, dib
 | subtitulos | `palabra`, `abajo` (Figtree ExtraBold, contorno negro, velo suave); la clave de cada frase, en oro y más grande |
 | voz | Jaime (`43h7ymOnaaYdWr3dRbsS`), `eleven_v3` |
 | firma | `A ESCALA`, abajo (y 1400) — cambiar por el @ del canal |
-| cierre | «Envíaselo a ese amigo que tiene todo su dinero en la cuenta corriente.» |
+| cierre | Serie de trucos: «Y este es solo el truco #N para poner tu dinero a trabajar. Sígueme para el siguiente.» (EP01 usó «Envíaselo a ese amigo…») |
 | duración | 40-60 s |
 | efectos | sí |
 
@@ -61,6 +61,12 @@ El canal sigue el método y las guías del kit del creador (guion, formatos, dib
 3. **Cota dorada** (raya con flechas y la cifra) en cada plano que mide algo; **pastillas** oscuras con la cifra en oro, ancladas a objetos 3D.
 4. **Rojo = pérdida**: el tramo que desaparece se vuelve rojo y se deshace en partículas.
 5. **El cierre enlaza con el hook:** el último plano vuelve a la imagen del primero, para que se vea dos veces sin notarlo.
+
+## 4b. Ritmo (de la referencia del creador)
+- La cámara **no para**: rutas continuas que arrancan y frenan en las palabras; un cambio de encuadre cada 0,5-1,5 s.
+- **Objetos grandes y cerca**: la cosa llena media pantalla o más; nada pequeño en un fondo vacío.
+- **Pocos cortes** (4-5 por vídeo), solo entre mundos (mesa ↔ ciudad ↔ espacio).
+- Cifras en **pastillas fijas** arriba-centro (y ≈ 560), dentro de la zona segura.
 
 ## 5. Estructura
 La del formato elegido (ver `guia/formatos.md` del kit). Para `escala`, el del EP01:

@@ -75,4 +75,4 @@ export function bracket(el,a,b,label,k=1){
   if(k<=0||!a.on||!b.on){el.style.opacity=0;return}
   const x=Math.max(a.x,b.x)+40,y1=Math.min(a.y,b.y),y2=Math.max(a.y,b.y),hh=(y2-y1)*eo(k);
   el.style.opacity=cl(k*3);el.style.left=x+'px';el.style.top=(y2-hh)+'px';el.style.height=hh+'px';el.querySelector('span').textContent=label}
-export function tag(el,pt,text,k=1,dx=0,dy=0){if(!pt.on||k<=0){el.style.opacity=0;return}el.style.opacity=cl(k*2.5);el.style.left=(pt.x+dx)+'px';el.style.top=(pt.y+dy)+'px';if(text!=null)el.innerHTML=text;el.style.transform=`translate(-50%,-50%) scale(${.8+.2*eo(k)})`}
+export function tag(el,pt,text,k=1,dx=0,dy=0){if(!pt.on||k<=0)return;el.style.opacity=cl(k*2.5);el.style.left=(pt.x+dx)+'px';el.style.top=(pt.y+dy)+'px';if(text!=null)el.innerHTML=text;el.style.transform=`translate(-50%,-50%) scale(${.8+.2*eo(k)})`}
