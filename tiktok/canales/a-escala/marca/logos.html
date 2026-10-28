@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Figtree;src:url(../build/figtree-extrabold.ttf);font-weight:800}
+*{margin:0;padding:0}body{background:#0b1026;font-family:Figtree}
+.card{position:absolute;left:0;top:0}
+</style></head><body>
+<svg id="defs" width="0" height="0" style="position:absolute"><defs>
+ <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe9a8"/><stop offset=".45" stop-color="#f5b841"/><stop offset="1" stop-color="#b9781c"/></linearGradient>
+ <linearGradient id="goldside" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c98a24"/><stop offset=".5" stop-color="#ffd772"/><stop offset="1" stop-color="#a86a16"/></linearGradient>
+ <radialGradient id="bg" cx=".5" cy=".42" r=".75"><stop offset="0" stop-color="#1d2552"/><stop offset=".6" stop-color="#0b1026"/><stop offset="1" stop-color="#05060f"/></radialGradient>
+ <radialGradient id="halo" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f5b841" stop-opacity=".45"/><stop offset="1" stop-color="#f5b841" stop-opacity="0"/></radialGradient>
+ <!-- una moneda vista de lado (para apilar) -->
+ <g id="c"><rect x="-80" y="-14" width="160" height="28" rx="6" fill="url(#goldside)"/><rect x="-80" y="-14" width="160" height="6" rx="3" fill="#fff3c4" opacity=".55"/><line x1="-80" y1="14" x2="80" y2="14" stroke="#6b4210" stroke-width="3" opacity=".6"/></g>
+ <!-- la cara de la moneda de arriba -->
+ <g id="top"><ellipse cx="0" cy="0" rx="80" ry="22" fill="url(#gold)" stroke="#8a5a14" stroke-width="3"/><text x="0" y="12" text-anchor="middle" font-family="Figtree" font-weight="800" font-size="34" fill="#7a4c0e">€</text></g>
+</defs></svg>
+<script>
+// símbolo: tres pilas de monedas que crecen, con una flecha que sube — el dinero trabajando
+function simbolo(s=1){const pilas=[[-190,4],[0,7],[190,11]];let g='';
+  for(const[x,n]of pilas){for(let i=0;i<n;i++)g+=`<use href="#c" x="${x}" y="${300-i*30}"/>`;g+=`<use href="#top" x="${x}" y="${300-n*30+8}"/>`}
+  g+=`<path d="M-300 150 C -150 120, 40 -40, 230 -170" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round" opacity=".95"/>`;
+  g+=`<path d="M175 -205 L 262 -192 L 226 -112 Z" fill="#fff"/>`;
+  return `<g transform="scale(${s})">${g}</g>`}
+function avatar(id){return `<svg id="${id}" class="card" width="1080" height="1080" viewBox="-540 -540 1080 1080" xmlns="http://www.w3.org/2000/svg">
+  <circle r="540" fill="url(#bg)"/><circle r="430" fill="url(#halo)"/><g transform="translate(10,-40)">${simbolo(1.22)}</g></svg>`}
+function marca(id,a,b){return `<svg id="${id}" class="card" width="1800" height="600" viewBox="0 0 1800 600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1800" height="600" fill="#0b1026"/><circle cx="300" cy="300" r="250" fill="url(#bg)"/><circle cx="300" cy="300" r="200" fill="url(#halo)"/>
+  <g transform="translate(300,300) scale(.42)">${simbolo(1)}</g>
+  <text x="620" y="285" font-family="Figtree" font-weight="800" font-size="128" fill="#fff" letter-spacing="2">${a}</text>
+  <text x="620" y="420" font-family="Figtree" font-weight="800" font-size="128" fill="#f5b841" letter-spacing="2">${b}</text></svg>`}
+document.body.insertAdjacentHTML('beforeend',avatar('av')+marca('m1','DINERO QUE','TRABAJA')+marca('m2','RUMBO AL','MILLÓN'));
+window.show=id=>{for(const e of document.querySelectorAll('.card'))e.style.display=e.id===id?'block':'none'};
+window.ready=document.fonts.load('800 100px Figtree').then(()=>true);
+</script></body></html>
