@@ -1,0 +1,71 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡La tapa de alcantarilla que pisas lleva escrito cuánto peso aguanta!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Y casi nadie la ha leído nunca. Pero antes, una pregunta: ¿por qué son redondas?",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: si la tapa fuera cuadrada, al girarla en diagonal se colaría por su propio agujero. Redonda, no cabe por ningún lado.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: pesa muchísimo, pero como es redonda, un solo operario la puede mover rodando.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres, lo bueno: mira lo que lleva grabado. Una letra y un número. Es la carga que aguanta.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "B ciento veinticinco es para aceras: aguanta unas doce toneladas y media. D cuatrocientos es para la calzada: unas cuarenta toneladas, como un camión cargado.",
+   "gap_after": 0.7
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: no todas son redondas. Las cuadradas suelen tapar arquetas poco profundas, donde no hay un pozo en el que caerse."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: si ves una B en mitad de la carretera... alguien se ha equivocado de tapa.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Sígueme, que esto en clase no te lo cuentan."
+  },
+  {
+   "who": "VECINO",
+   "text": "Mira la tapa que tienes más cerca de casa y dime qué letra pone. Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y esto... no venía en el libro."
+  }
+ ]
+}
