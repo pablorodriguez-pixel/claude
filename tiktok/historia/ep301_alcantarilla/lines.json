@@ -60,34 +60,34 @@
   "who": "VECINO",
   "text": "Ojo: no todas son redondas. Las cuadradas suelen tapar arquetas poco profundas, donde no hay un pozo en el que caerse.",
   "s": 45.647,
-  "e": 52.121
+  "e": 51.541
  },
  {
   "line": 9,
   "who": "VECINO",
   "text": "O sea: si ves una B en mitad de la carretera... alguien se ha equivocado de tapa.",
-  "s": 52.471,
-  "e": 58.86
+  "s": 51.891,
+  "e": 58.28
  },
  {
   "line": 10,
   "who": "VECINO",
   "text": "Sígueme, que esto en clase no te lo cuentan.",
-  "s": 59.46,
-  "e": 62.008
+  "s": 58.88,
+  "e": 61.428
  },
  {
   "line": 11,
   "who": "VECINO",
   "text": "Mira la tapa que tienes más cerca de casa y dime qué letra pone. Os leo.",
-  "s": 62.358,
-  "e": 67.464
+  "s": 61.778,
+  "e": 66.884
  },
  {
   "line": 12,
   "who": "VECINO",
   "text": "Y esto... no venía en el libro.",
-  "s": 67.814,
-  "e": 70.257
+  "s": 67.234,
+  "e": 69.677
  }
 ]
