@@ -1,4 +1,32 @@
-{"voz": "[excited] Dos personas invierten lo mismo. Una llega al millón. La otra, a un tercio. ¿Por qué?",
- "tempo": 1.1,
- "lineas": [["MISMO DINERO.", "#ffffff", 120], ["1.000.000 €", "#f5b841", 150], ["VS 360.000 €", "#8fb3ff", 120], ["¿POR QUÉ?", "#ffffff", 120]],
- "planos": [41.5, 25.0, 15.0, 58.0]}
+{
+ "voz": "[excited] Mismo dinero: uno llega al millón y el otro a un tercio. ¿Por qué?",
+ "tempo": 1.12,
+ "lineas": [
+  [
+   "MISMO DINERO.",
+   "#ffffff",
+   120
+  ],
+  [
+   "1.000.000 €",
+   "#f5b841",
+   150
+  ],
+  [
+   "VS 360.000 €",
+   "#8fb3ff",
+   120
+  ],
+  [
+   "¿POR QUÉ?",
+   "#ffffff",
+   120
+  ]
+ ],
+ "planos": [
+  41.5,
+  25.0,
+  15.0,
+  58.0
+ ]
+}
