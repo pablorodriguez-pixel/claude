@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Para adelantar a un ciclista, ahora tienes que frenar!",
+  "s": 0.12,
+  "e": 2.756
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y hasta hace nada, la ley te dejaba hacer justo lo contrario. Lo he leído en el BOE, y el cambio es de este mismo mes.",
+  "s": 3.106,
+  "e": 9.98
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 10.48,
+  "e": 13.591
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Imagínate: domingo por la mañana, carretera de noventa... y delante de ti, un grupo de ciclistas.",
+  "s": 13.941,
+  "e": 20.579
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Tu padre lo tenía clarísimo: pisaba a fondo y los pasaba a ciento diez. Y era legal: la ley dejaba a coches y motos pasarse veinte kilómetros por hora para adelantar.",
+  "s": 21.079,
+  "e": 30.351
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "En dos mil veintidós, eso se acabó. Y desde el uno de octubre, la norma ha dado la vuelta del todo.",
+  "s": 30.851,
+  "e": 36.607
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Fuera de poblado, para adelantar a una bici tienes que ir, como mínimo, veinte por debajo del límite. En esa carretera de noventa... a setenta como mucho.",
+  "s": 37.107,
+  "e": 46.062
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y dejándole metro y medio. O, si hay dos carriles, cambiándote entero al otro.",
+  "s": 46.662,
+  "e": 51.135
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: si los ciclistas van en grupo, la ley los cuenta como uno solo. O los adelantas a todos... o a ninguno.",
+  "s": 51.635,
+  "e": 59.709
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: lo que hacía tu padre para adelantar... hoy es justo lo que no tienes que hacer.",
+  "s": 60.209,
+  "e": 65.567
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 65.917,
+  "e": 68.465
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Y tú, a cuánto adelantas a una bici? Sé sincero. Os leo.",
+  "s": 68.815,
+  "e": 72.327
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 72.677,
+  "e": 75.121
+ }
+]
