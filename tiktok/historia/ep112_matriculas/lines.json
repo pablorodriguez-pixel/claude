@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Tu matrícula no tiene ni una vocal.",
+  "s": 0.12,
+  "e": 2.406
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no es casualidad: cuando sepas por qué, vas a mirar todas las matrículas.",
+  "s": 2.956,
+  "e": 7.752
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Fíjate en cualquier coche: cuatro números y tres letras. Ni A, ni E, ni I, ni O, ni U.",
+  "s": 8.302,
+  "e": 14.854
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Es así desde el año dos mil. Y el motivo está escrito en el decreto que creó estas matrículas:",
+  "s": 15.404,
+  "e": 21.159
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "quitaron las vocales para evitar «palabras malsonantes».",
+  "s": 21.709,
+  "e": 25.064
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Porque con vocales, al azar, te podría tocar una matrícula como... ANO. O PIS. O cosas peores.",
+  "s": 25.614,
+  "e": 34.007
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y tendrías que llevarla puesta, por toda España, durante años.",
+  "s": 34.557,
+  "e": 38.873
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Tampoco hay eñe ni cu: de lejos, la eñe se confunde con la ene... y la cu con la o.",
+  "s": 39.423,
+  "e": 46.058
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y ahora el truco: las letras van en orden. Empezaron en B B B, en el año dos mil...",
+  "s": 46.608,
+  "e": 54.524
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "y han ido avanzando. Los coches nuevos de este año ya llevan la N.",
+  "s": 55.074,
+  "e": 58.588
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Así que mira la primera letra: cuanto más lejos de la B, más nuevo es el coche.",
+  "s": 59.138,
+  "e": 63.374
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Cuál es la matrícula más graciosa que has visto? Os leo.",
+  "s": 63.924,
+  "e": 68.239
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 68.789,
+  "e": 71.743
+ }
+]

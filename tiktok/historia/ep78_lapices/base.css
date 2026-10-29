@@ -1,0 +1,20 @@
+@font-face{font-family:'Instrument';src:url(fonts/InstrumentSerif-Regular.ttf)}
+@font-face{font-family:'Instrument';font-style:italic;src:url(fonts/InstrumentSerif-Italic.ttf)}
+@font-face{font-family:'Bricolage';font-weight:200 800;src:url(fonts/BricolageGrotesque.ttf)}
+@font-face{font-family:'SpaceMono';src:url(fonts/SpaceMono-Regular.ttf)}
+@font-face{font-family:'SpaceMono';font-weight:700;src:url(fonts/SpaceMono-Bold.ttf)}
+@font-face{font-family:'Fredoka';font-weight:300 700;src:url(fonts/Fredoka.ttf)}
+@font-face{font-family:'SpecialElite';src:url(fonts/SpecialElite-Regular.ttf)}
+@font-face{font-family:'Playfair';font-weight:400 900;src:url(fonts/PlayfairDisplay.ttf)}
+@font-face{font-family:'Playfair';font-style:italic;font-weight:400 900;src:url(fonts/PlayfairDisplay-Italic.ttf)}
+@font-face{font-family:'Rye';src:url(fonts/Rye-Regular.ttf)}
+@font-face{font-family:'PlexMono';src:url(fonts/IBMPlexMono-Regular.ttf)}
+@font-face{font-family:'PlexMono';font-weight:700;src:url(fonts/IBMPlexMono-Bold.ttf)}
+@font-face{font-family:'DMSerif';src:url(fonts/DMSerifDisplay-Regular.ttf)}
+@font-face{font-family:'DMSerif';font-style:italic;src:url(fonts/DMSerifDisplay-Italic.ttf)}
+@font-face{font-family:'JetBrains';font-weight:100 800;src:url(fonts/JetBrainsMono.ttf)}
+@font-face{font-family:'InterV';font-weight:100 900;src:url(fonts/Inter.ttf)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#000}
+#stage{position:relative;width:1080px;height:1920px;overflow:hidden}
+#stage *{transform-origin:center center}

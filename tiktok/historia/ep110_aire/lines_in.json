@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¿Ventanilla o aire acondicionado? Casi todos lo hacen al revés.",
+   "tempo": 1.1,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y la respuesta depende de una sola cosa: la velocidad.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Verano. Viaje en coche. Y tu padre: «Nada de aire, que gasta. Bajad las ventanillas».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y en parte tiene razón: el aire acondicionado funciona con el motor. Gasta gasolina.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero la ventanilla abierta también gasta. Solo que no se nota.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] El aire entra, hace remolinos dentro del coche... y lo frena. Como un paracaídas pequeñito.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ese freno crece muchísimo con la velocidad. A cuarenta por hora, casi nada. A ciento veinte... un montón.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que en ciudad, despacio, gana la ventanilla: gasta menos que el aire.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pero en la autovía, a partir de unos ochenta o cien por hora, la ventanilla abierta puede gastar tanto o más que el aire.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Depende del coche: cuanto más aerodinámico, antes le compensa cerrar.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que: ciudad, ventanilla. Autovía, aire. Y si tu padre protesta... enséñale este vídeo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿En tu coche quién manda en el aire? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

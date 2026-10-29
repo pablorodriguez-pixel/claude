@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡El doctor Guillotin no inventó la guillotina!",
+  "s": 0.12,
+  "e": 2.255
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y lo más curioso: estaba en contra de la pena de muerte.",
+  "s": 2.605,
+  "e": 5.853
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Francia, mil setecientos ochenta y nueve. Si eres noble, te ejecutan con espada. Si eres pobre, te ahorcan... o algo peor.",
+  "s": 6.153,
+  "e": 14.78
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Guillotin, médico y diputado, propone algo revolucionario: que todos mueran igual. Y sin sufrir.",
+  "s": 15.08,
+  "e": 21.317
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Él, en realidad, quería acabar con la pena de muerte. Pero mientras existiera, que al menos fuera rápida.",
+  "s": 21.617,
+  "e": 28.135
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La máquina la diseña otro médico, Antoine Louis. Y la construye... un fabricante de clavicordios.",
+  "s": 28.435,
+  "e": 34.19
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 34.49,
+  "e": 37.097
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y encima ya había máquinas parecidas desde hacía siglos: en Escocia, en Inglaterra, en Italia.",
+  "s": 37.397,
+  "e": 42.118
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Al principio la llamaban «la Luisita». Pero los periódicos se burlan... y le cuelgan el nombre de Guillotin.",
+  "s": 42.418,
+  "e": 49.615
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Su familia pasó años pidiendo que le cambiaran el nombre a la máquina. Al final, se lo cambiaron ellos: a su apellido.",
+  "s": 49.915,
+  "e": 59.162
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y no, no murió guillotinado. Murió en su cama, de una infección en el hombro.",
+  "s": 59.462,
+  "e": 63.772
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: lo de «sin sufrir» ya se discutía entonces.",
+  "s": 64.072,
+  "e": 67.027
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: el hombre que dio nombre a la guillotina... quería que no hiciera falta.",
+  "s": 67.327,
+  "e": 72.437
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Qué invento crees que lleva el nombre de alguien que no lo inventó? Os leo.",
+  "s": 72.737,
+  "e": 76.811
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 77.161,
+  "e": 80.116
+ }
+]

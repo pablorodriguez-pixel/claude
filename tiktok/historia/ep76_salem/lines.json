@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡En Salem no quemaron a ninguna bruja!",
+  "s": 0.12,
+  "e": 2.037
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Lo que les hicieron fue distinto... y a uno, bastante peor.",
+  "s": 2.387,
+  "e": 6.269
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Massachusetts, mil seiscientos noventa y dos. Unas niñas empiezan a tener ataques: gritos, convulsiones... y señalan a sus vecinas.",
+  "s": 6.569,
+  "e": 14.324
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "En pocos meses hay más de doscientas personas acusadas de brujería.",
+  "s": 14.624,
+  "e": 18.061
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Diecinueve acaban en la horca. Ahorcadas, no quemadas: allí mandaba la ley inglesa, y la brujería se castigaba así.",
+  "s": 18.361,
+  "e": 25.538
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y a un granjero de más de ochenta años, Giles Corey, le hacen algo peor: lo aplastan con piedras para que hable.",
+  "s": 25.838,
+  "e": 32.387
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 32.687,
+  "e": 35.294
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "No dice nada. Según la leyenda, sus últimas palabras fueron: «más peso».",
+  "s": 35.594,
+  "e": 41.909
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Entonces, ¿de dónde salen las hogueras? De Europa: allí sí se quemaba a acusadas de brujería. Y se mezcló todo.",
+  "s": 42.209,
+  "e": 48.445
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y al final, todo se derrumba: según se cuenta, el gobernador lo para cuando acusan... a su propia mujer.",
+  "s": 48.745,
+  "e": 57.347
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Años después, un juez pide perdón en público, y se indemniza a las familias.",
+  "s": 57.647,
+  "e": 61.557
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: la causa de los ataques aún se discute.",
+  "s": 61.857,
+  "e": 64.894
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: las brujas de Salem no murieron en la hoguera... sino en la horca.",
+  "s": 65.194,
+  "e": 69.991
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Por qué crees que todo un pueblo se lo creyó? Os leo.",
+  "s": 70.291,
+  "e": 73.408
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 73.758,
+  "e": 76.713
+ }
+]

@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El reloj de las uvas... lo regaló un pastor.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Un pastor que se escapó de casa. Y todo, cuentan, por una ternera.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "León, principios del siglo diecinueve. Un chaval, José Rodríguez Losada, cuida las vacas de su familia.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Un día, una ternera se le muere. Y por miedo a la paliza de su padre... se escapa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Acaba en Londres, sin un duro. Y consigue trabajo en una relojería... barriendo el suelo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero aprende tan rápido que acaba siendo uno de los relojeros más famosos de Londres.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y un día, ya rico, se acuerda de Madrid. Y le regala un reloj a la Puerta del Sol.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo inaugura la reina Isabel Segunda, en mil ochocientos sesenta y seis.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y es el mismo reloj que hoy da las campanadas de Nochevieja.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que cuando te comas las uvas... estás mirando el regalo de un pastor que se escapó de casa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Dónde te comes tú las uvas? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

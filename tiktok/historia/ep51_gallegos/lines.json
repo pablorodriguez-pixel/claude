@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡En Argentina, si eres español, eres gallego!",
+  "s": 0.12,
+  "e": 2.739
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Aunque seas de Sevilla. Y la explicación es preciosa.",
+  "s": 3.089,
+  "e": 6.968
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 7.568,
+  "e": 10.281
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Por qué en Argentina a cualquier español le dicen gallego? Te lo cuento en tres pasos.",
+  "s": 10.631,
+  "e": 15.024
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: los barcos. Entre mil ochocientos ochenta y mil novecientos treinta, a Argentina llegaron millones de europeos. Y de los españoles, el grupo más grande... eran gallegos.",
+  "s": 15.374,
+  "e": 27.05
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Galicia era pobre y miraba al mar. Familias enteras cruzaban el Atlántico con una maleta de cartón.",
+  "s": 27.55,
+  "e": 33.143
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: la ciudad. Llegaron tantos que a Buenos Aires la llamaban «la quinta provincia gallega».",
+  "s": 33.743,
+  "e": 39.574
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Tenían sus bares, sus periódicos, hasta su propio hospital: el Centro Gallego. Para un argentino, el español de la esquina... era gallego.",
+  "s": 40.074,
+  "e": 48.467
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Tres: no solo Argentina. En Uruguay y en Cuba, igual. Y el padre de Fidel Castro... era gallego.",
+  "s": 49.067,
+  "e": 55.789
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y el padre del nacionalismo gallego, Castelao, murió... en Buenos Aires.",
+  "s": 56.289,
+  "e": 60.757
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: se dice que Buenos Aires tuvo más gallegos que La Coruña. No está tan claro.",
+  "s": 61.357,
+  "e": 66.271
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: allí, decir «gallego»... es decir «abuelo».",
+  "s": 66.621,
+  "e": 70.536
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+  "s": 71.036,
+  "e": 75.969
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Tienes un abuelo o un bisabuelo que cruzó el charco? Os leo.",
+  "s": 76.369,
+  "e": 79.966
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 80.316,
+  "e": 82.631
+ }
+]

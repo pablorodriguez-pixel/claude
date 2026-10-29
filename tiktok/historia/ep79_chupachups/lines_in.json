@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Este logo lo dibujó Salvador Dalí."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y, según cuentan, tardó menos de una hora... en un papel cualquiera.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Barcelona, mil novecientos cincuenta y ocho. Enric Bernat se fija en algo: los niños se sacan el caramelo de la boca... y acaban con las manos pegajosas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que le pone un palo. Un caramelo que se come como con tenedor. Lo llama «Chups»... y luego, «Chupa Chups».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Funciona tanto que Bernat quiere conquistar el mundo. Pero necesita un logo que se reconozca en cualquier idioma.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y se le ocurre pedírselo al artista más famoso de España: Salvador Dalí.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil novecientos sesenta y nueve. Quedan a tomar un café. Y Dalí, ahí mismo, se pone a garabatear.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pinta una margarita amarilla, con el nombre en rojo... y, dicen, en menos de una hora.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Pero lo genial es dónde lo pone: encima del caramelo, no en un lado. Así se ve entero, lo gires como lo gires.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y ese logo, casi igual, llegó hasta el espacio: en mil novecientos noventa y cinco, unos Chupa Chups subieron a la estación Mir.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo del papel y la hora exacta cambia según quién lo cuente.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: cada vez que te comías un Chupa Chups... tenías un Dalí en la boca.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿tú lo chupabas hasta el final... o lo mordías a los dos minutos? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

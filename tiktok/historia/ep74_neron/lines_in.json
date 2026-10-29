@@ -1,0 +1,80 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Nerón no tocó la lira mientras Roma ardía!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] De hecho, cuando empezó el fuego... ni siquiera estaba en Roma.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Año sesenta y cuatro. Un incendio arrasa Roma durante seis días. De catorce barrios, solo cuatro se salvan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Nerón estaba en Anzio, a unos cincuenta kilómetros. Y cuando se entera... vuelve corriendo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Abre sus jardines a los que se quedan sin casa, trae comida y baja el precio del trigo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Entonces, ¿de dónde sale lo de la lira? De un rumor: que cantó la caída de Troya mirando las llamas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "El historiador que lo cuenta, Tácito, dice que era un rumor. Los que lo dan por hecho escriben décadas después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y en inglés dicen que tocaba el violín. El violín... se inventó mil quinientos años después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo que sí hizo Nerón: buscar culpables. Y acusó a los cristianos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: si provocó él el fuego, aún se discute.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el emperador que tocaba mientras Roma ardía... estaba a cincuenta kilómetros.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué villano de la historia crees que no era tan malo? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] «Colgar el sambenito»... viene de la Inquisición."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y es solo uno de sus secretos más oscuros.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil cuatrocientos setenta y ocho. Los Reyes Católicos crean un tribunal con un poder enorme: podía juzgar a cualquiera. Nobles, curas... hasta obispos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y funcionaba así: te detenían... y no te decían quién te había denunciado. Al principio, ni siquiera de qué te acusaban.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Te quitaban tus bienes. Y con ese dinero... te cobraban la comida de tu propia celda.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Si te condenaban, te ponían el sambenito: un saco amarillo con cruces, que tenías que llevar por la calle.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y lo peor: después, el sambenito se colgaba en la iglesia, con tu nombre. Para siempre. Tus nietos lo veían cada domingo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "De ahí «colgar el sambenito»: cargarle a alguien una culpa... que ya no se quita.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] La tortura existía. Pero con normas: con un médico delante... y lo que confesabas, tenías que repetirlo al día siguiente, sin tortura.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y duró muchísimo: más de trescientos cincuenta años. Hasta mil ochocientos treinta y cuatro.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: las cifras de muertos se discuten, y son menores de lo que se cree.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: cuando dices que a alguien le han colgado el sambenito... estás hablando como la Inquisición.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿a quién le colgarías tú el sambenito en tu casa? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

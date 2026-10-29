@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Ese botón que aprietas como loco... no hace nada.",
+  "s": 0.12,
+  "e": 3.326
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y tú, venga a darle. Tranquilo, no eres el único. Te lo hicieron a propósito.",
+  "s": 3.676,
+  "e": 8.915
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Nueva York, años setenta. Ponen botones en los semáforos para que los peatones pidan paso.",
+  "s": 9.215,
+  "e": 14.728
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero en los ochenta llegan los ordenadores, y los semáforos empiezan a cambiar solos.",
+  "s": 15.028,
+  "e": 20.08
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "¿Y los botones? Quitarlos costaba un dineral. Así que los dejaron ahí... desconectados.",
+  "s": 20.38,
+  "e": 26.592
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "En dos mil cuatro lo destapó el New York Times: de tres mil doscientos botones, más de dos mil quinientos no hacían nada.",
+  "s": 26.892,
+  "e": 33.687
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 33.987,
+  "e": 36.593
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y en Estados Unidos, el botón de cerrar puertas del ascensor tampoco suele ir. Lo desactivan para dar tiempo a quien va en silla de ruedas.",
+  "s": 36.893,
+  "e": 44.167
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y en muchas oficinas, el termostato de la pared es de pega. No está conectado a nada.",
+  "s": 44.467,
+  "e": 50.275
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Y por qué no los quitan? Porque sí funcionan. No con el semáforo... sino contigo. Pulsar te calma, y esperas sin cruzar en rojo.",
+  "s": 50.575,
+  "e": 59.735
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: en muchas ciudades sí funcionan. Depende del cruce.",
+  "s": 60.035,
+  "e": 63.947
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: llevas toda la vida pulsando un botón... que solo existe para que no te pongas nervioso.",
+  "s": 64.247,
+  "e": 70.64
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Confiesa: ¿cuántas veces le das tú al botón, por si acaso? Os leo.",
+  "s": 70.94,
+  "e": 76.613
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 76.913,
+  "e": 79.868
+ }
+]

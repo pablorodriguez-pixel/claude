@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Las ventanas de los aviones antes eran cuadradas.",
+  "s": 0.12,
+  "e": 2.417
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y las cambiaron por algo bastante serio: los aviones se partían en el aire.",
+  "s": 2.767,
+  "e": 7.233
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Mil novecientos cincuenta y dos. Los ingleses estrenan el primer avión a reacción de pasajeros: el Comet. Con ventanas cuadradas, como las de tu casa.",
+  "s": 7.533,
+  "e": 15.849
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Es la joya del momento. Hasta la reina madre se da una vuelta en él.",
+  "s": 16.149,
+  "e": 19.825
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero en mil novecientos cincuenta y cuatro, dos Comet se desintegran en pleno vuelo, en pocos meses. Sin tormenta. Sin explicación.",
+  "s": 20.125,
+  "e": 28.328
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Así que los ingenieros hacen algo de película: meten un Comet entero en una piscina gigante... y lo inflan y desinflan miles de veces.",
+  "s": 28.628,
+  "e": 38.063
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 38.363,
+  "e": 40.97
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Así simulan cada vuelo, subir y bajar. Y un día... ¡crac! El avión se raja. ¿Por dónde? Por la esquina de una ventana.",
+  "s": 41.27,
+  "e": 49.266
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "En una esquina, toda la fuerza se concentra en un punto. El metal se cansa... y se rompe.",
+  "s": 49.566,
+  "e": 55.241
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "En una curva, en cambio, la fuerza se reparte por todo el borde. Por eso, desde entonces, todas son redondeadas.",
+  "s": 55.541,
+  "e": 63.434
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y el agujerito de abajo tampoco es un fallo: iguala la presión entre los dos cristales.",
+  "s": 63.734,
+  "e": 68.45
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: en esos accidentes también influyeron otros fallos.",
+  "s": 68.75,
+  "e": 72.268
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: esa ventanita redonda que miras en cada vuelo... es una lección que costó dos accidentes.",
+  "s": 72.568,
+  "e": 79.114
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Confiesa: ¿qué es lo más raro que has hecho en un avión? Os leo.",
+  "s": 79.414,
+  "e": 83.338
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 83.688,
+  "e": 86.643
+ }
+]

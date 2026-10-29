@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Este hombre VENDIÓ la torre Eiffel. ¡Y no era suya!",
+   "tempo": 1.22,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y el que se la compró... encima le pagó un SOBORNO.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "París, mil novecientos veinticinco. Victor Lustig, estafador, lee en el periódico que la torre está oxidada... y que arreglarla cuesta una fortuna.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que se hace pasar por un alto cargo del gobierno. Y cita en un hotel de lujo a cinco chatarreros.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] «Es secreto de Estado. Vamos a desmontar la torre. Y se la vendo al que pague más».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno de ellos, André Poisson, se muere por quedársela. Pero su mujer... sospecha.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que Lustig se lo lleva aparte y le confiesa: [sarcastic] «Soy un funcionario corrupto. Necesito un soborno».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y eso a Poisson le CONVENCE: si pide sobornos, tiene que ser de verdad. Así que paga el soborno... y la torre.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Lustig huye con una maleta llena de billetes. ¿Y Poisson? [whispers] No lo denuncia. Le da demasiada vergüenza.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Así que Lustig vuelve a París... ¡a vender la torre OTRA VEZ! Esta vez sí le denuncian. Pero escapa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y la torre sigue en pie. [mischievously] Por si alguien quiere comprarla.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A ti qué es lo más raro que te han intentado vender? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

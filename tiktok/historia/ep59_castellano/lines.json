@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Español o castellano? ¡Aquí hay trampa!",
+  "s": 0.12,
+  "e": 2.876
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Porque la Real Academia cambió de bando... hace un siglo.",
+  "s": 3.226,
+  "e": 7.114
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Hasta mil novecientos veinticinco, su diccionario se llamaba «de la lengua castellana».",
+  "s": 7.414,
+  "e": 11.489
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y ese año le cambian el título: «Diccionario de la lengua española».",
+  "s": 11.789,
+  "e": 16.1
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero espera: la Constitución española de mil novecientos setenta y ocho dice «castellano». Y no por casualidad.",
+  "s": 16.4,
+  "e": 22.697
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 22.997,
+  "e": 25.604
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "En España hay más lenguas: catalán, gallego, euskera. Por eso dice: «el castellano es la lengua española oficial del Estado».",
+  "s": 25.904,
+  "e": 34.698
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "¿Y en América? En Argentina, Chile o Perú, mucha gente dice «castellano». En México o el Caribe, casi todos «español».",
+  "s": 34.998,
+  "e": 42.916
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: para la Academia, hoy los dos nombres valen.",
+  "s": 43.216,
+  "e": 46.891
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: la palabra que usas... dice de dónde eres.",
+  "s": 47.241,
+  "e": 51.556
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Y tú, cómo lo llamas? Os leo.",
+  "s": 51.856,
+  "e": 54.014
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 54.364,
+  "e": 57.319
+ }
+]

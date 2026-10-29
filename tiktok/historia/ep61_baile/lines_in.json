@@ -1,0 +1,74 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Cientos de personas no podían parar de bailar!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y la solución de las autoridades... fue más música.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Estrasburgo, julio de mil quinientos dieciocho. Una mujer sale a la calle y se pone a bailar. Sin música.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "No para en días. Y en una semana, ya son más de treinta bailando con ella.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pero espera: los médicos dicen que es «sangre caliente». Y que la cura es... seguir bailando.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que la ciudad contrata músicos, monta un escenario... y en un mes, ya son cientos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Bailan hasta desplomarse. Al final, se los llevan a rezar a San Vito, el santo de los bailarines.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y poco a poco... se paran.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: cuántos murieron, nadie lo sabe. Las crónicas no se ponen de acuerdo."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: hace quinientos años, un baile ya se contagiaba... como hoy en TikTok.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué crees que no podían parar? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

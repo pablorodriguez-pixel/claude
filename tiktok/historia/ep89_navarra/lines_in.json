@@ -1,0 +1,96 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El escudo de Navarra lo dibujó un gigante."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Bueno: un gigante, un califa con prisa... y unas cadenas que no aguantaron.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Hace más de ochocientos años, el ejército almohade amenazaba con comerse los reinos cristianos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres reyes se juntaron para pararlo. Uno era Sancho, rey de Navarra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Le llamaban el Fuerte. Y no era por el carácter: medía más de dos metros.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Los almohades acamparon en las Navas de Tolosa. Y en el centro, la tienda del califa, rodeada de guardias... y de cadenas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Más protegida que la caja fuerte de un banco.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Hasta que llegó Sancho... con su maza.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Rompió las cadenas a mazazos... y el califa salió corriendo por la puerta de atrás.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Esa noche, Sancho no habló de la victoria. Habló de otra cosa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Todos los reyes llevan su señal en el escudo. La mía... me la acabo de ganar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y puso las cadenas, de oro, sobre fondo rojo. Con una esmeralda en el centro.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Acababa de nacer el escudo de Navarra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La verdad: Sancho, en su sello, llevaba un águila.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Esas cadenas eran, en realidad, los refuerzos de hierro de un escudo. Y la leyenda llegó siglos después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Las cadenas se rompen. Estas siguen ondeando. ¿Qué otro escudo quieres que destripe? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

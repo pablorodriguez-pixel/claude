@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Un Papa legalizó la tortura."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Fue en mil doscientos cincuenta y dos. Y lo que vino después parece un anuncio de teletienda.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La Iglesia tenía un problema: cada vez más gente pensaba por su cuenta. Y eso, para ellos, se llamaba herejía.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que el papa Inocencio cuarto, que de inocente tenía poco, firma un documento: a los herejes se les puede torturar.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Eso sí, con condiciones: sin cortar nada... y sin matar. Qué detalle.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y los artesanos huelen el negocio. Producto estrella número uno: el potro. Te estiraban... hasta que confesabas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Número dos: la garrucha. Te colgaban de las muñecas... y arriba y abajo. Como un ascensor, pero peor.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Número tres: la toca. Un trapo en la boca... y agua. Mucha agua.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Y había un médico delante. No para curarte... sino para que aguantaras la siguiente sesión.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] En España no se prohibió hasta mil ochocientos once. Casi seis siglos de teletienda.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: muchos aparatos de los museos de tortura son falsos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: lo del agua, que volvió a salir en las noticias hace veinte años... ya lo usaba la Inquisición.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿qué confesarías tú nada más ver el potro? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

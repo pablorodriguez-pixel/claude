@@ -1,0 +1,71 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El cambio de hora es culpa de un señor que cazaba bichos!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Y por su culpa, este domingo vas a dormir una hora más.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo acaba un cazador de bichos cambiando la hora de medio mundo? En tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: te habrán dicho que lo inventó Benjamin Franklin. Pero lo de Franklin era una broma: proponía despertar a París a cañonazos.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el de verdad fue George Hudson, un señor de Nueva Zelanda que trabajaba en Correos. Y quería tener luz por la tarde para salir a cazar insectos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que en mil ochocientos noventa y cinco propuso adelantar los relojes... y se rieron de él.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: lo que no consiguió un cazador de bichos, lo consiguió una guerra. En mil novecientos dieciséis, Alemania adelantó la hora para ahorrar carbón... y en pocas semanas, media Europa la copió.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: en casi todo México ya no se cambia la hora. Lo quitaron en dos mil veintidós."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y Europa votó quitarlo en dos mil diecinueve... pero todavía no se han puesto de acuerdo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el domingo, cuando duermas una hora más, dale las gracias a un señor que quería cazar bichos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú con qué hora te quedarías para siempre: la de verano, o la de invierno? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

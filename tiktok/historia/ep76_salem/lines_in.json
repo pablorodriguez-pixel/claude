@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡En Salem no quemaron a ninguna bruja!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Lo que les hicieron fue distinto... y a uno, bastante peor.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Massachusetts, mil seiscientos noventa y dos. Unas niñas empiezan a tener ataques: gritos, convulsiones... y señalan a sus vecinas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "En pocos meses hay más de doscientas personas acusadas de brujería.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Diecinueve acaban en la horca. Ahorcadas, no quemadas: allí mandaba la ley inglesa, y la brujería se castigaba así.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y a un granjero de más de ochenta años, Giles Corey, le hacen algo peor: lo aplastan con piedras para que hable.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "No dice nada. Según la leyenda, sus últimas palabras fueron: «más peso».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Entonces, ¿de dónde salen las hogueras? De Europa: allí sí se quemaba a acusadas de brujería. Y se mezcló todo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y al final, todo se derrumba: según se cuenta, el gobernador lo para cuando acusan... a su propia mujer.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Años después, un juez pide perdón en público, y se indemniza a las familias.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: la causa de los ataques aún se discute.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: las brujas de Salem no murieron en la hoguera... sino en la horca.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué crees que todo un pueblo se lo creyó? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

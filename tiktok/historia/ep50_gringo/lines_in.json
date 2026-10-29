@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Gringo no viene de «Green, go home»!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y tengo la prueba: un diccionario... de antes de esa guerra.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿De dónde sale «gringo»? Y de paso... «guiri». Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el mito. Dicen que en la guerra entre México y Estados Unidos, los mexicanos gritaban a los soldados de uniforme verde: «¡Green, go!».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] Pequeño problema: aquellos soldados... iban de azul.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: la prueba. Mil setecientos ochenta y siete, un diccionario español: «Gringos llaman en Málaga a los extranjeros con acento raro». Y en Madrid, sobre todo... a los irlandeses.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] ¡Sesenta años antes de esa guerra! Viene de «griego». Como cuando algo no se entiende y dices: «me suena a griego».",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: el guiri. ¿Y en España? «Guiri» nace en una guerra nuestra: las guerras carlistas.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Los carlistas llamaban «guiristinos» a los soldados de la reina María Cristina. Luego, «guiri» fue el guardia civil... y al final, el turista.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo de «griego» es lo más aceptado, pero hay quien busca otro origen."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: «gringo» y «guiri»... los inventamos en España.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo llamáis en tu país a los extranjeros? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

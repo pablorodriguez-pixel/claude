@@ -1,0 +1,81 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Ese botón que aprietas como loco... no hace nada."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y tú, venga a darle. Tranquilo, no eres el único. Te lo hicieron a propósito.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Nueva York, años setenta. Ponen botones en los semáforos para que los peatones pidan paso.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero en los ochenta llegan los ordenadores, y los semáforos empiezan a cambiar solos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] ¿Y los botones? Quitarlos costaba un dineral. Así que los dejaron ahí... desconectados.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "En dos mil cuatro lo destapó el New York Times: de tres mil doscientos botones, más de dos mil quinientos no hacían nada.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y en Estados Unidos, el botón de cerrar puertas del ascensor tampoco suele ir. Lo desactivan para dar tiempo a quien va en silla de ruedas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y en muchas oficinas, el termostato de la pared es de pega. No está conectado a nada.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] ¿Y por qué no los quitan? Porque sí funcionan. No con el semáforo... sino contigo. Pulsar te calma, y esperas sin cruzar en rojo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: en muchas ciudades sí funcionan. Depende del cruce.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: llevas toda la vida pulsando un botón... que solo existe para que no te pongas nervioso.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿cuántas veces le das tú al botón, por si acaso? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

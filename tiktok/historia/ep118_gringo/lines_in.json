@@ -1,0 +1,67 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.5,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] «Gringo» no viene de «Green, go home».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tengo la prueba: un diccionario español... de sesenta años antes.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "El mito dice: guerra entre México y Estados Unidos. Los mexicanos les gritan a los soldados de verde: «¡Green, go!».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Pequeño problema: aquellos soldados... iban de azul.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y la prueba: en mil setecientos ochenta y siete, un diccionario español ya dice que en Málaga llaman «gringos» a los extranjeros con acento raro.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Viene de «griego». Como cuando algo no se entiende y dices: «me suena a griego».",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y «guiri»? También es nuestro. Nace en las guerras carlistas.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Los carlistas llamaban «guiristinos» a los soldados de la reina María Cristina. Luego, «guiri» fue el guardia civil... y al final, el turista.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: «gringo» y «guiri»... los inventamos en España.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo llamáis en tu tierra a los extranjeros? Os leo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

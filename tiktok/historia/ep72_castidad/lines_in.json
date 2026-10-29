@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡El cinturón de castidad medieval es casi seguro un bulo!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y hay museos que han escondido los suyos en el almacén... por vergüenza.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La leyenda: Sir Godofredo se va a las Cruzadas. Y antes de irse, le pone un candado a su mujer... y se lleva la llave.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Precioso. Pero vamos a investigar. Pista uno: las crónicas de las Cruzadas. Miles de páginas... y ni un solo cinturón.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pista dos: el primer dibujo aparece en mil cuatrocientos cinco, en un libro de armas lleno de inventos fantasiosos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Probablemente era un chiste. Como un meme de la época sobre maridos celosos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pista tres, la más fuerte: los cinturones de los museos. Los analizan... y muchos son de los siglos dieciocho y diecinueve.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Los fabricaban para coleccionistas que querían cosas medievales raras. Y pagaban muy bien.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Hasta el Museo Británico lo pone en su ficha: probablemente, de esa época. Y otros los han retirado.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que Godofredo... nunca necesitó llave. Su candado se inventó seiscientos años después.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: algún caso aislado pudo existir. Pero no como costumbre.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el cinturón de castidad medieval... es más bien un souvenir moderno.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué otra cosa de la Edad Media crees que es mentira? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

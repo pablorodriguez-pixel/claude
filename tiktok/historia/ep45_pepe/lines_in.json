@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Pepe no viene de «Padre Putativo»!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Te han contado una historia muy bonita... pero sin pruebas.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué a un José le llamamos Pepe? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el bulo. Dicen que en los misales, detrás de San José, ponían dos letras: pe, pe. De «Pater Putativus». Y la gente leyó... Pepe.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] Pero los que estudian las palabras han buscado esas dos letras... y casi no aparecen.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: la pista. Hace quinientos años, en España, a muchos José no se les llamaba José. Se les llamaba «Josepe».",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Y de «Josepe», como pasó con Paco, nos quedamos con lo fácil: el final. Pe... pe.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: la prueba. Si fuera cosa de los misales, solo pasaría aquí. Pero en Italia, a los Giuseppe les llaman Peppe. Y en Cataluña, a los Josep... Pep.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Sí: Pep Guardiola... es Pepe.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: la Academia Mexicana de la Lengua sí da por buena la de las siglas. Así que hay pelea."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: tu tío Pepe y Pep Guardiola tienen el mismo apodo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tienes un Pepe en tu vida? Menciónale aquí, que se entere. Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

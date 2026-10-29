@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Ves esta flechita? Te dice dónde está el depósito.",
+  "s": 0.12,
+  "e": 2.639
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y existe porque un señor... se mojó.",
+  "s": 3.189,
+  "e": 7.312
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Detroit, mil novecientos ochenta y seis. Jim Moylan, diseñador de Ford, coge un coche de la empresa.",
+  "s": 7.862,
+  "e": 13.938
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Está lloviendo. Llega a la gasolinera... y para en el lado equivocado.",
+  "s": 14.488,
+  "e": 19.684
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Así que tiene que dar la vuelta. Y acaba empapado.",
+  "s": 20.234,
+  "e": 23.567
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Ese mismo día escribe una nota a su jefe: «¿Y si ponemos un símbolo que diga de qué lado está el depósito?»",
+  "s": 24.117,
+  "e": 29.707
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Siete meses después, le contestan... que sí.",
+  "s": 30.257,
+  "e": 34.86
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y en mil novecientos ochenta y nueve, los primeros Ford salen con la flechita.",
+  "s": 35.41,
+  "e": 39.322
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Hoy la tienen casi todos los coches del mundo. Por una nota... y un señor mojado.",
+  "s": 39.872,
+  "e": 45.605
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que la próxima vez que cojas un coche alquilado, no te asomes por la ventanilla: mira la flecha.",
+  "s": 46.155,
+  "e": 53.604
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Tú lo sabías o te has enterado ahora? Os leo.",
+  "s": 54.154,
+  "e": 56.787
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 57.337,
+  "e": 60.291
+ }
+]

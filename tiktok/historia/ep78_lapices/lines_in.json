@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Los lápices son amarillos por culpa de un emperador."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y la historia empieza con una tormenta... y una mina vigilada por soldados.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Inglaterra, siglo dieciséis. Una tormenta arranca un árbol y deja al aire algo negro y brillante: grafito. El más puro jamás encontrado.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Los pastores lo usan para marcar ovejas. Pero vale tanto que la Corona pone guardias armados en la mina.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Robar grafito acaba castigándose con cárcel. Y la mina solo se abre unas semanas al año, para que no baje el precio.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Durante siglos, el mejor lápiz es inglés. Hasta que, a finales del siglo diecinueve, aparece otro grafito buenísimo... en China.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y los fabricantes quieren presumir de él. ¿Cómo dices «esto lleva grafito chino del bueno»... sin escribirlo?",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Con un color: el amarillo. En China, el color del emperador. El de la realeza.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "En Bohemia, la fábrica Koh-i-Noor presenta su lápiz amarillo de lujo en la Exposición de París. Y arrasa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Todos los demás lo copian. Y hoy, en Estados Unidos, la mayoría de los lápices siguen siendo amarillos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hay quien dice que el amarillo era solo por lujo, no por China.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: cada vez que mordías un lápiz en clase... estabas mordiendo el color de un emperador.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿tú también mordías los lápices? ¿O eras de los que se comían la goma? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

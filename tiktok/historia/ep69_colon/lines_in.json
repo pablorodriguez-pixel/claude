@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Colón no descubrió que la Tierra era redonda!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Eso ya se sabía. Y lo que pasó de verdad es mucho más gracioso: Colón se equivocó.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Más de mil setecientos años antes, un griego, Eratóstenes, midió la Tierra... con un palo y una sombra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y acertó casi de lleno: unos cuarenta mil kilómetros de vuelta.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que cuando Colón presenta su viaje, los sabios no le dicen que se caerá por el borde.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Le dicen que no le llega la comida: que la Tierra es enorme, y Asia está lejísimos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Colón hace sus cuentas... y le sale una Tierra mucho más pequeña. Asia, a la vuelta de la esquina.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Los sabios tenían razón. Si no llega a haber un continente en medio, se mueren todos de hambre.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] ¿Y quién se inventó lo de la Tierra plana? Un escritor americano, en mil ochocientos veintiocho.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Washington Irving escribe una biografía de Colón, la adorna... y el bulo acaba en los libros de texto.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: algún sabio medieval sí dudaba. Pero eran rarísimos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: Colón no tenía razón. Tuvo suerte.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué te enseñaron en el cole que luego resultó ser falso? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

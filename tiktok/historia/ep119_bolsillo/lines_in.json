@@ -1,0 +1,67 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.5,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El bolsillo enano de tus vaqueros... no es para monedas.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Lleva ahí ciento cincuenta años por otra cosa.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Oeste americano. A los mineros se les rompen los pantalones... sobre todo por los bolsillos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Un sastre, Jacob Davis, los refuerza con remaches de cobre. Y para patentarlo, se asocia con su proveedor de tela: Levi Strauss.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil ochocientos setenta y tres: nacen los vaqueros. ¿Y qué llevaba encima un hombre entonces? Un reloj de bolsillo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Ese bolsillo enano era su casa. Por eso tiene justo ese tamaño.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Mira los tuyos: en las esquinas de ese bolsillo... siguen los remaches.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Hubo uno que desapareció: el de la entrepierna. Cuenta la leyenda que el jefe de Levi's se quemó ahí... junto a una hoguera.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: un bolsillo para un reloj que ya no lleva nadie.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú qué guardas en ese bolsillo? Os leo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

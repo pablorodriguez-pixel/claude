@@ -1,0 +1,136 @@
+--- LÍNEA 0  [VECINO]  0.12-3.04  «¡Si eres español, hablas azteca todos los días!»
+   0    0.16-  0.25  ¡Si
+   1    0.28-  0.41  eres
+   2    0.47-  1.13  español,
+   3    1.17-  1.45  hablas
+   4    1.50-  1.93  azteca
+   5    2.01-  2.41  todos
+   6    2.45-  2.57  los
+   7    2.65-  3.05  días!
+--- LÍNEA 1  [VECINO]  3.39-6.58  «Y si no me crees... mira lo que tienes en la nevera.»
+   8    3.43-  3.44  Y
+   9    3.45-  3.47  si
+  10    3.52-  3.63  no
+  11    3.65-  3.71  me
+  12    3.79-  4.51  crees...
+  13    4.75-  5.55  mira
+  14    5.57-  5.63  lo
+  15    5.65-  5.71  que
+  16    5.74-  5.95  tienes
+  17    5.97-  6.03  en
+  18    6.05-  6.11  la
+  19    6.15-  6.59  nevera.
+--- LÍNEA 2  [VECINO]  6.88-11.03  «Tomate. En náhuatl, la lengua de los aztecas: «tomatl».»
+  20    6.88-  7.44  Tomate.
+  21    7.68-  8.16  En
+  22    8.21-  8.80  náhuatl,
+  23    8.83-  8.88  la
+  24    8.91-  9.12  lengua
+  25    9.15-  9.20  de
+  26    9.24-  9.36  los
+  27    9.41- 10.40  aztecas:
+  28   10.44- 11.04  «tomatl».
+--- LÍNEA 3  [VECINO]  11.33-16.93  «Aguacate: «ahuacatl». Que, por cierto, también significaba... testículo.»
+  29   11.33- 12.09  Aguacate:
+  30   12.19- 13.09  «ahuacatl».
+  31   13.27- 13.89  Que,
+  32   13.91- 13.97  por
+  33   14.00- 14.29  cierto,
+  34   14.32- 14.53  también
+  35   14.57- 15.33  significaba...
+  36   15.45- 16.93  testículo.
+--- LÍNEA 4  [VECINO]  17.23-23.82  «Chicle: «tzictli». Y cacahuete: «tlalcacahuatl», el cacao de la tierra.»
+  37   17.27- 17.99  Chicle:
+  38   18.11- 18.87  «tzictli».
+  39   19.23- 19.59  Y
+  40   19.65- 20.31  cacahuete:
+  41   20.59- 22.07  «tlalcacahuatl»,
+  42   22.26- 22.63  el
+  43   22.71- 23.03  cacao
+  44   23.08- 23.19  de
+  45   23.22- 23.27  la
+  46   23.32- 23.83  tierra.
+--- LÍNEA 5  [VECINO]  24.12-26.73  «Sígueme, que esto en clase no te lo cuentan.»
+  47   24.16- 24.74  Sígueme,
+  48   24.76- 24.82  que
+  49   24.87- 25.06  esto
+  50   25.09- 25.14  en
+  51   25.21- 25.54  clase
+  52   25.67- 25.94  no
+  53   25.97- 26.02  te
+  54   26.05- 26.10  lo
+  55   26.17- 26.74  cuentan.
+--- LÍNEA 6  [VECINO]  27.03-32.38  «Y hablando de clase: la tiza de la pizarra... también es azteca. «Tizatl».»
+  56   27.03- 27.11  Y
+  57   27.13- 27.35  hablando
+  58   27.38- 27.43  de
+  59   27.50- 27.91  clase:
+  60   28.07- 28.39  la
+  61   28.47- 28.79  tiza
+  62   28.82- 28.87  de
+  63   28.90- 28.95  la
+  64   28.99- 30.23  pizarra...
+  65   30.28- 30.63  también
+  66   30.66- 30.71  es
+  67   30.79- 31.27  azteca.
+  68   31.55- 32.39  «Tizatl».
+--- LÍNEA 7  [VECINO]  32.68-39.64  «Pero aquí viene la pelea: en México se dice «cacahuate». Y en Sudamérica, «maní», que viene del Caribe.»
+  69   32.68- 32.84  Pero
+  70   32.88- 33.00  aquí
+  71   33.04- 33.24  viene
+  72   33.27- 33.32  la
+  73   33.35- 34.12  pelea:
+  74   34.15- 34.20  en
+  75   34.27- 34.68  México
+  76   34.79- 35.00  se
+  77   35.07- 35.32  dice
+  78   35.44- 36.28  «cacahuate».
+  79   36.64- 37.00  Y
+  80   37.03- 37.08  en
+  81   37.12- 37.72  Sudamérica,
+  82   37.88- 38.76  «maní»,
+  83   38.78- 38.84  que
+  84   38.88- 39.08  viene
+  85   39.10- 39.16  del
+  86   39.20- 39.64  Caribe.
+--- LÍNEA 8  [VECINO]  39.94-44.33  «Ojo: con «chocolate», los lingüistas todavía discuten de dónde viene.»
+  87   39.94- 40.26  Ojo:
+  88   40.38- 40.74  con
+  89   40.78- 41.54  «chocolate»,
+  90   41.58- 41.70  los
+  91   41.73- 42.26  lingüistas
+  92   42.34- 42.90  todavía
+  93   42.95- 43.46  discuten
+  94   43.54- 43.70  de
+  95   43.75- 43.94  dónde
+  96   43.99- 44.34  viene.
+--- LÍNEA 9  [VECINO]  44.68-49.23  «O sea: sin los aztecas... te quedas sin guacamole y sin pizarra.»
+  97   44.68- 44.76  O
+  98   44.84- 45.16  sea:
+  99   45.30- 45.72  sin
+ 100   45.76- 45.88  los
+ 101   45.94- 46.60  aztecas...
+ 102   46.82- 47.24  te
+ 103   47.28- 47.48  quedas
+ 104   47.52- 47.64  sin
+ 105   47.67- 48.20  guacamole
+ 106   48.36- 48.52  y
+ 107   48.56- 48.68  sin
+ 108   48.72- 49.24  pizarra.
+--- LÍNEA 10  [VECINO]  49.53-53.53  «¿Tú dices cacahuete, cacahuate o maní? Os leo.»
+ 109   49.53- 49.66  ¿Tú
+ 110   49.67- 50.02  dices
+ 111   50.09- 50.98  cacahuete,
+ 112   51.02- 51.62  cacahuate
+ 113   51.77- 51.94  o
+ 114   51.99- 52.77  maní?
+ 115   52.92- 53.22  Os
+ 116   53.27- 53.53  leo.
+--- LÍNEA 11  [VECINO]  53.88-56.84  «Y esto... no venía en el libro.»
+ 117   53.88- 53.96  Y
+ 118   54.12- 54.84  esto...
+ 119   55.21- 55.96  no
+ 120   56.02- 56.28  venía
+ 121   56.31- 56.36  en
+ 122   56.41- 56.52  el
+ 123   56.57- 56.84  libro.

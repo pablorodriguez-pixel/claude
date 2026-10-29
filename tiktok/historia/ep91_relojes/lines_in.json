@@ -1,0 +1,81 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Los relojes de los anuncios marcan las diez y diez."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Búscalo luego. Todos. Y no es casualidad: es psicología.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Primero: las agujas así forman una sonrisa. El reloj te sonríe... para que lo compres.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Segundo: dejan libre la parte de arriba, justo donde va la marca. Que se lea bien el nombre.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Tercero: parecen una uve. De victoria. De ganador.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y si las pones a las ocho y veinte, mira: el reloj pone cara de lunes.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Por eso en las fotos de relojes es casi una ley. Tiendas, catálogos, webs... diez y diez.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Hay marcas que hasta lo ajustan al segundo, para que la foto quede perfecta.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y ahora que lo sabes, no vas a poder dejar de verlo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo de que es la hora a la que murió Lincoln es un bulo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: ese reloj no te está dando la hora. Te está ligando.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Confiesa: ¿cuánto es lo más caro que has pagado por algo... solo porque te sonreía? Os leo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

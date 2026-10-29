@@ -1,0 +1,74 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡La Mona Lisa es famosa porque la robaron!"
+  },
+  {
+   "who": "VECINO",
+   "text": "Y uno de los sospechosos del robo... fue Picasso.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo se roba un cuadro del Louvre? Te lo cuento en tres momentos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el robo. En mil novecientos once, un hombre que había trabajado en el museo se escondió el cuadro bajo la ropa... y salió por la puerta tan tranquilo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y nadie se dio cuenta en más de un día. Los vigilantes pensaban que se lo habían llevado a fotografiar.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: los sospechosos. La policía detuvo a un poeta, Apollinaire. Y por él, acabó interrogando a su amigo, un pintor español: Pablo Picasso. Los dos eran inocentes.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y mientras tanto, pasó algo rarísimo: la gente hacía cola en el museo... para mirar la pared vacía.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: el ladrón. Tuvo el cuadro escondido dos años, hasta que intentó venderlo en Florencia, y le pillaron. En Italia, muchos le trataron como a un héroe."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: ya era un cuadro admirado. Pero no el más famoso del mundo."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: aquel ladrón no se llevó el cuadro más famoso del mundo... lo creó.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Y hace un año, al Louvre le volvieron a robar: en siete minutos se llevaron joyas de la Corona francesa. Y siguen sin aparecer."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Dónde crees tú que están? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

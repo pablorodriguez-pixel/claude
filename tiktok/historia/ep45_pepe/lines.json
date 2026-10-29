@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Pepe no viene de «Padre Putativo»!",
+  "s": 0.12,
+  "e": 1.856
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Te han contado una historia muy bonita... pero sin pruebas.",
+  "s": 2.206,
+  "e": 5.931
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 6.531,
+  "e": 9.562
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Por qué a un José le llamamos Pepe? Te lo cuento en tres pasos.",
+  "s": 9.912,
+  "e": 13.983
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: el bulo. Dicen que en los misales, detrás de San José, ponían dos letras: pe, pe. De «Pater Putativus». Y la gente leyó... Pepe.",
+  "s": 14.333,
+  "e": 25.605
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Pero los que estudian las palabras han buscado esas dos letras... y casi no aparecen.",
+  "s": 26.105,
+  "e": 32.121
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: la pista. Hace quinientos años, en España, a muchos José no se les llamaba José. Se les llamaba «Josepe».",
+  "s": 32.721,
+  "e": 41.275
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y de «Josepe», como pasó con Paco, nos quedamos con lo fácil: el final. Pe... pe.",
+  "s": 41.875,
+  "e": 50.02
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y tres: la prueba. Si fuera cosa de los misales, solo pasaría aquí. Pero en Italia, a los Giuseppe les llaman Peppe. Y en Cataluña, a los Josep... Pep.",
+  "s": 50.52,
+  "e": 59.794
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Sí: Pep Guardiola... es Pepe.",
+  "s": 60.394,
+  "e": 63.461
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: la Academia Mexicana de la Lengua sí da por buena la de las siglas. Así que hay pelea.",
+  "s": 64.061,
+  "e": 69.736
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: tu tío Pepe y Pep Guardiola tienen el mismo apodo.",
+  "s": 70.086,
+  "e": 73.681
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+  "s": 74.181,
+  "e": 79.105
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Tienes un Pepe en tu vida? Menciónale aquí, que se entere. Os leo.",
+  "s": 79.505,
+  "e": 83.74
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 84.09,
+  "e": 86.567
+ }
+]

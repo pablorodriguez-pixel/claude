@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Nerón no tocó la lira mientras Roma ardía!",
+  "s": 0.12,
+  "e": 2.539
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "De hecho, cuando empezó el fuego... ni siquiera estaba en Roma.",
+  "s": 2.889,
+  "e": 6.537
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Año sesenta y cuatro. Un incendio arrasa Roma durante seis días. De catorce barrios, solo cuatro se salvan.",
+  "s": 6.837,
+  "e": 13.391
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Nerón estaba en Anzio, a unos cincuenta kilómetros. Y cuando se entera... vuelve corriendo.",
+  "s": 13.691,
+  "e": 19.44
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Abre sus jardines a los que se quedan sin casa, trae comida y baja el precio del trigo.",
+  "s": 19.74,
+  "e": 24.514
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Entonces, ¿de dónde sale lo de la lira? De un rumor: que cantó la caída de Troya mirando las llamas.",
+  "s": 24.814,
+  "e": 30.884
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 31.184,
+  "e": 33.79
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "El historiador que lo cuenta, Tácito, dice que era un rumor. Los que lo dan por hecho escriben décadas después.",
+  "s": 34.09,
+  "e": 40.888
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y en inglés dicen que tocaba el violín. El violín... se inventó mil quinientos años después.",
+  "s": 41.188,
+  "e": 46.902
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Lo que sí hizo Nerón: buscar culpables. Y acusó a los cristianos.",
+  "s": 47.202,
+  "e": 53.518
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: si provocó él el fuego, aún se discute.",
+  "s": 53.818,
+  "e": 56.853
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: el emperador que tocaba mientras Roma ardía... estaba a cincuenta kilómetros.",
+  "s": 57.153,
+  "e": 63.064
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Qué villano de la historia crees que no era tan malo? Os leo.",
+  "s": 63.364,
+  "e": 66.718
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 67.068,
+  "e": 70.023
+ }
+]

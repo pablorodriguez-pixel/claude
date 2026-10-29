@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Cenas a las DIEZ de la noche... por culpa de Hitler.",
+  "s": 0.12,
+  "e": 3.276
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no es broma. Tu reloj lleva más de ochenta años... MINTIÉNDOTE.",
+  "s": 3.826,
+  "e": 10.67
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Marzo de mil novecientos cuarenta. España tiene la hora de Londres y de Portugal: la que le toca por el sol.",
+  "s": 11.22,
+  "e": 16.655
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero Franco quiere caerle bien a Hitler. Así que ordena poner TODOS los relojes de España a la hora de Berlín.",
+  "s": 17.205,
+  "e": 23.436
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Esa noche, a las once... los relojes saltan directamente a las doce.",
+  "s": 23.986,
+  "e": 29.067
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La guerra acaba. Pero nadie vuelve a tocar el reloj. Y Portugal, que está al lado... sigue con su hora.",
+  "s": 29.617,
+  "e": 36.253
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Así que hoy, cuando tu reloj marca las diez... para el sol son casi las nueve. Y en verano, ¡casi las ocho!",
+  "s": 36.803,
+  "e": 44.314
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Por eso en Galicia, en junio, a las diez de la noche todavía es de día.",
+  "s": 44.864,
+  "e": 48.463
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "O sea... no cenas tarde. Cenas a tu hora... con el reloj de otro país.",
+  "s": 49.013,
+  "e": 55.562
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que esta noche, cuando te sientes a cenar a las diez... ya sabes a quién echarle la culpa.",
+  "s": 56.112,
+  "e": 61.464
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿A qué hora cenáis en tu casa? Os leo.",
+  "s": 62.014,
+  "e": 64.41
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 64.96,
+  "e": 67.914
+ }
+]

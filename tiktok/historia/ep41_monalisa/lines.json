@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La Mona Lisa es famosa porque la robaron!",
+  "s": 0.12,
+  "e": 2.259
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y uno de los sospechosos del robo... fue Picasso.",
+  "s": 2.609,
+  "e": 5.964
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 6.564,
+  "e": 9.68
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Cómo se roba un cuadro del Louvre? Te lo cuento en tres momentos.",
+  "s": 10.03,
+  "e": 14.345
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: el robo. En mil novecientos once, un hombre que había trabajado en el museo se escondió el cuadro bajo la ropa... y salió por la puerta tan tranquilo.",
+  "s": 14.695,
+  "e": 23.804
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y nadie se dio cuenta en más de un día. Los vigilantes pensaban que se lo habían llevado a fotografiar.",
+  "s": 24.154,
+  "e": 28.946
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dos: los sospechosos. La policía detuvo a un poeta, Apollinaire. Y por él, acabó interrogando a su amigo, un pintor español: Pablo Picasso. Los dos eran inocentes.",
+  "s": 29.546,
+  "e": 40.901
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y mientras tanto, pasó algo rarísimo: la gente hacía cola en el museo... para mirar la pared vacía.",
+  "s": 41.401,
+  "e": 50.277
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y tres: el ladrón. Tuvo el cuadro escondido dos años, hasta que intentó venderlo en Florencia, y le pillaron. En Italia, muchos le trataron como a un héroe.",
+  "s": 50.877,
+  "e": 59.99
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: ya era un cuadro admirado. Pero no el más famoso del mundo.",
+  "s": 60.34,
+  "e": 64.817
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: aquel ladrón no se llevó el cuadro más famoso del mundo... lo creó.",
+  "s": 65.167,
+  "e": 70.439
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y hace un año, al Louvre le volvieron a robar: en siete minutos se llevaron joyas de la Corona francesa. Y siguen sin aparecer.",
+  "s": 71.039,
+  "e": 79.511
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Dónde crees tú que están? Os leo.",
+  "s": 79.861,
+  "e": 81.851
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 82.201,
+  "e": 84.758
+ }
+]

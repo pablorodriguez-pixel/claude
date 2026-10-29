@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¿Móvil mojado? NO lo metas en arroz. Lo dice Apple.",
+   "tempo": 1.12,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo que sí funciona... es mucho más fácil.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Se te cae el móvil al agua. Pánico. Y alguien grita: «¡Rápido, a un bol de arroz!»",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo hemos hecho todos. Nos lo dijo un amigo, lo vimos en internet... y parecía lógico: el arroz chupa la humedad.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[sighs] Pero el arroz solo seca por fuera. El agua está dentro... y ahí el arroz no llega.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y encima suelta polvo y granitos... que se meten justo por el conector.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Por eso, en dos mil veinticuatro, Apple lo puso por escrito: «No metas tu iPhone en una bolsa de arroz».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] ¿Y qué hago entonces? Primero: unos golpecitos contra la mano, con el conector hacia abajo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Después, déjalo en un sitio seco y con aire. Y espera al menos media hora antes de cargarlo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Nada de secador, ni bastoncillos, ni aire a presión. Y si sigue avisando, puede tardar hasta un día.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que el arroz... mejor para la paella.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú también lo has metido alguna vez en arroz? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

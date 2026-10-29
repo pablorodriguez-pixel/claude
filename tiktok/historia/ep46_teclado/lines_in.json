@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Tu teclado está desordenado a propósito!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y no: no es para que escribas más lento.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué pone Q, W, E... y no A, B, C? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el atasco. Hace ciento cincuenta años, un tal Sholes inventa la máquina de escribir. Y al principio... las letras iban en orden.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero cada tecla movía una varilla de metal. Si pulsabas dos vecinas muy rápido... ¡clac! Chocaban, y la máquina se atascaba.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el truco. Sholes separó las letras que más se escriben juntas. No para frenarte a ti... para que no se trabara la máquina.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: la prueba. Mira la fila de arriba de tu teclado. Solo con ella puedes escribir «typewriter»: máquina de escribir, en inglés.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y en español... portero. Pruébalo ahora.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] Lo más loco: en mil novecientos treinta y seis inventaron uno más cómodo. Fracasó: todos habían aprendido con este.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hay historiadores que culpan a los telegrafistas, no a los atascos."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: tu móvil no tiene varillas... y sigue con el orden de una máquina de hace siglo y medio.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú escribes con dos dedos o con los diez? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

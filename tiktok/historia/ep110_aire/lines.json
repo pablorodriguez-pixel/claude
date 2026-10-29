@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Ventanilla o aire acondicionado? Casi todos lo hacen al revés.",
+  "s": 0.12,
+  "e": 3.3
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y la respuesta depende de una sola cosa: la velocidad.",
+  "s": 3.85,
+  "e": 8.081
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Verano. Viaje en coche. Y tu padre: «Nada de aire, que gasta. Bajad las ventanillas».",
+  "s": 8.631,
+  "e": 13.746
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y en parte tiene razón: el aire acondicionado funciona con el motor. Gasta gasolina.",
+  "s": 14.296,
+  "e": 19.051
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero la ventanilla abierta también gasta. Solo que no se nota.",
+  "s": 19.601,
+  "e": 22.796
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "El aire entra, hace remolinos dentro del coche... y lo frena. Como un paracaídas pequeñito.",
+  "s": 23.346,
+  "e": 31.871
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y ese freno crece muchísimo con la velocidad. A cuarenta por hora, casi nada. A ciento veinte... un montón.",
+  "s": 32.421,
+  "e": 41.289
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Así que en ciudad, despacio, gana la ventanilla: gasta menos que el aire.",
+  "s": 41.839,
+  "e": 45.512
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Pero en la autovía, a partir de unos ochenta o cien por hora, la ventanilla abierta puede gastar tanto o más que el aire.",
+  "s": 46.062,
+  "e": 52.749
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Depende del coche: cuanto más aerodinámico, antes le compensa cerrar.",
+  "s": 53.299,
+  "e": 56.894
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Así que: ciudad, ventanilla. Autovía, aire. Y si tu padre protesta... enséñale este vídeo.",
+  "s": 57.444,
+  "e": 64.468
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿En tu coche quién manda en el aire? Os leo.",
+  "s": 65.018,
+  "e": 67.572
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 68.122,
+  "e": 71.076
+ }
+]

@@ -1,0 +1,77 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Tu matrícula no tiene ni una vocal.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y no es casualidad: cuando sepas por qué, vas a mirar todas las matrículas.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Fíjate en cualquier coche: cuatro números y tres letras. Ni A, ni E, ni I, ni O, ni U.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Es así desde el año dos mil. Y el motivo está escrito en el decreto que creó estas matrículas:",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "quitaron las vocales para evitar «palabras malsonantes».",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Porque con vocales, al azar, te podría tocar una matrícula como... ANO. O PIS. O cosas peores.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tendrías que llevarla puesta, por toda España, durante años.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Tampoco hay eñe ni cu: de lejos, la eñe se confunde con la ene... y la cu con la o.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ahora el truco: las letras van en orden. Empezaron en B B B, en el año dos mil...",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "y han ido avanzando. Los coches nuevos de este año ya llevan la N.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que mira la primera letra: cuanto más lejos de la B, más nuevo es el coche.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cuál es la matrícula más graciosa que has visto? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

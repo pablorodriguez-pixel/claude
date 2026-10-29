@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Tu abuela te mintió con las zanahorias.",
+  "s": 0.12,
+  "e": 2.003
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no fue culpa suya. La engañó... el servicio secreto británico.",
+  "s": 2.353,
+  "e": 7.114
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Londres, mil novecientos cuarenta. Cada noche llegan los bombarderos alemanes, y la ciudad apaga todas las luces.",
+  "s": 7.414,
+  "e": 14.128
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero pasa algo rarísimo: un piloto inglés empieza a derribarlos... a oscuras. Se llama John Cunningham.",
+  "s": 14.428,
+  "e": 22.976
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno, dos, cinco... acaba con veinte. Y los periódicos le ponen un mote: «Ojos de Gato».",
+  "s": 23.276,
+  "e": 30.45
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "¿Cómo puede ver de noche? El gobierno da la explicación: come muchísimas zanahorias.",
+  "s": 30.75,
+  "e": 36.339
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 36.639,
+  "e": 39.246
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y el país entero se lanza a por zanahorias. Carteles, recetas... hasta sale un personaje: el «Doctor Zanahoria».",
+  "s": 39.546,
+  "e": 46.259
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Pero el secreto de verdad iba en el avión: un radar diminuto, que veía en la oscuridad por él.",
+  "s": 46.559,
+  "e": 52.379
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Si los alemanes se enteraban, lo copiaban. Así que había que darles otra explicación... naranja.",
+  "s": 52.679,
+  "e": 59.074
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y el bulo funcionó tan bien que, ochenta años después... te lo seguía diciendo tu abuela.",
+  "s": 59.374,
+  "e": 64.702
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: si engañó a los alemanes, no está claro.",
+  "s": 65.002,
+  "e": 68.833
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: cada zanahoria que te comiste para ver mejor... era propaganda de guerra.",
+  "s": 69.133,
+  "e": 74.485
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "¿Qué te decían en casa que luego resultó ser mentira? Os leo.",
+  "s": 74.785,
+  "e": 78.776
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 79.126,
+  "e": 82.081
+ }
+]

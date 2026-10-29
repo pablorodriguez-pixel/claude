@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Los aviones tienen ceniceros.",
+  "s": 0.12,
+  "e": 1.946
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Sí, aunque no se puede fumar desde hace más de veinte años. Fíjate la próxima vez en la puerta del baño.",
+  "s": 2.296,
+  "e": 7.708
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Antes se fumaba en los aviones como en un bar. Y la zona de no fumadores estaba... una fila más atrás.",
+  "s": 8.008,
+  "e": 13.282
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Así que lo prohibieron. Y quitaron los ceniceros de los asientos.",
+  "s": 13.582,
+  "e": 17.178
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero aquí viene lo bueno: la normativa obliga a que siga habiendo ceniceros en los baños.",
+  "s": 17.478,
+  "e": 22.193
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "¿Por qué? Porque siempre hay alguien que fuma a escondidas en el baño.",
+  "s": 22.493,
+  "e": 25.609
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 25.909,
+  "e": 28.516
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y si no tiene dónde apagarlo... lo tira a la papelera. Llena de papel.",
+  "s": 28.816,
+  "e": 35.133
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "En mil novecientos setenta y tres, un avión acabó estrellándose cerca de París por un fuego que empezó en un baño.",
+  "s": 35.433,
+  "e": 42.841
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que prefieren que el fumador pillado... por lo menos lo apague bien.",
+  "s": 43.141,
+  "e": 46.893
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ojo: fumar en un avión te puede costar miles de euros de multa.",
+  "s": 47.193,
+  "e": 52.142
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "O sea: el cenicero no es para que fumes. Es para cuando la lías.",
+  "s": 52.442,
+  "e": 57.16
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Confiesa: ¿conoces a alguien capaz de fumarse uno en el baño del avión? Os leo.",
+  "s": 57.46,
+  "e": 63.455
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 63.755,
+  "e": 66.71
+ }
+]

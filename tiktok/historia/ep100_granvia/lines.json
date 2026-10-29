@@ -1,0 +1,79 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "La Gran Vía de Madrid se llamó AVENIDA DE RUSIA.",
+  "s": 0.12,
+  "e": 2.538
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y ese es solo uno de sus ocho nombres.",
+  "s": 3.088,
+  "e": 5.528
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Cuando la construyen, a principios del siglo veinte, va por tramos. Y cada tramo tiene su nombre: Conde de Peñalver, Pi y Margall, Eduardo Dato.",
+  "s": 6.078,
+  "e": 14.469
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Pero en mil novecientos treinta y seis llega la guerra. Y pasa a llamarse Avenida de la CNT.",
+  "s": 15.019,
+  "e": 21.175
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Al año siguiente, Avenida de Rusia. Y luego... Avenida de la Unión Soviética.",
+  "s": 21.725,
+  "e": 26.588
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y los madrileños, como caían tantas bombas, la llamaban... la avenida de los obuses.",
+  "s": 27.138,
+  "e": 33.56
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Gana Franco, y otra vez a cambiar: Avenida de José Antonio. Durante cuarenta años.",
+  "s": 34.11,
+  "e": 40.427
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Hasta que en mil novecientos ochenta y uno, por fin, le ponen el nombre que ya usaba todo el mundo: Gran Vía.",
+  "s": 40.977,
+  "e": 47.494
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "O sea, que durante setenta años... la Gran Vía no se llamó Gran Vía.",
+  "s": 48.044,
+  "e": 52.893
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "¿Qué calle de tu ciudad ha cambiado de nombre? Os leo.",
+  "s": 53.443,
+  "e": 56.48
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 57.03,
+  "e": 59.985
+ }
+]

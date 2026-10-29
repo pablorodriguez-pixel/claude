@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Tu abuela te mintió con las zanahorias."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y no fue culpa suya. La engañó... el servicio secreto británico.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Londres, mil novecientos cuarenta. Cada noche llegan los bombarderos alemanes, y la ciudad apaga todas las luces.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero pasa algo rarísimo: un piloto inglés empieza a derribarlos... a oscuras. Se llama John Cunningham.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Uno, dos, cinco... acaba con veinte. Y los periódicos le ponen un mote: «Ojos de Gato».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo puede ver de noche? El gobierno da la explicación: come muchísimas zanahorias.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y el país entero se lanza a por zanahorias. Carteles, recetas... hasta sale un personaje: el «Doctor Zanahoria».",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Pero el secreto de verdad iba en el avión: un radar diminuto, que veía en la oscuridad por él.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Si los alemanes se enteraban, lo copiaban. Así que había que darles otra explicación... naranja.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y el bulo funcionó tan bien que, ochenta años después... te lo seguía diciendo tu abuela.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: si engañó a los alemanes, no está claro.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: cada zanahoria que te comiste para ver mejor... era propaganda de guerra.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué te decían en casa que luego resultó ser mentira? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

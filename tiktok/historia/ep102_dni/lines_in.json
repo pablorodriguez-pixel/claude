@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El DNI número UNO... lo tuvo Franco.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y los números del cuatro al nueve... no los tiene nadie.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil novecientos cuarenta y cuatro. Franco crea el Documento Nacional de Identidad.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Siete años después empiezan a repartirlo. Y el primero... se lo queda él: el número UNO.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "El dos, para su mujer, Carmen Polo. El tres, para su hija.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Y luego... un hueco. Del cuatro al nueve, nadie. Hasta hoy.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Porque a partir del diez, los números se guardan para la familia real.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "El diez, para Juan Carlos. El quince, para Felipe sexto. [surprised] Y el dieciséis... para la princesa Leonor.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea, que en España, los DNI más bajos los tiene la familia real... después de los Franco.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que la próxima vez que te pidan el DNI... acuérdate de quién tuvo el número uno.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tu DNI empieza por cero? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

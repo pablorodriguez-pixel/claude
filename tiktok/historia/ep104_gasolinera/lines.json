@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Estos dos carteles parecen iguales... pero uno te saca de la autovía.",
+  "s": 0.12,
+  "e": 3.254
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y te lo chiva el número. Fíjate.",
+  "s": 3.804,
+  "e": 6.049
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Vas en reserva por la autovía. Gasolinera a 1000 metros. Luego, a 500.",
+  "s": 6.599,
+  "e": 12.116
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Y ahí la tienes: pegada a la carretera. Entras, repostas y sigues.",
+  "s": 12.666,
+  "e": 17.378
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Otro día, otra gasolinera. Pero esta pone 750. Luego, 250.",
+  "s": 17.928,
+  "e": 24.885
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Tomas la salida... y acabas dando vueltas por un pueblo, buscándola.",
+  "s": 25.435,
+  "e": 29.585
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "¿Por qué? Porque esa gasolinera no tiene salida propia: usa la del pueblo.",
+  "s": 30.135,
+  "e": 35.089
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y en los 1000 y en los 500 ya están los carteles de esa salida. Así que los de la gasolinera van en medio: a 750 y a 250.",
+  "s": 35.639,
+  "e": 43.634
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "No es casualidad. Lo dice la norma de señales de carretera.",
+  "s": 44.184,
+  "e": 48.112
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Así que: número redondo, la tienes ahí. Número raro... toca desvío.",
+  "s": 48.662,
+  "e": 53.679
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Te ha tocado alguna vez la del pueblo? Os leo.",
+  "s": 54.229,
+  "e": 57.026
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 57.576,
+  "e": 60.531
+ }
+]

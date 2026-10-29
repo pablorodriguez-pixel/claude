@@ -1,0 +1,82 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡México con jota... a un mexicano le duele!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y la culpa es de una letra que antes sonaba «sh».",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué México se escribe con equis y se dice con jota? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el sonido. Hace quinientos años, la equis en español sonaba «sh». Los mexicas decían «Méshico»... y los españoles lo escribieron así: con equis.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Por eso los ingleses llaman «sherry» al vino de Jerez: se escribía Xerez. Y dicen «Don Quixote».",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el cambio. Ese «sh» acabó sonando a jota. Y en mil ochocientos quince, la Academia cambió las equis por jotas: Xerez, Jerez. Quixote, Quijote.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero seis años después, México se independiza. Y su equis... no se toca. Se queda como bandera.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Tres: la prueba. En España se escribió «Méjico» con jota durante muchísimo tiempo. Hasta que la propia Academia... recomendó la equis.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[excited] Y en México, la equis suena de cuatro formas: México, Xochimilco, Xola... y taxi.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: «Méjico» con jota no es una falta. Es correcto, solo que no se recomienda."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: esa equis no es un error... es una cicatriz de quinientos años.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme... y en la próxima cena, el que lo cuenta eres tú.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué palabra de tu país escribe todo el mundo mal? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Los vikingos nunca llevaron cuernos!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y el culpable de que lo creas... es un señor que hacía óperas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "En todas las excavaciones vikingas solo ha aparecido un casco completo. Y es redondo, de hierro... sin cuernos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Lógico: en una pelea, un cuerno es un asa para que te agarren la cabeza.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Entonces, ¿de dónde salen? Viaja a Alemania, mil ochocientos setenta y seis.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Wagner estrena su ópera de dioses nórdicos... y el diseñador de vestuario le pone cuernos a todos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La ópera es un exitazo. Y los cuernos saltan a cuadros, libros, cómics...",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Hasta que hoy, decir vikingo es decir cuernos. Hay hasta un equipo de fútbol americano que los lleva en el casco.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Lo más gracioso: los cascos con cuernos sí existían... pero casi dos mil años antes. Y eran para ceremonias.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: en algún ritual, quizá. En batalla, ni de broma.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el vikingo que tienes en la cabeza... lo inventó un sastre de ópera.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué otro disfraz de la historia crees que es mentira? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

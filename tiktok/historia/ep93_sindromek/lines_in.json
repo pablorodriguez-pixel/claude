@@ -1,0 +1,72 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El síndrome K NO existe. Y salvó vidas.",
+   "tempo": 1.16
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Se lo inventaron unos médicos... delante de las narices de los nazis.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Roma, mil novecientos cuarenta y tres. Los soldados alemanes buscan judíos casa por casa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Algunos escapan a un hospital en una isla del río. Y los médicos... los esconden como pacientes.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero un día, los nazis llegan al hospital. Y quieren ver a TODOS los enfermos.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que los médicos se inventan una enfermedad: el síndrome K. Mortal. Y MUY contagiosa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] La K era una burla... la inicial de los jefes nazis de Roma.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Los soldados llegan a la sala del síndrome K. Y desde dentro... [coughs] alguien tose.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] No entran. Se dan la vuelta... y se van del hospital a toda prisa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así se salvaron decenas de personas. Gracias a una enfermedad que no tenía NADIE.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué otra historia de héroes que nadie conoce quieres que cuente? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

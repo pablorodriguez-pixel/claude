@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "El cruasán es una burla a los turcos.",
+  "s": 0.12,
+  "e": 2.251
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y cada vez que lo mojas en el café... te estás comiendo el símbolo del enemigo.",
+  "s": 2.601,
+  "e": 7.44
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Viena, mil seiscientos ochenta y tres. Un ejército turco enorme rodea la ciudad.",
+  "s": 7.74,
+  "e": 13.573
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Por arriba no pueden entrar. Así que, de noche, empiezan a cavar un túnel por debajo de la muralla.",
+  "s": 13.873,
+  "e": 19.144
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Toda Viena duerme. Bueno... toda no. Los panaderos trabajan de madrugada.",
+  "s": 19.444,
+  "e": 25.401
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y entre masa y masa, un panadero oye algo bajo el suelo: tac... tac... tac.",
+  "s": 25.701,
+  "e": 32.897
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 33.197,
+  "e": 35.804
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "¡Están picando! Da la alarma, los soldados corren al túnel... y pillan a los turcos con la pala en la mano.",
+  "s": 36.104,
+  "e": 42.178
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Llega ayuda, el asedio se rompe, y Viena se salva.",
+  "s": 42.478,
+  "e": 46.235
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Y los panaderos, para celebrarlo, hacen un pan con la forma del símbolo turco: la media luna.",
+  "s": 46.535,
+  "e": 53.104
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Para comérsela en el desayuno. Literalmente.",
+  "s": 53.404,
+  "e": 56.359
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: esto es leyenda. El cruasán de verdad llegó a París mucho después.",
+  "s": 56.659,
+  "e": 61.686
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: mañana, cuando muerdas la punta del cruasán... hazlo por Viena.",
+  "s": 61.986,
+  "e": 67.339
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Confiesa: ¿tú lo mojas en el café, o lo abres y le metes de todo? Os leo.",
+  "s": 67.639,
+  "e": 73.317
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 73.617,
+  "e": 76.572
+ }
+]

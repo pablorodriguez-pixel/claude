@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Móvil mojado? NO lo metas en arroz. Lo dice Apple.",
+  "s": 0.12,
+  "e": 3.178
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y lo que sí funciona... es mucho más fácil.",
+  "s": 3.728,
+  "e": 6.916
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Se te cae el móvil al agua. Pánico. Y alguien grita: «¡Rápido, a un bol de arroz!»",
+  "s": 7.466,
+  "e": 15.941
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Lo hemos hecho todos. Nos lo dijo un amigo, lo vimos en internet... y parecía lógico: el arroz chupa la humedad.",
+  "s": 16.491,
+  "e": 24.407
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pero el arroz solo seca por fuera. El agua está dentro... y ahí el arroz no llega.",
+  "s": 24.957,
+  "e": 30.464
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Y encima suelta polvo y granitos... que se meten justo por el conector.",
+  "s": 31.014,
+  "e": 36.608
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Por eso, en dos mil veinticuatro, Apple lo puso por escrito: «No metas tu iPhone en una bolsa de arroz».",
+  "s": 37.158,
+  "e": 42.834
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "¿Y qué hago entonces? Primero: unos golpecitos contra la mano, con el conector hacia abajo.",
+  "s": 43.384,
+  "e": 49.996
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Después, déjalo en un sitio seco y con aire. Y espera al menos media hora antes de cargarlo.",
+  "s": 50.546,
+  "e": 56.622
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Nada de secador, ni bastoncillos, ni aire a presión. Y si sigue avisando, puede tardar hasta un día.",
+  "s": 57.172,
+  "e": 63.134
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Así que el arroz... mejor para la paella.",
+  "s": 63.684,
+  "e": 66.463
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Tú también lo has metido alguna vez en arroz? Os leo.",
+  "s": 67.013,
+  "e": 69.561
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 70.111,
+  "e": 73.066
+ }
+]

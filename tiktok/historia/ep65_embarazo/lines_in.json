@@ -1,0 +1,84 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Hace tres mil años ya había test de embarazo!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y el que llegó mucho después... fue bastante peor. Sobre todo para un conejo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Egipto. Un papiro explica cómo hacerlo: la mujer orina en dos saquitos. Uno de trigo... y otro de cebada.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Si las semillas brotan, está embarazada. Si no brota nada... no lo está.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y encima prometía más: si brota la cebada, niño. Si brota el trigo, niña.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Pero espera: en mil novecientos sesenta y tres, unos científicos lo prueban... y acierta en siete de cada diez casos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué funciona? Se cree que las hormonas del embarazo ayudan a germinar a las semillas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y ahora, lo del conejo. En mil novecientos treinta y uno llega un test moderno: se inyecta la orina... a una coneja.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Luego hay que mirarle los ovarios. Así que la coneja moría siempre. Diera positivo... o negativo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] De ahí la frase americana «el conejo murió», que significaba «estás embarazada». Aunque el conejo moría igual.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: lo de niño o niña no funcionaba. Y qué grano era cuál, se discute."
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: el test egipcio, con trigo y pis... era más amable que el de hace cien años.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cómo se enteró tu madre de que venías tú? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Paco no significa «Padre de la Comunidad»!"
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Te lo han contado mal toda la vida. Y la explicación de verdad... es mucho más tierna.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué a un Francisco le llamamos Paco? Te lo cuento en tres pasos."
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno: el bulo. Seguro que te lo han contado así: los frailes de San Francisco firmaban «Pater Comunitatis», padre de la comunidad. Abreviado: Pa, Co... Paco.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "[curious] Suena precioso. El problema es que los lingüistas no se lo creen: no hay pruebas.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Dos: el culpable. Los lingüistas lo explican de otra forma: los apodos... los fabrican los bebés.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Un niño pequeño no puede decir «Francisco»: es muy largo y muy difícil. Así que cambia la efe por una pe, se queda con el final... y le sale «Paco».",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Y tres: la prueba. Con muchísimos nombres pasa lo mismo. Dolores, Lola. Concepción, Concha. Ignacio, Nacho. Y en México, Francisco... es Pancho.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: casi todos los apodos tienen solo dos sílabas. Pruébalo con el tuyo."
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] O sea: tu apodo no te lo puso un fraile... te lo puso un bebé.",
+   "gap_after": 0.6
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y lo de Pepe... es todavía más raro. Te lo cuento en el siguiente: sígueme, que no te lo cuenten mal.",
+   "gap_after": 0.4
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cuál es el apodo más raro que conoces? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

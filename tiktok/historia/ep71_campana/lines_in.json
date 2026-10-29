@@ -1,0 +1,85 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] «Salvado por la campana» no viene de enterrados vivos."
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Aunque la historia de los ataúdes con campanita... existe. Y da bastante miedo.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Siglo diecinueve. Hay pánico a que te entierren vivo, en Europa y en América.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Se patentan ataúdes de seguridad: con un tubo para respirar, y una cuerda atada a la mano... que hace sonar una campana fuera.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Hubo decenas de inventos así. Uno hasta llevaba una banderita que se levantaba.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Y de ahí, dice el bulo, sale la expresión: el que tocaba la campana... se salvaba.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero no hay ni un solo caso documentado de alguien salvado por una de esas campanas.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "La frase viene del boxeo: el boxeador está a punto de caer, suena la campana del final del asalto... y se salva.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Aparece en la prensa deportiva a finales del siglo diecinueve, y de ahí salta a la calle.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Y el bulo de los ataúdes lo hizo famoso... un correo en cadena de los años noventa.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: hay quien la ve antes, en otros contextos.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la campana que te salvaba... era la del ring.",
+   "gap_after": 0.3
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Qué expresión usas tú sin saber de dónde viene? Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

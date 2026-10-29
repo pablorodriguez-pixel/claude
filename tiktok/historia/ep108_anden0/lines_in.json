@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] En la línea 1 hay una estación donde el tren nunca para.",
+   "tempo": 1.12,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Lleva sesenta años cerrada. Y sigue ahí, tal cual.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Mil novecientos diecinueve. Se inaugura el primer Metro de Madrid. Y una de sus estaciones es Chamberí.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Durante cuarenta y siete años funciona sin problema. Pero Madrid crece... y los trenes se quedan pequeños.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que el Metro decide alargarlos. Y para que quepan, hay que alargar también los andenes.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[sighs] Pero Chamberí está en una curva. Y en una curva, el andén no se puede estirar.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que en mil novecientos sesenta y seis... la cierran. Y los trenes empiezan a pasar de largo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Y la estación se queda a oscuras, tal cual estaba: sus azulejos, sus anuncios, sus taquillas...",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Hasta que en dos mil ocho la abren otra vez... como museo. Se llama Andén cero.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[surprised] Y lo mejor: la puedes ver sin bajarte. Está en la línea 1, entre Iglesia y Bilbao.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que la próxima vez que vayas en la línea 1... no mires el móvil. Mira por la ventana.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Conoces alguna otra estación fantasma? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

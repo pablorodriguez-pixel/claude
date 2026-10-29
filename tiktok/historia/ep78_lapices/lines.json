@@ -1,0 +1,107 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "Los lápices son amarillos por culpa de un emperador.",
+  "s": 0.12,
+  "e": 2.983
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y la historia empieza con una tormenta... y una mina vigilada por soldados.",
+  "s": 3.333,
+  "e": 9.211
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Inglaterra, siglo dieciséis. Una tormenta arranca un árbol y deja al aire algo negro y brillante: grafito. El más puro jamás encontrado.",
+  "s": 9.511,
+  "e": 18.784
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Los pastores lo usan para marcar ovejas. Pero vale tanto que la Corona pone guardias armados en la mina.",
+  "s": 19.084,
+  "e": 24.998
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Robar grafito acaba castigándose con cárcel. Y la mina solo se abre unas semanas al año, para que no baje el precio.",
+  "s": 25.298,
+  "e": 31.601
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Durante siglos, el mejor lápiz es inglés. Hasta que, a finales del siglo diecinueve, aparece otro grafito buenísimo... en China.",
+  "s": 31.901,
+  "e": 40.218
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 40.518,
+  "e": 43.125
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y los fabricantes quieren presumir de él. ¿Cómo dices «esto lleva grafito chino del bueno»... sin escribirlo?",
+  "s": 43.425,
+  "e": 50.217
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Con un color: el amarillo. En China, el color del emperador. El de la realeza.",
+  "s": 50.517,
+  "e": 55.401
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "En Bohemia, la fábrica Koh-i-Noor presenta su lápiz amarillo de lujo en la Exposición de París. Y arrasa.",
+  "s": 55.701,
+  "e": 61.615
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Todos los demás lo copian. Y hoy, en Estados Unidos, la mayoría de los lápices siguen siendo amarillos.",
+  "s": 61.915,
+  "e": 68.414
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ojo: hay quien dice que el amarillo era solo por lujo, no por China.",
+  "s": 68.714,
+  "e": 72.31
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "O sea: cada vez que mordías un lápiz en clase... estabas mordiendo el color de un emperador.",
+  "s": 72.61,
+  "e": 78.68
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Confiesa: ¿tú también mordías los lápices? ¿O eras de los que se comían la goma? Os leo.",
+  "s": 78.98,
+  "e": 84.335
+ },
+ {
+  "line": 14,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 84.685,
+  "e": 87.64
+ }
+]

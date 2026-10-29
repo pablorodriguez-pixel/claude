@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La tortilla de patatas no es cien por cien española!",
+  "s": 0.12,
+  "e": 3.285
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Su ingrediente estrella... vino de Perú.",
+  "s": 3.635,
+  "e": 6.848
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "La patata llega a España en el siglo dieciséis, desde los Andes. Y al principio, casi nadie se la quería comer.",
+  "s": 7.148,
+  "e": 12.985
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Y quién inventó la tortilla? Te dirán que el general Zumalacárregui, en la guerra carlista, para alimentar a sus tropas.",
+  "s": 13.285,
+  "e": 19.738
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Pues no. En mil ochocientos diecisiete, años antes, un texto de Navarra ya habla de tortilla con patatas.",
+  "s": 20.038,
+  "e": 26.35
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 26.65,
+  "e": 29.256
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y aquí viene lo bueno: en México, «tortilla» es otra cosa.",
+  "s": 29.556,
+  "e": 33.471
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Los españoles vieron el pan de maíz de los aztecas, el «tlaxcalli»... y lo llamaron «tortilla». Por pequeño y redondo.",
+  "s": 33.771,
+  "e": 41.127
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: Extremadura dice que nació allí, en mil setecientos noventa y ocho.",
+  "s": 41.427,
+  "e": 45.816
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: la tortilla española... lleva patata peruana y comparte nombre con México.",
+  "s": 46.166,
+  "e": 52.48
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "¿Y en tu casa, cómo se hace la tortilla? Os leo.",
+  "s": 52.78,
+  "e": 55.737
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 56.087,
+  "e": 59.042
+ }
+]

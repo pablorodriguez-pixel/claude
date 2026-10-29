@@ -1,0 +1,73 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.55,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] Cenas a las DIEZ de la noche... por culpa de Hitler.",
+   "tempo": 1.08,
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[mischievously] Y no es broma. Tu reloj lleva más de ochenta años... MINTIÉNDOTE.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Marzo de mil novecientos cuarenta. España tiene la hora de Londres y de Portugal: la que le toca por el sol.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero Franco quiere caerle bien a Hitler. Así que ordena poner TODOS los relojes de España a la hora de Berlín.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[whispers] Esa noche, a las once... los relojes saltan directamente a las doce.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "La guerra acaba. Pero nadie vuelve a tocar el reloj. Y Portugal, que está al lado... sigue con su hora.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Así que hoy, cuando tu reloj marca las diez... para el sol son casi las nueve. [surprised] Y en verano, ¡casi las ocho!",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Por eso en Galicia, en junio, a las diez de la noche todavía es de día.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea... no cenas tarde. Cenas a tu hora... con el reloj de otro país.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "[laughs] Así que esta noche, cuando te sientes a cenar a las diez... ya sabes a quién echarle la culpa.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "¿A qué hora cenáis en tu casa? Os leo.",
+   "gap_after": 0.55
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

@@ -1,7 +1,7 @@
 """Mezcla final: voz + efectos + música (todo generado con ElevenLabs). Las funciones procedurales antiguas no se usan.
 uso: python3 audio.py <dir> <estilo_musica>   (estilos: detective, ambient, telenovela, ragtime)
 Lee <dir>/voice_final.wav, <dir>/sfx.json, <dir>/video_noaudio.mp4 -> <dir>/final.mp4"""
-import sys, json, wave, subprocess, numpy as np
+import os, sys, json, wave, subprocess, numpy as np
 
 SR = 44100
 rng = np.random.default_rng(7)
@@ -163,8 +163,8 @@ def el_music(style, dur):
 # ---------------- MEZCLA ----------------
 # Reglas fijas (no tocar sin motivo): la voz manda. Todo se calcula RELATIVO a la voz.
 VOICE_LUFS = -16.0      # la voz se normaliza aquí antes de mezclar
-MUSIC_BED_LU = -20.0    # música sin voz: 20 LU por debajo de la voz
-MUSIC_DUCK_DB = -9.0    # mientras hay voz, la música baja 9 dB más
+MUSIC_BED_LU = float(os.environ.get('BED_LU', -20.0))    # música sin voz: LU por debajo de la voz (cuentos: -15)
+MUSIC_DUCK_DB = float(os.environ.get('DUCK_DB', -9.0))  # mientras hay voz, la música baja más (cuentos: -7)
 MIN_SNR_DB = 20.0       # QA: voz vs música DURANTE el habla, mínimo exigido
 FINAL_LUFS = -14.0
 
@@ -210,6 +210,14 @@ def duck_curve(act, hop, n, depth_db):
         cur += (tgt - cur) * (a_att if tgt < cur else a_rel); g[i] = cur
     return np.interp(np.arange(n), np.arange(len(g)) * hop, g)
 
+def mus_auto(cues, n):
+    """Automatización de la música desde sfx.json: 'mus_baja' (-10 dB, tensión/susurro), 'mus_silencio' (-40 dB), 'mus_sube' (vuelve a 0 dB). Rampas de 0,5 s."""
+    lv = {'mus_baja': 10 ** (-10 / 20), 'mus_silencio': 10 ** (-40 / 20), 'mus_sube': 1.0}
+    kn_t, kn_g, cur = [0.0], [1.0], 1.0
+    for t, l in sorted((c['t'], lv[c['name']]) for c in cues if c['name'] in lv):
+        kn_t += [t, t + 0.5]; kn_g += [cur, l]; cur = l
+    return np.interp(np.arange(n) / SR, kn_t, kn_g)
+
 def main():
     d, style = sys.argv[1], sys.argv[2]
     voice = readwav(d + '/voice_final.wav')
@@ -220,10 +228,11 @@ def main():
     # efectos: relativos a la voz (pico de efecto ≈ 10 dB bajo el pico de voz)
     L = el_lib(); fx = np.zeros(n); vpk = np.percentile(np.abs(v), 99.9)
     for c in json.load(open(d + '/sfx.json')):
+        if c['name'].startswith('mus_'): continue
         x = L.get(c['name'])
         if x is None: print('sfx desconocido', c['name']); continue
         i = int(c['t'] * SR); x = x[: max(0, n - i)]; fx[i:i + len(x)] += x / 0.9 * vpk * 0.32 * c.get('gain', 1)
-    m = eq_music(el_music(style, dur))
+    m = eq_music(el_music(style, dur)) * mus_auto(json.load(open(d + '/sfx.json')), n)
     bed = MUSIC_BED_LU
     for _ in range(6):  # QA en bucle: si la voz no destaca lo suficiente, baja la música y repite
         mm = m * 10 ** ((VOICE_LUFS + bed - lufs(m)) / 20) * duck_curve(act, hop, n, MUSIC_DUCK_DB)
