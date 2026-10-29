@@ -26,7 +26,7 @@ function post(t){
   // pastillas fijas, por debajo del capítulo
   for(const id of POS){const e=$(id);if(e.style.top==='380px')e.style.top='560px';else if(e.style.top==='520px')e.style.top='690px'}
   // golpe de zoom en cada palabra clave (la imagen y lo que va pegado a ella)
-  let z=1;for(const s of KEY){const d=t-s;if(d>=-.02&&d<.45)z=Math.max(z,1+.05*(1-eo(d/.45)))}
+  let z=1;if(!window.SIN_ZOOM)for(const s of KEY){const d=t-s;if(d>=-.02&&d<.45)z=Math.max(z,1+.05*(1-eo(d/.45)))}
   $('gl').style.transform=`scale(${z})`;
   for(const id of POS){const e=$(id);if(!e.style.left)continue;
     if(e.dataset.w!==e.style.left+'|'+e.style.top){e.dataset.bx=parseFloat(e.style.left);e.dataset.by=parseFloat(e.style.top)}

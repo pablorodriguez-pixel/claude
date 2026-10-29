@@ -145,4 +145,25 @@ T.cobran=vt('cobran');
 window.setCam=()=>{};
 const CLAVES=[['siete',1],['banco',1],['indexado',1],['doble',1],['setecientos',1],['inflacion',1],['donde',1],['guardalo',1]];
 const KEYT=new Set(CLAVES.map(([w,n])=>vt(w,n)));window.KEYT=KEYT;
+// ───────── modo 3D (?3d): la escena la pinta Blender; aquí solo la capa de textos, pegada a lo que dice pos.json
+if(new URLSearchParams(location.search).has('3d')){
+  const POS=(()=>{const x=new XMLHttpRequest();x.open('GET','blender/pos.json',false);x.send();return JSON.parse(x.responseText)})();window.SIN_ZOOM=true;  // el zoom no puede mover el 3D
+  document.documentElement.style.background=document.body.style.background='transparent';
+  for(const id of ['izq','der','raya','tL','tR','vs','aL','aR'])$(id).style.display='none';
+  document.querySelectorAll('.suelo').forEach(e=>e.style.display='none');
+  const base=window.render;
+  window.render=t=>{base(t);const P=POS[Math.min(POS.length-1,Math.round(t*30))];if(!P)return;
+    const y=(v,lo,hi)=>Math.max(lo,Math.min(hi,v))+'px';
+    // nombres y etiquetas sobre las cabezas: se presentan y se van a los 35 (vuelven con la pregunta final)
+    const kn=1-p(t,T.a35-.3,.3)+p(t,T.tu-.1,.2);
+    for(const [n,c,cab] of [['nL','cL',P.cabL],['nR','cR',P.cabR]]){$(n).style.left=$(c).style.left=cab[0]+'px';$(n).style.top=y(cab[1]-80,440,1100);$(c).style.top=y(cab[1]-6,515,1176);
+      $(n).style.opacity=Math.min(+$(n).style.opacity,kn);$(c).style.opacity=Math.min(+$(c).style.opacity,kn)}
+    $('hL').style.left=P.topL[0]+'px';$('hL').style.top=y(P.topL[1]-24,560,1150);
+    $('hR').style.left=P.topR[0]+'px';$('hR').style.top=y(P.topR[1]-24,560,1150);
+    $('puso').style.top=P.y96[1]+'px';$('pusoT').style.top=(P.y96[1]-46)+'px';
+    const s1=$('s1'),s2=$('s2');
+    if(s1.style.opacity>0)s1.style.left=P.baseR[0]+'px';
+    if(s2.style.opacity>0)s2.style.left=(s2.textContent.includes('52')?P.baseL[0]:P.baseR[0])+'px';
+  };
+}
 window.ready=true;
