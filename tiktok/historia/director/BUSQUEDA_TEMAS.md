@@ -29,6 +29,9 @@ Rechazos del usuario (también calibran):
   - Juicio general: «estás lejos de contar cosas super top». → El listón es MUY alto. Lo que se salva tiene un PERSONAJE que hace algo
     raro (médico que se cruje una mano 50 años) o es algo SOLO NUESTRO que vives cada semana (menú del día). Matiz histórico
     («no quemó, barrenó») = aburre. Trivia de cifras/etimología sin historia = aburre.
+- 30/10 — Datos reales del usuario: SOLO han tirado «Autovías como agujas del reloj» (ep98) y «Carteles de gasolinera» (ep104).
+  La cartera (ep304, ley en pesetas) «no parece que tire». → El filón probado es CARRETERA/COCHE: algo que ves cada vez que conduces,
+  que no sabías leer, y que al saberlo «ya no se te olvida nunca». Prioridad absoluta a esa vena hasta nueva orden.
 - 17/10 — Aladino: «no se entiende ni crea curiosidad» (hacía falta saber qué era un manuscrito).
 
 ## Prueba del «¡NO JODAS!» (manda sobre todo lo demás)
