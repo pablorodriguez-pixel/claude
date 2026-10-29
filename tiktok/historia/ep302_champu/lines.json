@@ -1,0 +1,86 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Ese dibujito de tu champú es una fecha de caducidad!",
+  "s": 0.12,
+  "e": 3.059
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y no, no es decoración: es un bote abierto con un número y una M.",
+  "s": 3.409,
+  "e": 8.527
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 9.027,
+  "e": 11.977
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "¿Qué significa? Te lo cuento en tres pasos.",
+  "s": 12.327,
+  "e": 14.96
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: la M es de meses. Doce M quiere decir que, una vez abierto, dura doce meses.",
+  "s": 15.31,
+  "e": 23.226
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: desde que lo abres, le entran aire, agua y bacterias de tus dedos, y se va estropeando aunque no lo parezca.",
+  "s": 23.826,
+  "e": 30.057
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y tres: en Europa es obligatorio. Los cosméticos que duran más de treinta meses llevan este dibujo, y los que duran menos, una fecha normal.",
+  "s": 30.557,
+  "e": 39.034
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Ojo: al día siguiente no te va a hacer daño. Es que ya no te garantizan que funcione igual.",
+  "s": 39.634,
+  "e": 44.267
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "O sea: esa crema solar que abriste el verano pasado... puede que ya no proteja lo que pone en el bote.",
+  "s": 44.617,
+  "e": 50.93
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 51.63,
+  "e": 54.177
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Ve al baño, mira tu champú y dime cuántos meses pone. Os leo.",
+  "s": 54.527,
+  "e": 59.478
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 59.828,
+  "e": 62.271
+ }
+]

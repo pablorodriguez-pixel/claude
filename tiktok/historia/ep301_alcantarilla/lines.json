@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡La tapa de alcantarilla que pisas lleva escrito cuánto peso aguanta!",
+  "s": 0.12,
+  "e": 3.296
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y casi nadie la ha leído nunca. Pero antes, una pregunta: ¿por qué son redondas?",
+  "s": 3.646,
+  "e": 9.321
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 9.821,
+  "e": 12.932
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Te lo cuento en tres pasos.",
+  "s": 13.282,
+  "e": 14.877
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: si la tapa fuera cuadrada, al girarla en diagonal se colaría por su propio agujero. Redonda, no cabe por ningún lado.",
+  "s": 15.227,
+  "e": 22.66
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: pesa muchísimo, pero como es redonda, un solo operario la puede mover rodando.",
+  "s": 23.26,
+  "e": 28.213
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y tres, lo bueno: mira lo que lleva grabado. Una letra y un número. Es la carga que aguanta.",
+  "s": 28.713,
+  "e": 35.184
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "B ciento veinticinco es para aceras: aguanta unas doce toneladas y media. D cuatrocientos es para la calzada: unas cuarenta toneladas, como un camión cargado.",
+  "s": 35.784,
+  "e": 44.947
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: no todas son redondas. Las cuadradas suelen tapar arquetas poco profundas, donde no hay un pozo en el que caerse.",
+  "s": 45.647,
+  "e": 52.121
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: si ves una B en mitad de la carretera... alguien se ha equivocado de tapa.",
+  "s": 52.471,
+  "e": 58.86
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 59.46,
+  "e": 62.008
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Mira la tapa que tienes más cerca de casa y dime qué letra pone. Os leo.",
+  "s": 62.358,
+  "e": 67.464
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 67.814,
+  "e": 70.257
+ }
+]
