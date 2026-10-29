@@ -28,7 +28,7 @@ const SWING = t => Math.sin(t * Math.PI * 2 * 1.0) * 8; // péndulo ±8°, 1 cic
   const cv = mkCerv(cam, [500, 900, 470, 600]); cv.d.style.zIndex = 8;
   const gq = box(cam, 110, 640, 640, 960, { zIndex: 10, transformOrigin: '320px 40px' }); gq.innerHTML = glyphSvg('¿', { fs: 960, base: 720 });
   const ql = box(cam, 770, 1010, 120, 240, { zIndex: 13, transformOrigin: '60px 230px' }); ql.innerHTML = quillSvg();
-  const nu = stamp(cam, 150, 1170, '¡NUNCA!', { size: 120, bw: 16, z: 45, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
+  const nu = stamp(cam, 40, 1000, '¡NUNCA!', { size: 100, bw: 16, z: 45, bg: 'rgba(255,255,255,.93)', blend: 'normal' });
 }
 
 /* ======================================================================

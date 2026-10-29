@@ -121,7 +121,7 @@ stepHead(K.y6 - 0.08, K.y7 - 0.08, 3, ['Aun así, *costó*'], { size: 108, ty: 2
     face(pr, t, { look: doubt ? [8, -3] : [0, 2], brow: doubt ? -10 : 0, seed: 0.6 });
     set(tb, { r: -10 + Math.sin(t * 3) * 6, y: Math.sin(t * 2.4) * 10, s: pop(t, S.G1[0] + 0.15, 0.35), o: t < S.G1[0] + 0.15 ? 0 : 1 });
     set(qm, { s: pop(t, K.aun, 0.3), r: 12 + Math.sin(t * 6) * 8, o: t < K.aun ? 0 : 1 });
-    set(bb, { s: pop(t, K.costo - 0.05, 0.32), r: -3 + wobble(t, 0.6, 1), o: t < K.costo - 0.05 ? 0 : 1 });
+    set(bb, { s: pop(t, K.aun + 0.15, 0.32), r: -3 + wobble(t, 0.6, 1), o: t < K.aun + 0.15 ? 0 : 1 });
     set(tc, { y: (1 - p(t, S.G1[0] + 0.1, 0.4, E.outBack)) * 400 });
   }, { clip: true });
   const cam = box(c, 0, 0, 1080, 1920, { transformOrigin: '640px 800px' });
@@ -295,7 +295,7 @@ colorHit(S.K3[0], S.K3[1], PINK, c => {
   halftone(c, 'rgba(255,62,165,.10)', 0);
   const L = [0, 1, 2].map(i => el('div', c, { left: 0, top: px(210 + i * 92), width: '1080px', textAlign: 'center', fontFamily: 'Playfair', fontWeight: 900, fontSize: '80px', lineHeight: 1.05, color: INK, whiteSpace: 'nowrap', zIndex: 20 }));
   const WD = [];
-  [['¿Tú', 0], ['lo', 0], ['pones', 0], ['cuando', 1], ['escribes,', 1], ['o', 2], ['eres', 2], ['de', 2], ['los', 2], ['que', 2], ['no?', 2]].forEach((q, k) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.1em'; if (k === 10) { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('no?', 'dhl', YEL); } else s.textContent = q[0]; L[q[1]].appendChild(s); WD.push({ e: s, t: Math.max(W[K.i9 + k].s, S.K4[0] + k * 0.05) }); });
+  [['¿Tú', 0], ['lo', 0], ['pones', 0], ['cuando', 1], ['escribes,', 1], ['o', 2], ['eres', 2], ['de', 2], ['los', 2], ['que', 2], ['no?', 2]].forEach((q, k) => { const s = document.createElement('span'); s.style.display = 'inline-block'; s.style.margin = '0 0.18em'; if (k === 10) { s.style.fontStyle = 'italic'; s.innerHTML = hlSpan('no?', 'dhl', YEL); } else s.textContent = q[0]; L[q[1]].appendChild(s); WD.push({ e: s, t: Math.max(W[K.i9 + k].s, S.K4[0] + k * 0.05) }); });
   const dHL = c.querySelector('.dhl');
   const BP = [[100, 540, S.K4[0] + 0.1], [560, 590, K.eres], [260, 770, K.no9 - 0.1], [600, 840, K.no9 + 0.2], [110, 980, K.os - 0.05], [500, 1010, K.leo]];
   BP.forEach((q, i) => { const e = bubble(c, q[0], q[1], '', { size: 150, tail: i % 2 ? 'br' : 'bl', z: 25, pad: '0px 70px 30px', bg: i % 2 ? '#fff' : '#FFF3A8' }); const tx = document.createElement('span'); tx.textContent = '…'; e.insertBefore(tx, e.lastChild); QB.push({ e, tx, t: q[2], r: (i % 2 ? 1 : -1) * 5 }); });
