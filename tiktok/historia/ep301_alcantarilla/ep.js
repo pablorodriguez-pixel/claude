@@ -74,13 +74,14 @@ const check = (c, x, y, sz = 150) => figura(c, x, y, sz, sz, `<circle cx="50" cy
 const fachada = (c, y0, h, col = '#e9b98f', z = 1) => { const f = box(c, -200, y0, 1480, h, { zIndex: z, background: col, backgroundImage: 'linear-gradient(rgba(0,0,0,.06) 3px, transparent 3px)', backgroundSize: '100% 56px' });
   [0, 1, 2, 3, 4].forEach(i => box(f, 150 + i * 300, 80, 170, 230, { background: '#7fa9c4', border: `7px solid ${INK}`, borderRadius: '10px 10px 0 0', boxShadow: `inset 0 -40px 0 rgba(255,255,255,.25)` })); return f; };
 
+const HALO = '4px 4px 0 #EADFC8, -4px -4px 0 #EADFC8, 4px -4px 0 #EADFC8, -4px 4px 0 #EADFC8, 0 5px 0 #EADFC8, 0 -5px 0 #EADFC8';
 /* PORTADA + L0: tapa redonda gigante «D 400» sobre los rayos amarillos; a «pisas» baja un zapato; a «peso aguanta» se enmarca el código */
 plano(-1, L(1) - 0.1, PAPEL, c => {
   const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
   const sombra = box(c, 210, 1300, 660, 70, { zIndex: 3, borderRadius: '50%', background: 'rgba(43,33,24,.22)' });
   const tp = TAPA(c, 540, 1000, 700, { code: ['D', '400'], z: 6 });
-  const t1 = texto(c, 300, '¿QUÉ PONE EN TU', { size: 94, z: 30 });
-  const t2 = texto(c, 408, hlSpan('ALCANTARILLA?', 'phl'), { size: 104, z: 30 });
+  const t1 = texto(c, 300, '¿QUÉ PONE EN TU', { size: 94, z: 30, shadow: HALO });
+  const t2 = texto(c, 408, hlSpan('ALCANTARILLA?', 'phl'), { size: 104, z: 30, shadow: HALO });
   const zap = figura(c, 560, 0, 340, 181, ZAPATO, '0 0 300 160', { z: 12 });
   sfx('swoosh_up', 0.05, 0.6); sp(T.pisas - 0.05, 'whoosh', 0.5); sp(T.pisas + 0.12, 'thud', 1.0); shakeAt(T.pisas + 0.12, 0.3, 14); sp(T.peso, 'ding', 0.6);
   return t => {
@@ -91,7 +92,7 @@ plano(-1, L(1) - 0.1, PAPEL, c => {
     set(tp, { r: -3 + wobble(t, 0.35, 3), s: 1 - 0.035 * golpeT + 0.01 * Math.sin(t * 2.4) });
     set(sombra, { s: 1 + 0.03 * Math.sin(t * 2.4) });
     anillos(tp, t > T.peso - 0.05 ? 0.6 + 0.4 * Math.abs(Math.sin(t * 6)) : 0, t > T.peso + 0.15 ? 0.6 + 0.4 * Math.abs(Math.sin(t * 6 + 1)) : 0);
-    paint(c.querySelector('.phl'), t, 0.25, 0.4); set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 2 + wobble(t, 0.45, 0.8, 1) });
+    paint(c.querySelector('.phl'), t, -1, 0.4); set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 2 + wobble(t, 0.45, 0.8, 1) });
   };
 }, { sfx: false });
 
