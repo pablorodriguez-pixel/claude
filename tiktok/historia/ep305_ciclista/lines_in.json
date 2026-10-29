@@ -1,0 +1,20 @@
+{
+ "voices": {"VECINO": ["851ejYcv2BoNPjrkw93G", 0.0, 1.0]},
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {"who": "VECINO", "text": "[excited] ¡Para adelantar a un ciclista, ahora tienes que frenar!"},
+  {"who": "VECINO", "text": "Y hasta hace nada, la ley te dejaba hacer justo lo contrario. Lo he leído en el BOE, y el cambio es de este mismo mes.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Soy tu vecino, y esto no venía en el libro."},
+  {"who": "VECINO", "text": "Imagínate: domingo por la mañana, carretera de noventa... y delante de ti, un grupo de ciclistas.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Tu padre lo tenía clarísimo: pisaba a fondo y los pasaba a ciento diez. Y era legal: la ley dejaba a coches y motos pasarse veinte kilómetros por hora para adelantar.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "En dos mil veintidós, eso se acabó. Y desde el uno de octubre, la norma ha dado la vuelta del todo.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Fuera de poblado, para adelantar a una bici tienes que ir, como mínimo, veinte por debajo del límite. En esa carretera de noventa... a setenta como mucho.", "gap_after": 0.6},
+  {"who": "VECINO", "text": "Y dejándole metro y medio. O, si hay dos carriles, cambiándote entero al otro.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Ojo: si los ciclistas van en grupo, la ley los cuenta como uno solo. O los adelantas a todos... o a ninguno.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "O sea: lo que hacía tu padre para adelantar... hoy es justo lo que no tienes que hacer."},
+  {"who": "VECINO", "text": "Sígueme, que esto en clase no te lo cuentan."},
+  {"who": "VECINO", "text": "¿Y tú, a cuánto adelantas a una bici? Sé sincero. Os leo."},
+  {"who": "VECINO", "text": "Y esto... no venía en el libro."}
+ ]
+}
