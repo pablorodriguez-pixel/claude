@@ -29,6 +29,12 @@ Material en `director/referencias/pye_aventicum/`. Lo que lo hizo volar:
 7. Viraliza por **compartidos y guardados**, no por comentarios: el «wow» compartible es otra vía, distinta de la del debate.
 8. Dura 90 s y retiene porque cambia el plano cada 1–2 s y renueva la pregunta. La duración no es el problema; los huecos sí.
 
+### Referencia propia (banda A+): «Carteles de gasolinera» (subido por el usuario, octubre 2026)
+28,7 mil me gusta · 13,5 mil compartidos · 295 comentarios (visualizaciones: pendiente de que el usuario las pase).
+Post: «Estos dos carteles parecen iguales… pero uno te saca de la autovía. Número redondo (1000, 500): la gasolinera está ahí. Número raro (750, 250): toca desvío.»
+Por qué voló: 1) algo que TODOS ven cada día y nadie sabe leer; 2) UTILIDAD práctica, se aplica en el próximo viaje; 3) se comprueba en la carretera; 4) compartidos ≈ 47 % de los me gusta: se manda «al que conduce»; 5) cero historia de otros, cero nombres ni fechas.
+Lección: la ruta más fuerte del canal es «cosa cotidiana que lees mal + regla sencilla que te llevas». Las historias de otros (Petrov, Jessop, Garbo) tienen techo B.
+
 ## Decisión del usuario (17/10)
 No se hacen votaciones ni vídeos-respuesta a comentarios. No los propongas. El cierre es una pregunta abierta y personal + «Os leo».
 
