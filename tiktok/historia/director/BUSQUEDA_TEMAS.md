@@ -16,7 +16,25 @@ Rechazos del usuario (también calibran):
   sorpresa emocional ni identidad, no basta. La gasolinera funcionó por el «llevas toda la vida leyéndolo mal», no por ser útil.
 - 29/10 — «¿» Cervantes v3: «no entiendo por qué es interesante». El gancho daba por sabido lo sorprendente (que solo el español abre
   preguntas). Lo interesante era el PORQUÉ. Y el usuario quiere que el Vecino suene a quien ha encontrado un dato buenísimo.
+- 29/10 — Caza 1 (caza/2026-10-29.md), veredicto del usuario por ficha:
+  - ✗ España 4.º país hispanohablante: «muy flojo, todo el mundo sabe que no es donde más hay». → Dato que el público intuye = no sorprende.
+  - ✗ «Ordenador» (IBM Francia): «ordenador/computadora… no me parece interesante». → Etimología técnica sin historia humana = aburre.
+  - ✓ Menú del día obligatorio por Fraga: «muy de España solo», con buen storytelling.
+  - ✓ Crujirse los dedos (médico 50 años, Ig Nobel): «típico mito que, bien explicado, puede estar bien».
+  - ~ «Coche» húngaro: «puede ser poco interesante», solo con storytelling muy bueno.
+  - ✗ Cortés no quemó las naves: «aburrido».
+  - ✗ Catrina: «ni la entiendo».
+  - ~ California / novela del Quijote: «puede estar bien».
+  - Sin comentario: «el agua» femenino, enero más cerca del Sol.
+  - Juicio general: «estás lejos de contar cosas super top». → El listón es MUY alto. Lo que se salva tiene un PERSONAJE que hace algo
+    raro (médico que se cruje una mano 50 años) o es algo SOLO NUESTRO que vives cada semana (menú del día). Matiz histórico
+    («no quemó, barrenó») = aburre. Trivia de cifras/etimología sin historia = aburre.
 - 17/10 — Aladino: «no se entiende ni crea curiosidad» (hacía falta saber qué era un manuscrito).
+
+## Prueba del «¡NO JODAS!» (manda sobre todo lo demás)
+Un tema solo vale si, contado en UNA frase a un amigo en un bar, provoca «¡no jodas!, ¿en serio?» y ganas de contarlo a otro.
+Si la reacción esperable es «ah, mira», «ya lo intuía» o «vale, curioso»: fuera, por verificado que esté.
+Y tiene que poder contarse como HISTORIA: alguien quería algo → hizo algo raro/absurdo/valiente → giro → consecuencia que te toca hoy.
 
 ## Qué buscamos (por orden de fuerza)
 1. **IDENTIDAD**: algo de cómo hablamos, comemos, vivimos o somos los hispanos que tiene un porqué sorprendente
