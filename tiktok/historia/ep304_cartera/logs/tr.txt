@@ -1,0 +1,20 @@
+[  0.0-  3.2] Si encuentras una cartera y la devuelves, el dueño te tiene que pagar.
+[  3.7-  5.9] Y no lo digo yo, lo dice la ley.
+[  6.6- 10.4] Lo he buscado en el Código Civil y es todavía mejor de lo que parece.
+[ 11.1- 11.8] Soy tu vecino.
+[ 12.5- 15.9] Y esto no venía en el libro. Te lo cuento en tres pasos.
+[ 16.5- 21.4] 1. Si te encuentras algo y no sabes de quién es, lo llevas a objetos perdidos, al ayuntamiento
+[ 22.0- 25.8] y si aparece el dueño, la ley le obliga a darte un premio, el 10%.
+[ 25.8- 32.9] 2. El artículo es de 1889 y todavía hoy está escrito en pesetas.
+[ 33.6- 38.3] Dice que el 10% es solo hasta 2.000 pesetas, que son 12 euros.
+[ 39.1- 40.6] Y de ahí para arriba el 5.
+[ 41.3- 45.0] O sea, si devuelves 500 euros, te tocan unos 25.
+[ 45.7- 51.8] Y 3. Si en dos años nadie lo reclama, lo que encontraste es para ti.
+[ 51.8- 57.6] 4. Ojo, quedártelo sin más no vale, eso es delito, el premio solo llega si lo devuelves.
+[ 58.0- 62.8] O sea, en España ser honrado tiene premio, aunque te lo paben en pesetas.
+[ 63.2- 65.8] 5. Sígueme, que esto en clase no te lo cuentan.
+[ 66.1- 68.2] ¿Alguna vez devolviste algo que te encontraste?
+[ 69.0- 71.3] ¿Te dieron algo o ni las gracias?
+[ 72.2- 72.7] Os leo.
+[ 73.0- 75.4] Y esto no venía en el libro.
+words 210

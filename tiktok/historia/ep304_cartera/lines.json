@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Si encuentras una cartera y la devuelves, el dueño te tiene que pagar! Y no lo digo yo: lo dice la ley.",
+  "s": 0.12,
+  "e": 6.26
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Lo he buscado en el Código Civil... y es todavía mejor de lo que parece.",
+  "s": 6.61,
+  "e": 10.521
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 11.021,
+  "e": 14.133
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Te lo cuento en tres pasos.",
+  "s": 14.483,
+  "e": 16.077
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Uno: si te encuentras algo y no sabes de quién es, lo llevas a objetos perdidos, al ayuntamiento. Y si aparece el dueño, la ley le obliga a darte un premio: el diez por ciento.",
+  "s": 16.427,
+  "e": 25.863
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Dos: el artículo es de mil ochocientos ochenta y nueve. Y todavía hoy... está escrito en pesetas.",
+  "s": 26.363,
+  "e": 32.998
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Dice que el diez por ciento es solo hasta dos mil pesetas. Que son... doce euros. Y de ahí para arriba, el cinco. O sea: si devuelves quinientos euros, te tocan unos veinticinco.",
+  "s": 33.498,
+  "e": 45.25
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Y tres: si en dos años nadie lo reclama... lo que encontraste es para ti.",
+  "s": 45.75,
+  "e": 51.829
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo: quedártelo sin más no vale, eso es delito. El premio solo llega si lo devuelves.",
+  "s": 52.329,
+  "e": 57.685
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: en España, ser honrado tiene premio... aunque te lo paguen en pesetas.",
+  "s": 58.035,
+  "e": 62.909
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 63.259,
+  "e": 65.807
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "¿Alguna vez devolviste algo que te encontraste? ¿Te dieron algo... o ni las gracias? Os leo.",
+  "s": 66.157,
+  "e": 72.791
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 73.141,
+  "e": 75.584
+ }
+]
