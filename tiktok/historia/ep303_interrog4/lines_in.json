@@ -3,17 +3,17 @@
  "gap": 0.35,
  "inner_cap": 0.45,
  "lines": [
-  {"who": "VECINO", "text": "[excited] ¡Somos casi los únicos del mundo que abrimos las preguntas! Ni los ingleses, ni los franceses, ni los alemanes lo hacen."},
-  {"who": "VECINO", "text": "Y no es por manía: es porque el español tiene un problema que sus idiomas no tienen.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "[excited] ¡Por fin he descubierto por qué somos los únicos que abrimos las preguntas!"},
+  {"who": "VECINO", "text": "Ni los ingleses, ni los franceses, ni los alemanes ponen el signo de abrir. Solo nosotros. Y la razón es buenísima.", "gap_after": 0.5},
   {"who": "VECINO", "text": "Soy tu vecino, y esto no venía en el libro."},
-  {"who": "VECINO", "text": "¿Qué problema? Te lo explico en tres pasos."},
-  {"who": "VECINO", "text": "Uno: en inglés, para preguntar, cambian el orden de las palabras. «You are tired» es «estás cansado». Pero la pregunta es «Are you tired?». Con la primera palabra ya sabes que te están preguntando.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "Dos: en español, no. «Estás cansado» y «¿estás cansado?» son exactamente las mismas palabras. Solo cambia el tono. Y en una frase larga, escrita, no sabías qué tono poner hasta llegar al final.", "gap_after": 0.6},
-  {"who": "VECINO", "text": "Y tres: por eso, en mil setecientos cincuenta y cuatro, la Real Academia propuso el signo de abrir. Para avisarte desde la primera palabra de que viene una pregunta.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "Ojo: eso fue más de cien años después de morir Cervantes. En el Quijote original no hay ni un solo signo de abrir pregunta.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "O sea: el «¿» no es un adorno. Es un aviso que solo necesitamos nosotros... y que en el WhatsApp casi nadie pone."},
+  {"who": "VECINO", "text": "Fíjate en el inglés. «Estás cansado» se dice «You are tired». Pero para preguntarlo, le dan la vuelta: «Are you tired?». Con la primera palabra, ya sabes que es una pregunta.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Ahora, en español: «Estás cansado». «¿Estás cansado?». Son exactamente las mismas palabras.", "gap_after": 0.6},
+  {"who": "VECINO", "text": "Lo único que cambia es el tono. Y escrito, el tono no se ve. Así que, en una frase larga, no sabías que era una pregunta hasta llegar al final... y tenías que volver a leerla.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Por eso, en mil setecientos cincuenta y cuatro, la Real Academia se sacó de la manga el signo de abrir: un aviso, en la primera palabra, de que viene una pregunta.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Ojo: Cervantes murió más de cien años antes. En el Quijote original no hay ni un solo signo de abrir.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "O sea: no es un adorno. Es un invento solo nuestro... porque solo nosotros lo necesitábamos."},
   {"who": "VECINO", "text": "Sígueme, que esto en clase no te lo cuentan."},
-  {"who": "VECINO", "text": "¿Tú lo pones cuando escribes, o eres de los que no? Os leo."},
+  {"who": "VECINO", "text": "¿Tú lo pones en el WhatsApp, o eres de los que no? Os leo."},
   {"who": "VECINO", "text": "Y esto... no venía en el libro."}
  ]
 }
