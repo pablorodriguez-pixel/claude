@@ -79,8 +79,8 @@ plano(-1, L(1) - 0.1, PAPEL, c => {
   const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
   const sombra = box(c, 210, 1300, 660, 70, { zIndex: 3, borderRadius: '50%', background: 'rgba(43,33,24,.22)' });
   const tp = TAPA(c, 540, 1000, 700, { code: ['D', '400'], z: 6 });
-  const t1 = texto(c, 300, '¿QUÉ PONE EN', { size: 104, z: 30 });
-  const t2 = texto(c, 420, 'TU ' + hlSpan('ALCANTARILLA?', 'phl'), { size: 86, z: 30 });
+  const t1 = texto(c, 300, '¿QUÉ PONE EN TU', { size: 94, z: 30 });
+  const t2 = texto(c, 408, hlSpan('ALCANTARILLA?', 'phl'), { size: 104, z: 30 });
   const zap = figura(c, 560, 0, 340, 181, ZAPATO, '0 0 300 160', { z: 12 });
   sfx('swoosh_up', 0.05, 0.6); sp(T.pisas - 0.05, 'whoosh', 0.5); sp(T.pisas + 0.12, 'thud', 1.0); shakeAt(T.pisas + 0.12, 0.3, 14); sp(T.peso, 'ding', 0.6);
   return t => {
@@ -205,7 +205,7 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#cfe3ee' }, c => {
   const tp = TAPA(c, 640, 1150, 320, { code: ['D', '400'], z: 7 });
   const uf = BOCADILLO(c, 120, 640, '¡UF!', { size: 60 });
   const gotas = [0, 1, 2].map(() => sudor(c, 0, 0));
-  const uno = chip(c, 560, 600, '1 operario', { size: 56, bg: '#f28c28', color: INK, z: 30 });
+  const uno = chip(c, 400, 600, '1 operario', { size: 56, bg: '#f28c28', color: INK, z: 30 });
   sp(T.pesa, 'squish', 0.6); sp(T.pesa + 0.3, 'pop', 0.5); sp(T.comoR + 0.3, 'swoosh_up', 0.6); sp(T.operario, 'pop2', 0.5); sp(T.rodando, 'sparkle', 0.5);
   const TR = T.operario - 0.25;
   return t => {
@@ -269,7 +269,7 @@ plano(L(7) - 0.1, L(8) - 0.1, { background: '#cfe3ee' }, c => {
   const tB = TAPA(camB, 560, 1300, 340, { code: ['D', '400'], z: 4 }); set(tB, { sy: 0.3 });
   const coche = figura(camB, 0, 1060, 360, 190, `<path d="M20,140 L20,90 Q20,70 50,66 L110,60 L160,14 L270,14 L320,60 L340,66 Q352,72 352,96 L352,140 Z" fill="#2b8ad6" stroke="${INK}" stroke-width="8" stroke-linejoin="round"/><path d="M128,60 L168,24 L210,24 L210,60 Z M222,60 L222,24 L262,24 L298,60 Z" fill="#9fc6dc" stroke="${INK}" stroke-width="6"/><circle cx="90" cy="146" r="34" fill="#1d1e22" stroke="${INK}" stroke-width="7"/><circle cx="280" cy="146" r="34" fill="#1d1e22" stroke="${INK}" stroke-width="7"/>`, '0 0 370 190', { z: 6 });
   const cam_ = figura(camB, 0, 1010, 720, 324, camionInner('40 t'), '0 0 800 360', { z: 7 });
-  const ok = check(camB, 760, 1000, 150);
+  const ok = check(camB, 640, 930, 150);
   sp(T.b125, 'stamp', 0.7); sp(T.aceras, 'pop', 0.4); sp(T.doce - 0.3, 'whoosh', 0.5); sp(T.doce + 0.1, 'thud', 1.0); shakeAt(T.doce + 0.1, 0.35, 16);
   sp(T.d400 - 0.1, 'stamp', 0.7); sp(T.calzada, 'whoosh', 0.6); sp(T.cuarenta, 'pop', 0.4); sp(T.cuarenta + 0.2, 'drumroll', 0.4); sp(T.camion + 0.25, 'thud', 1.0); shakeAt(T.camion + 0.25, 0.4, 18); sp(T.camion + 0.55, 'tada', 0.6);
   const TB = T.d400 - 0.1, TC = T.cuarenta - 0.35;
