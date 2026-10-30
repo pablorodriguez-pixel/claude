@@ -16,11 +16,14 @@ window.vt = (w, n = 1) => { let k = 0; for (const x of SUBS) if (norm(x.t) === n
 window.TINTA = '#1b1a1f';
 window.OL = `stroke="${TINTA}" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"`;     // contorno de dibujo
 let _gid = 0;
-window.grad = (c1, c2, ang = 90) => { const id = 'g' + (_gid++); const r = ang * Math.PI / 180;
+window.grad = (c1, c2, ang = 90) => { const key = 'g' + c1 + c2 + ang; if (_cache[key]) return _cache[key]; const id = 'g' + (_gid++); _cache[key] = `url(#${id})`; const r = ang * Math.PI / 180;
   DEFS.push(`<linearGradient id="${id}" x1="${.5 - Math.cos(r) / 2}" y1="${.5 - Math.sin(r) / 2}" x2="${.5 + Math.cos(r) / 2}" y2="${.5 + Math.sin(r) / 2}"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient>`); return `url(#${id})` };
-window.radial = (c1, c2, o2 = 1) => { const id = 'r' + (_gid++);
+window.radial = (c1, c2, o2 = 1) => { const key = 'r' + c1 + c2 + o2; if (_cache[key]) return _cache[key]; const id = 'r' + (_gid++); _cache[key] = `url(#${id})`;
   DEFS.push(`<radialGradient id="${id}"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}" stop-opacity="${o2}"/></radialGradient>`); return `url(#${id})` };
 window.DEFS = [];
+// un degradado creado después de montar (dentro de anim) se añade al <defs> del documento al momento
+const _push = DEFS.push.bind(DEFS); DEFS.push = (x) => { _push(x); if (window._defs) window._defs.insertAdjacentHTML('beforeend', x); return DEFS.length };
+const _cache = {};
 window.brillo = (x, y, r, c = '#ffd27a', o = .55) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${radial(c, c, 0)}" opacity="${o}"/>`;
 
 // Personaje al estilo de la referencia: cuerpo de cápsula alto, cabeza redonda clara con contorno, cara muy expresiva.
@@ -74,7 +77,7 @@ window.montar = () => {
   const esc = document.getElementById('escena');
   // todos los degradados en un solo <defs> (los url(#id) valen entre SVG del mismo documento)
   const g = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); g.setAttribute('width', 0); g.setAttribute('height', 0); g.style.position = 'absolute';
-  g.innerHTML = `<defs>${DEFS.join('')}</defs>`; document.body.appendChild(g);
+  g.innerHTML = `<defs>${DEFS.join('')}</defs>`; document.body.appendChild(g); window._defs = g.querySelector('defs');
   PLANOS.sort((a, b) => a.t0 - b.t0);
   PLANOS.forEach((P, i) => {
     if (P.t1 == null) P.t1 = PLANOS[i + 1] ? PLANOS[i + 1].t0 : DUR;

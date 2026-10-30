@@ -4,6 +4,8 @@ ep = os.path.abspath(sys.argv[1]); out = os.path.join(ep, 'build'); os.makedirs(
 d = json.load(open(os.path.join(ep, 'stt.json'))); words = []
 for w in (w for w in d['words'] if w['type'] == 'word'):
     raw = w['text'].strip('«»"'); t = raw.strip(',.:;…?¿!¡')
+    if t in ('%', '') and words:   # «%» suelto se pega a su número («37 %»)
+        words[-1]['t'] += ' %'; words[-1]['e'] = w['end']; words[-1]['raw'] += ' ' + raw; continue
     words.append({'t': t, 's': w['start'], 'e': w['end'], 'raw': raw})
 dur = float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', os.path.join(ep, 'voice_raw.mp3')])) + 1.0
 html = f'''<!doctype html><html><head><meta charset="utf-8"><style>

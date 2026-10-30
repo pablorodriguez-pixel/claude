@@ -125,3 +125,22 @@ D.estanteria = (x, y, w, h, seed = 11) => { let s = `<rect x="${x}" y="${y}" wid
   for (let f = 0; f < Math.floor(h / 140); f++) { let bx = x + 14; const by = y + 20 + f * 140;
     while (bx < x + w - 40) { const bw = 22 + R() * 26, bh = 90 + R() * 30; s += `<rect x="${bx}" y="${by + 110 - bh}" width="${bw}" height="${bh}" fill="${cs[Math.floor(R() * cs.length)]}" stroke="${TINTA}" stroke-width="3"/>`; bx += bw + 3 }
     s += `<rect x="${x}" y="${by + 110}" width="${w}" height="16" fill="#3e2716"/>` } return s };
+
+// ───────── Wall Street, dinero y gráficos (EP02)
+D.rascacielos = (y, seed = 13, noche = false) => { let s = '', r = seed; const R = () => (r = (r * 9301 + 49297) % 233280) / 233280;
+  for (let i = 0; i < 9; i++) { const x = -60 + i * 135 + R() * 30, w = 110 + R() * 70, h = 500 + R() * 700, c = ['#3c4a6b', '#4f5d80', '#2f3b57', '#5a6a8f'][i % 4];
+    s += `<rect x="${x}" y="${y - h}" width="${w}" height="${h}" fill="${grad(shade(c, 20), c, 0)}" ${OL}/>`;
+    for (let fy = y - h + 30; fy < y - 40; fy += 46) for (let fx = x + 16; fx < x + w - 24; fx += 30) s += `<rect x="${fx}" y="${fy}" width="16" height="24" fill="${R() < (noche ? .5 : .25) ? '#ffd879' : '#8fa6c9'}" opacity=".9"/>` } return s };
+D.cartelWS = (x, y) => `<g transform="translate(${x},${y})"><rect x="-150" y="-50" width="300" height="100" rx="10" fill="#1f6b3a" ${OL}/><text x="0" y="16" font-family="Figtree" font-weight="800" font-size="44" text-anchor="middle" fill="#fff">WALL ST</text><path d="M0 50 v220" stroke="#555" stroke-width="16"/></g>`;
+D.fajo = (x, y, s = 1, rot = 0) => `<g transform="translate(${x},${y}) rotate(${rot}) scale(${s})"><rect x="-120" y="-60" width="240" height="120" rx="10" fill="${grad('#9fd8a0', '#4f9a5a', 90)}" ${OL}/><rect x="-26" y="-62" width="52" height="124" fill="#f2d27a" ${OL}/><circle cx="-70" cy="0" r="26" fill="none" stroke="#2f6b3a" stroke-width="6"/><text x="-70" y="11" font-family="Figtree" font-weight="800" font-size="30" text-anchor="middle" fill="#2f6b3a">$</text></g>`;
+D.millon = (x, y, s = 1) => [...Array(12)].map((_, i) => D.fajo(x + (i % 3 - 1) * 250 * s, y - Math.floor(i / 3) * 120 * s, s)).join('');
+D.cesta = (x, y, s = 1, zzz = true) => `<g transform="translate(${x},${y}) scale(${s})"><ellipse cx="0" cy="10" rx="230" ry="26" fill="#000" opacity=".25"/>
+  ${[...Array(9)].map((_, i) => `<rect x="${-170 + (i % 5) * 70}" y="${-300 - Math.floor(i / 5) * 60}" width="60" height="80" rx="6" fill="${['#c0453a', '#2f80ed', '#d9b04a', '#3f8c5a', '#7a4a8c'][i % 5]}" ${OL} stroke-width="4"/>`).join('')}
+  <path d="M-220 -240 h440 l-40 240 h-360z" fill="${grad('#d9a560', '#9a6a2a', 90)}" ${OL}/>${[-140, -60, 20, 100, 170].map(c => `<path d="M${c} -236 l-10 232" stroke="#7a5020" stroke-width="6"/>`).join('')}
+  <path d="M-110 -120 q20 -20 40 0 M70 -120 q20 -20 40 0" ${OL} fill="none"/><path d="M-20 -70 q20 14 40 0" ${OL} fill="none"/>
+  <rect x="-160" y="-40" width="320" height="60" rx="30" fill="#fff" ${OL}/><text x="0" y="2" font-family="Figtree" font-weight="800" font-size="34" text-anchor="middle" fill="${TINTA}">TODA LA BOLSA</text>
+  ${zzz ? `<text x="200" y="-330" font-family="Figtree" font-weight="800" font-size="70" fill="#9fc2ff" stroke="${TINTA}" stroke-width="8" paint-order="stroke">z z z</text>` : ''}</g>`;
+D.maletin = (x, y, s = 1) => `<g transform="translate(${x},${y}) scale(${s})"><rect x="-60" y="-80" width="120" height="80" rx="10" fill="#5a3a24" ${OL}/><path d="M-24 -80 v-14 h48 v14" fill="none" ${OL}/></g>`;
+D.ejes = (x0, y0, w, h) => `<rect x="${x0}" y="${y0 - h}" width="${w}" height="${h}" rx="20" fill="#fff" opacity=".07"/><path d="M${x0} ${y0} h${w}" stroke="#fff" stroke-width="4" opacity=".5"/>`;
+D.boca = (id, x, y, s = 1, abre = 1) => `<g id="${id}" transform="translate(${x},${y}) scale(${s})"><path d="M-160 0 q160 ${-120 * abre} 320 0" fill="#c0392b" ${OL}/><path d="M-160 0 q160 ${120 * abre} 320 0" fill="#c0392b" ${OL}/>
+  ${[-110, -55, 0, 55, 110].map(c => `<path d="M${c - 20} ${-30 * abre} l20 ${36 * abre} l20 ${-36 * abre}z" fill="#fff" ${OL} stroke-width="3"/><path d="M${c - 20} ${30 * abre} l20 ${-36 * abre} l20 ${36 * abre}z" fill="#fff" ${OL} stroke-width="3"/>`).join('')}</g>`;
