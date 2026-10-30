@@ -1,0 +1,21 @@
+{
+ "voices": {"VECINO": ["851ejYcv2BoNPjrkw93G", 0.0, 1.0]},
+ "gap": 0.35,
+ "inner_cap": 0.45,
+ "lines": [
+  {"who": "VECINO", "text": "[excited] ¡Hace casi dos mil años, un chino inventó una máquina que detectaba terremotos!"},
+  {"who": "VECINO", "text": "Y el día que funcionó... nadie le creyó. Es una historia real.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Soy tu vecino, y esto no venía en el libro."},
+  {"who": "VECINO", "text": "Se llamaba Zhang Heng, era el astrónomo del emperador de China, y en el año ciento treinta y dos presentó en la corte un jarrón de bronce enorme.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Alrededor tenía ocho dragones, cada uno mirando hacia un lado. Cada dragón, con una bola de bronce en la boca. Y debajo de cada uno, un sapo con la boca abierta.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "La idea era esta: si la tierra temblaba lejos, un dragón soltaba su bola, el sapo se la tragaba con un ¡clonc!... y ese dragón te señalaba de dónde venía el terremoto.", "gap_after": 0.6},
+  {"who": "VECINO", "text": "Y un día, pasó: una bola cayó. Pero en la capital nadie había notado nada. Ni un temblor.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Sus enemigos en la corte se frotaban las manos: el famoso jarrón del astrónomo no funcionaba.", "gap_after": 0.5},
+  {"who": "VECINO", "text": "Hasta que llegó un mensajero a caballo. Había habido un terremoto a unos quinientos kilómetros... justo hacia donde señalaba el dragón.", "gap_after": 0.6},
+  {"who": "VECINO", "text": "Ojo: el jarrón original se perdió, y nadie sabe exactamente cómo era por dentro. Las réplicas de hoy llevan un péndulo."},
+  {"who": "VECINO", "text": "O sea: hace dos mil años, en China ya sabían que había habido un terremoto... antes de que llegara la noticia."},
+  {"who": "VECINO", "text": "Sígueme, que esto en clase no te lo cuentan."},
+  {"who": "VECINO", "text": "¿Tú has sentido alguna vez un terremoto? ¿Dónde estabas? Os leo."},
+  {"who": "VECINO", "text": "Y esto... no venía en el libro."}
+ ]
+}
