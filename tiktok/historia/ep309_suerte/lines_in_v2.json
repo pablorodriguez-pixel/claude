@@ -1,0 +1,92 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.3,
+ "inner_cap": 0.45,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Cuenta las fotos de este periódico! Tienes tres segundos.",
+   "tempo": 1.04
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno... dos... tres. ¿Cuántas te salen?",
+   "gap_after": 0.45,
+   "tempo": 1.04
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "Este juego lo hizo de verdad un psicólogo inglés, Richard Wiseman. Se pasó diez años estudiando a cuatrocientas personas: unas que se creían con suerte... y otras que se creían gafadas.",
+   "gap_after": 0.4,
+   "tempo": 1.05
+  },
+  {
+   "who": "VECINO",
+   "text": "A todos les dió un periódico, y les pidió lo mismo que a ti: cuenta las fotos.",
+   "tempo": 1.04,
+   "subs": {
+    "dió": "dio",
+    "pidio": "pidió"
+   }
+  },
+  {
+   "who": "VECINO",
+   "text": "Los gafados tardaron unos dos minutos. Los de la suerte... unos segundos.",
+   "gap_after": 0.45,
+   "tempo": 1.03
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Por qué? Porque en la segunda página había un mensaje que ocupaba media hoja, con letras de más de cinco centímetros: «Deja de contar: hay cuarenta y tres fotos».",
+   "gap_after": 0.4,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "Vuelve a mirar el periódico de antes... Estaba ahí.",
+   "gap_after": 0.45,
+   "tempo": 1.03
+  },
+  {
+   "who": "VECINO",
+   "text": "Y a mitad del periódico puso otro: «Deja de contar, díselo al investigador y ganas doscientos cincuenta». Los gafados tampoco lo vieron. Estaban demasiado ocupados contando.",
+   "gap_after": 0.4,
+   "tempo": 1.05
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo: según Wiseman, los gafados solían estar más tensos. Y cuando vas con nervios... solo ves lo que estás buscando.",
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: la suerte no siempre te cae del cielo. A veces la tienes delante... y estás demasiado ocupado para verla.",
+   "tempo": 1.05
+  },
+  {
+   "who": "VECINO",
+   "text": "Sígueme, que esto en clase no te lo cuentan.",
+   "gap_after": 0.2
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú lo viste a la primera, o te pusiste a contar? Sé sincero. Os leo.",
+   "tempo": 1.03,
+   "gap_after": 0.2
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

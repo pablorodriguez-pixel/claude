@@ -86,7 +86,8 @@
   },
   {
    "who": "VECINO",
-   "text": "Y esto... no venía en el libro."
+   "text": "[mischievously] Y si no lo has visto... venga, otra vez:",
+   "gap_after": 0
   }
  ]
 }

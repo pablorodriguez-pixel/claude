@@ -4,8 +4,11 @@
    43 photographs in this newspaper». A mitad: «Stop counting, tell the experimenter you have seen this and win £250». Los gafados, más tensos.
    GANCHO = el espectador JUEGA: periódico EL DIARIO, pág. 1 → pág. 2 con el mensaje gigante a la vista, 3-2-1 y una mano que cuenta. */
 Story.prepara();
+// BUCLE: el vídeo acaba 0,1 s después de la última palabra y su último fotograma = fotograma 0 (sin libro ni cola)
+LOOP = LE(NL - 1) + 0.1; window.LOOP = LOOP;
+{ const _st = Engine.start; Engine.start = o => _st(Object.assign({}, o, { duration: LOOP })); }
 const T = {
-  cuenta0: Q('cuenta las fotos'), tienes: Q('tienes'), uno: Q('uno'), dos: Q('dos'), tres1: Q('tres'), cuantas: Q('cuántas'),
+  cuenta0: Q('cuenta las fotos'), tienes: Q('tienes'), tres0: Q('tres segundos'), uno: Q('uno'), dos: Q('dos'), tres1: Q('tres'), cuantas: Q('cuántas'),
   psico: Q('psicólogo', 3), richard: Q('richard'), diez: Q('diez años'), c400: Q('cuatrocientas'), unas: Q('unas que'), suerte3: Q('con suerte'), otras: Q('y otras'), gafadas: Q('gafadas'),
   todos: Q('a todos'), mismo: Q('lo mismo'), cuenta4: Q('cuenta las fotos'),
   gaf5: Q('los gafados'), min5: Q('dos minutos'), suerte5: Q('los de la suerte'), seg5: Q('unos segundos'),
@@ -16,6 +19,7 @@ const T = {
   gaf8: Q('los gafados'), tampoco: Q('tampoco'), ocupados: Q('ocupados'), contando: Q('contando'),
   ojo: Q('ojo'), wise9: Q('wiseman'), solian: Q('solían'), tensos: Q('tensos'), cuando: Q('y cuando'), nervios: Q('nervios'), solo: Q('solo ves'), buscando: Q('buscando'),
   osea: Q('o sea'), nosiempre: Q('no siempre'), cielo: Q('cielo'), aveces: Q('a veces'), delante: Q('delante'), ocupado: Q('ocupado'), verla: Q('verla'),
+  otra13: Q('otra vez', 13),
 };
 const VERDE = '#2e9e6b', TREB = '#3fa34d', AZUL = '#2b6fd6', GRIS = '#7d8290', PIEL = '#e7b48c', CRE = '#fbf6ea', PAP = '#f1e7cf';
 const OUT = `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`;
@@ -46,7 +50,7 @@ const fotoSvg = (k, w, h) => { const ty = k % 4; let s = `<rect width="${w}" hei
   else if (ty === 1) s += `<circle cx="${w * 0.76}" cy="${h * 0.3}" r="${h * 0.12}" fill="#efe4c8"/><path d="M0,${h} L${w * 0.3},${h * 0.42} L${w * 0.55},${h * 0.8} L${w * 0.75},${h * 0.52} L${w},${h} Z" fill="#6d5a40"/>`;
   else if (ty === 2) s += `<rect x="${w * 0.14}" y="${h * 0.36}" width="${w * 0.3}" height="${h * 0.64}" fill="#6d5a40"/><rect x="${w * 0.5}" y="${h * 0.18}" width="${w * 0.34}" height="${h * 0.82}" fill="#5c4a35"/><path d="M${w * 0.2},${h * 0.52} h${w * 0.18} M${w * 0.56},${h * 0.36} h${w * 0.22} M${w * 0.56},${h * 0.58} h${w * 0.22}" stroke="#efe4c8" stroke-width="6"/>`;
   else s += `<circle cx="${w * 0.35}" cy="${h * 0.42}" r="${h * 0.15}" fill="#5c4a35"/><circle cx="${w * 0.65}" cy="${h * 0.42}" r="${h * 0.15}" fill="#5c4a35"/><path d="M${w * 0.08},${h} Q${w * 0.35},${h * 0.55} ${w * 0.5},${h} Q${w * 0.65},${h * 0.55} ${w * 0.92},${h} Z" fill="#5c4a35"/>`;
-  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block">${s}<rect x="2" y="2" width="${w - 4}" height="${h - 4}" fill="none" stroke="${INK}" stroke-width="4"/></svg>`; };
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="display:block">${s}<rect x="2" y="2" width="${w - 4}" height="${h - 4}" fill="none" stroke="${INK}" stroke-width="4"/><rect x="5" y="5" width="${w - 10}" height="${h - 10}" fill="none" stroke="#1d1a22" stroke-width="10"/></svg>`; };
 const LINEAS = 'repeating-linear-gradient(180deg, rgba(43,33,24,.34) 0 6px, transparent 6px 15px)';
 function DIARIO(c, x, y, page, z = 10, num = 2) {
   const d = box(c, x, y, 860, 940, { zIndex: z, background: PAP, border: `8px solid ${INK}`, boxShadow: `16px 18px 0 ${SH}`, boxSizing: 'border-box', transformOrigin: '50% 50%', overflow: 'hidden' });
@@ -82,6 +86,7 @@ function DIARIO(c, x, y, page, z = 10, num = 2) {
 }
 const luz = (sp, k, col = '255,230,0') => { sp.style.background = k > 0.01 ? `rgba(${col},${f1(k * 0.95)})` : 'transparent'; };
 const TICK = (d, f, n, col = YEL) => box(d, f[0] - 34, f[1] - 34, 68, 68, { zIndex: 20, borderRadius: '50%', background: col, border: `5px solid ${INK}`, boxShadow: `4px 4px 0 ${INK}`, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '36px', lineHeight: '56px', textAlign: 'center', color: INK, boxSizing: 'border-box', transformOrigin: '50% 50%' }, String(n));
+const DEDO = (c, z = 40) => box(c, 0, 0, 110, 138, { zIndex: z, transformOrigin: '0 0' }, `<svg viewBox="0 0 120 150" width="110" height="138" style="overflow:visible"><path d="M48,8 C48,-2 64,-2 64,8 L64,62 C70,54 84,56 84,66 C90,60 102,62 102,74 C108,70 118,74 116,86 L114,112 C112,134 96,146 74,146 L60,146 C40,146 28,134 24,118 L14,86 C10,74 26,68 32,80 L40,96 L48,96 Z" fill="#fff" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/><path d="M64,66 V92 M84,68 V92 M102,76 V94" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><path d="M36,128 H104" stroke="${INK}" stroke-width="4" opacity=".4"/></svg>`);
 const MANO = (c, z = 40) => box(c, 0, 0, 150, 150, { zIndex: z }, `<svg viewBox="-60 -70 120 120" width="150" height="150" style="overflow:visible">${gloveHand(0, 0, -25, 1.1)}</svg>`);
 /* periódico pequeño en las manos (vb 0 0 300 230) */
 const MINI = (c, w, z = 14) => figura(c, 0, 0, w, w * 230 / 300, `<rect x="4" y="4" width="292" height="222" rx="6" fill="${PAP}" stroke="${INK}" stroke-width="7"/><text x="150" y="44" text-anchor="middle" font-family="Rye" font-size="34" fill="${INK}">EL DIARIO</text><path d="M16,56 H284" stroke="${INK}" stroke-width="4"/>
@@ -118,48 +123,55 @@ const GAFADO = (c, x, y, w, o = {}) => PERS(c, x, y, w, Object.assign({ ropa: GR
 const SUERTUDO = (c, x, y, w, o = {}) => PERS(c, x, y, w, Object.assign({ ropa: VERDE, pelo: 'largo', pcol: '#c46a2a', piel: '#e9b98f' }, o));
 const GOTA = (c) => sudor(c, 0, 0);
 
-/* ===================== PORTADA (fotograma 0) + L0–L1 · EL JUEGO: cuenta las fotos en 3 s (pág. 1 → pág. 2 con el mensaje a la vista) ===================== */
-const TFLIP = T.tienes - 0.12, TFIN = T.cuantas - 0.15, NT = 10, TTK = i => T.uno + 0.05 + i * (TFIN - T.uno - 0.05) / NT;
-function juegoBase(c, cam) {
+/* ===================== PORTADA (fotograma 0) + L0–L1 · EL RETO: ¿cuántas fotos hay? — UNA sola página (la del mensaje), contador FOTOS: 0,
+   mano que salta de foto en foto, anillo 3-2-1. El mismo montaje se reutiliza en L7 (rebobinado) y en la última línea (bucle: último fotograma = fotograma 0). */
+const TC0 = T.tres0 + 0.1, TFIN = T.cuantas - 0.15, NT = 10, TTK = i => TC0 + i * (TFIN - TC0) / NT;
+function gancho(c, o = {}) {
   const ry = rays(c, -160, 380, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
-  cam.style.zIndex = 2;
-  const p2 = DIARIO(cam, 30, 380, 2, 10);
-  const ticks = p2.fotos.slice(0, NT).map((f, i) => TICK(p2, f, i + 1));
-  const mano = MANO(cam, 40);
-  const tit = TIT(c, 258, `CUENTA LAS <span style="color:${YEL}">FOTOS</span>`, 96, 45);
-  const cr = CRONO(c, 170, 46);
-  return { ry, p2, ticks, mano, tit, cr };
-}
-const manoEn = (J, k) => { // k = posición continua en la lista de fotos (0..NT-1)
-  const i = clamp(Math.floor(k), 0, NT - 1), j = clamp(i + 1, 0, NT - 1), f = k - Math.floor(k), a = J.p2.fotos[i], b = J.p2.fotos[j], e = ease3(clamp(f * 1.6));
-  const x = 38 + lerp(a[0], b[0], e), y = 388 + lerp(a[1], b[1], e) - Math.sin(e * Math.PI) * 30;
-  set(J.mano, { x: x - 70, y: y - 10, r: -10 }); };
-plano(-1, L(2) - 0.08, PAPEL, c => {
-  const cam = CAM(c), J = juegoBase(c, cam);
-  const p1 = DIARIO(cam, 30, 380, 1, 12); p1.style.transformOrigin = '0% 50%';
+  const cam = CAM(c); cam.style.zIndex = 2;
+  const p2 = DIARIO(cam, 30, 410, 2, 10);
+  const ticks = p2.fotos.slice(0, NT).map((f, i) => TICK(p2, [f[0] + 62, f[1] - 22], i + 1));
+  const mano = DEDO(c, 41);
+  const tit = TIT(c, 252, `RETO: ¿CUÁNTAS <span style="color:${YEL}">FOTOS</span> HAY?`, 64, 45);
+  const cnt = box(c, 640, 330, 400, 108, { zIndex: 47, background: '#1d1a22', border: `8px solid ${INK}`, borderRadius: '22px', boxShadow: `8px 9px 0 ${SH}`, boxSizing: 'border-box', textAlign: 'center',
+    fontFamily: 'Bricolage', fontWeight: 800, fontSize: '62px', lineHeight: '90px', color: '#fff', transformOrigin: '50% 50%', whiteSpace: 'nowrap' }, `FOTOS: <span class="n" style="color:${YEL};font-family:PlexMono;font-weight:700">0</span>`);
+  const nEl = cnt.querySelector('.n');
+  const cr = CRONO(c, 150, 46);
   const cu = SELLO(cam, 150, 1150, 620, '¿CUÁNTAS?', RED, 60, 100);
-  sfx('swoosh_up', 0.05, 0.4); sp(TFLIP, 'paper', 0.9); sp(TFLIP + 0.05, 'whoosh', 0.4);
+  // tau: tiempo local (0 = fotograma 0); n: fotos contadas; kh: posición de la mano (0..NT-1); lab: texto del crono; ring: 0..1 (null = oculto); cuT: stamp
+  const upd = (tau, n, kh, lab, ring, cuT, ent = 1) => {
+    set(ry, { r: tau * 6 });
+    cam.style.transformOrigin = '0 0'; const s = lerp(0.3, 1, ent) * (1 + 0.03 * clamp(tau / 9)), cy = 820 + Math.sin(tau * 0.8) * 4;
+    set(cam, { x: 540 - 540 * s, y: 820 - cy * s, s, r: (1 - ent) * -25 });
+    set(tit, { r: -1.2 + wobble(tau, 0.5, 0.6), s: lerp(0.01, 1, clamp(ent)) * (1 + 0.02 * Math.sin(tau * 3)) });
+    ticks.forEach((tk, i) => { const on = i < n; set(tk, { o: on ? 1 : 0, s: on ? 1 : 0, r: -6 + (i % 3) * 5 }); });
+    nEl.textContent = String(n);
+    const bump = n > 0 && cuT == null ? 0 : 0;
+    set(cnt, { r: 2 + wobble(tau, 0.45, 0.8), s: lerp(0.01, 1, clamp(ent)) * (o.beat ? o.beat(tau) : 1) + bump });
+    const kk = clamp(kh, 0, NT - 1), i = Math.floor(kk), j = Math.min(i + 1, NT - 1), f = kk - i, e = ease3(clamp(f * 1.8)), a = p2.fotos[i], b = p2.fotos[j];
+    const hx = 38 + lerp(a[0], b[0], e), hy = 418 + lerp(a[1], b[1], e) - Math.sin(e * Math.PI) * 40;
+    set(mano, { x: (hx - 51) * s + (540 - 540 * s), y: (hy - 6 + Math.abs(Math.sin(tau * 5)) * -10) * s + (820 - cy * s), s, o: clamp(ent * 3 - 2) });
+    numC(cr, lab, lab === '3 s' ? 92 : 120);
+    cr.rg.setAttribute('opacity', ring == null ? 0 : 1); cr.rg.setAttribute('stroke-dashoffset', f1((ring || 0) * 1000) / 1000);
+    cr.cara.setAttribute('fill', lab === '0' && Math.sin(tau * 16) > 0 ? '#ffb3b3' : CRE);
+    set(cr, { x: 20, y: 298 + Math.sin(tau * 4) * 5, r: wobble(tau, 0.5, 4), s: lerp(0.01, 1, clamp(ent)) * (o.crs ? o.crs(tau) : 1) });
+    if (cuT != null) golpeS(cu, tau, cuT, -6); else set(cu, { o: 0 });
+  };
+  return { ry, cam, p2, ticks, mano, tit, cnt, cr, cu, upd };
+}
+const nCont = t => { let n = 0; for (let i = 0; i < NT; i++) if (t >= TTK(i)) n++; return n; };
+plano(-1, L(2) - 0.08, PAPEL, c => {
+  const beat = tt => 1 + 0.12 * [T.uno, T.dos, T.tres1].reduce((m, x) => Math.max(m, tt > x - 0.05 && tt < x + 0.3 ? 1 - (tt - x + 0.05) / 0.35 : 0), 0);
+  const cntBeat = tt => { let b = 0; for (let i = 0; i < NT; i++) { const d = tt - TTK(i); if (d >= 0 && d < 0.25) b = Math.max(b, 1 - d / 0.25); } return 1 + 0.1 * b; };
+  const G = gancho(c, { crs: beat, beat: cntBeat });
+  sfx('swoosh_up', 0.05, 0.4);
   [T.uno, T.dos, T.tres1].forEach(tt => sp(tt, 'tick', 0.9));
-  for (let i = 0; i < NT; i++) sp(TTK(i), 'pop', 0.3);
+  for (let i = 0; i < NT; i++) sp(TTK(i), 'pop', 0.35);
   sp(T.cuantas, 'stamp', 1.0); shakeAt(T.cuantas, 0.35, 14);
   return t => {
-    set(J.ry, { r: t * 6 });
-    camTo(cam, 540, 820 + Math.sin(t * 0.8) * 4, 1 + 0.03 * clamp(t / 9));
-    set(J.tit, { r: -1.5 + wobble(t, 0.5, 0.8), s: 1 + 0.025 * Math.sin(t * 3) });
-    const kf = p(t, TFLIP, 0.45, E.inOutCubic);
-    set(p1, { sx: Math.max(0.001, 1 - 2 * kf * (kf < 0.5 ? 1 : 1)), o: kf >= 0.5 ? 0 : 1, r: wobble(t, 0.4, 0.5) });
-    set(J.p2, { r: wobble(t, 0.4, 0.5) });
-    J.ticks.forEach((tk, i) => popA(tk, t, TTK(i), { r: -6 + (i % 3) * 5 }));
-    const kh = t < T.uno ? -1 : (t - T.uno - 0.05) / ((TFIN - T.uno - 0.05) / NT);
-    set(J.mano, { o: t > T.uno - 0.2 && t < TFIN + 0.6 ? 1 : 0 }); if (kh >= -0.2) manoEn(J, clamp(kh, 0, NT - 1)); else set(J.mano, { o: 0 });
-    // cronómetro: «3 s» en la portada, luego 3 · 2 · 1 · 0
-    const n = t < T.uno - 0.05 ? '3 s' : t < T.dos - 0.05 ? '3' : t < T.tres1 - 0.05 ? '2' : t < T.cuantas - 0.1 ? '1' : '0';
-    numC(J.cr, n, n === '3 s' ? 92 : 120);
-    J.cr.rg.setAttribute('opacity', t > T.uno - 0.05 ? 1 : 0); J.cr.rg.setAttribute('stroke-dashoffset', f1(p(t, T.uno - 0.05, T.cuantas - T.uno, E.linear) * 1000) / 1000);
-    J.cr.cara.setAttribute('fill', n === '0' && Math.sin(t * 16) > 0 ? '#ffb3b3' : CRE);
-    const beat = [T.uno, T.dos, T.tres1].reduce((m, tt) => Math.max(m, t > tt - 0.05 && t < tt + 0.3 ? 1 - (t - tt + 0.05) / 0.35 : 0), 0);
-    set(J.cr, { x: 860, y: 372 + Math.sin(t * 4) * 6, r: wobble(t, 0.5, 4), s: 1 + 0.15 * beat });
-    golpeS(cu, t, T.cuantas, -6);
+    const kh = t < TC0 - 0.3 ? 0 : clamp((t - TC0 + 0.3) / ((TFIN - TC0) / NT), 0, NT - 1);
+    const lab = t < T.uno - 0.05 ? '3 s' : t < T.dos - 0.05 ? '3' : t < T.tres1 - 0.05 ? '2' : t < T.cuantas - 0.1 ? '1' : '0';
+    G.upd(t, nCont(t), kh, lab, t > T.uno - 0.05 ? p(t, T.uno - 0.05, T.cuantas - T.uno, E.linear) : null, T.cuantas);
   };
 }, { sfx: false });
 
@@ -320,34 +332,29 @@ plano(T.segunda - 0.15, L(7) - 0.1, PAPEL, c => {
   };
 });
 
-/* ===================== L7 · REBOBINAR al periódico del principio → círculo rojo → «ESTABA AHÍ» ===================== */
+/* ===================== L7 · REBOBINAR hasta el fotograma 0 del gancho (misma página) → círculo rojo → «ESTABA AHÍ» ===================== */
 plano(L(7) - 0.1, T.mitad - 0.15, PAPEL, c => {
-  const cam = CAM(c), J = juegoBase(c, cam);
+  const G = gancho(c);
   const vhs = box(c, 0, 0, 1080, 1920, { zIndex: 70, backgroundImage: 'repeating-linear-gradient(180deg, rgba(0,0,0,.16) 0 3px, transparent 3px 7px)' });
   const bar = box(c, 0, 0, 1080, 90, { zIndex: 71, background: 'rgba(255,255,255,.35)' });
   const rw = box(c, 230, 1190, 620, 100, { zIndex: 72 }, `<svg width="520" height="100" style="overflow:visible"><path d="M70,10 L10,50 L70,90 Z M140,10 L80,50 L140,90 Z" fill="#fff" stroke="${INK}" stroke-width="6" stroke-linejoin="round"/>
     <text x="164" y="70" font-family="PlexMono" font-weight="700" font-size="52" fill="#fff" stroke="${INK}" stroke-width="3" paint-order="stroke">REBOBINANDO</text></svg>`);
-  const ring = box(cam, 0, 0, 1080, 1920, { zIndex: 50 }, `<svg width="1080" height="1920" style="overflow:visible"><ellipse class="el" cx="478" cy="822" rx="470" ry="250" fill="none" stroke="${RED}" stroke-width="16" pathLength="1" stroke-dasharray="1 1" transform="rotate(-3 478 822)" stroke-linecap="round"/></svg>`);
+  const ring = box(G.cam, 0, 0, 1080, 1920, { zIndex: 50 }, `<svg width="1080" height="1920" style="overflow:visible"><ellipse class="el" cx="462" cy="858" rx="448" ry="248" fill="none" stroke="${RED}" stroke-width="16" pathLength="1" stroke-dasharray="1 1" transform="rotate(-3 460 858)" stroke-linecap="round"/></svg>`);
   const elp = ring.querySelector('.el');
-  const st = SELLO(c, 170, 1080, 740, 'ESTABA AHÍ', RED, 75, 104);
+  const st = SELLO(c, 170, 1110, 740, 'ESTABA AHÍ', RED, 75, 104);
   const TR0 = L(7) - 0.1, TR1 = T.antes - 0.05, TCIR = T.antes - 0.05, TST = T.antes + 0.45;
   sp(TR0, 'scratch', 0.8); sp(TR0 + 0.4, 'scratch', 0.5); sp(TR1, 'click', 0.8); sp(TCIR + 0.05, 'swoosh_up', 0.6); sp(TST, 'stamp', 1.1); shakeAt(TST, 0.4, 18);
   return t => {
     const kr = p(t, TR0, TR1 - TR0, E.linear), rew = t < TR1;
-    set(J.ry, { r: -t * 30 });
-    camTo(cam, 540, 820, 1 + 0.02 * p(t, TR1, 2, E.linear));
-    set(J.tit, { r: -1.5 + (rew ? Math.sin(t * 60) * 1.5 : 0) });
-    J.ticks.forEach((tk, i) => { const on = i < Math.round(NT * (1 - kr)); set(tk, { o: on ? 1 : 0, s: on ? 1 : 0, r: -6 + (i % 3) * 5 }); });
-    set(J.mano, { o: rew ? 1 : 0 }); if (rew) manoEn(J, (NT - 1) * (1 - kr));
-    const n = kr < 0.33 ? '1' : kr < 0.66 ? '2' : '3 s'; numC(J.cr, n, n === '3 s' ? 92 : 120); J.cr.rg.setAttribute('opacity', 0);
-    set(J.cr, { x: 860, y: 372, r: rew ? -t * 400 % 360 : 0 });
-    const glitchY = rew ? Math.sin(t * 47) * 8 : 0;
-    set(J.p2, { y: glitchY, x: rew ? Math.sin(t * 31) * 6 : 0 });
+    const tau = rew ? lerp(T.cuantas + 0.3, 0, kr) : (t - TR1) * 0.2;   // el reloj del gancho va hacia atrás hasta 0
+    const lab = tau < T.uno - 0.05 ? '3 s' : tau < T.dos - 0.05 ? '3' : tau < T.tres1 - 0.05 ? '2' : '1';
+    const kh = tau < TC0 - 0.3 ? 0 : clamp((tau - TC0 + 0.3) / ((TFIN - TC0) / NT), 0, NT - 1);
+    G.upd(tau, nCont(tau), kh, lab, rew && tau > T.uno - 0.05 ? p(tau, T.uno - 0.05, T.cuantas - T.uno, E.linear) : null, rew ? T.cuantas : null);
+    if (rew) { set(G.p2, { y: Math.sin(t * 47) * 8, x: Math.sin(t * 31) * 6 }); } else set(G.p2, {});
     c.style.filter = rew ? 'saturate(.55) contrast(1.15) hue-rotate(-12deg)' : 'none';
     set(vhs, { o: rew ? 1 : 0 }); set(bar, { o: rew ? 1 : 0, y: (t * 1400) % 1920 }); set(rw, { o: rew && Math.sin(t * 14) > -0.3 ? 1 : 0 });
-    elp.setAttribute('stroke-dashoffset', f1(1 - p(t, TCIR, 0.45, E.inOutCubic)) * 1);
+    elp.setAttribute('stroke-dashoffset', f1(1 - p(t, TCIR, 0.45, E.inOutCubic)));
     set(ring, { o: t > TCIR ? 1 : 0 });
-    J.ms = J.p2.ms; J.ms.forEach(sp_ => luz(sp_, t > TCIR + 0.3 ? 0.55 + 0.25 * Math.sin(t * 6) : 0));
     golpeS(st, t, TST, -6);
   };
 });
@@ -513,11 +520,24 @@ sigueme(11, 'Esto en clase…', '…no te lo cuentan', 'sígueme');
 /* L12 · pregunta final (+ «Os leo») */
 preguntaFinal('¿Tú lo viste', 'a la primera?', { size: 92, draw: c => [['lo vi a la primera', YEL], ['conté 12 fotos', '#9fd3c0'], ['¿qué mensaje?', PINK]].map(([s, col], i) => aparece(chip(c, 170 + i * 50, 640 + i * 160, s, { size: 54, bg: col, color: INK }), L(12) + 0.5 + i * 0.45, { sfx: 'pop' })) });
 
-/* L13 · cierre */
-cierre(309, 'Cuenta las fotos', ['PSICOLOGÍA', 'de verdad']);
+/* L13 · BUCLE: «Y si no lo has visto... venga, otra vez:» → el periódico vuelve y el ÚLTIMO fotograma es idéntico al fotograma 0 */
+plano(L(13) - 0.08, LOOP + 1, PAPEL, c => {
+  const G = gancho(c);
+  const otra = chip(c, 270, 1170, '¡OTRA VEZ!', { size: 76, bg: RED, z: 80 });
+  const TE = L(13) - 0.08;
+  sp(TE, 'whoosh', 0.7); sp(TE + 0.55, 'pop2', 0.6); sp(T.otra13, 'ding', 0.6);
+  return t => {
+    const tau = t - LOOP, ent = p(t, TE, 0.75, E.outBack);
+    G.upd(tau, 0, 0, '3 s', null, null, ent);
+    const k = t < T.otra13 + 0.25 ? pop(t, T.otra13 - 0.25, 0.3) : 1 - p(t, T.otra13 + 0.25, 0.18, E.inCubic);
+    set(otra, { s: Math.max(0.001, k), o: k > 0.02 && t < LOOP - 0.15 ? 1 : 0, r: -5 + wobble(t, 0.8, 2) });
+  };
+});
+
 
 Story.run({
   textura: true,
   ovalo: [[L(3) + 0.3, T.diez - 0.2], [L(9) + 0.2, T.cuando - 0.25]],
   vecino: { sorpresa: [[T.richard, T.richard + 0.9]], golpes: [T.tensos + 0.1] },
 });
+{ const cb = [...document.getElementById('stage').children].find(e => e.style.zIndex === '900'); const r1 = window.render; window.render = t => { r1(t); if (cb && t > LOOP - 0.09) cb.style.visibility = 'hidden'; }; }

@@ -157,7 +157,8 @@ def el_music(style, dur):
     x = readwav(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'el_music', style + '.wav'))
     n = int(dur * SR)
     while len(x) < n: x = np.concatenate([x, x])
-    x = x[:n].copy(); fade = int(1.5 * SR); x[-fade:] *= np.linspace(1, 0, fade)
+    x = x[:n].copy(); fade = int(float(os.environ.get('MUSIC_FADE', 1.5)) * SR)  # MUSIC_FADE=0.12 para vídeos en bucle
+    if fade: x[-fade:] *= np.linspace(1, 0, fade)
     return x
 
 # ---------------- MEZCLA ----------------
