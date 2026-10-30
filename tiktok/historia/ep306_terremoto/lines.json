@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Hace casi dos mil años, un chino inventó una máquina que detectaba terremotos!",
+  "s": 0.12,
+  "e": 4.413
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Y el día que funcionó... nadie le creyó. Es una historia real.",
+  "s": 4.763,
+  "e": 10.198
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 10.698,
+  "e": 13.809
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Se llamaba Zhang Heng, era el astrónomo del emperador de China, y en el año ciento treinta y dos presentó en la corte un jarrón de bronce enorme.",
+  "s": 14.159,
+  "e": 22.393
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Alrededor tenía ocho dragones, cada uno mirando hacia un lado. Cada dragón, con una bola de bronce en la boca. Y debajo de cada uno, un sapo con la boca abierta.",
+  "s": 22.893,
+  "e": 33.285
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "La idea era esta: si la tierra temblaba lejos, un dragón soltaba su bola, el sapo se la tragaba con un ¡clonc!... y ese dragón te señalaba de dónde venía el terremoto.",
+  "s": 33.785,
+  "e": 43.454
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y un día, pasó: una bola cayó. Pero en la capital nadie había notado nada. Ni un temblor.",
+  "s": 44.054,
+  "e": 51.971
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Sus enemigos en la corte se frotaban las manos: el famoso jarrón del astrónomo no funcionaba.",
+  "s": 52.471,
+  "e": 58.389
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Hasta que llegó un mensajero a caballo. Había habido un terremoto a unos quinientos kilómetros... justo hacia donde señalaba el dragón.",
+  "s": 58.889,
+  "e": 67.447
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: el jarrón original se perdió, y nadie sabe exactamente cómo era por dentro. Las réplicas de hoy llevan un péndulo.",
+  "s": 68.047,
+  "e": 75.883
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: hace dos mil años, en China ya sabían que había habido un terremoto... antes de que llegara la noticia.",
+  "s": 76.233,
+  "e": 82.864
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 83.214,
+  "e": 85.762
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Tú has sentido alguna vez un terremoto? ¿Dónde estabas? Os leo.",
+  "s": 86.112,
+  "e": 89.948
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 90.298,
+  "e": 92.741
+ }
+]
