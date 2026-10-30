@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Cuenta las fotos de este periódico! Tienes tres segundos.",
+  "s": 0.12,
+  "e": 3.577
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Uno... dos... tres. ¿Cuántas te salen?",
+  "s": 3.877,
+  "e": 9.724
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 10.174,
+  "e": 13.285
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Este juego lo hizo de verdad un psicólogo inglés, Richard Wiseman. Se pasó diez años estudiando a cuatrocientas personas: unas que se creían con suerte... y otras que se creían gafadas.",
+  "s": 13.585,
+  "e": 24.645
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "A todos les dio un periódico, y les pidió lo mismo que a ti: cuenta las fotos.",
+  "s": 25.045,
+  "e": 29.287
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Los gafados tardaron unos dos minutos. Los de la suerte... unos segundos.",
+  "s": 29.587,
+  "e": 34.808
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "¿Por qué? Porque en la segunda página había un mensaje que ocupaba media hoja, con letras de más de cinco centímetros: «Deja de contar: hay cuarenta y tres fotos».",
+  "s": 35.258,
+  "e": 48.329
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "Vuelve a mirar el periódico de antes... Estaba ahí.",
+  "s": 48.729,
+  "e": 51.455
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Y a mitad del periódico puso otro: «Deja de contar, díselo al investigador y ganas doscientos cincuenta». Los gafados tampoco lo vieron. Estaban demasiado ocupados contando.",
+  "s": 51.905,
+  "e": 61.133
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo: según Wiseman, los gafados solían estar más tensos. Y cuando vas con nervios... solo ves lo que estás buscando.",
+  "s": 61.533,
+  "e": 70.299
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: la suerte no siempre te cae del cielo. A veces la tienes delante... y estás demasiado ocupado para verla.",
+  "s": 70.599,
+  "e": 78.766
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 79.066,
+  "e": 81.614
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Tú lo viste a la primera, o te pusiste a contar? Sé sincero. Os leo.",
+  "s": 81.814,
+  "e": 86.408
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 86.608,
+  "e": 89.051
+ }
+]
