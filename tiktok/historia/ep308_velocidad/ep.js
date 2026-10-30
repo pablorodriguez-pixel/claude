@@ -396,13 +396,13 @@ plano(L(8) - 0.1, T.hoy - 0.1, { background: '#dfe8f2' }, c => {
   sp(T.psico, 'paper', 0.7); sp(T.ola, 'pop', 0.6); sp(T.demostro, 'swoosh_up', 0.5); [...Array(8)].forEach((_, i) => sp(T.casi8 + i * 0.09, 'pop2', 0.35)); sp(T.casi8 + 0.8, 'error', 0.6);
   return t => {
     deriva(cam, t, L(8) - 0.1, T.hoy - 0.1, [540, 880, 1.04], [540, 940, 1.0]);
-    const kf = p(t, L(8) - 0.12, 0.45, E.outBack); set(ficha, { s: kf, r: lerp(-12, -1.5, clamp(kf)) + wobble(t, 0.4, 0.6) });
+    const kf = p(t, L(8) - 0.1, 0.22, E.outBack); set(ficha, { s: lerp(0.8, 1, kf), r: lerp(-6, -1.5, clamp(kf)) + wobble(t, 0.4, 0.6) });
     hl.style.backgroundSize = `${f1(p(t, T.ola + 0.3, 0.6) * 100)}% 70%`;
-    gente.forEach((g, i) => { const row = Math.floor(i / 5), k = p(t, T.demostro - 0.1 + i * 0.06, 0.4, E.outBack);
-      set(g, { x: 110 + (i % 5) * 155 + row * 30, y: 800 + row * 190, s: k, o: t > T.demostro - 0.1 + i * 0.06 ? 1 : 0, r: Math.sin(t * 3 + i) * 4 });
+    gente.forEach((g, i) => { const row = Math.floor(i / 5), k = p(t, L(8) - 0.45 + i * 0.02, 0.25, E.outBack);
+      set(g, { x: 110 + (i % 5) * 155 + row * 30, y: 800 + row * 190, s: k, o: 1, r: Math.sin(t * 3 + i) * 4 });
       const mal = i !== 3 && i !== 7 && t > T.casi8 + [0, 1, 2, 9, 3, 4, 5, 9, 6, 7][i] * 0.09;
       g.x.setAttribute('opacity', mal ? 1 : 0); g.m.setAttribute('d', mal ? 'M48,84 Q60,74 72,84' : 'M48,80 Q60,88 72,80'); });
-    vis(fallo, t, T.casi8 + 0.3, 99, { r: -3 });
+    vis(fallo, t, T.demostro, 99, { r: -3 });
   };
 });
 
@@ -417,13 +417,13 @@ plano(T.hoy - 0.1, L(9) - 0.1, { background: '#f2e2d0' }, c => {
   const tch = TACHA(c, 370, 735, 540, 25);
   const no = SELLO(c, 560, 1100, 280, '¡NO!', RED, 30, 96);
   const vls = [0, 1, 2].map(() => box(c, 0, 0, 120, 12, { zIndex: 11, background: INK, borderRadius: '6px' }));
-  sp(T.sesgo - 0.1, 'stamp', 0.7); sp(T.cerebro, 'pop', 0.6); sp(T.correr, 'swoosh_up', 0.5); sp(T.compensa + 0.15, 'scratch', 0.8); sp(T.compensa + 0.35, 'stamp', 0.9);
+  sp(T.hoy - 0.05, 'stamp', 0.7); sp(T.sesgo, 'ding', 0.5); sp(T.hoy + 0.05, 'pop', 0.6); sp(T.correr, 'swoosh_up', 0.5); sp(T.compensa + 0.15, 'scratch', 0.8); sp(T.compensa + 0.35, 'stamp', 0.9);
   shakeAt(T.compensa + 0.35, 0.35, 14);
   return t => {
     set(ry, { r: t * 5 });
-    const kp = p(t, T.sesgo - 0.15, 0.4, E.outBack); set(placa, { o: t > T.sesgo - 0.15 ? 1 : 0, s: lerp(1.8, 1, clamp(kp)) * (t > T.sesgo - 0.15 ? 1 : 0), r: -2 + wobble(t, 0.4, 0.6) });
-    const kc = p(t, T.cerebro - 0.15, 0.45, E.outBack);
-    set(cer, { x: 500, y: 880 + Math.sin(t * 5) * 8, s: kc * (1 + 0.04 * Math.sin(t * 9)), o: t > T.cerebro - 0.15 ? 1 : 0, r: t > T.compensa + 0.35 ? Math.sin(t * 20) * 3 : wobble(t, 0.5, 3) });
+    const kp = p(t, T.hoy - 0.1, 0.25, E.outBack), ks = t > T.sesgo - 0.1 && t < T.sesgo + 0.5 ? 1 + 0.06 * Math.sin((t - T.sesgo) * 12) : 1; set(placa, { o: 1, s: lerp(0.85, 1, clamp(kp)) * ks, r: -2 + wobble(t, 0.4, 0.6) });
+    const kc = p(t, T.hoy - 0.45, 0.3, E.outBack);
+    set(cer, { x: 500, y: 880 + Math.sin(t * 5) * 8, s: kc * (1 + 0.04 * Math.sin(t * 9)), o: 1, r: t > T.compensa + 0.35 ? Math.sin(t * 20) * 3 : wobble(t, 0.5, 3) });
     vls.forEach((l, i) => { const k = (t * 2.5 + i / 3) % 1; set(l, { x: 470 - k * 160, y: 960 + i * 50, o: t > T.correr && t < T.compensa + 0.3 ? 1 - k : 0 }); });
     set(bur, { o: t > T.correr - 0.15 ? 1 : 0, s: pop(t, T.correr - 0.15, 0.35), r: -2 });
     pts.forEach((d, i) => set(d, { x: 700 + i * 30, y: 860 + i * 30, o: t > T.correr - 0.15 ? 1 : 0 }));
