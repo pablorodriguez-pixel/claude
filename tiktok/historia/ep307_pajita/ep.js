@@ -23,12 +23,12 @@ const ROSA_P = '#ff4f8b', MENTA = '#7fd8b6', MASA = '#e2a565', MASA2 = '#b8743e'
 const OUT = `6px 6px 0 ${INK}, -3px -3px 0 ${INK}, 3px -3px 0 ${INK}, -3px 3px 0 ${INK}`;
 const vis = (e, t, t0, t1 = 1e9, o = {}) => set(e, Object.assign({ o: t > t0 && t < t1 ? 1 : 0, s: pop(t, t0, 0.35) }, o));
 const slam = (e, t, t0, r = -4, base = 1) => set(e, { o: t > t0 ? 1 : 0, s: t < t0 ? 0 : lerp(2, 1, E.outCubic(clamp((t - t0) / 0.22))) * base, r });
-let UID = 0;
+let UID7 = 0;
 const OKS = `<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:-0.12em;overflow:visible"><path d="M18,54 L42,76 L84,24" stroke="${INK}" stroke-width="26" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M18,54 L42,76 L84,24" stroke="${VERDE}" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 const KOS = `<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:-0.12em;overflow:visible"><path d="M20,20 L80,80 M80,20 L20,80" stroke="${INK}" stroke-width="26" fill="none" stroke-linecap="round"/><path d="M20,20 L80,80 M80,20 L20,80" stroke="${RED}" stroke-width="14" fill="none" stroke-linecap="round"/></svg>`;
 
 /* ---------- PAJITA con cara (vb -500 -500 1000 1000, centrada). geo(w,h,ry,hk) la estira/aplasta; sface(d,t,{feliz,jaw,look,ceja,sq}) ---------- */
-const TUBE = (c, sz, o = {}) => { const id = 'st' + (UID++);
+const TUBE = (c, sz, o = {}) => { const id = 'st' + (UID7++);
   const d = box(c, 0, 0, sz, sz, { zIndex: o.z || 10, transformOrigin: '50% 50%' }, `<svg viewBox="-500 -500 1000 1000" width="${sz}" height="${sz}" style="overflow:visible">
    <defs><pattern id="${id}" width="96" height="96" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)"><rect width="96" height="96" fill="#fff"/><rect width="44" height="96" fill="${o.col || ROSA_P}"/><rect x="62" width="14" height="96" fill="${MENTA}"/></pattern></defs>
    <ellipse class="sh" fill="${SH}"/>
@@ -99,7 +99,7 @@ const DIBU = {
   1: id => PAJ_H(id) + `<path class="dz" d="M-10,80 H250" stroke="${AZUL}" stroke-width="10" stroke-dasharray="20 14" fill="none"/><path d="M236,62 L262,80 L236,98 Z" fill="${AZUL}" stroke="${INK}" stroke-width="4"/>`,
   0: id => `<defs><pattern id="${id}" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(-32)"><rect width="30" height="30" fill="#fff"/><rect width="14" height="30" fill="${ROSA_P}"/></pattern></defs><g class="dz"><path d="M40,110 L80,40 L220,40 L180,110 Z" fill="url(#${id})" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/></g>`,
 };
-const CARTEL = (c, n, col, z = 14) => { const id = 'cp' + (UID++);
+const CARTEL = (c, n, col, z = 14) => { const id = 'cp' + (UID7++);
   const d = box(c, 0, 0, 280, 520, { zIndex: z, transformOrigin: '50% 100%' }, `<div style="position:absolute;left:128px;top:340px;width:24px;height:180px;background:#a2723f;border:5px solid ${INK};box-sizing:border-box"></div>
    <div class="fr" style="position:absolute;left:0;top:0;width:280px;height:350px;background:${CRE};border:8px solid ${INK};border-radius:24px;box-shadow:10px 12px 0 ${SH};box-sizing:border-box;text-align:center;transform-origin:50% 50%">
    <div style="font-family:Bricolage;font-weight:800;font-size:170px;line-height:180px;color:${col};text-shadow:${OUT}">${n}</div>
@@ -113,7 +113,7 @@ const COLB = { 2: NAR, 1: PINK, 0: AZUL };
 plano(-1, L(1) - 0.1, PAPEL, c => {
   const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
   const t1 = texto(c, 262, '¿CUÁNTOS', { size: 132, z: 30 });
-  const t2 = texto(c, 400, hlSpan('AGUJEROS', 'phl') + ' TIENE?', { size: 104, italic: true, z: 30 });
+  const t2 = texto(c, 398, hlSpan('AGUJEROS', 'phl') + ' TIENE?', { size: 84, italic: true, z: 30 });
   const nums = [2, 1, 0].map((n, i) => { const b = BADGE(c, String(n), [NAR, PINK, '#7fb2ff'][i], 150, 25); return b; });
   const dots = [0, 1].map(i => box(c, 0, 0, 26, 26, { zIndex: 25, borderRadius: '50%', background: INK }));
   const paj = TUBE(c, 820, { w: 230, h: 760, ry: 34, z: 12 });
@@ -291,7 +291,7 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#dfeee9', backgroundImage: 'linear-
     const w = lerp(170, 600, k), h = lerp(700, 170, k) * (1 - bump), ryy = lerp(26, 110, k);
     paj.geo(w, h, ryy, lerp(0.7, 0.4, k));
     const morph = p(t, T.donut5 - 0.15, 0.3, E.inOutCubic);
-    set(paj, { x: 40, y: YB - h / 2 - 500 - 14 + (t < T.coge + 0.3 ? (1 - p(t, T.coge - 0.3, 0.6, E.outBounce)) * -900 : 0), o: 1 - morph, s: 1 - morph * 0.2 });
+    set(paj, { x: 40, y: YB - h / 2 - 500 - 14 + (1 - p(t, L(5) - 0.1, 0.6, E.outBounce)) * -900, o: 1 - morph, s: 1 - morph * 0.2 });
     sface(paj, t, { feliz: t > T.queda ? 0.9 : t > K0 ? -0.4 : 0.6, jaw: t > K0 && t < K1 ? 0.25 : 0, sq: t > K0 && t < K1 ? 0.75 : 1, look: t < K0 ? [0, -8] : [0, 0], ceja: t > K0 && t < K1 ? -6 : 0, closed: t > K0 && t < K1 && Math.sin(t * 6) > 0, seed: 0.3 });
     const top = YB - h - 14, kd = p(t, T.aplastala - 0.25, 0.4, E.outCubic), up = p(t, T.queda - 0.25, 0.4, E.inCubic);
     const ty = (t < K0 ? lerp(-300, top - 70, kd) : top - 70) - up * 1200;
@@ -491,7 +491,7 @@ plano(L(9) - 0.1, L(10) - 0.1, PAPEL, c => {
     const jump = Math.abs(Math.sin(t * 6)) * -30;
     set(podio, { s: pop(t, L(9) - 0.05, 0.35) }); set(gan, { x: 0, y: jump, s: pop(t, T.del1_9 - 0.2, 0.35) });
     pFace(gan, t, { jaw: 0.6, feliz: 1, look: [0, -4], ceja: 10, seed: 0.1 });
-    set(tro, { x: 430, y: 380 + jump, r: Math.sin(t * 8) * 10, o: t > T.del1_9 ? 1 : 0, s: pop(t, T.del1_9, 0.35) });
+    set(tro, { x: 650, y: 560 + jump, r: Math.sin(t * 8) * 10, o: t > T.del1_9 ? 1 : 0, s: pop(t, T.del1_9, 0.35) });
     conf.forEach((e, i) => { const k = ((t * 0.5 + i * 0.137) % 1); set(e, { x: 340 + ((i * 97) % 420) + Math.sin(t * 3 + i) * 30, y: 360 + k * 700, r: t * 300 + i * 40, o: t > T.razon ? 1 : 0 }); });
     per.forEach((g, i) => { const t0 = T.demas - 0.1 + i * 0.12; set(g, { x: 0, y: 0, s: pop(t, t0, 0.35), o: t > t0 ? 1 : 0 }); pFace(g, t, { jaw: 0, feliz: -0.7, look: [0, 8], ceja: -4, seed: i }); });
     libs.forEach((b, i) => { const t0 = T.topo9 - 0.1 + i * 0.12; set(b, { x: [690, 760][i], y: [1180, 820][i] + Math.sin(t * 4 + i) * 4, s: pop(t, t0, 0.35), o: t > t0 ? 1 : 0, r: [-6, 5][i] }); });
