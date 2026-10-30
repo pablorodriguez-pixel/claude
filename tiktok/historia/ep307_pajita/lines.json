@@ -1,0 +1,93 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¡Una pajita tiene un solo agujero! Y casi todo el mundo dice que tiene dos.",
+  "s": 0.12,
+  "e": 4.444
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Esta pregunta ha montado peleas en internet. Y hay una parte de las matemáticas que la resuelve.",
+  "s": 4.794,
+  "e": 9.671
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 10.171,
+  "e": 13.282
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Hay tres bandos. Los del dos: uno arriba y otro abajo. Los del uno: un túnel de punta a punta. Y los del cero: es un plástico enrollado, y nadie lo ha pinchado.",
+  "s": 13.632,
+  "e": 24.427
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "Para decidir quién gana, los matemáticos tienen la topología. Y tiene una sola regla: puedes estirar, aplastar y doblar... pero nunca cortar ni pegar.",
+  "s": 24.927,
+  "e": 34.996
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Con esa regla, coge la pajita y aplástala desde arriba, hasta que quede bajita y gordita. ¿Qué te queda?... Un donut.",
+  "s": 35.496,
+  "e": 42.847
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "Y un donut tiene un agujero. Uno solo. Las dos bocas de la pajita son la entrada y la salida del mismo túnel.",
+  "s": 43.447,
+  "e": 50.953
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "¿Y los del cero? Se olvidan de un detalle: para hacer la pajita, enrollaron el plástico... y pegaron los bordes. Y pegar es justo lo que crea el agujero.",
+  "s": 51.453,
+  "e": 61.688
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Ojo, que hay un truco para contar agujeros en cualquier cosa: cuenta las bocas y réstale una. Un vaso: una boca, cero agujeros. Unos pantalones: tres bocas... dos agujeros.",
+  "s": 62.188,
+  "e": 74.345
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "O sea: los del uno tenían razón. Y los demás... a estudiar topología.",
+  "s": 74.845,
+  "e": 80.599
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 80.949,
+  "e": 83.496
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Ahora mira tu camiseta, cuenta sus bocas, y dime cuántos agujeros te salen. Os leo.",
+  "s": 83.846,
+  "e": 89.2
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 89.55,
+  "e": 91.993
+ }
+]

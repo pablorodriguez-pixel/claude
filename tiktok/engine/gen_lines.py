@@ -40,6 +40,7 @@ audio=[];t=0.12;W=[];LN=[];audio.append(np.zeros(int(0.12*SR)))
 for n,L in enumerate(cfg["lines"]):
     vid,stab,tempo=cfg["voices"][L["who"]]
     al=json.load(open(f"{d}/clips/{n:02d}.json")); ws=words_of(al)
+    for _w in ws: _w[0]=L.get("subs",{}).get(_w[0],_w[0])  # "subs": respelling fonético solo para la voz -> palabra que se ve en pantalla
     a0=max(0,ws[0][1]-0.04)
     # el fin de la última palabra según la alineación suele quedarse corto: buscamos el final REAL por energía
     subprocess.run(["ffmpeg","-v","error","-y","-i",f"{d}/clips/{n:02d}.mp3","-ac","1","-ar",str(SR),f"{d}/clips/{n:02d}_raw.wav"],check=True)
@@ -95,6 +96,7 @@ for n,L in enumerate(cfg["lines"]):
     if "slot" in L and len(x)<int(L["slot"]*SR): x=np.concatenate([x,np.zeros(int(L["slot"]*SR)-len(x))])
     t+=len(x)/SR; audio.append(x)
     clean=re.sub(r"\[[^\]]*\]\s*","",L["text"]).strip()
+    for _k,_v in (L.get("subs") or {}).items(): clean=clean.replace(_k,_v)
     LN.append({"line":n,"who":L["who"],"text":clean,"s":round(ls,3),"e":round(t,3)})
     g=L.get("gap_after",cfg.get("gap",0.3)); audio.append(np.zeros(int(g*SR))); t+=g
 out=np.concatenate(audio)
