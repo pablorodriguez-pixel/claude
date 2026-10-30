@@ -1,20 +1,79 @@
 {
- "voices": {"VECINO": ["851ejYcv2BoNPjrkw93G", 0.0, 1.0]},
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
  "gap": 0.35,
  "inner_cap": 0.45,
  "lines": [
-  {"who": "VECINO", "text": "[excited] ¡Una pajita tiene un solo agujero! Y casi todo el mundo dice que tiene dos."},
-  {"who": "VECINO", "text": "Esta pregunta ha montado peleas en internet. Y hay una parte de las matemáticas que la resuelve.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "Soy tu vecino, y esto no venía en el libro."},
-  {"who": "VECINO", "text": "Hay tres bandos. Los del dos: uno arriba y otro abajo. Los del uno: un túnel de punta a punta. Y los del cero: es un plástico enrollado, y nadie lo ha pinchado.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "Para decidir quién gana, los matemáticos tienen la topología. Y tiene una sola regla: puedes estirar, aplastar y doblar... pero nunca cortar ni pegar.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "Con esa regla, coge la pajita y aplástala desde arriba, hasta que quede bajita y gordita. ¿Qué te queda?... Un donut.", "gap_after": 0.6},
-  {"who": "VECINO", "text": "Y un donut tiene un agujero. Uno solo. Las dos bocas de la pajita son la entrada y la salida del mismo túnel.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "¿Y los del cero? Se olvidan de un detalle: para hacer la pajita, enrollaron el plástico... y pegaron los bordes. Y pegar es justo lo que crea el agujero.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "Ojo, que hay un truco para contar agujeros en cualquier cosa: cuenta las bocas y réstale una. Un vaso: una boca, cero agujeros. Unos pantalones: tres bocas... dos agujeros.", "gap_after": 0.5},
-  {"who": "VECINO", "text": "O sea: los del uno tenían razón. Y los demás... a estudiar topología."},
-  {"who": "VECINO", "text": "Sígueme, que esto en clase no te lo cuentan."},
-  {"who": "VECINO", "text": "Ahora mira tu camiseta, cuenta sus bocas, y dime cuántos agujeros te salen. Os leo."},
-  {"who": "VECINO", "text": "Y esto... no venía en el libro."}
+  {
+   "who": "VECINO",
+   "text": "[excited] ¡Una pajita tiene un solo agujero! Y casi todo el mundo dice que tiene dos.",
+   "tempo": 1.2
+  },
+  {
+   "who": "VECINO",
+   "text": "Esta pregunta ha montado peleas en internet. Y hay una parte de las matemáticas que la resuelve.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "Hay tres bandos. Los del dos: uno arriba y otro abajo. Los del uno: un túnel de punta a punta. Y los del cero: es un plástico enrollado, y nadie lo ha pinchado.",
+   "gap_after": 0.5,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "Para decidir quién gana, los matemáticos tienen la topología. Y tiene una sola regla: puedes estirar, aplastar y doblar... pero nunca cortar ni pegar.",
+   "gap_after": 0.5,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "Con esa regla, coge la pajita y aplástala desde arriba, hasta que quede bajita y gordita. ¿Qué te queda?... Un donut.",
+   "gap_after": 0.6,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "Y un donut tiene un agujero. Uno solo. Las dos bocas de la pajita son la entrada y la salida del mismo túnel.",
+   "gap_after": 0.5,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y los del cero? Se olvidan de un detalle: para hacer la pajita, enrollaron el plástico... y pegaron los bordes. Y pegar es justo lo que crea el agujero.",
+   "gap_after": 0.5,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo, que hay un truco para contar agujeros en cualquier cosa: cuenta las bocas y réstale una. Un vaso: una boca, cero agujeros. Unos pantalones: tres bocas... dos agujeros.",
+   "gap_after": 0.5,
+   "tempo": 1.06
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: los del uno tenían razón. Y los demás... a estudiar topología."
+  },
+  {
+   "who": "VECINO",
+   "text": "Sígueme, que esto en clase no te lo cuentan."
+  },
+  {
+   "who": "VECINO",
+   "text": "Ahora mira tu camiseta, cuenta sus bocas, y dime cuántos agujeros te salen. Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
  ]
 }

@@ -1,0 +1,100 @@
+[
+ {
+  "line": 0,
+  "who": "VECINO",
+  "text": "¿Qué te ahorra más tiempo: subir de cuarenta a cincuenta... o de ochenta a ciento treinta?",
+  "s": 0.12,
+  "e": 5.216
+ },
+ {
+  "line": 1,
+  "who": "VECINO",
+  "text": "Piénsalo un segundo. Casi todo el mundo falla... y la respuesta no se te va a olvidar.",
+  "s": 5.516,
+  "e": 11.029
+ },
+ {
+  "line": 2,
+  "who": "VECINO",
+  "text": "Soy tu vecino, y esto no venía en el libro.",
+  "s": 11.509,
+  "e": 14.62
+ },
+ {
+  "line": 3,
+  "who": "VECINO",
+  "text": "Te lo cuento con tu cuñado. Domingo, cincuenta kilómetros hasta casa de tu madre. Tú vas a cien. Él, a ciento veinte, adelantando a todo el mundo.",
+  "s": 14.92,
+  "e": 23.313
+ },
+ {
+  "line": 4,
+  "who": "VECINO",
+  "text": "¿Cuánto llega antes que tú? Cinco minutos. Lo que tarda en aparcar.",
+  "s": 23.693,
+  "e": 27.358
+ },
+ {
+  "line": 5,
+  "who": "VECINO",
+  "text": "Porque cada kilómetro por hora que subes te ahorra menos tiempo que el anterior. Míralo en un solo kilómetro.",
+  "s": 27.838,
+  "e": 34.149
+ },
+ {
+  "line": 6,
+  "who": "VECINO",
+  "text": "A cuarenta, tardas noventa segundos. A cincuenta, setenta y dos. Te has ahorrado dieciocho.",
+  "s": 34.529,
+  "e": 41.083
+ },
+ {
+  "line": 7,
+  "who": "VECINO",
+  "text": "A ochenta, tardas cuarenta y cinco. Y a ciento treinta, unos veintiocho. Diecisiete... ¡Menos que de cuarenta a cincuenta!",
+  "s": 41.463,
+  "e": 50.578
+ },
+ {
+  "line": 8,
+  "who": "VECINO",
+  "text": "Un psicólogo sueco, Ola Svenson, demostró que casi todos fallamos esta pregunta. Hoy se llama el sesgo del ahorro de tiempo: el cerebro cree que correr siempre compensa.",
+  "s": 51.058,
+  "e": 61.132
+ },
+ {
+  "line": 9,
+  "who": "VECINO",
+  "text": "Ojo, que falta lo peor. El ahorro se aplana... pero la frenada no. Si tú y tu cuñado veis unas obras en el mismo punto, tú te paras justo a tiempo. Y él llega a los conos todavía a unos setenta.",
+  "s": 61.512,
+  "e": 74.028
+ },
+ {
+  "line": 10,
+  "who": "VECINO",
+  "text": "O sea: tu cuñado gana cinco minutos... y se juega todo lo demás.",
+  "s": 74.508,
+  "e": 79.943
+ },
+ {
+  "line": 11,
+  "who": "VECINO",
+  "text": "Sígueme, que esto en clase no te lo cuentan.",
+  "s": 80.243,
+  "e": 82.791
+ },
+ {
+  "line": 12,
+  "who": "VECINO",
+  "text": "¿Y tú, a cuánto vas por la autovía? Sé sincero. Os leo.",
+  "s": 83.091,
+  "e": 86.529
+ },
+ {
+  "line": 13,
+  "who": "VECINO",
+  "text": "Y esto... no venía en el libro.",
+  "s": 86.829,
+  "e": 89.272
+ }
+]
