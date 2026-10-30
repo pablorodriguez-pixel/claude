@@ -15,8 +15,9 @@ html = f'''<!doctype html><html><head><meta charset="utf-8"><style>
 #sub{{position:absolute;left:540px;top:1260px;transform:translate(-50%,-50%);font:800 58px Figtree,sans-serif;color:#fff;white-space:nowrap;
   -webkit-text-stroke:10px #111;paint-order:stroke fill;text-shadow:0 4px 14px rgba(0,0,0,.45);letter-spacing:.01em}}
 #viñeta{{position:absolute;inset:0;background:radial-gradient(ellipse 85% 70% at 50% 50%,transparent 60%,rgba(0,0,0,.35));pointer-events:none}}
-</style></head><body><div id="escena"></div><div id="viñeta"></div><div id="sub"></div>
+#grano{{position:absolute;inset:-64px;background:url(../../build2d/grano.png);opacity:.09;mix-blend-mode:overlay;pointer-events:none}}
+</style></head><body><div id="escena"></div><div id="viñeta"></div><div id="grano"></div><div id="sub"></div>
 <script>const SUBS={json.dumps(words, ensure_ascii=False)};const DUR={dur:.3f};</script>
-<script src="../../build2d/motor.js"></script><script src="../../build2d/dibujos.js"></script><script src="../escenas.js"></script>
+<script src="../../build2d/motor.js"></script><script src="../../build2d/personaje.js"></script><script src="../../build2d/dibujos.js"></script><script src="../escenas.js"></script>
 <script>document.fonts.ready.then(()=>{{montar();render(0);window.ready=true}})</script></body></html>'''
 open(os.path.join(out, 'video.html'), 'w').write(html); print('video.html', round(dur, 2), 's')

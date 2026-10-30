@@ -6,10 +6,11 @@ D=$(python3 build.py "$EP" | awk '{print $2}')
 node planos.js "$EP/build" 2>/dev/null || true
 python3 mezcla.py "$EP" >/dev/null
 N=$(python3 -c "import math;print(math.ceil($D*30))"); mkdir -p "$EP/build/segs"
-for ((a=0;a<N;a+=300)); do b=$((a+300<N?a+300:N)); f=$(printf "%s/build/segs/%05d.mp4" "$EP" $a)
-  [ -f "$f" ] && continue
-  for try in 1 2 3; do node $R "$EP/build" seg $a $b "$f.tmp.mp4" && break; done; mv "$f.tmp.mp4" "$f"; echo "$NAME $b/$N"
-done
+# tramos de 300 fotogramas, ${P:-3} navegadores en paralelo; los ya hechos se saltan
+seg() { a=$1; b=$((a+300<N?a+300:N)); f=$(printf "%s/build/segs/%05d.mp4" "$EP" $a); [ -f "$f" ] && return 0
+  for try in 1 2 3; do node $R "$EP/build" seg $a $b "$f.tmp.mp4" && break; done; mv "$f.tmp.mp4" "$f"; echo "$NAME $b/$N"; }
+export -f seg; export EP N R NAME
+seq 0 300 $((N-1)) | xargs -P ${P:-3} -I{} bash -c 'seg {}'
 ls "$EP"/build/segs/[0-9]*.mp4 | sed "s/.*/file '&'/" > "$EP/build/segs/list.txt"
 ffmpeg -y -loglevel error -f concat -safe 0 -i "$EP/build/segs/list.txt" -c copy "$EP/build/video_noaudio.mp4"
 ffmpeg -y -loglevel error -i "$EP/build/video_noaudio.mp4" -i "$EP/build/mezcla.wav" -map 0:v -map 1:a -c:v libx264 -crf 20 -preset medium -pix_fmt yuv420p -c:a aac -b:a 192k -shortest -movflags +faststart "$EP/$NAME.mp4"

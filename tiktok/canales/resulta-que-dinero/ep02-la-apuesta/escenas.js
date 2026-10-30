@@ -1,7 +1,7 @@
 // EP02 — «La apuesta» (Warren Buffett contra los fondos de Wall Street, 2008-2017). Explica: comisiones y fondos indexados.
 const T = (w, n = 1) => vt(w, n);
-const BUF = (o) => persona(Object.assign({ ropa: '#2a3550', canas: '#f2f2f2', gafas: true, cara: 'sonrisa' }, o));
-const GES = (o) => persona(Object.assign({ ropa: '#1f2633', pelo: '#2a1c14', cara: 'serio' }, o));
+const BUF = (o) => persona(Object.assign({ ropa: '#56688f', canas: '#f2f2f2', gafas: true, cara: 'sonrisa', traje: true, corbata: '#b8323a' }, o));
+const GES = (o) => persona(Object.assign({ ropa: '#1f2633', pelo: '#2a1c14', cara: 'serio', traje: true, corbata: '#3a5ba0', peinado: 'tupe' }, o));
 const calle = (noche = false) => D.cielo(noche ? '#14203d' : '#bcd9f2', noche ? '#3a4a78' : '#f3e6cf') + D.rascacielos(1350, 13, noche) + `<rect y="1350" width="1080" height="570" fill="${grad('#9aa3b2', '#5a6272', 90)}"/><path d="M0 1500 h1080" stroke="#fff" stroke-width="10" stroke-dasharray="60 50" opacity=".6"/>`;
 // el gráfico de la carrera: fondo indexado (S&P 500) contra la media de los fondos elegidos, en % acumulado
 const SP = [0, -37, -20.4, -8.4, -6.5, 8.4, 43.4, 63, 65.7, 85.4, 125.8], EX = [0, -24, -11, -7, -12, -6, 4, 8, 6, 17, 36];
@@ -60,12 +60,12 @@ plano({ t0: T('cientos') - .05, entrada: 'barrido', fondo: `<rect width="1080" h
 plano({ t0: T('y', 3) - .05, entrada: 'zoom', fondo: `<rect width="1080" height="1920" fill="${grad('#3a0f14', '#120507', 90)}"/>`, frente: `<g id="c8"></g><g id="bf8"></g>`,
   cam: [[0, 540, 960, 1.05], [8.3, 540, 1000, 1.0]],
   anim: (lt, q, t) => { q('c8').innerHTML = carrera(eo(p(t, T('crisis'), 2.2)));
-    const k = p(t, T('buffett', 2) - .1, .3); q('bf8').innerHTML = k > 0 ? `<g transform="translate(0,${(1 - eo(k)) * 400})">${BUF({ x: 820, y: 1960, s: .9, cara: 'triste' })}</g>` : '' } });
+    const k = p(t, T('buffett', 2) - .1, .3); q('bf8').innerHTML = k > 0 ? `<g transform="translate(0,${(1 - eo(k)) * 400})">${BUF({ x: 820, y: 1960, s: .9, cara: 'preocupado', fx: 'sudor', brazo: 'cabeza' })}</g>` : '' } });
 // 9 · «Pero la apuesta era a diez años. Poco a poco, el fondo aburrido los alcanzó. Y luego los dejó atrás… el gestor lo dio por perdido»
 plano({ t0: T('pero') - .05, fondo: `<rect width="1080" height="1920" fill="${grad('#10324a', '#081624', 90)}"/>`, frente: `<g id="c9"></g><g id="fl9"></g>`,
   cam: [[0, 540, 1000, 1.0], [7.7, 540, 960, 1.06]],
   anim: (lt, q, t) => { q('c9').innerHTML = carrera(1 + 9 * eio(p(t, T('poco') - .2, T('perdido') - T('poco')))); const k = p(t, T('perdido') - .2, .3);
-    q('fl9').innerHTML = k > 0 ? `<g transform="translate(0,${(1 - eo(k)) * 500})">${GES({ x: 230, y: 1960, s: .9, cara: 'triste' })}<path d="M300 1250 v-300" stroke="#8a5a2c" stroke-width="14"/><path d="M300 950 h170 l-30 60 l30 60 h-170z" fill="#fff" ${OL}/></g>` : '' } });
+    q('fl9').innerHTML = k > 0 ? `<g transform="translate(0,${(1 - eo(k)) * 500})">${GES({ x: 230, y: 1960, s: .9, cara: 'triste', fx: 'sudor' })}<path d="M300 1250 v-300" stroke="#8a5a2c" stroke-width="14"/><path d="M300 950 h170 l-30 60 l30 60 h-170z" fill="#fff" ${OL}/></g>` : '' } });
 // 10 · «El fondo que no hace nada ganó un 126 %. Los expertos, un 36»
 plano({ t0: T('fondo', 3) - .15, entrada: 'barrido', fondo: `<rect width="1080" height="1920" fill="${grad('#ffe7b0', '#f2b46a', 90)}"/>` + brillo(540, 900, 700, '#fff', .5), frente: `<g id="r10"></g>`,
   cam: [[0, 540, 1100, 1.05], [5, 540, 1000, 1.0]],
@@ -74,10 +74,10 @@ plano({ t0: T('fondo', 3) - .15, entrada: 'barrido', fondo: `<rect width="1080" 
       + (k1 > 0 ? `<text x="320" y="${base - 1000 * k1 - 40}" font-family="Figtree" font-weight="800" font-size="110" text-anchor="middle" fill="${TINTA}">+126 %</text>` : '')
       + `<rect x="600" y="${base - 286 * k2}" width="320" height="${286 * k2}" rx="20" fill="${grad('#c9d2e0', '#7d8796', 0)}" ${OL}/>`
       + (k2 > 0 ? `<text x="760" y="${base - 286 * k2 - 40}" font-family="Figtree" font-weight="800" font-size="110" text-anchor="middle" fill="${TINTA}">+36 %</text>` : '')
-      + D.cesta(320, 1830, .55, false) + [0, 1, 2].map(i => GES({ x: 680 + i * 80, y: 1840, s: .25 })).join('') } });
+      + (k2 >= 1 ? BUF({ x: 320, y: 1910, s: .36, cara: 'feliz', fx: 'brillo', brazo: 'arriba' }) + GES({ x: 760, y: 1910, s: .36, cara: 'triste', fx: 'sudor' }) : D.cesta(320, 1830, .55, false) + [0, 1, 2].map(i => GES({ x: 680 + i * 80, y: 1840, s: .25 })).join('')) } });
 // 11 · «¿Cómo pierden cientos de expertos contra algo que no piensa?»
 plano({ t0: T('como') - .05, entrada: 'zoom', fondo: `<rect width="1080" height="1920" fill="#0a0a12"/>` + brillo(540, 1500, 500, '#fff6d0', .25),
-  frente: (() => { let s = ''; for (let i = 0; i < 15; i++) s += GES({ x: 140 + (i % 5) * 200, y: 1300 + Math.floor(i / 5) * 230, s: .4, cara: 'sorpresa' }); return s })() + `<text id="q11" x="540" y="800" font-family="Figtree" font-weight="800" font-size="420" text-anchor="middle" fill="#ffd75e" stroke="${TINTA}" stroke-width="16" paint-order="stroke">?</text>`,
+  frente: (() => { let s = ''; for (let i = 0; i < 15; i++) s += GES({ x: 140 + (i % 5) * 200, y: 1300 + Math.floor(i / 5) * 230, s: .4, cara: 'sorpresa', fx: i % 3 ? '' : '!', brazo: i % 4 ? 'abajo' : 'cabeza' }); return s })() + `<text id="q11" x="540" y="800" font-family="Figtree" font-weight="800" font-size="420" text-anchor="middle" fill="#ffd75e" stroke="${TINTA}" stroke-width="16" paint-order="stroke">?</text>`,
   cam: [[0, 540, 1200, 1.15], [2.8, 540, 1100, 1.0]], anim: (lt, q) => q('q11').setAttribute('transform', `translate(540,800) scale(${rebote(p(lt, .1, .35))}) translate(-540,-800)`) });
 // 12 · «Por lo que cobran… un 2 % de todo tu dinero, ganaras o perdieras. Y además, un 20 %… Un mordisco cada año, durante diez años»
 plano({ t0: T('por', 4) - .05, entrada: 'barrido', fondo: `<rect width="1080" height="1920" fill="${grad('#2b1240', '#120818', 90)}"/>` + brillo(540, 1100, 700, '#ff7ab0', .2), frente: `<g id="m12"></g>`,
@@ -93,13 +93,14 @@ plano({ t0: T('por', 4) - .05, entrada: 'barrido', fondo: `<rect width="1080" he
     q('m12').innerHTML = s } });
 // 13 · «El fondo de Buffett no cobraba casi nada: comprar todo, y esperar»
 plano({ t0: T('fondo', 4) - .15, entrada: 'barrido', fondo: `<rect width="1080" height="1920" fill="${grad('#ffe7b0', '#f2b46a', 90)}"/>` + brillo(540, 1000, 700, '#fff', .5),
-  frente: D.cesta(540, 1500, 1.4) + `<g id="c13"></g>`, cam: [[0, 540, 1150, 1.0], [3.7, 540, 1100, 1.15]],
-  anim: (lt, q, t) => { const k = p(t, T('casi', 2) - .1, .3); q('c13').innerHTML = k > 0 ? `<text x="540" y="560" font-family="Figtree" font-weight="800" font-size="${130 * rebote(k)}" text-anchor="middle" fill="#2e8b57" stroke="${TINTA}" stroke-width="14" paint-order="stroke">≈ 0 %</text>` : '' } });
+  frente: `<g id="ra13"></g>` + D.cesta(540, 1500, 1.4) + `<g id="c13"></g>`, cam: [[0, 540, 1150, 1.0], [3.7, 540, 1100, 1.15]],
+  anim: (lt, q, t) => { q('ra13').innerHTML = rafaga(540, 1350, '#fff', lt * 14, .3); const k = p(t, T('casi', 2) - .1, .3); q('c13').innerHTML = k > 0 ? `<text x="540" y="560" font-family="Figtree" font-weight="800" font-size="${130 * rebote(k)}" text-anchor="middle" fill="#2e8b57" stroke="${TINTA}" stroke-width="14" paint-order="stroke">≈ 0 %</text>` : '' } });
 // 14 · «Buffett donó el premio, más de dos millones, a una asociación de niñas de su ciudad»
 plano({ t0: T('buffett', 4) - .05, entrada: 'barrido', fondo: D.cielo('#bfe0ff', '#fff2d8') + D.casa(80, 1350, 920, 520, '#e8d9b8', '#7a4a3a', false) + `<rect y="1350" width="1080" height="570" fill="${grad('#9bd18a', '#5a9a4a', 90)}"/>`,
-  frente: BUF({ x: 230, y: 1780, s: .9, cara: 'feliz' }) + [0, 1, 2].map(i => persona({ x: 560 + i * 170, y: 1800, s: .55, ropa: ['#ff6b8a', '#7a4ac4', '#ffb03a'][i], pelo: ['#3a2a1e', '#1a1a1a', '#7a4a2a'][i], cara: 'feliz', brazo: 'arriba' })).join('') + D.cheque('ch14', 540, 900, '$2.200.000', .01),
+  frente: BUF({ x: 230, y: 1780, s: .9, cara: 'feliz' }) + [0, 1, 2].map(i => persona({ x: 560 + i * 170, y: 1800, s: .55, ropa: ['#ff6b8a', '#7a4ac4', '#ffb03a'][i], pelo: ['#3a2a1e', '#1a1a1a', '#7a4a2a'][i], cara: 'feliz', brazo: 'arriba', bi: 'arriba', peinado: ['coleta', 'largo', 'moño'][i] })).join('') + D.cheque('ch14', 540, 900, '$2.200.000', .01),
   cam: [[0, 540, 1300, 1.05], [4, 540, 1200, 1.12]], desenfoque: 2,
   anim: (lt, q, t) => { const k = p(t, T('dos', 1) - .1, .3); q('ch14').setAttribute('transform', `translate(540,900) scale(${Math.max(.01, rebote(k) * .95)})`) } });
 // 15 · «No ganó porque supiera más. Ganó porque pagaba menos.»
 plano({ t0: T('supiera') - .4, entrada: 'zoom', fondo: `<rect width="1080" height="1920" fill="${grad('#6d1f2b', '#2a0c12', 90)}"/>` + D.estanteria(0, 300, 1080, 900, 23) + brillo(540, 800, 600, '#ffd28a', .35),
-  frente: BUF({ x: 380, y: 1780, s: 1.15, cara: 'sonrisa' }) + D.cesta(820, 1720, .7), cam: [[0, 540, 1150, 1.05], [3, 540, 1100, 1.2]], desenfoque: 6 });
+  frente: `<g id="ra15"></g>` + BUF({ x: 380, y: 1780, s: 1.15, cara: 'sonrisa', fx: 'brillo', brazo: 'pecho' }) + D.cesta(820, 1720, .7), cam: [[0, 540, 1150, 1.05], [3, 540, 1100, 1.2]], desenfoque: 6,
+  anim: (lt, q) => { q('ra15').innerHTML = rafaga(380, 1150, '#ffd28a', lt * 12, .18) } });
