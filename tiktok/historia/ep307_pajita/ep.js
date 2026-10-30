@@ -123,13 +123,13 @@ plano(-1, L(1) - 0.1, PAPEL, c => {
   sfx('swoosh_up', 0.05, 0.5); sp(T.casi0, 'msg_in', 0.5); sp(T.dos0, 'msg_in', 0.5); sp(T.dos0 + 0.3, 'msg_out', 0.5);
   return t => {
     set(ry, { r: t * 6 });
-    set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 1.5 + wobble(t, 0.45, 0.8, 1), s: 1 + 0.025 * Math.sin(t * 3) }); paint(c.querySelector('.phl'), t, 0.2, 0.4);
-    nums.forEach((b, i) => { const win = i === 1 && t > T.solo0; set(b, { x: 230 + i * 230, y: 560 + Math.sin(t * 3 + i * 2) * 10, r: Math.sin(t * 2 + i) * 6, s: win ? 1.25 + 0.05 * Math.sin(t * 9) : 1, o: !win && t > T.solo0 + 0.2 ? 0.45 : 1 }); });
-    dots.forEach((d, i) => set(d, { x: 381 + i * 230 + 21, y: 622 + Math.sin(t * 3 + i) * 6 }));
+    set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 1.5 + wobble(t, 0.45, 0.8, 1), s: 1 + 0.025 * Math.sin(t * 3) }); paint(c.querySelector('.phl'), t, 0.0, 0.3);
+    nums.forEach((b, i) => { const win = i === 1 && t > T.solo0; set(b, { x: 230 + i * 230, y: 530 + Math.sin(t * 3 + i * 2) * 10, r: Math.sin(t * 2 + i) * 6, s: win ? 1.25 + 0.05 * Math.sin(t * 9) : 1, o: !win && t > T.solo0 + 0.2 ? 0.45 : 1 }); });
+    dots.forEach((d, i) => set(d, { x: 407 + i * 230, y: 592 + Math.sin(t * 3 + i) * 6 }));
     const sq = 1 + 0.03 * Math.sin(t * 5);
-    set(paj, { x: 130, y: 700 + Math.sin(t * 2.2) * 8 - 410 + 380, r: wobble(t, 0.5, 2.5), sy: sq, sx: 2 - sq });
+    set(paj, { x: 130, y: 610 + Math.sin(t * 2.2) * 8, r: wobble(t, 0.5, 2.5), sy: sq, sx: 2 - sq });
     sface(paj, t, { feliz: t > T.dos0 ? -0.6 : t > T.solo0 ? 1 : 0.4, jaw: t > T.solo0 && t < T.solo0 + 0.6 ? 0.6 : 0, look: t > T.dos0 ? [-8, 4] : [6, -4], ceja: t > T.solo0 && t < T.dos0 ? 12 : 0, seed: 0.4 });
-    set(ring, { x: 425, y: 652, sy: 0.32, s: pop(t, T.solo0 - 0.1, 0.3), o: t > T.solo0 - 0.1 && t < T.casi0 ? 1 : 0 });
+    set(ring, { x: 425, y: 594, sy: 0.32, s: pop(t, T.solo0 - 0.1, 0.3), o: t > T.solo0 - 0.1 && t < T.casi0 ? 1 : 0 });
     bubs.forEach((b, i) => { const t0 = T.casi0 + 0.3 + i * 0.35; set(b, { s: pop(t, t0, 0.3), o: t > t0 ? 1 : 0, r: b.r + wobble(t, 0.8, 1.5, i) }); });
   };
 }, { sfx: false });
@@ -147,8 +147,8 @@ plano(L(1) - 0.1, L(2) - 0.08, { background: '#efe1c6' }, c => {
     el('div', r, { left: '128px', top: '14px', width: '380px', background: '#fff', border: `5px solid ${INK}`, borderRadius: '26px 26px 26px 6px', padding: '12px 18px', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '36px', lineHeight: 1.1, color: INK, boxShadow: `5px 5px 0 ${INK}` }, s);
     r.av = av; return r; });
   const rayos = [0, 1, 2].map(() => RAYO(cam, 26));
-  const pz = box(c, 120, 1010, 840, 230, { zIndex: 45, background: '#2f4a3a', border: `14px solid #a2723f`, borderRadius: '18px', boxShadow: `12px 14px 0 ${SH}`, fontFamily: 'Patrick', fontSize: '150px', lineHeight: '200px', textAlign: 'center', color: '#fff', transformOrigin: '50% 50%', boxSizing: 'border-box' }, 'TOPOLOGÍA');
-  const ok = box(c, 820, 930, 150, 150, { zIndex: 46, transformOrigin: '50% 50%' }, `<svg viewBox="0 0 100 100" width="150" height="150" style="overflow:visible"><circle cx="50" cy="50" r="46" fill="#fff" stroke="${INK}" stroke-width="7"/><path d="M24,52 L42,70 L76,30" stroke="${VERDE}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`);
+  const pz = box(c, 150, 720, 780, 230, { zIndex: 45, background: '#2f4a3a', border: `14px solid #a2723f`, borderRadius: '18px', boxShadow: `12px 14px 0 ${SH}`, fontFamily: 'Patrick', fontSize: '150px', lineHeight: '200px', textAlign: 'center', color: '#fff', transformOrigin: '50% 50%', boxSizing: 'border-box' }, 'TOPOLOGÍA');
+  const ok = box(c, 790, 640, 150, 150, { zIndex: 46, transformOrigin: '50% 50%' }, `<svg viewBox="0 0 100 100" width="150" height="150" style="overflow:visible"><circle cx="50" cy="50" r="46" fill="#fff" stroke="${INK}" stroke-width="7"/><path d="M24,52 L42,70 L76,30" stroke="${VERDE}" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>`);
   COM.forEach((_, i) => sp(T.peleas + i * 0.42, i % 2 ? 'msg_out' : 'msg_in', 0.6)); sp(T.mates - 0.05, 'stamp', 0.9); sp(T.resuelve + 0.2, 'ding', 0.7); sp(T.parte, 'scratch', 0.4);
   shakeAt(T.mates, 0.3, 14);
   return t => {
@@ -159,7 +159,7 @@ plano(L(1) - 0.1, L(2) - 0.08, { background: '#efe1c6' }, c => {
     rows.forEach((r, i) => { const t0 = L(1) + 0.15 + i * 0.42; const scroll = Math.max(0, i - 3) * 0;
       set(r, { x: 330 + (i % 2) * 40, y: 470 + i * 160 - scroll, s: pop(t, t0, 0.3), o: t > t0 ? 1 : 0, r: fight ? Math.sin(t * 25 + i) * 1.5 : 0 });
       set(r.av, { x: 0, y: 10 + (fight ? Math.abs(Math.sin(t * 14 + i)) * -10 : 0), r: Math.sin(t * 9 + i) * 8 }); });
-    rayos.forEach((e, i) => { const on = fight && ((t * 3 + i * 0.33) % 1) < 0.55; set(e, { x: [170, 850, 190][i], y: [560, 820, 1080][i], o: on ? 1 : 0, s: 0.8 + 0.2 * Math.sin(t * 20 + i), r: [-15, 12, -8][i] }); });
+    rayos.forEach((e, i) => { const on = fight && ((t * 3 + i * 0.33) % 1) < 0.55; set(e, { x: [170, 850, 180][i], y: [560, 820, 860][i], o: on ? 1 : 0, s: 0.8 + 0.2 * Math.sin(t * 20 + i), r: [-15, 12, -8][i] }); });
     slam(pz, t, T.mates - 0.05, -3 + wobble(t, 0.4, 0.6));
     set(ok, { o: t > T.resuelve ? 1 : 0, s: pop(t, T.resuelve, 0.35) * (1 + 0.05 * Math.sin(t * 7)) });
   };
@@ -193,7 +193,7 @@ plano(L(3) - 0.1, L(4) - 0.1, { background: '#bfe3f0' }, c => {
     gente.forEach((g, i) => { const t0 = L(3) + i * 0.18, f = foc === i;
       set(g, { x: 0, y: f ? -Math.abs(Math.sin(t * 7)) * 18 : 0, s: pop(t, t0, 0.4), o: t > t0 ? (foc >= 0 && !f ? 0.6 : 1) : 0 });
       pFace(g, t, { jaw: f ? Math.abs(Math.sin(t * 13)) * 0.7 : 0, feliz: t > T.pinchado ? -0.5 : f ? 0.8 : 0.2, look: t > T.pinchado ? [(i - 1) * -6, 0] : [0, 2], ceja: t > T.pinchado ? -6 : f ? 8 : 0, seed: i }); });
-    chs.forEach((e, i) => { const t0 = subs[i][1] - 0.1; set(e, { x: X[i] - 130, y: 410, o: t > t0 && foc === i ? 1 : 0, s: pop(t, t0, 0.3), r: [-4, 3, -3][i] }); });
+    chs.forEach((e, i) => { const t0 = subs[i][1] - 0.1; set(e, { x: [60, 300, 520][i], y: 410, o: t > t0 && foc === i ? 1 : 0, s: pop(t, t0, 0.3), r: [-4, 3, -3][i] }); });
     const kp = p(t, T.nadie3 - 0.2, 0.5, E.outBounce);
     set(chinche, { x: 840, y: lerp(150, 520, kp), o: t > T.nadie3 - 0.2 ? 1 : 0, r: 20 });
     set(nox, { x: 835, y: 520, o: t > T.pinchado ? 1 : 0, s: pop(t, T.pinchado, 0.3) });
@@ -219,10 +219,10 @@ plano(L(4) - 0.1, T.regla - 0.1, PAPEL, c => {
     const kp = p(t, T.matematicos - 0.25, 0.45, E.outBack);
     set(prof, { x: lerp(500, 0, clamp(kp)), y: 0, o: t > T.matematicos - 0.25 ? 1 : 0 });
     pFace(prof, t, { jaw: t > T.matematicos && t < T.regla ? Math.abs(Math.sin(t * 12)) * 0.5 : 0, feliz: 0.6, look: [-6, 4], ceja: t > T.topo4 ? 10 : 0, seed: 0.2 });
-    set(gaf, { x: lerp(500, 0, clamp(kp)) + 560, y: 960 - 120 * 380 / 300 + 145 * 380 / 300 + 0, s: 380 / 300 * 0.95, o: t > T.matematicos - 0.25 ? 1 : 0 });
+    set(gaf, { x: lerp(500, 0, clamp(kp)) + 560, y: 1038, s: 1.2, o: t > T.matematicos - 0.25 ? 1 : 0 });
     vis(tag, t, T.matematicos, T.topo4 - 0.1, { r: -3 });
     const kl = p(t, T.topo4 - 0.15, 0.5, E.outBack);
-    set(lib, { x: 230, y: lerp(1500, 1010, kl), r: lerp(30, -6, clamp(kl)) + wobble(t, 0.5, 1.5), o: t > T.topo4 - 0.15 ? 1 : 0 });
+    set(lib, { x: 330, y: lerp(1500, 1010, kl), r: lerp(30, -6, clamp(kl)) + wobble(t, 0.5, 1.5), o: t > T.topo4 - 0.15 ? 1 : 0 });
     set(brillo, { x: 70, y: 860, r: t * 30, o: t > T.topo4 ? 1 : 0, s: pop(t, T.topo4, 0.4) * 0.8 });
   };
 });
@@ -272,7 +272,7 @@ plano(T.regla - 0.1, L(5) - 0.1, { background: '#efe1c6' }, c => {
 plano(L(5) - 0.1, L(6) - 0.1, { background: '#dfeee9', backgroundImage: 'linear-gradient(rgba(43,33,24,.13) 4px, transparent 4px), linear-gradient(90deg, rgba(43,33,24,.13) 4px, transparent 4px)', backgroundSize: '120px 120px' }, c => {
   const cam = CAM(c);
   box(cam, -100, 1180, 1280, 900, { zIndex: 1, background: '#c99a64', borderTop: `10px solid ${INK}`, backgroundImage: 'repeating-linear-gradient(90deg, rgba(43,33,24,.12) 0 4px, transparent 4px 140px)' });
-  const rg = chip(c, 70, 300, 'aplastar ' + OKS, { size: 58, bg: '#fff', color: INK, z: 42 });
+  const rg = chip(c, 70, 420, 'aplastar ' + OKS, { size: 58, bg: '#fff', color: INK, z: 42 });
   const paj = TUBE(cam, 1000, { w: 170, h: 700, ry: 26, z: 10 });
   const tabla = box(cam, 0, 0, 760, 70, { zIndex: 14, background: '#a2723f', border: `8px solid ${INK}`, borderRadius: '14px', boxShadow: `10px 10px 0 ${SH}`, backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.18) 0 3px, transparent 3px 18px)', boxSizing: 'border-box' });
   const manos = [0, 1].map(i => { const h = box(cam, 0, 0, 200, 200, { zIndex: 15 }); h.innerHTML = `<svg viewBox="-70 -70 140 140" width="200" height="200" style="overflow:visible">${gloveHand(0, 0, 180, 1.3)}</svg>`; return h; });
@@ -309,12 +309,13 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#dfeee9', backgroundImage: 'linear-
 plano(L(6) - 0.1, T.bocas6 - 0.1, { background: '#ffe9f2', backgroundImage: 'repeating-radial-gradient(circle at 540px 900px, rgba(255,62,165,.10) 0 40px, transparent 40px 80px)' }, c => {
   const cam = CAM(c);
   const don = DONUT(cam, 980, 10);
-  const fl = svgB(cam, 50, 260, 980, 980, '-500 -500 1000 1000', `<path class="a1" d="M0,-470 L0,-60" stroke="${INK}" stroke-width="40" stroke-linecap="round"/><path class="a1b" d="M0,-470 L0,-60" stroke="${YEL}" stroke-width="22" stroke-dasharray="40 26" stroke-linecap="round"/>
+  const fl = svgB(cam, 50, 300, 980, 980, '-500 -500 1000 1000', `<path class="a1" d="M0,-470 L0,-60" stroke="${INK}" stroke-width="40" stroke-linecap="round"/><path class="a1b" d="M0,-470 L0,-60" stroke="${YEL}" stroke-width="22" stroke-dasharray="40 26" stroke-linecap="round"/>
     <path class="a2" d="M0,250 L0,430" stroke="${INK}" stroke-width="40" stroke-linecap="round"/><path class="a2b" d="M0,250 L0,430" stroke="${YEL}" stroke-width="22" stroke-dasharray="40 26" stroke-linecap="round"/><path class="hd" d="M-50,420 L0,490 L50,420 Z" fill="${YEL}" stroke="${INK}" stroke-width="10" stroke-linejoin="round"/>`, 14);
   const a1b = fl.querySelector('.a1b'), a2b = fl.querySelector('.a2b'), [a1, a2, hdd] = ['.a1', '.a2', '.hd'].map(k => fl.querySelector(k));
   const uno = BADGE(c, '1', YEL, 240, 40);
   const ce = chip(c, 600, 380, 'entra…', { size: 56, bg: INK, z: 42 }), cs = chip(c, 620, 1180, '…y sale', { size: 56, bg: INK, z: 42 });
-  sello(c, 1040, 'UNO SOLO', T.uno6, { size: 110, r: -5 });
+  const us = box(c, 60, 610, 430, 130, { zIndex: 45, border: `11px solid ${RED}`, color: RED, borderRadius: '18px', fontFamily: 'Rye', fontSize: '80px', lineHeight: '106px', textAlign: 'center', background: 'rgba(255,255,255,.85)', transformOrigin: '50% 50%', boxSizing: 'border-box', whiteSpace: 'nowrap' }, 'UNO SOLO');
+  sp(T.uno6, 'stamp', 1.0); shakeAt(T.uno6, 0.3, 12);
   sp(T.agujero6, 'ding', 0.8); sp(T.agujero6 + 0.15, 'pop2', 0.6); sp(T.donut6 + 0.4, 'whoosh', 0.5);
   return t => {
     zoom(cam, t, L(6) - 0.1, T.bocas6 - L(6), 0.06);
@@ -324,6 +325,7 @@ plano(L(6) - 0.1, T.bocas6 - 0.1, { background: '#ffe9f2', backgroundImage: 'rep
     a1b.setAttribute('stroke-dashoffset', f1(-t * 120)); a2b.setAttribute('stroke-dashoffset', f1(-t * 120));
     set(uno, { x: 110, y: 330 + Math.sin(t * 4) * 10, o: t > T.agujero6 ? 1 : 0, s: t < T.agujero6 ? 0 : lerp(2.2, 1, E.outCubic(clamp((t - T.agujero6) / 0.25))) * (1 + 0.05 * Math.sin(t * 6)), r: -8 });
     vis(ce, t, T.donut6 + 0.4, 99, { r: -3 }); vis(cs, t, T.donut6 + 1.0, 99, { r: 3 });
+    slam(us, t, T.uno6, -6);
   };
 });
 
@@ -337,7 +339,7 @@ plano(T.bocas6 - 0.1, L(7) - 0.1, { background: '#dfeee9' }, c => {
   const ce = chip(c, 600, 430, 'ENTRADA', { size: 62, bg: VERDE, z: 42 }), cs = chip(c, 600, 1220, 'SALIDA', { size: 62, bg: RED, z: 42 });
   const lc = [0, 1].map(() => box(c, 0, 0, 120, 14, { zIndex: 41, background: INK, borderRadius: '7px', transformOrigin: '0 50%' }));
   const hd = texto(c, 272, 'el ' + hlSpan('mismo', 'mhl') + ' túnel', { size: 96, z: 40 });
-  const b2 = chip(c, 70, 330, '2 bocas', { size: 60, bg: PINK, z: 42 });
+  const b2 = chip(c, 70, 600, '2 bocas', { size: 60, bg: PINK, z: 42 });
   sp(T.bocas6, 'swoosh_up', 0.7); sp(T.entrada, 'pop', 0.7); sp(T.salida, 'pop2', 0.7); sp(T.tunel6, 'ding', 0.8);
   return t => {
     zoom(cam, t, T.bocas6 - 0.1, L(7) - T.bocas6, 0.04); set(ry, { r: t * 5 });
@@ -367,12 +369,12 @@ plano(L(7) - 0.1, T.hacer7 - 0.1, { background: '#bfe3f0' }, c => {
   sp(T.cero7, 'boing', 0.6); sp(T.olvidan, 'sad', 0.4); sp(T.detalle - 0.2, 'whoosh', 0.6); sp(T.detalle + 0.2, 'ding', 0.6);
   return t => {
     const kz = p(t, T.detalle - 0.1, 0.6, E.inOutCubic);
-    set(cam, { s: lerp(1.02, 1.6, kz), x: lerp(0, 360, kz), y: lerp(0, 120, kz) });
+    set(cam, { s: lerp(1.02, 1.6, kz), x: lerp(0, 288, kz), y: lerp(0, 112, kz) });
     set(car, { x: 220, y: 520 + Math.sin(t * 2) * 6, r: Math.sin(t * 1.6) * 2, s: pop(t, L(7) - 0.1, 0.35) }); set(car.fr, { o: 1 });
     set(per, { x: 0, y: Math.sin(t * 3) * 4 }); pFace(per, t, { jaw: 0, feliz: -0.3, look: [-8, -4], ceja: 10 + Math.sin(t * 6) * 4, seed: 0.6 });
     qs.forEach((q, i) => set(q, { s: pop(t, L(7) + i * 0.15, 0.3), r: Math.sin(t * 5 + i) * 14, o: t > L(7) + i * 0.15 && kz < 0.3 ? 1 : 0 }));
     set(hd, { r: -2 + wobble(t, 0.5, 0.6), o: kz < 0.3 ? 1 : 0 }); paint(c.querySelector('.chl'), t, T.cero7 + 0.3, 0.35);
-    vis(ch, t, T.olvidan, 99, { r: -3, y: lerp(0, 760, kz) });
+    vis(ch, t, T.olvidan, 99, { r: -3 });
     const kl = p(t, T.detalle - 0.25, 0.5, E.outCubic); set(lupa, { x: lerp(1100, 230, kl), y: lerp(1300, 700, kl) + Math.sin(t * 5) * 6, r: -10, o: t > T.detalle - 0.25 ? 1 : 0 });
   };
 });
@@ -384,15 +386,14 @@ plano(T.hacer7 - 0.1, L(8) - 0.1, { background: '#efe1c6' }, c => {
   const rg = box(c, 90, 290, 900, 120, { zIndex: 40, background: CRE, border: `8px solid ${INK}`, borderRadius: '60px', boxShadow: `10px 10px 0 ${SH}`, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '62px', lineHeight: '104px', textAlign: 'center', color: INK, whiteSpace: 'nowrap', boxSizing: 'border-box' },
     `cortar ${KOS} &nbsp;·&nbsp; <span class="pg" style="display:inline-block;padding:0 18px;border-radius:20px;transform-origin:50% 50%">PEGAR ${KOS}</span>`);
   const pg = rg.querySelector('.pg');
-  const R = 150, LEN = 2 * Math.PI * R;
-  const tira = svgB(cam, 40, 380, 1000, 1000, '-500 -500 1000 1000', `<circle class="hu" cx="0" cy="${R}" r="${R - 22}" fill="${HUECO}"/><circle class="hg" cx="0" cy="${R}" r="${R - 22}" fill="none" stroke="${YEL}" stroke-width="14"/>
+  const R = 130, LEN = 2 * Math.PI * R;
+  const tira = svgB(cam, 40, 380, 1000, 1000, '-500 -500 1000 1000', `<circle class="hu" cx="0" cy="0" r="${R - 22}" fill="${HUECO}"/><circle class="hg" cx="0" cy="0" r="${R - 22}" fill="none" stroke="${YEL}" stroke-width="14"/>
     <path class="t0" stroke="${SH}" stroke-width="50" fill="none" stroke-linecap="butt" transform="translate(12 14)"/><path class="t1" stroke="${INK}" stroke-width="50" fill="none" stroke-linecap="butt"/><path class="t2" stroke="${ROSA_P}" stroke-width="36" fill="none" stroke-linecap="butt"/><path class="t3" stroke="#fff" stroke-width="36" stroke-dasharray="18 26" fill="none" stroke-linecap="butt"/>
-    <circle class="sp" cx="0" cy="${2 * R}" r="34" fill="${YEL}" stroke="${INK}" stroke-width="6"/>`, 10);
+    <circle class="sp" cx="0" cy="${-R}" r="34" fill="${YEL}" stroke="${INK}" stroke-width="6"/>`, 10);
   const [hu, hg, t0p, t1p, t2p, t3p, spl] = ['.hu', '.hg', '.t0', '.t1', '.t2', '.t3', '.sp'].map(k => tira.querySelector(k));
   const cola = COLA(cam, 30), gota = GOTA(cam, 31);
-  const lab = chip(c, 330, 1210, 'el AGUJERO', { size: 70, bg: INK, z: 42 });
   const ch1 = chip(c, 80, 470, 'enrollar…', { size: 56, bg: AZUL, z: 42 }), ch2 = chip(c, 560, 470, '…y PEGAR', { size: 56, bg: RED, z: 42 });
-  sello(c, 1000, '¡AGUJERO!', T.agujero7, { size: 120, r: -6 });
+  sello(c, 1060, '¡AGUJERO!', T.agujero7, { size: 120, r: -6 });
   sp(T.enrollaron - 0.1, 'cloth_whoosh', 0.8); sp(T.plastico7, 'paper', 0.5); sp(T.pegaron - 0.3, 'whoosh', 0.5); sp(T.pegaron + 0.15, 'gulp', 0.9); sp(T.bordes, 'squish', 0.7); sp(T.pegar7, 'error', 0.5); sp(T.crea, 'swoosh_up', 0.6);
   const TG = T.pegaron + 0.15;
   return t => {
@@ -400,18 +401,17 @@ plano(T.hacer7 - 0.1, L(8) - 0.1, { background: '#efe1c6' }, c => {
     set(rg, { r: wobble(t, 0.4, 0.6), s: pop(t, T.hacer7 - 0.1, 0.35) });
     const hot = t > T.pegaron - 0.1; pg.style.background = hot ? (Math.sin(t * 10) > -0.3 ? RED : '#ff7a8a') : 'transparent'; pg.style.color = hot ? '#fff' : INK;
     set(pg, { s: t > T.pegar7 && t < T.pegar7 + 0.8 ? 1.15 : 1 });
-    const kr = p(t, T.enrollaron - 0.1, T.bordes - T.enrollaron - 0.1, E.inOutCubic), kc = 0.12 + 0.86 * kr + (t > TG ? 0.02 * p(t, TG, 0.2) : 0);
+    const kr = p(t, T.enrollaron - 0.1, T.bordes - T.enrollaron - 0.1, E.inOutCubic), kc = 0.15 + 0.83 * kr + (t > TG ? 0.02 * p(t, TG, 0.2) : 0);
     const kap = kc / R; let d = '';
-    for (let i = 0; i <= 80; i++) { const s = -LEN / 2 + LEN * i / 80, th = kap * s; d += (i ? 'L' : 'M') + f1(Math.sin(th) / kap) + ',' + f1((1 - Math.cos(th)) / kap); }
+    for (let i = 0; i <= 80; i++) { const s = -LEN / 2 + LEN * i / 80, th = kap * s; d += (i ? 'L' : 'M') + f1(Math.sin(th) / kap) + ',' + f1(R - (1 - Math.cos(th)) / kap); }
     [t0p, t1p, t2p, t3p].forEach(e => e.setAttribute('d', d));
     t3p.setAttribute('stroke-dashoffset', '0');
     spl.style.opacity = t > TG && t < TG + 0.6 ? 1 - p(t, TG + 0.3, 0.3) : 0; spl.setAttribute('r', f1(20 + 30 * p(t, TG, 0.25)));
     const kh = p(t, T.crea - 0.1, 0.5, E.outCubic); hu.style.opacity = f1(kh); hg.style.opacity = t > T.crea ? f1(0.5 + 0.5 * Math.sin(t * 10)) : 0;
     const kcB = p(t, T.pegaron - 0.6, 0.4, E.outCubic), out = p(t, TG + 0.4, 0.4, E.inCubic);
-    set(cola, { x: 540 - 110 + 30 + out * 500, y: lerp(-400, 380 + 2 * R - 420, kcB), r: 160 + Math.sin(t * 9) * 4, o: t > T.pegaron - 0.6 && out < 1 ? 1 : 0 });
-    const kg = p(t, T.pegaron - 0.1, 0.25, E.inCubic); set(gota, { x: 540 - 35, y: lerp(380 + 2 * R - 270, 380 + 500 + 2 * R - 500 - 45 + 0, kg) + 0, o: t > T.pegaron - 0.1 && t < TG ? 1 : 0 });
+    set(cola, { x: 430 + out * 500, y: lerp(-400, 320, kcB), r: 160 + Math.sin(t * 9) * 4, o: t > T.pegaron - 0.6 && out < 1 ? 1 : 0 });
+    const kg = p(t, T.pegaron - 0.1, 0.25, E.inCubic); set(gota, { x: 505, y: lerp(600, 880 - R - 45, kg), o: t > T.pegaron - 0.1 && t < TG ? 1 : 0 });
     vis(ch1, t, T.enrollaron - 0.05, 99, { r: -3 }); vis(ch2, t, T.pegaron, 99, { r: 3 });
-    set(lab, { o: t > T.crea ? 1 : 0, s: pop(t, T.crea, 0.35), r: -2 });
   };
 });
 
@@ -431,7 +431,7 @@ plano(L(8) - 0.1, T.cuenta8 - 0.1, PAPEL, c => {
     zoom(cam, t, L(8) - 0.1, T.cuenta8 - L(8), 0.05); set(ry, { r: t * 6 });
     set(tr, { o: t > T.truco - 0.1 ? 1 : 0, s: pop(t, T.truco - 0.1, 0.35), r: -4 + wobble(t, 0.6, 2) });
     set(bomb, { o: t > T.truco ? 1 : 0, s: pop(t, T.truco, 0.35), r: Math.sin(t * 6) * 8 });
-    const P0 = [[60, 820], [300, 780], [520, 820], [700, 820]];
+    const P0 = [[40, 820], [260, 780], [470, 820], [640, 820]];
     all.forEach((e, i) => { const t0 = T.cualquier - 0.3 + i * 0.15, k = p(t, t0, 0.45, E.outBack), [x, y] = P0[i];
       const w = e === don ? 420 : e === paj ? 420 : 300, hh = e === don ? 420 : e === paj ? 420 : 360;
       set(e, { x: lerp(1200, x, k) - (w - 300) / 2, y: y - (hh - 360) / 2 + Math.abs(Math.sin(t * 5 + i)) * -16, o: t > t0 ? 1 : 0, r: Math.sin(t * 3 + i) * 4, s: e === don ? 0.75 : 1 }); });
@@ -448,13 +448,13 @@ plano(T.cuenta8 - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
   const [f0, f1e, f2] = ['.f0', '.f1', '.f2'].map(k => fo.querySelector(k)); [f0, f1e, f2].forEach(e => e.style.display = 'inline-block');
   const ROWS = [{ y: 520, t0: T.restale + 0.1, a: 2, b: 1, ta: T.restale + 0.4, tb: T.restale + 0.8 }, { y: 785, t0: T.vaso - 0.1, a: 1, b: 0, ta: T.unaboca, tb: T.cero8 }, { y: 1050, t0: T.pantalones - 0.1, a: 3, b: 2, ta: T.tres, tb: T.dos8 }];
   const rows = ROWS.map((R, i) => { const r = box(cam, 60, R.y, 880, 245, { zIndex: 10, background: CRE, border: `7px solid ${INK}`, borderRadius: '30px', boxShadow: `10px 10px 0 ${SH}`, boxSizing: 'border-box', transformOrigin: '50% 50%' });
-    el('div', r, { left: '280px', top: '28px', width: '580px', textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '140px', lineHeight: '170px', color: INK, whiteSpace: 'nowrap' },
+    el('div', r, { left: '280px', top: '28px', width: '580px', textAlign: 'center', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '118px', lineHeight: '180px', color: INK, whiteSpace: 'nowrap' },
       `<span class="a" style="display:inline-block;color:${AZUL}">${R.a}</span> − 1 <span class="b" style="display:inline-block">= <span style="color:${R.b ? VERDE : RED}">${R.b}</span></span>`);
     r.a = r.querySelector('.a'); r.b = r.querySelector('.b'); return r; });
   const icS = TUBE(cam, 330, { w: 150, h: 660, ry: 26, z: 14 }), icV = svgB(cam, 0, 0, 200, 240, '-160 -200 320 400', VASO, 14), icP = svgB(cam, 0, 0, 200, 240, '-160 -200 320 400', PANTS, 14);
   const ICP = [[icS, 70 - 30, 520 - 45], [icV, 90, 785 + 2], [icP, 90, 1050 + 2]];
   // bocas numeradas sobre cada icono: [fila, x, y, t]
-  const BOC = [[0, 192, 525, T.restale + 0.2], [0, 192, 750, T.restale + 0.35], [1, 190, 795, T.unaboca], [2, 190, 1062, T.tres], [2, 125, 1272, T.tres + 0.25], [2, 255, 1272, T.tres + 0.5]];
+  const BOC = [[0, 192, 525, T.restale + 0.2], [0, 192, 750, T.restale + 0.35], [1, 190, 835, T.unaboca], [2, 190, 1082, T.tres], [2, 136, 1270, T.tres + 0.25], [2, 244, 1270, T.tres + 0.5]];
   const bs = BOC.map((b, i) => BADGE(cam, String(i < 2 ? i + 1 : i < 3 ? 1 : i - 2), YEL, 70, 30));
   ROWS.forEach(R => { sp(R.t0, 'pop', 0.6); sp(R.ta, 'tick', 0.7); sp(R.tb, 'ding', 0.7); });
   BOC.forEach(b => sp(b[3], 'pop2', 0.4));
@@ -482,7 +482,7 @@ plano(L(9) - 0.1, L(10) - 0.1, PAPEL, c => {
   const per = [PERS(cam, 700, 1010, 230, { ropa: NAR, pelo: 'corto', pcol: '#3a2a1e' }), PERS(cam, 760, 690, 170, { ropa: AZUL, pelo: 'largo', pcol: '#d9a441' })];
   const libs = [LIBRO(cam, 20, 240), LIBRO(cam, 20, 180)];
   const sud = [sudor(cam, 0, 0), sudor(cam, 0, 0)];
-  const dem = chip(c, 560, 600, 'los demás…', { size: 52, bg: INK, z: 42 });
+  const dem = chip(c, 600, 520, 'los demás…', { size: 52, bg: INK, z: 42 });
   sello(c, 1420 - 230, 'A ESTUDIAR', T.estudiar, { size: 96, r: -5, z: 60 });
   sp(T.osea, 'pop', 0.5); sp(T.del1_9, 'tada', 0.7); sp(T.razon, 'cash', 0.6); sp(T.demas, 'sad', 0.5); sp(T.topo9, 'paper', 0.8);
   return t => {
@@ -491,7 +491,7 @@ plano(L(9) - 0.1, L(10) - 0.1, PAPEL, c => {
     const jump = Math.abs(Math.sin(t * 6)) * -30;
     set(podio, { s: pop(t, L(9) - 0.05, 0.35) }); set(gan, { x: 0, y: jump, s: pop(t, T.del1_9 - 0.2, 0.35) });
     pFace(gan, t, { jaw: 0.6, feliz: 1, look: [0, -4], ceja: 10, seed: 0.1 });
-    set(tro, { x: 520, y: 470 + jump, r: Math.sin(t * 8) * 10, o: t > T.del1_9 ? 1 : 0, s: pop(t, T.del1_9, 0.35) });
+    set(tro, { x: 430, y: 380 + jump, r: Math.sin(t * 8) * 10, o: t > T.del1_9 ? 1 : 0, s: pop(t, T.del1_9, 0.35) });
     conf.forEach((e, i) => { const k = ((t * 0.5 + i * 0.137) % 1); set(e, { x: 340 + ((i * 97) % 420) + Math.sin(t * 3 + i) * 30, y: 360 + k * 700, r: t * 300 + i * 40, o: t > T.razon ? 1 : 0 }); });
     per.forEach((g, i) => { const t0 = T.demas - 0.1 + i * 0.12; set(g, { x: 0, y: 0, s: pop(t, t0, 0.35), o: t > t0 ? 1 : 0 }); pFace(g, t, { jaw: 0, feliz: -0.7, look: [0, 8], ceja: -4, seed: i }); });
     libs.forEach((b, i) => { const t0 = T.topo9 - 0.1 + i * 0.12; set(b, { x: [690, 760][i], y: [1180, 820][i] + Math.sin(t * 4 + i) * 4, s: pop(t, t0, 0.35), o: t > t0 ? 1 : 0, r: [-6, 5][i] }); });
