@@ -7,14 +7,13 @@
    frenada cenital con física real, balanza «5 minutos» vs «todo lo demás». */
 Story.prepara();
 const T = {
-  c40: Q('cuarenta'), c50: Q('cincuenta'), c80: Q('ochenta'), c130: Q('ciento treinta'),
-  piensa: Q('piénsalo'), casi1: Q('casi todo'), falla: Q('falla'), resp: Q('respuesta'), olvidar: Q('olvidar'),
-  cuento: Q('te lo cuento'), cun3: Q('cuñado'), domingo: Q('domingo'), km50: Q('cincuenta kilómetros'), casa: Q('casa de tu madre'),
-  tu3: Q('tú vas'), cien: Q('cien'), el3: Q('él'), c120: Q('ciento veinte'), adel: Q('adelantando'),
-  cuanto4: Q('cuánto llega'), cinco4: Q('cinco minutos'), tarda: Q('lo que tarda'), aparcar: Q('aparcar'),
-  porque: Q('porque'), cada: Q('cada kilómetro'), menos5: Q('menos tiempo'), anterior: Q('anterior'), miralo: Q('míralo'), unkm: Q('un solo kilómetro'),
+  cun0: Q('cuñado'), c120: Q('ciento veinte'), cien: Q('cien'), mira: Q('mira'), antes: Q('antes'),
+  cinco1: Q('cinco minutos'), tarda: Q('lo que tarda'), aparcar: Q('aparcar'),
+  pregunta: Q('una pregunta'), casi3: Q('casi todo'), falla: Q('falla'), que3: Q('qué te ahorra'), c40: Q('cuarenta'), c80: Q('ochenta'), c130: Q('ciento treinta'),
+  vamos: Q('vamos'), cuatro: Q('cuatro coches'), km: Q('un kilómetro'), cada4: Q('cada uno'), salida: Q('salida'),
   a40: Q('a cuarenta'), n90: Q('noventa'), a50: Q('a cincuenta'), s72: Q('setenta y dos'), ahorrado: Q('ahorrado'), d18: Q('dieciocho'),
   a80: Q('a ochenta'), c45: Q('cuarenta y cinco'), a130: Q('ciento treinta'), d28: Q('veintiocho'), d17: Q('diecisiete'), menos7: Q('menos que'), c4050: Q('cuarenta a cincuenta'),
+  pintas: Q('pintas'), curva: Q('curva'), cuanto7: Q('cuanto más'), menos: Q('menos ganas'),
   psico: Q('psicólogo'), ola: Q('ola'), demostro: Q('demostró'), casi8: Q('casi todos'), hoy: Q('hoy'), sesgo: Q('sesgo'), cerebro: Q('cerebro'), correr: Q('correr'), compensa: Q('compensa'),
   ojo: Q('ojo'), peor: Q('peor'), ahorro9: Q('el ahorro'), aplana: Q('aplana'), frenada: Q('frenada'), no9: Q('no'), si9: Q('si tú'), obras: Q('obras'), paras: Q('te paras'), justo: Q('justo'),
   el9: Q('y él'), conos: Q('conos'), s70: Q('setenta'),
@@ -132,158 +131,6 @@ const CEREBRO = (c, w, z = 12) => figura(c, 0, 0, w, w * 220 / 300, `<path d="M1
 const CONO = (c, w = 90, z = 10) => figura(c, 0, 0, w, w * 1.2, `<path d="M8,108 H92" stroke="${INK}" stroke-width="10" stroke-linecap="round"/><path d="M50,4 L84,104 H16 Z" fill="${NAR}" stroke="${INK}" stroke-width="7" stroke-linejoin="round"/>
   <path d="M37,44 H63 M28,72 H72" stroke="#fff" stroke-width="12"/>`, '0 0 100 120', { z, origin: '50% 100%' });
 
-/* ===================== PORTADA (fotograma 0) + L0 · el quiz ===================== */
-function quiz(c) {
-  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
-  const A = CARTA(c, 50, 560, '40→50', AZUL), B = CARTA(c, 510, 560, '80→130', RED);
-  const du = DUDA(c); const cr = CRONO(c, 300, 18);
-  return { ry, A, B, du, cr };
-}
-const quizT = (Z, t, tA, tB) => {
-  set(Z.ry, { r: t * 6 });
-  const pa = t > tA && t < tA + 1.2 ? 0.07 * Math.sin((t - tA) * 9) : 0, pb = t > tB && t < tB + 1.2 ? 0.07 * Math.sin((t - tB) * 9) : 0;
-  set(Z.A, { r: -3 + wobble(t, 0.5, 1), s: 1 + Math.abs(pa) }); set(Z.B, { r: 3 + wobble(t, 0.45, 1, 1), s: 1 + Math.abs(pb) });
-  set(Z.du, { x: 400, y: 640 + Math.sin(t * 4) * 12, r: Math.sin(t * 3) * 10, s: 1 + 0.05 * Math.sin(t * 6) });
-};
-plano(-1, L(1) - 0.1, PAPEL, c => {
-  const t1 = texto(c, 268, '¿CUÁL', { size: 124, z: 30 }), t2 = texto(c, 396, 'AHORRA ' + hlSpan('MÁS?', 'phl'), { size: 124, z: 30 });
-  const Z = quiz(c);
-  sfx('swoosh_up', 0.05, 0.6); sp(T.c40, 'pop', 0.6); sp(T.c80, 'pop2', 0.6); sp(T.c130 + 0.4, 'tick', 0.5);
-  return t => {
-    quizT(Z, t, T.c40, T.c80);
-    set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 2 + wobble(t, 0.45, 0.8, 1), s: 1 + 0.03 * Math.sin(t * 3) });
-    paint(c.querySelector('.phl'), t, 0.2, 0.4);
-    set(Z.cr, { x: 390, y: 950 + Math.sin(t * 5) * 6, r: wobble(t, 0.4, 3) }); aguja(Z.cr, t * 240);
-  };
-}, { sfx: false });
-
-/* ===================== L1 · cuenta atrás 3-2-1 · «casi todo el mundo falla» · la respuesta se queda ===================== */
-plano(L(1) - 0.1, L(2) - 0.08, PAPEL, c => {
-  const Z = quiz(c);
-  const t1 = texto(c, 268, '¿CUÁL', { size: 124, z: 30 }), t2 = texto(c, 396, 'AHORRA ' + hlSpan('MÁS?', 'ph2'), { size: 124, z: 30 });
-  const tf = texto(c, 300, 'casi todos ' + hlSpan('FALLAN', 'fhl', '#ffb3b3'), { size: 110, z: 30 });
-  const tr = texto(c, 300, 'y no se te ' + hlSpan('olvida', 'ohl'), { size: 110, z: 30 });
-  const gente = [0, 1, 2, 3, 4, 5].map(i => CARITA(c, i + 1, 120, 20));
-  const qs = gente.map((g, i) => qMark(c, 0, 0, 70, i % 2 ? PINK : YEL));
-  const bulbo = figura(c, 0, 0, 170, 230, `<circle cx="85" cy="80" r="70" fill="#fff36b" stroke="${INK}" stroke-width="8"/><path d="M60,140 H110 V180 H60 Z" fill="#c9c4b6" stroke="${INK}" stroke-width="7"/><path d="M60,158 H110" stroke="${INK}" stroke-width="5"/><path d="M68,100 L85,70 L102,100" stroke="${NAR}" stroke-width="7" fill="none" stroke-linecap="round"/>`, '0 0 170 230', { z: 26, origin: '50% 50%' });
-  [0, 1, 2].forEach(i => sp(T.piensa + i * 0.5, 'tick', 0.7)); sp(T.piensa + 1.5, 'ding', 0.6); sp(T.casi1, 'pop', 0.5); sp(T.falla, 'error', 0.6); sp(T.resp, 'sparkle', 0.6);
-  shakeAt(T.falla, 0.3, 10);
-  return t => {
-    quizT(Z, t, -9, -9);
-    const head = t < T.casi1 - 0.1;
-    set(t1, { o: head ? 1 : 0, r: -2 }); set(t2, { o: head ? 1 : 0, r: 2 }); paint(c.querySelector('.ph2'), t, 0, 0.1);
-    set(tf, { o: t >= T.casi1 - 0.1 && t < T.resp - 0.1 ? 1 : 0, s: pop(t, T.casi1 - 0.1, 0.3), r: -2 }); paint(c.querySelector('.fhl'), t, T.falla, 0.35);
-    set(tr, { o: t >= T.resp - 0.1 ? 1 : 0, s: pop(t, T.resp - 0.1, 0.3), r: 2 }); paint(c.querySelector('.ohl'), t, T.olvidar, 0.35);
-    // cronómetro → anillo 3-2-1 durante «Piénsalo un segundo», luego se aparta
-    const kc = p(t, T.piensa, 1.5, E.linear), out = p(t, T.casi1 - 0.2, 0.4, E.inCubic);
-    Z.rg = Z.cr.rg; Z.rg.setAttribute('opacity', t > T.piensa - 0.1 ? 1 : 0); Z.rg.setAttribute('stroke-dashoffset', f1(kc * 1000) / 1000);
-    const n = t < T.piensa ? '' : t < T.piensa + 0.5 ? '3' : t < T.piensa + 1 ? '2' : t < T.piensa + 1.5 ? '1' : '¡YA!';
-    Z.cr.num.textContent = n; Z.cr.num.setAttribute('opacity', n ? 1 : 0); Z.cr.num.setAttribute('font-size', n.length > 1 ? 66 : 120);
-    aguja(Z.cr, t * 300); Z.cr.ag.setAttribute('opacity', n ? 0 : 1);
-    const beat = t > T.piensa ? 1 + 0.06 * Math.abs(Math.sin((t - T.piensa) * Math.PI * 2)) : 1;
-    set(Z.cr, { x: 390 + out * 700, y: 950, s: beat, r: out * 40 });
-    gente.forEach((g, i) => { const k = p(t, T.casi1 + i * 0.08, 0.4, E.outBack), row = i % 2;
-      set(g, { x: 380 + i * 80, y: 1040 + row * 70 - (1 - clamp(k)) * 300, o: t > T.casi1 + i * 0.08 ? 1 : 0, r: t > T.falla ? Math.sin(t * 6 + i) * 8 : 0 });
-      g.m.setAttribute('d', t > T.falla ? 'M48,84 Q60,74 72,84' : 'M48,80 Q60,88 72,80');
-      set(qs[i], { x: 405 + i * 80, y: 960 + row * 70 + Math.sin(t * 5 + i) * 8, o: t > T.casi1 + 0.3 + i * 0.08 && t < T.resp ? 1 : 0, s: pop(t, T.casi1 + 0.3 + i * 0.08, 0.3) }); });
-    set(bulbo, { x: 560, y: 760 + Math.sin(t * 4) * 8, o: t > T.resp ? 1 : 0, s: pop(t, T.resp, 0.4) * (1 + 0.05 * Math.sin(t * 9)), r: wobble(t, 0.5, 4) });
-  };
-});
-
-/* L2 · marca en el balcón */
-marca(2);
-
-/* ===================== L3a · «tu cuñado»: primer plano (gafas, tupé, palillo, brazo por la ventanilla) ===================== */
-plano(L(3) - 0.1, T.domingo - 0.05, { background: '#a9d8f2' }, c => {
-  const cam = CAM(c);
-  const R = carretera(cam, { y: 1180, solX: 120, solY: 330 });
-  const car = COCHE(cam, 1100, CUN, true, 10);
-  const tag = chip(c, 470, 950, 'tu cuñado', { size: 80, bg: PINK, z: 40 });
-  const est = [0, 1].map(i => ESTRELLA(cam, 90, i ? YEL : '#fff'));
-  sp(T.cun3, 'pop', 0.6); sp(T.cun3 + 0.2, 'sparkle', 0.6);
-  return t => {
-    zoom(cam, t, L(3) - 0.1, T.domingo - L(3), 0.08); avanza(R, t, 0.4);
-    set(car, { x: -110, y: pisa(1100, 1440) + Math.sin(t * 30) * 2.5 }); rueda(car, t, 0.4); saluda(car, t);
-    car.glint.style.opacity = t > T.cun3 && t < T.cun3 + 0.5 ? 1 : 0.15;
-    vis(tag, t, T.cun3 - 0.1, 99, { r: -4 });
-    est.forEach((e, i) => set(e, { x: [700, 860][i], y: [700, 820][i], s: t > T.cun3 ? 0.6 + 0.4 * Math.abs(Math.sin(t * 6 + i)) : 0, r: t * 120 }));
-  };
-});
-
-/* ===================== L3b · domingo: cartel «Casa de mamá 50 km» ===================== */
-plano(T.domingo - 0.05, T.tu3 - 0.1, { background: '#a9d8f2' }, c => {
-  const cam = CAM(c);
-  const R = carretera(cam, { y: 1100, solX: 760, solY: 520 });
-  const panel = box(cam, 0, 0, 640, 560, { zIndex: 6, transformOrigin: '50% 100%' }, `<div style="position:absolute;left:110px;top:260px;width:24px;height:300px;background:#a9a6ae;border:4px solid ${INK};box-sizing:border-box"></div><div style="position:absolute;left:506px;top:260px;width:24px;height:300px;background:#a9a6ae;border:4px solid ${INK};box-sizing:border-box"></div>
-   <div style="position:absolute;left:0;top:0;width:640px;height:290px;background:#1f5fbf;border:10px solid #fff;outline:7px solid ${INK};border-radius:22px;box-shadow:14px 16px 0 ${SH};box-sizing:border-box;color:#fff;text-align:center;font-family:Bricolage;font-weight:800">
-   <div style="font-size:74px;line-height:120px;margin-top:10px">Casa de mamá</div><div style="font-size:110px;line-height:120px">50 km</div></div>`);
-  const dom = chip(c, 70, 300, 'domingo', { size: 70, bg: INK, z: 40 });
-  const tu = COCHE(cam, 300, AZUL, false, 12), cu = COCHE(cam, 300, CUN, true, 11);
-  sp(T.domingo, 'bell', 0.5); sp(T.km50 - 0.1, 'whoosh', 0.6); sp(T.km50 + 0.2, 'ding', 0.6); sp(T.casa, 'pop2', 0.5);
-  return t => {
-    deriva(cam, t, T.domingo - 0.05, T.tu3 - 0.1, [540, 980, 1.0], [540, 900, 1.1]); avanza(R, t, 0.7);
-    vis(dom, t, T.domingo - 0.1, 99, { r: -4 });
-    const kp = p(t, T.km50 - 0.3, 0.5, E.outBack);
-    set(panel, { x: 220, y: 460, sy: kp, o: t > T.km50 - 0.3 ? 1 : 0, r: Math.sin(t * 2) * 1 });
-    set(tu, { x: 40 + Math.sin(t * 1.3) * 10, y: pisa(300, 1330) + Math.sin(t * 26) }); rueda(tu, t, 1);
-    set(cu, { x: 560 + Math.sin(t * 1.1) * 14, y: pisa(300, 1230) + Math.sin(t * 28) }); rueda(cu, t, 1.2); saluda(cu, t);
-  };
-});
-
-/* ===================== L3c · autovía: TÚ 100 · TU CUÑADO 120 adelantando a todo el mundo ===================== */
-plano(T.tu3 - 0.1, L(4) - 0.1, { background: '#a9d8f2' }, c => {
-  const cam = CAM(c);
-  const R = carretera(cam, { y: 960, h: 420, solX: 800, solY: 200 });
-  const otros = ['#9a9a9a', '#e8c13a', '#6aa9a0'].map((col, i) => COCHE(cam, 260, col, false, 9));
-  const tu = COCHE(cam, 340, AZUL, false, 12), cu = COCHE(cam, 340, CUN, true, 10);
-  const vl = VEL(cam, 5, 9);
-  const ctu = chip(c, 0, 0, 'TÚ · 100', { size: 58, bg: AZUL, z: 40 }), ccu = chip(c, 0, 0, 'TU CUÑADO · 120', { size: 58, bg: CUN, z: 40 });
-  const t50 = chip(c, 70, 300, '50 km', { size: 60, bg: INK, z: 40 });
-  sp(T.tu3, 'pop', 0.6); sp(T.cien, 'ding', 0.5); sp(T.el3, 'swoosh_up', 0.7); sp(T.c120, 'pop2', 0.6); sp(T.adel, 'whoosh', 0.8); sp(T.adel + 0.6, 'whoosh', 0.6);
-  return t => {
-    deriva(cam, t, T.tu3 - 0.1, L(4) - 0.1, [540, 1000, 1.06], [540, 960, 1.0]); avanza(R, t, 1.1);
-    vis(t50, t, T.tu3 - 0.1, 99, { r: -3 });
-    const tx = 120 + Math.sin(t * 1.4) * 8;
-    set(tu, { x: tx, y: pisa(340, 1330) + Math.sin(t * 26) }); rueda(tu, t, 1.2);
-    set(ctu, { x: tx + 30, y: 1020, o: t > T.tu3 - 0.05 ? 1 : 0, s: pop(t, T.tu3 - 0.05, 0.3), r: -3 });
-    const kc = p(t, T.el3 - 0.3, 0.9, E.outCubic), ka = p(t, T.adel - 0.1, 1.6, E.inOutCubic);
-    const cx = lerp(-480, 40, kc) + ka * 520;
-    set(cu, { x: cx, y: pisa(340, 1150) + Math.sin(t * 30) * 1.5, r: ka > 0 && ka < 1 ? -1.5 : 0, o: t > T.el3 - 0.3 ? 1 : 0 }); rueda(cu, t, 1.8); saluda(cu, t);
-    cu.glint.style.opacity = Math.sin(t * 4) > 0.5 ? 1 : 0.2;
-    set(ccu, { x: Math.max(40, Math.min(cx + 10, 370)), y: 840, o: t > T.c120 - 0.1 ? 1 : 0, s: pop(t, T.c120 - 0.1, 0.3), r: 3 });
-    viento(vl, t, cx, 1010, ka > 0.05 && ka < 0.98);
-    otros.forEach((o, i) => { const ox = 700 + i * 360 - (t - T.tu3) * 120 - ka * 900; set(o, { x: ox, y: pisa(260, 1150) }); rueda(o, t, 0.8); });
-  };
-});
-
-/* ===================== L4 · llegada: el cuñado aparca (y aparca, y aparca…) · +5 min · llegas tú ===================== */
-plano(L(4) - 0.1, L(5) - 0.1, { background: '#a9d8f2' }, c => {
-  const cam = CAM(c);
-  const R = carretera(cam, { y: 1180, h: 200, solX: 120, solY: 260 });
-  const casa = box(cam, 470, 640, 460, 420, { zIndex: 4, transformOrigin: '50% 100%' }, CASA(460, 420, '#b5523a'));
-  const cart = chip(cam, 600, 720, 'casa de mamá', { size: 44, bg: PINK, z: 6 });
-  const cu = COCHE(cam, 330, CUN, true, 12), tu = COCHE(cam, 330, AZUL, false, 13);
-  const plus = box(c, 120, 330, 400, 200, { zIndex: 40, background: CUN, border: `10px solid ${INK}`, borderRadius: '40px', boxShadow: `12px 14px 0 ${SH}`, color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '120px', lineHeight: '180px', textAlign: 'center', textShadow: OUT, transformOrigin: '50% 50%', boxSizing: 'border-box' }, '+5 min');
-  const cr = CRONO(c, 190, 41);
-  const apar = chip(c, 60, 570, 'lo que tarda en aparcar', { size: 54, bg: INK, z: 42 });
-  sp(T.cuanto4, 'whoosh', 0.6); sp(T.cinco4, 'ding', 0.8); sp(T.cinco4 + 0.1, 'pop2', 0.6); sp(T.tarda, 'scratch', 0.5); sp(T.tarda + 0.4, 'boing', 0.5); sp(T.aparcar, 'whoosh', 0.6);
-  shakeAt(T.cinco4, 0.3, 10);
-  return t => {
-    zoom(cam, t, L(4) - 0.1, L(5) - L(4), 0.05);
-    // el cuñado llega y hace maniobras (adelante-atrás) hasta que llegas tú
-    const kl = p(t, L(4) - 0.1, 0.8, E.outCubic), man = t > T.cuanto4 + 0.6 ? Math.sin((t - T.cuanto4 - 0.6) * 4.2) * 50 * (t < T.aparcar + 0.6 ? 1 : 0) : 0;
-    set(cu, { x: lerp(-400, 470, kl) + man, y: pisa(330, 1290), r: man ? Math.sin((t - T.cuanto4) * 4.2) * 1.2 : 0 }); rueda(cu, t, man ? 1 : kl < 1 ? 1 : 0); saluda(cu, t);
-    frena(cu, man > 0 && Math.cos((t - T.cuanto4 - 0.6) * 4.2) < 0);
-    const kt = p(t, T.tarda - 0.2, 1.1, E.outCubic);
-    set(tu, { x: lerp(-420, 90, kt), y: pisa(330, 1300), o: t > T.tarda - 0.2 ? 1 : 0 }); rueda(tu, t, kt < 1 ? 1 : 0); frena(tu, kt > 0.7 && kt < 1);
-    set(plus, { o: t > T.cinco4 - 0.05 ? 1 : 0, s: t < T.cinco4 - 0.05 ? 0 : lerp(2, 1, E.outCubic(clamp((t - T.cinco4 + 0.05) / 0.22))) * (1 + 0.03 * Math.sin(t * 7)), r: -4 });
-    set(cr, { x: 540, y: 300 + Math.sin(t * 5) * 6, o: t > T.cinco4 ? 1 : 0, s: pop(t, T.cinco4, 0.35), r: wobble(t, 0.5, 4) }); aguja(cr, (t - T.cinco4) * 300);
-    vis(apar, t, T.tarda - 0.05, 99, { r: 3 });
-    set(casa, { sy: 1 + 0.01 * Math.sin(t * 3) }); set(cart, { r: Math.sin(t * 2) * 3 });
-  };
-});
-
-/* ===================== L5 · la curva: tiempo por km frente a velocidad (hipérbola que se aplana) ===================== */
 const GX = v => 170 + (v - 20) / 120 * 700, GY = s => 1180 - s / 180 * 700;
 let CURVA = ''; for (let v = 20; v <= 140; v += 2) CURVA += (v === 20 ? 'M' : 'L') + f1(GX(v)) + ',' + f1(GY(3600 / v)) + ' ';
 const EJES = (extra = '') => `<svg viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow:visible">
@@ -293,74 +140,179 @@ const EJES = (extra = '') => `<svg viewBox="0 0 1080 1920" width="1080" height="
   ${[40, 80, 120].map(v => `<text x="${GX(v)}" y="1220" text-anchor="middle" font-family="Bricolage" font-weight="800" font-size="34" fill="${INK}">${v}</text>`).join('')}
   <text x="900" y="1270" text-anchor="end" font-family="Bricolage" font-weight="800" font-size="30" fill="${INK}">km/h</text>
   <text x="200" y="490" font-family="Bricolage" font-weight="800" font-size="34" fill="${INK}">segundos por km</text>${extra}</svg>`;
-plano(L(5) - 0.1, T.miralo - 0.1, PAPEL, c => {
-  const cam = CAM(c);
-  const tit = texto(c, 280, 'cada km/h ahorra ' + hlSpan('menos', 'mhl'), { size: 84, z: 30 });
-  let esc = ''; for (let v = 30; v < 130; v += 10) esc += `<path class="esc" d="M${f1(GX(v))},${f1(GY(3600 / v))} H${f1(GX(v + 10))} V${f1(GY(3600 / (v + 10)))}" stroke="${RED}" stroke-width="10" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0"/>`;
-  const g = box(cam, 0, 0, 1080, 1920, { zIndex: 5 }, EJES(`${esc}<path class="cv" d="${CURVA}" stroke="${INK}" stroke-width="16" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1"/><path class="cv2" d="${CURVA}" stroke="${AZUL}" stroke-width="8" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1"/>`));
-  const cv = [g.querySelector('.cv'), g.querySelector('.cv2')], es = [...g.querySelectorAll('.esc')];
-  const car = COCHE(cam, 130, CUN, true, 8);
-  const cpl = chip(c, 520, 700, 'se aplana', { size: 56, bg: AZUL, z: 40 });
-  sp(T.porque, 'swoosh_up', 0.5); sp(T.cada, 'paper', 0.5); sp(T.menos5, 'pop', 0.6); sp(T.anterior, 'boing', 0.5);
+/* ===================== PORTADA (fotograma 0) + L0 · la carrera en el mapa: TU CASA → CASA DE MAMÁ · 50 km ===================== */
+const RUTA = 'M190,1250 C190,1060 540,1130 540,950 C540,780 770,830 770,660';
+const mmss = m => { const s = Math.round(m * 60); return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`; };
+const RELOJ_FILA = (c, y, col, txt) => box(c, 500, y, 420, 78, { zIndex: 30, background: '#1d1a22', border: `6px solid ${INK}`, borderLeft: `26px solid ${col}`, borderRadius: '16px', boxShadow: `6px 7px 0 ${SH}`, color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '27px', lineHeight: '66px', paddingLeft: '12px', boxSizing: 'border-box', whiteSpace: 'nowrap', transformOrigin: '50% 50%' },
+  `${txt} <span class="mm" style="font-family:PlexMono;font-weight:700;font-size:42px;color:${YEL};margin-left:6px">00:00</span>`);
+const T0R = 0.3, TCUN = T.antes - 0.25, TTU = T0R + (TCUN - T0R) * 30 / 25;   // cuñado 25 min, tú 30 min (misma escala)
+const carrera = k => k * k * (3 - 2 * k) * 0.25 + k * 0.75;
+plano(-1, L(1) - 0.1, PAPEL, c => {
+  const ry = rays(c, -160, 380, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  const t1 = texto(c, 262, '¿CUÁNTO', { size: 124, z: 30 }), t2 = texto(c, 392, 'TE ' + hlSpan('SACA?', 'phl'), { size: 124, z: 30 });
+  box(c, 40, 540, 880, 800, { zIndex: 3, background: '#e3edcf', border: `9px solid ${INK}`, borderRadius: '34px', boxShadow: `14px 16px 0 ${SH}`, boxSizing: 'border-box',
+    backgroundImage: 'repeating-linear-gradient(0deg, rgba(43,33,24,.07) 0 3px, transparent 3px 64px), repeating-linear-gradient(90deg, rgba(43,33,24,.07) 0 3px, transparent 3px 64px)' });
+  const arb = [[330, 1250], [420, 1200], [700, 1080], [790, 980], [140, 900], [300, 820], [640, 760], [880, 900]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="26" fill="#86b665" stroke="${INK}" stroke-width="5"/>`).join('');
+  const lay = box(c, 0, 0, 1080, 1920, { zIndex: 4 }, `<svg viewBox="0 0 1080 1920" width="1080" height="1920" style="overflow:visible">
+    <path d="M60,700 C220,760 260,640 420,700 S 620,640 620,560" stroke="#7fb8e0" stroke-width="30" fill="none" stroke-linecap="round" opacity=".8"/>${arb}
+    <path d="${RUTA}" stroke="${INK}" stroke-width="72" fill="none" stroke-linecap="round"/><path d="${RUTA}" stroke="#8d8a93" stroke-width="58" fill="none" stroke-linecap="round"/>
+    <path class="rt" d="${RUTA}" stroke="#f4efe2" stroke-width="5" stroke-dasharray="26 22" fill="none"/>
+    <path d="M150,1230 H230" stroke="#fff" stroke-width="10"/><path d="M732,668 H808" stroke="#fff" stroke-width="10" stroke-dasharray="10 6"/></svg>`);
+  const ruta = lay.querySelector('.rt'), LEN = ruta.getTotalLength();
+  const c1 = box(c, 60, 1150, 120, 110, { zIndex: 6, transformOrigin: '50% 100%' }, CASA(120, 110, AZUL));
+  const c2 = box(c, 800, 560, 120, 110, { zIndex: 6, transformOrigin: '50% 100%' }, CASA(120, 110, '#b5523a'));
+  const l1 = chip(c, 230, 1262, 'TU CASA', { size: 34, bg: AZUL, z: 20 }), l2 = chip(c, 300, 556, 'CASA DE MAMÁ · 50 km', { size: 36, bg: CUN, z: 20 });
+  const cu = COCHE_T(c, CUN, true, 14), tu = COCHE_T(c, AZUL, false, 13);
+  const tg = [chip(c, 0, 0, '120', { size: 30, bg: CUN, z: 22 }), chip(c, 0, 0, '100', { size: 30, bg: AZUL, z: 22 })];
+  const rC = RELOJ_FILA(c, 1160, CUN, 'TU CUÑADO 120'), rT = RELOJ_FILA(c, 1248, AZUL, 'TÚ 100');
+  const mC = rC.querySelector('.mm'), mT = rT.querySelector('.mm');
+  const cr = CRONO(c, 200, 25);
+  const humo = [0, 1, 2, 3].map(() => box(c, 0, 0, 34, 34, { zIndex: 12, borderRadius: '50%', background: '#e6e1d8', border: `4px solid ${INK}` }));
+  const llego = chip(c, 560, 690, '¡llegó!', { size: 40, bg: INK, z: 24 });
+  sfx('swoosh_up', 0.05, 0.5); sp(T0R, 'whoosh', 0.6); sp(T.cien, 'pop', 0.5); sp(TCUN, 'ding', 0.8); sp(TTU, 'ding', 0.6); sp(T.mira, 'tick', 0.6);
+  const pos = (k, off) => { const L0 = clamp(k) * LEN, a = ruta.getPointAtLength(Math.max(0, L0 - 1)), b = ruta.getPointAtLength(Math.min(LEN, L0 + 1)), m = ruta.getPointAtLength(L0);
+    const ang = Math.atan2(b.y - a.y, b.x - a.x); return [m.x - Math.sin(ang) * off, m.y + Math.cos(ang) * off, ang * 57.3 + 90]; };
   return t => {
-    deriva(cam, t, L(5) - 0.1, T.miralo - 0.1, [540, 900, 1.02], [560, 880, 1.08]);
-    set(tit, { r: -2 + wobble(t, 0.5, 0.6) }); paint(c.querySelector('.mhl'), t, T.menos5, 0.35);
-    const k = p(t, T.porque, 2.2, E.inOutCubic); cv.forEach(e => e.setAttribute('stroke-dashoffset', f1((1 - k) * 1000) / 1000));
-    es.forEach((e, i) => e.setAttribute('opacity', t > T.menos5 + i * 0.12 ? 1 : 0));
-    const v = lerp(22, 138, k), x = GX(v), y = GY(3600 / v), sl = -3600 / (v * v) / 180 * 700 / (700 / 120);
-    set(car, { x: x - 65, y: y - 62, r: Math.atan(2400 / (v * v)) * 57.3, o: k > 0.02 ? 1 : 0 }); rueda(car, t, 1);
-    vis(cpl, t, T.anterior, 99, { r: -4 });
+    set(ry, { r: t * 6 });
+    set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 2 + wobble(t, 0.45, 0.8, 1), s: 1 + 0.03 * Math.sin(t * 3) }); paint(c.querySelector('.phl'), t, 0, 0.01);
+    const kC = carrera(clamp((t - T0R) / (TCUN - T0R))), kT = carrera(clamp((t - T0R) / (TTU - T0R)));
+    const [xc, yc, ac] = pos(kC, -17), [xt, yt, at] = pos(kT, 17);
+    const vib = t < T0R ? Math.sin(t * 40) * 1.5 : 0;
+    set(cu, { x: xc - 85 + vib, y: yc - 150, s: 0.36, r: ac }); set(tu, { x: xt - 85 - vib, y: yt - 150, s: 0.36, r: at });
+    cu.fr.setAttribute('opacity', kC >= 1 ? 1 : 0.25); tu.fr.setAttribute('opacity', kT >= 1 ? 1 : 0.25);
+    set(tg[0], { x: xc - 90, y: yc - 40, r: -4 }); set(tg[1], { x: xt + 26, y: yt - 20, r: 4 });
+    mC.textContent = mmss(25 * clamp((t - T0R) / (TCUN - T0R))); mT.textContent = mmss(30 * clamp((t - T0R) / (TTU - T0R)));
+    set(rC, { s: t > TCUN && t < TCUN + 0.4 ? 1.08 : 1 }); set(rT, { s: t > TTU && t < TTU + 0.4 ? 1.08 : 1 });
+    set(cr, { x: 80, y: 590 + Math.sin(t * 5) * 5, r: wobble(t, 0.4, 3) }); aguja(cr, t * 360);
+    humo.forEach((h, i) => { const k = (t * 2.2 + i / 4) % 1, [hx, hy] = i % 2 ? [xt, yt] : [xc, yc], done = (i % 2 ? kT : kC) >= 1;
+      set(h, { x: hx - 17 + (k * 30 - 15), y: hy + 40 + k * 50, s: 0.4 + k, o: done ? 0 : 1 - k }); });
+    set(c1, { sy: 1 + 0.02 * Math.sin(t * 4) }); set(c2, { sy: 1 + 0.02 * Math.sin(t * 4 + 1), s: t > TCUN && t < TCUN + 0.5 ? 1.1 : 1 });
+    set(l1, { r: -3 }); set(l2, { r: 2 + wobble(t, 0.5, 1) });
+    vis(llego, t, TCUN, 99, { r: -5 });
+  };
+}, { sfx: false });
+
+/* ===================== L1 · +5 min: el cuñado aún aparcando (marcha atrás, adelante…) cuando llegas tú ===================== */
+plano(L(1) - 0.1, L(2) - 0.08, { background: '#a9d8f2' }, c => {
+  const cam = CAM(c);
+  carretera(cam, { y: 1180, h: 200, solX: 120, solY: 260 });
+  const casa = box(cam, 470, 640, 460, 420, { zIndex: 4, transformOrigin: '50% 100%' }, CASA(460, 420, '#b5523a'));
+  const cart = chip(cam, 600, 720, 'casa de mamá', { size: 44, bg: PINK, z: 6 });
+  const cu = COCHE(cam, 330, CUN, true, 12), tu = COCHE(cam, 330, AZUL, false, 13);
+  const plus = box(c, 120, 330, 400, 200, { zIndex: 40, background: CUN, border: `10px solid ${INK}`, borderRadius: '40px', boxShadow: `12px 14px 0 ${SH}`, color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '120px', lineHeight: '180px', textAlign: 'center', textShadow: OUT, transformOrigin: '50% 50%', boxSizing: 'border-box' }, '+5 min');
+  const cr = CRONO(c, 190, 41);
+  const apar = chip(c, 60, 570, 'lo que tarda en aparcar', { size: 54, bg: INK, z: 42 });
+  const piti = chip(cam, 300, 980, 'pi · pi · pi', { size: 36, bg: YEL, color: INK, z: 14 });
+  sp(T.cinco1, 'ding', 0.8); sp(T.cinco1 + 0.1, 'pop2', 0.6); sp(T.tarda, 'scratch', 0.5); sp(T.aparcar + 0.2, 'boing', 0.5);
+  [0, 1, 2, 3, 4].forEach(i => sp(L(1) + 0.2 + i * 0.45, 'tick', 0.45));
+  shakeAt(T.cinco1, 0.3, 10);
+  return t => {
+    zoom(cam, t, L(1) - 0.1, L(2) - L(1), 0.05);
+    const ph = (t - L(1) + 0.1) * 4.2, man = t < T.aparcar + 0.5 ? Math.sin(ph) * 60 : 0, atras = Math.cos(ph) < 0 && man;
+    set(cu, { x: 470 + man, y: pisa(330, 1290), r: man ? Math.sin(ph) * 1.2 : 0 });
+    cu.ws.forEach((g, i) => g.setAttribute('transform', `rotate(${f1(-Math.cos(ph) * 160 + man * 2)} ${i ? 470 : 150} 234)`)); saluda(cu, t);
+    frena(cu, atras); set(piti, { o: atras ? 1 : 0, x: man, r: -4 });
+    const kt = p(t, T.tarda - 0.25, 1.0, E.outCubic);
+    set(tu, { x: lerp(-420, 90, kt), y: pisa(330, 1300), o: t > T.tarda - 0.25 ? 1 : 0 }); rueda(tu, t, kt < 1 ? 1 : 0); frena(tu, kt > 0.7 && kt < 1);
+    set(plus, { o: t > T.cinco1 - 0.05 ? 1 : 0, s: t < T.cinco1 - 0.05 ? 0 : lerp(2, 1, E.outCubic(clamp((t - T.cinco1 + 0.05) / 0.22))) * (1 + 0.03 * Math.sin(t * 7)), r: -4 });
+    set(cr, { x: 540, y: 300 + Math.sin(t * 5) * 6, o: t > T.cinco1 ? 1 : 0, s: pop(t, T.cinco1, 0.35), r: wobble(t, 0.5, 4) }); aguja(cr, (t - T.cinco1) * 300);
+    vis(apar, t, T.tarda - 0.05, 99, { r: 3 });
+    set(casa, { sy: 1 + 0.01 * Math.sin(t * 3) }); set(cart, { r: Math.sin(t * 2) * 3 });
   };
 });
 
-/* ===================== L6 / L7a · tira de 1 km con cronómetro: 40→90 s, 50→72 s (−18) · 80→45 s, 130→28 s (−17) ===================== */
-function tira(t0, t1, va, vb, sa, sb, ka, kb, tSave, save, intro) {
-  plano(t0, t1, PAPEL, c => {
-    const cam = CAM(c);
-    const tit = texto(c, 282, 'en ' + hlSpan('1 km', 'khl'), { size: 100, x: 40, w: 640, z: 30 });
-    const cr = CRONO(c, 170, 30);
-    const cinta = box(cam, 230, 470, 650, 56, { zIndex: 6, background: YEL, border: `6px solid ${INK}`, borderRadius: '10px', backgroundImage: `repeating-linear-gradient(90deg, ${INK} 0 4px, transparent 4px 65px)`, backgroundSize: '100% 45%', backgroundRepeat: 'repeat-x', boxSizing: 'border-box', transformOrigin: '0 50%' });
-    const e0 = chip(cam, 190, 400, '0', { size: 40, bg: INK, z: 8 }), e1 = chip(cam, 780, 400, '1 km', { size: 40, bg: INK, z: 8 });
-    const lane = (y, v, col, sec) => {
-      box(cam, 230, y, 650, 130, { zIndex: 3, background: ASF, border: `7px solid ${INK}`, borderRadius: '12px', boxSizing: 'border-box' });
-      box(cam, 240, y + 58, 630, 10, { zIndex: 4, backgroundImage: 'repeating-linear-gradient(90deg, #f4efe2 0 40px, transparent 40px 80px)' });
-      box(cam, 830, y + 6, 40, 118, { zIndex: 5, backgroundImage: `repeating-conic-gradient(${INK} 0 25%, #fff 0 50%)`, backgroundSize: '20px 20px' });
-      const bd = box(cam, 40, y + 18, 180, 96, { zIndex: 6, background: col, border: `7px solid ${INK}`, borderRadius: '50px', color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '60px', lineHeight: '82px', textAlign: 'center', textShadow: `3px 3px 0 ${INK}`, boxSizing: 'border-box', transformOrigin: '50% 50%' }, `${v}`);
-      box(cam, 70, y + 116, 130, 30, { zIndex: 6, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '28px', color: INK, textAlign: 'center' }, 'km/h');
-      const car = COCHE(cam, 180, col, false, 7);
-      const rd = box(cam, 420, y + 150, 300, 104, { zIndex: 8, background: '#1d1a22', border: `7px solid ${INK}`, borderRadius: '18px', color: YEL, fontFamily: 'PlexMono', fontWeight: 700, fontSize: '70px', lineHeight: '90px', textAlign: 'center', boxSizing: 'border-box', transformOrigin: '50% 50%' }, '0 s');
-      return { bd, car, rd, y, sec };
-    };
-    const A = lane(600, va, AZUL, sa), B = lane(880, vb, RED, sb);
-    const sv = box(c, 560, 1170, 340, 150, { zIndex: 40, background: VERDE, border: `10px solid ${INK}`, borderRadius: '40px', boxShadow: `12px 14px 0 ${SH}`, color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '110px', lineHeight: '130px', textAlign: 'center', textShadow: OUT, transformOrigin: '50% 50%', boxSizing: 'border-box' }, save);
-    const br = box(cam, 728, 720, 70, 330, { zIndex: 9, borderRight: `10px solid ${INK}`, borderTop: `10px solid ${INK}`, borderBottom: `10px solid ${INK}`, borderRadius: '0 30px 30px 0', boxSizing: 'border-box' });
-    if (intro != null) { sp(intro, 'swoosh_up', 0.6); sp(T.unkm, 'ding', 0.6); }
-    [[A, ka], [B, kb]].forEach(([Ln, k]) => { sp(k[0], 'whoosh', 0.6); sp(k[1], 'ding', 0.7); });
-    sp(tSave, 'stamp', 0.9); shakeAt(tSave, 0.3, 12);
-    return t => {
-      deriva(cam, t, t0, t1, [540, 900, 1.0], [540, 920, 1.04]);
-      set(tit, { r: -2 + wobble(t, 0.5, 0.6) }); paint(c.querySelector('.khl'), t, intro != null ? T.unkm : t0, 0.35);
-      const kc = intro != null ? p(t, intro, 0.9, E.outCubic) : 1;
-      set(cinta, { sx: kc }); set(e0, { o: kc > 0 ? 1 : 0 }); set(e1, { o: kc >= 1 ? 1 : 0, s: intro != null ? pop(t, T.unkm, 0.35) : 1 });
-      let run = false;
-      [[A, ka], [B, kb]].forEach(([Ln, k]) => {
-        const kk = p(t, k[0], k[1] - k[0], E.linear); run = run || (kk > 0 && kk < 1);
-        set(Ln.car, { x: lerp(232, 650, kk), y: Ln.y + 128 - 90 * 282 / 300 + Math.sin(t * 30) * 1.2 }); rueda(Ln.car, t, kk > 0 && kk < 1 ? 2 : 0);
-        Ln.rd.textContent = `${Math.round(kk * Ln.sec)} s`;
-        set(Ln.rd, { s: kk >= 1 ? 1 + 0.08 * Math.max(0, 1 - (t - k[1]) * 3) : 1, o: t > k[0] - 0.3 ? 1 : 0.35 });
-        set(Ln.bd, { s: kk > 0 && kk < 1 ? 1.08 : 1, r: wobble(t, 0.5, 2) });
-      });
-      set(cr, { x: 730, y: 278 + Math.sin(t * 5) * 4, r: wobble(t, 0.4, 3) }); aguja(cr, run ? t * 600 : 0);
-      set(sv, { o: t > tSave ? 1 : 0, s: t < tSave ? 0 : lerp(2, 1, E.outCubic(clamp((t - tSave) / 0.22))) * (1 + 0.03 * Math.sin(t * 7)), r: -5 });
-      set(br, { o: t > tSave - 0.2 ? 1 : 0, sy: p(t, tSave - 0.2, 0.3, E.outCubic) });
-    };
-  });
-}
-tira(T.miralo - 0.1, L(7) - 0.1, 40, 50, 90, 72, [T.a40 + 0.05, T.n90 + 0.45], [T.a50 + 0.05, T.s72 + 0.35], T.ahorrado, '−18 s', T.miralo);
-tira(L(7) - 0.1, T.menos7 - 0.45, 80, 130, 45, 28, [T.a80 + 0.05, T.c45 + 0.3], [T.a130 + 0.05, T.d28 + 0.4], T.d17, '−17 s', null);
+/* L2 · marca en el balcón */
+marca(2);
+
+/* ===================== L3a · «una pregunta que casi todo el mundo falla» ===================== */
+plano(L(3) - 0.1, T.que3 - 0.1, PAPEL, c => {
+  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.28)', 'rgba(0,0,0,0)', 0);
+  const ta = texto(c, 268, 'una pregunta que', { size: 90, z: 30 }), tb = texto(c, 372, 'casi todos ' + hlSpan('FALLAN', 'fhl', '#ffb3b3'), { size: 112, z: 30 });
+  const gente = [...Array(8)].map((_, i) => CARITA(c, i + 1, 130, 20));
+  const qs = gente.map((g, i) => qMark(c, 0, 0, 80, i % 2 ? PINK : YEL));
+  sp(T.pregunta, 'pop', 0.5); sp(T.casi3, 'pop2', 0.5); sp(T.falla, 'error', 0.6);
+  shakeAt(T.falla, 0.3, 10);
+  return t => {
+    set(ry, { r: t * 5 });
+    set(ta, { r: -2 + wobble(t, 0.5, 0.6), s: pop(t, L(3) - 0.1, 0.3) }); set(tb, { o: t > T.casi3 - 0.15 ? 1 : 0, s: pop(t, T.casi3 - 0.15, 0.3), r: 2 }); paint(c.querySelector('.fhl'), t, T.falla, 0.35);
+    gente.forEach((g, i) => { const k = p(t, L(3) - 0.1 + i * 0.06, 0.35, E.outBack), row = Math.floor(i / 4);
+      set(g, { x: 380 + (i % 4) * 135, y: 700 + row * 230, s: k, o: t > L(3) - 0.1 + i * 0.06 ? 1 : 0, r: t > T.falla ? Math.sin(t * 6 + i) * 8 : 0 });
+      g.m.setAttribute('d', t > T.falla ? 'M48,84 Q60,74 72,84' : 'M48,80 Q60,88 72,80');
+      set(qs[i], { x: 420 + (i % 4) * 135, y: 600 + row * 230 + Math.sin(t * 5 + i) * 8, o: t > L(3) + 0.4 + i * 0.06 ? 1 : 0, s: pop(t, L(3) + 0.4 + i * 0.06, 0.3) }); });
+  };
+});
+
+/* ===================== L3b · el quiz: 40→50 o 80→130 · «¿?» · anillo 3-2-1 ===================== */
+plano(T.que3 - 0.1, L(4) - 0.1, PAPEL, c => {
+  const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
+  const t1 = texto(c, 268, '¿CUÁL', { size: 124, z: 30 }), t2 = texto(c, 396, 'AHORRA ' + hlSpan('MÁS?', 'qhl'), { size: 124, z: 30 });
+  const A = CARTA(c, 50, 560, '40→50', AZUL), B = CARTA(c, 510, 560, '80→130', RED);
+  const du = DUDA(c); const cr = CRONO(c, 300, 18);
+  const TR = T.c130 + 0.1, PASO = Math.max(0.3, (L(4) - 0.15 - TR) / 3);
+  [0, 1, 2].forEach(i => sp(TR + i * PASO, 'tick', 0.7)); sp(T.c40, 'pop', 0.6); sp(T.c80, 'pop2', 0.6);
+  return t => {
+    set(ry, { r: t * 6 });
+    set(t1, { r: -2 + wobble(t, 0.5, 0.8) }); set(t2, { r: 2 + wobble(t, 0.45, 0.8, 1) }); paint(c.querySelector('.qhl'), t, T.que3 + 0.3, 0.4);
+    const pa = t > T.c40 && t < T.c40 + 1.2 ? 0.07 * Math.sin((t - T.c40) * 9) : 0, pb = t > T.c80 && t < T.c80 + 1.2 ? 0.07 * Math.sin((t - T.c80) * 9) : 0;
+    set(A, { o: t > T.c40 - 0.2 ? 1 : 0.25, s: (t > T.c40 - 0.2 ? 1 : 0.92) + Math.abs(pa), r: -3 + wobble(t, 0.5, 1) });
+    set(B, { o: t > T.c80 - 0.2 ? 1 : 0.25, s: (t > T.c80 - 0.2 ? 1 : 0.92) + Math.abs(pb), r: 3 + wobble(t, 0.45, 1, 1) });
+    set(du, { x: 400, y: 640 + Math.sin(t * 4) * 12, r: Math.sin(t * 3) * 10, s: 1 + 0.05 * Math.sin(t * 6) });
+    const kc = p(t, TR, PASO * 3, E.linear);
+    cr.rg.setAttribute('opacity', t > TR - 0.05 ? 1 : 0); cr.rg.setAttribute('stroke-dashoffset', f1(kc * 1000) / 1000);
+    const n = t < TR ? '' : t < TR + PASO ? '3' : t < TR + 2 * PASO ? '2' : '1';
+    cr.num.textContent = n; cr.num.setAttribute('opacity', n ? 1 : 0); cr.ag.setAttribute('opacity', n ? 0 : 1); aguja(cr, t * 240);
+    set(cr, { x: 390, y: 950 + Math.sin(t * 5) * 6, s: t > TR ? 1 + 0.06 * Math.abs(Math.sin((t - TR) * Math.PI / PASO)) : 1, r: wobble(t, 0.4, 3) });
+  };
+});
+
+/* ===================== L4–L6 · cuatro carriles, 1 km: 40, 50, 80, 130 · ¡SALIDA! · cada crono se congela en la meta ===================== */
+plano(L(4) - 0.1, T.menos7 - 0.45, PAPEL, c => {
+  const cam = CAM(c);
+  const tit = texto(c, 268, 'cuatro coches, ' + hlSpan('1 km', 'khl'), { size: 92, z: 30 });
+  const tit0 = texto(c, 268, 'vamos a ' + hlSpan('verlo', 'vhl'), { size: 100, z: 30 });
+  const cinta = box(cam, 210, 410, 490, 50, { zIndex: 6, background: YEL, border: `6px solid ${INK}`, borderRadius: '10px', backgroundImage: `repeating-linear-gradient(90deg, ${INK} 0 4px, transparent 4px 49px)`, backgroundSize: '100% 45%', backgroundRepeat: 'repeat-x', boxSizing: 'border-box', transformOrigin: '0 50%' });
+  const e1 = chip(cam, 610, 350, '1 km', { size: 38, bg: INK, z: 8 });
+  const VS = [[40, AZUL, 90], [50, VERDE, 72], [80, NAR, 45], [130, RED, 27.7]];
+  const lanes = VS.map(([v, col, sec], i) => { const y = 490 + i * 190, g = box(cam, 0, 0, 1080, 1920, { zIndex: 3 });
+    box(g, 210, y, 490, 130, { background: ASF, border: `7px solid ${INK}`, borderRadius: '12px', boxSizing: 'border-box' });
+    box(g, 220, y + 58, 470, 10, { backgroundImage: 'repeating-linear-gradient(90deg, #f4efe2 0 36px, transparent 36px 72px)' });
+    box(g, 652, y + 6, 40, 118, { backgroundImage: `repeating-conic-gradient(${INK} 0 25%, #fff 0 50%)`, backgroundSize: '20px 20px' });
+    const bd = box(g, 40, y + 14, 160, 102, { background: col, border: `7px solid ${INK}`, borderRadius: '50px', color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '58px', lineHeight: '66px', textAlign: 'center', textShadow: `3px 3px 0 ${INK}`, boxSizing: 'border-box', transformOrigin: '50% 50%' }, `${v}<div style="font-size:22px;line-height:18px">km/h</div>`);
+    const car = COCHE(g, 150, col, false, 7);
+    const rd = box(g, 715, y + 16, 200, 98, { background: '#1d1a22', border: `7px solid ${INK}`, borderRadius: '18px', color: YEL, fontFamily: 'PlexMono', fontWeight: 700, fontSize: '60px', lineHeight: '84px', textAlign: 'center', boxSizing: 'border-box', transformOrigin: '50% 50%' }, '0 s');
+    return { g, bd, car, rd, y, sec, show: Math.round(sec) }; });
+  const salida = SELLO(c, 260, 1215, 560, '¡SALIDA!', RED, 50, 92);
+  const pill = (txt, col) => box(cam, 300, 0, 330, 120, { zIndex: 20, background: col, border: `9px solid ${INK}`, borderRadius: '60px', boxShadow: `10px 12px 0 ${SH}`, color: '#fff', fontFamily: 'Bricolage', fontWeight: 800, fontSize: '86px', lineHeight: '100px', textAlign: 'center', textShadow: OUT, transformOrigin: '50% 50%', boxSizing: 'border-box' }, txt);
+  const p18 = pill('−18 s', VERDE), p17 = pill('−17 s', NAR);
+  const TS = T.salida + 0.15, KR = 45, TF = lanes.map(Ln => TS + Ln.sec / KR);
+  sp(T.vamos, 'swoosh_up', 0.5); [0, 1, 2, 3].forEach(i => sp(T.cuatro + i * 0.1, 'pop', 0.4)); sp(T.km, 'ding', 0.5); [0, 1, 2, 3].forEach(i => sp(T.cada4 + i * 0.15, 'pop2', 0.35));
+  sp(T.salida - 0.05, 'bell', 0.8); TF.forEach(tf => sp(tf, 'ding', 0.6)); sp(T.ahorrado, 'stamp', 0.8); sp(T.d17, 'stamp', 0.8);
+  [T.n90, T.s72, T.c45, T.d28].forEach(tt => sp(tt, 'click', 0.5));
+  return t => {
+    deriva(cam, t, L(4) - 0.1, T.menos7 - 0.45, [540, 900, 1.0], [540, 920, 1.03]);
+    set(tit0, { o: t < T.cuatro - 0.1 ? 1 : 0, r: -2 }); paint(c.querySelector('.vhl'), t, T.vamos + 0.2, 0.3);
+    set(tit, { o: t >= T.cuatro - 0.1 ? 1 : 0, s: pop(t, T.cuatro - 0.1, 0.3), r: -2 + wobble(t, 0.5, 0.6) }); paint(c.querySelector('.khl'), t, T.km, 0.35);
+    set(cinta, { sx: p(t, T.km - 0.1, 0.6, E.outCubic) }); set(e1, { o: t > T.km + 0.3 ? 1 : 0, s: pop(t, T.km + 0.3, 0.3) });
+    const fase = t < T.a40 - 0.1 ? -1 : t < T.a80 - 0.1 ? 0 : 1;
+    lanes.forEach((Ln, i) => {
+      const kk = p(t, TS, TF[i] - TS, E.linear), ka = p(t, T.cuatro - 0.2 + i * 0.12, 0.4, E.outBack);
+      set(Ln.g, { o: fase < 0 || Math.floor(i / 2) === fase ? 1 : 0.35 });
+      set(Ln.car, { x: lerp(214, 505, kk), y: Ln.y + 128 - 75 * 282 / 300 - (1 - clamp(ka)) * 200 + (kk > 0 && kk < 1 ? Math.sin(t * 40) * 1.5 : 0), o: t > T.cuatro - 0.2 + i * 0.12 ? 1 : 0, r: kk > 0 && kk < 0.15 ? -3 : 0 });
+      rueda(Ln.car, t, kk > 0 && kk < 1 ? 3 : 0);
+      set(Ln.bd, { s: pop(t, T.cada4 + i * 0.15, 0.35), r: wobble(t, 0.5, 2) });
+      const val = kk >= 1 ? Ln.show : Math.floor(Math.max(0, t - TS) * KR); Ln.rd.textContent = `${Math.min(val, Ln.show)} s`;
+      Ln.rd.style.background = kk >= 1 ? '#3a2f10' : '#1d1a22';
+      const foco = (fase === 0 && i === 0 && t > T.n90 - 0.1) || (fase === 0 && i === 1 && t > T.s72 - 0.1) || (fase === 1 && i === 2 && t > T.c45 - 0.1) || (fase === 1 && i === 3 && t > T.d28 - 0.1);
+      set(Ln.rd, { s: (kk >= 1 && t < TF[i] + 0.3 ? 1.12 : 1) * (foco ? 1.1 + 0.03 * Math.sin(t * 8) : 1) });
+    });
+    golpeS(salida, t, T.salida - 0.05, -6); salida.style.display = t > T.salida + 1.2 ? 'none' : '';
+    set(p18, { y: 590, o: t > T.ahorrado ? 1 : 0, s: t < T.ahorrado ? 0 : lerp(2, 1, E.outCubic(clamp((t - T.ahorrado) / 0.22))) * (fase === 1 ? 0.8 : 1), r: -4 });
+    set(p17, { y: 970, o: t > T.d17 ? 1 : 0, s: t < T.d17 ? 0 : lerp(2, 1, E.outCubic(clamp((t - T.d17) / 0.22))), r: 4 });
+  };
+});
 
 /* ===================== L7b · el resultado: gana 40→50 (−18 s); 80→130 (−17 s), la respuesta de casi todos, tachada ===================== */
-plano(T.menos7 - 0.45, L(8) - 0.1, PAPEL, c => {
+plano(T.menos7 - 0.45, L(7) - 0.1, PAPEL, c => {
   const ry = rays(c, -160, 420, 1400, 24, 'rgba(255,230,0,.30)', 'rgba(0,0,0,0)', 0);
   const t1 = texto(c, 268, '¿CUÁL', { size: 124, z: 30 }), t2 = texto(c, 396, 'AHORRA ' + hlSpan('MÁS?', 'rhl'), { size: 124, z: 30 });
   const A = CARTA(c, 50, 560, '40→50', AZUL, '18 s'), B = CARTA(c, 510, 560, '80→130', RED, '17 s');
@@ -378,6 +330,34 @@ plano(T.menos7 - 0.45, L(8) - 0.1, PAPEL, c => {
     set(x1, { y: 0, sx: p(t, T.c4050 - 0.05, 0.3), r: 38, o: t > T.c4050 - 0.05 ? 1 : 0 });
     vis(tus, t, T.c4050 + 0.15, 99, { r: 3 });
     set(cmp, { o: t > T.menos7 + 0.2 ? 1 : 0, s: pop(t, T.menos7 + 0.2, 0.35), r: -2 });
+  };
+});
+
+/* ===================== L7 · cada coche pinta su barra de tiempo → las puntas forman la curva que se aplana ===================== */
+plano(L(7) - 0.1, L(8) - 0.1, PAPEL, c => {
+  const cam = CAM(c);
+  const ta = texto(c, 268, 'pinta ' + hlSpan('lo que tarda', 'phl7'), { size: 92, z: 30 });
+  const tb = texto(c, 268, 'más rápido, ' + hlSpan('menos ganas', 'mhl7', '#ffb3b3'), { size: 84, z: 30 });
+  const VS = [[40, AZUL, 90], [50, VERDE, 72], [80, NAR, 45], [130, RED, 27.7]];
+  const g = box(cam, 0, 0, 1080, 1920, { zIndex: 5 }, EJES(`<path class="cv" d="${CURVA}" stroke="${INK}" stroke-width="14" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1"/><path class="cv2" d="${CURVA}" stroke="${PINK}" stroke-width="7" fill="none" stroke-linecap="round" pathLength="1" stroke-dasharray="1 1"/>`));
+  const cv = [g.querySelector('.cv'), g.querySelector('.cv2')];
+  const bars = VS.map(([v, col, sec], i) => { const h = 1180 - GY(sec);
+    const b = box(cam, GX(v) - 34, GY(sec), 68, h, { zIndex: 6, background: col, border: `6px solid ${INK}`, borderBottom: 'none', borderRadius: '12px 12px 0 0', boxSizing: 'border-box', transformOrigin: '50% 100%' });
+    const car = COCHE(cam, 110, col, false, 8);
+    const LP = [[-150, -20], [44, -40], [44, -50], [-50, -110]][i]; const lb = chip(cam, GX(v) + LP[0], GY(sec) + LP[1], `${Math.round(sec)} s`, { size: 34, bg: col, z: 9 });
+    return { b, car, lb, v, sec, h, t0: T.pintas + i * 0.38 }; });
+  const d18 = chip(cam, GX(45) - 40, GY(81) - 40, '−18', { size: 40, bg: VERDE, z: 10 }), d17 = chip(cam, GX(105) - 40, GY(36) - 110, '−17', { size: 40, bg: NAR, z: 10 });
+  bars.forEach(B => { sp(B.t0, 'swoosh_up', 0.4); sp(B.t0 + 0.4, 'pop', 0.4); }); sp(T.curva - 0.1, 'sparkle', 0.7); sp(T.menos, 'boing', 0.6);
+  return t => {
+    deriva(cam, t, L(7) - 0.1, L(8) - 0.1, [540, 880, 1.0], [560, 900, 1.05]);
+    set(ta, { o: t < T.cuanto7 - 0.1 ? 1 : 0, r: -2 }); paint(c.querySelector('.phl7'), t, T.pintas, 0.35);
+    set(tb, { o: t >= T.cuanto7 - 0.1 ? 1 : 0, s: pop(t, T.cuanto7 - 0.1, 0.3), r: 2 }); paint(c.querySelector('.mhl7'), t, T.menos, 0.35);
+    bars.forEach(B => { const k = p(t, B.t0, 0.45, E.outCubic);
+      set(B.b, { sy: Math.max(0.001, k), o: t > B.t0 ? 1 : 0 });
+      set(B.car, { x: GX(B.v) - 55, y: 1180 - B.h * k - 52 + (k < 1 ? Math.sin(t * 40) * 1.5 : 0), o: t > B.t0 - 0.1 && t < B.t0 + 0.9 ? 1 : 0, r: -90 }); rueda(B.car, t, k < 1 ? 2 : 0);
+      set(B.lb, { o: k >= 1 ? 1 : 0, s: pop(t, B.t0 + 0.45, 0.3), r: -3 }); });
+    const kc = p(t, T.curva - 0.15, 0.8, E.inOutCubic); cv.forEach(e => e.setAttribute('stroke-dashoffset', f1((1 - kc) * 1000) / 1000));
+    set(d18, { o: 0 }); set(d17, { o: 0 });
   };
 });
 
@@ -571,6 +551,6 @@ cierre(308, '¿Correr compensa?', ['CARRETERAS', 'con truco']);
 
 Story.run({
   textura: true,
-  ovalo: [[L(1) + 2.0, L(2) - 0.15], [T.hoy, L(9) - 0.15]],
+  ovalo: [[L(3) + 0.3, T.que3 - 0.2], [T.hoy, L(9) - 0.15]],
   vecino: { sorpresa: [[T.falla, T.falla + 0.9]], risa: [[T.correr, T.correr + 0.9]], golpes: [T.compensa + 0.35] },
 });
