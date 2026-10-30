@@ -11,12 +11,13 @@
  "lines": [
   {
    "who": "VECINO",
-   "text": "[excited] ¿Qué te ahorra más tiempo: subir de cuarenta a cincuenta... o de ochenta a ciento treinta?"
+   "text": "[excited] ¡Tu cuñado va a ciento veinte, y tú a cien! Mira cuánto llega antes.",
+   "gap_after": 0.3
   },
   {
    "who": "VECINO",
-   "text": "Piénsalo un segundo. Casi todo el mundo falla... y la respuesta no se te va a olvidar.",
-   "gap_after": 0.48
+   "text": "Cinco minutos. Lo que tarda en aparcar.",
+   "gap_after": 0.5
   },
   {
    "who": "VECINO",
@@ -24,18 +25,13 @@
   },
   {
    "who": "VECINO",
-   "text": "Te lo cuento con tu cuñado. Domingo, cincuenta kilómetros hasta casa de tu madre. Tú vas a cien. Él, a ciento veinte, adelantando a todo el mundo.",
-   "gap_after": 0.38
+   "text": "Y ahora, una pregunta que casi todo el mundo falla: ¿qué te ahorra más tiempo, subir de cuarenta a cincuenta... o de ochenta a ciento treinta?",
+   "gap_after": 0.6
   },
   {
    "who": "VECINO",
-   "text": "¿Cuánto llega antes que tú? Cinco minutos. Lo que tarda en aparcar.",
-   "gap_after": 0.48
-  },
-  {
-   "who": "VECINO",
-   "text": "Porque cada kilómetro por hora que subes te ahorra menos tiempo que el anterior. Míralo en un solo kilómetro.",
-   "gap_after": 0.38
+   "text": "Vamos a verlo. Cuatro coches, un kilómetro, cada uno a una velocidad. ¡Salida!",
+   "gap_after": 0.4
   },
   {
    "who": "VECINO",
@@ -46,6 +42,11 @@
    "who": "VECINO",
    "text": "A ochenta, tardas cuarenta y cinco. Y a ciento treinta, unos veintiocho. Diecisiete... ¡Menos que de cuarenta a cincuenta!",
    "gap_after": 0.48
+  },
+  {
+   "who": "VECINO",
+   "text": "Y si pintas lo que tarda cada coche, sale esta curva: cuanto más rápido vas, menos ganas.",
+   "gap_after": 0.5
   },
   {
    "who": "VECINO",

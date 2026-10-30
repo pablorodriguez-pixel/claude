@@ -1,0 +1,78 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.0,
+   1.0
+  ]
+ },
+ "gap": 0.3,
+ "inner_cap": 0.32,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] ¿Qué te ahorra más tiempo: subir de cuarenta a cincuenta... o de ochenta a ciento treinta?"
+  },
+  {
+   "who": "VECINO",
+   "text": "Piénsalo un segundo. Casi todo el mundo falla... y la respuesta no se te va a olvidar.",
+   "gap_after": 0.48
+  },
+  {
+   "who": "VECINO",
+   "text": "Soy tu vecino, y esto no venía en el libro."
+  },
+  {
+   "who": "VECINO",
+   "text": "Te lo cuento con tu cuñado. Domingo, cincuenta kilómetros hasta casa de tu madre. Tú vas a cien. Él, a ciento veinte, adelantando a todo el mundo.",
+   "gap_after": 0.38
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Cuánto llega antes que tú? Cinco minutos. Lo que tarda en aparcar.",
+   "gap_after": 0.48
+  },
+  {
+   "who": "VECINO",
+   "text": "Porque cada kilómetro por hora que subes te ahorra menos tiempo que el anterior. Míralo en un solo kilómetro.",
+   "gap_after": 0.38
+  },
+  {
+   "who": "VECINO",
+   "text": "A cuarenta, tardas noventa segundos. A cincuenta, setenta y dos. Te has ahorrado dieciocho.",
+   "gap_after": 0.38
+  },
+  {
+   "who": "VECINO",
+   "text": "A ochenta, tardas cuarenta y cinco. Y a ciento treinta, unos veintiocho. Diecisiete... ¡Menos que de cuarenta a cincuenta!",
+   "gap_after": 0.48
+  },
+  {
+   "who": "VECINO",
+   "text": "Un psicólogo sueco, Ola Svenson, demostró que casi todos fallamos esta pregunta. Hoy se llama el sesgo del ahorro de tiempo: el cerebro cree que correr siempre compensa.",
+   "gap_after": 0.38
+  },
+  {
+   "who": "VECINO",
+   "text": "Ojo, que falta lo peor. El ahorro se aplana... pero la frenada no. Si tú y tu cuñado veis unas obras en el mismo punto, tú te paras justo a tiempo. Y él llega a los conos todavía a unos setenta.",
+   "gap_after": 0.48,
+   "tempo": 1.03
+  },
+  {
+   "who": "VECINO",
+   "text": "O sea: tu cuñado gana cinco minutos... y se juega todo lo demás."
+  },
+  {
+   "who": "VECINO",
+   "text": "Sígueme, que esto en clase no te lo cuentan."
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Y tú, a cuánto vas por la autovía? Sé sincero. Os leo."
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}

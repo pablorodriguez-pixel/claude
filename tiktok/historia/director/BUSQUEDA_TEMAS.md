@@ -32,6 +32,9 @@ Rechazos del usuario (también calibran):
 - 30/10 — Datos reales del usuario: SOLO han tirado «Autovías como agujas del reloj» (ep98) y «Carteles de gasolinera» (ep104).
   La cartera (ep304, ley en pesetas) «no parece que tire». → El filón probado es CARRETERA/COCHE: algo que ves cada vez que conduces,
   que no sabías leer, y que al saberlo «ya no se te olvida nunca». Prioridad absoluta a esa vena hasta nueva orden.
+- 30/10 — Velocidad v1 (ep308): «el hook no enseña de forma tangible; eso es lo que viraliza: VERLO, como el mapa del reloj».
+  Regla: el fotograma 0 y el gancho tienen que MOSTRAR el dato en una imagen que se entiende sin audio (mapa, carrera,
+  comparación lado a lado), no plantearlo con palabras o un acertijo en texto.
 - 17/10 — Aladino: «no se entiende ni crea curiosidad» (hacía falta saber qué era un manuscrito).
 
 ## Prueba del «¡NO JODAS!» (manda sobre todo lo demás)
