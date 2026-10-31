@@ -77,15 +77,17 @@ Tres reglas, y las tres se cumplen antes de escribir el guion:
 Estilo que funciona: primer plano macro, fondo oscuro y limpio, una sola idea por plano, subtítulo pequeño arriba con la palabra clave resaltada.
 Antes de renderizar: ¿es algo de su día a día en lo que nunca se había fijado? ¿el fotograma 0 se mueve? ¿hay algún plano donde la voz cuenta algo que la imagen no enseña?
 
-## 10. Datos reales (perfil a 9.550 seguidores)
+## 10. Datos reales (perfil a 9.550 seguidores; a 13.200 el 1-nov)
 | Vídeo | Vistas | Lectura |
 |---|---|---|
-| Autovías como un reloj | 772.600 | Algo que usas + imagen-idea (España = reloj) |
+| Autovías como un reloj | 1,1 M | Algo que usas + imagen-idea (España = reloj) |
+| Gasolinera 1000 m vs 750 m | 785.000 | Mismo patrón: código escondido en una señal de carretera, sirve al día siguiente |
 | «OK» falta de ortografía | 132.500 | Palabra que dices cada día + giro |
 | Napoleón no era bajito | 118.700 | Mito que todos «saben» + se desmonta |
 | Ventanilla o aire | 3.560 | Consejo ya muy oído: no sorprende |
 | Reto bostezo | 2.728 | Truco de reto: no aporta nada que contar |
 | El muerto de Huelva | 254 | Historia de guerra, ajena: el protagonista no eres tú |
+**Filón confirmado: la carretera.** Los dos únicos vídeos que han roto (autovías y gasolinera) son «la señal/carretera que ves cada día lleva un código que no sabías, y te sirve mañana al volante». Prioridad 1 para nuevos temas. Lo que NO funcionó en la misma época: reto de fotos (966), chupachups (4.506), máquina de terremotos (881): retos, objetos ajenos e historia antigua.
 Regla que sale de aquí: **el protagonista es el espectador** (su cena, su carretera, su palabra). Hitler funcionó porque iba de TU hora de cenar, no de Hitler. Historias ajenas (guerra, espías) y consejos conocidos, fuera. Lo que funciona además se comparte para «hacerse el listo»: un dato que puedes soltar en una cena.
 **Filtro anti-obvio, frase a frase (no solo el tema):** cada dato del guion pasa la pregunta «¿esto lo sabe ya casi todo el mundo?». Si la respuesta es sí, se quita aunque el tema sea bueno. Ejemplo: en las matrículas, «cuanto más lejos de la B, más nuevo el coche» lo sabe cualquiera y bajó el final. El remate tiene que ser siempre el dato más sorprendente del vídeo, nunca uno de relleno.
 
