@@ -7,15 +7,18 @@
 Story.prepara();
 const T = {
   inventor: Q('el inventor'), futbolin: Q('futbolín'), secuestro: Q('secuestró'), avion: Q('un avión'), jabon: Q('un jabón'),
-  madrid: Q('madrid'), anio36: Q('mil novecientos treinta y seis'), alejandro: Q('alejandro'), diecisiete: Q('diecisiete años'), sepultado: Q('sepultado'), bombardeo: Q('bombardeo'),
-  hospital: Q('un hospital'), montserrat: Q('montserrat'), ninos: Q('niños heridos'), jugar: Q('jugar al fútbol'),
-  ocurre: Q('se le ocurre'), correr: Q('no pueden correr'), corran: Q('que corran'), munecos: Q('los muñecos'),
-  carpintero: Q('un carpintero'), primero: Q('el primero'), treinta7: Q('treinta y siete'), patenta: Q('lo patenta'),
-  guerra: Q('acaba la guerra'), francia: Q('francia'), pirineos: Q('los pirineos'), pierde: Q('pierde la patente'),
-  anios: Q('años después'), guatemala: Q('guatemala'), agentes: Q('unos agentes'), rumbo: Q('rumbo a españa'),
-  bano: Q('en el baño'), envuelve: Q('envuelve'), plata: Q('papel de plata'), amenaza: Q('amenaza'), bomba: Q('es una bomba'),
-  aterriza: Q('aterriza'), panama: Q('panamá'), libre: Q('libre'),
-  primeros: Q('uno de los primeros'), secuestros: Q('secuestros aéreos'), historia: Q('de la historia'),
+  madrid: Q('madrid'), anio36: Q('mil novecientos treinta y seis'), civil: Q('guerra civil'), alejandro: Q('alejandro'), diecisiete: Q('diecisiete años'), sepultado: Q('sepultado'), bombardeo: Q('bombardeo'),
+  convida: Q('con vida'), hospital: Q('un hospital'), montserrat: Q('montserrat'), ninos: Q('niños heridos'),
+  encantaba: Q('les encantaba'), jugar: Q('ya no podían jugarlo'),
+  ocurre: Q('se le ocurre'), correr: Q('no pueden correr'), corran: Q('que corran'), munecos: Q('muñecos'),
+  carpintero: Q('carpintero'), primero: Q('el primero'), treinta7: Q('treinta y siete'), patenta: Q('lo patenta'),
+  guerra: Q('pierde la guerra'), francia: Q('francia'), pirineos: Q('pirineos'), pierde: Q('pierde la patente'), otros: Q('otros se quedan'), invento: Q('su invento'),
+  anios: Q('años después'), guatemala: Q('guatemala'), haciendo: Q('haciendo futbolines'), golpe: Q('golpe de estado'),
+  agentes: Q('unos agentes'), detienen: Q('lo detienen'), subeav: Q('un avión'), vuelta: Q('de vuelta'), huyo: Q('de la que huyó'),
+  vuelo: Q('en pleno vuelo'), bano: Q('en el baño'), envuelve: Q('envuelve'), plata: Q('papel de plata'), amenaza: Q('sale diciendo'), bomba: Q('es una bomba'),
+  pasajeros: Q('los pasajeros'), refugiado: Q('refugiado español'), parte: Q('de su parte'), aterriza: Q('aterrizando'), panama: Q('panamá'),
+  bajar: Q('dejan bajar'), libre: Q('libre'), primeros: Q('uno de los primeros'), secuestros: Q('secuestros aéreos'), historia: Q('con un jabón'),
+  juegues: Q('juegues'), acuerdate: Q('acuérdate'), herido: Q('un chaval herido'), otrosn: Q('otros niños'), volver: Q('volver a jugar'),
 };
 const deriva = (cam, t, t0, t1, a, b) => { const k = clamp((t - t0) / (t1 - t0)), e = k * k * (3 - 2 * k) * 0.5 + k * 0.5; const cx = lerp(a[0], b[0], e), cy = lerp(a[1], b[1], e), s = lerp(a[2], b[2], e);
   cam.style.transformOrigin = '0 0'; set(cam, { x: 540 - cx * s, y: 960 - cy * s, s }); return [cx, cy, s]; };
@@ -111,7 +114,7 @@ plano(L(1) - 0.1, L(2) - 0.1, { background: '#b9c4d2' }, c => {
 });
 
 /* L2 (corte): Montserrat: montaña de rocas; hospital con niños vendados en camas; un balón quieto, tachado */
-plano(L(2) - 0.1, L(3) - 0.1, { background: '#d6e6ef' }, c => {
+plano(L(2) - 0.1, L(4) - 0.1, { background: '#d6e6ef' }, c => {
   const cam = CAM(c);
   box(cam, -900, -700, 2880, 3320, { zIndex: 0, background: 'linear-gradient(#a9d3ea, #e9f0e6)' });
   const mont = box(cam, -300, 200, 1700, 700, { zIndex: 1 }, `<svg viewBox="0 0 1700 700" width="1700" height="700"><path d="M0,700 L0,420 ${Array.from({ length: 16 }, (_, i) => `C${100 + i * 100},${120 + (i % 3) * 60} ${150 + i * 100},${120 + (i % 3) * 60} ${150 + i * 100},${380 + (i % 2) * 40}`).join(' ')} L1700,420 L1700,700Z" fill="#c9a98a" stroke="${INK}" stroke-width="10" stroke-linejoin="round"/></svg>`);
@@ -122,10 +125,10 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: '#d6e6ef' }, c => {
   const balon = box(cam, 840, 1420, 140, 140, { zIndex: 6, borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%, #fff 0 40%, #ddd 70%)', border: `8px solid ${INK}` });
   const tacha = box(cam, 810, 1390, 200, 200, { zIndex: 7 }, `<svg viewBox="0 0 200 200" width="200" height="200"><path d="M20,20 L180,180 M180,20 L20,180" stroke="${RED}" stroke-width="22" stroke-linecap="round"/></svg>`);
   const mon = chip(c, 330, 285, 'Montserrat', { size: 72, bg: '#8a5a32', z: 40 });
-  const nop = chip(c, 180, 1475, 'ya no pueden jugar', { size: 64, bg: INK, color: '#fff', z: 40 });
+  const nop = chip(c, 180, 1475, 'ya no podían jugar', { size: 64, bg: INK, color: '#fff', z: 40 });
   sp(T.montserrat, 'whoosh', 0.35); sp(T.jugar, 'error', 0.45);
   return t => {
-    deriva(cam, t, L(2) - 0.1, L(3) - 0.1, [540, 1000, 0.95], [700, 1250, 1.15]);
+    deriva(cam, t, L(2) - 0.1, L(4) - 0.1, [540, 1000, 0.95], [700, 1250, 1.15]);
     ninos.forEach((n, i) => { set(n, { y: Math.sin(t * 1.5 + i) * 4 }); pFace(n, t, { feliz: -0.6, ceja: 10, look: [i === 2 ? -14 : 14, 10], seed: 130 + i }); });
     set(balon, { r: Math.sin(t * 1.2) * 6, y: Math.sin(t * 2) * 3 });
     set(tacha, { o: t > T.jugar - 0.1 ? 1 : 0, s: pop(t, T.jugar - 0.1, 0.3) });
@@ -135,7 +138,7 @@ plano(L(2) - 0.1, L(3) - 0.1, { background: '#d6e6ef' }, c => {
 });
 
 /* L3 (corte): la idea: bombilla sobre Alejandro; el balón quieto… y en «que corran los muñecos» aparece el futbolín jugando a toda velocidad */
-plano(L(3) - 0.1, L(4) - 0.1, { background: '#efe1c6' }, c => {
+plano(L(4) - 0.1, L(5) - 0.1, { background: '#efe1c6' }, c => {
   const cam = CAM(c); fondoR(cam, '#f6e7a8', '#efe1c6');
   const ale = PERS(cam, 330, 760, 420, Object.assign({ z: 5 }, ALEJ));
   const bomb = box(cam, 470, 380, 160, 220, { zIndex: 6, transformOrigin: '50% 100%' }, `<svg viewBox="0 0 160 220" width="160" height="220"><circle cx="80" cy="80" r="70" fill="#ffe36b" stroke="${INK}" stroke-width="8"/><rect x="50" y="145" width="60" height="50" rx="8" fill="#9aa2ad" stroke="${INK}" stroke-width="6"/><path d="M60,90 Q80,60 100,90" stroke="${INK}" stroke-width="6" fill="none"/></svg>`);
@@ -144,7 +147,7 @@ plano(L(3) - 0.1, L(4) - 0.1, { background: '#efe1c6' }, c => {
   const nopc = texto(c, 285, 'si ellos no pueden correr…', { size: 76, color: INK, z: 40, shadow: '4px 4px 0 #fff' });
   sp(T.ocurre, 'ding', 0.6); sp(T.corran - 0.15, 'whoosh', 0.5); sp(T.munecos, 'tada', 0.45);
   return t => {
-    deriva(cam, t, L(3) - 0.1, L(4) - 0.1, [540, 960, 1.0], [540, 900, 1.15]);
+    deriva(cam, t, L(4) - 0.1, L(5) - 0.1, [540, 960, 1.0], [540, 900, 1.15]);
     pFace(ale, t, { feliz: t > T.ocurre ? 0.8 : -0.2, ceja: t > T.ocurre ? 2 : 10, jaw: t > T.ocurre && t < T.ocurre + 0.6 ? 0.5 : 0, look: [0, -16], seed: 140 });
     set(ale, { y: wobble(t, 0.6, 4) });
     set(bomb, { o: t > T.ocurre - 0.1 && t < T.corran - 0.2 ? 1 : 0, s: pop(t, T.ocurre - 0.1, 0.35) * (1 + 0.06 * Math.sin(t * 9)), r: Math.sin(t * 4) * 5 });
@@ -155,7 +158,7 @@ plano(L(3) - 0.1, L(4) - 0.1, { background: '#efe1c6' }, c => {
 });
 
 /* L4 (corte): el carpintero cepilla madera → el primer futbolín; luego la patente de 1937 con un sello */
-plano(L(4) - 0.1, L(5) - 0.1, { background: '#efe1c6' }, c => {
+plano(L(5) - 0.1, L(6) - 0.1, { background: '#efe1c6' }, c => {
   const cam = CAM(c); fondoR(cam, '#e6c9a0', '#efe1c6');
   const carp = PERS(cam, 120, 820, 380, { ropa: '#6b8a5a', pelo: 'calvo', pcol: '#9a9a9a', bigote: true, z: 5 });
   const tabla = box(cam, 470, 1000, 480, 90, { zIndex: 4, background: `repeating-linear-gradient(90deg, ${MADERA} 0 40px, #a87040 40px 80px)`, border: `8px solid ${INK}`, borderRadius: '10px' });
@@ -169,7 +172,7 @@ plano(L(4) - 0.1, L(5) - 0.1, { background: '#efe1c6' }, c => {
   const carpC = chip(c, 300, 285, 'un carpintero', { size: 70, bg: '#8a5a32', z: 40 });
   sp(T.carpintero, 'click', 0.4); sp(T.carpintero + 0.4, 'click', 0.4); sp(T.primero, 'tada', 0.4); sp(T.patenta - 0.5, 'paper', 0.5); sp(T.patenta, 'stamp', 0.7);
   return t => {
-    deriva(cam, t, L(4) - 0.1, L(5) - 0.1, [540, 980, 1.0], [620, 900, 1.12]);
+    deriva(cam, t, L(5) - 0.1, L(6) - 0.1, [540, 980, 1.0], [620, 900, 1.12]);
     const k = Math.sin(t * 7); set(cepillo, { x: 560 + k * 140, y: 945, r: k * 3 });
     virutas.forEach((v, i) => { const kv = ((t * 1.3) + i * 0.2) % 1; set(v, { o: t < T.primero ? 1 - kv : 0, x: 640 + i * 40 + kv * 80, y: 930 - kv * 260, r: kv * 400 }); });
     pFace(carp, t, { feliz: 0.6, ceja: 4, look: [16, 10], seed: 150 }); set(carp, { r: k * 2 });
@@ -182,7 +185,7 @@ plano(L(4) - 0.1, L(5) - 0.1, { background: '#efe1c6' }, c => {
 });
 
 /* L5 (corte): los Pirineos bajo la lluvia; Alejandro camina; el papel de la patente se le escapa volando */
-plano(L(5) - 0.1, L(6) - 0.1, { background: '#9aa9b8' }, c => {
+plano(L(6) - 0.1, T.otros - 0.1, { background: '#9aa9b8' }, c => {
   const cam = CAM(c);
   box(cam, -900, -700, 2880, 3320, { zIndex: 0, background: 'linear-gradient(#6f7f92, #c4ccd2)' });
   box(cam, -500, 300, 2100, 1100, { zIndex: 1 }, `<svg viewBox="0 0 2100 1100" width="2100" height="1100"><path d="M0,1100 L0,600 L300,200 L520,520 L760,120 L1020,560 L1260,240 L1520,600 L1760,280 L2100,700 L2100,1100Z" fill="#7d8a7a" stroke="${INK}" stroke-width="10" stroke-linejoin="round"/>
@@ -195,8 +198,8 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#9aa9b8' }, c => {
   const pierde = chip(c, 230, 1475, 'pierde la patente', { size: 64, bg: RED, z: 40 });
   sp(T.guerra, 'thud', 0.35); sp(T.pirineos, 'whoosh', 0.35); sp(T.pierde, 'sad', 0.5);
   return t => {
-    deriva(cam, t, L(5) - 0.1, L(6) - 0.1, [540, 960, 0.9], [640, 1050, 1.1]);
-    const kw = clamp((t - (L(5) - 0.1)) / (L(6) - L(5))); set(ale, { x: lerp(120, 620, kw), y: Math.abs(Math.sin(t * 6)) * -12 });
+    deriva(cam, t, L(6) - 0.1, T.otros - 0.1, [540, 960, 0.9], [640, 1050, 1.1]);
+    const kw = clamp((t - (L(6) - 0.1)) / (T.otros - L(6))); set(ale, { x: lerp(120, 620, kw), y: Math.abs(Math.sin(t * 6)) * -12 });
     pFace(ale, t, { feliz: t > T.pierde ? -0.9 : -0.3, ceja: t > T.pierde ? 18 : 8, jaw: t > T.pierde ? 0.5 : 0, look: [t > T.pierde ? -16 : 16, t > T.pierde ? -16 : 0], seed: 160 });
     const kp = clamp((t - T.pierde + 0.3) / 1.6); const ax0 = lerp(120, 620, kw) + 210;
     set(papel, { x: ax0 - kp * 700 + Math.sin(t * 5) * 30 * kp, y: 1200 - kp * 900, r: kp * 540 + Math.sin(t * 3) * 6, s: 1 - kp * 0.3, o: kp < 1 ? 1 : 0 });
@@ -206,8 +209,49 @@ plano(L(5) - 0.1, L(6) - 0.1, { background: '#9aa9b8' }, c => {
   };
 });
 
+/* L6b (corte): «otros se quedan con su invento»: futbolines que aparecen por todas partes; el nombre «A. Finisterre» se tacha */
+plano(T.otros - 0.1, L(7) - 0.1, { background: '#efe1c6' }, c => {
+  const cam = CAM(c); fondoR(cam, '#f2d8a8', '#efe1c6');
+  const POS = [[60, 560], [560, 520], [300, 900], [40, 1240], [580, 1200], [320, 1560]];
+  const fs = POS.map(([x, y]) => FUT(cam, x, y, 300, 4));
+  const nom = box(c, 190, 300, 700, 150, { zIndex: 40, background: '#f4e4c0', border: `8px solid ${INK}`, borderRadius: '14px', fontFamily: 'Playfair', fontStyle: 'italic', fontWeight: 900, fontSize: '80px', textAlign: 'center', lineHeight: '134px', color: INK, transformOrigin: '50% 50%' }, 'A. Finisterre');
+  const raya = box(c, 170, 360, 740, 26, { zIndex: 41, background: RED, borderRadius: '13px', transformOrigin: '0 50%' });
+  const quien = chip(c, 330, 1475, '¿y el inventor?', { size: 66, bg: INK, color: YEL, z: 40 });
+  sp(T.otros, 'pop', 0.4); sp(T.otros + 0.3, 'pop', 0.4); sp(T.otros + 0.6, 'pop', 0.4); sp(T.invento + 0.2, 'error', 0.5);
+  return t => {
+    deriva(cam, t, T.otros - 0.1, L(7) - 0.1, [540, 1100, 0.85], [540, 1000, 0.7]);
+    fs.forEach((f, i) => { const t0 = T.otros + i * 0.22; set(f, { o: t > t0 ? 1 : 0, s: pop(t, t0, 0.3), r: (i % 2 ? 4 : -4) + Math.sin(t * 2 + i) * 2 }); juega(f, t + i, 1.6); });
+    set(nom, { r: -3 + Math.sin(t * 2) * 1.5 });
+    set(raya, { o: t > T.invento ? 1 : 0, sx: clamp((t - T.invento) / 0.35), r: -4 });
+    set(quien, { o: t > T.invento + 0.4 ? 1 : 0, s: pop(t, T.invento + 0.4, 0.3), r: -3 });
+  };
+});
+
+/* L7 (corte): Guatemala: palmeras, Alejandro mayor (con bigote) con su futbolín; «golpe de Estado»: temblor y destello rojo */
+plano(L(7) - 0.1, L(8) - 0.1, { background: '#bfe6c8' }, c => {
+  const cam = CAM(c);
+  box(cam, -900, -700, 2880, 3320, { zIndex: 0, background: 'linear-gradient(#ffd38a, #bfe6c8)' });
+  [[-60, 380], [760, 340]].forEach(([x, y]) => box(cam, x, y, 380, 900, { zIndex: 1 }, `<svg viewBox="0 0 380 900" width="380" height="900"><path d="M180,900 C170,600 200,350 190,200" stroke="#8a5a32" stroke-width="40" fill="none" stroke-linecap="round"/><path d="M190,200 C120,120 40,140 0,200 M190,200 C260,120 340,140 380,200 M190,200 C150,100 120,40 60,20 M190,200 C230,100 260,40 320,20 M190,200 C190,120 190,60 190,0" stroke="#2e8a4a" stroke-width="36" fill="none" stroke-linecap="round"/></svg>`));
+  box(cam, -600, 1350, 2280, 1400, { zIndex: 2, background: '#d9b27a', borderTop: `10px solid ${INK}` });
+  const ale = PERS(cam, 90, 1010, 340, Object.assign({ z: 5 }, ALEJ, { bigote: true }));
+  const f = FUT(cam, 470, 950, 380, 4);
+  const flash = box(c, 0, 0, 1080, 1920, { zIndex: 30, background: 'rgba(216,57,43,.45)' });
+  const gua = chip(c, 330, 285, 'Guatemala', { size: 76, bg: '#2e9e6b', z: 40 });
+  const golpe = chip(c, 200, 1475, 'golpe de Estado · 1954', { size: 60, bg: RED, z: 40 });
+  sp(T.guatemala, 'whoosh', 0.35); sp(T.golpe - 0.1, 'thud', 0.8); sp(T.golpe + 0.2, 'glitch', 0.4);
+  return t => {
+    const sh = t > T.golpe - 0.1 ? Math.sin(t * 60) * 14 * Math.max(0.3, 1 - (t - T.golpe) / 1.2) : 0;
+    deriva(cam, t, L(7) - 0.1, L(8) - 0.1, [540, 1050, 0.9], [560, 1120, 1.05]); cam.style.translate = `${f1(sh)}px 0px`;
+    juega(f, t, 1.2); pFace(ale, t, { feliz: t > T.golpe ? -0.8 : 0.7, ceja: t > T.golpe ? 16 : 2, jaw: t > T.golpe ? 0.5 : 0, look: [t > T.golpe ? -14 : 16, 0], seed: 190 });
+    set(ale, { y: wobble(t, 0.6, 4) });
+    set(flash, { o: t > T.golpe - 0.1 ? 0.5 + 0.5 * Math.sin(t * 12) : 0 });
+    popA(gua, t, T.guatemala - 0.2, { r: -3 });
+    set(golpe, { o: t > T.golpe - 0.1 ? 1 : 0, s: pop(t, T.golpe - 0.1, 0.3), r: -4 });
+  };
+});
+
 /* L6 (corte): «años después, en Guatemala»: dos agentes con sombrero lo meten en el avión; mapa con flecha a España */
-plano(L(6) - 0.1, L(7) - 0.1, { background: '#efe1c6' }, c => {
+plano(L(8) - 0.1, L(9) - 0.1, { background: '#efe1c6' }, c => {
   const cam = CAM(c); fondoR(cam, '#f2c9a8', '#efe1c6');
   box(cam, -600, 1250, 2280, 1400, { zIndex: 1, background: '#9aa2ad', borderTop: `10px solid ${INK}` });
   const av = AVION(cam, 1000, 2); set(av, { x: 40, y: 760 });
@@ -215,22 +259,22 @@ plano(L(6) - 0.1, L(7) - 0.1, { background: '#efe1c6' }, c => {
   const ag1 = PERS(cam, 200, 1000, 300, { ropa: '#2a2530', gorro: 'chistera', gcol: INK, pelo: 'corto', bigote: 'corto', severo: true, z: 5 });
   const ag2 = PERS(cam, 560, 1000, 300, { ropa: '#2a2530', gorro: 'chistera', gcol: INK, pelo: 'corto', severo: true, z: 5 });
   const ale = PERS(cam, 380, 1010, 290, Object.assign({ z: 6 }, ALEJ));
-  const gua = chip(c, 330, 285, 'Guatemala', { size: 74, bg: '#2e9e6b', z: 40 });
-  const rumbo = chip(c, 240, 1475, 'rumbo a ESPAÑA ✈️', { size: 66, bg: INK, color: YEL, z: 40 });
-  sp(T.guatemala, 'whoosh', 0.35); sp(T.agentes, 'thud', 0.5); sp(T.rumbo, 'error', 0.4);
+  const gua = chip(c, 300, 285, 'agentes españoles', { size: 66, bg: INK, color: '#fff', z: 40 });
+  const rumbo = chip(c, 240, 1475, 'de vuelta a ESPAÑA ✈️', { size: 66, bg: INK, color: YEL, z: 40 });
+  sp(T.agentes - 0.2, 'whoosh', 0.35); sp(T.agentes, 'thud', 0.5); sp(T.vuelta, 'error', 0.4);
   return t => {
-    deriva(cam, t, L(6) - 0.1, L(7) - 0.1, [540, 1000, 0.85], [600, 1080, 1.05]);
-    const ks = p(t, T.agentes, 1.6, E.inOutCubic);
+    deriva(cam, t, L(8) - 0.1, L(9) - 0.1, [540, 1000, 0.85], [600, 1080, 1.05]);
+    const ks = p(t, T.subeav - 0.3, 1.6, E.inOutCubic);
     [ag1, ale, ag2].forEach((g, i) => set(g, { x: ks * (220 + i * 10), y: -ks * 140 + Math.abs(Math.sin(t * 6 + i)) * -8, s: 1 - ks * 0.12 }));
     pFace(ale, t, { feliz: -0.7, ceja: 14, look: [16, 0], seed: 170 }); pFace(ag1, t, { feliz: -0.2, ceja: 6, look: [12, 0], seed: 171 }); pFace(ag2, t, { feliz: -0.2, ceja: 6, look: [-12, 0], seed: 172 });
     set(av, { y: 760 + Math.sin(t * 2) * 4 });
-    popA(gua, t, T.guatemala - 0.2, { r: -3 });
-    set(rumbo, { o: t > T.rumbo - 0.1 ? 1 : 0, s: pop(t, T.rumbo - 0.1, 0.3), r: -3 });
+    popA(gua, t, T.agentes - 0.2, { r: -3 });
+    set(rumbo, { o: t > T.vuelta - 0.1 ? 1 : 0, s: pop(t, T.vuelta - 0.1, 0.3), r: -3 });
   };
 });
 
 /* L7 (corte): el baño del avión: el jabón; el papel de plata lo envuelve (brilla); sale con la «bomba» en alto; la tripulación, con las manos arriba */
-plano(L(7) - 0.1, L(8) - 0.1, { background: '#dfe7ee' }, c => {
+plano(L(9) - 0.1, L(10) - 0.1, { background: '#dfe7ee' }, c => {
   const cam = CAM(c);
   box(cam, -900, -700, 2880, 3320, { zIndex: 0, background: 'repeating-linear-gradient(0deg, #e9eef2 0 118px, #c9d3dc 118px 124px), #e9eef2' });
   const lav = box(cam, 300, 1100, 480, 200, { zIndex: 2, background: '#fff', border: `10px solid ${INK}`, borderRadius: '20px 20px 120px 120px' });
@@ -247,7 +291,7 @@ plano(L(7) - 0.1, L(8) - 0.1, { background: '#dfe7ee' }, c => {
   const sale = T.amenaza - 0.3;
   sp(T.bano, 'click', 0.5); sp(T.envuelve, 'papel_w', 0.6); sp(T.plata, 'sparkle', 0.6); sp(T.bomba, 'drumroll', 0.35); sp(T.bomba + 0.4, 'burst', 0.4);
   return t => {
-    deriva(cam, t, L(7) - 0.1, sale, [540, 1000, 1.0], [540, 1040, 1.5]);
+    deriva(cam, t, L(9) - 0.1, sale, [540, 1000, 1.0], [540, 1040, 1.5]);
     set(jb, { x: 410, y: 960 + Math.sin(t * 2) * 6, r: Math.sin(t * 1.5) * 4 });
     const kw = p(t, T.envuelve, 0.9, E.inOutCubic); envuelto(jb, kw > 0.6);
     set(rollo, { o: t > T.envuelve - 0.2 && kw < 0.95 ? 1 : 0, x: 400 + kw * 40, y: 930, r: -10 + kw * 30, s: 1 - kw * 0.6 });
@@ -264,8 +308,27 @@ plano(L(7) - 0.1, L(8) - 0.1, { background: '#dfe7ee' }, c => {
   };
 });
 
+/* L10 (corte): «les dice a los pasajeros que es un refugiado español»: filas de asientos; los pasajeros pasan de asustados a aplaudir */
+plano(L(10) - 0.1, T.aterriza - 0.7, { background: '#dfe7ee' }, c => {
+  const cam = CAM(c);
+  box(cam, -900, -700, 2880, 3320, { zIndex: 0, background: 'repeating-linear-gradient(90deg, #e9eef2 0 200px, #d5dde4 200px 206px)' });
+  [0, 1, 2, 3].forEach(i => box(cam, 60 + i * 260, 420, 120, 160, { zIndex: 1, borderRadius: '50px', background: 'linear-gradient(#8fc7ea, #d9f0fb)', border: `8px solid ${INK}` }));
+  const pas = [[40, 820], [300, 820], [560, 820], [820, 820], [170, 1150], [430, 1150], [690, 1150]].map(([x, y], i) => PERS(cam, x, y, 240, { ropa: ['#e8a33a', '#7ab0d8', '#d87a9a', '#6b8a5a', '#c96b3a', '#5d6b8a', '#b07ad8'][i], pelo: i % 3 === 1 ? 'largo' : i % 3 === 2 ? 'moño' : 'corto', pcol: ['#3a2a1e', '#6b4a2a', '#2a1e16'][i % 3], z: 3 + (i > 3 ? 2 : 0) }));
+  [0, 1].forEach(r => box(cam, -100, r ? 1460 : 1130, 1280, 120, { zIndex: r ? 6 : 4, background: '#2f4f8a', border: `8px solid ${INK}`, borderRadius: '30px 30px 0 0' }));
+  const ref = chip(c, 200, 285, '«soy un refugiado español»', { size: 58, bg: INK, color: '#fff', z: 40 });
+  const parte = chip(c, 260, 1475, '¡de su parte! 👏', { size: 66, bg: '#2e9e6b', z: 40 });
+  sp(T.refugiado, 'pop', 0.4); sp(T.parte, 'tada', 0.45);
+  return t => {
+    deriva(cam, t, L(10) - 0.1, T.aterriza - 0.7, [540, 1000, 1.0], [540, 1020, 1.12]);
+    const ok = t > T.parte - 0.2;
+    pas.forEach((g, i) => { set(g, { y: ok ? -Math.abs(Math.sin(t * 8 + i)) * 26 : Math.sin(t * 12 + i) * 3, r: ok ? Math.sin(t * 6 + i) * 6 : 0 }); pFace(g, t, { feliz: ok ? 0.9 : -0.8, ceja: ok ? 0 : 18, jaw: ok ? 0.5 : 0.3, look: [i < 4 ? 0 : 10, -8], seed: 200 + i }); });
+    popA(ref, t, T.refugiado - 0.3, { r: -3 });
+    set(parte, { o: ok ? 1 : 0, s: pop(t, T.parte - 0.2, 0.3), r: -4 });
+  };
+});
+
 /* L8-L9 (corte): mapa: el avión iba a España y gira hacia Panamá; aterriza; «LIBRE»; sello «uno de los primeros secuestros aéreos de la historia» */
-plano(L(8) - 0.1, L(10) - 0.1, { background: '#bfe0ef' }, c => {
+plano(T.aterriza - 0.7, L(12) - 0.1, { background: '#bfe0ef' }, c => {
   const cam = CAM(c);
   box(cam, -900, -700, 2880, 3320, { zIndex: 0, background: 'repeating-linear-gradient(0deg, #a9d6ea 0 60px, #b6dcee 60px 120px)' });
   /* Centroamérica muy esquemática: Guatemala arriba a la izquierda, Panamá abajo a la derecha */
@@ -281,10 +344,10 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#bfe0ef' }, c => {
   const selloH = box(c, 140, 700, 800, 420, { zIndex: 45, border: `14px solid ${RED}`, borderRadius: '30px', color: RED, fontFamily: 'Bricolage', fontWeight: 800, fontSize: '68px', textAlign: 'center', lineHeight: 1.1, padding: '40px 30px', boxSizing: 'border-box', background: 'rgba(255,255,255,.85)', transformOrigin: '50% 50%' }, 'UNO DE LOS PRIMEROS<br>SECUESTROS AÉREOS<br>DE LA HISTORIA');
   const conJ = chip(c, 330, 1475, '…con un jabón 🧼', { size: 64, bg: INK, color: YEL, z: 46 });
   const rp = ruta.querySelector('.rp'); const LEN = 1200; if (rp) { rp.style.strokeDasharray = `${LEN}`; }
-  sp(T.aterriza - 0.3, 'whoosh', 0.45); sp(T.libre, 'tada', 0.55); sp(T.primeros, 'stamp', 0.7);
+  sp(T.aterriza - 0.5, 'whoosh', 0.45); sp(T.libre, 'tada', 0.55); sp(T.primeros, 'stamp', 0.7);
   return t => {
-    deriva(cam, t, L(8) - 0.1, L(10) - 0.1, [540, 900, 0.85], [760, 1150, 1.05]);
-    const kr = p(t, L(8) - 0.1, T.libre - L(8), E.inOutCubic);
+    deriva(cam, t, T.aterriza - 0.7, L(12) - 0.1, [540, 900, 0.85], [760, 1150, 1.05]);
+    const kr = p(t, T.aterriza - 0.7, T.libre - T.aterriza + 0.5, E.inOutCubic);
     if (rp) rp.style.strokeDashoffset = f1(LEN * (1 - kr));
     // posición del avión sobre la curva (aprox. bezier cúbica)
     const B = (a, b, c2, d, u) => { const v = 1 - u; return v * v * v * a + 3 * v * v * u * b + 3 * v * u * u * c2 + u * u * u * d; };
@@ -298,8 +361,31 @@ plano(L(8) - 0.1, L(10) - 0.1, { background: '#bfe0ef' }, c => {
   };
 });
 
+/* L12 (corte): dos niños (uno con venda) juegan al futbolín y celebran un gol; «para que otros niños pudieran volver a jugar» */
+plano(L(12) - 0.1, L(13) - 0.1, { background: '#efe1c6' }, c => {
+  const cam = CAM(c); fondoR(cam, '#cfe6d2', '#efe1c6');
+  const f = FUT(cam, 290, 620, 500, 4);
+  const n1 = PERS(cam, -10, 900, 320, { ropa: '#e8a33a', pelo: 'corto', pcol: '#3a2a1e', z: 6 });
+  const n2 = PERS(cam, 770, 900, 320, { ropa: '#7ab0d8', pelo: 'largo', pcol: '#6b4a2a', z: 6 });
+  const venda = box(cam, 55, 815, 200, 36, { zIndex: 7, background: '#fff', border: `5px solid ${INK}`, borderRadius: '12px' });
+  const gol = texto(c, 285, '¡GOOOL!', { size: 150, color: '#2e9e6b', z: 40, shadow: '6px 6px 0 #fff' });
+  const vol = texto(c, 285, `volver a ${hlSpan('JUGAR', 'phl12', YEL)}`, { size: 110, color: INK, z: 40, shadow: '5px 5px 0 #fff' });
+  const her = chip(c, 260, 1475, 'un chaval herido', { size: 64, bg: INK, color: '#fff', z: 40 });
+  sp(T.herido, 'pop', 0.4); sp(T.volver, 'tada', 0.5);
+  return t => {
+    deriva(cam, t, L(12) - 0.1, L(13) - 0.1, [540, 1000, 0.95], [540, 960, 1.12]);
+    juega(f, t, 2.0);
+    const g = t > T.otrosn - 0.2 && t < T.volver - 0.2;
+    [n1, n2].forEach((n, i) => { set(n, { y: Math.abs(Math.sin(t * (g ? 9 : 5) + i)) * -(g ? 30 : 8) }); pFace(n, t, { feliz: 0.9, ceja: 0, jaw: g ? 0.6 : 0.2, look: [i ? -14 : 14, 6], seed: 210 + i }); });
+    set(venda, { y: Math.abs(Math.sin(t * (g ? 9 : 5))) * -(g ? 30 : 8) });
+    set(her, { o: t > T.herido - 0.1 && t < T.volver - 0.2 ? 1 : 0, s: pop(t, T.herido - 0.1, 0.3), r: -3 });
+    set(gol, { o: g ? 1 : 0, s: pop(t, T.otrosn - 0.2, 0.3), r: -5 + Math.sin(t * 10) * 2 });
+    set(vol, { o: t > T.volver - 0.2 ? 1 : 0, s: pop(t, T.volver - 0.2, 0.3), r: -3 }); paint(c.querySelector('.phl12'), t, T.volver, 0.4);
+  };
+});
+
 /* L10 · pregunta final (+ «Os leo») */
-preguntaFinal('¿Tú sabías quién', 'inventó el futbolín?', { size: 88, draw: c => [['ni idea 😳', YEL], ['¡un gallego!', PINK], ['lo del jabón NO', '#9fd3c0']].map(([s, col], i) => aparece(chip(c, 240 + i * 30, 640 + i * 160, s, { size: 50, bg: col, color: INK }), L(10) + 0.5 + i * 0.35, { sfx: 'pop' })) });
+preguntaFinal('¿Tú sabías quién', 'inventó el futbolín?', { size: 88, draw: c => [['ni idea 😳', YEL], ['¡un gallego!', PINK], ['lo del jabón NO', '#9fd3c0']].map(([s, col], i) => aparece(chip(c, 240 + i * 30, 640 + i * 160, s, { size: 50, bg: col, color: INK }), L(13) + 0.5 + i * 0.35, { sfx: 'pop' })) });
 
 /* L11 · cierre */
 cierre(120, 'El futbolín y el jabón', ['INVENTOS', 'con historia']);

@@ -3,66 +3,81 @@
   "VECINO": [
    "851ejYcv2BoNPjrkw93G",
    0.5,
-   1.0
+   0.95
   ]
  },
- "gap": 0.5,
+ "gap": 0.35,
  "inner_cap": 0.9,
  "lines": [
   {
    "who": "VECINO",
    "text": "[excited] El inventor del futbolín… secuestró un avión con un jabón.",
-   "gap_after": 0.5
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Madrid, mil novecientos treinta y seis. Alejandro Finisterre, diecisiete años, queda sepultado en un bombardeo.",
-   "gap_after": 0.5
+   "text": "Madrid, mil novecientos treinta y seis, en plena guerra civil. Alejandro Finisterre, un chaval de diecisiete años, queda sepultado en un bombardeo.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Lo llevan a un hospital en Montserrat, con niños heridos que ya no pueden jugar al fútbol.",
-   "gap_after": 0.5
+   "text": "Lo sacan con vida, pero malherido, y lo llevan a un hospital en Montserrat, lleno de niños heridos como él.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Y se le ocurre algo: si ellos no pueden correr… que corran los muñecos.",
-   "gap_after": 0.5
+   "text": "Niños a los que les encantaba el fútbol, y que ya no podían jugarlo.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Un carpintero le fabrica el primero. Y en el treinta y siete, lo patenta.",
-   "gap_after": 0.5
+   "text": "Y a Alejandro se le ocurre una idea: si ellos no pueden correr detrás de un balón, que corran unos muñecos por ellos.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Pero acaba la guerra, huye a Francia por los Pirineos… y por el camino pierde la patente.",
-   "gap_after": 0.5
+   "text": "Un amigo carpintero le fabrica el primero, y en el treinta y siete lo patenta en Barcelona.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Años después, en Guatemala, unos agentes lo meten en un avión rumbo a España.",
-   "gap_after": 0.5
+   "text": "Pero su bando pierde la guerra, y tiene que huir a Francia, a pie, por los Pirineos. Por el camino pierde la patente… y otros se quedan con su invento.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Se encierra en el baño, envuelve un jabón en papel de plata… y amenaza a la tripulación: es una bomba.",
-   "gap_after": 0.5
+   "text": "Años después, Alejandro vive en Guatemala, haciendo futbolines. Pero en el cincuenta y cuatro hay un golpe de Estado.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "El avión aterriza en Panamá. Y él, libre.",
-   "gap_after": 0.5
+   "text": "Unos agentes españoles lo detienen y lo suben a un avión: de vuelta a la España de la que huyó.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "Uno de los primeros secuestros aéreos de la historia.",
-   "gap_after": 0.5
+   "text": "En pleno vuelo, se encierra en el baño, envuelve una pastilla de jabón en papel de plata… y sale diciendo que es una bomba.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
-   "text": "¿Tú sabías quién inventó el futbolín? Os leo.",
-   "gap_after": 0.5
+   "text": "Les dice a los pasajeros que es un refugiado español, y se ponen de su parte. El avión acaba aterrizando en Panamá.",
+   "gap_after": 0.35
+  },
+  {
+   "who": "VECINO",
+   "text": "Y allí lo dejan bajar. Libre. Uno de los primeros secuestros aéreos de la historia… con un jabón.",
+   "gap_after": 0.35
+  },
+  {
+   "who": "VECINO",
+   "text": "Cuando juegues al futbolín, acuérdate: lo inventó un chaval herido, para que otros niños pudieran volver a jugar.",
+   "gap_after": 0.35
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú lo sabías? Os leo.",
+   "gap_after": 0.35
   },
   {
    "who": "VECINO",
