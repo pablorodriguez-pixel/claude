@@ -1,0 +1,72 @@
+{
+ "voices": {
+  "VECINO": [
+   "851ejYcv2BoNPjrkw93G",
+   0.5,
+   1.0
+  ]
+ },
+ "gap": 0.5,
+ "inner_cap": 0.9,
+ "lines": [
+  {
+   "who": "VECINO",
+   "text": "[excited] El inventor del futbolín… secuestró un avión con un jabón.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Madrid, mil novecientos treinta y seis. Alejandro Finisterre, diecisiete años, queda sepultado en un bombardeo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Lo llevan a un hospital en Montserrat, con niños heridos que ya no pueden jugar al fútbol.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y se le ocurre algo: si ellos no pueden correr… que corran los muñecos.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Un carpintero le fabrica el primero. Y en el treinta y siete, lo patenta.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Pero acaba la guerra, huye a Francia por los Pirineos… y por el camino pierde la patente.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Años después, en Guatemala, unos agentes lo meten en un avión rumbo a España.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Se encierra en el baño, envuelve un jabón en papel de plata… y amenaza a la tripulación: es una bomba.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "El avión aterriza en Panamá. Y él, libre.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Uno de los primeros secuestros aéreos de la historia.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "¿Tú sabías quién inventó el futbolín? Os leo.",
+   "gap_after": 0.5
+  },
+  {
+   "who": "VECINO",
+   "text": "Y esto... no venía en el libro."
+  }
+ ]
+}
